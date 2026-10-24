@@ -7,9 +7,11 @@ Ingests build bundles and manifests into data/.
 
 A release is ingested once: its build.json is downloaded, validated against the bundle contract, the
 package tables and layer lists fetched, the diff against the previous build of the branch computed and
-everything written to data/. A release whose bundle does not validate is recorded in status.json under
-`rejected` with the error and retried on the next run. Nothing here deletes data on failure: a source that
-cannot be reached keeps its previous data and the failure is recorded, as static-api did.
+everything written to data/. The layer digests of every base image a held build was built from are read
+from the registry once per base digest (data/bases/), so the layers endpoint can tell base layers from the
+image's own. A release whose bundle does not validate is recorded in status.json under `rejected` with the
+error and retried on the next run. Nothing here deletes data on failure: a source that cannot be reached
+keeps its previous data and the failure is recorded, as static-api did.
 """
 
 from __future__ import annotations
@@ -33,6 +35,7 @@ from .config import ARCHES, DATA_DIR, KEEP_BUILDS, ORG
 from .diff import diff_builds
 from .sources.github import GitHub, is_image_repo
 from .sources.http import client
+from .sources.registry import base_layers
 from .store import ImageRecord, Store, load_store, save_store
 
 log = logging.getLogger(__name__)
@@ -231,6 +234,39 @@ def rotate(record: ImageRecord, keep: int = KEEP_BUILDS) -> list[str]:
     return dropped
 
 
+def refresh_bases(store: Store, http: httpx2.Client, now: Now = _now) -> list[str]:
+    """
+    Fetches the layer digests of every base digest the held builds record and data/bases/ lacks. Returns the
+    digests fetched; a registry failure is logged and leaves that base for the next run.
+    """
+    fetched: list[str] = []
+    images = {
+        build["base"]["digest"]: build["base"]["image"]
+        for record in store.images.values()
+        for build in record.builds.values()
+        if build.get("base", {}).get("digest")
+    }
+    for digest in sorted(store.base_digests() - store.bases.keys()):
+        image = images[digest]
+        try:
+            base = base_layers(http, image, digest)
+        except (httpx2.HTTPError, KeyError, TypeError, ValueError) as e:
+            log.warning("  ! base %s (%s): %s", image, digest[:19], e)
+            continue
+        if not base["platforms"]:
+            log.warning("  ! base %s (%s): no linux platform in the manifest", image, digest[:19])
+            continue
+        store.bases[digest] = {**base, "fetched_at": now()}
+        fetched.append(digest)
+        log.info(
+            "  + base %s (%s): %s",
+            image,
+            digest[:19],
+            ", ".join(f"{a} {len(p['layers'])}" for a, p in base["platforms"].items()),
+        )
+    return fetched
+
+
 def _reject(store: Store, record: ImageRecord, release: Json, error: str, now: Now) -> None:
     key = f"{record.name}@{release.get('tag_name', '?')}"
     store.status["rejected"][key] = {"checked_at": now(), "release_url": release.get("html_url"), "error": error}
@@ -320,6 +356,7 @@ def reconcile(store: Store, gh: GitHub, now: Now = _now) -> None:
     for gone in sorted(set(store.images) - names):
         log.info("  - %s: repository no longer in the organisation; removing its data", gone)
         store.images.pop(gone)
+    refresh_bases(store, gh.http, now)
     error = "; ".join(failures) if failures else None
     _set_status(store, "manifests", not failures, now, error)
     _set_status(store, "releases", not failures, now, error)
@@ -353,6 +390,7 @@ def ingest_one(store: Store, gh: GitHub, repo: str, tag: str, now: Now = _now) -
         return False
     _accept(store, record, release)
     rotate(record)
+    refresh_bases(store, gh.http, now)
     _set_status(store, "releases", True, now)
     return True
 

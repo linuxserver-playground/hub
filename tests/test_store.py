@@ -72,3 +72,19 @@ def test_record_helpers() -> None:
     latest = sonarr.latest_build()
     assert latest is not None and latest["version"]["tag"] == "4.0.20.3014-ls2"
     assert [b["version"]["tag"] for b in sonarr.builds_of("master")] == ["4.0.20.3014-ls2", "4.0.19.2000-ls1"]
+
+
+def test_bases_round_trip_and_prune(tmp_path: Path, store: Store) -> None:
+    store.bases["sha256:" + "f" * 64] = {"image": "x", "digest": "sha256:" + "f" * 64, "platforms": {}}
+    changed = save_store(tmp_path, store)
+    assert f"bases/sha256-{'b' * 64}.json" in changed and not any("f" * 64 in c for c in changed)  # unreferenced
+    loaded = load_store(tmp_path)
+    assert list(loaded.bases) == ["sha256:" + "b" * 64]
+    assert (
+        loaded.bases["sha256:" + "b" * 64]["platforms"]["amd64"]["layers"]
+        == store.bases["sha256:" + "b" * 64]["platforms"]["amd64"]["layers"]
+    )
+    for record in loaded.images.values():
+        record.builds.clear()
+    assert f"-bases/sha256-{'b' * 64}.json" in save_store(tmp_path, loaded)
+    assert not (tmp_path / "bases" / f"sha256-{'b' * 64}.json").exists()

@@ -48,6 +48,13 @@ class Fleet:
         return next((i for i in self.images if i.name == name), None)
 
 
+def _with_source(mod: dict[str, object], index_source: str) -> dict[str, object]:
+    """Mods written before the per-entry `source` existed take the index's: legacy when it was the legacy list."""
+    if "source" in mod:
+        return mod
+    return {**mod, "source": "legacy" if index_source.startswith("legacy") else "playground"}
+
+
 def _updated_at(store: Store) -> str | None:
     sources = store.status.get("sources", {})
     manifests = sources.get("manifests", {}).get("fetched_at")
@@ -60,7 +67,12 @@ def _updated_at(store: Store) -> str | None:
 def load_fleet(store: Store, site: SiteConfig | None = None) -> Fleet:
     site = site or SiteConfig.from_env()
     settings = hub_settings(site)
-    sources = {name: SourceStatus.model_validate(s) for name, s in store.status.get("sources", {}).items()}
+    raw_sources = {name: dict(s) for name, s in store.status.get("sources", {}).items()}
+    if store.observed.get("fetched_at"):
+        # observed.json is the authority on when stars and tags were last read; status.json may lag a run behind.
+        raw_sources.setdefault("observed", {"ok": True, "checked_at": store.observed["fetched_at"]})
+        raw_sources["observed"]["fetched_at"] = store.observed["fetched_at"]
+    sources = {name: SourceStatus.model_validate(s) for name, s in raw_sources.items()}
     manifests = sources.get("manifests")
     updated_at = _updated_at(store)
     return Fleet(
@@ -70,7 +82,9 @@ def load_fleet(store: Store, site: SiteConfig | None = None) -> Fleet:
         health="Success" if manifests and manifests.ok else "Failed",
         sources=sources,
         rejected={k: RejectedRelease.model_validate(v) for k, v in sorted(store.status.get("rejected", {}).items())},
-        mods=[Mod.model_validate(m) for m in store.mods.get("mods", [])],
+        mods=[
+            Mod.model_validate(_with_source(m, str(store.mods.get("source", "")))) for m in store.mods.get("mods", [])
+        ],
         settings=settings,
         site=site,
     )

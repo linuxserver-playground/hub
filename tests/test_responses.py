@@ -1,8 +1,10 @@
 """Each endpoint's content, built without HTTP."""
 
 from lsio_hub import responses
-from lsio_hub.fleet import Fleet
+from lsio_hub.config import SiteConfig
+from lsio_hub.fleet import Fleet, load_fleet
 from lsio_hub.models import CHANGELOG_LIMIT
+from lsio_hub.store import Store
 
 
 def test_images_response_envelope(fleet: Fleet) -> None:
@@ -41,6 +43,15 @@ def test_status_includes_rejected(fleet: Fleet) -> None:
     status = responses.status(fleet)
     assert status.health == "Success" and set(status.sources) == {"manifests", "releases", "observed", "mods"}
     assert sorted(status.rejected) == ["multidb@bad-ls9", "multidb@feature-ls1"]
+    assert status.sources["observed"].fetched_at == fleet.store.observed["fetched_at"]
+
+
+def test_status_observed_fetched_at_comes_from_observed_json(store: Store, config: SiteConfig) -> None:
+    store.observed["fetched_at"] = "2026-10-25T01:00:00.000Z"
+    store.status["sources"]["observed"] = {"ok": False, "checked_at": "2026-10-25T02:00:00.000Z", "error": "down"}
+    status = responses.status(load_fleet(store, config))
+    observed = status.sources["observed"]
+    assert observed.ok is False and observed.fetched_at == "2026-10-25T01:00:00.000Z" and observed.error == "down"
 
 
 def test_builds(fleet: Fleet) -> None:
@@ -56,15 +67,109 @@ def test_builds(fleet: Fleet) -> None:
     }
     assert data.builds[2].links.packages == {}  # only the newest build of a branch keeps its table
     assert newest.links.test_report == "https://example.github.io/hub/builds/sonarr/4.0.20.3014-ls2/"
-    assert newest.links.files["amd64"].endswith("files.amd64.json.gz")
+    # The newest build of a branch has its file trees copied next to the report page: same origin as the API.
+    assert newest.links.files == {
+        "amd64": "https://example.github.io/hub/builds/sonarr/4.0.20.3014-ls2/files.amd64.json.gz",
+        "arm64": "https://example.github.io/hub/builds/sonarr/4.0.20.3014-ls2/files.arm64.json.gz",
+    }
+    assert newest.links.files_release["amd64"] == "https://assets.test/sonarr/4.0.20.3014-ls2/files.amd64.json.gz"
+    older = data.builds[2]
+    assert older.links.files == older.links.files_release
+    assert older.links.files["amd64"] == "https://assets.test/sonarr/4.0.19.2000-ls1/files.amd64.json.gz"
+    assert newest.links.tests == "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/tests.json"
+    assert (
+        newest.links.report == "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/report.json"
+    )
     assert [h.tag for h in data.history["master"]] == ["4.0.20.3014-ls2", "4.0.19.2000-ls1"]
     bundle = responses.bundle(sonarr, "4.0.20.3014-ls2")
     assert bundle is not None and bundle.schema_version == 1 and bundle.model_dump(by_alias=True)["schema"] == 1
     assert responses.bundle(sonarr, "nope") is None
     assert responses.layers(sonarr, "4.0.20.3014-ls2", "amd64").layers[0].from_base is True  # type: ignore[union-attr]
+    assert responses.layers(sonarr, "nope", "amd64") is None
     table = responses.packages_table(sonarr, "4.0.20.3014-ls2", "amd64")
     assert table is not None and table.count == 4 and table.packages[0].licenses == ["MIT"]
     assert responses.packages_table(sonarr, "4.0.19.2000-ls1", "amd64") is None
+
+
+def test_layers_are_attributed(fleet: Fleet) -> None:
+    sonarr = fleet.record("sonarr")
+    assert sonarr is not None
+    layers = responses.layers(sonarr, "4.0.20.3014-ls2", "arm64", fleet.store.bases)
+    assert layers is not None and layers.base_layers == 1 and layers.from_base_source == "registry"
+    assert [(x.from_base, x.dockerfile_lines) for x in layers.layers] == [
+        (True, None),
+        (False, [2, 2]),
+        (False, [3, 3]),
+    ]
+    multidb = fleet.record("multidb")
+    assert multidb is not None
+    # multidb's base is not in data/bases/ (the registry fixture answers 404): the harness's flags stand, and the
+    # RUN changed to `apk add curl jq` so its created_by no longer matches.
+    layers = responses.layers(multidb, "1.0.0-ls2", "amd64", fleet.store.bases)
+    assert layers is not None and layers.from_base_source == "harness" and layers.base_layers == 1
+    assert [(x.from_base, x.dockerfile_lines) for x in layers.layers] == [(True, None), (False, None), (False, [3, 3])]
+
+
+def test_tests_and_report(fleet: Fleet) -> None:
+    multidb = fleet.record("multidb")
+    assert multidb is not None
+    tests = responses.tests(fleet, multidb, "1.0.0-ls1")
+    assert tests is not None and tests.enabled and tests.success is False
+    assert tests.report_url == "https://example.github.io/hub/builds/multidb/1.0.0-ls1/"
+    assert sorted(tests.reports) == ["amd64", "arm64"] and tests.reports["arm64"].tests[2].status == "FAIL"
+    arm64 = tests.summary["arm64"]
+    assert (
+        arm64.success is False and arm64.failed_tests == ["Take screenshot"] and (arm64.passed, arm64.total) == (2, 3)
+    )
+    assert arm64.startup_seconds == 4.2 and arm64.listening_ports == ["8989/tcp"] and arm64.warnings == 1
+    assert arm64.report_page == "https://example.github.io/hub/builds/multidb/1.0.0-ls1/arm64/index.html"
+    assert tests.summary["amd64"].success is True and tests.summary["amd64"].failed_tests == []
+    assert responses.tests(fleet, multidb, "nope") is None
+    assert responses.test_routes(fleet)[:2] == [("multidb", "1.0.0-ls1"), ("multidb", "1.0.0-ls2")]
+
+    report = responses.report(fleet, multidb, "1.0.0-ls2")
+    assert (
+        report is not None
+        and report.result == "success"
+        and report.is_newest
+        and report.classification == "linuxserver"
+    )
+    assert (
+        report.diff is not None
+        and report.diff.previous_tag == "1.0.0-ls1"
+        and report.diff.dockerfile_changed == ["amd64", "arm64"]
+    )
+    assert report.diff.config_changes == 1 and report.diff.totals.upgraded == 1 and not report.diff.base_changed
+    assert report.tests["arm64"].success is False and report.links.run.endswith("/actions/runs/1002")
+    assert report.links.registry == "ghcr.io/linuxserver-playground/multidb:1.0.0-ls2"
+    assert report.links.history == "https://example.github.io/hub/builds/multidb/"
+    assert report.links.files["amd64"].startswith("https://example.github.io/hub/builds/multidb/1.0.0-ls2/")
+    first = responses.report(fleet, multidb, "1.0.0-ls1")
+    assert (
+        first is not None
+        and first.result == "failure"
+        and not first.is_newest
+        and first.tags == ["latest", "1.0.0-ls1"]
+    )
+    assert first.diff is not None and first.diff.classification == "initial"
+    swag = fleet.record("swag")
+    assert swag is not None
+    disabled = responses.report(fleet, swag, "5.2.0-ls1")
+    assert disabled is not None and disabled.test_enabled is False and disabled.test_success is None
+    assert disabled.result == "success"
+    assert responses.report(fleet, multidb, "nope") is None
+
+
+def test_build_result() -> None:
+    assert (
+        responses.build_result({"platforms": [{"result": "success"}, {"result": "failure"}], "test": {"success": True}})
+        == "partial"
+    )
+    assert responses.build_result({"platforms": [{"result": "failure"}], "test": {"enabled": False}}) == "failure"
+    assert (
+        responses.build_result({"platforms": [{"result": "success"}], "test": {"enabled": True, "success": False}})
+        == "failure"
+    )
 
 
 def test_packages_index_and_detail(fleet: Fleet) -> None:
@@ -115,7 +220,16 @@ def test_mods(fleet: Fleet) -> None:
     sonarr = responses.image_mods(fleet, "sonarr").mods
     assert sonarr[0].name == "striptracks" and sonarr[0].target == "radarr" and "sonarr" in sonarr[0].applies_to
     assert all(m.target == "universal" for m in sonarr[1:]) and len(sonarr) == 13
-    assert sonarr[0].image == "ghcr.io/linuxserver/mods:radarr-striptracks"
+    assert sonarr[0].image == "ghcr.io/linuxserver/mods:radarr-striptracks" and sonarr[0].source == "legacy"
+
+
+def test_mods_without_a_source_take_the_index_source(store: Store, config: SiteConfig) -> None:
+    """data/mods.json written before entries carried `source`."""
+    for mod in store.mods["mods"]:
+        mod.pop("source", None)
+    assert {m.source for m in load_fleet(store, config).mods} == {"legacy"}
+    store.mods["source"] = "mod.yml on each branch of linuxserver-playground/docker-mods"
+    assert {m.source for m in load_fleet(store, config).mods} == {"playground"}
 
 
 def test_proxy_kubernetes_quadlet(fleet: Fleet) -> None:

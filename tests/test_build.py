@@ -36,6 +36,7 @@ def test_per_build_files(files: dict[str, bytes]) -> None:
         f"{base}/layers.amd64.json",
         f"{base}/packages.arm64.json",
     } <= files.keys()
+    assert f"{base}/tests.json" in files and f"{base}/report.json" in files
     assert "api/v1/catalog/sonarr/builds/4.0.19.2000-ls1/packages.amd64.json" not in files
     assert "api/v1/catalog/multidb/builds/1.0.0-ls1/layers.arm64.json" not in files  # arm64 failed
     assert "api/v1/catalog/multidb/builds/1.0.0-ls1/layers.amd64.json" in files
@@ -110,6 +111,25 @@ def test_writes_files_and_public_assets(tmp_path: Path, files: dict[str, bytes])
 def test_failed_manifest_refresh_reports_failed(store: Store, config: SiteConfig) -> None:
     store.status["sources"]["manifests"] = {"ok": False, "checked_at": "2026-10-25T04:00:00Z", "error": "down"}
     assert render(load_fleet(store, config), config)["health"] == b'"Failed"'
+
+
+def test_tests_json_only_for_builds_with_a_report(store: Store, config: SiteConfig) -> None:
+    store.images["swag"].tests.clear()
+    files = render(load_fleet(store, config), config)
+    assert "api/v1/catalog/swag/builds/5.2.0-ls1/tests.json" not in files
+    assert "api/v1/catalog/swag/builds/5.2.0-ls1/report.json" in files
+    assert "api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/tests.json" in files
+
+
+def test_report_and_tests_bodies(client: TestClient) -> None:
+    report = client.get("/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/report.json").json()["data"]["report"]
+    assert report["result"] == "success" and report["tests"]["amd64"]["listening_ports"] == ["8989/tcp"]
+    assert "null" not in str(report["diff"]["upstream"])  # None is dropped, as everywhere else
+    tests = client.get("/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/tests.json").json()["data"]
+    assert tests["reports"]["amd64"]["schema"] == 1 and tests["summary"]["arm64"]["success"] is True
+    layers = client.get("/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/layers.amd64.json").json()["data"]
+    assert layers["from_base_source"] == "registry" and layers["layers"][1]["dockerfile_lines"] == [2, 2]
+    assert client.get("/api/v1/catalog/sonarr/builds/nope/report.json").status_code == 404
 
 
 def test_build_json_is_the_bundle_as_received(client: TestClient, store: Store) -> None:

@@ -81,13 +81,26 @@ def syft_document(packages: list[tuple[str, str, str]]) -> Json:
     }
 
 
+LAYER_INSTRUCTIONS = ("COPY /root-out/ /", "RUN /bin/sh -c apk add curl", "COPY root/ / # buildkit")
+"""created_by per fixture layer: the base's rootfs, then the Dockerfile's RUN and COPY as BuildKit records them."""
+BASE_DIGEST = "sha256:" + "b" * 64
+"""The base index digest most fixture builds record; the registry fixture serves its manifests."""
+UNKNOWN_BASE_DIGEST = "sha256:" + "e" * 64
+"""multidb's base digest; the registry fixture answers 404 for it, so the harness's flags stand."""
+DOCKERFILE = "FROM ghcr.io/linuxserver/baseimage-alpine:3.24\nRUN apk add curl\nCOPY root/ /\n"
+
+
+def layer_digest(i: int) -> str:
+    return "sha256:" + _sha(f"layer{i}")
+
+
 def layers_document(count: int = 3) -> list[Json]:
     return [
         {
             "index": i,
-            "digest": "sha256:" + _sha(f"layer{i}"),
+            "digest": layer_digest(i),
             "size": 1000 * (i + 1),
-            "created_by": "FROM base" if i == 0 else f"RUN step {i}",
+            "created_by": LAYER_INSTRUCTIONS[i] if i < len(LAYER_INSTRUCTIONS) else f"RUN step {i}",
             "from_base": i == 0,
         }
         for i in range(count)
@@ -159,7 +172,7 @@ def bundle(
     *,
     release_tag: str = "latest",
     base_digest: str = "b" * 64,
-    dockerfile: str = "FROM ghcr.io/linuxserver/baseimage-alpine:3.24\nRUN apk add curl\n",
+    dockerfile: str = DOCKERFILE,
     arm64_result: str = "success",
     reason: str = "upstream",
     test_enabled: bool = True,
@@ -281,7 +294,7 @@ MULTIDB_LS2 = bundle(
     2,
     "2026-10-23T00:00:00Z",
     base_digest="e" * 64,
-    dockerfile="FROM ghcr.io/linuxserver/baseimage-alpine:3.24\nRUN apk add curl jq\n",
+    dockerfile=DOCKERFILE.replace("apk add curl", "apk add curl jq"),
     reason="push",
     env=["PATH=/usr/bin", "HOME=/root", "NEW_VAR=1"],
 )
@@ -358,7 +371,7 @@ class FakeGitHub(GitHub):
     """Answers the calls ingest, observe and mods make, from the fixtures above."""
 
     def __init__(self, *, mods_repo: bool = False) -> None:
-        super().__init__(httpx2.Client(transport=httpx2.MockTransport(lambda r: httpx2.Response(500))), "token")
+        super().__init__(legacy_http(), "token")  # the registry fixture, for the base image manifests
         self.mods_repo = mods_repo
         self.downloads: list[str] = []
 
@@ -420,14 +433,38 @@ class FakeGitHub(GitHub):
         return data
 
 
+BASE_MANIFESTS: dict[str, Json] = {
+    BASE_DIGEST: {
+        "mediaType": "application/vnd.oci.image.index.v1+json",
+        "manifests": [
+            {"digest": "sha256:" + _sha("base-amd64"), "platform": {"architecture": "amd64", "os": "linux"}},
+            {"digest": "sha256:" + _sha("base-attestation"), "platform": {"architecture": "unknown", "os": "unknown"}},
+            {"digest": "sha256:" + _sha("base-arm64"), "platform": {"architecture": "arm64", "os": "linux"}},
+        ],
+    },
+    "sha256:" + _sha("base-amd64"): {
+        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+        "layers": [{"digest": layer_digest(0), "size": 1000}],
+    },
+    "sha256:" + _sha("base-arm64"): {
+        "mediaType": "application/vnd.oci.image.manifest.v1+json",
+        "layers": [{"digest": layer_digest(0), "size": 1000}],
+    },
+}
+"""What the registry fixture serves for ghcr.io/linuxserver/baseimage-alpine: one base layer, the fixture's layer 0."""
+
+
 def legacy_http() -> httpx2.Client:
-    """An HTTP client serving the legacy mod-list.yml and GHCR tag lists."""
+    """An HTTP client serving the legacy mod-list.yml, GHCR tag lists and the base image manifests."""
 
     def handle(request: httpx2.Request) -> httpx2.Response:
         if request.url.host == "raw.githubusercontent.com":
             return httpx2.Response(200, text=(FIXTURES / "mod-list.yml").read_text())
         if request.url.path == "/token":
             return httpx2.Response(200, json={"token": "anon"})
+        if request.url.path.startswith("/v2/linuxserver/baseimage-alpine/manifests/"):
+            manifest = BASE_MANIFESTS.get(request.url.path.rsplit("/", 1)[1])
+            return httpx2.Response(200, json=manifest) if manifest else httpx2.Response(404)
         if request.url.path.endswith("/tags/list"):
             name = request.url.path.split("/")[3]
             return (

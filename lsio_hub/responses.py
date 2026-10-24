@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import datetime
 from collections import Counter, defaultdict
-from typing import Any
+from typing import Any, Literal
 
 from builder.manifest import build_context
 
@@ -13,6 +13,7 @@ from .dates import parse_iso
 from .fleet import Fleet
 from .generate import kubernetes, proxy, quadlet
 from .generate.common import ImageInput
+from .layers import annotate
 from .models import (
     CHANGELOG_LIMIT,
     V1_CHANGELOG_ENTRIES,
@@ -20,12 +21,15 @@ from .models import (
     BasesData,
     BaseUsage,
     BuildLinks,
+    BuildReport,
     BuildsData,
     BuildSummary,
+    BuildTestsData,
     Bundle,
     Category,
     ChangelogEntry,
     Diff,
+    DiffSummary,
     HistoryEntry,
     Image,
     ImageDetail,
@@ -41,12 +45,15 @@ from .models import (
     PackageIndexEntry,
     PackagesData,
     ProxyData,
+    ReportLinks,
     Repository,
     StaleImage,
     StalenessData,
     Stats,
     Status,
     StoreEntry,
+    TestArchSummary,
+    TestReport,
 )
 from .packages import slug, version_key
 from .store import ImageRecord
@@ -136,20 +143,36 @@ def status(fleet: Fleet) -> Status:
 # Builds
 
 
+def is_newest(record: ImageRecord, build: Json) -> bool:
+    """Whether a build is the newest of its branch the hub holds (only then are its heavy assets copied)."""
+    return bool(record.latest.get(build["branch"], {}).get("tag") == build["version"]["tag"])
+
+
+def _asset_urls(build: Json) -> dict[str, str]:
+    return {a["name"]: str(a["url"]) for a in build.get("assets", []) if a.get("url")}
+
+
 def _build_links(fleet: Fleet, record: ImageRecord, build: Json) -> BuildLinks:
     tag, branch = build["version"]["tag"], build["branch"]
     api = f"{fleet.site.api_root}/api/v1/catalog/{record.name}/builds/{tag}"
+    page = f"{fleet.site.api_root}/builds/{record.name}/{tag}/"
     has_table = {arch for arch, t in record.packages.get(branch, {}).items() if t["tag"] == tag}
-    assets = {a["name"]: a.get("url") for a in build.get("assets", []) if a.get("url")}
+    assets = _asset_urls(build)
     release = next((h.get("release_url") for h in record.history.get(branch, []) if h["tag"] == tag), None)
+    on_release = {a[6:-8]: url for a, url in assets.items() if a.startswith("files.") and a.endswith(".json.gz")}
+    # The report generator copies files.<arch>.json.gz next to the page for the newest build of each branch.
+    copied = is_newest(record, build)
     return BuildLinks(
         build=f"{api}.json",
         diff=f"{api}/diff.json",
         layers={arch: f"{api}/layers.{arch}.json" for arch in sorted(record.layers.get(tag, {}))},
         packages={arch: f"{api}/packages.{arch}.json" for arch in sorted(has_table)},
         release=release,
-        files={a[6:-8]: url for a, url in assets.items() if a.startswith("files.") and a.endswith(".json.gz")},
-        test_report=f"{fleet.site.api_root}/builds/{record.name}/{tag}/",
+        files={arch: f"{page}files.{arch}.json.gz" if copied else url for arch, url in sorted(on_release.items())},
+        files_release=dict(sorted(on_release.items())),
+        test_report=page,
+        tests=f"{api}/tests.json" if record.tests.get(tag) else None,
+        report=f"{api}/report.json",
     )
 
 
@@ -195,11 +218,152 @@ def diff(record: ImageRecord, tag: str) -> Diff | None:
     return Diff.model_validate(data) if data else None
 
 
-def layers(record: ImageRecord, tag: str, arch: str) -> LayersData | None:
+def layers(record: ImageRecord, tag: str, arch: str, bases: dict[str, Json] | None = None) -> LayersData | None:
+    """The layer table with `from_base` from the base's registry manifest and `dockerfile_lines` from the Dockerfile."""
     per_arch = record.layers.get(tag, {})
-    if arch not in per_arch:
+    build = record.builds.get(tag)
+    if arch not in per_arch or build is None:
         return None
-    return LayersData(image=record.name, tag=tag, arch=arch, layers=per_arch[arch])
+    base = (bases or {}).get(build.get("base", {}).get("digest") or "")
+    annotated, meta = annotate(per_arch[arch], build.get("dockerfile", {}).get(arch), base, arch)
+    return LayersData(image=record.name, tag=tag, arch=arch, layers=annotated, **meta)
+
+
+def _test_summary(fleet: Fleet, record: ImageRecord, build: Json, arch: str, report: Json) -> TestArchSummary:
+    tag = build["version"]["tag"]
+    runtime = report.get("runtime") or {}
+    cases = report.get("tests") or []
+    failed = [c["name"] for c in cases if str(c.get("status", "")).upper() not in ("PASS", "SKIP")]
+    ports = [f"{p}/tcp" for p in runtime.get("listening_tcp") or []] + [
+        f"{p}/udp" for p in runtime.get("listening_udp") or []
+    ]
+    has_html = bool((report.get("files") or {}).get("html"))
+    return TestArchSummary(
+        success=bool(report.get("success")),
+        passed=sum(1 for c in cases if str(c.get("status", "")).upper() == "PASS"),
+        failed=len(failed),
+        total=len(cases),
+        failed_tests=failed,
+        startup_seconds=report.get("startup_seconds"),
+        listening_ports=ports,
+        warnings=len(report.get("warnings") or {}),
+        rss_bytes=runtime.get("rss_bytes"),
+        pids=runtime.get("pids"),
+        report_page=f"{fleet.site.api_root}/builds/{record.name}/{tag}/{arch}/index.html" if has_html else None,
+        tarball=_asset_urls(build).get(f"test.{arch}.tar.gz"),
+    )
+
+
+def _test_summaries(fleet: Fleet, record: ImageRecord, build: Json) -> dict[str, TestArchSummary]:
+    reports = record.tests.get(build["version"]["tag"], {})
+    return {arch: _test_summary(fleet, record, build, arch, reports[arch]) for arch in sorted(reports)}
+
+
+def tests(fleet: Fleet, record: ImageRecord, tag: str) -> BuildTestsData | None:
+    """The harness reports per architecture with a summary; None when the build has no report."""
+    build = record.builds.get(tag)
+    reports = record.tests.get(tag)
+    if build is None or not reports:
+        return None
+    enabled = bool(build["test"].get("enabled", True))
+    return BuildTestsData(
+        image=record.name,
+        tag=tag,
+        enabled=enabled,
+        success=build["test"]["success"] if enabled else None,
+        report_url=f"{fleet.site.api_root}/builds/{record.name}/{tag}/",
+        summary=_test_summaries(fleet, record, build),
+        reports={arch: TestReport.model_validate(reports[arch]) for arch in sorted(reports)},
+    )
+
+
+def test_routes(fleet: Fleet) -> list[tuple[str, str]]:
+    """(image, tag) for every build with a harness report."""
+    return [
+        (name, tag)
+        for name, record in sorted(fleet.store.images.items())
+        for tag in sorted(record.tests)
+        if tag in record.builds
+    ]
+
+
+def _diff_summary(diff: Json) -> DiffSummary:
+    config = diff.get("config", {})
+    env = config.get("env", {})
+    changes = len(env.get("added", [])) + len(env.get("removed", [])) + len(env.get("changed", []))
+    for key in ("exposed_ports", "volumes"):
+        changes += len(config.get(key, {}).get("added", [])) + len(config.get(key, {}).get("removed", []))
+    base = diff.get("base", {})
+    return DiffSummary(
+        previous_tag=diff.get("previous_tag"),
+        classification=diff["classification"],
+        reasons=list(diff.get("reasons", [])),
+        upstream=diff["upstream"],
+        base_changed=bool(base.get("changed")),
+        base_from=(base.get("from") or {}).get("digest") if base.get("changed") else None,
+        size=diff.get("size", {}),
+        totals=diff["totals"],
+        config_changes=changes,
+        dockerfile_changed=sorted(arch for arch, text in diff.get("dockerfile", {}).items() if text),
+    )
+
+
+def build_result(build: Json) -> Literal["success", "failure", "partial"]:
+    """`success`, `failure` or `partial` over every platform and the test outcome."""
+    platforms = build.get("platforms", [])
+    ok = sum(1 for p in platforms if p.get("result") == "success")
+    tested = build["test"].get("success") if build["test"].get("enabled", True) else None
+    if ok == len(platforms) and tested is not False:
+        return "success"
+    if ok == 0 or tested is False:
+        return "failure"
+    return "partial"
+
+
+def report(fleet: Fleet, record: ImageRecord, tag: str) -> BuildReport | None:
+    """Everything a build page shows, in one document."""
+    build = record.builds.get(tag)
+    if build is None:
+        return None
+    diff = record.diffs.get(tag)
+    links = _build_links(fleet, record, build)
+    ref = f"{fleet.settings.registry}/{fleet.settings.org}/{record.name}"
+    return BuildReport(
+        image=record.name,
+        repository=build["repository"],
+        tag=tag,
+        branch=build["branch"],
+        release_tag=build["version"].get("release_tag"),
+        upstream_version=build["version"]["upstream"],
+        upstream_clean=build["version"]["upstream_clean"],
+        semver=build["version"].get("semver"),
+        ls_build=build["version"]["ls_build"],
+        created=build["created"],
+        reason=build["reason"],
+        commit=build["commit"],
+        tags=list(build["version"].get("tags") or [tag]),
+        base=build["base"],
+        platforms=build["platforms"],
+        index_digest=build.get("index_digest"),
+        result=build_result(build),
+        test_enabled=bool(build["test"].get("enabled", True)),
+        test_success=build["test"]["success"] if build["test"].get("enabled", True) else None,
+        tests=_test_summaries(fleet, record, build),
+        classification=diff["classification"] if diff else None,
+        diff=_diff_summary(diff) if diff else None,
+        packages=build.get("packages"),
+        notes=build.get("notes"),
+        config=build["config"],
+        is_newest=is_newest(record, build),
+        links=ReportLinks(
+            **links.model_dump(),
+            run=build["workflow"]["run_url"],
+            commit=f"https://github.com/{build['repository']}/commit/{build['commit']}",
+            repository=f"https://github.com/{build['repository']}",
+            registry=f"{ref}:{tag}",
+            history=f"{fleet.site.api_root}/builds/{record.name}/",
+        ),
+    )
 
 
 def packages_table(record: ImageRecord, tag: str, arch: str) -> PackagesData | None:

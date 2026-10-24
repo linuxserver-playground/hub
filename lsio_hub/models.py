@@ -273,8 +273,8 @@ class Status(BaseModel):
     images: int
     deprecated: int
     sources: dict[str, SourceStatus] = Field(
-        description="`manifests` (image.yml per branch), `releases` (build bundles), `observed` (stars, GHCR tags), "
-        "`mods` (the mods index)."
+        description="`manifests` (image.yml per branch), `releases` (build bundles), `observed` (stars, GHCR tags; its "
+        "`fetched_at` is `observed.json`'s), `mods` (the mods index)."
     )
     rejected: dict[str, RejectedRelease] = Field(
         description="Releases whose bundle failed validation, keyed `<image>@<tag>`; they are skipped until fixed."
@@ -475,8 +475,17 @@ class BuildLinks(BaseModel):
     layers: dict[str, str] = Field(description="Per architecture.")
     packages: dict[str, str] = Field(description="Per architecture; only the newest build of each branch has one.")
     release: str | None = None
-    files: dict[str, str] = Field(description="`files.<arch>.json.gz` on the Release; never copied into data/.")
-    test_report: str | None = None
+    files: dict[str, str] = Field(
+        description="`files.<arch>.json.gz` per architecture: the hub's copy under `/builds/<image>/<tag>/` for the "
+        "newest build of each branch (same origin as the API), else the Release asset."
+    )
+    files_release: dict[str, str] = Field(
+        default_factory=dict,
+        description="`files.<arch>.json.gz` on the Release, per architecture; never copied into data/.",
+    )
+    test_report: str | None = Field(None, description="The rendered report page, `/builds/<image>/<tag>/`.")
+    tests: str | None = Field(None, description="`tests.json`: the harness reports per architecture, when any exist.")
+    report: str | None = Field(None, description="`report.json`: the build page aggregate.")
 
 
 class BuildSummary(BaseModel):
@@ -546,21 +555,105 @@ class Layer(_Lenient):
     diff_id: str | None = None
     size: int = Field(description="Compressed bytes.")
     uncompressed_size: int | None = None
-    created_by: str | None = None
-    dockerfile_lines: list[int] | None = None
-    from_base: bool | None = None
+    created_by: str | None = Field(None, description="The instruction as BuildKit recorded it.")
+    dockerfile_lines: list[int] | None = Field(None, description="`[start, end]` lines in the Dockerfile (1-based).")
+    from_base: bool | None = Field(None, description="The layer comes from the base image.")
     empty: bool | None = None
+
+
+FromBaseSource = Literal["registry", "count", "harness"]
 
 
 class LayersData(BaseModel):
     image: str
     tag: str
     arch: Arch
-    layers: list[Layer]
+    base_layers: int | None = Field(None, description="How many leading layers belong to the base image, when known.")
+    from_base_source: FromBaseSource | None = Field(
+        None,
+        description="How `from_base` was decided: `registry` (the base's layer digests from GHCR), `count` (the "
+        "base's layer count, digests known for another architecture only), `harness` (the ci harness's own flags). "
+        "Absent when the hub has nothing to go on.",
+    )
+    layers: list[Layer] = Field(
+        description="`from_base` marks the base image's layers; `dockerfile_lines` is the `[start, end]` line range "
+        "of the instruction that made each of the others, where `created_by` matches the Dockerfile in `build.json`."
+    )
 
 
 class LayersResponse(Envelope):
     data: LayersData
+
+
+# ---------------------------------------------------------------------------------------------------
+# Test reports (schemas/test-report.schema.json in linuxserver-playground/builder)
+
+
+class TestCase(_Lenient):
+    name: str
+    status: str = Field(examples=["PASS", "FAIL", "SKIP"])
+    message: str | None = None
+    seconds: float | None = None
+
+
+class TestRuntime(_Lenient):
+    rss_bytes: int | None = None
+    pids: int | None = None
+    listening_tcp: list[int] | None = None
+    listening_udp: list[int] | None = None
+    s6_services: list[str] | None = None
+    changed_paths: int | None = None
+
+
+class TestReport(_Lenient):
+    """`test.<arch>.json` as the ci harness attached it to the Release, validated against the contract on ingest."""
+
+    schema_version: int = Field(alias="schema")
+    image: str
+    tag: str
+    arch: Arch
+    started: str | None = None
+    finished: str | None = None
+    success: bool
+    runner: str | None = None
+    ci_version: str | None = None
+    engine: str | None = None
+    startup_seconds: float | None = None
+    tests: list[TestCase] = Field(default_factory=list)
+    warnings: dict[str, str] | None = None
+    files: dict[str, str] | None = Field(None, description="Files in `test.<arch>.tar.gz`, by kind.")
+    runtime: TestRuntime | None = None
+
+
+class TestArchSummary(BaseModel):
+    success: bool
+    passed: int
+    failed: int
+    total: int
+    failed_tests: list[str] = Field(description="Names of the tests that did not pass.")
+    startup_seconds: float | None = None
+    listening_ports: list[str] = Field(description="`<port>/tcp` and `<port>/udp` the container listened on.")
+    warnings: int = Field(description="How many checks warned.")
+    rss_bytes: int | None = None
+    pids: int | None = None
+    report_page: str | None = Field(
+        None, description="The harness's HTML report, unpacked next to the report page (missing when generated offline)."
+    )
+    tarball: str | None = Field(None, description="`test.<arch>.tar.gz` on the Release.")
+
+
+class BuildTestsData(BaseModel):
+    image: str
+    tag: str
+    enabled: bool = Field(description="`test.enabled` of the build.")
+    success: bool | None = Field(None, description="`test.success` of the build; None when tests were disabled.")
+    report_url: str = Field(description="The rendered report page, `/builds/<image>/<tag>/`.")
+    summary: dict[str, TestArchSummary] = Field(description="Per architecture.")
+    reports: dict[str, TestReport] = Field(description="The harness reports per architecture, as received.")
+
+
+class BuildTestsResponse(Envelope):
+    data: BuildTestsData
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -675,6 +768,76 @@ class DiffResponse(Envelope):
 
 
 # ---------------------------------------------------------------------------------------------------
+# The build page aggregate
+
+
+class DiffSummary(BaseModel):
+    """`diff.json` without the package lists: enough for a build page's change strip."""
+
+    previous_tag: str | None = None
+    classification: Classification
+    reasons: list[str]
+    upstream: ValueChange
+    base_changed: bool
+    base_from: str | None = Field(None, description="The previous build's base digest, when it changed.")
+    size: dict[str, SizeChange]
+    totals: PackageTotals
+    config_changes: int = Field(description="Env, port and volume entries added, removed or changed.")
+    dockerfile_changed: list[str] = Field(description="Architectures whose Dockerfile differs from the previous build.")
+
+
+class ReportLinks(BuildLinks):
+    run: str = Field(description="The workflow run.")
+    commit: str
+    repository: str
+    registry: str = Field(description="The image reference with this build's tag.")
+    history: str = Field(description="The image's build history page.")
+
+
+class BuildReport(BaseModel):
+    """What a build page shows: the record's facts, platforms, test and diff summaries and every link."""
+
+    image: str
+    repository: str
+    tag: str
+    branch: str
+    release_tag: str | None = None
+    upstream_version: str
+    upstream_clean: str
+    semver: str | None = None
+    ls_build: int
+    created: str
+    reason: str
+    commit: str
+    tags: list[str] = Field(description="Every tag pushed, unprefixed and arch-prefixed.")
+    base: BuildBase
+    platforms: list[PlatformBuild]
+    index_digest: str | None = None
+    result: Literal["success", "failure", "partial"] = Field(
+        description="`success` when every platform built and tests passed (or were disabled); `failure` when none "
+        "built or tests failed; `partial` otherwise."
+    )
+    test_enabled: bool
+    test_success: bool | None = None
+    tests: dict[str, TestArchSummary] = Field(description="Per architecture, when the harness report exists.")
+    classification: Classification | None = None
+    diff: DiffSummary | None = None
+    packages: dict[str, PackageSummary] | None = Field(None, description="Package counts per architecture.")
+    notes: BuildNotes | None = None
+    config: BuildConfig
+    is_newest: bool = Field(description="Whether this is the newest build of its branch the hub holds.")
+    links: ReportLinks
+
+
+class BuildReportData(BaseModel):
+    report: BuildReport
+
+
+class BuildReportResponse(Envelope):
+    data: BuildReportData
+
+
+# ---------------------------------------------------------------------------------------------------
 # Mods
 
 
@@ -703,10 +866,18 @@ class Mod(BaseModel):
     deprecation_message: str | None = None
     applies_to: list[str] = Field(description="Images the mod is listed for (its target plus any extra listings).")
     docs: str | None = None
+    source: Literal["playground", "legacy"] = Field(
+        description="`playground`: a `mod.yml` branch of linuxserver-playground/docker-mods, published at "
+        "`ghcr.io/linuxserver-playground/mods`. `legacy`: converted from linuxserver/docker-mods `mod-list.yml`; the "
+        "image stays at `ghcr.io/linuxserver/mods` because that is where it lives."
+    )
 
 
 class ModsData(BaseModel):
-    source: str = Field(description="`mod.yml` from linuxserver-playground/docker-mods, or the legacy mod-list.yml.")
+    source: str = Field(
+        description="Where the index came from: `mod.yml` on each branch of linuxserver-playground/docker-mods, or the "
+        "legacy linuxserver/docker-mods mod-list.yml while the playground repository does not exist."
+    )
     mods: list[Mod]
 
 

@@ -12,7 +12,7 @@ and docs page are generated, and the v1 endpoints keep their shape.
 ```bash
 python3.13 -m venv .venv && . .venv/bin/activate
 pip install -e '.[dev]'                                  # installs lsio-builder from linuxserver-playground/builder
-GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # data/: manifests and every release's bundle
+GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # data/: manifests, every release's bundle, base layers
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.observe              # data/observed.json: stars, archived, GHCR tags
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.mods                 # data/mods.json
 python -m lsio_hub.build                                 # dist/: the API, openapi.json, the docs page
@@ -45,6 +45,7 @@ Pages, so one site serves `/api/v1/…`, `/stores/…` and `/builds/…`. Reads 
 | `lsio_hub/store.py` | The `data/` layout: load, save, rotation. |
 | `lsio_hub/ingest.py` | Reconcile (every repo, every release) or one release; validates with the builder contracts. |
 | `lsio_hub/diff.py`, `packages.py` | The build diff engine and the syft normaliser. |
+| `lsio_hub/layers.py` | Layer attribution: `from_base` from the base image's registry manifest, `dockerfile_lines` from `created_by`. |
 | `lsio_hub/observe.py`, `mods.py` | The observed poller (stars, archived, GHCR tags; grype is a stub) and the mods index. |
 | `lsio_hub/transform.py` | Manifest plus builds to an API image (`builder.manifest.build_context`, `builder.snippets`). |
 | `lsio_hub/responses.py`, `app.py`, `build.py` | Endpoint content, the FastAPI routes, the static build. |
@@ -65,6 +66,7 @@ is a readable diff. Builds are stored compact, as received; everything else inde
 | `data/images/<name>/packages[.<release tag>].<arch>.json` | Normalised package table (name, version, type, purl, licenses) of the newest build of each branch; no infix for the `latest` branch. |
 | `data/images/<name>/latest.json` | branch → tag, created, release URL, asset URLs. |
 | `data/images/<name>/history.json` | branch → every release seen, newest first, including rotated-out builds. |
+| `data/bases/<algorithm>-<hex>.json` | The layer digests per architecture of a base image, keyed by the index digest builds record as `base.digest`; read from GHCR with an anonymous pull token, once per digest, by the ingest. |
 | `data/observed.json` | stars, archived flag, GHCR tag list per image; written by the poller only. |
 | `data/mods.json` | The mods index. |
 | `data/status.json` | `sources` (manifests, releases, observed, mods: ok, checked_at, fetched_at, error) and `rejected` (releases whose bundle failed validation, with the error; retried every run). |
@@ -92,11 +94,13 @@ Added by the hub:
 
 | Path | What |
 | --- | --- |
-| `/api/v1/catalog/{name}/builds.json` | Builds in `data/` (newest first) with links, classification, and the release history per branch. |
+| `/api/v1/catalog/{name}/builds.json` | Builds in `data/` (newest first) with links, classification, and the release history per branch. `links.files` points at the hub's copy of `files.<arch>.json.gz` (same origin, newest build of each branch) and falls back to the Release asset, which `links.files_release` always carries. |
 | `/api/v1/catalog/{name}/builds/{tag}.json` | The bundle record as received. |
+| `/api/v1/catalog/{name}/builds/{tag}/report.json` | The build page aggregate: record facts, platforms, result, test summary per arch, diff summary (no package lists), notes and every link. One request per build page. |
+| `/api/v1/catalog/{name}/builds/{tag}/tests.json` | The harness's `test.<arch>.json` per arch as received, with a summary (result, passed and failed tests, startup seconds, listening ports, warnings) and the report page URL. Only for builds that have a report. |
 | `/api/v1/catalog/{name}/builds/{tag}/diff.json` | Packages per arch by ecosystem, config, base, size and Dockerfile changes, `classification`. |
 | `/api/v1/catalog/{name}/builds/{tag}/packages.{arch}.json` | The package table; only for the newest build of each branch (older builds keep `packages.<arch>.json.gz` on the Release). |
-| `/api/v1/catalog/{name}/builds/{tag}/layers.{arch}.json` | Layers with digest, size and Dockerfile instruction. |
+| `/api/v1/catalog/{name}/builds/{tag}/layers.{arch}.json` | Layers with digest, size and Dockerfile instruction, plus `from_base` and `dockerfile_lines` (see below). |
 | `/api/v1/catalog/{name}/mods.json`, `/api/v1/mods.json` | Mods for one image (its own, then universal), or all. |
 | `/api/v1/catalog/{name}/proxy.json` | The SWAG subdomain and subfolder sample texts and the manifest's `proxy` block. |
 | `/api/v1/catalog/{name}/kubernetes.yaml`, `/quadlet.container` | Generated documents (only for images where `publish` enables them). |
@@ -104,6 +108,20 @@ Added by the hub:
 | `/api/v1/fleet/bases.json` | Base image references, the images on each, and the digests seen over time. |
 | `/api/v1/fleet/staleness.json` | Newest builds whose base was seen newer elsewhere (a later digest in another build, or a later `baseimage-*` release when base images join the fleet). |
 | `/api/v1/stores/index.json` | Every store URL with a one-line how-to. |
+
+### Layer attribution
+
+The ci harness emits `from_base` only when the base image is local to the runner, which it usually is not, so
+the hub decides it: the ingest reads the base image's manifest from GHCR by the `base.digest` the bundle
+records (the index digest), picks the `linux/amd64` and `linux/arm64` manifests and caches their layer digests in
+`data/bases/`. A layer is `from_base` when its compressed digest is in that list (`from_base_source: registry`).
+When the digests are known for another architecture only, the first N layers are taken, N being the base's
+layer count (`count`); when the hub knows nothing, the harness's own flags stand (`harness`) or the field is
+absent. `dockerfile_lines` attributes each non-base layer to its `RUN`/`COPY`/`ADD`/`ENV`/`LABEL` instruction by
+matching `created_by` (BuildKit's record of the instruction, build args and `/bin/sh -c` stripped) against the
+Dockerfile in `build.json`, sequentially from the last layer and the last instruction of the final stage
+backwards, so unknown base layers fall off the front; a layer without a confident match has no
+`dockerfile_lines`.
 
 ### v1 divergences
 
@@ -126,8 +144,10 @@ manifest and the build records.
   `PGID` and `TZ` are listed when `common_env` is on, with the original's descriptions. `privileged: optional`
   reports `true`. `readonly_supported` and `nonroot_supported` are absent when the manifest does not state them.
   `application_setup` points at the README's Application Setup anchor when the manifest has `docs.setup` or a notice.
-- `stars` and `archived` come from `data/observed.json` (hourly). `github_url`, `registries` and the docs link
-  point at `linuxserver-playground` and `ghcr.io`; `Registries` has `ghcr` and `packages_url` only.
+- `stars` and `archived` come from `data/observed.json` (hourly; GraphQL `stargazerCount` per repository, so the
+  playground repositories' real counts, which are 0 so far). `status.json` reports `observed.json`'s `fetched_at`
+  under `sources.observed`. `github_url`, `registries` and the docs link point at `linuxserver-playground` and
+  `ghcr.io`; `Registries` has `ghcr` and `packages_url` only.
 - `ImageDetail` dropped `docker_hub_pulls` and gained `title`, `upstream_version`, `base`, `releases` (one per
   live branch) and `links`.
 
@@ -154,11 +174,14 @@ the `stores` repository for platforms that clone a git repository.
 | `mods` | `mod-list.yml` in the legacy shape | `<hub>/stores/mods/mod-list.yml`; the structured index is `/api/v1/mods.json`. |
 | `builds` | see below | `<hub>/builds/<image>/<tag>/` |
 
-The mods index reads `mod.yml` from every branch of `linuxserver-playground/docker-mods`. Until that repository
-exists, `linuxserver/docker-mods` `mod-list.yml` is read (never written) and converted: the branch is
-`<target>-<name>`, images that list a mod go into `applies_to`, and the image reference stays
-`ghcr.io/linuxserver/mods:<branch>` because that is where those mods live. `data/mods.json` records which
-source was used.
+The mods index reads `mod.yml` from every branch of `linuxserver-playground/docker-mods`; those entries are
+`source: playground` with the image `ghcr.io/linuxserver-playground/mods:<target>-<name>`. **That repository
+does not exist yet**, so today the index comes from the legacy `linuxserver/docker-mods` `mod-list.yml`, read
+(never written) and converted: the branch is `<target>-<name>`, images that list a mod go into `applies_to`,
+each entry is `source: legacy`, and the image reference stays `ghcr.io/linuxserver/mods:<branch>` because that
+is where those mods live; nothing is rewritten to the playground namespace. `data/mods.json` records which
+source was used (`source` at the top), and the fallback goes away by itself once the playground repository
+has `mod.yml` branches.
 
 ### Build report pages
 

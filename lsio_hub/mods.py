@@ -61,13 +61,16 @@ def from_manifest(data: Json, branch: str) -> Json:
         "deprecation_message": deprecated.get("message"),
         "applies_to": [data["target"]],
         "docs": data.get("docs"),
+        "source": "playground",
     }
 
 
 def from_legacy(text: str) -> list[Json]:
     """
     mod-list.yml (image -> {mod name: branch url}) to mod records. The branch is `<target>-<name>`; a mod
-    listed under several images (universal mods, shared code-server mods) gets them all in `applies_to`.
+    listed under several images (universal mods, shared code-server mods) gets them all in `applies_to`. Each
+    entry is marked `source: legacy` and keeps `ghcr.io/linuxserver/mods:<branch>`, where those mods live;
+    nothing is rewritten to the playground namespace.
     """
     parsed = yaml.safe_load(text) or {}
     by_branch: dict[str, Json] = {}
@@ -94,6 +97,7 @@ def from_legacy(text: str) -> list[Json]:
                         "deprecation_message": None,
                         "applies_to": [],
                         "docs": None,
+                        "source": "legacy",
                     },
                 )
                 if image not in record["applies_to"]:

@@ -38,6 +38,8 @@ def route_values(route: APIRoute, fleet: Fleet) -> list[dict[str, str]]:
                 return [{"name": n} for n in responses.names_with(fleet, kind)]
         return [{"name": image.name} for image in fleet.images]
     if params == ["name", "tag"]:
+        if path.endswith("/tests.json"):
+            return [{"name": n, "tag": t} for n, t in responses.test_routes(fleet) if fleet.image(n)]
         return [
             {"name": name, "tag": tag}
             for name, record in sorted(fleet.store.images.items())

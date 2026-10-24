@@ -13,6 +13,8 @@ readable diff.
                                                    of each branch (no infix for the `latest` branch)
     data/images/<name>/latest.json                 branch -> newest build: tag, release url, asset urls
     data/images/<name>/history.json                branch -> every release seen, newest first
+    data/bases/<algorithm>-<hex>.json              a base image's layer digests per architecture, keyed by the
+                                                   index digest builds record as base.digest (registry cache)
     data/observed.json                             stars, archived flag, GHCR tags (poller only)
     data/mods.json                                 the mods index
     data/status.json                               per-source refresh status and rejected releases
@@ -101,11 +103,27 @@ class Store:
     """{fetched_at, images: {name: {stars, archived, pushed_at, ghcr_tags}}}"""
     mods: Json = field(default_factory=dict)
     """{fetched_at, source, mods: [...]}"""
+    bases: dict[str, Json] = field(default_factory=dict)
+    """base digest -> {image, digest, fetched_at, platforms: {arch: {digest, layers: [digests]}}}"""
     status: Json = field(default_factory=lambda: {"sources": {}, "rejected": {}})
     """{sources: {name: SourceStatus}, rejected: {"<image>@<tag>": {checked_at, release_url, error}}}"""
 
     def record(self, name: str) -> ImageRecord:
         return self.images.setdefault(name, ImageRecord(name=name))
+
+    def base_digests(self) -> set[str]:
+        """Every base digest a held build records."""
+        return {
+            digest
+            for record in self.images.values()
+            for build in record.builds.values()
+            if (digest := build.get("base", {}).get("digest"))
+        }
+
+
+def base_filename(digest: str) -> str:
+    """`sha256:abc...` to `sha256-abc....json`: the colon is unwelcome in file names."""
+    return digest.replace(":", "-") + ".json"
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -152,6 +170,11 @@ def load_store(data_dir: Path) -> Store:
     if images_dir.is_dir():
         for directory in sorted(p for p in images_dir.iterdir() if p.is_dir()):
             store.images[directory.name] = load_record(directory)
+    bases_dir = data_dir / "bases"
+    for path in sorted(bases_dir.glob("*.json")) if bases_dir.is_dir() else []:
+        base = _read(path)
+        if isinstance(base, dict) and base.get("digest"):
+            store.bases[base["digest"]] = base
     store.observed = _read(data_dir / "observed.json") or {}
     store.mods = _read(data_dir / "mods.json") or {}
     status = _read(data_dir / "status.json") or {}
@@ -238,6 +261,15 @@ def save_store(data_dir: Path, store: Store) -> list[str]:
             directory.rmdir()
             changed.append(f"-images/{directory.name}")
     written: set[Path] = set()
+    referenced = store.base_digests()
+    for digest, base in sorted(store.bases.items()):
+        if digest in referenced and _write(data_dir / "bases" / base_filename(digest), _dump(base), written):
+            changed.append(f"bases/{base_filename(digest)}")
+    bases_dir = data_dir / "bases"
+    for path in sorted(bases_dir.glob("*.json")) if bases_dir.is_dir() else []:
+        if path not in written:
+            path.unlink()
+            changed.append(f"-bases/{path.name}")
     for name, value in (("observed.json", store.observed), ("mods.json", store.mods), ("status.json", store.status)):
         if _write(data_dir / name, _dump(value), written):
             changed.append(name)

@@ -17,7 +17,6 @@ MODS_IMAGE = f"{IMAGE_PREFIX}/mods"
 MODS_REPO = f"{ORG}/docker-mods"
 LEGACY_MODS_REPO = "linuxserver/docker-mods"
 LEGACY_MOD_LIST_URL = f"https://raw.githubusercontent.com/{LEGACY_MODS_REPO}/master/mod-list.yml"
-DOCS_URL = "https://docs.linuxserver.io"
 STORES_RAW_URL = f"https://raw.githubusercontent.com/{ORG}/stores/main"
 """Where the generated store output is published as a repository (the Pages copy lives under /stores/)."""
 

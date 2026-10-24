@@ -21,8 +21,11 @@ from .fleet import Fleet
 from .models import (
     BasesResponse,
     BuildData,
+    BuildReportData,
+    BuildReportResponse,
     BuildResponse,
     BuildsResponse,
+    BuildTestsResponse,
     CatalogData,
     CatalogResponse,
     CategoriesData,
@@ -287,8 +290,41 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
         responses=NOT_FOUND,
     )
     def get_build_layers(name: ImageName, tag: BuildTag, arch: ArchName) -> LayersResponse:
-        """`layers.<arch>.json` from the Release: every layer with its digest, size and Dockerfile instruction."""
-        return envelope(LayersResponse, data=or_404(responses.layers(record(name), tag, arch)))
+        """
+        `layers.<arch>.json` from the Release: every layer with its digest, size and Dockerfile instruction, plus
+        `from_base` (from the base image's manifest on GHCR) and `dockerfile_lines` (matched against the Dockerfile).
+        """
+        return envelope(LayersResponse, data=or_404(responses.layers(record(name), tag, arch, fleet.store.bases)))
+
+    @get(
+        "/api/v1/catalog/{name}/builds/{tag}/tests.json",
+        tags=["Builds"],
+        operation_id="getBuildTests",
+        summary="Get the test reports of a build",
+        responses=NOT_FOUND,
+    )
+    def get_build_tests(name: ImageName, tag: BuildTag) -> BuildTestsResponse:
+        """
+        The ci harness's `test.<arch>.json` per architecture as received, with a summary per architecture (result,
+        startup time, listening ports, failed tests) and the report page URL. Only for builds that have a report.
+        """
+        return envelope(BuildTestsResponse, data=or_404(responses.tests(fleet, record(name), tag)))
+
+    @get(
+        "/api/v1/catalog/{name}/builds/{tag}/report.json",
+        tags=["Builds"],
+        operation_id="getBuildReport",
+        summary="Get the build page aggregate",
+        responses=NOT_FOUND,
+    )
+    def get_build_report(name: ImageName, tag: BuildTag) -> BuildReportResponse:
+        """
+        Everything a build page shows in one document: the record's facts, platforms, the test summary per
+        architecture, the diff summary (without the package lists) and every link.
+        """
+        return envelope(
+            BuildReportResponse, data=BuildReportData(report=or_404(responses.report(fleet, record(name), tag)))
+        )
 
     # ------------------------------------------------------------------------------------- Mods, packages
 
