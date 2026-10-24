@@ -40,7 +40,7 @@ def test_changelog_newest_first(fleet: Fleet) -> None:
 def test_status_includes_rejected(fleet: Fleet) -> None:
     status = responses.status(fleet)
     assert status.health == "Success" and set(status.sources) == {"manifests", "releases", "observed", "mods"}
-    assert list(status.rejected) == ["multidb@bad-ls9"]
+    assert sorted(status.rejected) == ["multidb@bad-ls9", "multidb@feature-ls1"]
 
 
 def test_builds(fleet: Fleet) -> None:

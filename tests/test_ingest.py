@@ -2,10 +2,19 @@
 
 import pytest
 
-from lsio_hub.ingest import IngestError, fetch_manifests, ingest_one, parse_manifest, pending_releases, reconcile
+from lsio_hub.ingest import (
+    IngestError,
+    fetch_manifests,
+    guess_branch,
+    ingest_one,
+    parse_manifest,
+    pending_releases,
+    reconcile,
+    validate_bundle,
+)
 from lsio_hub.store import Store
 
-from .conftest import NOW, RELEASES, FakeGitHub, build_store
+from .conftest import FIXTURES, NOW, RELEASES, FakeGitHub, build_store
 
 
 def test_reconcile_ingests_every_live_release() -> None:
@@ -24,10 +33,12 @@ def test_reconcile_ingests_every_live_release() -> None:
     assert sonarr.tests["4.0.20.3014-ls2"]["amd64"]["success"] is True
 
 
-def test_rejected_release_is_recorded_and_other_branches_ignored() -> None:
+def test_rejected_releases_are_recorded() -> None:
     store = build_store()
     rejected = store.status["rejected"]
-    assert list(rejected) == ["multidb@bad-ls9"]
+    # bad-ls9 carries a bundle for another tag; feature-ls1 is a release on a dev branch (target_commitish can't
+    # be trusted, so its bundle is fetched and then rejected the same way).
+    assert sorted(rejected) == ["multidb@bad-ls9", "multidb@feature-ls1"]
     assert "differs from the release tag" in rejected["multidb@bad-ls9"]["error"]
     assert rejected["multidb@bad-ls9"]["checked_at"] == NOW
     assert "feature-ls1" not in store.images["multidb"].builds
@@ -47,9 +58,9 @@ def test_second_run_is_idempotent() -> None:
     store = build_store()
     github = FakeGitHub()
     reconcile(store, github, now=lambda: NOW)
-    # Only the rejected release is retried (its build.json asset); nothing already stored is downloaded again.
-    assert len(github.downloads) == 1 and github.downloads[0].endswith("/build.json")
-    assert list(store.status["rejected"]) == ["multidb@bad-ls9"]
+    # Only the rejected releases are retried (their build.json asset); nothing already stored is downloaded again.
+    assert len(github.downloads) == 2 and all(url.endswith("/build.json") for url in github.downloads)
+    assert sorted(store.status["rejected"]) == ["multidb@bad-ls9", "multidb@feature-ls1"]
 
 
 def test_pending_releases_are_oldest_first_and_capped() -> None:
@@ -110,3 +121,62 @@ def test_repo_failure_costs_only_that_repository() -> None:
     assert not store.images["swag"].builds
     assert store.status["sources"]["releases"]["ok"] is False
     assert "docker-swag: boom" in store.status["sources"]["releases"]["error"]
+
+
+def test_real_release_assets_ingest() -> None:
+    """The first live sonarr release (2026-10-24): target_commitish is a sha, so the branch comes from the bundle."""
+    real = FIXTURES / "release"
+
+    class Real(FakeGitHub):
+        def releases(self, repo: str, *, max_pages: int = 3) -> list[dict[str, object]]:
+            if not repo.endswith("docker-sonarr"):
+                return []
+            assets = [
+                {
+                    "name": p.name,
+                    "url": f"https://real.test/{p.name}",
+                    "browser_download_url": f"https://real.test/{p.name}",
+                }
+                for p in sorted(real.iterdir())
+            ]
+            return [
+                {
+                    "tag_name": "4.0.20.3014-ls1",
+                    "target_commitish": "42585b63d894096a69229839a8b5321c03e99efd",
+                    "draft": False,
+                    "prerelease": False,
+                    "created_at": "2026-10-24T20:39:10Z",
+                    "html_url": "https://github.com/linuxserver-playground/docker-sonarr/releases/tag/4.0.20.3014-ls1",
+                    "assets": assets,
+                }
+            ]
+
+        def download(self, url: str) -> bytes:
+            return (real / url.rsplit("/", 1)[1]).read_bytes()
+
+    store = Store()
+    reconcile(store, Real(), now=lambda: NOW)
+    sonarr = store.images["sonarr"]
+    assert list(sonarr.builds) == ["4.0.20.3014-ls1"]
+    assert sonarr.builds["4.0.20.3014-ls1"]["branch"] == "master"
+    assert sonarr.latest["master"]["release_tag"] == "latest"
+    assert sonarr.layers["4.0.20.3014-ls1"]["amd64"][0]["created_by"] == "COPY /root-out/ /"
+    assert sonarr.tests["4.0.20.3014-ls1"]["amd64"]["tests"][0]["name"] == "Container startup"
+    assert sonarr.diffs["4.0.20.3014-ls1"]["classification"] == "initial"
+    assert not sonarr.packages  # no packages asset among the fixtures: no table, no error
+    assert store.status["rejected"] == {}
+
+
+def test_guess_branch_prefers_target_then_tag_prefix() -> None:
+    sonarr = build_store().images["sonarr"]
+    assert guess_branch(sonarr, {"target_commitish": "develop", "tag_name": "x"}) == "develop"
+    assert guess_branch(sonarr, {"target_commitish": "abc123", "tag_name": "develop-5.0.0.1-ls1"}) == "develop"
+    assert guess_branch(sonarr, {"target_commitish": "abc123", "tag_name": "4.0.20.3014-ls1"}) == "master"
+
+
+def test_bundle_for_a_non_live_branch_is_rejected() -> None:
+    store = build_store()
+    sonarr = store.images["sonarr"]
+    release = {"tag_name": "4.0.20.3014-ls2", "target_commitish": "x"}
+    with pytest.raises(IngestError, match="not a live branch"):
+        validate_bundle({**sonarr.builds["4.0.20.3014-ls2"], "branch": "feature"}, release, "sonarr", {"master"})

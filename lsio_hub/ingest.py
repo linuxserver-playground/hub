@@ -111,7 +111,7 @@ def _asset_map(release: Json) -> dict[str, Json]:
     return {a["name"]: a for a in release.get("assets", [])}
 
 
-def validate_bundle(data: Any, release: Json, name: str) -> Json:
+def validate_bundle(data: Any, release: Json, name: str, live_branches: set[str]) -> Json:
     try:
         validate("bundle", data)
     except ContractError as e:
@@ -123,6 +123,8 @@ def validate_bundle(data: Any, release: Json, name: str) -> Json:
         raise IngestError(f"build.json is for image {bundle['image']!r}, expected {name!r}")
     if bundle["version"]["tag"] != release["tag_name"]:
         raise IngestError(f"build.json version.tag {bundle['version']['tag']!r} differs from the release tag")
+    if bundle["branch"] not in live_branches:
+        raise IngestError(f"build.json branch {bundle['branch']!r} is not a live branch of the image")
     return bundle
 
 
@@ -149,7 +151,7 @@ def ingest_release(gh: GitHub, record: ImageRecord, release: Json) -> Json:
         raw = json.loads(gh.download(assets["build.json"]["url"]))
     except (json.JSONDecodeError, UnicodeDecodeError) as e:
         raise IngestError(f"build.json is not JSON: {e}") from e
-    bundle = validate_bundle(raw, release, record.name)
+    bundle = validate_bundle(raw, release, record.name, set(record.manifests))
     tag, branch = bundle["version"]["tag"], bundle["branch"]
     release_tag = bundle["version"].get("release_tag") or record.manifests.get(branch, {}).get("release", {}).get("tag")
     if release_tag is None:
@@ -239,12 +241,29 @@ def _accept(store: Store, record: ImageRecord, release: Json) -> None:
     store.status["rejected"].pop(f"{record.name}@{release.get('tag_name', '?')}", None)
 
 
+def guess_branch(record: ImageRecord, release: Json) -> str | None:
+    """
+    The live branch a release belongs to. The conventions say `target_commitish` is the branch name; the
+    shared workflow currently writes the commit sha, so the tag prefix (`develop-...`) decides, then the
+    default branch. `ingest_release` checks the guess against `branch` in the bundle.
+    """
+    target = str(release.get("target_commitish", ""))
+    if target in record.manifests:
+        return target
+    tag_name = str(release.get("tag_name", ""))
+    for branch, manifest in record.manifests.items():
+        release_tag = manifest["release"]["tag"]
+        if release_tag != "latest" and tag_name.startswith(f"{release_tag}-"):
+            return branch
+    return record.default_branch
+
+
 def pending_releases(record: ImageRecord, releases: list[Json], keep: int = KEEP_BUILDS) -> list[Json]:
     """Releases of live branches not yet in data/, newest `keep` per branch, oldest first so diffs chain."""
     by_branch: dict[str, list[Json]] = {}
     for release in releases:
-        branch = release.get("target_commitish", "")
-        if branch in record.manifests:
+        branch = guess_branch(record, release)
+        if branch is not None:
             by_branch.setdefault(branch, []).append(release)
     pending: list[Json] = []
     for branch_releases in by_branch.values():
