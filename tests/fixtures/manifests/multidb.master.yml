@@ -1,0 +1,122 @@
+# Constructed manifest exercising what sonarr and swag do not: an external database, host paths with
+# defaults, devices, capabilities, security options, custom flags, hostname, selectable variables, a
+# StatefulSet, websocket proxying with extra locations, and an Unraid requirement.
+schema: 1
+name: multidb
+title: MultiDB
+summary: |-
+  [MultiDB](https://example.org/multidb) is a constructed application that needs an external database and
+  a GPU. It exists to exercise every generator.
+extras:
+  - Supports hardware transcoding.
+upstream:
+  url: https://example.org/multidb
+  version:
+    type: github_release
+    repo: example/multidb
+  notes:
+    type: github_release
+    repo: example/multidb
+release:
+  branch: master
+  tag: latest
+  channel: stable
+  tags:
+    - tag: latest
+      description: Stable releases
+      unraid_extra: "<Overview>Stable branch</Overview>"
+    - tag: nightly
+      description: Nightly builds (deprecated)
+      deprecated: true
+build:
+  base: ubuntu
+  version_arg: MULTIDB_VERSION
+  platforms: [amd64, arm64]
+test:
+  web:
+    port: 8080
+    path: /login
+    scheme: https
+runtime:
+  container_name: multidb
+  hostname:
+    value: multidb-host
+    description: Hostname seen by the database
+    optional: true
+  network:
+    mode: bridge
+    description: Use bridge networking.
+    optional: true
+  privileged: optional
+  ports:
+    - { internal: "8080", description: Web interface, name: WebUI }
+    - { internal: "1900/udp", description: Discovery, optional: true }
+  volumes:
+    - { path: /config, description: Configuration files, host_path: /path/to/multidb/config }
+    - { path: /media, description: Media library, optional: true, name: Media }
+    - { path: /lib/modules, description: Kernel modules, mode: ro, host_path: /lib/modules, default_host_path: true, optional: true }
+  env:
+    - { name: DB_HOST, value: mariadb, description: Database host }
+    - { name: DB_PASS, value: changeme, description: Database password }
+    - { name: LOG_LEVEL, value: info, description: Log verbosity, options: [debug, info, warn], title: Log level }
+    - { name: FEATURE_FLAG, value: "", description: Optional feature switch, optional: true }
+  devices:
+    - { path: /dev/dri, description: GPU for transcoding, optional: true }
+  cap_add:
+    - { cap: NET_ADMIN, description: Needed for VPN routing }
+  security_opt:
+    - { run: seccomp=unconfined, compose: seccomp:unconfined, description: Older kernels, optional: true }
+  custom:
+    - { flag: shm-size, compose: shm_size, value: "1gb", description: Shared memory for the browser }
+    - { flag: sysctl, compose: sysctls, value: ["net.ipv4.ip_forward=1"], description: Forwarding, optional: true }
+  readonly: { supported: false }
+  nonroot: { supported: true, notes: "Set PUID and PGID to a non-root user." }
+docs:
+  categories: [Media Servers, Databases]
+  logo: https://example.org/multidb.png
+  setup: |
+    Point `DB_HOST` at your MariaDB container and log in with the credentials printed on first start.
+  notices:
+    hwaccel: true
+  external_application:
+    cli: |
+      docker run -d --name=mariadb -e MYSQL_ROOT_PASSWORD=changeme ghcr.io/linuxserver-playground/mariadb:latest
+    compose: |
+      services:
+        mariadb:
+          image: ghcr.io/linuxserver-playground/mariadb:latest
+          environment:
+            - MYSQL_ROOT_PASSWORD=changeme
+    unraid: |
+      Install the MariaDB template first and point DB_HOST at it.
+    kubernetes: |
+      Deploy a MariaDB StatefulSet and set DB_HOST to its Service name.
+proxy:
+  port: 8080
+  scheme: https
+  subdomain: true
+  subfolder:
+    supported: false
+  websocket: true
+  api_locations: [/api, /ws]
+  extra_locations:
+    - path: /metrics
+      port: 9090
+      scheme: http
+      auth: false
+      raw: |
+        allow 10.0.0.0/8;
+        deny all;
+  notes:
+    - This app serves https itself; the upstream scheme is https.
+publish:
+  stores:
+    cosmos: false
+  unraid:
+    requirement: A MariaDB container reachable as DB_HOST.
+  kubernetes:
+    workload: StatefulSet
+    persistence: [/config, /media]
+changelog:
+  - { date: 2026-10-15, text: Add arm64 build. }
+  - { date: 2026-09-01, text: Initial release. }

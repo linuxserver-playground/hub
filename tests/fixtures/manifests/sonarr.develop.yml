@@ -1,0 +1,158 @@
+# The manifest for docker-sonarr (develop branch). Schema: https://github.com/linuxserver-playground/builder/blob/main/schemas/image.schema.json
+schema: 1
+name: sonarr
+
+summary: |-
+  [Sonarr](https://sonarr.tv/) (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
+
+upstream:
+  url: https://sonarr.tv/
+  version:
+    type: json
+    url: https://services.sonarr.tv/v1/releases
+    jq: .[] | select(.releaseChannel=="v5-nightly") | .version
+  notes:
+    type: github_release
+    repo: sonarr/sonarr
+    tag: v${VERSION}
+  sponsor:
+  - name: Sonarr
+    url: https://sonarr.tv/donate
+
+release:
+  branch: develop
+  tag: develop
+  channel: prerelease
+  tags:
+  - tag: latest
+    description: Stable releases from Sonarr
+  - tag: develop
+    description: Development releases from Sonarr
+
+build:
+  base: alpine
+  version_arg: SONARR_VERSION
+  platforms:
+  - amd64
+  - arm64
+
+test:
+  startup_timeout: 240
+  web:
+    port: 8989
+    path: /system/status
+
+runtime:
+  ports:
+  - internal: '8989'
+    description: The port for the Sonarr web interface
+  volumes:
+  - path: /config
+    host_path: /path/to/sonarr/data
+    description: Database and Sonarr configs
+  - path: /tv
+    host_path: /path/to/tv
+    description: Location of TV library on disk
+    optional: true
+  - path: /downloads
+    host_path: /path/to/download-client-downloads
+    description: Location of download managers output directory
+    optional: true
+  readonly:
+    supported: true
+  nonroot:
+    supported: true
+
+docs:
+  categories:
+  - Media Management
+  logo: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png
+  setup: |
+    New installs will write initial credentials to container log.
+
+    Access the webui at `<your-ip>:8989`, for more information check out [Sonarr](https://sonarr.tv/).
+  notices:
+    media: true
+
+proxy:
+  port: 8989
+  subdomain: true
+  subfolder:
+    supported: true
+    base_url_note: Settings → General → URL Base, set to /sonarr
+  api_locations:
+  - /api
+
+changelog:
+- date: '2026-10-19'
+  text: Add krb5-libs for better postgresql support.
+- date: '2026-10-12'
+  text: Update `develop` branch to v5. New installs will write initial credentials to container log.
+- date: '2026-07-04'
+  text: Rebase to Alpine 3.24.
+- date: '2026-01-15'
+  text: Rebase to Alpine 3.23.
+- date: '2025-07-05'
+  text: Rebase to Alpine 3.22.
+- date: '2024-12-12'
+  text: Rebase to Alpine 3.21.
+- date: '2024-05-25'
+  text: Rebase to Alpine 3.20.
+- date: '2024-01-12'
+  text: Update download url.
+- date: '2023-12-30'
+  text: Rebase to Alpine 3.19.
+- date: '2023-05-30'
+  text: Rebase to Alpine 3.18.
+- date: '2022-12-19'
+  text: Rebase develop branch to Alpine 3.17.
+- date: '2022-11-24'
+  text: Bump develop branch to v4, rebase to Alpine.
+- date: '2022-08-03'
+  text: Deprecate armhf.
+- date: '2022-08-02'
+  text: Rebase develop branch to Ubuntu Focal due to dropping of mono support on Alpine.
+- date: '2022-02-20'
+  text: Rebase develop branch to Alpine.
+- date: '2021-12-13'
+  text: Switch strategy for mediainfo
+- date: '2021-02-10'
+  text: Rebase to mono focal baseimage. Switch to v3 nightlies.
+- date: '2021-01-18'
+  text: Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information.
+- date: '2020-04-05'
+  text: Move app to /app.
+- date: '2019-08-01'
+  text: Rebase to Linuxserver LTS mono version.
+- date: '2019-06-13'
+  text: Add env variable for setting umask.
+- date: '2019-05-10'
+  text: Rebase to Bionic.
+- date: '2019-03-23'
+  text: Switching to new Base images, shift to arm32v7 tag.
+- date: '2019-02-01'
+  text: Multi arch images and pipeline build logic
+- date: '2017-12-15'
+  text: Fix continuation lines.
+- date: '2017-07-12'
+  text: Add inspect commands to README, move to jenkins build and push.
+- date: '2017-04-17'
+  text: Switch to using inhouse mono baseimage, adds python also.
+- date: '2017-04-14'
+  text: Change to mount /etc/localtime in README, thanks cbgj.
+- date: '2017-04-13'
+  text: Switch to official mono repository.
+- date: '2016-09-30'
+  text: Fix umask
+- date: '2016-09-23'
+  text: 'Add cd to /opt fixes redirects with althub (issue #25), make XDG config environment variable'
+- date: '2016-09-15'
+  text: Add libcurl3 package.
+- date: '2016-09-09'
+  text: Add layer badges to README.
+- date: '2016-08-27'
+  text: Add badges to README.
+- date: '2016-07-20'
+  text: Rebase to xenial.
+- date: '2015-08-31'
+  text: Cleanup, changed sources to fetch binarys from. also a new baseimage.

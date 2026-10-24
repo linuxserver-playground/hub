@@ -1,0 +1,74 @@
+"""data/ round-trips exactly, rotation removes files, and a missing directory loads as empty."""
+
+from pathlib import Path
+
+from lsio_hub.ingest import rotate
+from lsio_hub.store import Store, load_store, packages_filename, save_store
+
+from .conftest import build_store
+
+
+def _tree(directory: Path) -> dict[str, bytes]:
+    return {str(p.relative_to(directory)): p.read_bytes() for p in directory.rglob("*") if p.is_file()}
+
+
+def test_round_trips_byte_for_byte(tmp_path: Path) -> None:
+    save_store(tmp_path, build_store())
+    first = _tree(tmp_path)
+    assert not save_store(tmp_path, load_store(tmp_path))
+    assert _tree(tmp_path) == first
+
+
+def test_layout(tmp_path: Path) -> None:
+    save_store(tmp_path, build_store())
+    sonarr = tmp_path / "images" / "sonarr"
+    assert (sonarr / "manifest.master.json").is_file() and (sonarr / "manifest.develop.json").is_file()
+    assert (sonarr / "builds" / "4.0.20.3014-ls2.json").is_file()
+    assert (sonarr / "builds" / "4.0.20.3014-ls2.diff.json").is_file()
+    assert (sonarr / "builds" / "4.0.20.3014-ls2.layers.amd64.json").is_file()
+    assert (sonarr / "builds" / "4.0.20.3014-ls2.test.arm64.json").is_file()
+    assert (sonarr / "packages.amd64.json").is_file()
+    assert (sonarr / "packages.develop.amd64.json").is_file()
+    assert (sonarr / "latest.json").is_file() and (sonarr / "history.json").is_file()
+    assert (tmp_path / "observed.json").is_file() and (tmp_path / "mods.json").is_file()
+    # Builds are compact; everything else is indented for readable diffs.
+    assert b"\n" not in (sonarr / "builds" / "4.0.20.3014-ls2.json").read_bytes().rstrip(b"\n")
+    assert (sonarr / "manifest.master.json").read_text().startswith("{\n ")
+
+
+def test_packages_filename() -> None:
+    assert packages_filename("latest", "amd64") == "packages.amd64.json"
+    assert packages_filename("develop", "arm64") == "packages.develop.arm64.json"
+
+
+def test_rotation_drops_old_builds_but_keeps_history(tmp_path: Path) -> None:
+    store = build_store()
+    sonarr = store.images["sonarr"]
+    assert rotate(sonarr, keep=1) == ["4.0.19.2000-ls1"]
+    assert sorted(sonarr.builds) == ["4.0.20.3014-ls2", "develop-5.0.1.1234-ls1"]
+    assert "4.0.19.2000-ls1" not in sonarr.diffs and "4.0.19.2000-ls1" not in sonarr.tests
+    assert [h["tag"] for h in sonarr.history["master"]] == ["4.0.20.3014-ls2", "4.0.19.2000-ls1"]
+    save_store(tmp_path, store)
+    assert not list((tmp_path / "images" / "sonarr" / "builds").glob("4.0.19.2000-ls1*"))
+
+
+def test_removed_image_directory_is_deleted(tmp_path: Path) -> None:
+    store = build_store()
+    save_store(tmp_path, store)
+    store.images.pop("swag")
+    assert "-images/swag" in save_store(tmp_path, store)
+    assert not (tmp_path / "images" / "swag").exists()
+
+
+def test_missing_data_loads_as_empty(tmp_path: Path) -> None:
+    store = load_store(tmp_path)
+    assert store.images == {} and store.status == Store().status
+
+
+def test_record_helpers() -> None:
+    sonarr = build_store().images["sonarr"]
+    assert sonarr.default_branch == "master"
+    assert sonarr.branch_of("develop") == "develop"
+    latest = sonarr.latest_build()
+    assert latest is not None and latest["version"]["tag"] == "4.0.20.3014-ls2"
+    assert [b["version"]["tag"] for b in sonarr.builds_of("master")] == ["4.0.20.3014-ls2", "4.0.19.2000-ls1"]
