@@ -1,0 +1,106 @@
+# Refreshes data/, commits it, builds the API and the generated artefacts and publishes everything to GitHub
+# Pages: hourly (reconcile every repository and release, poll stars and GHCR tags, refresh the mods index),
+# on every push to main (committed data only), on demand, and when the control plane sends a
+# repository_dispatch of type `image-released` with {"repository": "owner/name", "tag": "<tag>"}.
+#
+# GITHUB_TOKEN is enough: the hub only reads public repositories and releases in its own organisation.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 * * * *'
+  repository_dispatch:
+    types: [image-released]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - run: pip install -e .
+
+      - name: Ingest one release
+        if: github.event_name == 'repository_dispatch'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >
+          python -m lsio_hub.ingest
+          --repo "${{ github.event.client_payload.repository }}"
+          --tag "${{ github.event.client_payload.tag }}"
+
+      - name: Reconcile, observe and refresh the mods index
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m lsio_hub.ingest --reconcile
+          python -m lsio_hub.observe
+          python -m lsio_hub.mods
+
+      - name: Commit refreshed data
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if ! git diff --cached --quiet; then
+            git commit -m "Update data"
+            # main may have moved since the checkout; only this step writes data/, so the rebase is clean.
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+
+      - id: pages
+        uses: actions/configure-pages@v6
+
+      - name: Restore unpacked build reports
+        # Report tarballs and file trees come from the Releases; a cache keeps re-runs from downloading them again.
+        uses: actions/cache@v4
+        with:
+          path: out/builds
+          key: build-reports-${{ github.run_id }}
+          restore-keys: build-reports-
+
+      - name: Build the API and every generated artefact
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m lsio_hub.build
+          python -m lsio_hub.generate
+          # dist/ is the API and docs page; out/ merges onto the site root: /stores/<platform>/ and /builds/.
+          cp -r out/. dist/
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
