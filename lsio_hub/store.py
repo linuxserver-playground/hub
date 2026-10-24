@@ -1,0 +1,244 @@
+"""
+The data/ directory: what the ingest and the poller write and everything else reads. Raw inputs are kept
+(manifests as fetched, build records as received) rather than finished responses, so a change to how a
+field is derived needs no refetch, builds are deterministic and work offline, and every data commit is a
+readable diff.
+
+    data/images/<name>/manifest.<branch>.json      image.yml of each live branch, as JSON
+    data/images/<name>/builds/<tag>.json           build.json of a live release, compact, as received
+    data/images/<name>/builds/<tag>.diff.json      the diff against the previous build of the branch
+    data/images/<name>/builds/<tag>.layers.<arch>.json
+    data/images/<name>/builds/<tag>.test.<arch>.json    the ci harness report (test.<arch>.json on the Release)
+    data/images/<name>/packages[.<release tag>].<arch>.json   normalised package table of the newest build
+                                                   of each branch (no infix for the `latest` branch)
+    data/images/<name>/latest.json                 branch -> newest build: tag, release url, asset urls
+    data/images/<name>/history.json                branch -> every release seen, newest first
+    data/observed.json                             stars, archived flag, GHCR tags (poller only)
+    data/mods.json                                 the mods index
+    data/status.json                               per-source refresh status and rejected releases
+"""
+
+from __future__ import annotations
+
+import json
+import re
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Any
+
+from .config import ARCHES
+
+Json = dict[str, Any]
+
+_BUILD_FILE = re.compile(r"^(?P<tag>.+?)(?:\.(?P<kind>diff|(?:layers|test)\.(?P<arch>amd64|arm64)))?\.json$")
+_PACKAGES_FILE = re.compile(r"^packages(?:\.(?P<infix>.+))?\.(?P<arch>amd64|arm64)\.json$")
+_MANIFEST_FILE = re.compile(r"^manifest\.(?P<branch>.+)\.json$")
+
+
+@dataclass
+class ImageRecord:
+    """Everything data/ holds about one image. Dict keys are documented on the attributes."""
+
+    name: str
+    manifests: dict[str, Json] = field(default_factory=dict)
+    """branch -> image.yml as JSON."""
+    builds: dict[str, Json] = field(default_factory=dict)
+    """release tag (4.0.20-ls1) -> build.json."""
+    diffs: dict[str, Json] = field(default_factory=dict)
+    """release tag -> diff.json."""
+    layers: dict[str, dict[str, list[Json]]] = field(default_factory=dict)
+    """release tag -> arch -> layers.<arch>.json."""
+    tests: dict[str, dict[str, Json]] = field(default_factory=dict)
+    """release tag -> arch -> test.<arch>.json."""
+    packages: dict[str, dict[str, Json]] = field(default_factory=dict)
+    """branch -> arch -> {branch, release_tag, tag, arch, packages: [...]}, the newest build of the branch."""
+    latest: dict[str, Json] = field(default_factory=dict)
+    """branch -> {tag, release_tag, created, release_url, assets: {name: url}}."""
+    history: dict[str, list[Json]] = field(default_factory=dict)
+    """branch -> [{tag, created, release_url}], newest first, including builds rotated out of data/."""
+
+    @property
+    def default_branch(self) -> str | None:
+        """The branch whose manifest publishes `latest`, else the first branch with a manifest."""
+        for branch, manifest in self.manifests.items():
+            if manifest.get("release", {}).get("tag") == "latest":
+                return branch
+        return next(iter(self.manifests), None)
+
+    @property
+    def manifest(self) -> Json | None:
+        branch = self.default_branch
+        return self.manifests[branch] if branch else None
+
+    def branch_of(self, release_tag: str) -> str | None:
+        """The branch that publishes a release tag (`latest`, `develop`)."""
+        for branch, manifest in self.manifests.items():
+            if manifest.get("release", {}).get("tag") == release_tag:
+                return branch
+        return None
+
+    def builds_of(self, branch: str) -> list[Json]:
+        """Builds of a branch in data/, newest first."""
+        found = [b for b in self.builds.values() if b.get("branch") == branch]
+        return sorted(found, key=lambda b: (b["created"], b["version"].get("ls_build", 0)), reverse=True)
+
+    def latest_build(self, branch: str | None = None) -> Json | None:
+        branch = branch or self.default_branch
+        if branch is None:
+            return None
+        builds = self.builds_of(branch)
+        return builds[0] if builds else None
+
+    def sorted_builds(self) -> list[Json]:
+        """Every build in data/, newest first."""
+        return sorted(self.builds.values(), key=lambda b: (b["created"], b["version"].get("ls_build", 0)), reverse=True)
+
+
+@dataclass
+class Store:
+    images: dict[str, ImageRecord] = field(default_factory=dict)
+    observed: Json = field(default_factory=dict)
+    """{fetched_at, images: {name: {stars, archived, pushed_at, ghcr_tags}}}"""
+    mods: Json = field(default_factory=dict)
+    """{fetched_at, source, mods: [...]}"""
+    status: Json = field(default_factory=lambda: {"sources": {}, "rejected": {}})
+    """{sources: {name: SourceStatus}, rejected: {"<image>@<tag>": {checked_at, release_url, error}}}"""
+
+    def record(self, name: str) -> ImageRecord:
+        return self.images.setdefault(name, ImageRecord(name=name))
+
+
+# ---------------------------------------------------------------------------------------------------
+# Reading
+
+
+def _read(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else None
+
+
+def load_record(directory: Path) -> ImageRecord:
+    record = ImageRecord(name=directory.name)
+    for path in sorted(directory.glob("manifest.*.json")):
+        m = _MANIFEST_FILE.match(path.name)
+        if m:
+            record.manifests[m["branch"]] = _read(path)
+    for path in sorted((directory / "builds").glob("*.json")) if (directory / "builds").is_dir() else []:
+        m = _BUILD_FILE.match(path.name)
+        if not m:
+            continue
+        tag, kind = m["tag"], m["kind"]
+        if kind is None:
+            record.builds[tag] = _read(path)
+        elif kind == "diff":
+            record.diffs[tag] = _read(path)
+        elif kind.startswith("layers."):
+            record.layers.setdefault(tag, {})[m["arch"]] = _read(path)
+        else:
+            record.tests.setdefault(tag, {})[m["arch"]] = _read(path)
+    for path in sorted(directory.glob("packages.*.json")):
+        m = _PACKAGES_FILE.match(path.name)
+        if m:
+            table = _read(path)
+            record.packages.setdefault(table["branch"], {})[m["arch"]] = table
+    record.latest = _read(directory / "latest.json") or {}
+    record.history = _read(directory / "history.json") or {}
+    return record
+
+
+def load_store(data_dir: Path) -> Store:
+    """Reads data/. Missing files are treated as empty so a fresh checkout can ingest straight away."""
+    store = Store()
+    images_dir = data_dir / "images"
+    if images_dir.is_dir():
+        for directory in sorted(p for p in images_dir.iterdir() if p.is_dir()):
+            store.images[directory.name] = load_record(directory)
+    store.observed = _read(data_dir / "observed.json") or {}
+    store.mods = _read(data_dir / "mods.json") or {}
+    status = _read(data_dir / "status.json") or {}
+    store.status = {"sources": status.get("sources", {}), "rejected": status.get("rejected", {})}
+    return store
+
+
+# ---------------------------------------------------------------------------------------------------
+# Writing
+
+
+def _dump(value: Any, *, compact: bool = False) -> str:
+    if compact:
+        return json.dumps(value, separators=(",", ":"), ensure_ascii=False) + "\n"
+    return json.dumps(value, indent=1, ensure_ascii=False) + "\n"
+
+
+def _write(path: Path, text: str, written: set[Path]) -> bool:
+    """Writes only when the content differs; returns whether it did."""
+    written.add(path)
+    if path.is_file() and path.read_text(encoding="utf-8") == text:
+        return False
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+    return True
+
+
+def packages_filename(release_tag: str, arch: str) -> str:
+    """packages.amd64.json for the latest branch, packages.develop.amd64.json for the others."""
+    return f"packages.{arch}.json" if release_tag == "latest" else f"packages.{release_tag}.{arch}.json"
+
+
+def record_files(record: ImageRecord) -> dict[str, str]:
+    """Every file of an image directory as {relative path: text}."""
+    files: dict[str, str] = {}
+    for branch, manifest in sorted(record.manifests.items()):
+        files[f"manifest.{branch}.json"] = _dump(manifest)
+    for tag, build in sorted(record.builds.items()):
+        files[f"builds/{tag}.json"] = _dump(build, compact=True)
+    for tag, diff in sorted(record.diffs.items()):
+        if tag in record.builds:
+            files[f"builds/{tag}.diff.json"] = _dump(diff)
+    for tag, per_arch in sorted(record.layers.items()):
+        if tag in record.builds:
+            for arch in ARCHES:
+                if arch in per_arch:
+                    files[f"builds/{tag}.layers.{arch}.json"] = _dump(per_arch[arch], compact=True)
+    for tag, reports in sorted(record.tests.items()):
+        if tag in record.builds:
+            for arch in ARCHES:
+                if arch in reports:
+                    files[f"builds/{tag}.test.{arch}.json"] = _dump(reports[arch], compact=True)
+    for tables in record.packages.values():
+        for arch, table in tables.items():
+            files[packages_filename(table["release_tag"], arch)] = _dump(table, compact=True)
+    files["latest.json"] = _dump(dict(sorted(record.latest.items())))
+    files["history.json"] = _dump(dict(sorted(record.history.items())))
+    return files
+
+
+def save_record(images_dir: Path, record: ImageRecord) -> list[str]:
+    """Writes an image directory and removes files that no longer belong (rotated builds, gone branches)."""
+    directory = images_dir / record.name
+    written: set[Path] = set()
+    changed = [rel for rel, text in record_files(record).items() if _write(directory / rel, text, written)]
+    for path in list(directory.glob("*.json")) + list((directory / "builds").glob("*.json")):
+        if path not in written:
+            path.unlink()
+            changed.append(f"-{path.relative_to(directory)}")
+    return changed
+
+
+def save_store(data_dir: Path, store: Store) -> list[str]:
+    """Writes data/; returns the relative paths that changed (prefixed with - when removed)."""
+    changed: list[str] = []
+    images_dir = data_dir / "images"
+    images_dir.mkdir(parents=True, exist_ok=True)
+    for name, record in sorted(store.images.items()):
+        changed += [f"images/{name}/{rel}" for rel in save_record(images_dir, record)]
+    for directory in images_dir.iterdir():
+        if directory.is_dir() and directory.name not in store.images:
+            for path in sorted(directory.rglob("*"), reverse=True):
+                path.unlink() if path.is_file() else path.rmdir()
+            directory.rmdir()
+            changed.append(f"-images/{directory.name}")
+    written: set[Path] = set()
+    for name, value in (("observed.json", store.observed), ("mods.json", store.mods), ("status.json", store.status)):
+        if _write(data_dir / name, _dump(value), written):
+            changed.append(name)
+    return changed
