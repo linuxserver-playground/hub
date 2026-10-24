@@ -180,3 +180,10 @@ def test_bundle_for_a_non_live_branch_is_rejected() -> None:
     release = {"tag_name": "4.0.20.3014-ls2", "target_commitish": "x"}
     with pytest.raises(IngestError, match="not a live branch"):
         validate_bundle({**sonarr.builds["4.0.20.3014-ls2"], "branch": "feature"}, release, "sonarr", {"master"})
+
+
+def test_ingest_one_without_a_release_is_a_no_op() -> None:
+    """A dispatch for a run that released nothing must not fail the deploy (FakeGitHub answers 404)."""
+    store = Store()
+    assert ingest_one(store, FakeGitHub(), "linuxserver-playground/docker-swag", "9.9.9-ls1", now=lambda: NOW) is False
+    assert "swag" not in store.images or "9.9.9-ls1" not in store.images["swag"].builds

@@ -334,7 +334,15 @@ def ingest_one(store: Store, gh: GitHub, repo: str, tag: str, now: Now = _now) -
     record = store.record(name)
     default_branch = gh.get(f"repos/{repo}")["default_branch"]
     record.manifests = fetch_manifests(gh, repo, default_branch)
-    release = gh.release_by_tag(repo, tag)
+    try:
+        release = gh.release_by_tag(repo, tag)
+    except httpx2.HTTPStatusError as e:
+        if e.response.status_code == 404:
+            # A dispatch for a run that released nothing (or a release deleted since): nothing to ingest,
+            # and not a deploy failure. The hourly reconcile catches anything that appears later.
+            log.warning("%s has no release %s; nothing to ingest", repo, tag)
+            return False
+        raise
     if tag in record.builds:
         log.info("%s@%s already ingested", name, tag)
         return False
