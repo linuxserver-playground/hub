@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>LinuxServer.io image changelog</title>
+  <subtitle>Notable changes to LinuxServer.io container images.</subtitle>
+  <id>{{ self_url }}</id>
+  <link rel="self" href="{{ self_url }}"/>
+  <link rel="alternate" href="{{ site_url }}"/>
+  <updated>{{ updated }}</updated>
+  <author><name>LinuxServer.io</name></author>
+{% for item in entries %}
+  <entry>
+    <id>{{ item.id }}</id>
+    <title>{{ item.entry.image }}: {{ item.entry.desc }}</title>
+    <updated>{{ item.entry.date }}T00:00:00Z</updated>
+    <link rel="alternate" href="{{ item.link }}"/>
+    <category term="{{ item.entry.image }}"/>
+    <content type="text">{{ item.entry.desc }}</content>
+  </entry>
+{% endfor %}
+</feed>

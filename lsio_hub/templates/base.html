@@ -1,0 +1,80 @@
+{#- The page shell from www.linuxserver.io's Raft design: status strip, header, main, footer. -#}
+{% from "macros.html" import external %}
+<!doctype html>
+<html lang="en-GB" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0913" media="(prefers-color-scheme: dark)" />
+    <link rel="canonical" href="{{ config.site_root }}" />
+    <link rel="icon" href="{{ base }}favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/atom+xml" title="Image changelog" href="{{ base }}api/v1/changelog.xml" />
+    <link rel="preload" href="{{ base }}assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="{{ base }}assets/site.css" />
+    <script>
+      // Raft is dark unless the visitor chose light; applied before first paint so the page never flashes.
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t === 'light') document.documentElement.classList.remove('dark');
+      })();
+    </script>
+    <script src="{{ base }}assets/site.js" defer></script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <aside aria-label="Data status" class="strip">
+      <div class="container strip-inner">
+        <p class="strip-status">
+          <span class="pulse{{ '' if healthy else ' pulse-bad' }}" aria-hidden="true"></span>
+          <span><a href="{{ base }}api/v1/status.json">{{ 'Data is current' if healthy else 'Last refresh failed' }}</a> ·
+            <span class="fg">{{ stats.images }}</span> images</span>
+        </p>
+        <p class="strip-date">refreshed <time datetime="{{ fleet.updated_at }}">{{ fleet.updated_at | timestamp }}</time></p>
+      </div>
+    </aside>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="{{ base }}" class="brand" aria-label="LinuxServer.io API home">{% with class_name='brand-logo', id_prefix='logo-header' %}{% include 'wordmark.svg' %}{% endwith %}<span class="brand-tag">HUB</span></a>
+        <nav aria-label="Main" class="main-nav">
+          <ul>
+            <li><a href="{{ base }}#endpoints">Endpoints</a></li>
+            <li><a href="{{ base }}openapi.json">OpenAPI</a></li>
+            <li><a href="{{ base }}api/v1/stores/index.json">Stores</a></li>
+            <li><a href="{{ base }}builds/">Builds</a></li>
+            <li>{{ external('https://docs.linuxserver.io/', 'Docs') }}</li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="https://github.com/linuxserver-playground" class="icon-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3" /></svg>
+            <span class="sr-only">LinuxServer.io on GitHub (opens in a new tab)</span>
+          </a>
+          <button type="button" class="icon-btn theme-toggle" aria-label="Switch to light theme" data-theme-toggle>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon icon-sun"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" /><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="icon icon-moon"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" /></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">{% block main %}{% endblock %}</main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          {% with class_name='footer-logo', id_prefix='logo-footer' %}{% include 'wordmark.svg' %}{% endwith %}
+          <p class="muted">Volunteers building and maintaining the largest collection of community Docker images. Free and open source, always.</p>
+        </div>
+        <ul class="footer-links">
+          <li>{{ external('https://www.linuxserver.io', 'linuxserver.io') }}</li>
+          <li>{{ external('https://docs.linuxserver.io/', 'Documentation') }}</li>
+          <li>{{ external('https://www.linuxserver.io/support/', 'Support') }}</li>
+          <li>{{ external('https://discord.gg/YWrKVTn', 'Discord') }}</li>
+          <li>{{ external('https://github.com/linuxserver', 'GitHub') }}</li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

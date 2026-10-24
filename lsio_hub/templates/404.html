@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Not found | LinuxServer Hub API{% endblock %}
+{% block description %}There is nothing at this address.{% endblock %}
+{% block main %}
+<div class="hero">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="container hero-inner hero-narrow">
+    <div>
+      <p class="raft-eyebrow"><span class="accent" aria-hidden="true">//</span> 404</p>
+      <h1>Nothing here</h1>
+      <p class="lede">There is no endpoint or image at this address. Image names are lowercase, as in <code>ghcr.io/linuxserver-playground/&lt;name&gt;</code>.</p>
+      <div class="hero-actions"><a href="{{ base }}#endpoints" class="btn btn-solid">See all endpoints</a></div>
+    </div>
+  </div>
+</div>
+{% endblock %}

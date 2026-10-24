@@ -1,0 +1,64 @@
+{#- Shared pieces: links, stat tiles, and the endpoint reference (one panel per operation, from site.py). -#}
+
+{% macro external(href, label, class="") -%}
+<a href="{{ href }}" class="{{ class }}" target="_blank" rel="noopener">{{ label }}<span class="sr-only"> (opens in a new tab)</span></a>
+{%- endmacro %}
+
+{% macro stat_tile(label, n, noun, short=False) %}
+<div class="raft-panel stat">
+  <p class="raft-eyebrow">{{ label }}</p>
+  <p class="stat-value"><span aria-hidden="true">{{ (n | compact) if short else (n | grouped) }}</span><span class="sr-only">{{ n | grouped }} {{ noun }}</span></p>
+</div>
+{% endmacro %}
+
+{% macro field_list(fields) %}
+<ul class="fields">
+  {% for f in fields %}
+  {% set head %}<span class="field-name">{{ f.name }}</span> <span class="field-type">{{ f.type }}</span>{% if f.required %} <span class="field-req">required</span>{% endif %}{% endset %}
+  {% set desc %}{% if f.description %}<div class="field-desc">{{ f.description | markdown }}</div>{% endif %}{% endset %}
+  <li>
+    {% if f.children %}
+    <details><summary>{{ head }}</summary>{{ desc }}{{ field_list(f.children) }}</details>
+    {% else %}
+    <div class="field-head">{{ head }}</div>{{ desc }}
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endmacro %}
+
+{% macro operation(op) %}
+<article class="op raft-panel" id="{{ op.anchor }}" aria-labelledby="{{ op.anchor }}-title">
+  <header class="op-head">
+    <span class="method">GET</span>
+    <code class="op-path">{% for text, is_param in op.path_parts %}{% if is_param %}<span class="path-param">{{ text }}</span>{% else %}{{ text }}{% endif %}{% endfor %}</code>
+  </header>
+  <div class="op-body">
+    <h3 id="{{ op.anchor }}-title">{{ op.summary }}</h3>
+    <div class="prose">{{ op.description | markdown }}</div>
+    {% if op.params %}
+    <h4>Parameters</h4>
+    {{ field_list(op.params) }}
+    {% endif %}
+    <h4>Response <span class="media">{{ op.media_type }}</span></h4>
+    {% if op.fields %}
+    <details class="schema"><summary>{{ op.response }}</summary>{{ field_list(op.fields) }}</details>
+    {% else %}
+    <p class="muted">{{ op.response }}.</p>
+    {% endif %}
+    <div class="try" data-path="{{ op.path }}">
+      {% if op.name_param %}
+      <label class="try-label">{{ op.name_param }}
+        <input class="try-input" name="{{ op.name_param }}" list="image-names" value="{{ op.default_name }}" autocomplete="off" spellcheck="false" />
+      </label>
+      {% endif %}
+      <button type="button" class="btn btn-primary try-send">Try it</button>
+      {{ external(op.open_href, 'Open', 'btn try-open') }}
+      <div class="try-result" hidden>
+        <p class="try-meta" aria-live="polite"></p>
+        <pre class="code"><code></code></pre>
+      </div>
+    </div>
+  </div>
+</article>
+{% endmacro %}
