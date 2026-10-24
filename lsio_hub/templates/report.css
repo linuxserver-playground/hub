@@ -1,0 +1,19 @@
+:root { color-scheme: light dark; --ok: #2e8b57; --bad: #c0392b; --warn: #b7791f; --muted: #777; --line: #8884; }
+body { font: 15px/1.5 system-ui, sans-serif; margin: 0 auto; max-width: 72rem; padding: 1rem 1.25rem; }
+a { color: inherit; }
+h1 { font-size: 1.5rem; margin: .2rem 0; }
+h2 { font-size: 1.1rem; margin: 1.5rem 0 .5rem; border-bottom: 1px solid var(--line); }
+table { border-collapse: collapse; width: 100%; font-size: .92em; }
+td, th { text-align: left; padding: .3rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.pill { display: inline-block; padding: 0 .5em; border-radius: 1em; color: #fff; font-size: .8em; font-weight: 600; }
+.PASS, .success, .true { background: var(--ok); }
+.FAIL, .failure, .false { background: var(--bad); }
+.WARN, .cancelled, .SKIP, .skipped, .none { background: var(--warn); }
+.muted { color: var(--muted); }
+pre { overflow: auto; max-height: 28rem; padding: .6rem; border: 1px solid var(--line); font-size: .85em; }
+dl { display: grid; grid-template-columns: max-content 1fr; gap: .2rem 1rem; }
+dt { color: var(--muted); }
+dd { margin: 0; word-break: break-all; }
+img.shot { max-width: 100%; border: 1px solid var(--line); }
+nav a { margin-right: 1rem; }
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); }
