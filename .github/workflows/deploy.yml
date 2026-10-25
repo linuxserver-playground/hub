@@ -30,8 +30,19 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      store_credentials: ${{ steps.store.outputs.configured }}
     steps:
       - uses: actions/checkout@v7
+
+      - name: Check for store credentials
+        # Jobs cannot read secrets in their `if`, so the build job reports whether the store app is configured.
+        id: store
+        env:
+          CONFIGURED: ${{ secrets.STORE_APP_ID != '' && secrets.STORE_APP_PRIVATE_KEY != '' }}
+        run: |
+          echo "configured=$CONFIGURED" >> "$GITHUB_OUTPUT"
+          [ "$CONFIGURED" = "true" ] || echo "::notice::STORE_APP_ID / STORE_APP_PRIVATE_KEY not set; the Umbrel and Runtipi store repositories are not updated"
 
       - uses: actions/setup-python@v7
         with:
@@ -143,9 +154,10 @@ jobs:
 
   publish-stores:
     # Umbrel and Runtipi clone a git repository and want the store at its root, so each gets a repository of its
-    # own: the import URL is the repository URL. Not on pull requests: those have no business pushing anywhere.
+    # own: the import URL is the repository URL. Skipped until the store app's secrets exist; not on pull requests,
+    # those have no business pushing anywhere.
     needs: build
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && needs.build.outputs.store_credentials == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
