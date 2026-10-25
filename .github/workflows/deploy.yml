@@ -55,8 +55,9 @@ jobs:
       - name: Ingest every pending release
         # The event's release is only a hint. GitHub keeps one pending run in the concurrency group and drops older
         # ones, so each run sweeps the organisation for every release it does not hold yet: a dropped event loses
-        # nothing, and a burst of releases is picked up by whichever run comes next.
-        if: github.event_name == 'repository_dispatch'
+        # nothing, and a burst of releases is picked up by whichever run comes next. Push runs sweep too: a push can
+        # take the one pending slot from a release run, and must not leave its releases waiting.
+        if: github.event_name == 'repository_dispatch' || github.event_name == 'push'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HINT: ${{ github.event.client_payload.repository }}
@@ -65,7 +66,6 @@ jobs:
       - name: Install grype
         # Pinned; the observe step scans the newest build of each branch with it (skipped gracefully without it).
         id: grype
-        if: github.event_name != 'push'
         env:
           GRYPE_VERSION: 0.121.0
           GRYPE_SHA256: 64e07133d3486115de647a66581461dccf5c732748a0a3119077395565f15519
@@ -78,7 +78,6 @@ jobs:
 
       - name: Restore the grype vulnerability database
         # One cache entry a day: the poller updates the database at most once per 24 h, the hourly runs reuse it.
-        if: github.event_name != 'push'
         uses: actions/cache@v4
         with:
           path: ~/.cache/grype/db
@@ -97,13 +96,12 @@ jobs:
       - name: Scan new builds for vulnerabilities
         # Release runs scan what they just ingested (the poller only scans what is due), so a new build does not
         # wait for the next scheduled run to show its vulnerabilities.
-        if: github.event_name == 'repository_dispatch'
+        if: github.event_name == 'repository_dispatch' || github.event_name == 'push'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m lsio_hub.vulns
 
       - name: Commit refreshed data
-        if: github.event_name != 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

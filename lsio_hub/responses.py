@@ -782,6 +782,12 @@ def stores_index(fleet: Fleet) -> list[StoreEntry]:
             url=f"{root}/cosmos/index.json",
             how_to="Cosmos > Market > Sources > add the URL.",
         ),
+        StoreEntry(
+            platform="arcane",
+            name="Arcane template registry",
+            url=f"{root}/arcane/registry.json",
+            how_to="Arcane > Customization > Templates > Add Registry > the URL.",
+        ),
     ]
 
 

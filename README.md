@@ -37,12 +37,13 @@ docker-mods mod.yml ─────────┘                     │      
 
 `deploy.yml` runs hourly (reconcile, observe with the grype scan, mods), on `repository_dispatch` type
 `image-released` (`client_payload: {repository, tag}`, sent by the control plane) and on every push to `main`. A
-release run treats its payload as a hint: `ingest --pending` sweeps the organisation (one listing, one releases
+release run treats its payload as a hint, and push runs do the same: `ingest --pending` sweeps the organisation (one listing, one releases
 page per image repository) and ingests every release `data/` lacks, then scans the new builds with grype. GitHub
 keeps one pending run per concurrency group and drops older ones, so a burst of releases is picked up by whichever
-run comes next and none is lost. It commits `data/` when it changed, builds `dist/`, generates `out/`, merges
+run comes next (a push run included) and none is lost. It commits `data/` when it changed, builds `dist/`, generates `out/`, merges
 `out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and `/builds/…`; a
-second job pushes the Unraid, Umbrel and Runtipi stores to their own repositories (see Generators). Reads use `GITHUB_TOKEN` only.
+second job pushes the Unraid, Umbrel and Runtipi stores to their own repositories (see Generators). The Arcane
+template registry is served from Pages: `<hub>/stores/arcane/registry.json`. Reads use `GITHUB_TOKEN` only.
 
 | Module | |
 | --- | --- |

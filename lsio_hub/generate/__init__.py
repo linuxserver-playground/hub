@@ -9,7 +9,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from pathlib import Path
 
-from . import builds, casaos, cosmos, docs, kubernetes, mods, portainer, proxy, quadlet, runtipi, umbrel, unraid
+from . import arcane, builds, casaos, cosmos, docs, kubernetes, mods, portainer, proxy, quadlet, runtipi, umbrel, unraid
 from .common import Files, GenerateContext
 
 Generator = Callable[[GenerateContext], Files]
@@ -22,6 +22,7 @@ GENERATORS: dict[str, Generator] = {
     "umbrel": umbrel.generate,
     "runtipi": runtipi.generate,
     "cosmos": cosmos.generate,
+    "arcane": arcane.generate,
     "proxy": proxy.generate,
     "kubernetes": kubernetes.generate,
     "quadlet": quadlet.generate,
