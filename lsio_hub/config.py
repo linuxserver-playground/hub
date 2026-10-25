@@ -15,8 +15,6 @@ REGISTRY = "ghcr.io"
 IMAGE_PREFIX = f"{REGISTRY}/{ORG}"
 MODS_IMAGE = f"{IMAGE_PREFIX}/mods"
 MODS_REPO = f"{ORG}/docker-mods"
-LEGACY_MODS_REPO = "linuxserver/docker-mods"
-LEGACY_MOD_LIST_URL = f"https://raw.githubusercontent.com/{LEGACY_MODS_REPO}/master/mod-list.yml"
 STORE_REPOS = {"unraid": f"{ORG}/unraid-store", "umbrel": f"{ORG}/umbrel-store", "runtipi": f"{ORG}/runtipi-store"}
 """Platforms that read a git repository and want the store at its root: deploy.yml pushes out/stores/<platform>/
 to these repositories (scripts/publish_store.sh); the repository URL is the import URL."""

@@ -15,12 +15,14 @@ from lsio_hub.store import Store
 from .conftest import (
     BASE_DIGEST,
     FIXTURES,
+    MOD_YMLS,
     NOW,
     UNKNOWN_BASE_DIGEST,
     FakeGitHub,
+    Json,
     build_store,
     layer_digest,
-    legacy_http,
+    registry_http,
 )
 
 
@@ -40,7 +42,7 @@ def test_observe_failure_keeps_previous_data() -> None:
             raise RuntimeError("down")
 
     store = build_store()
-    observe(store, Broken(), legacy_http(), now=lambda: "2026-10-25T00:00:00Z")
+    observe(store, Broken(), registry_http(), now=lambda: "2026-10-25T00:00:00Z")
     assert store.observed["images"]["sonarr"]["stars"] == 7
     status = store.status["sources"]["observed"]
     assert status == {"ok": False, "checked_at": "2026-10-25T00:00:00Z", "fetched_at": NOW, "error": "down"}
@@ -62,40 +64,37 @@ def test_ghcr_tags_follow_link_header() -> None:
     assert ghcr_tags(httpx2.Client(transport=httpx2.MockTransport(handle)), "x") == ["a", "b", "c"]
 
 
-def test_legacy_mod_list_conversion() -> None:
-    store = build_store()
-    by_branch = {m["branch"]: m for m in store.mods["mods"]}
-    docker = by_branch["universal-docker"]
-    assert docker["name"] == "docker" and docker["target"] == "universal"
-    assert docker["applies_to"] == ["universal", "code-server", "openvscode-server", "vscodium-web"]
-    poetry = by_branch["code-server-python3-poetry"]
-    assert poetry["name"] == "python3-poetry" and poetry["target"] == "code-server"
-    assert set(poetry["applies_to"]) == {"code-server", "openvscode-server", "vscodium-web"}
-    assert by_branch["radarr-striptracks"]["applies_to"] == ["radarr", "sonarr"]
-    assert by_branch["swag-auto-reload"]["applies_to"] == ["swag", "nginx"]
-    assert {m["source"] for m in store.mods["mods"]} == {"legacy"}
-    assert all(m["image"].startswith("ghcr.io/linuxserver/mods:") for m in store.mods["mods"])  # never rewritten
-
-
-def test_playground_mods_when_the_repository_exists() -> None:
+def test_mods_from_each_branch() -> None:
     store = Store()
-    mods.refresh_mods(store, FakeGitHub(mods_repo=True), legacy_http(), now=lambda: NOW)
+    mods.refresh_mods(store, FakeGitHub(), now=lambda: NOW)
     assert store.mods["source"].startswith("mod.yml on each branch")
-    [mod] = store.mods["mods"]
-    assert mod["name"] == "git" and mod["image"] == "ghcr.io/linuxserver-playground/mods:universal-git"
-    assert mod["source"] == "playground"
-    assert mod["env"] == [{"name": "GIT_USER", "description": "Commit author", "default": "abc", "required": False}]
-    assert mod["platforms"] == ["amd64", "arm64"] and mod["applies_to"] == ["universal"]
+    by_branch = {m["branch"]: m for m in store.mods["mods"]}
+    assert set(by_branch) == set(MOD_YMLS)  # master and template are not mods
+    git = by_branch["universal-git"]
+    assert git["name"] == "git" and git["image"] == "ghcr.io/linuxserver-playground/mods:universal-git"
+    assert git["source"] == "playground"
+    assert git["env"] == [{"name": "GIT_USER", "description": "Commit author", "default": "abc", "required": False}]
+    assert git["platforms"] == ["amd64", "arm64"] and git["applies_to"] == ["universal"]
+    assert by_branch["universal-docker"]["applies_to"] == [
+        "universal",
+        "code-server",
+        "openvscode-server",
+        "vscodium-web",
+    ]
+    assert by_branch["radarr-striptracks"]["applies_to"] == ["radarr", "sonarr"]
+    reload = by_branch["swag-auto-reload"]
+    assert reload["deprecated"] is True and "SWAG image" in reload["deprecation_message"]
 
 
 def test_mods_failure_keeps_previous() -> None:
-    def handle(request: httpx2.Request) -> httpx2.Response:
-        return httpx2.Response(500)
+    class Broken(FakeGitHub):
+        def paginate(self, path: str, *, per_page: int = 100, max_pages: int = 10, **params: object) -> list[Json]:
+            request = httpx2.Request("GET", path)
+            raise httpx2.HTTPStatusError("500", request=request, response=httpx2.Response(500, request=request))
 
     store = build_store()
-    http = httpx2.Client(transport=httpx2.MockTransport(handle))
-    mods.refresh_mods(store, FakeGitHub(), http, now=lambda: "2026-10-25T00:00:00Z")
-    assert len(store.mods["mods"]) == 88
+    mods.refresh_mods(store, Broken(), now=lambda: "2026-10-25T00:00:00Z")
+    assert len(store.mods["mods"]) == len(MOD_YMLS)
     assert store.status["sources"]["mods"]["ok"] is False and store.status["sources"]["mods"]["fetched_at"] == NOW
 
 
@@ -120,18 +119,18 @@ def test_org_repos_reads_stars_from_the_graphql_response() -> None:
     assert queries[0]["variables"] == {"org": "linuxserver-playground", "cursor": None}
     assert "stargazerCount" in str(queries[0]["query"])
     store = Store()
-    observe(store, gh, legacy_http(), now=lambda: NOW)
+    observe(store, gh, registry_http(), now=lambda: NOW)
     assert store.observed["images"]["sonarr"]["stars"] == 42 and store.observed["images"]["swag"]["stars"] == 3
     assert "builder" not in store.observed["images"]
     assert store.observed["fetched_at"] == NOW
 
 
 def test_base_layers_from_an_index() -> None:
-    base = base_layers(legacy_http(), "ghcr.io/linuxserver/baseimage-alpine:3.24", BASE_DIGEST)
+    base = base_layers(registry_http(), "ghcr.io/linuxserver/baseimage-alpine:3.24", BASE_DIGEST)
     assert base["digest"] == BASE_DIGEST and sorted(base["platforms"]) == ["amd64", "arm64"]
     assert base["platforms"]["amd64"]["layers"] == [layer_digest(0)]
     with pytest.raises(httpx2.HTTPStatusError):
-        base_layers(legacy_http(), "ghcr.io/linuxserver/baseimage-alpine:3.24", UNKNOWN_BASE_DIGEST)
+        base_layers(registry_http(), "ghcr.io/linuxserver/baseimage-alpine:3.24", UNKNOWN_BASE_DIGEST)
 
 
 def test_base_layers_from_a_single_manifest() -> None:
@@ -172,6 +171,6 @@ def test_refresh_bases_fetches_once_and_survives_registry_errors() -> None:
     assert list(store.bases) == [BASE_DIGEST]  # multidb's base answers 404 and is left for the next run
     assert store.bases[BASE_DIGEST]["fetched_at"] == NOW
     assert store.bases[BASE_DIGEST]["platforms"]["arm64"]["layers"] == [layer_digest(0)]
-    assert refresh_bases(store, legacy_http(), now=lambda: NOW) == []
+    assert refresh_bases(store, registry_http(), now=lambda: NOW) == []
     store.bases.clear()
-    assert refresh_bases(store, legacy_http(), now=lambda: NOW) == [BASE_DIGEST]
+    assert refresh_bases(store, registry_http(), now=lambda: NOW) == [BASE_DIGEST]

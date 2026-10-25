@@ -353,16 +353,8 @@ def asset_bytes(url: str) -> bytes | None:
     return None
 
 
-MOD_YML: Json = {
-    "schema": 1,
-    "name": "git",
-    "target": "universal",
-    "title": "Git",
-    "summary": "Installs git into any LinuxServer.io image.",
-    "maintainers": ["thelamer"],
-    "bases": ["alpine", "ubuntu"],
-    "env": [{"name": "GIT_USER", "description": "Commit author", "default": "abc"}],
-}
+MOD_YMLS: dict[str, Json] = yaml.safe_load((FIXTURES / "mods.yml").read_text())
+"""The mod.yml of each fixture docker-mods branch."""
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -372,9 +364,8 @@ MOD_YML: Json = {
 class FakeGitHub(GitHub):
     """Answers the calls ingest, observe and mods make, from the fixtures above."""
 
-    def __init__(self, *, mods_repo: bool = False) -> None:
-        super().__init__(legacy_http(), "token")  # the registry fixture, for the base image manifests
-        self.mods_repo = mods_repo
+    def __init__(self) -> None:
+        super().__init__(registry_http(), "token")  # the registry fixture, for the base image manifests
         self.downloads: list[str] = []
 
     def org_repos(self, org: str) -> list[Json]:
@@ -404,8 +395,8 @@ class FakeGitHub(GitHub):
         repo_name = repo.split("/")[1]
         if path == "image.yml" and (repo_name, ref) in MANIFESTS:
             return yaml.safe_dump(MANIFESTS[(repo_name, ref)], sort_keys=False)
-        if repo_name == "docker-mods" and path == "mod.yml" and ref == "universal-git":
-            return yaml.safe_dump(MOD_YML, sort_keys=False)
+        if repo_name == "docker-mods" and path == "mod.yml" and ref in MOD_YMLS:
+            return yaml.safe_dump(MOD_YMLS[ref], sort_keys=False)
         return None
 
     def releases(self, repo: str, *, max_pages: int = 3) -> list[Json]:
@@ -423,9 +414,9 @@ class FakeGitHub(GitHub):
         raise AssertionError(f"unexpected GET {path}")
 
     def paginate(self, path: str, *, per_page: int = 100, max_pages: int = 10, **params: Any) -> list[Json]:
-        if path.endswith("/branches") and not self.mods_repo:
-            raise httpx2.HTTPStatusError("404", request=httpx2.Request("GET", path), response=httpx2.Response(404))
-        return [{"name": "universal-git"}, {"name": "master"}]
+        if path.endswith("docker-mods/branches"):
+            return [{"name": b} for b in ["master", "template", *MOD_YMLS]]
+        raise AssertionError(f"unexpected paginate {path}")
 
     def download(self, url: str) -> bytes:
         self.downloads.append(url)
@@ -456,12 +447,10 @@ BASE_MANIFESTS: dict[str, Json] = {
 """What the registry fixture serves for ghcr.io/linuxserver/baseimage-alpine: one base layer, the fixture's layer 0."""
 
 
-def legacy_http() -> httpx2.Client:
-    """An HTTP client serving the legacy mod-list.yml, GHCR tag lists and the base image manifests."""
+def registry_http() -> httpx2.Client:
+    """An HTTP client serving GHCR tag lists and the base image manifests."""
 
     def handle(request: httpx2.Request) -> httpx2.Response:
-        if request.url.host == "raw.githubusercontent.com":
-            return httpx2.Response(200, text=(FIXTURES / "mod-list.yml").read_text())
         if request.url.path == "/token":
             return httpx2.Response(200, json={"token": "anon"})
         if request.url.path.startswith("/v2/linuxserver/baseimage-alpine/manifests/"):
@@ -514,9 +503,9 @@ def build_store(github: FakeGitHub | None = None, grype: FakeGrype | None = None
     store = Store()
     now = lambda: NOW  # noqa: E731
     reconcile(store, github, now=now)
-    http = legacy_http()
+    http = registry_http()
     observe(store, github, http, now=now)
-    mods_module.refresh_mods(store, github, http, now=now)
+    mods_module.refresh_mods(store, github, now=now)
     vulns.scan(store, grype or FakeGrype(), asset_bytes, now=now, cache_dir=None)
     return store
 

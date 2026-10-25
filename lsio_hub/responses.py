@@ -448,9 +448,11 @@ def mods(fleet: Fleet) -> ModsData:
 
 
 def image_mods(fleet: Fleet, name: str) -> ImageModsData:
+    """The image's own mods, then the universal mods curated for it, then every other universal mod."""
     own = [m for m in fleet.mods if m.target == name or (name in m.applies_to and m.target != "universal")]
-    universal = [m for m in fleet.mods if m.target == "universal" and m not in own]
-    return ImageModsData(image=name, mods=own + universal)
+    universal = [m for m in fleet.mods if m.target == "universal"]
+    curated = [m for m in universal if name in m.applies_to]
+    return ImageModsData(image=name, mods=own + curated + [m for m in universal if m not in curated])
 
 
 # ---------------------------------------------------------------------------------------------------

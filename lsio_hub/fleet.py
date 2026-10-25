@@ -48,11 +48,9 @@ class Fleet:
         return next((i for i in self.images if i.name == name), None)
 
 
-def _with_source(mod: dict[str, object], index_source: str) -> dict[str, object]:
-    """Mods written before the per-entry `source` existed take the index's: legacy when it was the legacy list."""
-    if "source" in mod:
-        return mod
-    return {**mod, "source": "legacy" if index_source.startswith("legacy") else "playground"}
+def _with_source(mod: dict[str, object]) -> dict[str, object]:
+    """Mods written before the per-entry `source` existed are playground mods."""
+    return mod if "source" in mod else {**mod, "source": "playground"}
 
 
 def _updated_at(store: Store) -> str | None:
@@ -82,9 +80,7 @@ def load_fleet(store: Store, site: SiteConfig | None = None) -> Fleet:
         health="Success" if manifests and manifests.ok else "Failed",
         sources=sources,
         rejected={k: RejectedRelease.model_validate(v) for k, v in sorted(store.status.get("rejected", {}).items())},
-        mods=[
-            Mod.model_validate(_with_source(m, str(store.mods.get("source", "")))) for m in store.mods.get("mods", [])
-        ],
+        mods=[Mod.model_validate(_with_source(m)) for m in store.mods.get("mods", [])],
         settings=settings,
         site=site,
     )

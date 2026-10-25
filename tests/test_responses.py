@@ -224,20 +224,19 @@ def test_staleness_flags_an_older_digest(fleet: Fleet) -> None:
 
 def test_mods(fleet: Fleet) -> None:
     mods = responses.mods(fleet)
-    assert mods.source.startswith("legacy linuxserver/docker-mods")
-    assert len(mods.mods) == 88
-    sonarr = responses.image_mods(fleet, "sonarr").mods
-    assert sonarr[0].name == "striptracks" and sonarr[0].target == "radarr" and "sonarr" in sonarr[0].applies_to
-    assert all(m.target == "universal" for m in sonarr[1:]) and len(sonarr) == 13
-    assert sonarr[0].image == "ghcr.io/linuxserver/mods:radarr-striptracks" and sonarr[0].source == "legacy"
+    assert mods.source.startswith("mod.yml on each branch of linuxserver-playground/docker-mods")
+    assert len(mods.mods) == 6 and {m.source for m in mods.mods} == {"playground"}
+    sonarr = [m.branch for m in responses.image_mods(fleet, "sonarr").mods]
+    # Its own (listed) mods, then universal mods curated for it (none here), then every other universal mod.
+    assert sonarr == ["radarr-striptracks", "universal-calibre", "universal-docker", "universal-git"]
+    code = [m.branch for m in responses.image_mods(fleet, "openvscode-server").mods]
+    assert code == ["code-server-python3-poetry", "universal-docker", "universal-calibre", "universal-git"]
 
 
-def test_mods_without_a_source_take_the_index_source(store: Store, config: SiteConfig) -> None:
+def test_mods_without_a_source_are_playground_mods(store: Store, config: SiteConfig) -> None:
     """data/mods.json written before entries carried `source`."""
     for mod in store.mods["mods"]:
         mod.pop("source", None)
-    assert {m.source for m in load_fleet(store, config).mods} == {"legacy"}
-    store.mods["source"] = "mod.yml on each branch of linuxserver-playground/docker-mods"
     assert {m.source for m in load_fleet(store, config).mods} == {"playground"}
 
 

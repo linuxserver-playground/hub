@@ -217,14 +217,12 @@ are the import URLs in `/api/v1/stores/index.json`.
 | `mods` | `mod-list.yml` in the legacy shape | `<hub>/stores/mods/mod-list.yml`; the structured index is `/api/v1/mods.json`. |
 | `builds` | see below | `<hub>/builds/<image>/<tag>/` |
 
-The mods index reads `mod.yml` from every branch of `linuxserver-playground/docker-mods`; those entries are
-`source: playground` with the image `ghcr.io/linuxserver-playground/mods:<target>-<name>`. **That repository
-does not exist yet**, so today the index comes from the legacy `linuxserver/docker-mods` `mod-list.yml`, read
-(never written) and converted: the branch is `<target>-<name>`, images that list a mod go into `applies_to`,
-each entry is `source: legacy`, and the image reference stays `ghcr.io/linuxserver/mods:<branch>` because that
-is where those mods live; nothing is rewritten to the playground namespace. `data/mods.json` records which
-source was used (`source` at the top), and the fallback goes away by itself once the playground repository
-has `mod.yml` branches.
+The mods index reads `mod.yml` from every branch of `linuxserver-playground/docker-mods` (`master` and
+`template` excepted); each entry's image is `ghcr.io/linuxserver-playground/mods:<target>-<name>`. A mod's
+`applies_to` is its target followed by the images its `mod.yml` lists under `images`, the curated list that
+replaced the legacy `mod-list.yml`. `/api/v1/catalog/<image>/mods.json` gives an image's own mods first, then the
+universal mods curated for it, then every other universal mod. A branch whose `mod.yml` is missing or fails the
+schema is logged and left out.
 
 ### Build report pages
 

@@ -1,7 +1,7 @@
 """
 The mods index. Every branch of linuxserver-playground/docker-mods carries a mod.yml (schemas/mod.schema.json);
-the hub reads them all into data/mods.json. Until that repository exists, the legacy
-linuxserver/docker-mods mod-list.yml is read (never written) and converted to the same shape.
+the hub reads them all into data/mods.json. A mod's `images` (the images it is curated for besides its target)
+become `applies_to`, after the target.
 
     GITHUB_TOKEN=... python -m lsio_hub.mods
 """
@@ -19,9 +19,9 @@ import httpx2
 import yaml
 from contracts import ContractError, validate
 
-from .config import DATA_DIR, LEGACY_MOD_LIST_URL, LEGACY_MODS_REPO, MODS_IMAGE, MODS_REPO
+from .config import DATA_DIR, MODS_IMAGE, MODS_REPO
 from .sources.github import GitHub
-from .sources.http import client, request
+from .sources.http import client
 from .store import Store, load_store, save_store
 
 log = logging.getLogger(__name__)
@@ -59,63 +59,15 @@ def from_manifest(data: Json, branch: str) -> Json:
         ],
         "deprecated": bool(deprecated.get("status", False)),
         "deprecation_message": deprecated.get("message"),
-        "applies_to": [data["target"]],
+        "applies_to": [data["target"], *[i for i in dict.fromkeys(data.get("images", [])) if i != data["target"]]],
         "docs": data.get("docs"),
         "source": "playground",
     }
 
 
-def from_legacy(text: str) -> list[Json]:
-    """
-    mod-list.yml (image -> {mod name: branch url}) to mod records. The branch is `<target>-<name>`; a mod
-    listed under several images (universal mods, shared code-server mods) gets them all in `applies_to`. Each
-    entry is marked `source: legacy` and keeps `ghcr.io/linuxserver/mods:<branch>`, where those mods live;
-    nothing is rewritten to the playground namespace.
-    """
-    parsed = yaml.safe_load(text) or {}
-    by_branch: dict[str, Json] = {}
-    for image, entry in (parsed.get("mods") or {}).items():
-        for item in entry.get("container_mods", []):
-            for mod_name, url in item.items():
-                branch = str(url).rstrip("/").rsplit("/tree/", 1)[-1]
-                target = branch[: -len(mod_name) - 1] if branch.endswith(f"-{mod_name}") else branch.split("-")[0]
-                record = by_branch.setdefault(
-                    branch,
-                    {
-                        "name": mod_name,
-                        "target": target,
-                        "title": mod_name,
-                        "summary": f"{mod_name} mod for {target} (from the legacy mod-list.yml; no mod.yml yet).",
-                        "branch": branch,
-                        "url": str(url),
-                        "image": f"ghcr.io/{LEGACY_MODS_REPO.split('/')[0]}/mods:{branch}",
-                        "maintainers": [],
-                        "platforms": ["amd64", "arm64"],
-                        "bases": [],
-                        "env": [],
-                        "deprecated": False,
-                        "deprecation_message": None,
-                        "applies_to": [],
-                        "docs": None,
-                        "source": "legacy",
-                    },
-                )
-                if image not in record["applies_to"]:
-                    record["applies_to"].append(image)
-    for record in by_branch.values():
-        others = [i for i in record["applies_to"] if i != record["target"]]
-        record["applies_to"] = [record["target"], *others]
-    return sorted(by_branch.values(), key=lambda m: (m["target"], m["name"]))
-
-
-def fetch_playground_mods(gh: GitHub) -> list[Json] | None:
-    """Every branch's mod.yml, or None when the playground has no docker-mods repository yet."""
-    try:
-        branches = gh.paginate(f"repos/{MODS_REPO}/branches")
-    except httpx2.HTTPStatusError as e:
-        if e.response.status_code == 404:
-            return None
-        raise
+def fetch_playground_mods(gh: GitHub) -> list[Json]:
+    """Every branch's mod.yml."""
+    branches = gh.paginate(f"repos/{MODS_REPO}/branches")
     mods = []
     for branch in branches:
         name = branch["name"]
@@ -135,18 +87,11 @@ def fetch_playground_mods(gh: GitHub) -> list[Json] | None:
     return sorted(mods, key=lambda m: (m["target"], m["name"]))
 
 
-def fetch_legacy_mods(http: httpx2.Client) -> list[Json]:
-    return from_legacy(request(http, "GET", LEGACY_MOD_LIST_URL).text)
-
-
-def refresh_mods(store: Store, gh: GitHub, http: httpx2.Client, now: Callable[[], str] = _now) -> None:
+def refresh_mods(store: Store, gh: GitHub, now: Callable[[], str] = _now) -> None:
     checked_at = now()
     try:
         mods = fetch_playground_mods(gh)
         source = f"mod.yml on each branch of {MODS_REPO}"
-        if mods is None:
-            mods = fetch_legacy_mods(http)
-            source = f"legacy {LEGACY_MODS_REPO} mod-list.yml (read-only; {MODS_REPO} does not exist yet)"
     except (httpx2.HTTPError, RuntimeError) as e:
         previous = store.status["sources"].get("mods", {})
         status: Json = {"ok": False, "checked_at": checked_at, "error": str(e)}
@@ -165,7 +110,7 @@ def main() -> int:
     logging.getLogger("httpx2").setLevel(logging.WARNING)
     store = load_store(DATA_DIR)
     http = client()
-    refresh_mods(store, GitHub(http, os.environ.get("GITHUB_TOKEN")), http)
+    refresh_mods(store, GitHub(http, os.environ.get("GITHUB_TOKEN")))
     log.info("%d files changed in data/", len(save_store(DATA_DIR, store)))
     return 0
 

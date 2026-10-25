@@ -361,7 +361,7 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
 
     @get("/api/v1/mods.json", tags=["Mods"], operation_id="getMods", summary="Get every mod")
     def get_mods() -> ModsResponse:
-        """The mods index from every branch of docker-mods (or the legacy mod-list.yml, converted)."""
+        """The mods index from the mod.yml on every branch of docker-mods."""
         return envelope(ModsResponse, data=responses.mods(fleet))
 
     @get("/api/v1/packages.json", tags=["Packages"], operation_id="getPackages", summary="List every package")

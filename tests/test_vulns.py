@@ -13,7 +13,7 @@ from lsio_hub.models import BuildVulnsData
 from lsio_hub.observe import observe
 from lsio_hub.store import Store, load_store, save_store
 
-from .conftest import DB_DATE, GRYPE_REPORT, NOW, FakeGitHub, FakeGrype, asset_bytes, build_store, legacy_http
+from .conftest import DB_DATE, GRYPE_REPORT, NOW, FakeGitHub, FakeGrype, asset_bytes, build_store, registry_http
 
 Json = dict[str, Any]
 LATER = "2026-10-25T13:00:00.000Z"  # 25 hours after NOW
@@ -225,7 +225,7 @@ def test_sbom_cache_is_used_before_the_release(tmp_path: Path, store: Store) -> 
 
 def test_observe_keeps_the_ledger(store: Store) -> None:
     ledger = store.observed["vulnerabilities"]
-    observe(store, FakeGitHub(), legacy_http(), now=lambda: LATER)
+    observe(store, FakeGitHub(), registry_http(), now=lambda: LATER)
     assert store.observed["fetched_at"] == LATER and store.observed["vulnerabilities"] == ledger
 
 

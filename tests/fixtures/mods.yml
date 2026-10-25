@@ -1,0 +1,60 @@
+# mod.yml of each fixture branch of linuxserver-playground/docker-mods, as FakeGitHub serves them.
+universal-git:
+  schema: 1
+  name: git
+  target: universal
+  title: Git
+  summary: Installs git into any LinuxServer.io image.
+  maintainers: [thelamer]
+  bases: [alpine, ubuntu]
+  env:
+    - {name: GIT_USER, description: Commit author, default: abc}
+universal-docker:
+  schema: 1
+  name: docker
+  target: universal
+  title: Docker
+  summary: Adds the docker and docker compose clients to any container.
+  maintainers: [aptalca]
+  platforms: [amd64, arm64]
+  images: [code-server, openvscode-server, vscodium-web]
+  deprecated: {status: false}
+universal-calibre:
+  schema: 1
+  name: calibre
+  target: universal
+  title: Calibre
+  summary: Adds the calibre binary for ebook conversions.
+  maintainers: [aptalca]
+  platforms: [amd64, arm64]
+  images: [calibre-web]
+code-server-python3-poetry:
+  schema: 1
+  name: python3-poetry
+  target: code-server
+  title: Python3 Poetry
+  summary: Adds python3 and poetry to code-server.
+  maintainers: [x]
+  platforms: [amd64]
+  images: [openvscode-server, vscodium-web]
+radarr-striptracks:
+  schema: 1
+  name: striptracks
+  target: radarr
+  title: Striptracks
+  summary: Strips unwanted audio and subtitle tracks from imported files.
+  maintainers: [TheCaptain989]
+  platforms: [amd64]
+  images: [sonarr]
+  env:
+    - {name: STRIPTRACKS_ARGS, description: Arguments for striptracks.sh}
+swag-auto-reload:
+  schema: 1
+  name: auto-reload
+  target: swag
+  title: Auto-reload
+  summary: Reloads nginx when files in /config/nginx change.
+  maintainers: [aptalca]
+  platforms: [amd64]
+  images: [nginx]
+  deprecated: {status: true, message: This mod's functionality is now included in the SWAG image.}

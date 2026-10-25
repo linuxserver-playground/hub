@@ -925,19 +925,19 @@ class Mod(BaseModel):
     env: list[ModEnv]
     deprecated: bool
     deprecation_message: str | None = None
-    applies_to: list[str] = Field(description="Images the mod is listed for (its target plus any extra listings).")
+    applies_to: list[str] = Field(
+        description="The images the mod is for: its target, then the images its `mod.yml` lists under `images`."
+    )
     docs: str | None = None
-    source: Literal["playground", "legacy"] = Field(
-        description="`playground`: a `mod.yml` branch of linuxserver-playground/docker-mods, published at "
-        "`ghcr.io/linuxserver-playground/mods`. `legacy`: converted from linuxserver/docker-mods `mod-list.yml`; the "
-        "image stays at `ghcr.io/linuxserver/mods` because that is where it lives."
+    source: Literal["playground"] = Field(
+        description="A `mod.yml` branch of linuxserver-playground/docker-mods, published at "
+        "`ghcr.io/linuxserver-playground/mods`."
     )
 
 
 class ModsData(BaseModel):
     source: str = Field(
-        description="Where the index came from: `mod.yml` on each branch of linuxserver-playground/docker-mods, or the "
-        "legacy linuxserver/docker-mods mod-list.yml while the playground repository does not exist."
+        description="Where the index came from: `mod.yml` on each branch of linuxserver-playground/docker-mods."
     )
     mods: list[Mod]
 
