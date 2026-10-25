@@ -25,6 +25,8 @@ ARCHES = ("amd64", "arm64")
 KEEP_BUILDS = 10
 """Builds kept in data/ per live branch; older ones stay on their GitHub Release and in history.json."""
 GITHUB_API = "https://api.github.com"
+WEBSITE = f"https://{ORG}.github.io/site/"
+"""The LinuxServer.io site, which the hub's pages link to for images, builds, docs and support."""
 
 
 @dataclass(frozen=True)

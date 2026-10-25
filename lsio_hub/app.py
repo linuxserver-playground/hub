@@ -15,7 +15,7 @@ from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from . import responses
-from .config import PUBLIC_DIR, SiteConfig
+from .config import PUBLIC_DIR, WEBSITE, SiteConfig
 from .feed import changelog_feed
 from .fleet import Fleet
 from .models import (
@@ -61,23 +61,20 @@ from .site import render_index, render_not_found
 from .store import ImageRecord
 
 DESCRIPTION = """
-Everything we know about the LinuxServer.io images in the playground: versions, tags, architectures,
-changelogs, container parameters, every build with its packages, layers and what changed, the mods index,
-and ready-to-use compose, Kubernetes, quadlet and reverse proxy snippets.
+Versions, tags, architectures, changelogs and container parameters for every LinuxServer.io image, every
+build with its packages, layers and changes, the mods index, and compose, Kubernetes, quadlet and reverse
+proxy snippets.
 
-The API is a set of static files, rebuilt from each image's `image.yml` and the build bundle attached to every
-GitHub Release. Every endpoint is a plain `GET` with no authentication and no rate limit beyond the host's.
-Fields that have no value are omitted rather than `null`.
-
-**Query parameters are not supported.** The original API's `include_config` and `include_deprecated`
-switches are separate files instead; see the Compatibility endpoints.
+Every endpoint is a plain `GET` with no authentication. Fields that have no value are omitted rather than
+`null`. Query parameters are not supported: `include_config` and `include_deprecated` are separate files
+under Compatibility.
 """
 
 TAGS = [
     {"name": "Images", "description": "Every image, or one image in full."},
     {
         "name": "Builds",
-        "description": "Every ingested build of an image: the bundle record, packages, layers and the diff.",
+        "description": "Every build of an image: the build record, packages, layers and the diff.",
     },
     {"name": "Mods", "description": "Docker mods, fleet-wide and per image."},
     {"name": "Packages", "description": "Which images ship a package, and in which versions."},
@@ -85,9 +82,8 @@ TAGS = [
     {"name": "Service", "description": "Whether the data is fresh, and where the store output is."},
     {
         "name": "Compatibility",
-        "description": "The original api.linuxserver.io endpoints, same paths and same response shapes. The "
-        "extensionless paths are served as `application/octet-stream` by some static hosts; the `.json` "
-        "equivalents are identical and served as `application/json`.",
+        "description": "The api.linuxserver.io endpoints, with the same paths and response shapes. Prefer the "
+        "`.json` paths: they are identical and served as `application/json`.",
     },
 ]
 
@@ -124,7 +120,7 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
         description=DESCRIPTION,
         servers=[{"url": config.api_root}],
         openapi_tags=TAGS,
-        contact={"name": "LinuxServer.io", "url": "https://www.linuxserver.io/support/"},
+        contact={"name": "LinuxServer.io", "url": f"{WEBSITE}support/"},
         license_info={"name": "GPL-3.0", "url": "https://www.gnu.org/licenses/gpl-3.0.html"},
         openapi_url=None,
         docs_url=None,

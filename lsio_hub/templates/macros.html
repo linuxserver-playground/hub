@@ -47,11 +47,11 @@
     <p class="muted">{{ op.response }}.</p>
     {% endif %}
     <div class="try" data-path="{{ op.path }}">
-      {% if op.name_param %}
-      <label class="try-label">{{ op.name_param }}
-        <input class="try-input" name="{{ op.name_param }}" list="image-names" value="{{ op.default_name }}" autocomplete="off" spellcheck="false" />
+      {% for name, value in op.path_params %}
+      <label class="try-label">{{ name }}
+        <input class="try-input" name="{{ name }}"{% if name == 'name' %} list="image-names"{% endif %} value="{{ value }}" autocomplete="off" spellcheck="false" />
       </label>
-      {% endif %}
+      {% endfor %}
       <button type="button" class="btn btn-primary try-send">Try it</button>
       {{ external(op.open_href, 'Open', 'btn try-open') }}
       <div class="try-result" hidden>

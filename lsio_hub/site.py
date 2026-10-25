@@ -1,5 +1,5 @@
 """
-The docs page, in the design of www.linuxserver.io ("Raft"). The endpoint reference is read from the
+The docs page, in the design of the LinuxServer.io site ("Raft"). The endpoint reference is read from the
 generated OpenAPI spec, so the docs can never disagree with the API; the templates only lay it out.
 """
 
@@ -10,11 +10,12 @@ from typing import Any
 from urllib.parse import quote
 
 from . import responses
-from .config import SiteConfig
+from .config import ORG, WEBSITE, SiteConfig
 from .fleet import Fleet
 from .templating import env
 
 EXAMPLE_IMAGE = "sonarr"
+EXAMPLE_PACKAGE = "curl"
 MAX_DEPTH = 6
 """Deep enough for every schema; stops a recursive schema from recursing forever."""
 
@@ -126,8 +127,8 @@ class OperationView:
     response: str
     """The response's type: a schema name, or e.g. "string document" for YAML and XML."""
     fields: list[FieldView]
-    name_param: str | None
-    default_name: str
+    path_params: list[tuple[str, str]]
+    """Each path parameter with the example value its input starts with."""
     open_href: str
 
     @property
@@ -136,7 +137,7 @@ class OperationView:
         return [(part, part.startswith("{")) for part in re.split(r"(\{[^}]+\})", self.path) if part]
 
 
-def _operation(spec: Schema, path: str, op: Schema, config: SiteConfig, default_name: str) -> OperationView:
+def _operation(spec: Schema, path: str, op: Schema, config: SiteConfig, examples: dict[str, str]) -> OperationView:
     content: dict[str, Schema] = op["responses"]["200"]["content"]
     media_type, body = next(iter(content.items()))
     schema: Schema = body["schema"]
@@ -150,9 +151,11 @@ def _operation(spec: Schema, path: str, op: Schema, config: SiteConfig, default_
         )
         for p in op.get("parameters", [])
     ]
-    name_param = next((p["name"] for p in op.get("parameters", []) if p["in"] == "path"), None)
-    # The real URL, so Open works before (or without) the script, which keeps it in sync with the input.
-    open_path = path.replace(f"{{{name_param}}}", quote(default_name)) if name_param else path
+    path_params = [(p["name"], examples.get(p["name"], "")) for p in op.get("parameters", []) if p["in"] == "path"]
+    # The real URL, so Open works before (or without) the script, which keeps it in sync with the inputs.
+    open_path = path
+    for name, value in path_params:
+        open_path = open_path.replace(f"{{{name}}}", quote(value))
     return OperationView(
         path=path,
         anchor=f"op-{op['operationId']}",
@@ -162,19 +165,20 @@ def _operation(spec: Schema, path: str, op: Schema, config: SiteConfig, default_
         media_type=media_type,
         response=type_label(spec, schema) + ("" if media_type == "application/json" else " document"),
         fields=_fields(spec, resolved) if resolved else [],
-        name_param=name_param,
-        default_name=default_name,
+        path_params=path_params,
         open_href=config.base_path + open_path.lstrip("/"),
     )
 
 
-def operation_groups(spec: Schema, config: SiteConfig, default_name: str) -> list[tuple[Schema, list[OperationView]]]:
+def operation_groups(
+    spec: Schema, config: SiteConfig, examples: dict[str, str]
+) -> list[tuple[Schema, list[OperationView]]]:
     """Operations grouped by tag, in the order the spec lists its tags."""
     ops = [(path, item["get"]) for path, item in spec["paths"].items() if "get" in item]
     return [
         (
             tag,
-            [_operation(spec, path, op, config, default_name) for path, op in ops if tag["name"] in op.get("tags", [])],
+            [_operation(spec, path, op, config, examples) for path, op in ops if tag["name"] in op.get("tags", [])],
         )
         for tag in spec.get("tags", [])
     ]
@@ -191,21 +195,36 @@ def _context(fleet: Fleet, config: SiteConfig) -> dict[str, Any]:
         "fleet": fleet,
         "config": config,
         "base": config.base_path,
+        "website": WEBSITE,
+        "org": ORG,
         "stats": stats,
         "healthy": fleet.health == "Success",
         "builds": ("Builds", stats.builds, "build records"),
     }
 
 
+def example_values(fleet: Fleet, name: str, version: str) -> dict[str, str]:
+    """A value for every path parameter that resolves to a published file, for the Open links and inputs."""
+    builds = [(tag, arch) for n, tag, arch in responses.package_routes(fleet) if n == name]
+    tag, arch = next(
+        (b for b in builds if b == (version, "amd64")),
+        next((b for b in builds if b[0] == version), builds[0] if builds else (version, "amd64")),
+    )
+    slugs = responses.package_slugs(fleet)
+    package = EXAMPLE_PACKAGE if EXAMPLE_PACKAGE in slugs or not slugs else slugs[0]
+    return {"name": name, "tag": tag, "arch": arch, "package": package}
+
+
 def render_index(fleet: Fleet, spec: Schema, config: SiteConfig) -> str:
     example = next((i for i in fleet.images if i.name == EXAMPLE_IMAGE), fleet.images[0] if fleet.images else None)
     example_name = example.name if example else EXAMPLE_IMAGE
+    example_version = example.version if example else "latest"
     return env.get_template("index.html").render(
         **_context(fleet, config),
         spec=spec,
-        groups=operation_groups(spec, config, example_name),
+        groups=operation_groups(spec, config, example_values(fleet, example_name, example_version)),
         example_name=example_name,
-        example_version=example.version if example else "latest",
+        example_version=example_version,
         image_names=[i.name for i in fleet.images],
         data_sources=DATA_SOURCES,
     )

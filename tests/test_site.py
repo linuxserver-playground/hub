@@ -26,10 +26,11 @@ def test_local_links_use_the_base_path(files: dict[str, bytes]) -> None:
 
 def test_shows_real_data(fleet: Fleet, files: dict[str, bytes]) -> None:
     page = files["index.html"].decode()
-    assert "https://example.github.io/hub/api/v1/catalog/sonarr.json" in page
+    assert "API=https://example.github.io/hub/api/v1" in page and "$API/catalog/sonarr.json" in page
     assert '<span class="out">4.0.20.3014-ls2</span>' in page
     assert '<option value="swag">' in page
     assert "image.yml on every live branch" in page
+    assert "builds/4.0.20.3014-ls2/layers.amd64.json" in page and "packages/curl.json" in page
 
 
 def test_says_when_the_last_refresh_failed(fleet: Fleet, config: SiteConfig) -> None:
@@ -45,7 +46,7 @@ def test_one_h1_and_labelled_landmarks(files: dict[str, bytes]) -> None:
 
 
 def test_groups_follow_the_spec_tags(spec: dict[str, Any]) -> None:
-    groups = operation_groups(spec, SiteConfig(), "sonarr")
+    groups = operation_groups(spec, SiteConfig(), {"name": "sonarr"})
     assert [tag["name"] for tag, _ in groups] == [t["name"] for t in spec["tags"]]
     assert all(ops for _, ops in groups)
 

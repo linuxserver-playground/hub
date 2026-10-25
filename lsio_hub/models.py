@@ -140,9 +140,7 @@ class Image(BaseModel):
     stable: bool = Field(description="Whether the image publishes a `latest` tag.")
     deprecated: bool
     stars: Count = Field(description="GitHub stars of the image repository.")
-    monthly_pulls: Count | None = Field(
-        None, description="Always absent: the playground has no pull statistics (no Scarf, no Docker Hub)."
-    )
+    monthly_pulls: Count | None = Field(None, description="Always absent: pull statistics are not collected.")
     tags: list[Tag]
     architectures: list[Architecture]
     changelog: list[Changelog] | None = Field(
@@ -173,7 +171,7 @@ Health = Literal["Success", "Failed"]
 
 
 class Registries(BaseModel):
-    """Where the image is published. The playground publishes to GHCR only."""
+    """Where the image is published."""
 
     ghcr: str = Field(examples=["ghcr.io/linuxserver-playground/sonarr"])
     packages_url: str = Field(description="The GitHub Packages page.")

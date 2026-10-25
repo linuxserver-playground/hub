@@ -23,10 +23,12 @@ function setupThemeToggle() {
   });
 }
 
-/** The URL a "Try it" block points at, with its path parameter filled in. */
+/** The URL a "Try it" block points at, with each path parameter filled in from its input. */
 function tryUrl(/** @type {HTMLElement} */ block) {
-  const input = /** @type {HTMLInputElement | null} */ (block.querySelector('.try-input'));
-  const path = (block.dataset.path ?? '').replace(/\{[^}]+\}/, encodeURIComponent(input?.value.trim() ?? ''));
+  const path = (block.dataset.path ?? '').replace(/\{([^}]+)\}/g, (_, name) => {
+    const input = /** @type {HTMLInputElement | null} */ (block.querySelector(`.try-input[name="${name}"]`));
+    return encodeURIComponent(input?.value.trim() ?? '');
+  });
   return new URL(path.replace(/^\//, ''), document.baseURI).href;
 }
 
@@ -56,14 +58,16 @@ function setupTryIt() {
     const result = /** @type {HTMLElement} */ (block.querySelector('.try-result'));
     const meta = /** @type {HTMLElement} */ (block.querySelector('.try-meta'));
     const code = /** @type {HTMLElement} */ (block.querySelector('code'));
-    const input = block.querySelector('.try-input');
+    const inputs = block.querySelectorAll('.try-input');
 
     const syncOpen = () => (open.href = tryUrl(block));
     syncOpen();
-    input?.addEventListener('input', syncOpen);
-    input?.addEventListener('keydown', (e) => {
-      if (/** @type {KeyboardEvent} */ (e).key === 'Enter') send.click();
-    });
+    for (const input of inputs) {
+      input.addEventListener('input', syncOpen);
+      input.addEventListener('keydown', (e) => {
+        if (/** @type {KeyboardEvent} */ (e).key === 'Enter') send.click();
+      });
+    }
 
     send.addEventListener('click', async () => {
       const url = tryUrl(block);

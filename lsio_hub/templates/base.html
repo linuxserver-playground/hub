@@ -1,4 +1,4 @@
-{#- The page shell from www.linuxserver.io's Raft design: status strip, header, main, footer. -#}
+{#- The page shell in the site's Raft design: demo notice, status strip, header, main, footer. -#}
 {% from "macros.html" import external %}
 <!doctype html>
 <html lang="en-GB" class="dark">
@@ -26,6 +26,13 @@
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
+    <aside aria-label="Demo notice" class="demo-banner">
+      <p class="container">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3M12 9v4M12 17h.01" /></svg>
+        <span class="demo-short">Internal demo. Not for production use.</span>
+        <span class="demo-long">Internal demo. Not for production use: images, data and services here may change or disappear at any time.</span>
+      </p>
+    </aside>
     <aside aria-label="Data status" class="strip">
       <div class="container strip-inner">
         <p class="strip-status">
@@ -43,13 +50,14 @@
           <ul>
             <li><a href="{{ base }}#endpoints">Endpoints</a></li>
             <li><a href="{{ base }}openapi.json">OpenAPI</a></li>
-            <li><a href="{{ base }}api/v1/stores/index.json">Stores</a></li>
-            <li><a href="{{ base }}builds/">Builds</a></li>
-            <li>{{ external('https://docs.linuxserver.io/', 'Docs') }}</li>
+            <li>{{ external(website ~ 'images/', 'Images') }}</li>
+            <li>{{ external(website ~ 'fleet/builds/', 'Builds') }}</li>
+            <li>{{ external(website ~ 'stores/', 'Stores') }}</li>
+            <li>{{ external(website ~ 'docs/', 'Docs') }}</li>
           </ul>
         </nav>
         <div class="header-actions">
-          <a href="https://github.com/linuxserver-playground" class="icon-btn" target="_blank" rel="noopener">
+          <a href="https://github.com/{{ org }}" class="icon-btn" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3" /></svg>
             <span class="sr-only">LinuxServer.io on GitHub (opens in a new tab)</span>
           </a>
@@ -68,11 +76,11 @@
           <p class="muted">Volunteers building and maintaining the largest collection of community Docker images. Free and open source, always.</p>
         </div>
         <ul class="footer-links">
-          <li>{{ external('https://www.linuxserver.io', 'linuxserver.io') }}</li>
-          <li>{{ external('https://docs.linuxserver.io/', 'Documentation') }}</li>
-          <li>{{ external('https://www.linuxserver.io/support/', 'Support') }}</li>
+          <li>{{ external(website, 'linuxserver.io') }}</li>
+          <li>{{ external(website ~ 'docs/', 'Documentation') }}</li>
+          <li>{{ external(website ~ 'support/', 'Support') }}</li>
           <li>{{ external('https://discord.gg/YWrKVTn', 'Discord') }}</li>
-          <li>{{ external('https://github.com/linuxserver', 'GitHub') }}</li>
+          <li>{{ external('https://github.com/' ~ org, 'GitHub') }}</li>
         </ul>
       </div>
     </footer>

@@ -12,9 +12,8 @@
       <p class="raft-eyebrow"><span class="accent" aria-hidden="true">//</span> api v{{ spec.info.version }}</p>
       <h1>The <span class="gradient-text">LinuxServer.io</span> hub API</h1>
       <div class="lede">{{ spec.info.summary | markdown }}</div>
-      <p class="lede-small">Static JSON, rebuilt from every image manifest and every build bundle as releases land. No keys, nothing to install.</p>
       <div class="hero-actions">
-        <a href="#endpoints" class="btn btn-solid">Browse endpoints</a>
+        <a href="#endpoints" class="btn btn-primary">Browse endpoints</a>
         <a href="{{ base }}openapi.json" class="btn">openapi.json</a>
         <a href="{{ base }}openapi.yaml" class="btn">openapi.yaml</a>
       </div>
@@ -25,13 +24,12 @@
         <span class="panel-title">~ curl</span>
       </div>
       <figcaption class="sr-only">Example requests and their output</figcaption>
-      <pre class="code"><code><span class="prompt">$</span> curl -s {{ config.api_root }}/api/v1/catalog/{{ example_name }}.json \
-    | jq -r .data.image.version
+      <pre class="code"><code><span class="prompt">$</span> API={{ config.api_root }}/api/v1
+<span class="prompt">$</span> curl -s $API/catalog/{{ example_name }}.json | jq -r .data.image.version
 <span class="out">{{ example_version }}</span>
-<span class="prompt">$</span> curl -s {{ config.api_root }}/api/v1/stats.json | jq .data.stats.images
+<span class="prompt">$</span> curl -s $API/stats.json | jq .data.stats.images
 <span class="out">{{ stats.images }}</span>
-<span class="prompt">$</span> curl -s {{ config.api_root }}/api/v1/catalog/{{ example_name }}/builds.json | jq '.data.builds[0].classification'
-<span class="prompt">$</span> curl -sO {{ config.api_root }}/api/v1/catalog/{{ example_name }}/kubernetes.yaml</code></pre>
+<span class="prompt">$</span> curl -sO $API/catalog/{{ example_name }}/kubernetes.yaml</code></pre>
     </figure>
   </div>
 </div>
@@ -72,7 +70,7 @@
       <datalist id="image-names">{% for name in image_names %}<option value="{{ name }}"></option>{% endfor %}</datalist>
 
       <section class="ref-group" aria-labelledby="sources">
-        <h2 id="sources" class="ref-tag"><span class="accent" aria-hidden="true">//</span> Where the data comes from</h2>
+        <h2 id="sources" class="ref-tag"><span class="accent" aria-hidden="true">//</span> Sources</h2>
         <div class="raft-panel table-wrap">
           <table>
             <thead><tr><th scope="col">Fields</th><th scope="col">Source</th></tr></thead>
@@ -83,7 +81,6 @@
             </tbody>
           </table>
         </div>
-        <p class="muted small">When a source can't be reached the previous data keeps being served; <a href="{{ base }}api/v1/status.json">status.json</a> shows when each one last succeeded.</p>
       </section>
     </div>
   </div>
