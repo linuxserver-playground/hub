@@ -27,6 +27,8 @@ def test_layout(tmp_path: Path) -> None:
     assert (sonarr / "builds" / "4.0.20.3014-ls2.diff.json").is_file()
     assert (sonarr / "builds" / "4.0.20.3014-ls2.layers.amd64.json").is_file()
     assert (sonarr / "builds" / "4.0.20.3014-ls2.test.arm64.json").is_file()
+    assert (sonarr / "builds" / "4.0.20.3014-ls2.vulns.amd64.json").is_file()
+    assert not (sonarr / "builds" / "4.0.19.2000-ls1.vulns.amd64.json").is_file()  # only the newest build is scanned
     assert (sonarr / "packages.amd64.json").is_file()
     assert (sonarr / "packages.develop.amd64.json").is_file()
     assert (sonarr / "latest.json").is_file() and (sonarr / "history.json").is_file()

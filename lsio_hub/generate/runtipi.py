@@ -1,10 +1,13 @@
 """
-A Runtipi app store: `apps/<name>/config.json`, `docker-compose.yml` with `x-runtipi` metadata, and
-`metadata/description.md`. Runtipi expects `metadata/logo.jpg` as a file in the repository; the hub does not
-copy logos into git, so `logo_url` in config.json points at `docs.logo` and the description page shows it.
+A Runtipi app store: `apps/<name>/config.json`, `docker-compose.yml` in the dynamic compose format (`x-runtipi`
+schema_version 2: the main service carries `is_main` and `internal_port`; Runtipi adds the port mapping, the
+Traefik labels and the network itself), and `metadata/description.md`. Runtipi expects `metadata/logo.jpg` as a
+file in the repository; the hub does not copy logos into git, so `logo_url` in config.json points at `docs.logo`
+and the description page shows it.
 
-Import: Runtipi > Settings > App Stores > `https://github.com/linuxserver-playground/stores` with the
-`runtipi/` folder as the store root (Runtipi clones a git repository).
+Import: Runtipi > Settings > App Stores > Add App Store > `https://github.com/linuxserver-playground/runtipi-store`.
+Runtipi clones a git repository and wants `apps/` at its root, so deploy.yml pushes this output to that repository
+(scripts/publish_store.sh).
 """
 
 from __future__ import annotations
@@ -58,7 +61,6 @@ def form_fields(image: ImageInput) -> list[Json]:
 def config(image: ImageInput) -> Json:
     port = int(image.web_port or 80)
     return {
-        "$schema": "../schema.json",
         "name": image.title,
         "available": True,
         "exposable": True,
@@ -92,39 +94,27 @@ def compose(image: ImageInput) -> Json:
             env[item["name"]] = f"${{{name.upper().replace('-', '_')}_{item['name']}}}"
     service: Json = {
         "image": image.image_ref,
-        "container_name": name,
-        "restart": "unless-stopped",
         "environment": env,
         "volumes": [
             f"${{APP_DATA_DIR}}/data{v['path']}:{v['path']}" + (":ro" if v["mode"] == "ro" else "")
             for v in rt["volumes"]
         ],
-        "ports": [f"${{APP_PORT}}:{port}"],
-        "networks": ["tipi_main_network"],
-        "labels": {
-            "traefik.enable": "true",
-            f"traefik.http.services.{name}.loadbalancer.server.port": str(port),
-            f"traefik.http.routers.{name}-insecure.rule": "Host(`${APP_DOMAIN}`)",
-            f"traefik.http.routers.{name}-insecure.entrypoints": "web",
-            f"traefik.http.routers.{name}-insecure.service": name,
-            f"traefik.http.routers.{name}-insecure.middlewares": "redirect-to-https",
-            f"traefik.http.routers.{name}.rule": "Host(`${APP_DOMAIN}`)",
-            f"traefik.http.routers.{name}.entrypoints": "websecure",
-            f"traefik.http.routers.{name}.service": name,
-            f"traefik.http.routers.{name}.tls.certresolver": "myresolver",
-            "runtipi.managed": "true",
-        },
     }
+    # Runtipi maps ${APP_PORT} to internal_port itself; only the other required ports are listed.
+    extra_ports = [
+        f"{p['external']}:{p['internal']}"
+        for p in rt["ports"]
+        if not p["optional"] and p["internal"].split("/")[0] != str(port)
+    ]
+    if extra_ports:
+        service["ports"] = extra_ports
     caps = [c["cap"] for c in rt["cap_add"] if not c["optional"]]
     if caps:
         service["cap_add"] = caps
     if rt["privileged"] is True:
         service["privileged"] = True
-    return {
-        "x-runtipi": {"schema_version": 2, "main_service": name, "internal_port": port, "image_source": image.repo_url},
-        "services": {name: service},
-        "networks": {"tipi_main_network": {"external": True}},
-    }
+    service["x-runtipi"] = {"is_main": True, "internal_port": port}
+    return {"services": {name: service}, "x-runtipi": {"schema_version": 2}}
 
 
 def description(image: ImageInput) -> str:

@@ -2,8 +2,10 @@
 An Umbrel community app store: `umbrel-app-store.yml` plus `lsio-<name>/umbrel-app.yml`, `docker-compose.yml`
 (the app_proxy pattern, data under APP_DATA_DIR) and `exports.sh` per app.
 
-Import: Umbrel > App Store > Community App Stores > `https://github.com/linuxserver-playground/stores` (Umbrel
-clones a git repository; point it at the stores repository, whose `umbrel/` folder is this output's root).
+Import: Umbrel > App Store > Community App Stores > `https://github.com/linuxserver-playground/umbrel-store`.
+Umbrel clones a git repository and wants `umbrel-app-store.yml` at its root, so deploy.yml pushes this output to
+that repository (scripts/publish_store.sh). Layout as the getumbrel/umbrel-community-app-store template: every app
+directory is named `<store id>-<app>` and holds `umbrel-app.yml` and `docker-compose.yml`; `exports.sh` is optional.
 """
 
 from __future__ import annotations
@@ -46,8 +48,9 @@ def manifest(image: ImageInput) -> Json:
         "id": app_id(image.name),
         "category": umbrel_category(image.categories),
         "name": image.title,
-        "version": image.version,
         "tagline": plain(image.summary_oneline).split(". ")[0].rstrip(".")[:100],
+        "icon": image.logo,
+        "version": image.version,
         "description": plain(image.summary_oneline),
         "developer": "LinuxServer.io",
         "website": image.project_url,
@@ -56,6 +59,7 @@ def manifest(image: ImageInput) -> Json:
         "support": f"{image.repo_url}/issues",
         "port": port,
         "gallery": [],
+        "releaseNotes": "",
         "path": "" if image.web_path == "/" else image.web_path,
         "defaultUsername": "",
         "defaultPassword": "",

@@ -3,7 +3,10 @@
 # on every push to main (committed data only), on demand, and when the control plane sends a
 # repository_dispatch of type `image-released` with {"repository": "owner/name", "tag": "<tag>"}.
 #
-# GITHUB_TOKEN is enough: the hub only reads public repositories and releases in its own organisation.
+# GITHUB_TOKEN is enough for the data and the Pages site: the hub only reads public repositories and releases in
+# its own organisation. The Umbrel and Runtipi stores are pushed to their own repositories (they clone a git
+# repository and want the store at its root) with an installation token of the GitHub App whose id and private
+# key are the STORE_APP_ID and STORE_APP_PRIVATE_KEY secrets; the app needs contents: write on those repositories.
 name: Deploy
 
 on:
@@ -46,6 +49,29 @@ jobs:
           python -m lsio_hub.ingest
           --repo "${{ github.event.client_payload.repository }}"
           --tag "${{ github.event.client_payload.tag }}"
+
+      - name: Install grype
+        # Pinned; the observe step scans the newest build of each branch with it (skipped gracefully without it).
+        id: grype
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GRYPE_VERSION: 0.121.0
+          GRYPE_SHA256: 64e07133d3486115de647a66581461dccf5c732748a0a3119077395565f15519
+        run: |
+          curl -sSfL -o grype.tgz "https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_linux_amd64.tar.gz"
+          echo "${GRYPE_SHA256}  grype.tgz" | sha256sum -c -
+          sudo tar -xzf grype.tgz -C /usr/local/bin grype
+          rm grype.tgz
+          echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore the grype vulnerability database
+        # One cache entry a day: the poller updates the database at most once per 24 h, the hourly runs reuse it.
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/grype/db
+          key: grype-db-${{ steps.grype.outputs.date }}
+          restore-keys: grype-db-
 
       - name: Reconcile, observe and refresh the mods index
         if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
@@ -95,6 +121,16 @@ jobs:
         with:
           path: dist
 
+      - name: Keep the root-level stores for the publish job
+        uses: actions/upload-artifact@v7
+        with:
+          name: stores
+          path: |
+            out/stores/umbrel
+            out/stores/runtipi
+          retention-days: 1
+          if-no-files-found: error
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -104,3 +140,38 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  publish-stores:
+    # Umbrel and Runtipi clone a git repository and want the store at its root, so each gets a repository of its
+    # own: the import URL is the repository URL. Not on pull requests: those have no business pushing anywhere.
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        store: [umbrel, runtipi]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: scripts
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: stores
+          path: out/stores
+
+      - id: token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.STORE_APP_ID }}
+          private-key: ${{ secrets.STORE_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ matrix.store }}-store
+
+      - name: Push the generated store
+        env:
+          STORE_TOKEN: ${{ steps.token.outputs.token }}
+        run: scripts/publish_store.sh "${{ matrix.store }}" "out/stores/${{ matrix.store }}" "${{ github.repository_owner }}/${{ matrix.store }}-store" main

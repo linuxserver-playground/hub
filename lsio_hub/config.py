@@ -19,6 +19,9 @@ LEGACY_MODS_REPO = "linuxserver/docker-mods"
 LEGACY_MOD_LIST_URL = f"https://raw.githubusercontent.com/{LEGACY_MODS_REPO}/master/mod-list.yml"
 STORES_RAW_URL = f"https://raw.githubusercontent.com/{ORG}/stores/main"
 """Where the generated store output is published as a repository (the Pages copy lives under /stores/)."""
+STORE_REPOS = {"umbrel": f"{ORG}/umbrel-store", "runtipi": f"{ORG}/runtipi-store"}
+"""Platforms that clone a git repository and want the store at its root: deploy.yml pushes out/stores/<platform>/
+to these repositories (scripts/publish_store.sh); the repository URL is the import URL."""
 
 ARCHES = ("amd64", "arm64")
 KEEP_BUILDS = 10

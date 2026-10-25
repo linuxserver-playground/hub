@@ -8,7 +8,7 @@ from typing import Any, Literal
 
 from builder.manifest import build_context
 
-from .config import STORES_RAW_URL
+from .config import STORE_REPOS, STORES_RAW_URL
 from .dates import parse_iso
 from .fleet import Fleet
 from .generate import kubernetes, proxy, quadlet
@@ -25,6 +25,7 @@ from .models import (
     BuildsData,
     BuildSummary,
     BuildTestsData,
+    BuildVulnsData,
     Bundle,
     Category,
     ChangelogEntry,
@@ -54,9 +55,12 @@ from .models import (
     StoreEntry,
     TestArchSummary,
     TestReport,
+    VulnerabilityMatch,
+    VulnerabilitySummary,
 )
 from .packages import slug, version_key
 from .store import ImageRecord
+from .vulns import CAVEATS, merge, summarise
 
 Json = dict[str, Any]
 _V1_FIELDS = Image.model_fields.keys() - {"changelog", "config"}
@@ -173,6 +177,7 @@ def _build_links(fleet: Fleet, record: ImageRecord, build: Json) -> BuildLinks:
         test_report=page,
         tests=f"{api}/tests.json" if record.tests.get(tag) else None,
         report=f"{api}/report.json",
+        vulns=f"{api}/vulns.json" if record.vulns.get(tag) else None,
     )
 
 
@@ -193,6 +198,7 @@ def build_summary(fleet: Fleet, record: ImageRecord, build: Json) -> BuildSummar
         base=build["base"],
         platforms=build["platforms"],
         classification=diff["classification"] if diff else None,
+        vulnerabilities=vuln_summary(record, tag),
         links=_build_links(fleet, record, build),
     )
 
@@ -283,6 +289,40 @@ def test_routes(fleet: Fleet) -> list[tuple[str, str]]:
         (name, tag)
         for name, record in sorted(fleet.store.images.items())
         for tag in sorted(record.tests)
+        if tag in record.builds
+    ]
+
+
+def vuln_summary(record: ImageRecord, tag: str) -> VulnerabilitySummary | None:
+    scans = record.vulns.get(tag)
+    return VulnerabilitySummary.model_validate(summarise(merge(scans))) if scans else None
+
+
+def vulns(record: ImageRecord, tag: str) -> BuildVulnsData | None:
+    """The scans of every architecture merged into one list; None when the build has not been scanned."""
+    scans = record.vulns.get(tag)
+    if not scans or tag not in record.builds:
+        return None
+    merged = merge(scans)
+    newest = max(scans.values(), key=lambda s: str(s.get("db_date", "")))
+    return BuildVulnsData(
+        image=record.name,
+        tag=tag,
+        summary=VulnerabilitySummary.model_validate(summarise(merged)),
+        by_arch={a: VulnerabilitySummary.model_validate(summarise(merge({a: scans[a]}))) for a in sorted(scans)},
+        matches=[VulnerabilityMatch.model_validate(m) for m in merged],
+        db_date=str(newest.get("db_date", "")),
+        grype_version=str(newest.get("grype_version", "")),
+        caveats=list(CAVEATS),
+    )
+
+
+def vuln_routes(fleet: Fleet) -> list[tuple[str, str]]:
+    """(image, tag) for every build with a vulnerability scan."""
+    return [
+        (name, tag)
+        for name, record in sorted(fleet.store.images.items())
+        for tag in sorted(record.vulns)
         if tag in record.builds
     ]
 
@@ -672,14 +712,14 @@ def stores_index(fleet: Fleet) -> list[StoreEntry]:
         StoreEntry(
             platform="umbrel",
             name="Umbrel community app store",
-            url=f"https://github.com/{fleet.settings.org}/stores",
-            how_to="Umbrel > App Store > Community App Stores > add the stores repository (umbrel/ folder).",
+            url=f"https://github.com/{STORE_REPOS['umbrel']}",
+            how_to="Umbrel > App Store > Community App Stores > add this repository URL.",
         ),
         StoreEntry(
             platform="runtipi",
             name="Runtipi app store",
-            url=f"https://github.com/{fleet.settings.org}/stores",
-            how_to="Runtipi > Settings > App Stores > add the stores repository (runtipi/ folder).",
+            url=f"https://github.com/{STORE_REPOS['runtipi']}",
+            how_to="Runtipi > Settings > App Stores > Add App Store > this repository URL.",
         ),
         StoreEntry(
             platform="cosmos",

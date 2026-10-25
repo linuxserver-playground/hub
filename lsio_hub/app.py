@@ -26,6 +26,7 @@ from .models import (
     BuildResponse,
     BuildsResponse,
     BuildTestsResponse,
+    BuildVulnsResponse,
     CatalogData,
     CatalogResponse,
     CategoriesData,
@@ -325,6 +326,22 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
         return envelope(
             BuildReportResponse, data=BuildReportData(report=or_404(responses.report(fleet, record(name), tag)))
         )
+
+    @get(
+        "/api/v1/catalog/{name}/builds/{tag}/vulns.json",
+        tags=["Builds"],
+        operation_id="getBuildVulnerabilities",
+        summary="Get the vulnerability scan of a build",
+        responses=NOT_FOUND,
+    )
+    def get_build_vulns(name: ImageName, tag: BuildTag) -> BuildVulnsResponse:
+        """
+        grype's findings against the build's syft SBOM, per architecture and merged (one row per vulnerability and
+        package), with counts per severity and fix state. The data is dated by the vulnerability database, not the
+        build: the newest build of each branch is rescanned when the database moves. Read `caveats` before showing
+        the numbers. Only for builds that have been scanned.
+        """
+        return envelope(BuildVulnsResponse, data=or_404(responses.vulns(record(name), tag)))
 
     # ------------------------------------------------------------------------------------- Mods, packages
 

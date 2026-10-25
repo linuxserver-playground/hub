@@ -41,7 +41,13 @@ def test_changelog_newest_first(fleet: Fleet) -> None:
 
 def test_status_includes_rejected(fleet: Fleet) -> None:
     status = responses.status(fleet)
-    assert status.health == "Success" and set(status.sources) == {"manifests", "releases", "observed", "mods"}
+    assert status.health == "Success" and set(status.sources) == {
+        "manifests",
+        "releases",
+        "observed",
+        "mods",
+        "vulnerabilities",
+    }
     assert sorted(status.rejected) == ["multidb@bad-ls9", "multidb@feature-ls1"]
     assert status.sources["observed"].fetched_at == fleet.store.observed["fetched_at"]
 
@@ -80,6 +86,9 @@ def test_builds(fleet: Fleet) -> None:
     assert (
         newest.links.report == "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/report.json"
     )
+    assert newest.links.vulns == "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/vulns.json"
+    assert newest.vulnerabilities is not None and newest.vulnerabilities.critical == 1
+    assert data.builds[2].vulnerabilities is None and data.builds[2].links.vulns is None
     assert [h.tag for h in data.history["master"]] == ["4.0.20.3014-ls2", "4.0.19.2000-ls1"]
     bundle = responses.bundle(sonarr, "4.0.20.3014-ls2")
     assert bundle is not None and bundle.schema_version == 1 and bundle.model_dump(by_alias=True)["schema"] == 1

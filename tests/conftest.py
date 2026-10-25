@@ -1,7 +1,8 @@
 """
 The shared fixture: a store built by running the real ingest against a fake GitHub that serves three
 images (sonarr with two live branches, swag, and a constructed multi-arch image with an external database),
-releases with constructed bundles, syft documents, layer lists, test reports and report tarballs.
+releases with constructed bundles, syft documents, layer lists, test reports and report tarballs, then the
+observer and a vulnerability scan with a fake grype that answers from `fixtures/grype.json`.
 """
 
 from __future__ import annotations
@@ -22,6 +23,7 @@ import yaml
 from fastapi.testclient import TestClient
 
 from lsio_hub import mods as mods_module
+from lsio_hub import vulns
 from lsio_hub.app import create_app
 from lsio_hub.build import render
 from lsio_hub.config import SiteConfig
@@ -477,7 +479,37 @@ def legacy_http() -> httpx2.Client:
     return httpx2.Client(transport=httpx2.MockTransport(handle))
 
 
-def build_store(github: FakeGitHub | None = None) -> Store:
+GRYPE_REPORT: Json = json.loads((FIXTURES / "grype.json").read_text())
+"""A trimmed real grype report (sonarr 4.0.20.3014-ls1, amd64): dotnet fixes, Alpine findings with none, a wont-fix."""
+DB_DATE = "2026-10-24T17:45:29Z"
+
+
+class FakeGrype:
+    """Answers like grype 0.121.0 would, from the fixture; arm64 scans lack the last (deb, wont-fix) finding."""
+
+    def __init__(self, *, version: str | None = "0.121.0", db_date: str | None = DB_DATE) -> None:
+        self._version = version
+        self._db_date = db_date
+        self.scans: list[str] = []
+        self.updates = 0
+
+    def version(self) -> str | None:
+        return self._version
+
+    def db_date(self, *, update: bool) -> str | None:
+        self.updates += int(update)
+        return self._db_date
+
+    def scan(self, sbom: Path) -> Json:
+        self.scans.append(sbom.name)
+        report = copy.deepcopy(GRYPE_REPORT)
+        report["descriptor"]["db"]["status"]["built"] = self._db_date
+        if "arm64" in sbom.name:
+            report["matches"] = [m for m in report["matches"] if m["artifact"]["type"] != "deb"]
+        return report
+
+
+def build_store(github: FakeGitHub | None = None, grype: FakeGrype | None = None) -> Store:
     github = github or FakeGitHub()
     store = Store()
     now = lambda: NOW  # noqa: E731
@@ -485,6 +517,7 @@ def build_store(github: FakeGitHub | None = None) -> Store:
     http = legacy_http()
     observe(store, github, http, now=now)
     mods_module.refresh_mods(store, github, http, now=now)
+    vulns.scan(store, grype or FakeGrype(), asset_bytes, now=now, cache_dir=None)
     return store
 
 

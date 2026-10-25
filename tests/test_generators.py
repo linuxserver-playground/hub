@@ -179,6 +179,9 @@ def test_umbrel(gen: GenerateContext) -> None:
     assert yaml.safe_load(str(files["umbrel-app-store.yml"])) == {"id": "lsio", "name": "LinuxServer.io"}
     app = yaml.safe_load(str(files["lsio-sonarr/umbrel-app.yml"]))
     assert app["manifestVersion"] == 1 and app["id"] == "lsio-sonarr" and app["port"] == 8989
+    assert app["icon"].startswith("https://") and {"lsio-swag/umbrel-app.yml", "lsio-swag/docker-compose.yml"} <= set(
+        files
+    )
     assert app["version"] == "4.0.20.3014" and app["category"] == "media" and app["developer"] == "LinuxServer.io"
     compose = yaml.safe_load(str(files["lsio-sonarr/docker-compose.yml"]))
     assert compose["services"]["app_proxy"]["environment"] == {"APP_HOST": "lsio-sonarr_server_1", "APP_PORT": 8989}
@@ -204,16 +207,14 @@ def test_runtipi(gen: GenerateContext) -> None:
     assert fields["MULTIDB_DB_PASS"]["type"] == "password" and fields["MULTIDB_DB_PASS"]["required"]
     assert fields["MULTIDB_LOG_LEVEL"]["options"] == [{"label": o, "value": o} for o in ("debug", "info", "warn")]
     assert not fields["MULTIDB_FEATURE_FLAG"]["required"]
+    assert "$schema" not in config  # the store ships no schema file
     compose = yaml.safe_load(str(files["apps/multidb/docker-compose.yml"]))
-    assert compose["x-runtipi"] == {
-        "schema_version": 2,
-        "main_service": "multidb",
-        "internal_port": 8080,
-        "image_source": "https://github.com/linuxserver-playground/docker-multidb",
-    }
+    # Dynamic compose, schema 2: Runtipi adds the ${APP_PORT} mapping, the Traefik labels and the network itself.
+    assert compose["x-runtipi"] == {"schema_version": 2}
     service = compose["services"]["multidb"]
-    assert service["environment"]["DB_HOST"] == "${MULTIDB_DB_HOST}" and service["ports"] == ["${APP_PORT}:8080"]
-    assert service["labels"]["runtipi.managed"] == "true"
+    assert service["x-runtipi"] == {"is_main": True, "internal_port": 8080}
+    assert service["environment"]["DB_HOST"] == "${MULTIDB_DB_HOST}"
+    assert "ports" not in service and "labels" not in service and "networks" not in compose
     assert str(files["apps/multidb/metadata/description.md"]).startswith(
         "# MultiDB\n\n![MultiDB](https://example.org/multidb.png)"
     )

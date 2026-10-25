@@ -2,7 +2,8 @@
 The observed poller: what GitHub and the registry say about each image right now, as opposed to what the
 builds reported. Stars and the archived flag come from one GraphQL query over the organisation; the GHCR
 tag list from the registry API with an anonymous pull token. Written to data/observed.json; nothing else
-writes that file.
+writes that file but the vulnerability poller (vulns.py), which keeps its ledger under `vulnerabilities` and
+runs after this one in `python -m lsio_hub.observe`.
 
     GITHUB_TOKEN=... python -m lsio_hub.observe
 """
@@ -23,6 +24,8 @@ from .sources.github import GitHub, is_image_repo
 from .sources.http import client
 from .sources.registry import ghcr_tags
 from .store import Store, load_store, save_store
+from .vulns import Grype, release_fetcher
+from .vulns import scan as scan_vulnerabilities
 
 log = logging.getLogger(__name__)
 Json = dict[str, Any]
@@ -30,15 +33,6 @@ Json = dict[str, Any]
 
 def _now() -> str:
     return datetime.datetime.now(datetime.UTC).isoformat(timespec="milliseconds").replace("+00:00", "Z")
-
-
-def scan_vulnerabilities(name: str, tag: str) -> Json | None:
-    """
-    TODO: run grype against the syft SBOM on the Release (packages.<arch>.json.gz) and record the counts per
-    severity here. Left as a stub so the data layout can gain `vulnerabilities` without a schema change
-    elsewhere; the poller never calls it yet.
-    """
-    return None
 
 
 def observe(store: Store, gh: GitHub, http: httpx2.Client, now: Callable[[], str] = _now) -> None:
@@ -73,7 +67,12 @@ def observe(store: Store, gh: GitHub, http: httpx2.Client, now: Callable[[], str
             "pushed_at": repo.get("pushed_at"),
             "ghcr_tags": tags,
         }
-    store.observed = {"fetched_at": now(), "images": dict(sorted(images.items()))}
+    store.observed = {
+        "fetched_at": now(),
+        "images": dict(sorted(images.items())),
+        # The vulnerability poller's ledger (which builds were scanned against which database) belongs to it.
+        **({"vulnerabilities": store.observed["vulnerabilities"]} if store.observed.get("vulnerabilities") else {}),
+    }
     status: Json = {"ok": True, "checked_at": checked_at, "fetched_at": store.observed["fetched_at"]}
     if failed:
         status["error"] = "GHCR tags kept from the previous run for " + "; ".join(failed)
@@ -86,7 +85,9 @@ def main() -> int:
     logging.getLogger("httpx2").setLevel(logging.WARNING)
     store = load_store(DATA_DIR)
     http = client()
-    observe(store, GitHub(http, os.environ.get("GITHUB_TOKEN")), http)
+    token = os.environ.get("GITHUB_TOKEN")
+    observe(store, GitHub(http, token), http)
+    scan_vulnerabilities(store, Grype(), release_fetcher(http, token))
     changed = save_store(DATA_DIR, store)
     log.info("%d files changed in data/", len(changed))
     return 0

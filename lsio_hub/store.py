@@ -9,13 +9,15 @@ readable diff.
     data/images/<name>/builds/<tag>.diff.json      the diff against the previous build of the branch
     data/images/<name>/builds/<tag>.layers.<arch>.json
     data/images/<name>/builds/<tag>.test.<arch>.json    the ci harness report (test.<arch>.json on the Release)
+    data/images/<name>/builds/<tag>.vulns.<arch>.json   grype's matches against the build's SBOM, compact (poller)
     data/images/<name>/packages[.<release tag>].<arch>.json   normalised package table of the newest build
                                                    of each branch (no infix for the `latest` branch)
     data/images/<name>/latest.json                 branch -> newest build: tag, release url, asset urls
     data/images/<name>/history.json                branch -> every release seen, newest first
     data/bases/<algorithm>-<hex>.json              a base image's layer digests per architecture, keyed by the
                                                    index digest builds record as base.digest (registry cache)
-    data/observed.json                             stars, archived flag, GHCR tags (poller only)
+    data/observed.json                             stars, archived flag, GHCR tags, the vulnerability scan ledger
+                                                   (poller only)
     data/mods.json                                 the mods index
     data/status.json                               per-source refresh status and rejected releases
 """
@@ -32,7 +34,7 @@ from .config import ARCHES
 
 Json = dict[str, Any]
 
-_BUILD_FILE = re.compile(r"^(?P<tag>.+?)(?:\.(?P<kind>diff|(?:layers|test)\.(?P<arch>amd64|arm64)))?\.json$")
+_BUILD_FILE = re.compile(r"^(?P<tag>.+?)(?:\.(?P<kind>diff|(?:layers|test|vulns)\.(?P<arch>amd64|arm64)))?\.json$")
 _PACKAGES_FILE = re.compile(r"^packages(?:\.(?P<infix>.+))?\.(?P<arch>amd64|arm64)\.json$")
 _MANIFEST_FILE = re.compile(r"^manifest\.(?P<branch>.+)\.json$")
 
@@ -52,6 +54,8 @@ class ImageRecord:
     """release tag -> arch -> layers.<arch>.json."""
     tests: dict[str, dict[str, Json]] = field(default_factory=dict)
     """release tag -> arch -> test.<arch>.json."""
+    vulns: dict[str, dict[str, Json]] = field(default_factory=dict)
+    """release tag -> arch -> {db_date, grype_version, matches: [...]}, the newest build of each branch."""
     packages: dict[str, dict[str, Json]] = field(default_factory=dict)
     """branch -> arch -> {branch, release_tag, tag, arch, packages: [...]}, the newest build of the branch."""
     latest: dict[str, Json] = field(default_factory=dict)
@@ -100,7 +104,8 @@ class ImageRecord:
 class Store:
     images: dict[str, ImageRecord] = field(default_factory=dict)
     observed: Json = field(default_factory=dict)
-    """{fetched_at, images: {name: {stars, archived, pushed_at, ghcr_tags}}}"""
+    """{fetched_at, images: {name: {stars, archived, pushed_at, ghcr_tags}}, vulnerabilities: {db_date, grype_version,
+    checked_at, builds: {"<image>@<tag>": {scanned_at, db_date, arches}}}}"""
     mods: Json = field(default_factory=dict)
     """{fetched_at, source, mods: [...]}"""
     bases: dict[str, Json] = field(default_factory=dict)
@@ -151,6 +156,8 @@ def load_record(directory: Path) -> ImageRecord:
             record.diffs[tag] = _read(path)
         elif kind.startswith("layers."):
             record.layers.setdefault(tag, {})[m["arch"]] = _read(path)
+        elif kind.startswith("vulns."):
+            record.vulns.setdefault(tag, {})[m["arch"]] = _read(path)
         else:
             record.tests.setdefault(tag, {})[m["arch"]] = _read(path)
     for path in sorted(directory.glob("packages.*.json")):
@@ -227,6 +234,11 @@ def record_files(record: ImageRecord) -> dict[str, str]:
             for arch in ARCHES:
                 if arch in reports:
                     files[f"builds/{tag}.test.{arch}.json"] = _dump(reports[arch], compact=True)
+    for tag, scans in sorted(record.vulns.items()):
+        if tag in record.builds:
+            for arch in ARCHES:
+                if arch in scans:
+                    files[f"builds/{tag}.vulns.{arch}.json"] = _dump(scans[arch], compact=True)
     for tables in record.packages.values():
         for arch, table in tables.items():
             files[packages_filename(table["release_tag"], arch)] = _dump(table, compact=True)
