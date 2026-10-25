@@ -1,5 +1,7 @@
 """Each endpoint's content, built without HTTP."""
 
+import yaml
+
 from lsio_hub import responses
 from lsio_hub.config import SiteConfig
 from lsio_hub.fleet import Fleet, load_fleet
@@ -249,6 +251,33 @@ def test_proxy_kubernetes_quadlet(fleet: Fleet) -> None:
     assert responses.quadlet_unit(fleet, "swag") is not None
     assert responses.names_with(fleet, "proxy") == ["multidb", "sonarr"]
     assert responses.names_with(fleet, "kubernetes") == ["multidb", "sonarr", "swag"]
+
+
+def test_caddy_and_traefik_references(fleet: Fleet) -> None:
+    """Checked by hand against caddy adapt and a Traefik 3.7 docker provider; these pin the shape."""
+    proxy = responses.proxy_data(fleet, "sonarr")
+    assert proxy is not None and proxy.caddy and proxy.traefik
+    caddy = proxy.caddy
+    assert "sonarr.example.com {\n" in caddy and "\t@api path /api /api/*\n" in caddy
+    assert caddy.count("\n\t\treverse_proxy sonarr:8989\n") == 2  # the open API route and the main one
+    assert "# forward_auth authelia:9091 {" in caddy and "\n# example.com {\n" in caddy  # subfolder, commented
+    assert "@api path /sonarr/api /sonarr/api/*" in caddy and "Settings → General → URL Base" in caddy
+    traefik = yaml.safe_load(proxy.traefik)["services"]["sonarr"]["labels"]
+    assert "traefik.http.routers.sonarr.rule=Host(`sonarr.example.com`)" in traefik
+    assert "traefik.http.services.sonarr.loadbalancer.server.port=8989" in traefik
+    assert "traefik.http.routers.sonarr-api.rule=Host(`sonarr.example.com`) && (PathPrefix(`/api`))" in traefik
+    assert "# - traefik.http.routers.sonarr.middlewares=authelia@docker" in proxy.traefik
+    assert not any("middlewares" in label for label in traefik)  # authentication stays commented
+
+    multidb = responses.proxy_data(fleet, "multidb")
+    assert multidb is not None and multidb.caddy and multidb.traefik
+    assert "reverse_proxy https://multidb:8080 {\n" in multidb.caddy and "tls_insecure_skip_verify" in multidb.caddy
+    assert "@api path /api /api/* /ws /ws/*" in multidb.caddy and "handle /metrics* {" in multidb.caddy
+    assert "reverse_proxy multidb:9090" in multidb.caddy and "example.com {\n#" not in multidb.caddy  # no subfolder
+    labels = yaml.safe_load(multidb.traefik)["services"]["multidb"]["labels"]
+    assert "traefik.http.services.multidb.loadbalancer.server.scheme=https" in labels
+    assert "traefik.http.services.multidb-extra1.loadbalancer.server.port=9090" in labels
+    assert "traefik.http.routers.multidb-extra1.service=multidb-extra1" in labels
 
 
 def test_stores_index(fleet: Fleet) -> None:

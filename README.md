@@ -110,7 +110,7 @@ Added by the hub:
 | `/api/v1/catalog/{name}/builds/{tag}/packages.{arch}.json` | The package table; only for the newest build of each branch (older builds keep `packages.<arch>.json.gz` on the Release). |
 | `/api/v1/catalog/{name}/builds/{tag}/layers.{arch}.json` | Layers with digest, size and Dockerfile instruction, plus `from_base` and `dockerfile_lines` (see below). |
 | `/api/v1/catalog/{name}/mods.json`, `/api/v1/mods.json` | Mods for one image (its own, then universal), or all. |
-| `/api/v1/catalog/{name}/proxy.json` | The SWAG subdomain and subfolder sample texts and the manifest's `proxy` block. |
+| `/api/v1/catalog/{name}/proxy.json` | The SWAG subdomain and subfolder sample texts, reference configs for Caddy (`caddy`, a Caddyfile site block) and Traefik (`traefik`, compose labels) with the same upstream, open API paths and extra locations, and the manifest's `proxy` block. |
 | `/api/v1/catalog/{name}/kubernetes.yaml`, `/quadlet.container` | Generated documents (only for images where `publish` enables them). |
 | `/api/v1/packages.json`, `/api/v1/packages/{package}.json` | Every package name with its file slug; which images ship it, in which versions, per branch and arch. |
 | `/api/v1/fleet/bases.json` | Base image references, the images on each, and the digests seen over time. |

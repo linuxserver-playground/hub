@@ -965,6 +965,10 @@ class ProxyData(BaseModel):
     scheme: str
     subdomain: str | None = Field(None, description="The `<name>.subdomain.conf.sample` text.")
     subfolder: str | None = Field(None, description="The `<name>.subfolder.conf.sample` text, when supported.")
+    caddy: str | None = Field(
+        None, description="A reference Caddyfile site block with the same upstream and open API paths."
+    )
+    traefik: str | None = Field(None, description="Reference Traefik labels for the image's compose service.")
     base_url_note: str | None = None
     config: dict[str, Any] = Field(description="The manifest's `proxy` block.")
 

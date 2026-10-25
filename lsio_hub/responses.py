@@ -12,7 +12,7 @@ from builder.render import render_all
 from .config import STORE_REPOS
 from .dates import parse_iso
 from .fleet import Fleet
-from .generate import kubernetes, proxy, quadlet
+from .generate import kubernetes, proxy, proxy_refs, quadlet
 from .generate.common import ImageInput
 from .layers import annotate
 from .models import (
@@ -478,6 +478,8 @@ def proxy_data(fleet: Fleet, name: str) -> ProxyData | None:
         scheme=str(block.get("scheme", "http")),
         subdomain=proxy.subdomain(image) if block.get("subdomain", True) else None,
         subfolder=proxy.subfolder(image),
+        caddy=proxy_refs.caddy(image),
+        traefik=proxy_refs.traefik(image),
         base_url_note=block.get("subfolder", {}).get("base_url_note"),
         config=block,
     )
