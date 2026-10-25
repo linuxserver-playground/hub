@@ -4,8 +4,8 @@
 # repository_dispatch of type `image-released` with {"repository": "owner/name", "tag": "<tag>"}.
 #
 # GITHUB_TOKEN is enough for the data and the Pages site: the hub only reads public repositories and releases in
-# its own organisation. The Umbrel and Runtipi stores are pushed to their own repositories (they clone a git
-# repository and want the store at its root) with an installation token of the GitHub App whose id and private
+# its own organisation. The Unraid, Umbrel and Runtipi stores are pushed to their own repositories (they read a
+# git repository and want the store at its root) with an installation token of the GitHub App whose id and private
 # key are the STORE_APP_ID and STORE_APP_PRIVATE_KEY secrets; the app needs contents: write on those repositories.
 name: Deploy
 
@@ -153,8 +153,8 @@ jobs:
         uses: actions/deploy-pages@v5
 
   publish-stores:
-    # Umbrel and Runtipi clone a git repository and want the store at its root, so each gets a repository of its
-    # own: the import URL is the repository URL. Skipped until the store app's secrets exist; not on pull requests,
+    # Unraid, Umbrel and Runtipi read a git repository and want the store at its root, so each gets a repository
+    # of its own: the import URL is the repository URL. Skipped until the store app's secrets exist; not on pull requests,
     # those have no business pushing anywhere.
     needs: build
     if: github.event_name != 'pull_request' && needs.build.outputs.store_credentials == 'true'
@@ -164,7 +164,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        store: [umbrel, runtipi]
+        store: [unraid, umbrel, runtipi]
     steps:
       - uses: actions/checkout@v7
         with:

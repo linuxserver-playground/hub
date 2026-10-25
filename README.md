@@ -111,7 +111,7 @@ Added by the hub:
 | `/api/v1/packages.json`, `/api/v1/packages/{package}.json` | Every package name with its file slug; which images ship it, in which versions, per branch and arch. |
 | `/api/v1/fleet/bases.json` | Base image references, the images on each, and the digests seen over time. |
 | `/api/v1/fleet/staleness.json` | Newest builds whose base was seen newer elsewhere (a later digest in another build, or a later `baseimage-*` release when base images join the fleet). |
-| `/api/v1/stores/index.json` | Every store URL with a one-line how-to. |
+| `/api/v1/stores/index.json` | The six app stores (Unraid, Portainer, CasaOS, Umbrel, Runtipi, Cosmos), one import URL and a one-line how-to each. |
 
 ### Layer attribution
 
@@ -185,22 +185,23 @@ manifest and the build records.
 `python -m lsio_hub.generate` writes `out/stores/<platform>/` for every store and `out/builds/` for the
 report pages; `--only a,b` limits the run and `--offline` skips Release downloads. Each generator is tested
 against sonarr, swag and a constructed multi-arch image with an external database (`tests/fixtures/manifests/multidb.master.yml`).
-`<hub>` below is the Pages site, `https://linuxserver-playground.github.io/hub`. Umbrel and Runtipi clone a git
-repository and want the store's files at its root, so `deploy.yml` (`publish-stores`, after the generate step on
-every push, cron and dispatch run) pushes `out/stores/umbrel/` to
-[`linuxserver-playground/umbrel-store`](https://github.com/linuxserver-playground/umbrel-store) and
-`out/stores/runtipi/` to [`linuxserver-playground/runtipi-store`](https://github.com/linuxserver-playground/runtipi-store)
+`<hub>` below is the Pages site, `https://linuxserver-playground.github.io/hub`. Unraid, Umbrel and Runtipi read
+a git repository and want the store's files at its root, so `deploy.yml` (`publish-stores`, after the generate
+step on every push, cron and dispatch run) pushes `out/stores/unraid/` to
+`https://github.com/linuxserver-playground/unraid-store`, `out/stores/umbrel/` to
+`https://github.com/linuxserver-playground/umbrel-store` and `out/stores/runtipi/` to
+`https://github.com/linuxserver-playground/runtipi-store`
 with `scripts/publish_store.sh`: the target's contents are replaced by the generated output plus a README saying
 the repository is generated and how to import it, committed as `github-actions[bot]` (`Update generated store`)
 only when something changed, pushed to `main` (created on an empty repository; the push is retried once after a
 rebase). The token is an installation token of a GitHub App (`actions/create-github-app-token`, secrets
-`STORE_APP_ID` and `STORE_APP_PRIVATE_KEY`) with `contents: write` on the two repositories. Those repository URLs
+`STORE_APP_ID` and `STORE_APP_PRIVATE_KEY`) with `contents: write` on the three repositories. Those repository URLs
 are the import URLs in `/api/v1/stores/index.json`.
 
 | Generator | Output | Import |
 | --- | --- | --- |
 | `docs` | `images/docker-<name>.md` (builder's mkdocs docs template), `images-by-category.md` | Copy into the docs repository's `docs/`. |
-| `unraid` | `<name>.xml`, `deprecated/<name>.xml` for `deprecation.status`, `ignore.list` for `publish.stores.unraid: false` | Unraid reads the `unraid/` folder of the stores repository (`<TemplateURL>` points there). Ported field for field from the legacy `unraid.xml.j2`; the icon is `docs.logo`, the WebUI comes from `test.web`, `publish.unraid.requirement` fills `<Requires>`. |
+| `unraid` | `<name>.xml`, `deprecated/<name>.xml` for `deprecation.status`, `ignore.list` for `publish.stores.unraid: false` | Unraid reads the root of `https://github.com/linuxserver-playground/unraid-store` (`<TemplateURL>` points there). Ported field for field from the legacy `unraid.xml.j2`; the icon is `docs.logo`, the WebUI comes from `test.web`, `publish.unraid.requirement` fills `<Requires>`. |
 | `portainer` | `templates.json` (format version 3, type 1 templates) | Portainer → Settings → App Templates → URL: `<hub>/stores/portainer/templates.json`. |
 | `casaos` | `Apps/<name>/docker-compose.yml` with `x-casaos`, `linuxserver.zip` | CasaOS → App Store → More apps → Add source: `<hub>/stores/casaos/linuxserver.zip`. |
 | `umbrel` | `umbrel-app-store.yml` (`id: lsio`, `name`), `lsio-<name>/umbrel-app.yml` (the template's fields: `manifestVersion`, `id`, `category`, `name`, `tagline`, `icon`, `version`, `description`, `developer`, `website`, `repo`, `support`, `port`, `gallery`, `releaseNotes`, `path`, ...), `docker-compose.yml` (app_proxy with `APP_HOST: lsio-<name>_server_1`, data under `APP_DATA_DIR`), `exports.sh` | Umbrel → App Store → Community App Stores → `https://github.com/linuxserver-playground/umbrel-store`. Layout as `getumbrel/umbrel-community-app-store`: app directories named `<store id>-<app>` at the repository root. |
@@ -242,7 +243,7 @@ copied as they are (Pages gzips text).
    `{"repository": "linuxserver-playground/docker-sonarr", "tag": "4.0.20.3014-ls1"}`; the hourly reconcile
    catches anything missed.
 4. The `publish-stores` job needs the `STORE_APP_ID` and `STORE_APP_PRIVATE_KEY` secrets: a GitHub App installed
-   on the organisation with `contents: write` on `umbrel-store` and `runtipi-store`. Without them the job fails and
+   on the organisation with `contents: write` on `unraid-store`, `umbrel-store` and `runtipi-store`. Without them the job fails and
    the Pages deployment is unaffected.
 5. The grype binary is pinned in `deploy.yml` (version and sha256); bump both together. Its database is a few GB on
    disk and lives in the Actions cache under `grype-db-<date>`.

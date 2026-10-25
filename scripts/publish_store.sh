@@ -30,6 +30,11 @@ if [ ! -d "$source_dir" ]; then
 fi
 
 case "$platform" in
+  unraid)
+    title="LinuxServer.io Unraid templates"
+    how_to="Community Applications lists template repositories once its moderators have added them. Until this one is, copy an image's XML into \`/boot/config/plugins/dockerMan/templates-user/\` on the flash drive and pick it under *Docker*, *Add Container*, *Template*. Each template's \`TemplateURL\` points back here, so Unraid picks up changes."
+    layout="One \`<image>.xml\` per image at the root, deprecated images in \`deprecated/\`, and \`ignore.list\` for images that opt out of Unraid."
+    ;;
   umbrel)
     title="LinuxServer.io Umbrel community app store"
     how_to="In umbrelOS open the App Store, choose *Community App Stores* and add \`${repo_url}\`."
@@ -41,7 +46,7 @@ case "$platform" in
     layout="\`apps/<app>/\` per image with \`config.json\`, \`docker-compose.yml\` (dynamic compose, \`x-runtipi\` schema 2) and \`metadata/description.md\`."
     ;;
   *)
-    echo "unknown platform $platform (umbrel or runtipi)" >&2
+    echo "unknown platform $platform (unraid, umbrel or runtipi)" >&2
     exit 2
     ;;
 esac

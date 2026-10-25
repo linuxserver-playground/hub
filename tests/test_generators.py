@@ -53,11 +53,11 @@ def test_unraid_matches_the_legacy_sample(gen: GenerateContext) -> None:
     ours = unraid.render(_image(gen, "sonarr"))
     sample = (FIXTURES / "unraid-sonarr.xml").read_text()
     # The intended differences: the organisation and registry, the source comment, the template URL (the
-    # stores repository) and the icon, which is docs.logo now.
+    # unraid-store repository) and the icon, which is docs.logo now.
     for old, new in (
         ("linuxserver-playground", "linuxserver"),
         ("ghcr.io/linuxserver/sonarr", "lscr.io/linuxserver/sonarr"),
-        ("linuxserver/stores/main/unraid", "linuxserver/templates/main/unraid"),
+        ("linuxserver/unraid-store/main/", "linuxserver/templates/main/unraid/"),
         ("/blob/master/image.yml", "/blob/master/readme-vars.yml"),
         ("sonarr-banner.png", "sonarr-logo.png"),
     ):

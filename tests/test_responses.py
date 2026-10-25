@@ -254,22 +254,9 @@ def test_proxy_kubernetes_quadlet(fleet: Fleet) -> None:
 
 def test_stores_index(fleet: Fleet) -> None:
     stores = responses.stores_index(fleet)
-    assert {s.platform for s in stores} >= {
-        "unraid",
-        "portainer",
-        "casaos",
-        "umbrel",
-        "runtipi",
-        "cosmos",
-        "proxy",
-        "kubernetes",
-        "quadlet",
-        "mods",
-        "builds",
-        "docs",
-    }
-    assert (
-        next(s for s in stores if s.platform == "portainer").url
-        == "https://example.github.io/hub/stores/portainer/templates.json"
-    )
+    assert [s.platform for s in stores] == ["unraid", "portainer", "casaos", "umbrel", "runtipi", "cosmos"]
+    urls = {s.platform: s.url for s in stores}
+    assert urls["portainer"] == "https://example.github.io/hub/stores/portainer/templates.json"
+    assert urls["unraid"] == "https://github.com/linuxserver-playground/unraid-store"
+    assert urls["umbrel"] == "https://github.com/linuxserver-playground/umbrel-store"
     assert all(s.how_to for s in stores)

@@ -3,7 +3,7 @@ Unraid Community Applications templates, a port of the legacy `unraid.xml.j2` fi
 is the manifest's `docs.logo`; the WebUI comes from `test.web`; `publish.unraid.requirement` fills
 <Requires> and `publish.unraid.webui` overrides the WebUI template.
 
-Import: Unraid reads templates from a repository; this output is the `unraid/` folder of the stores repo.
+Import: Unraid reads templates from a repository; deploy.yml pushes this output to the root of unraid-store.
 Images with `publish.stores.unraid: false` are listed in `ignore.list`; deprecated images move to `deprecated/`.
 """
 
@@ -12,7 +12,7 @@ from __future__ import annotations
 from html import escape
 from typing import Any
 
-from ..config import ORG, STORES_RAW_URL
+from ..config import ORG, UNRAID_RAW_URL
 from .common import Files, GenerateContext, ImageInput
 
 Json = dict[str, Any]
@@ -209,7 +209,7 @@ def render(image: ImageInput) -> str:
     web = webui(image)
     if web:
         lines.append(f"    <WebUI>{web}</WebUI>")
-    lines.append(f"    <TemplateURL>{STORES_RAW_URL}/unraid/{image.name.lower()}.xml</TemplateURL>")
+    lines.append(f"    <TemplateURL>{UNRAID_RAW_URL}/{image.name.lower()}.xml</TemplateURL>")
     lines.append(f"    <Icon>{image.logo}</Icon>")
     requirement = m.get("publish", {}).get("unraid", {}).get("requirement", "")
     external = ctx["external_application"] or {}

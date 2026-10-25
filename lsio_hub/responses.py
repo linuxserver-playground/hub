@@ -8,7 +8,7 @@ from typing import Any, Literal
 
 from builder.manifest import build_context
 
-from .config import STORE_REPOS, STORES_RAW_URL
+from .config import STORE_REPOS
 from .dates import parse_iso
 from .fleet import Fleet
 from .generate import kubernetes, proxy, quadlet
@@ -683,19 +683,15 @@ def staleness(fleet: Fleet) -> StalenessData:
 
 
 def stores_index(fleet: Fleet) -> list[StoreEntry]:
+    """The app stores, one import URL each. Per-image deployment files (Kubernetes, quadlets, SWAG proxy confs) are
+    not stores: image pages link them from /stores/<platform>/<name>.*."""
     root = fleet.site.stores_root
     return [
         StoreEntry(
-            platform="docs",
-            name="Documentation pages",
-            url=f"{root}/docs/",
-            how_to="Copy images/*.md into the docs repository's docs/images/.",
-        ),
-        StoreEntry(
             platform="unraid",
-            name="Unraid Community Applications",
-            url=f"{STORES_RAW_URL}/unraid/",
-            how_to="Templates are read from the stores repository; one XML per image, deprecated ones in deprecated/.",
+            name="Unraid templates",
+            url=f"https://github.com/{STORE_REPOS['unraid']}",
+            how_to="One template XML per image at the repository root; deprecated images are in deprecated/.",
         ),
         StoreEntry(
             platform="portainer",
@@ -726,36 +722,6 @@ def stores_index(fleet: Fleet) -> list[StoreEntry]:
             name="Cosmos Cloud market",
             url=f"{root}/cosmos/index.json",
             how_to="Cosmos > Market > Sources > add the URL.",
-        ),
-        StoreEntry(
-            platform="proxy",
-            name="SWAG proxy confs",
-            url=f"{root}/proxy/",
-            how_to="Copy <name>.subdomain.conf.sample to /config/nginx/proxy-confs/ without .sample and restart SWAG.",
-        ),
-        StoreEntry(
-            platform="kubernetes",
-            name="Kubernetes manifests",
-            url=f"{root}/kubernetes/",
-            how_to="kubectl apply -f <url>/<name>.yaml after editing storage sizes.",
-        ),
-        StoreEntry(
-            platform="quadlet",
-            name="Podman quadlets",
-            url=f"{root}/quadlet/",
-            how_to="Copy <name>.container to ~/.config/containers/systemd/ and systemctl --user daemon-reload.",
-        ),
-        StoreEntry(
-            platform="mods",
-            name="Legacy mod list",
-            url=f"{root}/mods/mod-list.yml",
-            how_to="The legacy mod-list.yml shape; prefer /api/v1/mods.json.",
-        ),
-        StoreEntry(
-            platform="builds",
-            name="CI build reports",
-            url=f"{fleet.site.api_root}/builds/",
-            how_to="One page per build at /builds/<image>/<tag>/; the test tarball unpacked next to it.",
         ),
     ]
 
