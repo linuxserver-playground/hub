@@ -190,7 +190,7 @@ def build_image(
         upstream_version=build["version"]["upstream"] if build else None,
         base=ctx["base"],
         releases=[_release_info(record, branch, m) for branch, m in sorted(record.manifests.items())],
-        docs_url=f"{settings.docs_url}/images/{ctx['repo']}/",
+        docs_url=f"{settings.site_url}/images/{name}/",
         registries=Registries(
             ghcr=ctx["image"], packages_url=f"https://github.com/orgs/{settings.org}/packages/container/package/{name}"
         ),

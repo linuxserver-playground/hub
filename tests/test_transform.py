@@ -52,7 +52,7 @@ def test_manifest_mapping(fleet: Fleet) -> None:
     assert sonarr.project_logo and sonarr.project_logo.endswith("sonarr-banner.png")
     assert sonarr.github_url == "https://github.com/linuxserver-playground/docker-sonarr"
     assert sonarr.registries.ghcr == "ghcr.io/linuxserver-playground/sonarr"
-    assert sonarr.docs_url == "https://linuxserver-playground.github.io/docs/images/docker-sonarr/"
+    assert sonarr.docs_url == "https://linuxserver-playground.github.io/site/images/sonarr/"
     assert sonarr.links.proxy and sonarr.links.kubernetes and sonarr.links.quadlet
     assert sonarr.snippets.docker_compose.startswith("---\nservices:\n  sonarr:\n")
     assert "image: ghcr.io/linuxserver-playground/sonarr:latest" in sonarr.snippets.docker_compose
