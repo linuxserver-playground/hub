@@ -34,6 +34,11 @@ jobs:
       store_credentials: ${{ steps.store.outputs.configured }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          # The branch tip when the job starts, not the commit the run was created for: a run waits in the
+          # concurrency group while the one ahead of it commits data/, and starting from that older commit made
+          # both rewrite the same lines of status.json and observed.json, so the later commit could not rebase.
+          ref: ${{ github.ref }}
 
       - name: Check for store credentials
         # Jobs cannot read secrets in their `if`, so the build job reports whether the store app is configured.
@@ -112,6 +117,7 @@ jobs:
             # so the rebase is clean. Retried because another push can land between the rebase and our push.
             for attempt in 1 2 3 4; do
               git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && break
+              git rebase --abort 2>/dev/null || true  # a failed rebase must not wedge the next attempt
               [ "$attempt" = 4 ] && exit 1
               sleep $((attempt * 5))
             done

@@ -296,31 +296,38 @@ def test_mod_list_legacy_shape(gen: GenerateContext) -> None:
     assert re.search(r"universal-git\n", text)
 
 
+def _text(files: dict[str, str | bytes], path: str) -> str:
+    value = files[path]
+    assert isinstance(value, str), path
+    return value
+
+
 def test_arcane_registry_matches_arcanes_schema(gen: GenerateContext) -> None:
     import hashlib
 
     import jsonschema
 
     files = arcane.generate(gen)
-    registry = json.loads(files["registry.json"])
+    registry = json.loads(_text(files, "registry.json"))
     schema = json.loads((FIXTURES / "arcane-registry.schema.json").read_text())
     jsonschema.Draft7Validator(schema, format_checker=jsonschema.FormatChecker()).validate(registry)
     sonarr = next(t for t in registry["templates"] if t["id"] == "sonarr")
     assert sonarr["compose_url"] == "https://example.github.io/hub/stores/arcane/sonarr/compose.yaml"
     assert sonarr["env_url"].endswith("/stores/arcane/sonarr/env.example")
-    compose, env = files["sonarr/compose.yaml"], files["sonarr/env.example"]
+    compose, env = _text(files, "sonarr/compose.yaml"), _text(files, "sonarr/env.example")
     assert sonarr["content_hash"] == hashlib.sha256((compose + env).encode()).hexdigest()
     assert "linuxserver" in sonarr["tags"]
 
 
 def test_arcane_compose_takes_its_values_from_env(gen: GenerateContext) -> None:
     files = arcane.generate(gen)
-    service = yaml.safe_load(files["sonarr/compose.yaml"])["services"]["sonarr"]
-    env = files["sonarr/env.example"]
+    compose = _text(files, "sonarr/compose.yaml")
+    service = yaml.safe_load(compose)["services"]["sonarr"]
+    env = _text(files, "sonarr/env.example")
     assert service["environment"]["PUID"] == "${PUID:-1000}" and "PUID=1000" in env
     assert service["volumes"] == ["${CONFIG_PATH:-./config}:/config"]  # optional media folders stay out
     assert service["ports"] == ["${PORT_8989:-8989}:8989"] and "PORT_8989=8989" in env
     assert service["restart"] == "unless-stopped"
     # Every ${VAR} the compose file uses has a line in env.example.
-    for var in set(re.findall(r"\$\{([A-Z0-9_]+)", files["sonarr/compose.yaml"])):
+    for var in set(re.findall(r"\$\{([A-Z0-9_]+)", compose)):
         assert re.search(rf"^{var}=", env, re.MULTILINE), var
