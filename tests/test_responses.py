@@ -263,7 +263,10 @@ def test_stores_index(fleet: Fleet) -> None:
 
 
 def test_doc_sections_split_at_level_two_headings_outside_code() -> None:
-    text = "# Title\n\nbadges\n\n## Application Setup\n\nRun it.\n\n### Media folders\n\nKeep them.\n\n## Usage\n\n```yaml\n## not a heading\n```\n"
+    text = (
+        "# Title\n\nbadges\n\n## Application Setup\n\nRun it.\n\n### Media folders\n\nKeep them.\n\n"
+        "## Usage\n\n```yaml\n## not a heading\n```\n"
+    )
     sections = responses.doc_sections(text)
     assert [(s.id, s.title) for s in sections] == [("application-setup", "Application Setup"), ("usage", "Usage")]
     assert "### Media folders" in sections[0].markdown and "## not a heading" in sections[1].markdown

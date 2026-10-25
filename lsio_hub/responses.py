@@ -556,6 +556,11 @@ def names_with(fleet: Fleet, kind: str) -> list[str]:
 
 
 def _holders(fleet: Fleet) -> dict[str, list[PackageHolder]]:
+    """Every package row of the fleet by package name. Built once per fleet: the static build asks for it once per
+    package page, and rebuilding it each time made the build quadratic (minutes at a few thousand packages)."""
+    cached: dict[str, list[PackageHolder]] | None = fleet.__dict__.get("_package_holders")
+    if cached is not None:
+        return cached
     by_name: dict[str, list[PackageHolder]] = defaultdict(list)
     for name, record in sorted(fleet.store.images.items()):
         for branch, tables in sorted(record.packages.items()):
@@ -572,7 +577,17 @@ def _holders(fleet: Fleet) -> dict[str, list[PackageHolder]]:
                             purl=row.get("purl"),
                         )
                     )
+    # Fleet is frozen and its data never changes once loaded; __dict__ is the one place to keep the result.
+    fleet.__dict__["_package_holders"] = by_name
     return by_name
+
+
+def _names_by_slug(fleet: Fleet) -> dict[str, str]:
+    cached: dict[str, str] | None = fleet.__dict__.get("_package_slugs")
+    if cached is None:
+        cached = {slug(name): name for name in _holders(fleet)}
+        fleet.__dict__["_package_slugs"] = cached
+    return cached
 
 
 def package_index(fleet: Fleet) -> list[PackageIndexEntry]:
@@ -590,21 +605,22 @@ def package_index(fleet: Fleet) -> list[PackageIndexEntry]:
 
 
 def package_detail(fleet: Fleet, package_slug: str) -> PackageData | None:
-    for name, holders in _holders(fleet).items():
-        if slug(name) == package_slug:
-            return PackageData(
-                name=name,
-                slug=package_slug,
-                types=sorted({h.type for h in holders}),
-                versions=sorted({h.version for h in holders}, key=version_key, reverse=True),
-                images=sorted({h.image for h in holders}),
-                holders=holders,
-            )
-    return None
+    name = _names_by_slug(fleet).get(package_slug)
+    if name is None:
+        return None
+    holders = _holders(fleet)[name]
+    return PackageData(
+        name=name,
+        slug=package_slug,
+        types=sorted({h.type for h in holders}),
+        versions=sorted({h.version for h in holders}, key=version_key, reverse=True),
+        images=sorted({h.image for h in holders}),
+        holders=holders,
+    )
 
 
 def package_slugs(fleet: Fleet) -> list[str]:
-    return sorted({slug(name) for name in _holders(fleet)})
+    return sorted(_names_by_slug(fleet))
 
 
 # ---------------------------------------------------------------------------------------------------
