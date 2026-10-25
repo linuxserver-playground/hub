@@ -198,6 +198,7 @@ def build_image(
         links=ImageLinks(
             builds=f"{api}/builds.json",
             docs=f"{site.api_root}/stores/docs/images/{ctx['repo']}.md",
+            documentation=f"{api}/docs.json",
             proxy=f"{api}/proxy.json" if manifest.get("proxy") else None,
             kubernetes=f"{api}/kubernetes.yaml" if kubernetes else None,
             quadlet=f"{api}/quadlet.container" if quadlet else None,

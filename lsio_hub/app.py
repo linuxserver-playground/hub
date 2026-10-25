@@ -35,6 +35,7 @@ from .models import (
     ChangelogResponse,
     DiffData,
     DiffResponse,
+    DocsResponse,
     Health,
     ImageData,
     ImageDetail,
@@ -190,6 +191,19 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
         """The `<name>.subdomain.conf.sample` and `.subfolder.conf.sample` texts from the manifest's `proxy` block."""
         find(name)
         return envelope(ProxyResponse, data=or_404(responses.proxy_data(fleet, name)))
+
+    @get(
+        "/api/v1/catalog/{name}/docs.json",
+        tags=["Images"],
+        operation_id="getImageDocs",
+        summary="Get the full documentation",
+        responses=NOT_FOUND,
+    )
+    def get_image_docs(name: ImageName) -> DocsResponse:
+        """The README builder renders from the manifest, split at its `##` headings: setup, usage, parameters,
+        environment variables from files, user and group identifiers, support, updating, building locally."""
+        find(name)
+        return envelope(DocsResponse, data=or_404(responses.docs_data(fleet, name)))
 
     @get(
         "/api/v1/catalog/{name}/kubernetes.yaml",

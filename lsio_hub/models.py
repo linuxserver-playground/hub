@@ -204,6 +204,7 @@ class ReleaseInfo(BaseModel):
 class ImageLinks(BaseModel):
     builds: str
     docs: str
+    documentation: str | None = Field(None, description="`docs.json`: the full documentation, section by section.")
     proxy: str | None = None
     kubernetes: str | None = None
     quadlet: str | None = None
@@ -970,6 +971,23 @@ class ProxyData(BaseModel):
 
 class ProxyResponse(Envelope):
     data: ProxyData
+
+
+class DocSection(BaseModel):
+    id: str = Field(description="Slug of the title, stable across images: `application-setup`, `support-info`.")
+    title: str = Field(description="The `##` heading as written.")
+    markdown: str = Field(description="The section body in GitHub-flavoured Markdown, without its heading.")
+
+
+class DocsData(BaseModel):
+    """The image's full documentation, split at its `##` headings: the README builder renders from `image.yml`."""
+
+    image: str
+    sections: list[DocSection]
+
+
+class DocsResponse(Envelope):
+    data: DocsData
 
 
 class PackageHolder(BaseModel):

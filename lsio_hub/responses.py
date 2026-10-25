@@ -7,6 +7,7 @@ from collections import Counter, defaultdict
 from typing import Any, Literal
 
 from builder.manifest import build_context
+from builder.render import render_all
 
 from .config import STORE_REPOS
 from .dates import parse_iso
@@ -31,6 +32,8 @@ from .models import (
     ChangelogEntry,
     Diff,
     DiffSummary,
+    DocsData,
+    DocSection,
     HistoryEntry,
     Image,
     ImageDetail,
@@ -476,6 +479,46 @@ def proxy_data(fleet: Fleet, name: str) -> ProxyData | None:
         base_url_note=block.get("subfolder", {}).get("base_url_note"),
         config=block,
     )
+
+
+def doc_sections(markdown: str) -> list[DocSection]:
+    """`##` sections of a Markdown document, in order; headings inside fenced code are text. The part before the
+    first `##` (title, badges, logo) is not a section."""
+    sections: list[DocSection] = []
+    title: str | None = None
+    body: list[str] = []
+    fence: str | None = None
+
+    def close() -> None:
+        if title is not None:
+            sections.append(DocSection(id=_slug(title), title=title, markdown="\n".join(body).strip("\n") + "\n"))
+
+    for line in markdown.splitlines():
+        stripped = line.lstrip()
+        if fence:
+            if stripped.startswith(fence):
+                fence = None
+        elif stripped.startswith(("```", "~~~")):
+            fence = stripped[:3]
+        elif line.startswith("## "):
+            close()
+            title, body = line[3:].strip(), []
+            continue
+        body.append(line)
+    close()
+    return sections
+
+
+def _slug(title: str) -> str:
+    return "-".join("".join(c if c.isalnum() else " " for c in title.lower()).split())
+
+
+def docs_data(fleet: Fleet, name: str) -> DocsData | None:
+    record = fleet.record(name)
+    if record is None or record.manifest is None:
+        return None
+    readme = render_all(record.manifest, fleet.settings)["README.md"]
+    return DocsData(image=name, sections=doc_sections(readme))
 
 
 def kubernetes_yaml(fleet: Fleet, name: str) -> str | None:

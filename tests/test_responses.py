@@ -260,3 +260,28 @@ def test_stores_index(fleet: Fleet) -> None:
     assert urls["unraid"] == "https://github.com/linuxserver-playground/unraid-store"
     assert urls["umbrel"] == "https://github.com/linuxserver-playground/umbrel-store"
     assert all(s.how_to for s in stores)
+
+
+def test_doc_sections_split_at_level_two_headings_outside_code() -> None:
+    text = "# Title\n\nbadges\n\n## Application Setup\n\nRun it.\n\n### Media folders\n\nKeep them.\n\n## Usage\n\n```yaml\n## not a heading\n```\n"
+    sections = responses.doc_sections(text)
+    assert [(s.id, s.title) for s in sections] == [("application-setup", "Application Setup"), ("usage", "Usage")]
+    assert "### Media folders" in sections[0].markdown and "## not a heading" in sections[1].markdown
+    assert responses.doc_sections("no sections at all") == []
+
+
+def test_docs_data_is_the_full_readme(fleet: Fleet) -> None:
+    docs = responses.docs_data(fleet, "sonarr")
+    assert docs is not None
+    ids = [s.id for s in docs.sections]
+    for wanted in (
+        "application-setup",
+        "usage",
+        "parameters",
+        "user-group-identifiers",
+        "support-info",
+        "updating-info",
+        "building-locally",
+    ):
+        assert wanted in ids, (wanted, ids)
+    assert responses.docs_data(fleet, "nope") is None
