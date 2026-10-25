@@ -36,16 +36,19 @@ docker-mods mod.yml ─────────┘                     │      
 ```
 
 `deploy.yml` runs hourly (reconcile, observe with the grype scan, mods), on `repository_dispatch` type
-`image-released` (`client_payload: {repository, tag}`, sent by the control plane) and on every push to `main`. It
-commits `data/` when it changed, builds `dist/`, generates `out/`, merges `out/` onto the site root and deploys
-to Pages, so one site serves `/api/v1/…`, `/stores/…` and `/builds/…`; a second job pushes the Umbrel and
-Runtipi stores to their own repositories (see Generators). Reads use `GITHUB_TOKEN` only.
+`image-released` (`client_payload: {repository, tag}`, sent by the control plane) and on every push to `main`. A
+release run treats its payload as a hint: `ingest --pending` sweeps the organisation (one listing, one releases
+page per image repository) and ingests every release `data/` lacks, then scans the new builds with grype. GitHub
+keeps one pending run per concurrency group and drops older ones, so a burst of releases is picked up by whichever
+run comes next and none is lost. It commits `data/` when it changed, builds `dist/`, generates `out/`, merges
+`out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and `/builds/…`; a
+second job pushes the Unraid, Umbrel and Runtipi stores to their own repositories (see Generators). Reads use `GITHUB_TOKEN` only.
 
 | Module | |
 | --- | --- |
 | `lsio_hub/models.py` | Every response shape. The v1 models are the original API's, field for field. |
 | `lsio_hub/store.py` | The `data/` layout: load, save, rotation. |
-| `lsio_hub/ingest.py` | Reconcile (every repo, every release) or one release; validates with the builder contracts. |
+| `lsio_hub/ingest.py` | Reconcile (every repo, every release), the pending sweep (only repos with releases `data/` lacks) or one release; validates with the builder contracts. |
 | `lsio_hub/diff.py`, `packages.py` | The build diff engine and the syft normaliser. |
 | `lsio_hub/layers.py` | Layer attribution: `from_base` from the base image's registry manifest, `dockerfile_lines` from `created_by`. |
 | `lsio_hub/observe.py`, `vulns.py`, `mods.py` | The observed pollers (stars, archived, GHCR tags; grype against the newest build of each branch) and the mods index. |

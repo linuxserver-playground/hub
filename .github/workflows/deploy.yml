@@ -52,19 +52,20 @@ jobs:
 
       - run: pip install -e .
 
-      - name: Ingest one release
+      - name: Ingest every pending release
+        # The event's release is only a hint. GitHub keeps one pending run in the concurrency group and drops older
+        # ones, so each run sweeps the organisation for every release it does not hold yet: a dropped event loses
+        # nothing, and a burst of releases is picked up by whichever run comes next.
         if: github.event_name == 'repository_dispatch'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: >
-          python -m lsio_hub.ingest
-          --repo "${{ github.event.client_payload.repository }}"
-          --tag "${{ github.event.client_payload.tag }}"
+          HINT: ${{ github.event.client_payload.repository }}
+        run: python -m lsio_hub.ingest --pending ${HINT:+--repo "$HINT"}
 
       - name: Install grype
         # Pinned; the observe step scans the newest build of each branch with it (skipped gracefully without it).
         id: grype
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.event_name != 'push'
         env:
           GRYPE_VERSION: 0.121.0
           GRYPE_SHA256: 64e07133d3486115de647a66581461dccf5c732748a0a3119077395565f15519
@@ -77,7 +78,7 @@ jobs:
 
       - name: Restore the grype vulnerability database
         # One cache entry a day: the poller updates the database at most once per 24 h, the hourly runs reuse it.
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        if: github.event_name != 'push'
         uses: actions/cache@v4
         with:
           path: ~/.cache/grype/db
@@ -93,6 +94,14 @@ jobs:
           python -m lsio_hub.observe
           python -m lsio_hub.mods
 
+      - name: Scan new builds for vulnerabilities
+        # Release runs scan what they just ingested (the poller only scans what is due), so a new build does not
+        # wait for the next scheduled run to show its vulnerabilities.
+        if: github.event_name == 'repository_dispatch'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m lsio_hub.vulns
+
       - name: Commit refreshed data
         if: github.event_name != 'push'
         run: |
@@ -101,9 +110,13 @@ jobs:
           git add data
           if ! git diff --cached --quiet; then
             git commit -m "Update data"
-            # main may have moved since the checkout; only this step writes data/, so the rebase is clean.
-            git pull --rebase origin "$GITHUB_REF_NAME"
-            git push origin "HEAD:$GITHUB_REF_NAME"
+            # main may have moved since the checkout (code pushes land at any time); only this step writes data/,
+            # so the rebase is clean. Retried because another push can land between the rebase and our push.
+            for attempt in 1 2 3 4; do
+              git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && break
+              [ "$attempt" = 4 ] && exit 1
+              sleep $((attempt * 5))
+            done
           fi
 
       - id: pages

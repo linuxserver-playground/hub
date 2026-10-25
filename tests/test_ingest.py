@@ -10,6 +10,7 @@ from lsio_hub.ingest import (
     parse_manifest,
     pending_releases,
     reconcile,
+    sweep,
     validate_bundle,
 )
 from lsio_hub.store import Store
@@ -187,3 +188,33 @@ def test_ingest_one_without_a_release_is_a_no_op() -> None:
     store = Store()
     assert ingest_one(store, FakeGitHub(), "linuxserver-playground/docker-swag", "9.9.9-ls1", now=lambda: NOW) is False
     assert "swag" not in store.images or "9.9.9-ls1" not in store.images["swag"].builds
+
+
+def test_sweep_on_an_empty_store_ingests_what_reconcile_does() -> None:
+    store = Store()
+    ingested = sweep(store, FakeGitHub(), now=lambda: NOW)
+    assert ingested == [
+        "linuxserver-playground/docker-multidb",
+        "linuxserver-playground/docker-sonarr",
+        "linuxserver-playground/docker-swag",
+    ]
+    assert sorted(store.images["sonarr"].builds) == ["4.0.19.2000-ls1", "4.0.20.3014-ls2", "develop-5.0.1.1234-ls1"]
+    assert store.status["sources"]["releases"]["ok"] is True
+
+
+def test_sweep_fetches_only_repositories_with_something_new() -> None:
+    store = build_store()
+    github = FakeGitHub()
+    assert sweep(store, github, now=lambda: NOW) == []
+    assert github.downloads == []
+    # A release the hub lost (a dropped event): only its repository is fetched again, and it comes back.
+    store.images["sonarr"].builds.pop("4.0.20.3014-ls2")
+    assert sweep(store, github, now=lambda: NOW) == ["linuxserver-playground/docker-sonarr"]
+    assert "4.0.20.3014-ls2" in store.images["sonarr"].builds
+    assert github.downloads and all("/sonarr/" in url for url in github.downloads)
+
+
+def test_sweep_always_refreshes_the_hinted_repository() -> None:
+    store = build_store()
+    ingested = sweep(store, FakeGitHub(), "linuxserver-playground/docker-swag", now=lambda: NOW)
+    assert ingested == ["linuxserver-playground/docker-swag"]

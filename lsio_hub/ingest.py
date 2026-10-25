@@ -362,6 +362,49 @@ def reconcile(store: Store, gh: GitHub, now: Now = _now) -> None:
     _set_status(store, "releases", not failures, now, error)
 
 
+def sweep(store: Store, gh: GitHub, hint: str | None = None, now: Now = _now) -> list[str]:
+    """
+    Every release the hub does not hold yet, across the organisation, for runs started by an image release.
+
+    The event's own release is only a hint: GitHub keeps one pending run per concurrency group and drops the
+    older ones, so a run that ingested only its own release would leave the dropped runs' releases waiting for
+    the next reconcile. One listing of the organisation and one releases page per image repository find
+    everything pending; only repositories with something new (or the hinted one, or one the hub has never seen)
+    get their manifests and releases fetched. Returns the repositories that were ingested.
+    """
+    try:
+        repos = [r for r in gh.org_repos(ORG) if is_image_repo(r["name"])]
+    except (httpx2.HTTPError, RuntimeError) as e:
+        _set_status(store, "releases", False, now, f"listing repositories: {e}")
+        return []
+    ingested: list[str] = []
+    failures: list[str] = []
+    for repo in repos:
+        full = f"{ORG}/{repo['name']}"
+        name = image_name(repo["name"])
+        record = store.record(name)
+        try:
+            releases = gh.releases(full, max_pages=1)
+            # Releases rejected before stay rejected here; the full reconcile retries them.
+            rejected = store.status.get("rejected", {})
+            new = [r for r in pending_releases(record, releases) if f"{name}@{r['tag_name']}" not in rejected]
+            if record.manifests and full != hint and not new:
+                continue
+            log.info("%s", repo["name"])
+            ingest_repo(store, gh, repo, now)
+        except (IngestError, httpx2.HTTPError) as e:
+            failures.append(f"{repo['name']}: {e}")
+            log.warning("  ! %s: %s (keeping previous data)", repo["name"], e)
+            continue
+        ingested.append(full)
+    if ingested:
+        refresh_bases(store, gh.http, now)
+    error = "; ".join(failures) if failures else None
+    _set_status(store, "releases", not failures, now, error)
+    log.info("sweep: %d of %d image repositories had something new", len(ingested), len(repos))
+    return ingested
+
+
 def ingest_one(store: Store, gh: GitHub, repo: str, tag: str, now: Now = _now) -> bool:
     """One release by repository and tag, as sent by repository_dispatch. Returns whether it was stored."""
     owner, _, repo_name = repo.partition("/")
@@ -400,11 +443,14 @@ def main(argv: list[str] | None = None) -> int:
     logging.getLogger("httpx2").setLevel(logging.WARNING)
     parser = argparse.ArgumentParser(description="Ingest manifests and build bundles into data/.")
     parser.add_argument("--reconcile", action="store_true", help="every repository and release in the organisation")
+    parser.add_argument(
+        "--pending", action="store_true", help="every release not yet in data/; --repo is then only a hint"
+    )
     parser.add_argument("--repo", help="owner/name of one image repository")
     parser.add_argument("--tag", help="the release tag to ingest from --repo")
     args = parser.parse_args(argv)
-    if not args.reconcile and not (args.repo and args.tag):
-        parser.error("use --reconcile, or --repo owner/name --tag x")
+    if not args.reconcile and not args.pending and not (args.repo and args.tag):
+        parser.error("use --reconcile, --pending [--repo owner/name], or --repo owner/name --tag x")
     token = os.environ.get("GITHUB_TOKEN")
     if not token:
         log.warning("GITHUB_TOKEN is not set; anonymous GitHub requests are rate limited to 60 an hour")
@@ -412,6 +458,8 @@ def main(argv: list[str] | None = None) -> int:
     gh = GitHub(client(), token)
     if args.reconcile:
         reconcile(store, gh)
+    elif args.pending:
+        sweep(store, gh, args.repo)
     else:
         ingest_one(store, gh, args.repo, args.tag)
     changed = save_store(DATA_DIR, store)
