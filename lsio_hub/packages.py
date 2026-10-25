@@ -1,7 +1,7 @@
 """
-The normalised package table: syft JSON (packages.<arch>.json.gz, SYFT_FILE_METADATA_SELECTION=all) reduced
-to what the API serves and the diff compares: name, version, type, purl, licenses. Everything else in the
-syft document (file lists, digests, metadata) stays on the Release asset.
+The normalised package table: syft JSON (packages.<arch>.json.gz, packages only since ci dropped file metadata;
+older releases still carry file records) reduced to what the API serves and the diff compares: name, version,
+type, purl, licenses. Everything else in the syft document (CPEs, locations, metadata) stays on the Release asset.
 """
 
 from __future__ import annotations
