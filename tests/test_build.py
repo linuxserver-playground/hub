@@ -10,7 +10,7 @@ from fastapi.testclient import TestClient
 from openapi_spec_validator import validate
 
 from lsio_hub.app import create_app
-from lsio_hub.build import render, route_paths, write_site
+from lsio_hub.build import render, render_parallel, route_paths, write_site
 from lsio_hub.config import SiteConfig
 from lsio_hub.fleet import Fleet, load_fleet
 from lsio_hub.store import Store
@@ -136,3 +136,7 @@ def test_report_and_tests_bodies(client: TestClient) -> None:
 def test_build_json_is_the_bundle_as_received(client: TestClient, store: Store) -> None:
     body = client.get("/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2.json").json()
     assert body["data"]["build"] == store.images["sonarr"].builds["4.0.20.3014-ls2"]
+
+
+def test_parallel_render_is_the_same_site(fleet: Fleet, config: SiteConfig, files: dict[str, bytes]) -> None:
+    assert render_parallel(fleet, config, workers=3) == files

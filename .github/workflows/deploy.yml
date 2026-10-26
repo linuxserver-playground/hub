@@ -21,7 +21,6 @@ permissions:
   contents: write
   pages: write
   id-token: write
-  actions: write  # pruning the build report caches older runs saved
 
 concurrency:
   group: pages
@@ -101,24 +100,17 @@ jobs:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python -m lsio_hub.build
+          # Independent: the API renders on every core while the generators download the new report tarballs.
+          python -m lsio_hub.build &
+          api=$!
           python -m lsio_hub.generate
+          wait "$api"
           # dist/ is the API and docs page; out/ merges onto the site root: /stores/<platform>/ and /builds/.
           cp -r out/. dist/
 
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
-
-      - name: Prune older build report caches
-        # Every run saves out/builds/ under its own key (a cache entry cannot be updated) and restores the newest, so
-        # older entries only crowd the repository's 10 GB and evict each other. Keeps the two newest.
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh cache list -R "$GITHUB_REPOSITORY" --key build-reports- --sort created_at --order desc --limit 100 \
-            --json id --jq '.[2:][].id' | while read -r id; do gh cache delete -R "$GITHUB_REPOSITORY" "$id"; done
 
       - name: Keep the root-level stores for the publish job
         uses: actions/upload-artifact@v7
@@ -140,6 +132,21 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  prune-caches:
+    # Every run saves out/builds/ under its own key (a cache entry cannot be updated) and restores the newest, so
+    # older entries only crowd the repository's 10 GB and evict each other. Keeps the two newest; beside the deploy,
+    # not in front of it.
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh cache list -R "$GITHUB_REPOSITORY" --key build-reports- --sort created_at --order desc --limit 100 \
+            --json id --jq '.[2:][].id' | while read -r id; do gh cache delete -R "$GITHUB_REPOSITORY" "$id"; done
 
   publish-stores:
     # Unraid, Umbrel and Runtipi read a git repository and want the store at its root, so each gets a repository
