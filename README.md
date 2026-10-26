@@ -57,7 +57,7 @@ The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry
 | `lsio_hub/models.py` | Every response shape. The v1 models are the original API's, field for field. |
 | `lsio_hub/store.py` | The `data/` layout: load, save, rotation. |
 | `lsio_hub/ingest.py` | Reconcile (every repo's manifests and every release `data/` lacks; `--deep` lists every release over REST for a backfill) or one release; validates with the builder contracts. |
-| `lsio_hub/diff.py`, `packages.py` | The build diff engine and the syft normaliser. |
+| `lsio_hub/diff.py`, `packages.py` | The build diff engine and the syft normaliser: `builder.derive`'s, which the build also runs. |
 | `lsio_hub/layers.py` | Layer attribution: `from_base` from the base image's registry manifest, `dockerfile_lines` from `created_by`. |
 | `lsio_hub/observe.py`, `vulns.py`, `mods.py` | The observed pollers (stars, archived, GHCR tags; grype against the newest build of each branch) and the mods index. |
 | `lsio_hub/transform.py` | Manifest plus builds to an API image (`builder.manifest.build_context`, `builder.snippets`). |
@@ -76,7 +76,7 @@ is a readable diff. Builds are stored compact, as received; everything else inde
 | `data/images/<name>/builds/<tag>.diff.json` | The diff against the previous build of the same branch. |
 | `data/images/<name>/builds/<tag>.layers.<arch>.json` | `layers.<arch>.json` from the Release. |
 | `data/images/<name>/builds/<tag>.test.<arch>.json` | `test.<arch>.json` from the Release (validated). |
-| `data/images/<name>/builds/<tag>.vulns.<arch>.json` | grype's findings against the build's syft SBOM, compact: `{db_date, grype_version, matches: [{package, version, type, id, severity, fix_state, fixed_in, urls, cvss}]}`. Written by the vulnerability poller for the newest build of each branch. |
+| `data/images/<name>/builds/<tag>.vulns.<arch>.json` | grype's findings against the build's syft SBOM, compact: `{db_date, grype_version, scanned_at, matches: [{package, version, type, id, severity, fix_state, fixed_in, urls, cvss}]}`. From the build's own `record.json`, then rescanned by the vulnerability poller for the newest build of each branch. |
 | `data/images/<name>/packages[.<release tag>].<arch>.json` | Normalised package table (name, version, type, purl, licenses) of the newest build of each branch; no infix for the `latest` branch. |
 | `data/images/<name>/latest.json` | branch → tag, created, release URL, asset URLs. |
 | `data/images/<name>/history.json` | branch → every release seen, newest first, including rotated-out builds. |
@@ -142,7 +142,9 @@ backwards, so unknown base layers fall off the front; a layer without a confiden
 
 ### Vulnerabilities
 
-The newest build of every live branch is scanned with [grype](https://github.com/anchore/grype) against the syft
+Every build scans itself: the shared workflow's publish job runs grype against both architectures' syft documents
+and attaches the result to the Release in `record.json` (CONVENTIONS §6), and the ingest stores it. The hub then
+keeps the scans current. The newest build of every live branch is scanned with [grype](https://github.com/anchore/grype) against the syft
 document the build attached to its Release (`packages.<arch>.json.gz`, downloaded when there is no local copy in
 `.cache/sboms/`), with `grype sbom:<file> -o json`. This is observed data: its clock is the vulnerability database,
 not the build, so the same image gains and loses findings as the feeds move. The poller runs after `observe` in the

@@ -1,5 +1,8 @@
 """Reconcile and single-release ingest against the fake GitHub."""
 
+import json
+from pathlib import Path
+
 import pytest
 
 from lsio_hub.ingest import (
@@ -15,7 +18,9 @@ from lsio_hub.ingest import (
 from lsio_hub.sources.github import FileKey
 from lsio_hub.store import Store
 
-from .conftest import FIXTURES, NOW, RELEASES, FakeGitHub, Json, build_store
+from .conftest import FIXTURES, NOW, RELEASES, FakeGitHub, Json, asset_bytes, build_store
+
+SONARR_LS2_BASE = "sha256:" + "b" * 64
 
 
 def test_reconcile_ingests_every_live_release() -> None:
@@ -268,3 +273,119 @@ def test_deep_reconcile_lists_every_release_over_rest() -> None:
     github = Counting()
     reconcile(build_store(), github, now=lambda: NOW, deep=True)
     assert github.listings == 0 and github.rest_listings == 3
+
+
+def _record_for(tmp: Path, bundle_: Json, previous: Json | None, *, vulns: bool = True) -> bytes:
+    """What `builder record` writes for a fixture release, from the fixture assets."""
+    from builder.derive.record import build_record
+
+    def write(directory: Path, b: Json) -> None:
+        directory.mkdir(parents=True, exist_ok=True)
+        for asset in b["assets"]:
+            data = asset_bytes(asset["url"])
+            if data is not None:
+                (directory / asset["name"]).write_bytes(data)
+
+    out, prev = tmp / "out", tmp / "prev"
+    write(out, bundle_)
+    if previous:
+        write(prev, previous)
+
+    class Scanner:
+        def version(self) -> str:
+            return "0.121.0"
+
+        def db_date(self, *, update: bool) -> str:
+            return NOW
+
+        def scan(self, sbom: Path) -> Json:
+            return {"descriptor": {"version": "0.121.0"}, "matches": []}
+
+    platforms = {"amd64": {"digest": None, "layers": ["sha256:x"]}}
+    base = {"image": bundle_["base"]["image"], "digest": bundle_["base"]["digest"], "platforms": platforms}
+    derived = build_record(
+        out,
+        previous=prev if previous else None,
+        scanner=Scanner() if vulns else None,
+        fetch_base=lambda image, digest: base,
+        now=lambda: NOW,
+    )
+    return json.dumps(derived).encode()
+
+
+class WithRecords(FakeGitHub):
+    """The fixture releases, each with the record.json its build would have attached."""
+
+    def __init__(self, records: dict[str, bytes]) -> None:
+        super().__init__()
+        self.records = records
+
+    def releases(self, repo: str, *, max_pages: int = 3) -> list[Json]:
+        out = []
+        for release in super().releases(repo, max_pages=max_pages):
+            image = repo.split("/")[1].removeprefix("docker-")
+            key = f"{image}@{release['tag_name']}"
+            if key in self.records:
+                url = f"https://records.test/{key}/record.json"
+                release = {**release, "assets": [*release["assets"], {"name": "record.json", "url": url}]}
+            out.append(release)
+        return out
+
+    def download(self, url: str) -> bytes:
+        if url.startswith("https://records.test/"):
+            self.downloads.append(url)
+            return self.records[url.split("/")[3]]
+        return super().download(url)
+
+
+@pytest.fixture
+def records(tmp_path: Path) -> dict[str, bytes]:
+    from .conftest import SONARR_DEV, SONARR_LS1, SONARR_LS2, SWAG_LS1
+
+    return {
+        "sonarr@4.0.19.2000-ls1": _record_for(tmp_path / "a", SONARR_LS1, None),
+        "sonarr@4.0.20.3014-ls2": _record_for(tmp_path / "b", SONARR_LS2, SONARR_LS1),
+        "sonarr@develop-5.0.1.1234-ls1": _record_for(tmp_path / "c", SONARR_DEV, None),
+        "swag@5.2.0-ls1": _record_for(tmp_path / "d", SWAG_LS1, None, vulns=False),
+    }
+
+
+def test_a_release_with_a_record_needs_two_downloads(records: dict[str, bytes]) -> None:
+    store = Store()
+    github = WithRecords(records)
+    reconcile(store, github, now=lambda: NOW)
+    sonarr_downloads = [u.rsplit("/", 1)[1] for u in github.downloads if "sonarr" in u]
+    assert sorted(sonarr_downloads) == sorted(["build.json", "record.json"] * 3)
+    # The same data as deriving it from the assets.
+    legacy = build_store().images["sonarr"]
+    sonarr = store.images["sonarr"]
+    assert sonarr.builds == legacy.builds and sonarr.diffs == legacy.diffs
+    assert sonarr.tests == legacy.tests and sonarr.layers == legacy.layers and sonarr.packages == legacy.packages
+    # The build's scan and base layers are kept, so the poller and the registry have nothing to do for it.
+    assert sonarr.vulns["4.0.20.3014-ls2"]["amd64"]["scanned_at"] == NOW
+    assert store.bases[SONARR_LS2_BASE]["platforms"]["amd64"]["layers"] == ["sha256:x"]
+
+
+def test_an_unusable_record_is_ignored(records: dict[str, bytes]) -> None:
+    broken = {**records, "sonarr@4.0.20.3014-ls2": b'{"schema": 1}'}
+    store = Store()
+    reconcile(store, WithRecords(broken), now=lambda: NOW)
+    legacy = build_store().images["sonarr"]
+    assert store.images["sonarr"].diffs["4.0.20.3014-ls2"] == legacy.diffs["4.0.20.3014-ls2"]
+    assert store.images["sonarr"].packages == legacy.packages
+
+
+def test_the_poller_does_not_scan_a_build_again_that_scanned_itself(records: dict[str, bytes]) -> None:
+    from lsio_hub import vulns
+
+    from .conftest import FakeGrype
+
+    store = Store()
+    reconcile(store, WithRecords(records), now=lambda: NOW)
+    later = "2026-10-24T13:00:00.000Z"
+    vulns.scan(store, FakeGrype(), asset_bytes, now=lambda: later, cache_dir=None)
+    ledger = store.observed["vulnerabilities"]["builds"]
+    # sonarr's builds scanned themselves; swag's and multidb's did not, so they are scanned here.
+    assert ledger["sonarr@4.0.20.3014-ls2"] == {"scanned_at": NOW, "db_date": NOW, "arches": ["amd64", "arm64"]}
+    assert ledger["sonarr@develop-5.0.1.1234-ls1"]["scanned_at"] == NOW
+    assert ledger["swag@5.2.0-ls1"]["scanned_at"] == later and ledger["multidb@1.0.0-ls2"]["scanned_at"] == later

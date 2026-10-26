@@ -16,7 +16,7 @@ site, the control plane (which links to the build pages), and anyone using the A
 | `lsio_hub/models.py` | Every response shape (pydantic). The v1 models are the original API's, field for field. |
 | `lsio_hub/store.py` | The `data/` layout: load and save, rotation-aware. |
 | `lsio_hub/ingest.py`, `observe.py`, `vulns.py`, `mods.py` | Writers of `data/`: bundles and manifests, stars and GHCR tags, the grype scan of the newest builds, the mods index. |
-| `lsio_hub/diff.py`, `packages.py`, `layers.py` | The build diff engine, the syft package normaliser, layer attribution (`from_base`, `dockerfile_lines`). |
+| `lsio_hub/diff.py`, `packages.py`, `layers.py` | The build diff engine and the syft package normaliser (both re-export `builder.derive`, which the build runs for its `record.json`), layer attribution (`from_base`, `dockerfile_lines`). |
 | `lsio_hub/transform.py`, `fleet.py`, `responses.py` | Manifests and builds to API images; the content of each endpoint. |
 | `lsio_hub/app.py`, `build.py`, `site.py`, `templates/` | The FastAPI app, the static build of `dist/`, the docs page. |
 | `lsio_hub/generate/` | One module per generator; `python -m lsio_hub.generate` writes `out/`. |
@@ -47,7 +47,8 @@ GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # refresh 
 
 Consumes, from `linuxserver-playground/builder`: `image.schema.json` (every manifest is validated on
 ingest), `bundle.schema.json` (every `build.json`; invalid bundles are recorded in
-`data/status/rejected.json` and retried a day later), `test-report.schema.json` (`test.<arch>.json`), `mod.schema.json` (`mod.yml` per
+`data/status/rejected.json` and retried a day later), `test-report.schema.json` (`test.<arch>.json`), `record.schema.json` (`record.json`, what the build derived for
+the hub; ingested instead of deriving when a release has one), `mod.schema.json` (`mod.yml` per
 docker-mods branch), and `builder.snippets` / `builder.render` for compose, run and docs output. Produces
 no schema of its own; the API's shapes are the pydantic models and the generated `openapi.json`. See
 `CONVENTIONS.md` in the builder repository.

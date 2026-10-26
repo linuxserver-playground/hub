@@ -2,44 +2,63 @@
 The vulnerability poller: grype against the syft SBOM (`packages.<arch>.json.gz` on the Release) of the newest
 build of each live branch. Part of the observed data because its clock is the vulnerability database, not the
 build: the same image gets new findings as the feeds learn about them. Written to
-data/images/<name>/builds/<tag>.vulns.<arch>.json (compact) with a ledger in data/observed.json; nothing else
-writes those.
+data/images/<name>/builds/<tag>.vulns.<arch>.json (compact) with a ledger in data/observed.json.
 
     GITHUB_TOKEN=... [GRYPE=/path/to/grype] python -m lsio_hub.vulns
 
-A build is scanned when it has no scan yet, and rescanned when the database date changed, at most once per 24
-hours, so the hourly deploy stays cheap. Without grype (or without its database) nothing is scanned and
-status.json says so under `sources.vulnerabilities`.
+A build scans itself (record.json, written in its publish job), and the ingest stores that scan; this poller then
+only rescans when the database date changed, at most once per 24 hours, so the hourly refresh stays cheap. A
+build without a scan of its own (an older release, a failed scan) is scanned here at once. Without grype (or
+without its database) nothing is scanned and data/status/vulnerabilities.json says so. grype and the stored form
+of its report are the builder's (`builder.derive.vulns`), shared with the build.
 """
 
 from __future__ import annotations
 
 import datetime
 import gzip
-import json
 import logging
 import os
-import subprocess
 import sys
 import tempfile
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from typing import Any, Protocol
+from typing import Any
 
 import httpx2
+from builder.derive.vulns import (
+    FIX_STATES,
+    SEVERITIES,
+    Grype,
+    ScanError,
+    Scanner,
+    compact,
+    sort_matches,
+)
 
 from .config import ARCHES, DATA_DIR, ROOT
 from .dates import parse_iso
 from .sources.http import client, request
 from .store import Store, load_store, save_store
 
+__all__ = [
+    "CAVEATS",
+    "FIX_STATES",
+    "SEVERITIES",
+    "Grype",
+    "ScanError",
+    "Scanner",
+    "compact",
+    "merge",
+    "scan",
+    "summarise",
+]
+
 log = logging.getLogger(__name__)
 Json = dict[str, Any]
 Fetch = Callable[[str], bytes | None]
 
-SEVERITIES = ("critical", "high", "medium", "low", "negligible", "unknown")
-FIX_STATES = ("fixed", "not-fixed", "wont-fix", "unknown")
 RESCAN_AFTER = datetime.timedelta(hours=24)
 """How long a scan stands once the database date has changed (a new build is scanned at once)."""
 DB_UPDATE_AFTER = datetime.timedelta(hours=24)
@@ -77,140 +96,16 @@ def _age(since: str | None, now: str) -> datetime.timedelta | None:
 # grype
 
 
-class ScanError(Exception):
-    pass
-
-
-class Scanner(Protocol):
-    def version(self) -> str | None:
-        """grype's version, or None when it cannot run."""
-
-    def db_date(self, *, update: bool) -> str | None:
-        """When the vulnerability database was built (ISO 8601), updating it first when asked; None without one."""
-
-    def scan(self, sbom: Path) -> Json:
-        """grype's JSON report for a syft document."""
-
-
-class Grype:
-    """The real binary. `GRYPE` names it (default: `grype` on PATH); the database lives where grype keeps it."""
-
-    def __init__(self, binary: str | None = None) -> None:
-        self.binary = binary or os.environ.get("GRYPE") or "grype"
-        self.env = {**os.environ, "GRYPE_CHECK_FOR_APP_UPDATE": "false"}
-
-    def _run(self, *args: str, check: bool = True, **env: str) -> subprocess.CompletedProcess[str]:
-        return subprocess.run(
-            [self.binary, *args], capture_output=True, text=True, check=check, env={**self.env, **env}, timeout=1800
-        )
-
-    def version(self) -> str | None:
-        try:
-            out = json.loads(self._run("version", "-o", "json").stdout)
-        except (OSError, subprocess.SubprocessError, ValueError):
-            return None
-        version = out.get("version")
-        return str(version) if version else None
-
-    def db_date(self, *, update: bool) -> str | None:
-        """Updates when asked, or when there is no usable database at all (a runner without the cache)."""
-        if update:
-            self._update()
-        built = self._status()
-        if built is None and not update:
-            self._update()
-            built = self._status()
-        return built
-
-    def _update(self) -> None:
-        try:
-            self._run("db", "update")
-        except (OSError, subprocess.SubprocessError) as e:
-            log.warning("  ! grype db update failed: %s", _stderr(e))
-
-    def _status(self) -> str | None:
-        try:
-            status = json.loads(self._run("db", "status", "-o", "json").stdout)
-        except (OSError, subprocess.SubprocessError, ValueError):
-            return None
-        built = status.get("built")
-        return str(built) if built and status.get("valid", True) else None
-
-    def scan(self, sbom: Path) -> Json:
-        try:
-            # The database is updated by db_date(); a scan must not change it halfway through a run.
-            out = self._run(f"sbom:{sbom}", "-o", "json", "-q", GRYPE_DB_AUTO_UPDATE="false").stdout
-            report: Json = json.loads(out)
-        except (OSError, subprocess.SubprocessError, ValueError) as e:
-            raise ScanError(_stderr(e)) from e
-        return report
-
-
-def _stderr(e: BaseException) -> str:
-    err = getattr(e, "stderr", None)
-    return str(err).strip() if err else str(e)
-
-
-# ---------------------------------------------------------------------------------------------------
-# The compact record and its summary
-
-
-def _severity(value: Any) -> str:
-    text = str(value or "").lower()
-    return text if text in SEVERITIES else "unknown"
-
-
-def _fix_state(value: Any) -> str:
-    text = str(value or "").lower()
-    return text if text in FIX_STATES else "unknown"
-
-
-def _cvss(entries: Any) -> float | None:
-    scores = [e.get("metrics", {}).get("baseScore") for e in entries or [] if isinstance(e, dict)]
-    numbers = [float(s) for s in scores if isinstance(s, int | float)]
-    return max(numbers) if numbers else None
-
-
-def db_date_of(report: Json) -> str | None:
-    """`descriptor.db.status.built` (grype >= 0.87) or `descriptor.db.built` (older)."""
-    db = report.get("descriptor", {}).get("db") or {}
-    built = (db.get("status") or {}).get("built") or db.get("built")
-    return str(built) if built else None
-
-
-def compact(report: Json, db_date: str | None = None) -> Json:
-    """
-    The stored form of a grype report: one row per vulnerability, package and version (syft lists a package once
-    per location, grype matches each), the database date and grype's version.
-    """
-    matches: dict[tuple[str, str, str], Json] = {}
-    for m in report.get("matches", []):
-        v, a = m.get("vulnerability", {}), m.get("artifact", {})
-        fix = v.get("fix") or {}
-        urls = [v["dataSource"]] if v.get("dataSource") else []
-        urls += [u for u in v.get("urls") or [] if u not in urls]
-        package, version, vuln_id = str(a.get("name", "")), str(a.get("version", "")), str(v.get("id", ""))
-        row: Json = {
-            "package": package,
-            "version": version,
-            "type": str(a.get("type", "unknown")),
-            "id": vuln_id,
-            "severity": _severity(v.get("severity")),
-            "fix_state": _fix_state(fix.get("state")),
-            "fixed_in": [str(x) for x in fix.get("versions") or []],
-            "urls": urls,
-            "cvss": _cvss(v.get("cvss")),
-        }
-        matches.setdefault((vuln_id, package, version), row)
+def _seeded(scans: dict[str, Json] | None) -> Json | None:
+    """A ledger entry for a build that scanned itself: its scans carry the database date and when they ran."""
+    if not scans or not all(scan.get("scanned_at") for scan in scans.values()):
+        return None
+    dates = {scan.get("db_date") for scan in scans.values()}
     return {
-        "db_date": db_date or db_date_of(report) or "",
-        "grype_version": str(report.get("descriptor", {}).get("version", "")),
-        "matches": sort_matches(list(matches.values())),
+        "scanned_at": min(str(scan["scanned_at"]) for scan in scans.values()),
+        "db_date": dates.pop() if len(dates) == 1 else None,
+        "arches": sorted(scans),
     }
-
-
-def sort_matches(matches: list[Json]) -> list[Json]:
-    return sorted(matches, key=lambda m: (SEVERITIES.index(m["severity"]), m["package"].casefold(), m["id"]))
 
 
 def summarise(matches: list[Json]) -> Json:
@@ -237,7 +132,8 @@ def merge(scans: dict[str, Json]) -> list[Json]:
                     merged[key]["arches"].append(arch)
             else:
                 merged[key] = {**m, "arches": [arch]}
-    return sort_matches(list(merged.values()))
+    rows: list[Json] = sort_matches(list(merged.values()))
+    return rows
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -306,6 +202,8 @@ def scan(
         return fail("grype is not available; nothing scanned")
     checked_db = _age(ledger.get("checked_at"), checked_at)
     db_date = scanner.db_date(update=checked_db is None or checked_db >= DB_UPDATE_AFTER)
+    for error in getattr(scanner, "errors", []):
+        log.warning("  ! %s", error)
     if db_date is None:
         return fail(f"grype {version} has no vulnerability database; nothing scanned")
 
@@ -317,7 +215,11 @@ def scan(
     for name, tag, urls in targets(store):
         key = f"{name}@{tag}"
         live.add(key)
-        if due(builds.get(key), set(store.images[name].vulns.get(tag, {})), set(urls), db_date, checked_at):
+        held = store.images[name].vulns.get(tag, {})
+        entry = builds.get(key) or _seeded(held)
+        if entry and key not in builds:
+            builds[key] = entry  # the build's own scan, stored by the ingest
+        if due(entry, set(held), set(urls), db_date, checked_at):
             pending.append((key, name, tag, urls))
     with tempfile.TemporaryDirectory(prefix="lsio-hub-sbom-") as tmp:
         # Downloads stay one at a time; the scans, which are most of a release run, run side by side.
@@ -340,7 +242,8 @@ def scan(
 
         def run(path: Path) -> Json | str:
             try:
-                return scanner.scan(path)
+                report: Json = scanner.scan(path)
+                return report
             except (OSError, ScanError) as e:
                 return str(e)
 
@@ -354,7 +257,7 @@ def scan(
             if isinstance(outcome, str):
                 failed.append(f"{key} {arch}: {outcome}")
                 continue
-            record.vulns.setdefault(tag, {})[arch] = compact(outcome, db_date)
+            record.vulns.setdefault(tag, {})[arch] = compact(outcome, db_date, now())
             scanned += 1
         builds[key] = {"scanned_at": now(), "db_date": db_date, "arches": sorted(record.vulns.get(tag, {}))}
         log.info("  ok vulnerabilities: %s (%s)", key, ", ".join(sorted(record.vulns.get(tag, {}))) or "no SBOM")

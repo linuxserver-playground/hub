@@ -5,13 +5,16 @@ Ingests build bundles and manifests into data/.
                                                        live branch, every release not yet in data/
     python -m lsio_hub.ingest --repo owner/name --tag x one release
 
-A release is ingested once: its build.json is downloaded, validated against the bundle contract, the
-package tables and layer lists fetched, the diff against the previous build of the branch computed and
-everything written to data/. The layer digests of every base image a held build was built from are read
-from the registry once per base digest (data/bases/), so the layers endpoint can tell base layers from the
-image's own. A release whose bundle does not validate is recorded in status/rejected.json with the error
-and retried a day later, or as soon as the image's manifests change. Nothing here deletes data on failure:
-a source that cannot be reached keeps its previous data and the failure is recorded, as static-api did.
+A release is ingested once: its build.json is downloaded and validated against the bundle contract, then its
+record.json, in which the build derived the package tables, the diff against the previous release, its
+vulnerability scan and its base image's layers (CONVENTIONS §6). A release without one (made before records
+existed) has its package documents, layer lists and test reports fetched and the diff computed here, with the
+same code (builder.derive). Everything is written to data/. The layer digests of every base image a held
+build was built from come from its record, or else from the registry, once per base digest (data/bases/), so
+the layers endpoint can tell base layers from the image's own. A release whose bundle does not validate is
+recorded in status/rejected.json with the error and retried a day later, or as soon as the image's manifests
+change. Nothing here deletes data on failure: a source that cannot be reached keeps its previous data and the
+failure is recorded, as static-api did.
 """
 
 from __future__ import annotations
@@ -185,8 +188,39 @@ def _history_entry(bundle: Json, release: Json) -> Json:
     return {"tag": bundle["version"]["tag"], "created": bundle["created"], "release_url": release.get("html_url")}
 
 
-def ingest_release(gh: GitHub, record: ImageRecord, release: Json) -> Json:
-    """Downloads, validates and stores one release. Returns the bundle. Raises IngestError when it cannot."""
+def read_record(gh: GitHub, assets: dict[str, Json], bundle: Json, name: str) -> Json | None:
+    """
+    The release's record.json (CONVENTIONS §6), derived by the build itself, or None when the release has none or
+    it does not fit this bundle; the hub then derives everything from the other assets, as for older releases.
+    """
+    asset = assets.get("record.json")
+    if asset is None:
+        return None
+    try:
+        derived = json.loads(gh.download(asset["url"]))
+        validate("record", derived)
+    except (json.JSONDecodeError, UnicodeDecodeError, ContractError, httpx2.HTTPError) as e:
+        log.warning("  %s@%s: record.json unusable, deriving instead: %s", name, bundle["version"]["tag"], e)
+        return None
+    if derived["tag"] != bundle["version"]["tag"] or derived["image"] != name:
+        log.warning(
+            "  %s@%s: record.json is for %s@%s", name, bundle["version"]["tag"], derived["image"], derived["tag"]
+        )
+        return None
+    for error in derived["errors"]:
+        log.info("  %s@%s: the build could not derive: %s", name, bundle["version"]["tag"], error)
+    result: Json = derived
+    return result
+
+
+def ingest_release(gh: GitHub, record: ImageRecord, release: Json, bases: dict[str, Json] | None = None) -> Json:
+    """
+    Downloads, validates and stores one release. Returns the bundle. Raises IngestError when it cannot.
+
+    A release with a record.json needs two downloads: the build derived its package tables, diff, scan and base
+    layers already. Whatever the record lacks comes from the other assets, derived here. The base layers it
+    carries go into `bases` (data/bases/), so the registry is not asked for them.
+    """
     assets = _asset_map(release)
     if "build.json" not in assets:
         raise IngestError("release has no build.json asset")
@@ -200,34 +234,48 @@ def ingest_release(gh: GitHub, record: ImageRecord, release: Json) -> Json:
     if release_tag is None:
         release_tag = "latest" if branch == record.default_branch else branch
     successful = [p["arch"] for p in bundle["platforms"] if p["result"] == "success" and p["arch"] in ARCHES]
+    derived = read_record(gh, assets, bundle, record.name) or {}
 
     layers: dict[str, list[Json]] = {}
     tests: dict[str, Json] = {}
     tables: dict[str, Json] = {}
     for arch in ARCHES:
         test_asset = assets.get(f"test.{arch}.json")
-        if test_asset:
-            try:
+        try:
+            if arch in derived.get("tests", {}):
+                report = derived["tests"][arch]
+            elif test_asset:
                 report = json.loads(gh.download(test_asset["url"]))
-                validate("test-report", report)
-                tests[arch] = report
-            except (json.JSONDecodeError, UnicodeDecodeError, ContractError) as e:
-                log.warning("  %s@%s: test.%s.json unusable: %s", record.name, tag, arch, e)
+            else:
+                continue
+            validate("test-report", report)
+            tests[arch] = report
+        except (json.JSONDecodeError, UnicodeDecodeError, ContractError) as e:
+            log.warning("  %s@%s: test.%s.json unusable: %s", record.name, tag, arch, e)
     for arch in successful:
         layer_asset = assets.get(f"layers.{arch}.json")
-        if layer_asset:
+        if arch in derived.get("layers", {}):
+            layers[arch] = derived["layers"][arch]
+        elif layer_asset:
             try:
                 layers[arch] = json.loads(gh.download(layer_asset["url"]))
             except (json.JSONDecodeError, UnicodeDecodeError) as e:
                 log.warning("  %s@%s: layers.%s.json unreadable: %s", record.name, tag, arch, e)
         package_asset = assets.get(f"packages.{arch}.json.gz")
-        if package_asset:
+        if arch in derived.get("packages", {}):
+            tables[arch] = pkg.table(record.name, branch, release_tag, tag, arch, derived["packages"][arch])
+        elif package_asset:
             try:
                 rows = pkg.normalise_gz(gh.download(package_asset["url"]))
             except (OSError, ValueError) as e:
                 log.warning("  %s@%s: packages.%s.json.gz unreadable: %s", record.name, tag, arch, e)
             else:
                 tables[arch] = pkg.table(record.name, branch, release_tag, tag, arch, rows)
+    if derived.get("vulns"):
+        record.vulns[tag] = dict(derived["vulns"])
+    base = derived.get("base")
+    if bases is not None and base and base.get("digest") and base.get("platforms") and base["digest"] not in bases:
+        bases[base["digest"]] = {**base, "fetched_at": derived["derived_at"]}
 
     previous = _previous(record, bundle)
     old_tables = record.packages.get(branch, {})
@@ -238,7 +286,7 @@ def ingest_release(gh: GitHub, record: ImageRecord, release: Json) -> Json:
     )
     new_packages = {arch: t["packages"] for arch, t in tables.items()} or None
     record.builds[tag] = bundle
-    record.diffs[tag] = diff_builds(bundle, previous, new_packages, old_packages)
+    record.diffs[tag] = derived["diff"] if derived else diff_builds(bundle, previous, new_packages, old_packages)
     if layers:
         record.layers[tag] = layers
     if tests:
@@ -400,7 +448,7 @@ def ingest_repo(
         try:
             if "assets" not in release:
                 release = gh.release_by_tag(full, release["tag_name"])
-            bundle = ingest_release(gh, record, release)
+            bundle = ingest_release(gh, record, release, store.bases)
         except (IngestError, httpx2.HTTPError) as e:
             _reject(store, record, release, str(e), now)
             continue
@@ -489,7 +537,7 @@ def ingest_one(store: Store, gh: GitHub, repo: str, tag: str, now: Now = _now) -
         log.info("%s@%s already ingested", name, tag)
         return False
     try:
-        ingest_release(gh, record, release)
+        ingest_release(gh, record, release, store.bases)
     except (IngestError, httpx2.HTTPError) as e:
         _reject(store, record, release, str(e), now)
         return False
