@@ -49,7 +49,7 @@ jobs:
 
       - name: Restore the grype vulnerability database
         # One cache entry a day: the scan updates the database at most once per 24 h, the hourly runs reuse it.
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/grype/db
           key: grype-db-${{ steps.grype.outputs.date }}

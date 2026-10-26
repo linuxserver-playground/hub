@@ -88,7 +88,7 @@ jobs:
 
       - name: Restore unpacked build reports
         # Report tarballs and file trees come from the Releases; a cache keeps re-runs from downloading them again.
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: out/builds
           key: build-reports-${{ github.run_id }}
@@ -172,7 +172,7 @@ jobs:
           path: out/stores
 
       - id: token
-        uses: actions/create-github-app-token@v2
+        uses: actions/create-github-app-token@v3
         with:
           app-id: ${{ secrets.STORE_APP_ID }}
           private-key: ${{ secrets.STORE_APP_PRIVATE_KEY }}
