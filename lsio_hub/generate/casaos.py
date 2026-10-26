@@ -64,6 +64,8 @@ def compose(image: ImageInput) -> Json:
         "index": image.web_path,
         "scheme": image.web_scheme,
     }
+    if image.screenshot:
+        meta["screenshot_link"] = [image.screenshot]
     if port:
         meta["port_map"] = port
     return {"name": name, "services": {name: service}, "x-casaos": meta}

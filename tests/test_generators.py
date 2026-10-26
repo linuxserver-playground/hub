@@ -23,7 +23,7 @@ from lsio_hub.generate import (
     umbrel,
     unraid,
 )
-from lsio_hub.generate.common import GenerateContext, ImageInput
+from lsio_hub.generate.common import GenerateContext, ImageInput, screenshot_url
 
 from .conftest import FIXTURES
 
@@ -54,7 +54,8 @@ def test_unraid_matches_the_legacy_sample(gen: GenerateContext) -> None:
     ours = unraid.render(_image(gen, "sonarr"))
     sample = (FIXTURES / "unraid-sonarr.xml").read_text()
     # The intended differences: the organisation and registry, the source comment, the template URL (the
-    # unraid-store repository) and the icon, which is docs.logo now.
+    # unraid-store repository), the icon, which is docs.logo now, and the ci screenshot, which is new.
+    ours = re.sub(r"    <Screenshot>[^<]*</Screenshot>\n", "", ours)
     for old, new in (
         ("linuxserver-playground", "linuxserver"),
         ("ghcr.io/linuxserver/sonarr", "lscr.io/linuxserver/sonarr"),
@@ -191,6 +192,27 @@ def test_umbrel(gen: GenerateContext) -> None:
     assert str(files["lsio-sonarr/exports.sh"]).startswith('export APP_SONARR_PORT="8989"\n')
     multidb = yaml.safe_load(str(files["lsio-multidb/umbrel-app.yml"]))
     assert multidb["path"] == "/login" and multidb["version"] == "1.0.0"
+
+
+def test_stores_with_a_screenshot_field_take_the_ci_screenshot(gen: GenerateContext) -> None:
+    sonarr = _image(gen, "sonarr")
+    assert sonarr.screenshot is not None and sonarr.screenshot.startswith(
+        "https://example.github.io/hub/builds/sonarr/"
+    )
+    assert sonarr.screenshot.endswith("/amd64/screenshot.png")
+    assert yaml.safe_load(str(umbrel.generate(gen)["lsio-sonarr/umbrel-app.yml"]))["gallery"] == [sonarr.screenshot]
+    meta = yaml.safe_load(str(casaos.generate(gen)["Apps/sonarr/docker-compose.yml"]))["x-casaos"]
+    assert meta["screenshot_link"] == [sonarr.screenshot]
+    index = json.loads(str(cosmos.generate(gen)["index.json"]))
+    assert index["all"][0]["screenshots"] == [sonarr.screenshot]
+    assert f"<Screenshot>{sonarr.screenshot}</Screenshot>" in unraid.render(sonarr)
+    # A failed capture is never linked: the store would show a timeout or an error page.
+    tag = sonarr.record.latest_build()["version"]["tag"]  # type: ignore[index]
+    for report in sonarr.record.tests[tag].values():
+        for case in report["tests"]:
+            if case["name"] == "Take screenshot":
+                case["status"] = "FAIL"
+    assert screenshot_url(sonarr.record, gen.site) is None
 
 
 def test_runtipi(gen: GenerateContext) -> None:

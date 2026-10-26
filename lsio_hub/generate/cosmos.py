@@ -25,7 +25,7 @@ def description(image: ImageInput, root: str) -> Json:
         "image": f"https://github.com/orgs/{image.ctx['org']}/packages/container/package/{image.name}",
         "supported_architectures": image.platforms,
         "id": image.name,
-        "screenshots": [],
+        "screenshots": [image.screenshot] if image.screenshot else [],
         "logo": [],
         "icon": image.logo,
         "artefacts": {},

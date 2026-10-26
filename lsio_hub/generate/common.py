@@ -33,6 +33,8 @@ class ImageInput:
     ctx: Json
     """builder's render context for that manifest: normalised runtime, titles, URLs."""
     observed: Json
+    screenshot: str | None = None
+    """The ci screenshot of the newest default-branch build, from its hub build report, when one passed."""
 
     @property
     def rt(self) -> Json:
@@ -151,8 +153,27 @@ def image_inputs(store: Store, settings: Settings) -> list[ImageInput]:
     return inputs
 
 
+def screenshot_url(record: ImageRecord, site: SiteConfig) -> str | None:
+    """Where the build reports serve the newest default-branch build's screenshot, amd64 first. Only a passing
+    "Take screenshot" test counts, so a store never shows a timeout or an error page."""
+    build = record.latest_build()
+    if not build:
+        return None
+    tag = build["version"]["tag"]
+    reports = record.tests.get(tag, {})
+    for arch in ("amd64", "arm64"):
+        report = reports.get(arch) or {}
+        shot = next((t for t in report.get("tests") or [] if t.get("name") == "Take screenshot"), None)
+        if shot and str(shot.get("status", "")).upper() == "PASS" and (report.get("files") or {}).get("screenshot"):
+            return f"{site.api_root}/builds/{record.name}/{tag}/{arch}/screenshot.png"
+    return None
+
+
 def make_context(store: Store, site: SiteConfig, settings: Settings, fetch: Fetch = no_fetch) -> GenerateContext:
-    return GenerateContext(store=store, images=image_inputs(store, settings), site=site, settings=settings, fetch=fetch)
+    images = image_inputs(store, settings)
+    for image in images:
+        image.screenshot = screenshot_url(image.record, site)
+    return GenerateContext(store=store, images=images, site=site, settings=settings, fetch=fetch)
 
 
 class _Dumper(yaml.SafeDumper):

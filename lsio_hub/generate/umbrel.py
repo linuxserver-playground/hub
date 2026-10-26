@@ -58,7 +58,7 @@ def manifest(image: ImageInput) -> Json:
         "repo": image.repo_url,
         "support": f"{image.repo_url}/issues",
         "port": port,
-        "gallery": [],
+        "gallery": [image.screenshot] if image.screenshot else [],
         "releaseNotes": "",
         "path": "" if image.web_path == "/" else image.web_path,
         "defaultUsername": "",

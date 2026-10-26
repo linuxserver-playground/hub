@@ -211,6 +211,8 @@ def render(image: ImageInput) -> str:
         lines.append(f"    <WebUI>{web}</WebUI>")
     lines.append(f"    <TemplateURL>{UNRAID_RAW_URL}/{image.name.lower()}.xml</TemplateURL>")
     lines.append(f"    <Icon>{image.logo}</Icon>")
+    if image.screenshot:
+        lines.append(f"    <Screenshot>{image.screenshot}</Screenshot>")
     requirement = m.get("publish", {}).get("unraid", {}).get("requirement", "")
     external = ctx["external_application"] or {}
     if requirement or external or ctx["selkies"]:
