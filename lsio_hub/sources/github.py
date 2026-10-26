@@ -25,7 +25,10 @@ query ($org: String!, $cursor: String) {
   organization(login: $org) {
     repositories(first: 100, after: $cursor, orderBy: { field: NAME, direction: ASC }) {
       pageInfo { hasNextPage endCursor }
-      nodes { name url stargazerCount pushedAt isArchived defaultBranchRef { name } }
+      nodes {
+        name url stargazerCount pushedAt isArchived defaultBranchRef { name }
+        refs(refPrefix: "refs/heads/", first: 100) { nodes { name } }
+      }
     }
   }
 }"""
@@ -86,7 +89,8 @@ class GitHub:
         return data
 
     def org_repos(self, org: str) -> list[Json]:
-        """Every repository of the organisation (GraphQL, 100 a page) with stars, archived flag and default branch."""
+        """Every repository of the organisation (GraphQL, 100 a page) with stars, archived flag, default branch and
+        branch names (the first 100; docker-mods has about 95 and is not an image)."""
         repos: list[Json] = []
         cursor = None
         while True:
@@ -103,6 +107,7 @@ class GitHub:
                         "pushed_at": node.get("pushedAt"),
                         "archived": node["isArchived"],
                         "default_branch": (node.get("defaultBranchRef") or {}).get("name") or "main",
+                        "branches": [b["name"] for b in (node.get("refs") or {}).get("nodes") or []],
                     }
                 )
             if not page["pageInfo"]["hasNextPage"]:

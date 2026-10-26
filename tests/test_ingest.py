@@ -99,7 +99,7 @@ def test_fetch_manifests_finds_live_branches() -> None:
 
 
 def test_fetch_manifests_finds_a_branch_not_named_after_its_tag() -> None:
-    """brave publishes `origin` from `borigin`: the tag names no branch, so the branches are read."""
+    """brave publishes `origin` from `borigin`; a branch whose image.yml names another branch is a dev branch."""
     master = copy.deepcopy(MANIFESTS[("docker-sonarr", "master")])
     master["release"]["tags"].append({"tag": "origin", "description": "Builds from the origin channel."})
     master["release"]["tags"].append({"tag": "nightly", "description": "No branch publishes this one."})
@@ -123,9 +123,34 @@ def test_fetch_manifests_finds_a_branch_not_named_after_its_tag() -> None:
     assert manifests["borigin"]["release"]["tag"] == "origin"
     assert listed == ["repos/linuxserver-playground/docker-brave/branches"]
 
-    # Every tag on a branch of its name.
-    manifests = fetch_manifests(FakeGitHub(), "linuxserver-playground/docker-sonarr", "master")
-    assert sorted(manifests) == ["develop", "master"]
+    # With the branch names from the GraphQL listing, nothing is listed over REST.
+    listed.clear()
+    branches = ["master", "develop", "borigin", "stray"]
+    assert sorted(fetch_manifests(Brave(), "linuxserver-playground/docker-brave", "master", None, branches)) == [
+        "borigin",
+        "develop",
+        "master",
+    ]
+    assert listed == []
+
+
+def test_a_branch_is_live_before_the_readme_advertises_it() -> None:
+    """baseimage-debian's bookworm names itself in release.branch while master's release.tags lists only trixie.
+    Under Jenkins that was live (ls_branch); the README may advertise it after some public testing."""
+    master = copy.deepcopy(MANIFESTS[("docker-sonarr", "master")])
+    master["release"].update(tag="trixie", tags=[])
+    bookworm = copy.deepcopy(MANIFESTS[("docker-sonarr", "develop")])
+    bookworm["release"].update(branch="bookworm", tag="bookworm")
+    copied = copy.deepcopy(bookworm)
+    copied["release"]["branch"] = "bookworm-copy"  # a second branch publishing the same tag is not live
+    files = {"master": master, "bookworm": bookworm, "bookworm-copy": copied}
+
+    class Debian(FakeGitHub):
+        def file_text(self, repo: str, path: str, ref: str) -> str | None:
+            return yaml.safe_dump(files[ref], sort_keys=False) if ref in files else None
+
+    manifests = fetch_manifests(Debian(), "o/docker-baseimage-debian", "master", None, sorted(files))
+    assert {b: m["release"]["tag"] for b, m in manifests.items()} == {"master": "trixie", "bookworm": "bookworm"}
 
 
 def test_parse_manifest_reports_contract_errors() -> None:

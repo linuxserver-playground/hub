@@ -380,6 +380,7 @@ class FakeGitHub(GitHub):
                 "pushed_at": "2026-10-23T00:00:00Z",
                 "archived": r == "docker-multidb",
                 "default_branch": "master",
+                "branches": sorted(ref for name, ref in MANIFESTS if name == r),
             }
             for r in repos
         ] + [

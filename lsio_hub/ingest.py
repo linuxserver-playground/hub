@@ -85,59 +85,61 @@ def parse_manifest(text: str) -> Json:
     return data
 
 
-MAX_CANDIDATE_BRANCHES = 30
-"""Branches read when looking for a tag that no branch of its name publishes, so docker-mods-sized repos stay cheap."""
+MAX_BRANCHES = 50
+"""Non-default branches read per repository (webtop has 21)."""
 
 
-def fetch_manifests(gh: GitHub, repo: str, default_branch: str, texts: Texts | None = None) -> dict[str, Json]:
+def fetch_manifests(
+    gh: GitHub, repo: str, default_branch: str, texts: Texts | None = None, branches: list[str] | None = None
+) -> dict[str, Json]:
     """
-    The manifest of every live branch: the default branch's image.yml, then one branch per tag in its
-    `release.tags` whose own image.yml publishes that tag and names that branch. The branch is usually named after
-    the tag, so that branch is read first; for a tag it does not publish (brave's `origin` lives on `borigin`) the
-    other branches are listed and read, as control's fleet discovery does. Files in `texts` (from
-    `prefetch_manifests`) are not fetched again.
+    The manifest of every live branch: the default branch's image.yml, then every other branch whose own image.yml
+    names it in `release.branch`, as the build workflow and control's fleet discovery decide. The default branch's
+    `release.tags` is what the README advertises and may lag behind a branch that is already released, so it only
+    orders the reading. `branches` comes from the GraphQL repository listing; without it the branches are listed
+    over REST. Files in `texts` (from `prefetch_manifests`) are not fetched again.
     """
 
     def read(ref: str) -> str | None:
         key = (repo, ref, "image.yml")
         return texts[key] if texts is not None and key in texts else gh.file_text(repo, "image.yml", ref)
 
-    def publishes(branch: str) -> Json | None:
-        text = read(branch)
-        if text is None:
-            return None
-        try:
-            data = parse_manifest(text)
-        except IngestError as e:
-            log.warning("  %s@%s: %s", repo, branch, e)
-            return None
-        return data if data["release"]["branch"] == branch else None
-
     text = read(default_branch)
     if text is None:
         raise IngestError(f"no image.yml on {default_branch}")
     manifest = parse_manifest(text)
     manifests = {manifest["release"]["branch"]: manifest}
-    wanted = [t for t in dict.fromkeys(_other_tags(manifest)) if t != manifest["release"]["tag"]]
-    missing: list[str] = []
-    for tag in wanted:
-        data = publishes(tag)
-        if data is not None and data["release"]["tag"] == tag:
-            manifests[tag] = data
-        else:
-            missing.append(tag)
-    if missing:
-        names = [str(b["name"]) for b in gh.paginate(f"repos/{repo}/branches", max_pages=2)]
-        for branch in [b for b in names if b not in manifests and b not in wanted][:MAX_CANDIDATE_BRANCHES]:
-            data = publishes(branch)
-            if data is not None and data["release"]["tag"] in missing:
-                manifests[branch] = data
-                missing.remove(data["release"]["tag"])
-            if not missing:
-                break
-    if missing:
-        log.info("  %s: no branch publishes %s; not live", repo, ", ".join(missing))
+    tags = {str(manifest["release"]["tag"])}
+    if branches is None:
+        branches = [str(b["name"]) for b in gh.paginate(f"repos/{repo}/branches", max_pages=2)]
+    for branch in _branch_order(manifest, branches, default_branch):
+        other = read(branch)
+        if other is None:
+            continue
+        try:
+            data = parse_manifest(other)
+        except IngestError as e:
+            log.warning("  %s@%s: %s", repo, branch, e)
+            continue
+        tag = str(data["release"]["tag"])
+        if data["release"]["branch"] != branch:
+            continue  # a dev branch: its image.yml came from another branch
+        if tag in tags:
+            log.warning("  %s@%s publishes %s, which another live branch already does", repo, branch, tag)
+            continue
+        manifests[branch] = data
+        tags.add(tag)
+    unpublished = [t for t in _other_tags(manifest) if t not in tags]
+    if unpublished:
+        log.info("  %s: no branch publishes %s", repo, ", ".join(unpublished))
     return manifests
+
+
+def _branch_order(manifest: Json, branches: list[str], default_branch: str) -> list[str]:
+    """The non-default branches to read: those named after an advertised tag first, at most MAX_BRANCHES."""
+    advertised = set(_other_tags(manifest))
+    others = [b for b in branches if b != default_branch]
+    return ([b for b in others if b in advertised] + [b for b in others if b not in advertised])[:MAX_BRANCHES]
 
 
 def _other_tags(manifest: Json) -> list[str]:
@@ -147,19 +149,22 @@ def _other_tags(manifest: Json) -> list[str]:
 def prefetch_manifests(gh: GitHub, repos: list[Json]) -> Texts:
     """
     Every image.yml a reconcile reads, in a few GraphQL requests instead of one REST request each: the default
-    branch's of every repository, then those of the branches their `release.tags` name. Empty when GraphQL fails;
-    `fetch_manifests` then reads each file over REST.
+    branch's of every repository, then every other branch's of the repositories that are images. Empty when
+    GraphQL fails; `fetch_manifests` then reads each file over REST.
     """
     try:
         texts = gh.file_texts([(f"{ORG}/{r['name']}", r["default_branch"], "image.yml") for r in repos])
         others = []
-        for (repo, _, path), text in list(texts.items()):
+        for r in repos:
+            full = f"{ORG}/{r['name']}"
+            text = texts.get((full, r["default_branch"], "image.yml"))
             try:
                 manifest = parse_manifest(text) if text is not None else None
             except IngestError:
                 continue
             if manifest:
-                others += [(repo, tag, path) for tag in _other_tags(manifest) if tag != manifest["release"]["tag"]]
+                order = _branch_order(manifest, r.get("branches") or [], r["default_branch"])
+                others += [(full, branch, "image.yml") for branch in order]
         texts.update(gh.file_texts(sorted(set(others))))
     except (httpx2.HTTPError, RuntimeError, KeyError, TypeError) as e:
         log.warning("reading manifests over GraphQL failed (%s); reading each one over REST instead", e)
@@ -450,7 +455,7 @@ def ingest_repo(
     name = image_name(repo["name"])
     full = f"{ORG}/{repo['name']}"
     record = store.record(name)
-    manifests = fetch_manifests(gh, full, repo["default_branch"], texts)
+    manifests = fetch_manifests(gh, full, repo["default_branch"], texts, repo.get("branches"))
     changed = manifests != record.manifests
     record.manifests = manifests
     rejected = store.status.get("rejected", {})
