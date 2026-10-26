@@ -85,40 +85,58 @@ def parse_manifest(text: str) -> Json:
     return data
 
 
+MAX_CANDIDATE_BRANCHES = 30
+"""Branches read when looking for a tag that no branch of its name publishes, so docker-mods-sized repos stay cheap."""
+
+
 def fetch_manifests(gh: GitHub, repo: str, default_branch: str, texts: Texts | None = None) -> dict[str, Json]:
     """
     The manifest of every live branch: the default branch's image.yml, then one branch per tag in its
-    `release.tags` whose own image.yml publishes that tag (the branch is named after the tag, per the conventions).
-    Files in `texts` (from `prefetch_manifests`) are not fetched again.
+    `release.tags` whose own image.yml publishes that tag and names that branch. The branch is usually named after
+    the tag, so that branch is read first; for a tag it does not publish (brave's `origin` lives on `borigin`) the
+    other branches are listed and read, as control's fleet discovery does. Files in `texts` (from
+    `prefetch_manifests`) are not fetched again.
     """
 
     def read(ref: str) -> str | None:
         key = (repo, ref, "image.yml")
         return texts[key] if texts is not None and key in texts else gh.file_text(repo, "image.yml", ref)
 
+    def publishes(branch: str) -> Json | None:
+        text = read(branch)
+        if text is None:
+            return None
+        try:
+            data = parse_manifest(text)
+        except IngestError as e:
+            log.warning("  %s@%s: %s", repo, branch, e)
+            return None
+        return data if data["release"]["branch"] == branch else None
+
     text = read(default_branch)
     if text is None:
         raise IngestError(f"no image.yml on {default_branch}")
     manifest = parse_manifest(text)
     manifests = {manifest["release"]["branch"]: manifest}
-    seen_tags = {manifest["release"]["tag"]}
-    for tag in _other_tags(manifest):
-        if tag in seen_tags:
-            continue
-        seen_tags.add(tag)
-        other = read(tag)
-        if other is None:
-            log.info("  %s: tag %s has no branch of that name with an image.yml; not a live branch", repo, tag)
-            continue
-        try:
-            data = parse_manifest(other)
-        except IngestError as e:
-            log.warning("  %s@%s: %s", repo, tag, e)
-            continue
-        if data["release"]["tag"] != tag:
-            log.warning("  %s@%s: its image.yml publishes %s, not %s", repo, tag, data["release"]["tag"], tag)
-            continue
-        manifests[data["release"]["branch"]] = data
+    wanted = [t for t in dict.fromkeys(_other_tags(manifest)) if t != manifest["release"]["tag"]]
+    missing: list[str] = []
+    for tag in wanted:
+        data = publishes(tag)
+        if data is not None and data["release"]["tag"] == tag:
+            manifests[tag] = data
+        else:
+            missing.append(tag)
+    if missing:
+        names = [str(b["name"]) for b in gh.paginate(f"repos/{repo}/branches", max_pages=2)]
+        for branch in [b for b in names if b not in manifests and b not in wanted][:MAX_CANDIDATE_BRANCHES]:
+            data = publishes(branch)
+            if data is not None and data["release"]["tag"] in missing:
+                manifests[branch] = data
+                missing.remove(data["release"]["tag"])
+            if not missing:
+                break
+    if missing:
+        log.info("  %s: no branch publishes %s; not live", repo, ", ".join(missing))
     return manifests
 
 

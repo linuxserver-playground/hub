@@ -1,9 +1,12 @@
 """Reconcile and single-release ingest against the fake GitHub."""
 
+import copy
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
+import yaml
 
 from lsio_hub.ingest import (
     IngestError,
@@ -18,7 +21,7 @@ from lsio_hub.ingest import (
 from lsio_hub.sources.github import FileKey
 from lsio_hub.store import Store
 
-from .conftest import FIXTURES, NOW, RELEASES, FakeGitHub, Json, asset_bytes, build_store
+from .conftest import FIXTURES, MANIFESTS, NOW, RELEASES, FakeGitHub, Json, asset_bytes, build_store
 
 SONARR_LS2_BASE = "sha256:" + "b" * 64
 
@@ -93,6 +96,36 @@ def test_fetch_manifests_finds_live_branches() -> None:
     assert manifests["develop"]["release"]["tag"] == "develop"
     with pytest.raises(IngestError, match=r"no image\.yml"):
         fetch_manifests(FakeGitHub(), "linuxserver-playground/docker-nope", "master")
+
+
+def test_fetch_manifests_finds_a_branch_not_named_after_its_tag() -> None:
+    """brave publishes `origin` from `borigin`: the tag names no branch, so the branches are read."""
+    master = copy.deepcopy(MANIFESTS[("docker-sonarr", "master")])
+    master["release"]["tags"].append({"tag": "origin", "description": "Builds from the origin channel."})
+    master["release"]["tags"].append({"tag": "nightly", "description": "No branch publishes this one."})
+    borigin = copy.deepcopy(MANIFESTS[("docker-sonarr", "develop")])
+    borigin["release"].update(branch="borigin", tag="origin")
+    stray = copy.deepcopy(MANIFESTS[("docker-sonarr", "develop")])
+    stray["release"].update(branch="somewhere-else", tag="nightly")
+    files = {"master": master, "develop": MANIFESTS[("docker-sonarr", "develop")], "borigin": borigin, "stray": stray}
+    listed: list[str] = []
+
+    class Brave(FakeGitHub):
+        def file_text(self, repo: str, path: str, ref: str) -> str | None:
+            return yaml.safe_dump(files[ref], sort_keys=False) if ref in files else None
+
+        def paginate(self, path: str, *, per_page: int = 100, max_pages: int = 10, **params: Any) -> list[Json]:
+            listed.append(path)
+            return [{"name": b} for b in ["develop", "master", "borigin", "stray"]]
+
+    manifests = fetch_manifests(Brave(), "linuxserver-playground/docker-brave", "master")
+    assert sorted(manifests) == ["borigin", "develop", "master"]
+    assert manifests["borigin"]["release"]["tag"] == "origin"
+    assert listed == ["repos/linuxserver-playground/docker-brave/branches"]
+
+    # Every tag on a branch of its name.
+    manifests = fetch_manifests(FakeGitHub(), "linuxserver-playground/docker-sonarr", "master")
+    assert sorted(manifests) == ["develop", "master"]
 
 
 def test_parse_manifest_reports_contract_errors() -> None:

@@ -440,6 +440,9 @@ class FakeGitHub(GitHub):
     def paginate(self, path: str, *, per_page: int = 100, max_pages: int = 10, **params: Any) -> list[Json]:
         if path.endswith("docker-mods/branches"):
             return [{"name": b} for b in ["master", "template", *MOD_YMLS]]
+        if path.endswith("/branches"):
+            repo_name = path.split("/")[2]
+            return [{"name": ref} for name, ref in MANIFESTS if name == repo_name]
         raise AssertionError(f"unexpected paginate {path}")
 
     def download(self, url: str) -> bytes:
