@@ -164,6 +164,29 @@ def test_parse_reference() -> None:
     assert parse_reference("linuxserver/baseimage-alpine") == ("ghcr.io", "linuxserver/baseimage-alpine", "latest")
     assert parse_reference("localhost:5000/x/y:1") == ("localhost:5000", "x/y", "1")
     assert parse_reference("ghcr.io/a/b@sha256:abc") == ("ghcr.io", "a/b", "sha256:abc")
+    assert parse_reference("docker.io/alpine:3.24") == ("registry-1.docker.io", "library/alpine", "3.24")
+    assert parse_reference("alpine") == ("registry-1.docker.io", "library/alpine", "latest")
+    hub = "registry-1.docker.io"
+    assert parse_reference("docker.io/linuxserver/x@sha256:abc") == (hub, "linuxserver/x", "sha256:abc")
+
+
+def test_base_layers_from_docker_hub() -> None:
+    """Docker Hub's tokens come from auth.docker.io for registry.docker.io; its API is on registry-1."""
+    hosts: list[str] = []
+
+    def handle(request: httpx2.Request) -> httpx2.Response:
+        hosts.append(request.url.host)
+        if request.url.host == "auth.docker.io":
+            assert request.url.params["service"] == "registry.docker.io"
+            assert request.url.params["scope"] == "repository:library/alpine:pull"
+            return httpx2.Response(200, json={"token": "hub"})
+        assert request.headers["authorization"] == "Bearer hub"
+        assert request.url.path == "/v2/library/alpine/manifests/sha256:abc"
+        return httpx2.Response(200, json={"config": {}, "layers": [{"digest": "sha256:1"}]})
+
+    base = base_layers(httpx2.Client(transport=httpx2.MockTransport(handle)), "docker.io/alpine:3.24", "sha256:abc")
+    assert base["platforms"] == {"amd64": {"digest": "sha256:abc", "layers": ["sha256:1"]}}
+    assert hosts == ["auth.docker.io", "registry-1.docker.io"]
 
 
 def test_refresh_bases_fetches_once_and_survives_registry_errors() -> None:
@@ -174,3 +197,61 @@ def test_refresh_bases_fetches_once_and_survives_registry_errors() -> None:
     assert refresh_bases(store, registry_http(), now=lambda: NOW) == []
     store.bases.clear()
     assert refresh_bases(store, registry_http(), now=lambda: NOW) == [BASE_DIGEST]
+
+
+def test_a_failed_base_lookup_waits_a_day() -> None:
+    store = build_store()
+    unknown = UNKNOWN_BASE_DIGEST
+    assert store.status["bases"][unknown]["checked_at"] == NOW and "404" in store.status["bases"][unknown]["error"]
+    requests: list[str] = []
+
+    def counting() -> httpx2.Client:
+        inner = registry_http()
+
+        def handle(request: httpx2.Request) -> httpx2.Response:
+            requests.append(request.url.path)
+            return inner.request(request.method, request.url, headers=request.headers)
+
+        return httpx2.Client(transport=httpx2.MockTransport(handle))
+
+    assert refresh_bases(store, counting(), now=lambda: "2026-10-25T11:00:00.000Z") == []
+    assert requests == []  # 23 hours later: not yet
+    assert refresh_bases(store, counting(), now=lambda: "2026-10-25T12:00:01.000Z") == []
+    assert any(unknown in path for path in requests)  # a day later it is tried again, and fails again
+    assert store.status["bases"][unknown]["checked_at"] == "2026-10-25T12:00:01.000Z"
+
+
+def test_org_releases_reads_every_page_and_drops_drafts() -> None:
+    pages = [
+        {
+            "pageInfo": {"hasNextPage": True, "endCursor": "c1"},
+            "nodes": [
+                {
+                    "name": "docker-sonarr",
+                    "releases": {
+                        "nodes": [
+                            {"tagName": "2-ls2", "createdAt": "2026-10-26T13:00:00Z", "url": "u2", "isDraft": True},
+                            {"tagName": "1-ls1", "createdAt": "2026-10-25T13:00:00Z", "url": "u1", "isDraft": False},
+                        ]
+                    },
+                }
+            ],
+        },
+        {"pageInfo": {"hasNextPage": False}, "nodes": [{"name": "builder", "releases": {"nodes": []}}]},
+    ]
+    variables: list[Json] = []
+
+    def handle(request: httpx2.Request) -> httpx2.Response:
+        body = json.loads(request.content)
+        variables.append(body["variables"])
+        page = pages[len(variables) - 1]
+        return httpx2.Response(200, json={"data": {"organization": {"repositories": page}}})
+
+    gh = GitHub(httpx2.Client(transport=httpx2.MockTransport(handle)), "t")
+    assert gh.org_releases("linuxserver-playground", per_repo=5) == {
+        "docker-sonarr": [
+            {"tag_name": "1-ls1", "created_at": "2026-10-25T13:00:00Z", "html_url": "u1", "draft": False}
+        ],
+        "builder": [],
+    }
+    assert [v["cursor"] for v in variables] == [None, "c1"] and variables[0]["releases"] == 5

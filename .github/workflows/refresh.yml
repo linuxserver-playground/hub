@@ -1,0 +1,85 @@
+# The hourly refresh: stars, archived flags and GHCR tags (observe), the vulnerability scans on the database's clock
+# (the scan runs at the end of observe) and the mods index. None of it is on a release's path, so it runs apart
+# from deploy.yml and never makes a release wait: it commits the files it owns (observed.json, mods.json, their
+# status files and the vulns files; see lsio_hub/store.py) and then asks deploy.yml to publish them. The control
+# plane dispatches it every hour too, because GitHub skips many runs of an hourly cron.
+name: Refresh
+
+on:
+  schedule:
+    - cron: '47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write  # dispatching deploy.yml
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - run: pip install -e .
+
+      - name: Install grype
+        # Pinned; observe scans the newest build of each branch with it (skipped gracefully without it).
+        id: grype
+        env:
+          GRYPE_VERSION: 0.121.0
+          GRYPE_SHA256: 64e07133d3486115de647a66581461dccf5c732748a0a3119077395565f15519
+        run: |
+          curl -sSfL -o grype.tgz "https://github.com/anchore/grype/releases/download/v${GRYPE_VERSION}/grype_${GRYPE_VERSION}_linux_amd64.tar.gz"
+          echo "${GRYPE_SHA256}  grype.tgz" | sha256sum -c -
+          sudo tar -xzf grype.tgz -C /usr/local/bin grype
+          rm grype.tgz
+          echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Restore the grype vulnerability database
+        # One cache entry a day: the scan updates the database at most once per 24 h, the hourly runs reuse it.
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/grype/db
+          key: grype-db-${{ steps.grype.outputs.date }}
+          restore-keys: grype-db-
+
+      - name: Observe, scan and refresh the mods index
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python -m lsio_hub.observe
+          python -m lsio_hub.mods
+
+      - name: Commit and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+            exit 0
+          fi
+          git commit -m "Update data"
+          # deploy.yml commits data/ at any time too, but never a file this job writes, so the rebase is clean.
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && break
+            git rebase --abort 2>/dev/null || true
+            [ "$attempt" = 4 ] && exit 1
+            sleep $((attempt * 5))
+          done
+          # A push with GITHUB_TOKEN starts no workflow, so the deploy is asked for.
+          gh workflow run deploy.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"

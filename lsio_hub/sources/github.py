@@ -7,6 +7,8 @@ anonymous limit of 60 requests an hour is not).
 from __future__ import annotations
 
 import base64
+import json
+from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
 import httpx2
@@ -15,6 +17,8 @@ from ..config import GITHUB_API
 from .http import request, request_json
 
 Json = dict[str, Any]
+FileKey = tuple[str, str, str]
+"""(owner/name, ref, path)"""
 
 REPO_QUERY = """
 query ($org: String!, $cursor: String) {
@@ -22,6 +26,22 @@ query ($org: String!, $cursor: String) {
     repositories(first: 100, after: $cursor, orderBy: { field: NAME, direction: ASC }) {
       pageInfo { hasNextPage endCursor }
       nodes { name url stargazerCount pushedAt isArchived defaultBranchRef { name } }
+    }
+  }
+}"""
+
+
+RELEASES_QUERY = """
+query ($org: String!, $cursor: String, $releases: Int!) {
+  organization(login: $org) {
+    repositories(first: 100, after: $cursor, orderBy: { field: NAME, direction: ASC }) {
+      pageInfo { hasNextPage endCursor }
+      nodes {
+        name
+        releases(first: $releases, orderBy: { field: CREATED_AT, direction: DESC }) {
+          nodes { tagName createdAt url isDraft }
+        }
+      }
     }
   }
 }"""
@@ -88,6 +108,63 @@ class GitHub:
             if not page["pageInfo"]["hasNextPage"]:
                 return repos
             cursor = page["pageInfo"]["endCursor"]
+
+    def org_releases(self, org: str, *, per_repo: int = 30) -> dict[str, list[Json]]:
+        """
+        The newest `per_repo` published releases of every repository, by repository name, in the shape the REST
+        listing has (tag_name, created_at, html_url; no assets): one GraphQL request per 100 repositories instead
+        of one REST request per repository. Used to find what is pending; assets come from REST per release.
+        """
+        releases: dict[str, list[Json]] = {}
+        cursor = None
+        while True:
+            data = self.graphql(RELEASES_QUERY, {"org": org, "cursor": cursor, "releases": per_repo})
+            page = (data.get("organization") or {}).get("repositories")
+            if not page:
+                raise RuntimeError(f"GitHub GraphQL: organization {org} not found")
+            for node in page["nodes"]:
+                releases[node["name"]] = [
+                    {"tag_name": r["tagName"], "created_at": r["createdAt"], "html_url": r["url"], "draft": False}
+                    for r in (node.get("releases") or {}).get("nodes") or []
+                    if not r.get("isDraft")
+                ]
+            if not page["pageInfo"]["hasNextPage"]:
+                return releases
+            cursor = page["pageInfo"]["endCursor"]
+
+    def file_texts(self, files: list[FileKey], *, batch: int = 25, workers: int = 8) -> dict[FileKey, str | None]:
+        """
+        Many files at once: {(owner/name, ref, path): text, or None when the file or the ref does not exist}, one
+        GraphQL request per `batch` files, `workers` of them at a time (each takes a second or two whatever its
+        size). A file GitHub truncates, or will not show as text, is left out, so the caller reads it with
+        `file_text` instead.
+        """
+
+        def read(chunk: list[FileKey]) -> dict[FileKey, str | None]:
+            fields = []
+            for i, (repo, ref, path) in enumerate(chunk):
+                owner, _, name = repo.partition("/")
+                expression = json.dumps(f"{ref}:{path}")
+                fields.append(
+                    f"f{i}: repository(owner: {json.dumps(owner)}, name: {json.dumps(name)}) "
+                    f"{{ object(expression: {expression}) {{ ... on Blob {{ text isTruncated isBinary }} }} }}"
+                )
+            data = self.graphql("query {\n" + "\n".join(fields) + "\n}", {})
+            texts: dict[FileKey, str | None] = {}
+            for i, key in enumerate(chunk):
+                blob = (data.get(f"f{i}") or {}).get("object")
+                if blob is None:
+                    texts[key] = None
+                elif blob.get("text") is not None and not blob.get("isTruncated") and not blob.get("isBinary"):
+                    texts[key] = blob["text"]
+            return texts
+
+        chunks = [files[start : start + batch] for start in range(0, len(files), batch)]
+        texts: dict[FileKey, str | None] = {}
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            for result in pool.map(read, chunks):
+                texts.update(result)
+        return texts
 
     def file_text(self, repo: str, path: str, ref: str) -> str | None:
         """The text of a file at a ref, or None when the file or the ref does not exist."""

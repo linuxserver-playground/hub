@@ -31,7 +31,7 @@ from lsio_hub.fleet import Fleet, hub_settings, load_fleet
 from lsio_hub.generate.common import GenerateContext, make_context
 from lsio_hub.ingest import reconcile
 from lsio_hub.observe import observe
-from lsio_hub.sources.github import GitHub
+from lsio_hub.sources.github import FileKey, GitHub
 from lsio_hub.store import Store, load_store, save_store
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -367,6 +367,8 @@ class FakeGitHub(GitHub):
     def __init__(self) -> None:
         super().__init__(registry_http(), "token")  # the registry fixture, for the base image manifests
         self.downloads: list[str] = []
+        self.listings = 0
+        self.batched = 0
 
     def org_repos(self, org: str) -> list[Json]:
         repos = sorted({repo for repo, _ in MANIFESTS})
@@ -401,6 +403,28 @@ class FakeGitHub(GitHub):
 
     def releases(self, repo: str, *, max_pages: int = 3) -> list[Json]:
         return list(RELEASES.get(repo.split("/")[1], []))
+
+    def org_releases(self, org: str, *, per_repo: int = 30) -> dict[str, list[Json]]:
+        """What the GraphQL listing returns: the REST listing without assets."""
+        self.listings += 1
+        return {
+            repo["name"]: [
+                {k: r[k] for k in ("tag_name", "created_at", "html_url", "draft")}
+                for r in self.releases(f"{org}/{repo['name']}")[:per_repo]
+            ]
+            for repo in self.org_repos(org)
+        }
+
+    def file_texts(self, files: list[FileKey], *, batch: int = 25, workers: int = 8) -> dict[FileKey, str | None]:
+        """The GraphQL batch read; a file that fails is left out, as a truncated one would be."""
+        texts: dict[FileKey, str | None] = {}
+        for repo, ref, path in files:
+            try:
+                texts[(repo, ref, path)] = self.file_text(repo, path, ref)
+            except Exception:
+                continue
+        self.batched += len(texts)
+        return texts
 
     def release_by_tag(self, repo: str, tag: str) -> Json:
         for release in self.releases(repo):

@@ -1,17 +1,17 @@
 """
 Ingests build bundles and manifests into data/.
 
-    python -m lsio_hub.ingest --reconcile              every docker-* repo in the org: manifests of every
+    python -m lsio_hub.ingest --reconcile [--deep]     every docker-* repo in the org: manifests of every
                                                        live branch, every release not yet in data/
-    python -m lsio_hub.ingest --repo owner/name --tag x one release (the repository_dispatch payload)
+    python -m lsio_hub.ingest --repo owner/name --tag x one release
 
 A release is ingested once: its build.json is downloaded, validated against the bundle contract, the
 package tables and layer lists fetched, the diff against the previous build of the branch computed and
 everything written to data/. The layer digests of every base image a held build was built from are read
 from the registry once per base digest (data/bases/), so the layers endpoint can tell base layers from the
-image's own. A release whose bundle does not validate is recorded in status.json under `rejected` with the
-error and retried on the next run. Nothing here deletes data on failure: a source that cannot be reached
-keeps its previous data and the failure is recorded, as static-api did.
+image's own. A release whose bundle does not validate is recorded in status/rejected.json with the error
+and retried a day later, or as soon as the image's manifests change. Nothing here deletes data on failure:
+a source that cannot be reached keeps its previous data and the failure is recorded, as static-api did.
 """
 
 from __future__ import annotations
@@ -23,6 +23,7 @@ import logging
 import os
 import sys
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 from typing import Any
 
 import httpx2
@@ -41,6 +42,13 @@ from .store import ImageRecord, Store, load_store, save_store
 log = logging.getLogger(__name__)
 Json = dict[str, Any]
 Now = Callable[[], str]
+Texts = dict[tuple[str, str, str], str | None]
+"""(owner/name, ref, path) -> file text, None when the file does not exist."""
+
+BASE_RETRY_SECONDS = 24 * 3600
+"""How long a base image whose registry lookup failed waits before it is tried again."""
+REJECTED_RETRY_SECONDS = 24 * 3600
+"""How long a rejected release waits before it is tried again, unless its image's manifests change."""
 
 
 def _now() -> str:
@@ -48,7 +56,7 @@ def _now() -> str:
 
 
 class IngestError(Exception):
-    """A release that cannot be ingested; the message goes to status.json."""
+    """A release that cannot be ingested; the message goes to status/rejected.json."""
 
 
 def image_name(repo_name: str) -> str:
@@ -74,23 +82,28 @@ def parse_manifest(text: str) -> Json:
     return data
 
 
-def fetch_manifests(gh: GitHub, repo: str, default_branch: str) -> dict[str, Json]:
+def fetch_manifests(gh: GitHub, repo: str, default_branch: str, texts: Texts | None = None) -> dict[str, Json]:
     """
     The manifest of every live branch: the default branch's image.yml, then one branch per tag in its
     `release.tags` whose own image.yml publishes that tag (the branch is named after the tag, per the conventions).
+    Files in `texts` (from `prefetch_manifests`) are not fetched again.
     """
-    text = gh.file_text(repo, "image.yml", default_branch)
+
+    def read(ref: str) -> str | None:
+        key = (repo, ref, "image.yml")
+        return texts[key] if texts is not None and key in texts else gh.file_text(repo, "image.yml", ref)
+
+    text = read(default_branch)
     if text is None:
         raise IngestError(f"no image.yml on {default_branch}")
     manifest = parse_manifest(text)
     manifests = {manifest["release"]["branch"]: manifest}
     seen_tags = {manifest["release"]["tag"]}
-    for entry in manifest["release"].get("tags", []):
-        tag = entry["tag"]
+    for tag in _other_tags(manifest):
         if tag in seen_tags:
             continue
         seen_tags.add(tag)
-        other = gh.file_text(repo, "image.yml", tag)
+        other = read(tag)
         if other is None:
             log.info("  %s: tag %s has no branch of that name with an image.yml; not a live branch", repo, tag)
             continue
@@ -104,6 +117,33 @@ def fetch_manifests(gh: GitHub, repo: str, default_branch: str) -> dict[str, Jso
             continue
         manifests[data["release"]["branch"]] = data
     return manifests
+
+
+def _other_tags(manifest: Json) -> list[str]:
+    return [str(entry["tag"]) for entry in manifest["release"].get("tags", [])]
+
+
+def prefetch_manifests(gh: GitHub, repos: list[Json]) -> Texts:
+    """
+    Every image.yml a reconcile reads, in a few GraphQL requests instead of one REST request each: the default
+    branch's of every repository, then those of the branches their `release.tags` name. Empty when GraphQL fails;
+    `fetch_manifests` then reads each file over REST.
+    """
+    try:
+        texts = gh.file_texts([(f"{ORG}/{r['name']}", r["default_branch"], "image.yml") for r in repos])
+        others = []
+        for (repo, _, path), text in list(texts.items()):
+            try:
+                manifest = parse_manifest(text) if text is not None else None
+            except IngestError:
+                continue
+            if manifest:
+                others += [(repo, tag, path) for tag in _other_tags(manifest) if tag != manifest["release"]["tag"]]
+        texts.update(gh.file_texts(sorted(set(others))))
+    except (httpx2.HTTPError, RuntimeError, KeyError, TypeError) as e:
+        log.warning("reading manifests over GraphQL failed (%s); reading each one over REST instead", e)
+        return {}
+    return texts
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -234,28 +274,46 @@ def rotate(record: ImageRecord, keep: int = KEEP_BUILDS) -> list[str]:
     return dropped
 
 
+def _age_seconds(then: str, now: str) -> float:
+    try:
+        start = datetime.datetime.fromisoformat(then.replace("Z", "+00:00"))
+        return (datetime.datetime.fromisoformat(now.replace("Z", "+00:00")) - start).total_seconds()
+    except ValueError:
+        return float("inf")
+
+
 def refresh_bases(store: Store, http: httpx2.Client, now: Now = _now) -> list[str]:
     """
     Fetches the layer digests of every base digest the held builds record and data/bases/ lacks. Returns the
-    digests fetched; a registry failure is logged and leaves that base for the next run.
+    digests fetched. A registry failure is logged and recorded in status/bases.json, and that base is tried again
+    after BASE_RETRY_SECONDS, so a registry that refuses costs one request a day instead of one every run.
     """
     fetched: list[str] = []
+    failures: Json = store.status.setdefault("bases", {})
     images = {
         build["base"]["digest"]: build["base"]["image"]
         for record in store.images.values()
         for build in record.builds.values()
         if build.get("base", {}).get("digest")
     }
+    for digest in sorted(set(failures) - store.base_digests()):
+        failures.pop(digest)
     for digest in sorted(store.base_digests() - store.bases.keys()):
         image = images[digest]
+        failed = failures.get(digest)
+        if failed and failed.get("image") == image and _age_seconds(failed["checked_at"], now()) < BASE_RETRY_SECONDS:
+            continue
         try:
             base = base_layers(http, image, digest)
         except (httpx2.HTTPError, KeyError, TypeError, ValueError) as e:
             log.warning("  ! base %s (%s): %s", image, digest[:19], e)
+            failures[digest] = {"image": image, "checked_at": now(), "error": str(e).split("\n")[0]}
             continue
         if not base["platforms"]:
             log.warning("  ! base %s (%s): no linux platform in the manifest", image, digest[:19])
+            failures[digest] = {"image": image, "checked_at": now(), "error": "no linux platform in the manifest"}
             continue
+        failures.pop(digest, None)
         store.bases[digest] = {**base, "fetched_at": now()}
         fetched.append(digest)
         log.info(
@@ -308,15 +366,40 @@ def pending_releases(record: ImageRecord, releases: list[Json], keep: int = KEEP
     return sorted(pending, key=lambda r: r.get("created_at", ""))
 
 
-def ingest_repo(store: Store, gh: GitHub, repo: Json, now: Now) -> None:
-    """Manifests of every live branch, then every pending release, for one image repository."""
+def ingest_repo(
+    store: Store,
+    gh: GitHub,
+    repo: Json,
+    now: Now,
+    *,
+    texts: Texts | None = None,
+    releases: list[Json] | None = None,
+) -> int:
+    """
+    Manifests of every live branch, then every pending release, for one image repository. `releases` is the
+    repository's listing when the caller has it (without assets: each pending release is then read by tag);
+    otherwise the releases are listed over REST. A release rejected less than REJECTED_RETRY_SECONDS ago is
+    not tried again unless the manifests changed. Returns how many releases were tried.
+    """
     name = image_name(repo["name"])
     full = f"{ORG}/{repo['name']}"
     record = store.record(name)
-    record.manifests = fetch_manifests(gh, full, repo["default_branch"])
-    releases = gh.releases(full)
-    for release in pending_releases(record, releases):
+    manifests = fetch_manifests(gh, full, repo["default_branch"], texts)
+    changed = manifests != record.manifests
+    record.manifests = manifests
+    rejected = store.status.get("rejected", {})
+
+    def due(release: Json) -> bool:
+        previous = rejected.get(f"{name}@{release['tag_name']}")
+        return changed or previous is None or _age_seconds(previous["checked_at"], now()) >= REJECTED_RETRY_SECONDS
+
+    tried = 0
+    listing = releases if releases is not None else gh.releases(full)
+    for release in [r for r in pending_releases(record, listing) if due(r)]:
+        tried += 1
         try:
+            if "assets" not in release:
+                release = gh.release_by_tag(full, release["tag_name"])
             bundle = ingest_release(gh, record, release)
         except (IngestError, httpx2.HTTPError) as e:
             _reject(store, record, release, str(e), now)
@@ -326,6 +409,7 @@ def ingest_repo(store: Store, gh: GitHub, repo: Json, now: Now) -> None:
             "  + %s@%s (%s)", name, bundle["version"]["tag"], record.diffs[bundle["version"]["tag"]]["classification"]
         )
     rotate(record)
+    return tried
 
 
 def _set_status(store: Store, source: str, ok: bool, now: Now, error: str | None = None) -> None:
@@ -336,19 +420,38 @@ def _set_status(store: Store, source: str, ok: bool, now: Now, error: str | None
     store.status["sources"][source] = {k: v for k, v in status.items() if v is not None}
 
 
-def reconcile(store: Store, gh: GitHub, now: Now = _now) -> None:
-    """Every docker-* repository in the organisation. Repositories that fail keep their previous data."""
+def reconcile(store: Store, gh: GitHub, now: Now = _now, *, deep: bool = False) -> list[str]:
+    """
+    Every docker-* repository in the organisation: the manifests of every live branch and every release the hub
+    does not hold yet. Every run of the hub does this; a dispatch's release is only a hint, because GitHub keeps
+    one pending run per concurrency group and drops the older ones, so each run must find everything pending.
+
+    Four or five GraphQL requests cover the organisation: the repositories, the newest 30 releases of each, and
+    every image.yml. REST is only used for what is new (each pending release and its assets). `deep` lists every
+    repository's releases over REST instead (up to 300 each), for a backfill. Repositories that fail keep their
+    previous data. Returns the repositories whose releases were tried.
+    """
     try:
         repos = [r for r in gh.org_repos(ORG) if is_image_repo(r["name"])]
     except (httpx2.HTTPError, RuntimeError) as e:
         _set_status(store, "manifests", False, now, f"listing repositories: {e}")
         _set_status(store, "releases", False, now, f"listing repositories: {e}")
-        return
+        return []
+    index: dict[str, list[Json]] | None = None
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        pending_listing = None if deep else pool.submit(gh.org_releases, ORG)
+        texts = prefetch_manifests(gh, repos)
+        try:
+            index = pending_listing.result() if pending_listing else None
+        except (httpx2.HTTPError, RuntimeError, KeyError, TypeError) as e:
+            log.warning("listing releases over GraphQL failed (%s); listing each repository's over REST instead", e)
+    tried: list[str] = []
     failures: list[str] = []
     for repo in repos:
-        log.info("%s", repo["name"])
         try:
-            ingest_repo(store, gh, repo, now)
+            listing = index.get(repo["name"], []) if index is not None else None
+            if ingest_repo(store, gh, repo, now, texts=texts, releases=listing):
+                tried.append(f"{ORG}/{repo['name']}")
         except (IngestError, httpx2.HTTPError) as e:
             failures.append(f"{repo['name']}: {e}")
             log.warning("  ! %s: %s (keeping previous data)", repo["name"], e)
@@ -360,49 +463,8 @@ def reconcile(store: Store, gh: GitHub, now: Now = _now) -> None:
     error = "; ".join(failures) if failures else None
     _set_status(store, "manifests", not failures, now, error)
     _set_status(store, "releases", not failures, now, error)
-
-
-def sweep(store: Store, gh: GitHub, hint: str | None = None, now: Now = _now) -> list[str]:
-    """
-    Every release the hub does not hold yet, across the organisation, for runs started by an image release.
-
-    The event's own release is only a hint: GitHub keeps one pending run per concurrency group and drops the
-    older ones, so a run that ingested only its own release would leave the dropped runs' releases waiting for
-    the next reconcile. One listing of the organisation and one releases page per image repository find
-    everything pending; only repositories with something new (or the hinted one, or one the hub has never seen)
-    get their manifests and releases fetched. Returns the repositories that were ingested.
-    """
-    try:
-        repos = [r for r in gh.org_repos(ORG) if is_image_repo(r["name"])]
-    except (httpx2.HTTPError, RuntimeError) as e:
-        _set_status(store, "releases", False, now, f"listing repositories: {e}")
-        return []
-    ingested: list[str] = []
-    failures: list[str] = []
-    for repo in repos:
-        full = f"{ORG}/{repo['name']}"
-        name = image_name(repo["name"])
-        record = store.record(name)
-        try:
-            releases = gh.releases(full, max_pages=1)
-            # Releases rejected before stay rejected here; the full reconcile retries them.
-            rejected = store.status.get("rejected", {})
-            new = [r for r in pending_releases(record, releases) if f"{name}@{r['tag_name']}" not in rejected]
-            if record.manifests and full != hint and not new:
-                continue
-            log.info("%s", repo["name"])
-            ingest_repo(store, gh, repo, now)
-        except (IngestError, httpx2.HTTPError) as e:
-            failures.append(f"{repo['name']}: {e}")
-            log.warning("  ! %s: %s (keeping previous data)", repo["name"], e)
-            continue
-        ingested.append(full)
-    if ingested:
-        refresh_bases(store, gh.http, now)
-    error = "; ".join(failures) if failures else None
-    _set_status(store, "releases", not failures, now, error)
-    log.info("sweep: %d of %d image repositories had something new", len(ingested), len(repos))
-    return ingested
+    log.info("reconcile: %d of %d image repositories had something new", len(tried), len(repos))
+    return tried
 
 
 def ingest_one(store: Store, gh: GitHub, repo: str, tag: str, now: Now = _now) -> bool:
@@ -443,23 +505,20 @@ def main(argv: list[str] | None = None) -> int:
     logging.getLogger("httpx2").setLevel(logging.WARNING)
     parser = argparse.ArgumentParser(description="Ingest manifests and build bundles into data/.")
     parser.add_argument("--reconcile", action="store_true", help="every repository and release in the organisation")
-    parser.add_argument(
-        "--pending", action="store_true", help="every release not yet in data/; --repo is then only a hint"
-    )
+    parser.add_argument("--deep", action="store_true", help="with --reconcile: list every release over REST (backfill)")
+    parser.add_argument("--pending", action="store_true", help="the same as --reconcile (kept for older callers)")
     parser.add_argument("--repo", help="owner/name of one image repository")
     parser.add_argument("--tag", help="the release tag to ingest from --repo")
     args = parser.parse_args(argv)
     if not args.reconcile and not args.pending and not (args.repo and args.tag):
-        parser.error("use --reconcile, --pending [--repo owner/name], or --repo owner/name --tag x")
+        parser.error("use --reconcile [--deep], or --repo owner/name --tag x")
     token = os.environ.get("GITHUB_TOKEN")
     if not token:
         log.warning("GITHUB_TOKEN is not set; anonymous GitHub requests are rate limited to 60 an hour")
     store = load_store(DATA_DIR)
     gh = GitHub(client(), token)
-    if args.reconcile:
-        reconcile(store, gh)
-    elif args.pending:
-        sweep(store, gh, args.repo)
+    if args.reconcile or args.pending:
+        reconcile(store, gh, deep=args.deep)
     else:
         ingest_one(store, gh, args.repo, args.tag)
     changed = save_store(DATA_DIR, store)

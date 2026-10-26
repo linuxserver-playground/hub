@@ -1,5 +1,6 @@
 """data/ round-trips exactly, rotation removes files, and a missing directory loads as empty."""
 
+import json
 from pathlib import Path
 
 from lsio_hub.ingest import rotate
@@ -90,3 +91,36 @@ def test_bases_round_trip_and_prune(tmp_path: Path, store: Store) -> None:
         record.builds.clear()
     assert f"-bases/sha256-{'b' * 64}.json" in save_store(tmp_path, loaded)
     assert not (tmp_path / "bases" / f"sha256-{'b' * 64}.json").exists()
+
+
+def test_status_has_one_file_per_writer(tmp_path: Path) -> None:
+    """The release path and the hourly refresh commit concurrently, so each source's status is a file of its own."""
+    store = build_store()
+    save_store(tmp_path, store)
+    status = tmp_path / "status"
+    assert sorted(p.name for p in status.iterdir()) == [
+        "bases.json",
+        "manifests.json",
+        "mods.json",
+        "observed.json",
+        "rejected.json",
+        "releases.json",
+        "vulnerabilities.json",
+    ]
+    assert not (tmp_path / "status.json").exists()
+    store.status["sources"]["observed"] = {"ok": False, "checked_at": "x"}
+    assert save_store(tmp_path, store) == ["status/observed.json"]
+    assert load_store(tmp_path).status == store.status
+
+
+def test_legacy_status_file_is_read_and_replaced(tmp_path: Path) -> None:
+    store = build_store()
+    save_store(tmp_path, store)
+    legacy = {"sources": store.status["sources"], "rejected": store.status["rejected"]}
+    for path in (tmp_path / "status").iterdir():
+        path.unlink()
+    (tmp_path / "status.json").write_text(json.dumps(legacy))
+    loaded = load_store(tmp_path)
+    assert loaded.status["sources"] == store.status["sources"] and loaded.status["rejected"] == store.status["rejected"]
+    changed = save_store(tmp_path, loaded)
+    assert "-status.json" in changed and (tmp_path / "status" / "releases.json").is_file()

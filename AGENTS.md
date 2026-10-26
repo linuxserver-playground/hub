@@ -46,8 +46,8 @@ GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # refresh 
 ## Contracts
 
 Consumes, from `linuxserver-playground/builder`: `image.schema.json` (every manifest is validated on
-ingest), `bundle.schema.json` (every `build.json`; invalid bundles are recorded in `data/status.json` under
-`rejected` and skipped), `test-report.schema.json` (`test.<arch>.json`), `mod.schema.json` (`mod.yml` per
+ingest), `bundle.schema.json` (every `build.json`; invalid bundles are recorded in
+`data/status/rejected.json` and retried a day later), `test-report.schema.json` (`test.<arch>.json`), `mod.schema.json` (`mod.yml` per
 docker-mods branch), and `builder.snippets` / `builder.render` for compose, run and docs output. Produces
 no schema of its own; the API's shapes are the pydantic models and the generated `openapi.json`. See
 `CONVENTIONS.md` in the builder repository.

@@ -10,12 +10,12 @@ from lsio_hub.ingest import (
     parse_manifest,
     pending_releases,
     reconcile,
-    sweep,
     validate_bundle,
 )
+from lsio_hub.sources.github import FileKey
 from lsio_hub.store import Store
 
-from .conftest import FIXTURES, NOW, RELEASES, FakeGitHub, build_store
+from .conftest import FIXTURES, NOW, RELEASES, FakeGitHub, Json, build_store
 
 
 def test_reconcile_ingests_every_live_release() -> None:
@@ -58,10 +58,20 @@ def test_failed_arm64_has_no_table_but_a_test_report() -> None:
 def test_second_run_is_idempotent() -> None:
     store = build_store()
     github = FakeGitHub()
-    reconcile(store, github, now=lambda: NOW)
-    # Only the rejected releases are retried (their build.json asset); nothing already stored is downloaded again.
+    assert reconcile(store, github, now=lambda: NOW) == []
+    # Nothing already stored is downloaded again, and the rejected releases wait a day.
+    assert github.downloads == []
+    assert reconcile(store, github, now=lambda: "2026-10-25T12:00:00.000Z") == ["linuxserver-playground/docker-multidb"]
     assert len(github.downloads) == 2 and all(url.endswith("/build.json") for url in github.downloads)
     assert sorted(store.status["rejected"]) == ["multidb@bad-ls9", "multidb@feature-ls1"]
+
+
+def test_a_rejected_release_is_retried_when_the_manifests_change() -> None:
+    store = build_store()
+    store.images["multidb"].manifests["master"]["description"] = "changed since the last run"
+    github = FakeGitHub()
+    assert reconcile(store, github, now=lambda: NOW) == ["linuxserver-playground/docker-multidb"]
+    assert len(github.downloads) == 2
 
 
 def test_pending_releases_are_oldest_first_and_capped() -> None:
@@ -111,10 +121,10 @@ def test_listing_failure_keeps_previous_data() -> None:
 
 def test_repo_failure_costs_only_that_repository() -> None:
     class Flaky(FakeGitHub):
-        def releases(self, repo: str, *, max_pages: int = 3) -> list[dict[str, object]]:
+        def file_text(self, repo: str, path: str, ref: str) -> str | None:
             if repo.endswith("docker-swag"):
                 raise IngestError("boom")
-            return super().releases(repo)
+            return super().file_text(repo, path, ref)
 
     store = Store()
     reconcile(store, Flaky(), now=lambda: NOW)
@@ -190,9 +200,9 @@ def test_ingest_one_without_a_release_is_a_no_op() -> None:
     assert "swag" not in store.images or "9.9.9-ls1" not in store.images["swag"].builds
 
 
-def test_sweep_on_an_empty_store_ingests_what_reconcile_does() -> None:
+def test_reconcile_on_an_empty_store_ingests_everything() -> None:
     store = Store()
-    ingested = sweep(store, FakeGitHub(), now=lambda: NOW)
+    ingested = reconcile(store, FakeGitHub(), now=lambda: NOW)
     assert ingested == [
         "linuxserver-playground/docker-multidb",
         "linuxserver-playground/docker-sonarr",
@@ -202,19 +212,59 @@ def test_sweep_on_an_empty_store_ingests_what_reconcile_does() -> None:
     assert store.status["sources"]["releases"]["ok"] is True
 
 
-def test_sweep_fetches_only_repositories_with_something_new() -> None:
+def test_reconcile_fetches_only_what_is_new() -> None:
+    class Counting(FakeGitHub):
+        rest_listings = 0
+        rest_files = 0
+
+        def releases(self, repo: str, *, max_pages: int = 3) -> list[Json]:
+            self.rest_listings += 1
+            return super().releases(repo, max_pages=max_pages)
+
+        def file_texts(self, files: list[FileKey], *, batch: int = 25, workers: int = 8) -> dict[FileKey, str | None]:
+            texts = super().file_texts(files, batch=batch, workers=workers)
+            self.rest_files -= len(texts)  # served by the batch, not by REST
+            return texts
+
+        def file_text(self, repo: str, path: str, ref: str) -> str | None:
+            self.rest_files += 1
+            return super().file_text(repo, path, ref)
+
     store = build_store()
-    github = FakeGitHub()
-    assert sweep(store, github, now=lambda: NOW) == []
-    assert github.downloads == []
-    # A release the hub lost (a dropped event): only its repository is fetched again, and it comes back.
+    github = Counting()
+    assert reconcile(store, github, now=lambda: NOW) == []
+    assert github.downloads == [] and github.listings == 1
+    assert github.rest_files == 0 and github.batched >= 4  # every image.yml came from the batch
+    # A release the hub lost (a dropped event): it comes back, and only its assets are downloaded.
     store.images["sonarr"].builds.pop("4.0.20.3014-ls2")
-    assert sweep(store, github, now=lambda: NOW) == ["linuxserver-playground/docker-sonarr"]
+    assert reconcile(store, github, now=lambda: NOW) == ["linuxserver-playground/docker-sonarr"]
     assert "4.0.20.3014-ls2" in store.images["sonarr"].builds
-    assert github.downloads and all("/sonarr/" in url for url in github.downloads)
+    assert github.downloads and all("/sonarr/4.0.20.3014-ls2/" in url for url in github.downloads)
 
 
-def test_sweep_always_refreshes_the_hinted_repository() -> None:
+def test_reconcile_falls_back_to_rest_without_graphql() -> None:
+    class NoGraphQL(FakeGitHub):
+        def org_releases(self, org: str, *, per_repo: int = 30) -> dict[str, list[Json]]:
+            raise RuntimeError("GitHub GraphQL: down")
+
+        def file_texts(self, files: list[FileKey], *, batch: int = 25, workers: int = 8) -> dict[FileKey, str | None]:
+            raise RuntimeError("GitHub GraphQL: down")
+
     store = build_store()
-    ingested = sweep(store, FakeGitHub(), "linuxserver-playground/docker-swag", now=lambda: NOW)
-    assert ingested == ["linuxserver-playground/docker-swag"]
+    store.images["sonarr"].builds.pop("4.0.20.3014-ls2")
+    assert reconcile(store, NoGraphQL(), now=lambda: NOW) == ["linuxserver-playground/docker-sonarr"]
+    assert "4.0.20.3014-ls2" in store.images["sonarr"].builds
+    assert sorted(store.images["sonarr"].manifests) == ["develop", "master"]
+
+
+def test_deep_reconcile_lists_every_release_over_rest() -> None:
+    class Counting(FakeGitHub):
+        rest_listings = 0
+
+        def releases(self, repo: str, *, max_pages: int = 3) -> list[Json]:
+            self.rest_listings += 1
+            return super().releases(repo, max_pages=max_pages)
+
+    github = Counting()
+    reconcile(build_store(), github, now=lambda: NOW, deep=True)
+    assert github.listings == 0 and github.rest_listings == 3

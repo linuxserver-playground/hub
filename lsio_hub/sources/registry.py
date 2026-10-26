@@ -1,6 +1,6 @@
 """
-GHCR, read anonymously: the tag list of a public package and the layer digests of a base image. The
-registry hands out a pull token without credentials; nothing here needs GITHUB_TOKEN.
+Registries, read anonymously: the tag list of a public GHCR package and the layer digests of a base image on
+GHCR or Docker Hub. Both hand out a pull token without credentials; nothing here needs GITHUB_TOKEN.
 """
 
 from __future__ import annotations
@@ -22,11 +22,18 @@ MANIFEST_TYPES = (
 )
 """What the hub accepts for a manifest: an index (per-platform manifests) or one image manifest."""
 
+DOCKER_HUB = "registry-1.docker.io"
+DOCKER_HUB_ALIASES = {"docker.io", "index.docker.io", DOCKER_HUB}
+"""Docker Hub's names in an image reference; its registry API is on registry-1 and its tokens come from auth."""
+
 
 def _token(http: httpx2.Client, registry: str, repository: str) -> str:
-    token: str = request_json(
-        http, "GET", f"https://{registry}/token", params={"scope": f"repository:{repository}:pull"}
-    )["token"]
+    scope = f"repository:{repository}:pull"
+    if registry == DOCKER_HUB:
+        url, params = "https://auth.docker.io/token", {"service": "registry.docker.io", "scope": scope}
+    else:
+        url, params = f"https://{registry}/token", {"scope": scope}
+    token: str = request_json(http, "GET", url, params=params)["token"]
     return token
 
 
@@ -53,12 +60,22 @@ def ghcr_tags(http: httpx2.Client, name: str, *, org: str = ORG) -> list[str]:
 
 
 def parse_reference(image: str) -> tuple[str, str, str]:
-    """`ghcr.io/linuxserver/baseimage-alpine:3.24` to (registry, repository, tag). A bare name defaults to GHCR."""
+    """
+    `ghcr.io/linuxserver/baseimage-alpine:3.24` to (registry, repository, tag). A bare `owner/name` defaults to
+    GHCR; Docker Hub references (`docker.io/alpine`, or a bare `alpine`) go to its registry host, official images
+    under `library/`.
+    """
     first, _, rest = image.partition("/")
     if rest and ("." in first or ":" in first or first == "localhost"):
         registry, path = first, rest
+    elif not rest:
+        registry, path = DOCKER_HUB, image
     else:
         registry, path = REGISTRY, image
+    if registry in DOCKER_HUB_ALIASES:
+        registry = DOCKER_HUB
+        if "/" not in path.split("@")[0].split(":")[0]:
+            path = f"library/{path}"
     if "@" in path:
         path, _, tag = path.partition("@")
     else:

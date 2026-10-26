@@ -19,7 +19,15 @@ readable diff.
     data/observed.json                             stars, archived flag, GHCR tags, the vulnerability scan ledger
                                                    (poller only)
     data/mods.json                                 the mods index
-    data/status.json                               per-source refresh status and rejected releases
+    data/status/<source>.json                      refresh status of one source (manifests, releases, observed,
+                                                   mods, vulnerabilities)
+    data/status/rejected.json                      releases whose bundle failed validation
+    data/status/bases.json                         base image lookups that failed, retried a day later
+
+Every file has one writer: the ingest (images/, bases/, status/manifests, releases, rejected, bases) on the
+release path, and the observer, the vulnerability scan and the mods refresh (observed.json, mods.json, their
+status files, the vulns files) on the hourly refresh. The two run concurrently and both commit data/, so
+neither may write a file the other owns: saving writes a file only when its content changed.
 """
 
 from __future__ import annotations
@@ -37,6 +45,8 @@ Json = dict[str, Any]
 _BUILD_FILE = re.compile(r"^(?P<tag>.+?)(?:\.(?P<kind>diff|(?:layers|test|vulns)\.(?P<arch>amd64|arm64)))?\.json$")
 _PACKAGES_FILE = re.compile(r"^packages(?:\.(?P<infix>.+))?\.(?P<arch>amd64|arm64)\.json$")
 _MANIFEST_FILE = re.compile(r"^manifest\.(?P<branch>.+)\.json$")
+STATUS_FILES = ("rejected", "bases")
+"""Files under data/status/ that are not a source's status."""
 
 
 @dataclass
@@ -115,8 +125,9 @@ class Store:
     """{fetched_at, source, mods: [...]}"""
     bases: dict[str, Json] = field(default_factory=dict)
     """base digest -> {image, digest, fetched_at, platforms: {arch: {digest, layers: [digests]}}}"""
-    status: Json = field(default_factory=lambda: {"sources": {}, "rejected": {}})
-    """{sources: {name: SourceStatus}, rejected: {"<image>@<tag>": {checked_at, release_url, error}}}"""
+    status: Json = field(default_factory=lambda: {"sources": {}, "rejected": {}, "bases": {}})
+    """{sources: {name: SourceStatus}, rejected: {"<image>@<tag>": {checked_at, release_url, error}},
+    bases: {base digest: {image, checked_at, error}}}"""
 
     def record(self, name: str) -> ImageRecord:
         return self.images.setdefault(name, ImageRecord(name=name))
@@ -189,8 +200,17 @@ def load_store(data_dir: Path) -> Store:
             store.bases[base["digest"]] = base
     store.observed = _read(data_dir / "observed.json") or {}
     store.mods = _read(data_dir / "mods.json") or {}
-    status = _read(data_dir / "status.json") or {}
-    store.status = {"sources": status.get("sources", {}), "rejected": status.get("rejected", {})}
+    legacy = _read(data_dir / "status.json") or {}  # one file for every source before status/ was split
+    status_dir = data_dir / "status"
+    sources = dict(legacy.get("sources", {}))
+    for path in sorted(status_dir.glob("*.json")) if status_dir.is_dir() else []:
+        if path.stem not in STATUS_FILES:
+            sources[path.stem] = _read(path)
+    store.status = {
+        "sources": sources,
+        "rejected": _read(status_dir / "rejected.json") or legacy.get("rejected", {}),
+        "bases": _read(status_dir / "bases.json") or {},
+    }
     return store
 
 
@@ -287,7 +307,14 @@ def save_store(data_dir: Path, store: Store) -> list[str]:
         if path not in written:
             path.unlink()
             changed.append(f"-bases/{path.name}")
-    for name, value in (("observed.json", store.observed), ("mods.json", store.mods), ("status.json", store.status)):
+    files: list[tuple[str, Any]] = [("observed.json", store.observed), ("mods.json", store.mods)]
+    files += [(f"status/{source}.json", value) for source, value in sorted(store.status["sources"].items())]
+    files += [(f"status/{name}.json", store.status.get(name, {})) for name in STATUS_FILES]
+    for name, value in files:
         if _write(data_dir / name, _dump(value), written):
             changed.append(name)
+    for path in [data_dir / "status.json", *sorted((data_dir / "status").glob("*.json"))]:
+        if path.is_file() and path not in written:
+            path.unlink()
+            changed.append(f"-{path.relative_to(data_dir)}")
     return changed

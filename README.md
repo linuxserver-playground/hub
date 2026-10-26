@@ -35,21 +35,28 @@ docker-mods mod.yml ─────────┘                     │      
                                                    └─ out/builds/<image>/<tag>/  CI report pages
 ```
 
-`deploy.yml` runs hourly (reconcile, observe with the grype scan, mods), on `repository_dispatch` type
-`image-released` (`client_payload: {repository, tag}`, sent by the control plane) and on every push to `main`. A
-release run treats its payload as a hint, and push runs do the same: `ingest --pending` sweeps the organisation (one listing, one releases
-page per image repository) and ingests every release `data/` lacks, then scans the new builds with grype. GitHub
-keeps one pending run per concurrency group and drops older ones, so a burst of releases is picked up by whichever
-run comes next (a push run included) and none is lost. It commits `data/` when it changed, builds `dist/`, generates `out/`, merges
-`out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and `/builds/…`; a
-second job pushes the Unraid, Umbrel and Runtipi stores to their own repositories (see Generators). The Arcane
-template registry is served from Pages: `<hub>/stores/arcane/registry.json`. Reads use `GITHUB_TOKEN` only.
+Two workflows share the work, and each writes only its own files in `data/` (see `lsio_hub/store.py`), so they
+run at the same time and their data commits never conflict.
+
+- `deploy.yml` is the release path. It runs on `repository_dispatch` type `image-released` (sent by the control
+  plane after every live release; its payload is only a hint), on every push to `main`, on demand, and when
+  `refresh.yml` has new data. Every run reconciles the whole organisation (`ingest --reconcile`): every `image.yml`
+  and the newest 30 releases of every repository over GraphQL, in about 15 seconds, then the assets of whatever is
+  new. GitHub keeps one pending run per concurrency group and drops older ones, so a burst of releases is picked
+  up by whichever run comes next and none is lost. It commits `data/` when it changed, builds `dist/`, generates
+  `out/`, merges `out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and
+  `/builds/…`; a second job pushes the Unraid, Umbrel and Runtipi stores to their own repositories (see
+  Generators).
+- `refresh.yml` runs hourly (its cron, and a dispatch from the control plane): `observe` (stars, archived flags,
+  GHCR tags, then the grype scan) and `mods`. It commits what changed and dispatches `deploy.yml`.
+
+The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry.json`. Reads use `GITHUB_TOKEN` only.
 
 | Module | |
 | --- | --- |
 | `lsio_hub/models.py` | Every response shape. The v1 models are the original API's, field for field. |
 | `lsio_hub/store.py` | The `data/` layout: load, save, rotation. |
-| `lsio_hub/ingest.py` | Reconcile (every repo, every release), the pending sweep (only repos with releases `data/` lacks) or one release; validates with the builder contracts. |
+| `lsio_hub/ingest.py` | Reconcile (every repo's manifests and every release `data/` lacks; `--deep` lists every release over REST for a backfill) or one release; validates with the builder contracts. |
 | `lsio_hub/diff.py`, `packages.py` | The build diff engine and the syft normaliser. |
 | `lsio_hub/layers.py` | Layer attribution: `from_base` from the base image's registry manifest, `dockerfile_lines` from `created_by`. |
 | `lsio_hub/observe.py`, `vulns.py`, `mods.py` | The observed pollers (stars, archived, GHCR tags; grype against the newest build of each branch) and the mods index. |
@@ -76,7 +83,9 @@ is a readable diff. Builds are stored compact, as received; everything else inde
 | `data/bases/<algorithm>-<hex>.json` | The layer digests per architecture of a base image, keyed by the index digest builds record as `base.digest`; read from GHCR with an anonymous pull token, once per digest, by the ingest. |
 | `data/observed.json` | stars, archived flag, GHCR tag list per image; written by the poller only. `vulnerabilities` is the scan ledger: the database date and grype version last used, and per newest build when it was scanned against which database. |
 | `data/mods.json` | The mods index. |
-| `data/status.json` | `sources` (manifests, releases, observed, mods, vulnerabilities: ok, checked_at, fetched_at, error) and `rejected` (releases whose bundle failed validation, with the error; retried every run). |
+| `data/status/<source>.json` | Per source (manifests, releases, observed, mods, vulnerabilities): ok, checked_at, fetched_at, error. One file each, because the release path and the hourly refresh write different sources at the same time. |
+| `data/status/rejected.json` | Releases whose bundle failed validation, with the error. Retried a day later, or as soon as the image's manifests change. |
+| `data/status/bases.json` | Base image lookups that failed (a registry refusing, say), retried a day later instead of on every run. |
 
 Rotation keeps the newest 10 builds per branch in git. Older builds stay on their Release; their entry
 stays in `history.json` and `latest.json` points at the newest. Heavy assets (`files.<arch>.json.gz`,
@@ -137,11 +146,11 @@ The newest build of every live branch is scanned with [grype](https://github.com
 document the build attached to its Release (`packages.<arch>.json.gz`, downloaded when there is no local copy in
 `.cache/sboms/`), with `grype sbom:<file> -o json`. This is observed data: its clock is the vulnerability database,
 not the build, so the same image gains and loses findings as the feeds move. The poller runs after `observe` in the
-hourly deploy, with a pinned grype binary and its database cached (`actions/cache`, one entry a day); it updates the
+hourly refresh (`refresh.yml`), with a pinned grype binary and its database cached (`actions/cache`, one entry a day); it updates the
 database at most once per 24 h and rescans a build only when the database date changed and its last scan is more
 than 24 h old (a new build, or a missing architecture, is scanned at once), so the hourly run usually scans nothing.
 Without grype or without a database nothing is scanned, the API builds without `vulns.json` files or summaries and
-`status.json` says why under `sources.vulnerabilities`. `data/observed.json` keeps the ledger.
+`data/status/vulnerabilities.json` says why. `data/observed.json` keeps the ledger.
 
 How to read the numbers (the same sentences are served as `caveats`, so show them next to the counts):
 
@@ -178,8 +187,8 @@ manifest and the build records.
   reports `true`. `readonly_supported` and `nonroot_supported` are absent when the manifest does not state them.
   `application_setup` points at the README's Application Setup anchor when the manifest has `docs.setup` or a notice.
 - `stars` and `archived` come from `data/observed.json` (hourly; GraphQL `stargazerCount` per repository, so the
-  playground repositories' real counts, which are 0 so far). `status.json` reports `observed.json`'s `fetched_at`
-  under `sources.observed`. `github_url`, `registries` and the docs link point at `linuxserver-playground` and
+  playground repositories' real counts, which are 0 so far). The status endpoint reports `observed.json`'s
+  `fetched_at` under `sources.observed`. `github_url`, `registries` and the docs link point at `linuxserver-playground` and
   `ghcr.io`; `Registries` has `ghcr` and `packages_url` only.
 - `ImageDetail` dropped `docker_hub_pulls` and gained `title`, `upstream_version`, `base`, `releases` (one per
   live branch) and `links`.
@@ -247,7 +256,7 @@ copied as they are (Pages gzips text).
 4. The `publish-stores` job needs the `STORE_APP_ID` and `STORE_APP_PRIVATE_KEY` secrets: a GitHub App installed
    on the organisation with `contents: write` on `unraid-store`, `umbrel-store` and `runtipi-store`. Without them the job fails and
    the Pages deployment is unaffected.
-5. The grype binary is pinned in `deploy.yml` (version and sha256); bump both together. Its database is a few GB on
+5. The grype binary is pinned in `refresh.yml` (version and sha256); bump both together. Its database is a few GB on
    disk and lives in the Actions cache under `grype-db-<date>`.
 
 ## Notes on the contracts
