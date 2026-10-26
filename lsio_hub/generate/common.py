@@ -89,12 +89,19 @@ class ImageInput:
         return str(self.ctx["repo_url"])
 
     @property
+    def kind(self) -> str:
+        return str(self.manifest.get("kind", "app"))
+
+    @property
     def categories(self) -> list[str]:
         return list(self.manifest["docs"]["categories"])
 
     def store_enabled(self, platform: str) -> bool:
-        """`publish.stores.<platform>`, default true; deprecated images are left out of every store."""
-        return not self.deprecated and bool(self.manifest.get("publish", {}).get("stores", {}).get(platform, True))
+        """`publish.stores.<platform>`, default true; deprecated images, base images and tools are left out of every
+        store."""
+        if self.deprecated or self.kind != "app":
+            return False
+        return bool(self.manifest.get("publish", {}).get("stores", {}).get(platform, True))
 
     @property
     def web_port(self) -> str | None:
@@ -136,6 +143,11 @@ class GenerateContext:
     @property
     def current(self) -> list[ImageInput]:
         return [i for i in self.images if not i.deprecated]
+
+    @property
+    def apps(self) -> list[ImageInput]:
+        """Current applications: what install artefacts (kubernetes, quadlets, proxy confs) are generated for."""
+        return [i for i in self.current if i.kind == "app"]
 
     def enabled(self, platform: str) -> list[ImageInput]:
         return [i for i in self.images if i.store_enabled(platform)]

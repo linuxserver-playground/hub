@@ -74,4 +74,4 @@ def render(image: ImageInput) -> str:
 
 
 def generate(ctx: GenerateContext) -> Files:
-    return {f"{i.name}.container": render(i) for i in ctx.current if i.manifest.get("publish", {}).get("quadlet", True)}
+    return {f"{i.name}.container": render(i) for i in ctx.apps if i.manifest.get("publish", {}).get("quadlet", True)}

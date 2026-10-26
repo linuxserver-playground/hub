@@ -165,7 +165,7 @@ def render(image: ImageInput) -> str:
 
 def generate(ctx: GenerateContext) -> Files:
     files: Files = {}
-    for image in ctx.current:
+    for image in ctx.apps:
         if image.manifest.get("publish", {}).get("kubernetes", {}).get("enabled", True):
             files[f"{image.name}.yaml"] = render(image)
     return files

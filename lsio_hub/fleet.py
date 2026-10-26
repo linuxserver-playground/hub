@@ -41,6 +41,11 @@ class Fleet:
         """The images that aren't deprecated."""
         return [i for i in self.images if not i.deprecated]
 
+    @property
+    def apps(self) -> list[ImageDetail]:
+        """Current images users run: not deprecated, and neither a base image nor an internal tool."""
+        return [i for i in self.current if i.kind == "app"]
+
     def record(self, name: str) -> ImageRecord | None:
         return self.store.images.get(name)
 

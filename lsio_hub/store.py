@@ -76,6 +76,11 @@ class ImageRecord:
         branch = self.default_branch
         return self.manifests[branch] if branch else None
 
+    @property
+    def kind(self) -> str:
+        """`kind` of the default branch's manifest: `app`, or `base` / `tool` for images users do not run."""
+        return str((self.manifest or {}).get("kind", "app"))
+
     def branch_of(self, release_tag: str) -> str | None:
         """The branch that publishes a release tag (`latest`, `develop`)."""
         for branch, manifest in self.manifests.items():

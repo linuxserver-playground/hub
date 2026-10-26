@@ -82,7 +82,8 @@ def to_v1_image(image: ImageDetail, include_config: bool) -> Image:
 
 
 def images_response(fleet: Fleet, include_config: bool = False, include_deprecated: bool = False) -> ImagesResponse:
-    images = fleet.images if include_deprecated else fleet.current
+    # Like the original API, the list holds applications only: base images and tools are in the catalog.
+    images = [i for i in fleet.images if i.kind == "app"] if include_deprecated else fleet.apps
     linuxserver = [to_v1_image(i, include_config) for i in images]
     return ImagesResponse(
         status="OK", last_updated=fleet.last_updated, data=ImagesData(repositories=Repository(linuxserver=linuxserver))
@@ -94,9 +95,9 @@ def slugify(name: str) -> str:
 
 
 def categories(fleet: Fleet) -> list[Category]:
-    """Categories of current images, most populated first."""
+    """Categories of current applications, most populated first."""
     by_name: defaultdict[str, list[str]] = defaultdict(list)
-    for image in fleet.current:
+    for image in fleet.apps:
         for category in image.categories:
             by_name[category].append(image.name)
     found = [Category(name=n, slug=slugify(n), count=len(i), images=sorted(i)) for n, i in by_name.items()]
@@ -104,7 +105,7 @@ def categories(fleet: Fleet) -> list[Category]:
 
 
 def stats(fleet: Fleet) -> Stats:
-    images = fleet.current
+    images = fleet.apps
     updated = parse_iso(fleet.updated_at)
     week_before = updated - datetime.timedelta(days=7) if updated else None
 
@@ -115,7 +116,9 @@ def stats(fleet: Fleet) -> Stats:
     first_dates = sorted(i.initial_date for i in images if i.initial_date)
     return Stats(
         images=len(images),
-        deprecated=len(fleet.images) - len(images),
+        base_images=sum(1 for i in fleet.current if i.kind == "base"),
+        tools=sum(1 for i in fleet.current if i.kind == "tool"),
+        deprecated=len(fleet.images) - len(fleet.current),
         stars=sum(i.stars for i in images),
         builds=sum(len(r.builds) for r in fleet.store.images.values()),
         architectures=dict(Counter(arch for i in images for arch in dict.fromkeys(a.arch for a in i.architectures))),
@@ -469,7 +472,7 @@ def _input(fleet: Fleet, name: str) -> ImageInput | None:
 
 def proxy_data(fleet: Fleet, name: str) -> ProxyData | None:
     image = _input(fleet, name)
-    if image is None or not image.manifest.get("proxy"):
+    if image is None or image.kind != "app" or not image.manifest.get("proxy"):
         return None
     block = image.manifest["proxy"]
     return ProxyData(
@@ -527,14 +530,16 @@ def docs_data(fleet: Fleet, name: str) -> DocsData | None:
 
 def kubernetes_yaml(fleet: Fleet, name: str) -> str | None:
     image = _input(fleet, name)
-    if image is None or not image.manifest.get("publish", {}).get("kubernetes", {}).get("enabled", True):
+    if image is None or image.kind != "app":
+        return None
+    if not image.manifest.get("publish", {}).get("kubernetes", {}).get("enabled", True):
         return None
     return kubernetes.render(image)
 
 
 def quadlet_unit(fleet: Fleet, name: str) -> str | None:
     image = _input(fleet, name)
-    if image is None or not image.manifest.get("publish", {}).get("quadlet", True):
+    if image is None or image.kind != "app" or not image.manifest.get("publish", {}).get("quadlet", True):
         return None
     return quadlet.render(image)
 
@@ -543,6 +548,8 @@ def names_with(fleet: Fleet, kind: str) -> list[str]:
     """Image names that have a given generated document (proxy, kubernetes, quadlet)."""
     out = []
     for image in fleet.images:
+        if image.kind != "app":
+            continue
         manifest = (fleet.record(image.name) or ImageRecord(image.name)).manifest or {}
         publish = manifest.get("publish", {})
         has = {

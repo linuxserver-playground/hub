@@ -200,7 +200,7 @@ the pair you use. API paths listed in the manifest bypass authentication so clie
 
 def generate(ctx: GenerateContext) -> Files:
     files: Files = {"README.md": README}
-    for image in ctx.current:
+    for image in ctx.apps:
         if not image.manifest.get("proxy"):
             continue
         if image.manifest["proxy"].get("subdomain", True):

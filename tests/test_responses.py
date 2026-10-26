@@ -30,6 +30,21 @@ def test_categories_and_stats(fleet: Fleet) -> None:
     assert stats.updated_last_7_days == 3 and stats.categories == 4 and stats.first_release == "2015-08-31"
 
 
+def test_base_images_and_tools_are_catalog_only(store: Store, config: SiteConfig) -> None:
+    store.images["multidb"].manifests["master"]["kind"] = "base"
+    store.images["swag"].manifest["kind"] = "tool"  # type: ignore[index]
+    fleet = load_fleet(store, config)
+    assert {i.name: i.kind for i in fleet.images} == {"multidb": "base", "sonarr": "app", "swag": "tool"}
+    assert [i.name for i in responses.images_response(fleet).data.repositories.linuxserver] == ["sonarr"]
+    assert [c.name for c in responses.categories(fleet)] == ["Media Management"]
+    stats = responses.stats(fleet)
+    assert (stats.images, stats.base_images, stats.tools, stats.deprecated) == (1, 1, 1, 0)
+    assert responses.kubernetes_yaml(fleet, "swag") is None and responses.proxy_data(fleet, "swag") is None
+    assert responses.names_with(fleet, "quadlet") == ["sonarr"]
+    swag = fleet.image("swag")
+    assert swag is not None and swag.links.kubernetes is None and swag.links.proxy is None
+
+
 def test_changelog_newest_first(fleet: Fleet) -> None:
     entries = responses.recent_changelog(fleet)
     assert len(entries) <= CHANGELOG_LIMIT

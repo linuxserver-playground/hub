@@ -159,8 +159,9 @@ def build_image(
     config = get_config(ctx, manifest, github_url)
     deprecated = bool(ctx["deprecation"]["status"])
     publish = manifest.get("publish", {})
-    kubernetes = publish.get("kubernetes", {}).get("enabled", True)
-    quadlet = publish.get("quadlet", True)
+    app = record.kind == "app"
+    kubernetes = app and publish.get("kubernetes", {}).get("enabled", True)
+    quadlet = app and publish.get("quadlet", True)
     api = f"{site.api_root}/api/v1/catalog/{name}"
     timestamp = build["created"] if build else (observed.get("pushed_at") or fallback_time or EPOCH)
     return ImageDetail(
@@ -182,6 +183,7 @@ def build_image(
         changelog=changelog,
         config=config,
         title=ctx["title"],
+        kind=record.kind,
         categories=list(dict.fromkeys(manifest["docs"]["categories"])),
         deprecation_message=ctx["deprecation"]["message"] or None if deprecated else None,
         setup_instructions=ctx["setup"].strip() or None,
@@ -199,7 +201,7 @@ def build_image(
             builds=f"{api}/builds.json",
             docs=f"{site.api_root}/stores/docs/images/{ctx['repo']}.md",
             documentation=f"{api}/docs.json",
-            proxy=f"{api}/proxy.json" if manifest.get("proxy") else None,
+            proxy=f"{api}/proxy.json" if app and manifest.get("proxy") else None,
             kubernetes=f"{api}/kubernetes.yaml" if kubernetes else None,
             quadlet=f"{api}/quadlet.container" if quadlet else None,
             mods=f"{api}/mods.json",

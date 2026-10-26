@@ -94,6 +94,16 @@ def test_unraid_deprecated_and_ignored(gen: GenerateContext) -> None:
     assert files["ignore.list"] == "multidb\n" and "multidb.xml" not in files
 
 
+def test_base_images_and_tools_are_left_out_of_stores_and_install_artefacts(gen: GenerateContext) -> None:
+    _image(gen, "swag").manifest["kind"] = "tool"
+    _image(gen, "multidb").manifest["kind"] = "base"
+    for generator in (portainer, casaos, umbrel, runtipi, cosmos, arcane):
+        assert not any("swag" in path or "multidb" in path for path in generator.generate(gen)), generator
+    for generator in (unraid, kubernetes, quadlet, proxy):
+        paths = [p for p in generator.generate(gen) if p not in ("README.md", "ignore.list")]
+        assert paths and all(p.startswith("sonarr") for p in paths), (generator, paths)
+
+
 def test_proxy_matches_live_samples(gen: GenerateContext) -> None:
     sonarr = _image(gen, "sonarr")
     live = (FIXTURES / "proxy" / "sonarr.subdomain.conf.sample").read_text()

@@ -284,6 +284,8 @@ def generate(ctx: GenerateContext) -> Files:
     ignored: list[str] = []
     for image in ctx.images:
         publish = image.manifest.get("publish", {}).get("stores", {}).get("unraid", True)
+        if image.kind != "app":
+            continue
         if not publish:
             ignored.append(image.name)
             continue
