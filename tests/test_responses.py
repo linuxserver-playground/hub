@@ -148,7 +148,6 @@ def test_tests_and_report(fleet: Fleet) -> None:
         arm64.success is False and arm64.failed_tests == ["Take screenshot"] and (arm64.passed, arm64.total) == (2, 3)
     )
     assert arm64.startup_seconds == 4.2 and arm64.listening_ports == ["8989/tcp"] and arm64.warnings == 1
-    assert arm64.report_page == "https://example.github.io/hub/builds/multidb/1.0.0-ls1/arm64/index.html"
     assert tests.summary["amd64"].success is True and tests.summary["amd64"].failed_tests == []
     assert responses.tests(fleet, multidb, "nope") is None
     assert responses.test_routes(fleet)[:2] == [("multidb", "1.0.0-ls1"), ("multidb", "1.0.0-ls2")]

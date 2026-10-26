@@ -241,15 +241,13 @@ def layers(record: ImageRecord, tag: str, arch: str, bases: dict[str, Json] | No
     return LayersData(image=record.name, tag=tag, arch=arch, layers=annotated, **meta)
 
 
-def _test_summary(fleet: Fleet, record: ImageRecord, build: Json, arch: str, report: Json) -> TestArchSummary:
-    tag = build["version"]["tag"]
+def _test_summary(build: Json, arch: str, report: Json) -> TestArchSummary:
     runtime = report.get("runtime") or {}
     cases = report.get("tests") or []
     failed = [c["name"] for c in cases if str(c.get("status", "")).upper() not in ("PASS", "SKIP")]
     ports = [f"{p}/tcp" for p in runtime.get("listening_tcp") or []] + [
         f"{p}/udp" for p in runtime.get("listening_udp") or []
     ]
-    has_html = bool((report.get("files") or {}).get("html"))
     return TestArchSummary(
         success=bool(report.get("success")),
         passed=sum(1 for c in cases if str(c.get("status", "")).upper() == "PASS"),
@@ -261,14 +259,13 @@ def _test_summary(fleet: Fleet, record: ImageRecord, build: Json, arch: str, rep
         warnings=len(report.get("warnings") or {}),
         rss_bytes=runtime.get("rss_bytes"),
         pids=runtime.get("pids"),
-        report_page=f"{fleet.site.api_root}/builds/{record.name}/{tag}/{arch}/index.html" if has_html else None,
         tarball=_asset_urls(build).get(f"test.{arch}.tar.gz"),
     )
 
 
-def _test_summaries(fleet: Fleet, record: ImageRecord, build: Json) -> dict[str, TestArchSummary]:
+def _test_summaries(record: ImageRecord, build: Json) -> dict[str, TestArchSummary]:
     reports = record.tests.get(build["version"]["tag"], {})
-    return {arch: _test_summary(fleet, record, build, arch, reports[arch]) for arch in sorted(reports)}
+    return {arch: _test_summary(build, arch, reports[arch]) for arch in sorted(reports)}
 
 
 def tests(fleet: Fleet, record: ImageRecord, tag: str) -> BuildTestsData | None:
@@ -284,7 +281,7 @@ def tests(fleet: Fleet, record: ImageRecord, tag: str) -> BuildTestsData | None:
         enabled=enabled,
         success=build["test"]["success"] if enabled else None,
         report_url=f"{fleet.site.api_root}/builds/{record.name}/{tag}/",
-        summary=_test_summaries(fleet, record, build),
+        summary=_test_summaries(record, build),
         reports={arch: TestReport.model_validate(reports[arch]) for arch in sorted(reports)},
     )
 
@@ -394,7 +391,7 @@ def report(fleet: Fleet, record: ImageRecord, tag: str) -> BuildReport | None:
         result=build_result(build),
         test_enabled=bool(build["test"].get("enabled", True)),
         test_success=build["test"]["success"] if build["test"].get("enabled", True) else None,
-        tests=_test_summaries(fleet, record, build),
+        tests=_test_summaries(record, build),
         classification=diff["classification"] if diff else None,
         diff=_diff_summary(diff) if diff else None,
         packages=build.get("packages"),

@@ -701,10 +701,6 @@ class TestArchSummary(BaseModel):
     warnings: int = Field(description="How many checks warned.")
     rss_bytes: int | None = None
     pids: int | None = None
-    report_page: str | None = Field(
-        None,
-        description="The harness's HTML report, unpacked next to the report page (missing when generated offline).",
-    )
     tarball: str | None = Field(None, description="`test.<arch>.tar.gz` on the Release.")
 
 

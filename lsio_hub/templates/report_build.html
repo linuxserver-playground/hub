@@ -57,9 +57,8 @@ Packages: +{{ view.diff.totals.added }} −{{ view.diff.totals.removed }} ↑{{ 
 <p class="muted">No test report for this architecture.</p>
 {% endif %}
 <p>
-{% if a.has_report %}<a href="{{ a.arch }}/index.html">HTML report</a>{% endif %}
-{% for name in a.unpacked if name != 'index.html' %} · <a href="{{ a.arch }}/{{ name }}">{{ name }}</a>{% endfor %}
-{% if a.tarball %} · <a href="{{ a.tarball }}">test.{{ a.arch }}.tar.gz</a>{% endif %}
+{% for name in a.unpacked %}{% if not loop.first %} · {% endif %}<a href="{{ a.arch }}/{{ name }}">{{ name }}</a>{% endfor %}
+{% if a.tarball %}{% if a.unpacked %} · {% endif %}<a href="{{ a.tarball }}">test.{{ a.arch }}.tar.gz</a>{% endif %}
 {% if a.files_local %} · <a href="files.{{ a.arch }}.json.gz">files.{{ a.arch }}.json.gz</a>{% elif a.files_asset %} · <a href="{{ a.files_asset }}">files.{{ a.arch }}.json.gz (release)</a>{% endif %}
 </p>
 {% if a.has_screenshot %}<a href="{{ a.arch }}/screenshot.png"><img class="shot" src="{{ a.arch }}/screenshot.png" alt="Screenshot of {{ image.name }} on {{ a.arch }}" loading="lazy"></a>{% endif %}

@@ -19,11 +19,11 @@ def test_pages_and_unpacked_reports(gen: GenerateContext) -> None:
     assert 'class="pill success">amd64: success' in page and "tests passed" in page
     assert "Changes since 4.0.19.2000-ls1" in page and 'class="pill none">upstream' in page
     assert "<td>Take screenshot</td>" in page and "<dt>RSS</dt><dd>114.4 MiB</dd>" in page
-    assert 'href="amd64/index.html">HTML report</a>' in page and 'src="amd64/screenshot.png"' in page
+    assert "HTML report" not in page and 'src="amd64/screenshot.png"' in page
     assert 'href="https://github.com/linuxserver-playground/docker-sonarr/actions/runs/1002">workflow run</a>' in page
     assert "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/diff.json" in page
     assert "* Add krb5-libs" in page
-    assert files["sonarr/4.0.20.3014-ls2/amd64/index.html"] == b"<html><body><h1>sonarr amd64 report</h1></body></html>"
+    assert "sonarr/4.0.20.3014-ls2/amd64/index.html" not in files  # the retired harness report in older tarballs
     assert files["sonarr/4.0.20.3014-ls2/amd64/container.log"] == b"[ls.io-init] done.\n"
     assert (
         "sonarr/4.0.20.3014-ls2/amd64/package_diff.txt" in files and "sonarr/4.0.20.3014-ls2/amd64/sysinfo.txt" in files
@@ -77,19 +77,19 @@ def test_existing_output_is_not_downloaded_again(gen: GenerateContext) -> None:
         return asset_bytes(url)
 
     gen.fetch = fetch
-    gen.extra["existing"] = {"sonarr/4.0.20.3014-ls2/amd64/index.html", "sonarr/4.0.20.3014-ls2/files.amd64.json.gz"}
+    gen.extra["existing"] = {"sonarr/4.0.20.3014-ls2/amd64/container.log", "sonarr/4.0.20.3014-ls2/files.amd64.json.gz"}
     files = builds.generate(gen)
     assert "https://assets.test/sonarr/4.0.20.3014-ls2/test.amd64.tar.gz" not in urls
     assert "https://assets.test/sonarr/4.0.20.3014-ls2/files.amd64.json.gz" not in urls
     assert "https://assets.test/sonarr/4.0.20.3014-ls2/test.arm64.tar.gz" in urls
     page = str(files["sonarr/4.0.20.3014-ls2/index.html"])
-    assert 'href="amd64/index.html">HTML report</a>' in page and 'href="files.amd64.json.gz"' in page
+    assert 'href="files.amd64.json.gz"' in page
 
 
 def test_unpack_strips_one_root_and_rejects_escapes() -> None:
     report = make_report("x", "1-ls1", "amd64")
     out = builds.unpack(report_tarball("x", "amd64"), report)
-    assert set(out) == {"index.html", "container.log", "screenshot.png", "sysinfo.txt", "package_diff.txt"}
+    assert set(out) == {"container.log", "screenshot.png", "sysinfo.txt", "package_diff.txt"}
     buffer = io.BytesIO()
     with tarfile.open(fileobj=buffer, mode="w:gz") as tar:
         for name in ("/abs.txt", "../up.txt", "ok/other.bin"):
@@ -105,16 +105,16 @@ def test_write_output_merges_dirs_and_keeps_cached_assets(tmp_path: Path, gen: G
     assert "stores/quadlet/sonarr.container" in written and (tmp_path / "builds" / "sonarr" / "index.html").is_file()
     stale = tmp_path / "stores" / "quadlet" / "gone.container"
     stale.write_text("x")
-    cached = tmp_path / "builds" / "sonarr" / "4.0.20.3014-ls2" / "amd64" / "index.html"
+    cached = tmp_path / "builds" / "sonarr" / "4.0.20.3014-ls2" / "amd64" / "container.log"
     gen.fetch = lambda url: None
     write_output(
-        tmp_path, generate_all(gen, {"quadlet", "builds"}), keep={"builds/sonarr/4.0.20.3014-ls2/amd64/index.html"}
+        tmp_path, generate_all(gen, {"quadlet", "builds"}), keep={"builds/sonarr/4.0.20.3014-ls2/amd64/container.log"}
     )
     assert not stale.exists() and cached.is_file()
 
 
 def test_reports_are_fetched_once_and_rotated_builds_dropped(tmp_path: Path, gen: GenerateContext) -> None:
-    """A second run downloads nothing and keeps every unpacked file, including a report without an HTML page."""
+    """A second run downloads nothing and keeps every unpacked file, including a tarball with only a log."""
     from lsio_hub.generate import existing_paths
 
     urls: list[str] = []
@@ -145,11 +145,27 @@ def test_reports_are_fetched_once_and_rotated_builds_dropped(tmp_path: Path, gen
     assert urls == []
     assert sorted(p.relative_to(tmp_path) for p in (tmp_path / "builds").rglob("*") if p.is_file()) == first
     page = (tmp_path / "builds/sonarr/4.0.20.3014-ls2/index.html").read_text()
-    assert 'href="amd64/index.html">HTML report</a>' in page and 'href="amd64/container.log"' in page
+    assert 'href="amd64/container.log"' in page and "amd64/index.html" not in page
     assert "fetched.json" not in page
 
     sonarr = gen.store.images["sonarr"]
     sonarr.builds.pop("4.0.19.2000-ls1")
     run()
     assert not (tmp_path / "builds/sonarr/4.0.19.2000-ls1").exists()
-    assert (tmp_path / "builds/sonarr/4.0.20.3014-ls2/amd64/index.html").is_file()
+    assert (tmp_path / "builds/sonarr/4.0.20.3014-ls2/amd64/container.log").is_file()
+
+
+def test_a_cached_harness_report_is_dropped(tmp_path: Path, gen: GenerateContext) -> None:
+    """Output cached from before the harness report was retired loses its index.html on the next run."""
+    from lsio_hub.generate import existing_paths
+
+    gen.extra = {"existing": existing_paths(tmp_path, "builds")}
+    write_output(tmp_path, generate_all(gen, {"builds"}), keep=set())
+    stale = tmp_path / "builds/sonarr/4.0.20.3014-ls2/amd64/index.html"
+    stale.write_text("<html></html>")
+    gen.fetch = lambda url: None
+    gen.extra = {"existing": existing_paths(tmp_path, "builds")}
+    outputs = generate_all(gen, {"builds"})
+    write_output(tmp_path, outputs, keep={f"builds/{p}" for p in gen.extra["keep"]})
+    assert not stale.exists()
+    assert (tmp_path / "builds/sonarr/4.0.20.3014-ls2/amd64/container.log").is_file()

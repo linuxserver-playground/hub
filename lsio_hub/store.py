@@ -8,7 +8,7 @@ readable diff.
     data/images/<name>/builds/<tag>.json           build.json of a live release, compact, as received
     data/images/<name>/builds/<tag>.diff.json      the diff against the previous build of the branch
     data/images/<name>/builds/<tag>.layers.<arch>.json
-    data/images/<name>/builds/<tag>.test.<arch>.json    the ci harness report (test.<arch>.json on the Release)
+    data/images/<name>/builds/<tag>.test.<arch>.json    the ci test report (test.<arch>.json on the Release)
     data/images/<name>/builds/<tag>.vulns.<arch>.json   grype's matches against the build's SBOM, compact (poller)
     data/images/<name>/packages[.<release tag>].<arch>.json   normalised package table of the newest build
                                                    of each branch (no infix for the `latest` branch)

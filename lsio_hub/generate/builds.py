@@ -1,7 +1,7 @@
 """
 CI result pages: one page per ingested live build with the result per architecture, the test table from
 test.<arch>.json, the runtime probe, the diff summary and links, plus the unpacked `test.<arch>.tar.gz`
-(HTML report, screenshot, logs) next to it; and a build history page per image. These are the deterministic
+(screenshot, logs) next to it; and a build history page per image. These are the deterministic
 report URLs other systems link to: `https://<hub>/builds/<image>/<tag>/`.
 
 Tarballs and `files.<arch>.json.gz` are never kept in git: they are downloaded from the Release when the
@@ -29,7 +29,6 @@ MAX_TARBALL_BYTES = 64 * 1024 * 1024
 """Extracted bytes allowed per tarball; anything beyond is left on the Release."""
 
 REPORT_FILES = {
-    "html": "index.html",
     "screenshot": "screenshot.png",
     "container_log": "container.log",
     "browser_log": "browser.log",
@@ -39,6 +38,8 @@ REPORT_FILES = {
 """test.<arch>.json `files` keys and the fixed names they get under <arch>/."""
 EXTRA_FILES = ("package_diff.txt",)
 """Files copied by name when the tarball has them."""
+RETIRED = "index.html"
+"""The harness's old HTML report, still in the tarballs of older builds: never unpacked, and dropped from the output."""
 FETCHED = "fetched.json"
 """Written under <arch>/ once the tarball is unpacked: the names it held, possibly none."""
 
@@ -78,6 +79,11 @@ def unpack(data: bytes, report: Json | None) -> dict[str, bytes]:
         roots = {p.split("/", 1)[0] for _, p in members if "/" in p}
         strip = next(iter(roots)) + "/" if len(roots) == 1 and all("/" in p for _, p in members) else ""
         for member, path in members:
+            short = path[len(strip) :] if strip and path.startswith(strip) else path
+            base = posixpath.basename(short)
+            target = named.get(path) or named.get(short) or (base if base in EXTRA_FILES else short)
+            if target == RETIRED:
+                continue
             if total + member.size > MAX_TARBALL_BYTES:
                 break
             handle = tar.extractfile(member)
@@ -85,9 +91,6 @@ def unpack(data: bytes, report: Json | None) -> dict[str, bytes]:
                 continue
             content = handle.read()
             total += len(content)
-            short = path[len(strip) :] if strip and path.startswith(strip) else path
-            base = posixpath.basename(short)
-            target = named.get(path) or named.get(short) or (base if base in EXTRA_FILES else short)
             out[target] = content
     return out
 
@@ -153,7 +156,7 @@ def generate(ctx: GenerateContext) -> Files:
             for arch_view in view["arches"]:
                 arch = arch_view["arch"]
                 prefix = f"{folder}/{arch}/"
-                have = sorted(p for p in existing if p.startswith(prefix))
+                have = sorted(p for p in existing if p.startswith(prefix) and p != prefix + RETIRED)
                 if have:
                     keep.update(have)
                     names = [p[len(prefix) :] for p in have if p != prefix + FETCHED]
@@ -170,7 +173,6 @@ def generate(ctx: GenerateContext) -> Files:
                 else:
                     names = []
                 arch_view["unpacked"] = names
-                arch_view["has_report"] = "index.html" in names
                 arch_view["has_screenshot"] = "screenshot.png" in names
                 if view["is_latest"] and arch_view["files_asset"] and arch in ARCHES:
                     target = f"{folder}/files.{arch}.json.gz"
