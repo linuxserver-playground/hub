@@ -279,3 +279,16 @@ def test_vulns_endpoint_and_builds_summary(files: dict[str, bytes]) -> None:
     assert "vulnerabilities" not in next(b for b in builds if b["tag"] == "4.0.19.2000-ls1")
     status = json.loads(files["api/v1/status.json"])["data"]["status"]["sources"]["vulnerabilities"]
     assert status["ok"] is True
+
+
+def test_parallel_scans_store_the_same_as_one_at_a_time() -> None:
+    def scanned(workers: int) -> tuple[Json, Json, list[str]]:
+        store = build_store(grype=FakeGrype())
+        for record in store.images.values():
+            record.vulns.clear()
+        store.observed.pop("vulnerabilities", None)
+        grype = FakeGrype()
+        vulns.scan(store, grype, asset_bytes, now=lambda: LATER, cache_dir=None, workers=workers)
+        return {n: r.vulns for n, r in store.images.items()}, store.observed["vulnerabilities"], sorted(grype.scans)
+
+    assert scanned(1) == scanned(4)

@@ -23,6 +23,7 @@ import subprocess
 import sys
 import tempfile
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any, Protocol
 
@@ -45,6 +46,9 @@ DB_UPDATE_AFTER = datetime.timedelta(hours=24)
 """How often the poller asks grype to update its database."""
 CACHE_DIR = Path(os.environ.get("VULNS_CACHE_DIR") or ROOT / ".cache" / "sboms")
 """Downloaded SBOMs, by image, tag and arch; never committed."""
+WORKERS = int(os.environ.get("VULNS_WORKERS") or min(4, os.cpu_count() or 1))
+"""grype processes at once. A scan is one CPU-bound process of about 150 MB, about 11 s on a runner, so a burst of
+releases (66 SBOMs in one run of the base image case study) took 12 minutes one at a time."""
 
 CAVEATS = [
     "Counts are the scanner's output (grype against the build's syft SBOM), not an assessment: they change when the "
@@ -279,7 +283,12 @@ def due(entry: Json | None, have: set[str], want: set[str], db_date: str, now: s
 
 
 def scan(
-    store: Store, scanner: Scanner, fetch: Fetch, now: Callable[[], str] = _now, cache_dir: Path | None = CACHE_DIR
+    store: Store,
+    scanner: Scanner,
+    fetch: Fetch,
+    now: Callable[[], str] = _now,
+    cache_dir: Path | None = CACHE_DIR,
+    workers: int | None = None,
 ) -> int:
     """Scans what is due; returns how many SBOMs were scanned. status.json records the outcome either way."""
     checked_at = now()
@@ -304,27 +313,49 @@ def scan(
     live = set()
     scanned = 0
     failed: list[str] = []
+    pending: list[tuple[str, str, str, dict[str, str]]] = []
     for name, tag, urls in targets(store):
         key = f"{name}@{tag}"
         live.add(key)
-        record = store.images[name]
-        if not due(builds.get(key), set(record.vulns.get(tag, {})), set(urls), db_date, checked_at):
-            continue
-        with tempfile.TemporaryDirectory(prefix="lsio-hub-sbom-") as tmp:
+        if due(builds.get(key), set(store.images[name].vulns.get(tag, {})), set(urls), db_date, checked_at):
+            pending.append((key, name, tag, urls))
+    with tempfile.TemporaryDirectory(prefix="lsio-hub-sbom-") as tmp:
+        # Downloads stay one at a time; the scans, which are most of a release run, run side by side.
+        outcomes: dict[tuple[str, str], Json | str] = {}
+        jobs: list[tuple[tuple[str, str], Path]] = []
+        for key, name, tag, urls in pending:
             for arch, url in sorted(urls.items()):
                 data = _sbom(name, tag, arch, url, fetch, cache_dir)
                 if data is None:
-                    failed.append(f"{key} {arch}: SBOM not available")
+                    outcomes[key, arch] = "SBOM not available"
                     continue
-                path = Path(tmp) / f"packages.{arch}.json"
+                path = Path(tmp) / key / f"packages.{arch}.json"
                 try:
+                    path.parent.mkdir(parents=True, exist_ok=True)
                     path.write_bytes(gzip.decompress(data))
-                    report = scanner.scan(path)
-                except (OSError, ScanError) as e:
-                    failed.append(f"{key} {arch}: {e}")
+                except OSError as e:
+                    outcomes[key, arch] = str(e)
                     continue
-                record.vulns.setdefault(tag, {})[arch] = compact(report, db_date)
-                scanned += 1
+                jobs.append(((key, arch), path))
+
+        def run(path: Path) -> Json | str:
+            try:
+                return scanner.scan(path)
+            except (OSError, ScanError) as e:
+                return str(e)
+
+        with ThreadPoolExecutor(max_workers=workers or WORKERS) as pool:
+            outcomes.update(zip((job for job, _ in jobs), pool.map(run, (path for _, path in jobs)), strict=True))
+
+    for key, name, tag, urls in pending:
+        record = store.images[name]
+        for arch in sorted(urls):
+            outcome = outcomes[key, arch]
+            if isinstance(outcome, str):
+                failed.append(f"{key} {arch}: {outcome}")
+                continue
+            record.vulns.setdefault(tag, {})[arch] = compact(outcome, db_date)
+            scanned += 1
         builds[key] = {"scanned_at": now(), "db_date": db_date, "arches": sorted(record.vulns.get(tag, {}))}
         log.info("  ok vulnerabilities: %s (%s)", key, ", ".join(sorted(record.vulns.get(tag, {}))) or "no SBOM")
     for record in store.images.values():
