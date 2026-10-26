@@ -6,13 +6,15 @@ report URLs other systems link to: `https://<hub>/builds/<image>/<tag>/`.
 
 Tarballs and `files.<arch>.json.gz` are never kept in git: they are downloaded from the Release when the
 pages are generated (`ctx.fetch`), the tarballs for every retained build, the file trees for the newest build
-of each branch only. Older builds link to the Release asset instead. Paths already present in the output
-directory (`ctx.extra["existing"]`) are not downloaded again, so a cached out/builds/ makes a run cheap.
+of each branch only. Older builds link to the Release asset instead. A build's unpacked report is
+downloaded once: an `<arch>/` directory already in the output (`ctx.extra["existing"]`) is kept as it is,
+so a cached out/builds/ makes a run cheap, and a rotated build's directory is removed.
 """
 
 from __future__ import annotations
 
 import io
+import json
 import posixpath
 import tarfile
 from typing import Any
@@ -37,6 +39,8 @@ REPORT_FILES = {
 """test.<arch>.json `files` keys and the fixed names they get under <arch>/."""
 EXTRA_FILES = ("package_diff.txt",)
 """Files copied by name when the tarball has them."""
+FETCHED = "fetched.json"
+"""Written under <arch>/ once the tarball is unpacked: the names it held, possibly none."""
 
 
 def _asset_url(image: ImageInput, build: Json, name: str) -> str | None:
@@ -130,7 +134,12 @@ def _build_view(image: ImageInput, build: Json, ctx: GenerateContext) -> Json:
 
 
 def generate(ctx: GenerateContext) -> Files:
+    """
+    The pages, plus the report files and file trees not yet in the output directory. The ones already there
+    that a retained build still uses are added to `ctx.extra["keep"]`; anything else there (rotated builds) goes.
+    """
     existing: set[str] = set(ctx.extra.get("existing", set()))
+    keep: set[str] = ctx.extra.setdefault("keep", set())
     files: Files = {"report.css": (TEMPLATES / "report.css").read_text(encoding="utf-8")}
     build_template = env.get_template("report_build.html")
     history_template = env.get_template("report_history.html")
@@ -143,28 +152,32 @@ def generate(ctx: GenerateContext) -> Files:
             folder = f"{image.name}/{tag}"
             for arch_view in view["arches"]:
                 arch = arch_view["arch"]
-                marker = f"{folder}/{arch}/index.html"
-                unpacked: dict[str, bytes] = {}
-                if arch_view["tarball"] and marker not in existing:
-                    data = ctx.fetch(arch_view["tarball"])
-                    if data:
-                        try:
-                            unpacked = unpack(data, arch_view["report"])
-                        except (tarfile.TarError, OSError):
-                            unpacked = {}
-                for name, content in unpacked.items():
-                    files[f"{folder}/{arch}/{name}"] = content
-                arch_view["unpacked"] = (
-                    sorted(unpacked) if unpacked else ([] if marker not in existing else ["index.html"])
-                )
-                arch_view["has_report"] = "index.html" in arch_view["unpacked"]
-                arch_view["has_screenshot"] = "screenshot.png" in arch_view["unpacked"]
+                prefix = f"{folder}/{arch}/"
+                have = sorted(p for p in existing if p.startswith(prefix))
+                if have:
+                    keep.update(have)
+                    names = [p[len(prefix) :] for p in have if p != prefix + FETCHED]
+                elif arch_view["tarball"] and (data := ctx.fetch(arch_view["tarball"])):
+                    try:
+                        unpacked = unpack(data, arch_view["report"])
+                    except (tarfile.TarError, OSError):
+                        unpacked = {}
+                    for name, content in unpacked.items():
+                        files[prefix + name] = content
+                    # Marks the tarball as fetched even when it held no report, so it is not downloaded again.
+                    files[prefix + FETCHED] = json.dumps(sorted(unpacked)) + "\n"
+                    names = sorted(unpacked)
+                else:
+                    names = []
+                arch_view["unpacked"] = names
+                arch_view["has_report"] = "index.html" in names
+                arch_view["has_screenshot"] = "screenshot.png" in names
                 if view["is_latest"] and arch_view["files_asset"] and arch in ARCHES:
                     target = f"{folder}/files.{arch}.json.gz"
-                    if target not in existing:
-                        tree = ctx.fetch(arch_view["files_asset"])
-                        if tree:
-                            files[target] = tree
+                    if target in existing:
+                        keep.add(target)
+                    elif tree := ctx.fetch(arch_view["files_asset"]):
+                        files[target] = tree
                     arch_view["files_local"] = target in existing or target in files
             files[f"{folder}/index.html"] = build_template.render(view=view, site=ctx.site, pill=_pill)
     return files

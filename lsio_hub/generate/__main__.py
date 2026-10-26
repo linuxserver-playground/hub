@@ -57,7 +57,7 @@ def main(argv: list[str] | None = None) -> int:
     existing = existing_paths(out_dir, "builds")
     ctx.extra["existing"] = existing
     outputs = generate_all(ctx, only)
-    keep = {f"builds/{p}" for p in existing if p.split("/")[-1] != "index.html" or p.count("/") == 2}
+    keep = {f"builds/{p}" for p in ctx.extra.get("keep", set())}
     written = write_output(out_dir, outputs, keep=keep)
     log.info("Wrote %d files for %d images into %s", len(written), len(ctx.images), out_dir)
     return 0

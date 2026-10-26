@@ -111,3 +111,45 @@ def test_write_output_merges_dirs_and_keeps_cached_assets(tmp_path: Path, gen: G
         tmp_path, generate_all(gen, {"quadlet", "builds"}), keep={"builds/sonarr/4.0.20.3014-ls2/amd64/index.html"}
     )
     assert not stale.exists() and cached.is_file()
+
+
+def test_reports_are_fetched_once_and_rotated_builds_dropped(tmp_path: Path, gen: GenerateContext) -> None:
+    """A second run downloads nothing and keeps every unpacked file, including a report without an HTML page."""
+    from lsio_hub.generate import existing_paths
+
+    urls: list[str] = []
+
+    def fetch(url: str) -> bytes | None:
+        urls.append(url)
+        if url.endswith("/swag/5.2.0-ls1/test.amd64.tar.gz"):  # a tarball with no report in it
+            buffer = io.BytesIO()
+            with tarfile.open(fileobj=buffer, mode="w:gz") as tar:
+                info = tarfile.TarInfo("report/container.log")
+                info.size = 2
+                tar.addfile(info, io.BytesIO(b"x\n"))
+            return buffer.getvalue()
+        return asset_bytes(url)
+
+    def run() -> None:
+        gen.fetch = fetch
+        gen.extra = {"existing": existing_paths(tmp_path, "builds")}
+        outputs = generate_all(gen, {"builds"})
+        write_output(tmp_path, outputs, keep={f"builds/{p}" for p in gen.extra["keep"]})
+
+    run()
+    first = sorted(p.relative_to(tmp_path) for p in (tmp_path / "builds").rglob("*") if p.is_file())
+    assert (tmp_path / "builds/swag/5.2.0-ls1/amd64/fetched.json").read_text() == '["container.log"]\n'
+    assert urls
+    urls.clear()
+    run()
+    assert urls == []
+    assert sorted(p.relative_to(tmp_path) for p in (tmp_path / "builds").rglob("*") if p.is_file()) == first
+    page = (tmp_path / "builds/sonarr/4.0.20.3014-ls2/index.html").read_text()
+    assert 'href="amd64/index.html">HTML report</a>' in page and 'href="amd64/container.log"' in page
+    assert "fetched.json" not in page
+
+    sonarr = gen.store.images["sonarr"]
+    sonarr.builds.pop("4.0.19.2000-ls1")
+    run()
+    assert not (tmp_path / "builds/sonarr/4.0.19.2000-ls1").exists()
+    assert (tmp_path / "builds/sonarr/4.0.20.3014-ls2/amd64/index.html").is_file()
