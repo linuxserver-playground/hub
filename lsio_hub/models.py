@@ -910,6 +910,12 @@ class ModEnv(BaseModel):
     required: bool = False
 
 
+class ModUpstream(BaseModel):
+    url: str | None = Field(None, description="The project's website (`mod.yml` `upstream.url`).")
+    type: str = Field(description="`upstream.version.type`, e.g. `github_release` or `combined`.")
+    source: str = Field(description="The version source in short.", examples=["github_release cloudflare/cloudflared"])
+
+
 class Mod(BaseModel):
     name: str = Field(examples=["python3"])
     target: str = Field(description="The image the mod applies to, or `universal`.")
@@ -930,6 +936,11 @@ class Mod(BaseModel):
         description="The images the mod is for: its target, then the images its `mod.yml` lists under `images`."
     )
     docs: str | None = None
+    upstream: ModUpstream | None = Field(
+        None,
+        description="Where the tool version the mod pins comes from. The control plane checks it hourly and builds "
+        "the mod when a new version has no `<branch>-<version>` tag yet.",
+    )
     source: Literal["playground"] = Field(
         description="A `mod.yml` branch of linuxserver-playground/docker-mods, published at "
         "`ghcr.io/linuxserver-playground/mods`."

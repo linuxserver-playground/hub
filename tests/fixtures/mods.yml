@@ -18,6 +18,13 @@ universal-docker:
   maintainers: [aptalca]
   platforms: [amd64, arm64]
   images: [code-server, openvscode-server, vscodium-web]
+  upstream:
+    url: https://www.docker.com/
+    version:
+      type: combined
+      sources:
+        - {type: github_release, repo: moby/moby}
+        - {type: github_release, repo: docker/compose}
   deprecated: {status: false}
 universal-calibre:
   schema: 1

@@ -81,6 +81,12 @@ def test_mods_from_each_branch() -> None:
         "openvscode-server",
         "vscodium-web",
     ]
+    assert by_branch["universal-docker"]["upstream"] == {
+        "url": "https://www.docker.com/",
+        "type": "combined",
+        "source": "github_release moby/moby + github_release docker/compose",
+    }
+    assert git["upstream"] is None
     assert by_branch["radarr-striptracks"]["applies_to"] == ["radarr", "sonarr"]
     reload = by_branch["swag-auto-reload"]
     assert reload["deprecated"] is True and "SWAG image" in reload["deprecation_message"]

@@ -17,6 +17,7 @@ from typing import Any
 
 import httpx2
 import yaml
+from builder.mods import upstream_source_label
 from contracts import ContractError, validate
 
 from .config import DATA_DIR, MODS_IMAGE, MODS_REPO
@@ -37,6 +38,8 @@ def _now() -> str:
 def from_manifest(data: Json, branch: str) -> Json:
     """A mod.yml as the API serves it."""
     deprecated = data.get("deprecated", {})
+    upstream = data.get("upstream") or {}
+    version = upstream.get("version")
     return {
         "name": data["name"],
         "target": data["target"],
@@ -61,6 +64,11 @@ def from_manifest(data: Json, branch: str) -> Json:
         "deprecation_message": deprecated.get("message"),
         "applies_to": [data["target"], *[i for i in dict.fromkeys(data.get("images", [])) if i != data["target"]]],
         "docs": data.get("docs"),
+        "upstream": (
+            {"url": upstream.get("url"), "type": version["type"], "source": upstream_source_label(version)}
+            if version
+            else None
+        ),
         "source": "playground",
     }
 
