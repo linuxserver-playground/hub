@@ -1,5 +1,5 @@
 # Every pull request and push: lint, formatting, types, the tests, and a build plus generation from the
-# committed data (every response is validated against its Pydantic model as it is built).
+# published data, the data branch (every response is validated against its Pydantic model as it is built).
 name: Check
 
 on:
@@ -15,6 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          ref: data
+          path: data
+          persist-credentials: false
       - uses: actions/setup-python@v7
         with:
           python-version: '3.13'

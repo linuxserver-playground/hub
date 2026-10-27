@@ -2,16 +2,18 @@
 
 The data nexus of the LinuxServer v2 playground. Every image release attaches a build bundle to its GitHub
 Release ([CONVENTIONS.md §6](https://github.com/linuxserver-playground/builder/blob/main/CONVENTIONS.md));
-the hub ingests those bundles and every live branch's `image.yml`, keeps the data in git, serves a static API
+the hub ingests those bundles and every live branch's `image.yml`, keeps the data in git (on its own `data`
+branch), serves a static API
 on GitHub Pages and generates every downstream artefact: docs pages, store templates, SWAG proxy confs,
 Kubernetes manifests, Podman quadlets, the mods index and the CI build report pages. It is an evolution of
 [static-api](https://github.com/linuxserver/static-api) and keeps its architecture: pydantic models are the
-schema, a FastAPI app's routes are rendered to files, data is committed as readable JSON, the OpenAPI spec
+schema, a FastAPI app's routes are rendered to files, data is kept as readable JSON, the OpenAPI spec
 and docs page are generated, and the v1 endpoints keep their shape.
 
 ```bash
 python3.13 -m venv .venv && . .venv/bin/activate
 pip install -e '.[dev]'                                  # installs lsio-builder from linuxserver-playground/builder
+scripts/data.sh                                          # data/: the published data (the data branch); again to update
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # data/: manifests, every release's bundle, base layers
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.observe              # data/observed.json: stars, archived, GHCR tags; then grype
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.vulns                # the grype scan alone (GRYPE=/path/to/grype)
@@ -38,18 +40,18 @@ proot-apps metadata.yml ─────┘                     │
 ```
 
 Two workflows share the work, and each writes only its own files in `data/` (see `lsio_hub/store.py`), so they
-run at the same time and their data commits never conflict.
+run at the same time and whichever publishes second merges onto the other's data.
 
 - `deploy.yml` is the release path. It runs on `repository_dispatch` type `image-released` (sent by the control
   plane after every live release; its payload is only a hint), on every push to `main`, on demand, and when
   `refresh.yml` has new data. Every run reconciles the whole organisation (`ingest --reconcile`): every `image.yml`
   and the newest 30 releases of every repository over GraphQL, in about 15 seconds, then the assets of whatever is
   new. GitHub keeps one pending run per concurrency group and drops older ones, so a burst of releases is picked
-  up by whichever run comes next and none is lost. It commits `data/` when it changed, builds `dist/`, generates
+  up by whichever run comes next and none is lost. It publishes `data/` when it changed, builds `dist/`, generates
   `out/`, merges `out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and
   `/builds/…`. It is a single job: every job is a separate wait for a runner slot when image builds fill them.
 - `refresh.yml` runs hourly (its cron, and a dispatch from the control plane): `observe` (stars, archived flags,
-  GHCR tags, then the grype scan), `mods` and `prootapps`. It commits what changed and dispatches `deploy.yml`, then pushes the
+  GHCR tags, then the grype scan), `mods` and `prootapps`. It publishes what changed and dispatches `deploy.yml`, then pushes the
   Unraid, Umbrel and Runtipi stores to their own repositories (see Generators).
 
 The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry.json`. Reads use `GITHUB_TOKEN` only.
@@ -68,8 +70,24 @@ The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry
 
 ## Data layout
 
-Raw inputs are kept, not finished responses, so a change in derivation needs no refetch and the data commit
-is a readable diff. Builds are stored compact, as received; everything else indented.
+Raw inputs are kept, not finished responses, so a change in derivation needs no refetch. Builds are stored
+compact, as received; everything else indented.
+
+`data/` is not on `main`. It is a checkout of the `data` branch, which only ever holds one commit: each Deploy and
+Refresh that changes the data replaces that commit with a new root commit (`scripts/commit_data.sh`), so the data's
+history never grows and `main` holds only code. The data is a cache, not a record: every Deploy reconciles it with the
+organisation's releases, which stay the source, and each live branch keeps its newest 10 builds (`KEEP_BUILDS`), older
+ones staying on their Releases and in `history.json`. When both workflows publish at once, the second one's lease
+fails; it fetches the first one's commit, merges its own changes onto it (a three-way merge against the commit it
+started from) and pushes again. They write different files; the one overlap (a vulns file the refresh rescans while
+the Deploy rotates its build out) conflicts, and a conflict fails that run rather than dropping either side. Readers
+fetch it at depth 1: `scripts/data.sh` locally, `actions/checkout` with `ref: data` in a workflow.
+
+Without history there is no revert, and not all of it can be rebuilt (`history.json` keeps every release; the
+reconcile reads the newest 30, `ingest --deep` all of them). So the first publish of each UTC day is also kept as
+`refs/data-history/<date>` for a week, and a publish that would drop more than a tenth of the files is refused
+(set the repository variable `DATA_ALLOW_SHRINK=1` for a run where that is intended, then remove it). To roll back:
+`git push --force origin refs/data-history/<date>:refs/heads/data`, then dispatch `deploy.yml`.
 
 | Path | What |
 | --- | --- |
@@ -271,7 +289,8 @@ copied as they are (Pages gzips text).
 
 1. Set Pages to deploy from GitHub Actions. The build takes the site URL and base path from
    `actions/configure-pages`, so links and the spec's `servers` entry follow a custom domain.
-2. The data commit (`Update data`) is pushed to `main` by `github-actions[bot]`; branch protection must allow it.
+2. The data (`Update data`) is force-pushed with a lease to the `data` branch by `github-actions[bot]`; branch rules
+   must allow force pushes to `data`.
 3. The control plane triggers `repository_dispatch` type `image-released` with
    `{"repository": "linuxserver-playground/docker-sonarr", "tag": "4.0.20.3014-ls1"}`; the hourly reconcile
    catches anything missed.

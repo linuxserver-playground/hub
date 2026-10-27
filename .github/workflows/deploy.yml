@@ -1,9 +1,9 @@
-# The release path: finds every release data/ lacks, commits data/, builds the API and the generated artefacts and
-# publishes everything to GitHub Pages. It runs when the control plane sends a repository_dispatch of type
-# `image-released` (its payload is only a hint), on every push to main, on demand, and when the hourly refresh
-# (refresh.yml) has committed new observed data. Nothing slow runs here: stars, GHCR tags, the mods index, the
-# vulnerability scans and the pushes to the store repositories are refresh.yml's, so a release never queues behind
-# them.
+# The release path: finds every release data/ lacks, publishes data/ to the data branch, builds the API and the
+# generated artefacts and publishes everything to GitHub Pages. It runs when the control plane sends a
+# repository_dispatch of type `image-released` (its payload is only a hint), on every push to main, on demand, and
+# when the hourly refresh (refresh.yml) has published new observed data. Nothing slow runs here: stars, GHCR tags, the
+# mods index, the vulnerability scans and the pushes to the store repositories are refresh.yml's, so a release never
+# queues behind them.
 #
 # One job. Every job is a separate wait for one of the organisation's 20 runner slots, and during a burst of image
 # builds each of those waits was up to 22 minutes (docs/github-runners.md in the workspace), so the Pages deploy
@@ -38,10 +38,17 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          # The branch tip when the job starts, not the commit the run was created for: a run waits in the
-          # concurrency group while the one ahead of it commits data/, and starting from that older commit made
-          # both rewrite the same lines of the same files, so the later commit could not rebase.
+          # The branch tip when the job starts, not the commit the run was created for: a run can wait in the
+          # concurrency group behind code pushes.
           ref: ${{ github.ref }}
+
+      - name: Check out the data
+        # The data branch holds one commit, the current data, with no history (scripts/commit_data.sh). Checked out
+        # by name, so a run that waited in the concurrency group starts from what the run ahead of it published.
+        uses: actions/checkout@v7
+        with:
+          ref: data
+          path: data
 
       - uses: actions/setup-python@v7
         with:
@@ -60,23 +67,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python -m lsio_hub.ingest --reconcile
 
-      - name: Commit refreshed data
+      - name: Publish the refreshed data
+        # Replaces the data branch's one commit. refresh.yml may publish at the same moment; the script merges onto
+        # whichever commit landed first. DATA_ALLOW_SHRINK lets one intended big drop in files through.
+        env:
+          ALLOW_SHRINK: ${{ vars.DATA_ALLOW_SHRINK }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
-          if ! git diff --cached --quiet; then
-            git commit -m "Update data"
-            # main may have moved since the checkout (code pushes, refresh.yml's data commits). The ingest and the
-            # refresh never write the same file (lsio_hub/store.py), so the rebase is clean. Retried because
-            # another push can land between the rebase and our push.
-            for attempt in 1 2 3 4; do
-              git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && break
-              git rebase --abort 2>/dev/null || true  # a failed rebase must not wedge the next attempt
-              [ "$attempt" = 4 ] && exit 1
-              sleep $((attempt * 5))
-            done
-          fi
+          git -C data config user.name "github-actions[bot]"
+          git -C data config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          scripts/commit_data.sh
 
       - id: pages
         uses: actions/configure-pages@v6

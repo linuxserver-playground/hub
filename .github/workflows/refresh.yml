@@ -1,10 +1,10 @@
 # The hourly refresh: stars, archived flags and GHCR tags (observe), the vulnerability scans on the database's clock
 # (the scan runs at the end of observe), the mods index with what the mods package holds per mod, the PRoot Apps
 # index (proot-apps' metadata.yml), and the store repositories. None of it is on a release's path, so it runs apart
-# from deploy.yml and never makes a release wait: it commits the files it owns (observed.json, mods.json, proot-apps.json, their status files and the vulns files; see
-# lsio_hub/store.py), asks deploy.yml to publish them, and
-# then pushes the Unraid, Umbrel and Runtipi stores. The control plane dispatches it every hour too, because GitHub
-# skips many runs of an hourly cron.
+# from deploy.yml and never makes a release wait: it publishes the files it owns to the data branch (observed.json,
+# mods.json, proot-apps.json, their status files and the vulns files; see lsio_hub/store.py), asks deploy.yml to
+# publish them to Pages, and then pushes the Unraid, Umbrel and Runtipi stores. The control plane dispatches it every
+# hour too, because GitHub skips many runs of an hourly cron.
 #
 # The stores were a three-job matrix after every Deploy, which during a burst of releases was three more waits for a
 # runner slot per hub run. Store clients read their repository at most daily, so an hour's lag costs nothing. The
@@ -34,6 +34,12 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: ${{ github.ref }}
+
+      - name: Check out the data
+        uses: actions/checkout@v7
+        with:
+          ref: data
+          path: data
 
       - uses: actions/setup-python@v7
         with:
@@ -85,25 +91,20 @@ jobs:
           python -m lsio_hub.mods
           python -m lsio_hub.prootapps
 
-      - name: Commit and publish
+      - name: Publish and deploy
         env:
           GH_TOKEN: ${{ github.token }}
+          ALLOW_SHRINK: ${{ vars.DATA_ALLOW_SHRINK }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data
-          if git diff --cached --quiet; then
+          git -C data config user.name "github-actions[bot]"
+          git -C data config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          before=$(git -C data rev-parse HEAD)
+          # deploy.yml publishes data/ at any time too, but never a file this job writes (scripts/commit_data.sh).
+          scripts/commit_data.sh
+          if [ "$(git -C data rev-parse HEAD)" = "$before" ]; then
             echo "Nothing changed"
             exit 0
           fi
-          git commit -m "Update data"
-          # deploy.yml commits data/ at any time too, but never a file this job writes, so the rebase is clean.
-          for attempt in 1 2 3 4; do
-            git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && break
-            git rebase --abort 2>/dev/null || true
-            [ "$attempt" = 4 ] && exit 1
-            sleep $((attempt * 5))
-          done
           # A push with GITHUB_TOKEN starts no workflow, so the deploy is asked for.
           gh workflow run deploy.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
 

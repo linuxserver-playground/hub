@@ -1,8 +1,8 @@
 """
 The data/ directory: what the ingest and the poller write and everything else reads. Raw inputs are kept
 (manifests as fetched, build records as received) rather than finished responses, so a change to how a
-field is derived needs no refetch, builds are deterministic and work offline, and every data commit is a
-readable diff.
+field is derived needs no refetch, builds are deterministic and work offline, and the data reads as plain JSON.
+data/ is a checkout of the `data` branch, which holds one commit and no history (scripts/commit_data.sh).
 
     data/images/<name>/manifest.<branch>.json      image.yml of each live branch, as JSON
     data/images/<name>/builds/<tag>.json           build.json of a live release, compact, as received
@@ -27,8 +27,10 @@ readable diff.
 
 Every file has one writer: the ingest (images/, bases/, status/manifests, releases, rejected, bases) on the
 release path, and the observer, the vulnerability scan and the mods and PRoot Apps refreshes (observed.json, mods.json,
-proot-apps.json, their status files, the vulns files) on the hourly refresh. The two run concurrently and both commit
-data/, so neither may write a file the other owns: saving writes a file only when its content changed.
+proot-apps.json, their status files, the vulns files) on the hourly refresh. The two run concurrently and both publish
+data/, merging onto each other's commit, so neither may write a file the other owns: saving writes a file only when
+its content changed. The one overlap is a build's vulns file, which the ingest writes from record.json and deletes
+on rotation; a rescan of it during that Deploy conflicts and fails the later publish (scripts/commit_data.sh).
 """
 
 from __future__ import annotations

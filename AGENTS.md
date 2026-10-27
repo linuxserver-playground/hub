@@ -3,7 +3,8 @@
 ## Purpose
 
 The hub is the data nexus of the LinuxServer v2 playground. It ingests the build bundle every image release
-attaches to its GitHub Release, keeps that data in git under `data/`, serves a static API on GitHub Pages
+attaches to its GitHub Release, keeps that data in git on the `data` branch (one commit, no history; checked out
+as `data/`), serves a static API on GitHub Pages
 (`/api/v1/...`), and generates every downstream artefact: docs pages, store templates (Unraid, Portainer,
 CasaOS, Umbrel, Runtipi, Cosmos), SWAG proxy confs, Kubernetes manifests, Podman quadlets, the mods index
 and the CI build report pages (`/builds/<image>/<tag>/`). Consumers: the docs and stores repositories, the
@@ -20,9 +21,10 @@ site, the control plane (which links to the build pages), and anyone using the A
 | `lsio_hub/transform.py`, `fleet.py`, `responses.py` | Manifests and builds to API images; the content of each endpoint. |
 | `lsio_hub/app.py`, `build.py`, `site.py`, `templates/` | The FastAPI app, the static build of `dist/`, the docs page. |
 | `lsio_hub/generate/` | One module per generator; `python -m lsio_hub.generate` writes `out/`. |
+| `scripts/commit_data.sh`, `scripts/data.sh` | Publish `data/` as the `data` branch's one commit, merging with a concurrent writer (CI only); fetch it into `data/` locally. |
 | `scripts/publish_store.sh` | Pushes `out/stores/umbrel/` and `out/stores/runtipi/` to their own repositories (the last steps of the hourly `refresh.yml`). |
 | `lsio_hub/sources/` | GitHub REST/GraphQL, GHCR, retrying HTTP. |
-| `data/` | Committed data, written only by the ingest (manifests, bundles, `bases/`), the observer and the mods refresh. |
+| `data/` | A depth-1 checkout of the `data` branch (`scripts/data.sh`), not part of `main`. Written only by the ingest (manifests, bundles, `bases/`), the observer and the mods refresh, and published by `scripts/commit_data.sh`, which replaces the branch's one commit. |
 | `tests/` | pytest; `tests/fixtures/` holds live manifests, a real release's small assets and reference outputs. |
 
 ## What you may edit
@@ -37,9 +39,10 @@ its fixture test updated for sonarr, swag and the constructed `multidb` image.
 ```bash
 python3.13 -m venv .venv && . .venv/bin/activate
 pip install -e '.[dev]'                      # pulls lsio-builder from linuxserver-playground/builder
+scripts/data.sh                              # data/ from the data branch (again to update it)
 ruff check . && ruff format --check . && mypy && pytest
-python -m lsio_hub.build                     # dist/ from the committed data
-python -m lsio_hub.generate --offline        # out/ from the committed data, no Release downloads
+python -m lsio_hub.build                     # dist/ from the published data
+python -m lsio_hub.generate --offline        # out/ from the published data, no Release downloads
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # refresh data/ (reads only)
 ```
 
@@ -56,5 +59,5 @@ no schema of its own; the API's shapes are the pydantic models and the generated
 ## Pull request rules
 
 Disclose AI use. One change per PR. Commit subjects are short imperative sentences without prefixes,
-emoji or trailers. Do not commit generated output or credentials. Data commits are made by CI as
-`Update data`.
+emoji or trailers. Do not commit generated output or credentials. Only CI publishes the `data` branch
+(`scripts/commit_data.sh`); never push to it by hand, and never add `data/` back to `main`.
