@@ -1,0 +1,134 @@
+{
+ "image": "sabnzbd",
+ "branch": "nightly",
+ "tag": "nightly-1f5d8827-ls2",
+ "previous_tag": "nightly-d162e0f2-ls2",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "d162e0f2",
+  "to": "1f5d8827",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.24",
+   "digest": "sha256:52106d187a66ccb92e3289cb6dd25c549cb0b6b7bfec38a51994434c96db2d35"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.24",
+   "digest": "sha256:52106d187a66ccb92e3289cb6dd25c549cb0b6b7bfec38a51994434c96db2d35"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 76197522,
+   "to": 76238009,
+   "delta": 40487
+  },
+  "arm64": {
+   "from": 76100692,
+   "to": 76144293,
+   "delta": 43601
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "httptools",
+      "from": "0.8.0",
+      "to": "0.9.0",
+      "purl": "pkg:pypi/httptools@0.9.0"
+     },
+     {
+      "name": "orjson",
+      "from": "3.12.0",
+      "to": "3.13.0",
+      "purl": "pkg:pypi/orjson@3.13.0"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.0",
+      "to": "3.11",
+      "purl": "pkg:pypi/pycparser@3.11"
+     },
+     {
+      "name": "sabctools",
+      "from": "9.7.1",
+      "to": "9.7.2",
+      "purl": "pkg:pypi/sabctools@9.7.2?file_name=sabctools-9.7.2-cp314-cp314-musllinux_1_2_x86_64.whl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "httptools",
+      "from": "0.8.0",
+      "to": "0.9.0",
+      "purl": "pkg:pypi/httptools@0.9.0"
+     },
+     {
+      "name": "orjson",
+      "from": "3.12.0",
+      "to": "3.13.0",
+      "purl": "pkg:pypi/orjson@3.13.0"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.0",
+      "to": "3.11",
+      "purl": "pkg:pypi/pycparser@3.11"
+     },
+     {
+      "name": "sabctools",
+      "from": "9.7.1",
+      "to": "9.7.2",
+      "purl": "pkg:pypi/sabctools@9.7.2?file_name=sabctools-9.7.2-cp314-cp314-musllinux_1_2_aarch64.whl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

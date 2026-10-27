@@ -1,0 +1,483 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "kali",
+ "tag": "kali-1decc5f6-ls2",
+ "previous_tag": "kali-1decc5f6-ls1",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1decc5f6",
+  "to": "1decc5f6",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-debian:kali",
+   "digest": "sha256:ceb425f29c08449b27c10cc3436b4e26b5c7877a13d2b153865b006a90bc7cb3"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-debian:kali",
+   "digest": "sha256:ceb425f29c08449b27c10cc3436b4e26b5c7877a13d2b153865b006a90bc7cb3"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1108428042,
+   "to": 1122564238,
+   "delta": 14136196
+  },
+  "arm64": {
+   "from": 1059935662,
+   "to": 1074008002,
+   "delta": 14072340
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "bubblewrap",
+      "from": "0.13.0-1",
+      "to": "0.13.1-1",
+      "purl": "pkg:deb/kali/bubblewrap@0.13.1-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "kbd",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1+b1",
+      "purl": "pkg:deb/kali/kbd@2.10.0-1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=kbd%402.10.0-1"
+     },
+     {
+      "name": "libavcodec63",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavcodec63@7%3A9.0.2-3?arch=amd64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libavutil61",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavutil61@7%3A9.0.2-3?arch=amd64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-4+b1",
+      "to": "1.2.0-4+b2",
+      "purl": "pkg:deb/kali/libbrotli1@1.2.0-4%2Bb2?arch=amd64&distro=kali-2026.3&upstream=brotli%401.2.0-4"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-bin@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-dev-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-dev-bin@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-gconv-modules-extra",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-gconv-modules-extra@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-l10n@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6-dev",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6-dev@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libexpat1",
+      "from": "2.8.4-1",
+      "to": "2.9.0-1",
+      "purl": "pkg:deb/kali/libexpat1@2.9.0-1?arch=amd64&distro=kali-2026.3&upstream=expat"
+     },
+     {
+      "name": "libfreetype6",
+      "from": "2.14.3+dfsg-2",
+      "to": "2.14.3+dfsg-3",
+      "purl": "pkg:deb/kali/libfreetype6@2.14.3%2Bdfsg-3?arch=amd64&distro=kali-2026.3&upstream=freetype"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.7-1",
+      "to": "1.28.8-1",
+      "purl": "pkg:deb/kali/libgstreamer-plugins-base1.0-0@1.28.8-1?arch=amd64&distro=kali-2026.3&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer1.0-0",
+      "from": "1.28.7-1",
+      "to": "1.28.8-1",
+      "purl": "pkg:deb/kali/libgstreamer1.0-0@1.28.8-1?arch=amd64&distro=kali-2026.3&upstream=gstreamer1.0"
+     },
+     {
+      "name": "libltdl7",
+      "from": "2.6.2-2",
+      "to": "2.6.2-3",
+      "purl": "pkg:deb/kali/libltdl7@2.6.2-3?arch=amd64&distro=kali-2026.3&upstream=libtool"
+     },
+     {
+      "name": "libnftables1",
+      "from": "1.1.7-1",
+      "to": "1.1.7-3",
+      "purl": "pkg:deb/kali/libnftables1@1.1.7-3?arch=amd64&distro=kali-2026.3&upstream=nftables"
+     },
+     {
+      "name": "libpoppler-cpp3",
+      "from": "26.07.0-2",
+      "to": "26.07.0-3",
+      "purl": "pkg:deb/kali/libpoppler-cpp3@26.07.0-3?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpoppler162",
+      "from": "26.07.0-2",
+      "to": "26.07.0-3",
+      "purl": "pkg:deb/kali/libpoppler162@26.07.0-3?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libselinux1",
+      "from": "3.11-2.1",
+      "to": "3.11-2.1+b1",
+      "purl": "pkg:deb/kali/libselinux1@3.11-2.1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=libselinux%403.11-2.1"
+     },
+     {
+      "name": "libswresample7",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libswresample7@7%3A9.0.2-3?arch=amd64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libxml2-16",
+      "from": "2.15.4+dfsg-1",
+      "to": "2.15.4+dfsg-1+b1",
+      "purl": "pkg:deb/kali/libxml2-16@2.15.4%2Bdfsg-1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=libxml2%402.15.4%2Bdfsg-1"
+     },
+     {
+      "name": "locales",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "locales-all",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales-all@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "nftables",
+      "from": "1.1.7-1",
+      "to": "1.1.7-3",
+      "purl": "pkg:deb/kali/nftables@1.1.7-3?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "openssh-client",
+      "from": "1:10.5p1-1",
+      "to": "1:10.6p1-1",
+      "purl": "pkg:deb/kali/openssh-client@1%3A10.6p1-1?arch=amd64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-common",
+      "from": "1:10.5p1-1",
+      "to": "1:10.6p1-1",
+      "purl": "pkg:deb/kali/openssh-common@1%3A10.6p1-1?arch=amd64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "poppler-utils",
+      "from": "26.07.0-2",
+      "to": "26.07.0-3",
+      "purl": "pkg:deb/kali/poppler-utils@26.07.0-3?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "python3-apt",
+      "from": "3.1.0+b1",
+      "to": "3.1.0+b2",
+      "purl": "pkg:deb/kali/python3-apt@3.1.0%2Bb2?arch=amd64&distro=kali-2026.3&upstream=python-apt%403.1.0"
+     },
+     {
+      "name": "xwayland",
+      "from": "2:24.1.13-1",
+      "to": "2:24.1.14-1",
+      "purl": "pkg:deb/kali/xwayland@2%3A24.1.14-1?arch=amd64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "python-apt",
+      "from": "3.1.0+b1",
+      "to": "3.1.0+b2",
+      "purl": "pkg:pypi/python-apt@3.1.0%2Bb2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "bubblewrap",
+      "from": "0.13.0-1",
+      "to": "0.13.1-1",
+      "purl": "pkg:deb/kali/bubblewrap@0.13.1-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "kbd",
+      "from": "2.9.0-1+b1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/kbd@2.10.0-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "libavcodec63",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavcodec63@7%3A9.0.2-3?arch=arm64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libavutil61",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavutil61@7%3A9.0.2-3?arch=arm64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-4+b1",
+      "to": "1.2.0-4+b2",
+      "purl": "pkg:deb/kali/libbrotli1@1.2.0-4%2Bb2?arch=arm64&distro=kali-2026.3&upstream=brotli%401.2.0-4"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-bin@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-dev-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-dev-bin@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-gconv-modules-extra",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-gconv-modules-extra@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-l10n@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6-dev",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6-dev@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libexpat1",
+      "from": "2.8.4-1",
+      "to": "2.9.0-1",
+      "purl": "pkg:deb/kali/libexpat1@2.9.0-1?arch=arm64&distro=kali-2026.3&upstream=expat"
+     },
+     {
+      "name": "libfreetype6",
+      "from": "2.14.3+dfsg-2",
+      "to": "2.14.3+dfsg-3",
+      "purl": "pkg:deb/kali/libfreetype6@2.14.3%2Bdfsg-3?arch=arm64&distro=kali-2026.3&upstream=freetype"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.7-1",
+      "to": "1.28.8-1",
+      "purl": "pkg:deb/kali/libgstreamer-plugins-base1.0-0@1.28.8-1?arch=arm64&distro=kali-2026.3&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer1.0-0",
+      "from": "1.28.7-1",
+      "to": "1.28.8-1",
+      "purl": "pkg:deb/kali/libgstreamer1.0-0@1.28.8-1?arch=arm64&distro=kali-2026.3&upstream=gstreamer1.0"
+     },
+     {
+      "name": "libltdl7",
+      "from": "2.6.2-2",
+      "to": "2.6.2-3",
+      "purl": "pkg:deb/kali/libltdl7@2.6.2-3?arch=arm64&distro=kali-2026.3&upstream=libtool"
+     },
+     {
+      "name": "libnftables1",
+      "from": "1.1.7-1",
+      "to": "1.1.7-3",
+      "purl": "pkg:deb/kali/libnftables1@1.1.7-3?arch=arm64&distro=kali-2026.3&upstream=nftables"
+     },
+     {
+      "name": "libpoppler-cpp3",
+      "from": "26.07.0-2",
+      "to": "26.07.0-3",
+      "purl": "pkg:deb/kali/libpoppler-cpp3@26.07.0-3?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpoppler162",
+      "from": "26.07.0-2",
+      "to": "26.07.0-3",
+      "purl": "pkg:deb/kali/libpoppler162@26.07.0-3?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libselinux1",
+      "from": "3.11-2.1",
+      "to": "3.11-2.1+b1",
+      "purl": "pkg:deb/kali/libselinux1@3.11-2.1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=libselinux%403.11-2.1"
+     },
+     {
+      "name": "libswresample7",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libswresample7@7%3A9.0.2-3?arch=arm64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libxml2-16",
+      "from": "2.15.4+dfsg-1",
+      "to": "2.15.4+dfsg-1+b1",
+      "purl": "pkg:deb/kali/libxml2-16@2.15.4%2Bdfsg-1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=libxml2%402.15.4%2Bdfsg-1"
+     },
+     {
+      "name": "locales",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "locales-all",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales-all@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "nftables",
+      "from": "1.1.7-1",
+      "to": "1.1.7-3",
+      "purl": "pkg:deb/kali/nftables@1.1.7-3?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "openssh-client",
+      "from": "1:10.5p1-1",
+      "to": "1:10.6p1-1",
+      "purl": "pkg:deb/kali/openssh-client@1%3A10.6p1-1?arch=arm64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-common",
+      "from": "1:10.5p1-1",
+      "to": "1:10.6p1-1",
+      "purl": "pkg:deb/kali/openssh-common@1%3A10.6p1-1?arch=arm64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "poppler-utils",
+      "from": "26.07.0-2",
+      "to": "26.07.0-3",
+      "purl": "pkg:deb/kali/poppler-utils@26.07.0-3?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "python3-apt",
+      "from": "3.1.0+b1",
+      "to": "3.1.0+b2",
+      "purl": "pkg:deb/kali/python3-apt@3.1.0%2Bb2?arch=arm64&distro=kali-2026.3&upstream=python-apt%403.1.0"
+     },
+     {
+      "name": "xwayland",
+      "from": "2:24.1.13-1",
+      "to": "2:24.1.14-1",
+      "purl": "pkg:deb/kali/xwayland@2%3A24.1.14-1?arch=arm64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "python-apt",
+      "from": "3.1.0+b1",
+      "to": "3.1.0+b2",
+      "purl": "pkg:pypi/python-apt@3.1.0%2Bb2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 64,
+  "downgraded": 0
+ }
+}

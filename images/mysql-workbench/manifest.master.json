@@ -1,0 +1,144 @@
+{
+ "schema": 1,
+ "name": "mysql-workbench",
+ "summary": "[MySQL Workbench](https://www.mysql.com/products/workbench/) is a unified visual tool for database architects, developers, and DBAs. MySQL Workbench provides data modeling, SQL development, and comprehensive administration tools for server configuration, user administration, backup, and much more.",
+ "upstream": {
+  "url": "https://www.mysql.com/products/workbench/",
+  "version": {
+   "type": "command",
+   "run": "curl -sL https://mirror.rackspace.com/archlinux/extra/os/x86_64/extra.db | tar tzf - | awk -F '(-|/)' '/mysql-workbench/ {print $3; exit}'"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "WORKBENCH_RELEASE",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Mysql Workbench desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Mysql Workbench desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores program settings."
+   }
+  ],
+  "cap_add": [
+   {
+    "cap": "IPC_LOCK",
+    "description": "Required for keyring functionality."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Databases"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mysql-workbench-icon.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-05-18",
+   "text": "Rebase to Arch Linux."
+  },
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-07-01",
+   "text": "Rebase to Noble."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-04-20",
+   "text": "Update app to launch fullscreen."
+  },
+  {
+   "date": "2023-03-18",
+   "text": "Rebase to KasmVNC base image."
+  },
+  {
+   "date": "2022-09-15",
+   "text": "Migrate to s6v3."
+  },
+  {
+   "date": "2022-07-26",
+   "text": "Rebase on jammy."
+  },
+  {
+   "date": "2021-04-20",
+   "text": "Rebase on focal."
+  },
+  {
+   "date": "2021-01-18",
+   "text": "Update libpython dependency."
+  },
+  {
+   "date": "2020-03-26",
+   "text": "Initial release."
+  }
+ ]
+}

@@ -1,0 +1,200 @@
+{
+ "schema": 1,
+ "name": "hedgedoc",
+ "summary": "[HedgeDoc](https://hedgedoc.org/) gives you access to all your files wherever you are.\n\nHedgeDoc is a real-time, multi-platform collaborative markdown note editor.  This means that you can write notes with other people on your desktop, tablet or even on the phone.  You can sign-in via multiple auth providers like Facebook, Twitter, GitHub and many more on the homepage.",
+ "upstream": {
+  "url": "https://hedgedoc.org/",
+  "version": {
+   "type": "github_release",
+   "repo": "hedgedoc/hedgedoc"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "hedgedoc/hedgedoc"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "HEDGEDOC_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "CMD_URL_ADDPORT": "true",
+   "CMD_CSP_ENABLE": "false"
+  },
+  "web": {
+   "port": 3000
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Web gui port (internal port also needs to be changed if accessing at port other than 80, 443 and 3000)."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/hedgedoc/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "env": [
+   {
+    "name": "DB_HOST",
+    "value": "<hostname or ip>",
+    "description": "Host address of mariadb database"
+   },
+   {
+    "name": "DB_PORT",
+    "value": "3306",
+    "description": "Port to access mariadb database default is 3306"
+   },
+   {
+    "name": "DB_USER",
+    "value": "hedgedoc",
+    "description": "Database user"
+   },
+   {
+    "name": "DB_PASS",
+    "value": "<secret password>",
+    "description": "Database password"
+   },
+   {
+    "name": "DB_NAME",
+    "value": "hedgedoc",
+    "description": "Database name"
+   },
+   {
+    "name": "CMD_DOMAIN",
+    "value": "localhost",
+    "description": "The address the gui will be accessed at (ie. `192.168.1.1` or `hedgedoc.domain.com`)."
+   },
+   {
+    "name": "CMD_URL_ADDPORT",
+    "value": "false",
+    "description": "Set to `true` if using a port other than `80` or `443`.",
+    "optional": true
+   },
+   {
+    "name": "CMD_PROTOCOL_USESSL",
+    "value": "false",
+    "description": "Set to `true` if accessing over https via reverse proxy.",
+    "optional": true
+   },
+   {
+    "name": "CMD_PORT",
+    "value": "3000",
+    "description": "If you wish to access hedgedoc at a port different than 80, 443 or 3000, you need to set this to that port (ie. `CMD_PORT=5000`) and change the port mapping accordingly (5000:5000).",
+    "optional": true
+   },
+   {
+    "name": "CMD_ALLOW_ORIGIN",
+    "value": "['localhost']",
+    "description": "Comma-separated list of allowed hostnames",
+    "optional": true
+   },
+   {
+    "name": "CMD_DB_DIALECT",
+    "value": "",
+    "description": "This variable allows selecting a database engine (if DB_HOST not set up). Available options are: `mariadb`, `mysql`, `postgres`, `sqlite`.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Content Management"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png",
+  "setup": "HedgeDoc web interface can be accessed `http://${IP}:3000/`, if you want to use a custom domain or anything besides port 3000 you will need to leverage their env settings for callbacks: (specifically for CMD_DOMAIN, CMD_PORT and CMD_URL_ADDPORT)\n\n[Full list of HedgeDoc options](https://docs.hedgedoc.org/configuration/)\n\nFor convenience we provide a working example using Mariadb as a backend in this document.\n\nTo run behind a reverse proxy we have a [preconfigured config](https://github.com/linuxserver/reverse-proxy-confs/blob/master/hedgedoc.subdomain.conf.sample) using docker networking included in our [SWAG](https://github.com/linuxserver/docker-swag) image and you can read how to use this in the [Reverse Proxy Confs repository](https://github.com/linuxserver/reverse-proxy-confs/#how-to-use-these-reverse-proxy-configs)\n"
+ },
+ "proxy": {
+  "port": 3000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-29",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-10-14",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-02-24",
+   "text": "Add missing icu-data-full to fix bug with TextDecoder and image uploads."
+  },
+  {
+   "date": "2024-06-21",
+   "text": "Allow using `CMD_DB_DIALECT` to set up the `CMD_DB_URL`."
+  },
+  {
+   "date": "2024-06-06",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-06-18",
+   "text": "Rebase to Alpine 3.18, deprecate armhf as per [https://www.linuxserver.io/armhf](https://www.linuxserver.io/armhf)."
+  },
+  {
+   "date": "2022-11-02",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-04-10",
+   "text": "Use python3 to build node sqlite3."
+  },
+  {
+   "date": "2022-02-10",
+   "text": "Rebase to Alpine 3.15."
+  },
+  {
+   "date": "2022-02-09",
+   "text": "Add optional var `CMD_PORT` that is needed for accessing at port other than 80, 443 and 3000."
+  },
+  {
+   "date": "2021-12-09",
+   "text": "Add optional var `CMD_PROTOCOL_USESSL` that is needed for reverse proxy."
+  },
+  {
+   "date": "2021-12-07",
+   "text": "Rebase to ubuntu focal. Update to node 16. Make sure uploads are persistent."
+  },
+  {
+   "date": "2021-10-15",
+   "text": "Add required env var `CMD_DOMAIN`."
+  },
+  {
+   "date": "2021-05-05",
+   "text": "Remove symlinking some folders from config to /opt/hedgedoc/public."
+  },
+  {
+   "date": "2021-05-03",
+   "text": "Remove deprecated sequalizerc step."
+  },
+  {
+   "date": "2020-12-22",
+   "text": "Initial release"
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "schema": 1,
+ "name": "baseimage-debian",
+ "kind": "base",
+ "summary": "baseimage-debian container image.",
+ "upstream": {
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "kali",
+  "tag": "kali",
+  "channel": "prerelease"
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "OS",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ],
+  "first_party": false
+ },
+ "test": {
+  "startup_timeout": 30,
+  "env": {
+   "LSIO_FIRST_PARTY": "true"
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Uncategorized"
+  ],
+  "custom_readme": "[linuxserverurl]: https://linuxserver.io\n[forumurl]: https://forum.linuxserver.io\n[ircurl]: https://www.linuxserver.io/irc/\n[appurl]: https://github.com/debuerreotype/docker-debian-artifacts\n[dockerfileurl]: https://github.com/linuxserver/docker-baseimage-debian/blob/master/Dockerfile\n\n\n\n[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png?v=4&s=4000)][linuxserverurl]\n\n\n## Contact information:-\n\n| Type | Address/Details |\n| :---: | --- |\n| Discord | [Discord](https://discord.gg/YWrKVTn) |\n| IRC | freenode at `#linuxserver.io` more information at:- [IRC][ircurl]\n| Forum | [LinuxServer.io forum][forumurl] |\n\n&nbsp;\n&nbsp;\n\n[![](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/Dockerfile-Link-green.png)](https://github.com/linuxserver/docker-baseimage-debian/blob/master/Dockerfile)\n\nA custom base image built with [Debian baseimage][appurl] and [S6 overlay](https://github.com/just-containers/s6-overlay)..\n\nThe following line is only in this repo for loop testing:\n\n- { date: \"01.01.50:\", desc: \"I am the release message for this internal repo.\" }\n"
+ }
+}

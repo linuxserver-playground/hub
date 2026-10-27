@@ -1,0 +1,135 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "arch",
+ "tag": "arch-2026-10-23-ls2",
+ "previous_tag": "arch-2026-10-23-ls1",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-23",
+  "to": "2026-10-23",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-arch:latest",
+   "digest": "sha256:7d6c5814d91133b2dbb44fb2f7126e51b205d697c1256b571ad239f1221bd225"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-arch:latest",
+   "digest": "sha256:7d6c5814d91133b2dbb44fb2f7126e51b205d697c1256b571ad239f1221bd225"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1185965169,
+   "to": 1188432514,
+   "delta": 2467345
+  },
+  "arm64": {
+   "from": 1237783081,
+   "to": 1237772872,
+   "delta": -10209
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsoup3",
+      "from": "3.8.0-1",
+      "to": "3.8.1-1",
+      "purl": "pkg:alpm/arch/libsoup3@3.8.1-1?arch=x86_64&distro=arch-rolling&upstream=libsoup3"
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.3-4",
+      "to": "23.1.4-1",
+      "purl": "pkg:alpm/arch/llvm-libs@23.1.4-1?arch=x86_64&distro=arch-rolling&upstream=llvm"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsoup3",
+      "from": "3.8.0-1",
+      "to": "3.8.1-1",
+      "purl": null
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.3-4.1",
+      "to": "23.1.4-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

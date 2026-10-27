@@ -1,0 +1,173 @@
+{
+ "schema": 1,
+ "name": "oscam",
+ "summary": "[Oscam](https://git.streamboard.tv/common/oscam) is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client.",
+ "upstream": {
+  "url": "https://git.streamboard.tv/common/oscam",
+  "version": {
+   "type": "json",
+   "url": "https://git.streamboard.tv/api/v4/projects/11/repository/tags",
+   "jq": ".[0].name"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "OSCAM_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8888
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8888",
+    "description": "WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/oscam/data",
+    "description": "Where oscam should store config files and logs."
+   }
+  ],
+  "devices": [
+   {
+    "path": "/dev/ttyUSB0",
+    "description": "For passing through smart card readers."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Media Tools"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png",
+  "setup": "To set up oscam there are numerous guides on the internet. There are too many scenarios to make a quick guide.\nThe web interface is at port 8888. You can find the project wiki [here](https://trac.streamboard.tv/oscam/).\n"
+ },
+ "proxy": {
+  "port": 8888,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-17",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-04-28",
+   "text": "Disable binary signing to prevent compile errors."
+  },
+  {
+   "date": "2026-01-15",
+   "text": "Rebase to Alpine 3.23, add support for wiki submodule."
+  },
+  {
+   "date": "2024-06-27",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-04-19",
+   "text": "Retrieve Oscam from the new git repo."
+  },
+  {
+   "date": "2024-03-04",
+   "text": "Rebase to Alpine 3.19. Add libdvbcsa."
+  },
+  {
+   "date": "2023-08-27",
+   "text": "Rebase to Alpine 3.18. Pull PCSC driver from Linuxserver S3 due to Cloudflare blocking curl download of original file."
+  },
+  {
+   "date": "2023-07-07",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-03-13",
+   "text": "Rebase to Alpine 3.17."
+  },
+  {
+   "date": "2022-11-03",
+   "text": "Rebasing to alpine 3.16 and s6v3. Update pcsd driver link."
+  },
+  {
+   "date": "2022-02-13",
+   "text": "Rebasing to alpine 3.15."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-04-29",
+   "text": "Add revision check, so pipeline can build new revisions."
+  },
+  {
+   "date": "2019-04-28",
+   "text": "Switch back to streamboard svn to fix version not showing in UI."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-19",
+   "text": "Add pipeline logic and multi arch, rebase to Alpine 3.8."
+  },
+  {
+   "date": "2018-01-03",
+   "text": "Deprecate cpu_core routine lack of scaling."
+  },
+  {
+   "date": "2017-12-13",
+   "text": "Rebase to alpine 3.7."
+  },
+  {
+   "date": "2017-10-19",
+   "text": "Add ccid package for usb card readers."
+  },
+  {
+   "date": "2017-10-17",
+   "text": "Switch to using bzr for source code, streamboard awol."
+  },
+  {
+   "date": "2017-05-28",
+   "text": "Rebase to alpine 3.6."
+  },
+  {
+   "date": "2017-02-09",
+   "text": "Rebase to alpine 3.5."
+  },
+  {
+   "date": "2016-10-14",
+   "text": "Add version layer information."
+  },
+  {
+   "date": "2016-10-02",
+   "text": "Add info on passing through devices to README."
+  },
+  {
+   "date": "2016-09-25",
+   "text": "Initial release."
+  }
+ ]
+}

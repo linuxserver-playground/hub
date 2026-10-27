@@ -1,0 +1,158 @@
+{
+ "image": "kometa",
+ "branch": "nightly",
+ "tag": "nightly-02b4c880-ls2",
+ "previous_tag": "nightly-234884d8-ls2",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "234884d8",
+  "to": "02b4c880",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 317191690,
+   "to": 317817477,
+   "delta": 625787
+  },
+  "arm64": {
+   "from": 316559314,
+   "to": 317214392,
+   "delta": 655078
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.19",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     },
+     {
+      "name": "httpcore2",
+      "from": "2.14.0",
+      "to": "2.16.0",
+      "purl": "pkg:pypi/httpcore2@2.16.0"
+     },
+     {
+      "name": "httpx2",
+      "from": "2.14.0",
+      "to": "2.16.0",
+      "purl": "pkg:pypi/httpx2@2.16.0"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.11",
+      "to": "3.12",
+      "purl": "pkg:pypi/pycparser@3.12"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:pypi/soupsieve@3.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.19",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     },
+     {
+      "name": "httpcore2",
+      "from": "2.14.0",
+      "to": "2.16.0",
+      "purl": "pkg:pypi/httpcore2@2.16.0"
+     },
+     {
+      "name": "httpx2",
+      "from": "2.14.0",
+      "to": "2.16.0",
+      "purl": "pkg:pypi/httpx2@2.16.0"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.11",
+      "to": "3.12",
+      "purl": "pkg:pypi/pycparser@3.12"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:pypi/soupsieve@3.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

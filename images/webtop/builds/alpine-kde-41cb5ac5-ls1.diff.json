@@ -1,0 +1,69 @@
+{
+ "image": "webtop",
+ "branch": "alpine-kde",
+ "tag": "alpine-kde-41cb5ac5-ls1",
+ "previous_tag": "alpine-kde-none-ls1",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed"
+ ],
+ "upstream": {
+  "from": "none",
+  "to": "41cb5ac5",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:alpine324",
+   "digest": "sha256:373af2db8faeeac43def5fecf71b9a33cfb16700e599e6928e1e2357c4c90d0d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:alpine324",
+   "digest": "sha256:373af2db8faeeac43def5fecf71b9a33cfb16700e599e6928e1e2357c4c90d0d"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1626962384,
+   "to": 1626955707,
+   "delta": -6677
+  },
+  "arm64": {
+   "from": 1547490162,
+   "to": 1547494012,
+   "delta": 3850
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,97 @@
+{
+ "image": "plex",
+ "branch": "master",
+ "tag": "1.43.5.11029-6bf8af3f0-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "1.43.5.11029-6bf8af3f0",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/unrar:latest",
+   "digest": "sha256:48c0ce2609bb3c35764956bbd9395e95b177421e3c74b3628c3676029f24f2e0"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 179096457,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 171391031,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "ATTACHED_DEVICES_PERMS",
+    "DEBIAN_FRONTEND",
+    "HOME",
+    "LANG",
+    "LANGUAGE",
+    "LSIO_FIRST_PARTY",
+    "NVIDIA_DRIVER_CAPABILITIES",
+    "PATH",
+    "PLEX_ARCH",
+    "PLEX_DOWNLOAD",
+    "PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR",
+    "PLEX_MEDIA_SERVER_HOME",
+    "PLEX_MEDIA_SERVER_INFO_DEVICE",
+    "PLEX_MEDIA_SERVER_INFO_VENDOR",
+    "PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS",
+    "PLEX_MEDIA_SERVER_USER",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "TMPDIR",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "1900/udp",
+    "32400/tcp",
+    "32410/udp",
+    "32412/udp",
+    "32413/udp",
+    "32414/udp",
+    "32469/tcp",
+    "5353/udp",
+    "8324/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

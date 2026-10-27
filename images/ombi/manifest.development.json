@@ -1,0 +1,160 @@
+{
+ "schema": 1,
+ "name": "ombi",
+ "summary": "[Ombi](https://ombi.io) allows you to host your own Plex Request and user management system.\nIf you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface!\nManage all your requests for Movies and TV with ease, leave notes for the user and get notification when a user requests something.\nAllow your users to post issues against their requests so you know there is a problem with the audio etc.\nEven automatically sent them weekly newsletters of new content that has been added to your Plex server!",
+ "upstream": {
+  "url": "https://ombi.io",
+  "version": {
+   "type": "github_release",
+   "repo": "Ombi-app/Ombi",
+   "prerelease": true
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "Ombi-app/Ombi"
+  },
+  "sponsor": [
+   {
+    "name": "Ombi - Patreon",
+    "url": "https://patreon.com/tidusjar"
+   },
+   {
+    "name": "Ombi - PayPal",
+    "url": "https://paypal.me/PlexRequestsNet"
+   }
+  ]
+ },
+ "release": {
+  "branch": "development",
+  "tag": "development",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable Ombi releases"
+   },
+   {
+    "tag": "development",
+    "description": "Releases from the `develop` branch of Ombi"
+   }
+  ]
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "OMBI_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3579
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3579",
+    "description": "web gui"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/ombi/config",
+    "description": "Contains all relevant configuration files."
+   }
+  ],
+  "env": [
+   {
+    "name": "BASE_URL",
+    "value": "/",
+    "description": "Subfolder can optionally be defined as an env variable for reverse proxies. Keep in mind that once this value is defined, the gui setting for base url no longer works. To use the gui setting, remove this env variable.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true,
+   "notes": "* `BASE_URL` cannot be changed from `/`\n"
+  }
+ },
+ "docs": {
+  "categories": [
+   "Media Requesters"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ombi.png",
+  "setup": "Access the webui at `<your-ip>:3579`. Follow the setup wizard on initial install.  Then configure the required services.\n"
+ },
+ "proxy": {
+  "port": 3579,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true,
+   "base_url_note": "Settings → Ombi → Base URL, set to /ombi"
+  },
+  "api_locations": [
+   "/api",
+   "/swagger"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2024-07-08",
+   "text": "Rebase to Ubuntu Noble."
+  },
+  {
+   "date": "2023-07-01",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2022-09-11",
+   "text": "Migrate to s6v3."
+  },
+  {
+   "date": "2022-05-01",
+   "text": "Rebase to Jammy."
+  },
+  {
+   "date": "2021-01-18",
+   "text": "Update upstream repo. Deprecate `v4-preview` tag, `develop` is now the tag for v4."
+  },
+  {
+   "date": "2020-04-14",
+   "text": "Add donation links for Ombi."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-01-25",
+   "text": "Add info on tags and development builds."
+  },
+  {
+   "date": "2018-12-17",
+   "text": "Switch to multi-arch builds and add aarch64 image."
+  },
+  {
+   "date": "2018-03-11",
+   "text": "Add HOME env to Dockerfile."
+  },
+  {
+   "date": "2018-03-05",
+   "text": "Switch to Ombi v3 stable based on .net core."
+  },
+  {
+   "date": "2018-01-26",
+   "text": "Fix continuation lines."
+  },
+  {
+   "date": "2017-04-16",
+   "text": "Switch to using inhouse mono baseimage."
+  },
+  {
+   "date": "2017-02-17",
+   "text": "Initial Release."
+  }
+ ]
+}

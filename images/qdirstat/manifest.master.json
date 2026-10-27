@@ -1,0 +1,147 @@
+{
+ "schema": 1,
+ "name": "qdirstat",
+ "summary": "[QDirStat](https://github.com/shundhammer/qdirstat) Qt-based directory statistics: KDirStat without any KDE -- from the author of the original KDirStat.",
+ "upstream": {
+  "url": "https://github.com/shundhammer/qdirstat",
+  "version": {
+   "type": "github_release",
+   "repo": "shundhammer/qdirstat"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "shundhammer/qdirstat"
+  },
+  "sponsor": [
+   {
+    "name": "QDirStat",
+    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EYJXAVLGNRR5W"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "QDIRSTAT_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "QdirStat desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "QdirStat desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/qdirstat/config",
+    "description": "Users home directory in the container, stores qdirstat settings and scans."
+   },
+   {
+    "path": "/data",
+    "host_path": "/path/to/data",
+    "description": "Data you want to analyze disk usage information of."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Storage"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/qdirstat-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-19",
+   "text": "Rebase to resolute."
+  },
+  {
+   "date": "2026-04-04",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-01-18",
+   "text": "Update build logic for Qt6 and version 2.0."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-08-28",
+   "text": "Rebase to noble."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-04-03",
+   "text": "Rebase to KasmVNC base image. Deprecate armhf build as the new base does not support it."
+  },
+  {
+   "date": "2022-12-16",
+   "text": "Rebase to Jammy."
+  },
+  {
+   "date": "2022-04-06",
+   "text": "Add xfce terminal."
+  },
+  {
+   "date": "2022-01-13",
+   "text": "Compile from source."
+  },
+  {
+   "date": "2022-01-11",
+   "text": "Initial release."
+  }
+ ]
+}

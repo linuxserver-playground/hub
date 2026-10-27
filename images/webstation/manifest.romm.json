@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "name": "webstation",
+ "summary": "[Webstation romm-broker](https://github.com/romm-streaming/romm-broker) is a sidecar container to enable collaborative streaming sessions from the [ROMM](https://romm.app/) web interface.",
+ "upstream": {
+  "url": "https://github.com/romm-streaming/romm-broker",
+  "version": {
+   "type": "github_release",
+   "repo": "romm-streaming/romm-broker"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "romm-streaming/romm-broker"
+  }
+ },
+ "release": {
+  "branch": "romm",
+  "tag": "romm",
+  "channel": "prerelease"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "BROKER_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Webstation romm-broker desktop gui HTTP must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Webstation romm-broker desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores all files and games."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webstation-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n**This image only runs in Wayland mode and should be run with a GPU**\n\n**For complete setup see [https://github.com/romm-streaming/romm-broke](https://github.com/romm-streaming/romm-broker)\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-08-21",
+   "text": "Add Xenia Edge emulator."
+  },
+  {
+   "date": "2026-08-13",
+   "text": "Add Azahar emulator."
+  },
+  {
+   "date": "2026-08-11",
+   "text": "Add Cemu emulator."
+  },
+  {
+   "date": "2026-08-08",
+   "text": "Initial release."
+  }
+ ]
+}

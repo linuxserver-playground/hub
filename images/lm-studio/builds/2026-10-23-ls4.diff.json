@@ -1,0 +1,1270 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-10-23-ls4",
+ "previous_tag": "2026-10-23-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-23",
+  "to": "2026-10-23",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:7573b628bd97397b86f0e61a98ddc5f70da413f4b43b1a7735632940abcc3869"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 9169320026,
+   "to": 9170017570,
+   "delta": 697544
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -116,7 +116,7 @@\n \n # add local files\n COPY /root /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-arch-kwin / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-arch-kwin / /\n \n # ports and volumes\n EXPOSE 3001\n"
+ },
+ "packages": {
+  "amd64": {
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "qtpdf",
+      "from": "6.11.2+dirty",
+      "to": "6.11.3+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtpdf@6.11.3%2Bdirty"
+     },
+     {
+      "name": "qtwebengine",
+      "from": "6.11.2+dirty",
+      "to": "6.11.3+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtwebengine@6.11.3%2Bdirty"
+     },
+     {
+      "name": "QPdfPlugin",
+      "from": "6.11.2",
+      "to": "6.11.3",
+      "purl": "pkg:github/qt/qtpdf@6de08a0e1?library_name=QPdfPlugin#src/pdf/plugins/imageformats/pdf"
+     },
+     {
+      "name": "qwebengine_convert_dict",
+      "from": "6.11.2",
+      "to": "6.11.3",
+      "purl": "pkg:github/qt/qtwebengine@6de08a0e1?library_name=qwebengine_convert_dict#src/core/tools/qwebengine_convert_dict"
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "glycin",
+      "from": "2.2.4-1",
+      "to": "2.2.5-1",
+      "purl": "pkg:alpm/arch/glycin@2.2.5-1?arch=x86_64&distro=arch-rolling&upstream=glycin"
+     },
+     {
+      "name": "ldb",
+      "from": "2:4.25.0-1",
+      "to": "2:4.25.1-1",
+      "purl": "pkg:alpm/arch/ldb@2%3A4.25.1-1?arch=x86_64&distro=arch-rolling&upstream=samba"
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.1-1",
+      "to": "2.7.2-2",
+      "purl": "pkg:alpm/arch/libldap@2.7.2-2?arch=x86_64&distro=arch-rolling&upstream=openldap"
+     },
+     {
+      "name": "libraw",
+      "from": "0.22.2-1",
+      "to": "0.22.3-1",
+      "purl": "pkg:alpm/arch/libraw@0.22.3-1?arch=x86_64&distro=arch-rolling&upstream=libraw"
+     },
+     {
+      "name": "libsoup3",
+      "from": "3.8.0-1",
+      "to": "3.8.1-1",
+      "purl": "pkg:alpm/arch/libsoup3@3.8.1-1?arch=x86_64&distro=arch-rolling&upstream=libsoup3"
+     },
+     {
+      "name": "libwbclient",
+      "from": "2:4.25.0-1",
+      "to": "2:4.25.1-1",
+      "purl": "pkg:alpm/arch/libwbclient@2%3A4.25.1-1?arch=x86_64&distro=arch-rolling&upstream=samba"
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.3-4",
+      "to": "23.1.4-1",
+      "purl": "pkg:alpm/arch/llvm-libs@23.1.4-1?arch=x86_64&distro=arch-rolling&upstream=llvm"
+     },
+     {
+      "name": "openbsd-netcat",
+      "from": "1.238_1-1",
+      "to": "1.239_1-1",
+      "purl": "pkg:alpm/arch/openbsd-netcat@1.239_1-1?arch=x86_64&distro=arch-rolling&upstream=openbsd-netcat"
+     },
+     {
+      "name": "perl-error",
+      "from": "0.17030-3",
+      "to": "0.17031-1",
+      "purl": "pkg:alpm/arch/perl-error@0.17031-1?arch=any&distro=arch-rolling&upstream=perl-error"
+     },
+     {
+      "name": "qt6-webengine",
+      "from": "6.11.2-2",
+      "to": "6.11.3-2",
+      "purl": "pkg:alpm/arch/qt6-webengine@6.11.3-2?arch=x86_64&distro=arch-rolling&upstream=qt6-webengine"
+     },
+     {
+      "name": "smbclient",
+      "from": "2:4.25.0-1",
+      "to": "2:4.25.1-1",
+      "purl": "pkg:alpm/arch/smbclient@2%3A4.25.1-1?arch=x86_64&distro=arch-rolling&upstream=samba"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@openclaw/a2a",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/a2a@2026.10.8"
+     },
+     {
+      "name": "@openclaw/admin-http-rpc",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/admin-http-rpc@2026.10.8"
+     },
+     {
+      "name": "@openclaw/agentsapi",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/agentsapi@2026.10.8"
+     },
+     {
+      "name": "@openclaw/ai",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/ai@2026.10.8"
+     },
+     {
+      "name": "@openclaw/alibaba-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/alibaba-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/anthropic-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/anthropic-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/apple-fm-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/apple-fm-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/azure-speech",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/azure-speech@2026.10.8"
+     },
+     {
+      "name": "@openclaw/beam",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/beam@2026.10.8"
+     },
+     {
+      "name": "@openclaw/bonjour",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/bonjour@2026.10.8"
+     },
+     {
+      "name": "@openclaw/browser-plugin",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/browser-plugin@2026.10.8"
+     },
+     {
+      "name": "@openclaw/canvas-plugin",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/canvas-plugin@2026.10.8"
+     },
+     {
+      "name": "@openclaw/clawrouter",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/clawrouter@2026.10.8"
+     },
+     {
+      "name": "@openclaw/cloudflare",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/cloudflare@2026.10.8"
+     },
+     {
+      "name": "@openclaw/code-mode-quickjs",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/code-mode-quickjs@2026.10.8"
+     },
+     {
+      "name": "@openclaw/copilot-proxy",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/copilot-proxy@2026.10.8"
+     },
+     {
+      "name": "@openclaw/crabbox-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/crabbox-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/cua-computer",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/cua-computer@2026.10.8"
+     },
+     {
+      "name": "@openclaw/deepgram-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/deepgram-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/document-extract-plugin",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/document-extract-plugin@2026.10.8"
+     },
+     {
+      "name": "@openclaw/elevenlabs-speech",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/elevenlabs-speech@2026.10.8"
+     },
+     {
+      "name": "@openclaw/fal-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/fal-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/file-transfer",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/file-transfer@2026.10.8"
+     },
+     {
+      "name": "@openclaw/geolocation-plugin",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/geolocation-plugin@2026.10.8"
+     },
+     {
+      "name": "@openclaw/github",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/github@2026.10.8"
+     },
+     {
+      "name": "@openclaw/github-copilot-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/github-copilot-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/google-plugin",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/google-plugin@2026.10.8"
+     },
+     {
+      "name": "@openclaw/huggingface-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/huggingface-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/image-generation-core",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/image-generation-core@2026.10.8"
+     },
+     {
+      "name": "@openclaw/imap",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/imap@2026.10.8"
+     },
+     {
+      "name": "@openclaw/kie-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/kie-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/linux-node",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/linux-node@2026.10.8"
+     },
+     {
+      "name": "@openclaw/litellm-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/litellm-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/llm-task",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/llm-task@2026.10.8"
+     },
+     {
+      "name": "@openclaw/lmstudio-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/lmstudio-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/logbook",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/logbook@2026.10.8"
+     },
+     {
+      "name": "@openclaw/memory-core",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/memory-core@2026.10.8"
+     },
+     {
+      "name": "@openclaw/memory-wiki",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/memory-wiki@2026.10.8"
+     },
+     {
+      "name": "@openclaw/microsoft-foundry",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/microsoft-foundry@2026.10.8"
+     },
+     {
+      "name": "@openclaw/microsoft-speech",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/microsoft-speech@2026.10.8"
+     },
+     {
+      "name": "@openclaw/migrate-claude",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/migrate-claude@2026.10.8"
+     },
+     {
+      "name": "@openclaw/migrate-hermes",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/migrate-hermes@2026.10.8"
+     },
+     {
+      "name": "@openclaw/minimax-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/minimax-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/nvidia-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/nvidia-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/oc-path",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/oc-path@2026.10.8"
+     },
+     {
+      "name": "@openclaw/ollama-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/ollama-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/onepassword",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/onepassword@2026.10.8"
+     },
+     {
+      "name": "@openclaw/openai-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/openai-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/opencode-go-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/opencode-go-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/openrouter-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/openrouter-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/policy",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/policy@2026.10.8"
+     },
+     {
+      "name": "@openclaw/reef",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/reef@2026.10.8"
+     },
+     {
+      "name": "@openclaw/runway-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/runway-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/senseaudio-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/senseaudio-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/session-share",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/session-share@2026.10.8"
+     },
+     {
+      "name": "@openclaw/sglang-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/sglang-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/telegram",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/telegram@2026.10.8"
+     },
+     {
+      "name": "@openclaw/together-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/together-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/tts-local-cli",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/tts-local-cli@2026.10.8"
+     },
+     {
+      "name": "@openclaw/vault",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/vault@2026.10.8"
+     },
+     {
+      "name": "@openclaw/vllm-provider",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/vllm-provider@2026.10.8"
+     },
+     {
+      "name": "@openclaw/web-readability-plugin",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/web-readability-plugin@2026.10.8"
+     },
+     {
+      "name": "@openclaw/workboard",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/workboard@2026.10.8"
+     },
+     {
+      "name": "@openclaw/x",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/x@2026.10.8"
+     },
+     {
+      "name": "@openclaw/xai-plugin",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/%40openclaw/xai-plugin@2026.10.8"
+     },
+     {
+      "name": "axios",
+      "from": "1.20.0",
+      "to": "1.21.0",
+      "purl": "pkg:npm/axios@1.21.0"
+     },
+     {
+      "name": "bowser",
+      "from": "2.14.1",
+      "to": "2.15.0",
+      "purl": "pkg:npm/bowser@2.15.0"
+     },
+     {
+      "name": "node-forge",
+      "from": "1.4.0",
+      "to": "1.4.2",
+      "purl": "pkg:npm/node-forge@1.4.2"
+     },
+     {
+      "name": "openclaw",
+      "from": "2026.10.7",
+      "to": "2026.10.8",
+      "purl": "pkg:npm/openclaw@2026.10.8"
+     },
+     {
+      "name": "qs",
+      "from": "6.16.1",
+      "to": "6.17.0",
+      "purl": "pkg:npm/qs@6.17.0"
+     },
+     {
+      "name": "strtok3",
+      "from": "10.6.2",
+      "to": "10.6.3",
+      "purl": "pkg:npm/strtok3@10.6.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "uv",
+      "from": "0.13.5",
+      "to": "0.13.6",
+      "purl": "pkg:pypi/uv@0.13.6"
+     }
+    ],
+    "downgraded": []
+   },
+   "rust-crate": {
+    "added": [
+     {
+      "name": "asyncband",
+      "version": "0.7.4",
+      "purl": "pkg:cargo/asyncband@0.7.4"
+     }
+    ],
+    "removed": [
+     {
+      "name": "mea",
+      "version": "0.6.7",
+      "purl": "pkg:cargo/mea@0.6.7"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "astral-html",
+      "from": "0.0.3",
+      "to": "0.0.4",
+      "purl": "pkg:cargo/astral-html@0.0.4"
+     },
+     {
+      "name": "h2",
+      "from": "0.4.15",
+      "to": "0.4.19",
+      "purl": "pkg:cargo/h2@0.4.19"
+     },
+     {
+      "name": "hyper",
+      "from": "1.10.1",
+      "to": "1.11.1",
+      "purl": "pkg:cargo/hyper@1.11.1"
+     },
+     {
+      "name": "hyper-util",
+      "from": "0.1.20",
+      "to": "0.1.21",
+      "purl": "pkg:cargo/hyper-util@0.1.21"
+     },
+     {
+      "name": "quick-xml",
+      "from": "0.41.0",
+      "to": "0.42.0",
+      "purl": "pkg:cargo/quick-xml@0.42.0"
+     },
+     {
+      "name": "reqsign",
+      "from": "0.20.6",
+      "to": "0.20.7",
+      "purl": "pkg:cargo/reqsign@0.20.7"
+     },
+     {
+      "name": "reqsign-aws-core",
+      "from": "3.1.1",
+      "to": "3.2.0",
+      "purl": "pkg:cargo/reqsign-aws-core@3.2.0"
+     },
+     {
+      "name": "reqsign-aws-v4",
+      "from": "3.3.0",
+      "to": "3.3.1",
+      "purl": "pkg:cargo/reqsign-aws-v4@3.3.1"
+     },
+     {
+      "name": "reqsign-azure-storage",
+      "from": "3.2.1",
+      "to": "3.3.0",
+      "purl": "pkg:cargo/reqsign-azure-storage@3.3.0"
+     },
+     {
+      "name": "reqsign-command-execute-tokio",
+      "from": "3.0.6",
+      "to": "3.0.7",
+      "purl": "pkg:cargo/reqsign-command-execute-tokio@3.0.7"
+     },
+     {
+      "name": "reqsign-core",
+      "from": "3.3.1",
+      "to": "3.3.2",
+      "purl": "pkg:cargo/reqsign-core@3.3.2"
+     },
+     {
+      "name": "reqsign-file-read-tokio",
+      "from": "3.0.6",
+      "to": "3.0.7",
+      "purl": "pkg:cargo/reqsign-file-read-tokio@3.0.7"
+     },
+     {
+      "name": "reqsign-google",
+      "from": "3.1.1",
+      "to": "3.2.0",
+      "purl": "pkg:cargo/reqsign-google@3.2.0"
+     },
+     {
+      "name": "reqsign-http-send-reqwest",
+      "from": "4.0.6",
+      "to": "4.0.7",
+      "purl": "pkg:cargo/reqsign-http-send-reqwest@4.0.7"
+     },
+     {
+      "name": "reqwest",
+      "from": "0.13.4",
+      "to": "0.13.5",
+      "purl": "pkg:cargo/reqwest@0.13.5"
+     },
+     {
+      "name": "smallvec",
+      "from": "1.16.1",
+      "to": "1.16.2",
+      "purl": "pkg:cargo/smallvec@1.16.2"
+     },
+     {
+      "name": "thiserror",
+      "from": "2.0.20",
+      "to": "2.0.21",
+      "purl": "pkg:cargo/thiserror@2.0.21"
+     },
+     {
+      "name": "uv",
+      "from": "0.13.5",
+      "to": "0.13.6",
+      "purl": "pkg:cargo/uv@0.13.6"
+     },
+     {
+      "name": "uv-audit",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-audit@0.0.98"
+     },
+     {
+      "name": "uv-audit-operations",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-audit-operations@0.0.98"
+     },
+     {
+      "name": "uv-auth",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-auth@0.0.98"
+     },
+     {
+      "name": "uv-bin-install",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-bin-install@0.0.98"
+     },
+     {
+      "name": "uv-build-backend",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-build-backend@0.0.98"
+     },
+     {
+      "name": "uv-build-commands",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-build-commands@0.0.98"
+     },
+     {
+      "name": "uv-build-frontend",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-build-frontend@0.0.98"
+     },
+     {
+      "name": "uv-cache",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-cache@0.0.98"
+     },
+     {
+      "name": "uv-cache-info",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-cache-info@0.0.98"
+     },
+     {
+      "name": "uv-cache-key",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-cache-key@0.0.98"
+     },
+     {
+      "name": "uv-cli",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-cli@0.0.98"
+     },
+     {
+      "name": "uv-client",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-client@0.0.98"
+     },
+     {
+      "name": "uv-command-support",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-command-support@0.0.98"
+     },
+     {
+      "name": "uv-configuration",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-configuration@0.0.98"
+     },
+     {
+      "name": "uv-console",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-console@0.0.98"
+     },
+     {
+      "name": "uv-dirs",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-dirs@0.0.98"
+     },
+     {
+      "name": "uv-dispatch",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-dispatch@0.0.98"
+     },
+     {
+      "name": "uv-distribution",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-distribution@0.0.98"
+     },
+     {
+      "name": "uv-distribution-filename",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-distribution-filename@0.0.98"
+     },
+     {
+      "name": "uv-distribution-types",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-distribution-types@0.0.98"
+     },
+     {
+      "name": "uv-environment-operations",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-environment-operations@0.0.98"
+     },
+     {
+      "name": "uv-errors",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-errors@0.0.98"
+     },
+     {
+      "name": "uv-extract",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-extract@0.0.98"
+     },
+     {
+      "name": "uv-fastid",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-fastid@0.0.98"
+     },
+     {
+      "name": "uv-flags",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-flags@0.0.98"
+     },
+     {
+      "name": "uv-fs",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-fs@0.0.98"
+     },
+     {
+      "name": "uv-git",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-git@0.0.98"
+     },
+     {
+      "name": "uv-git-types",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-git-types@0.0.98"
+     },
+     {
+      "name": "uv-globfilter",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-globfilter@0.0.98"
+     },
+     {
+      "name": "uv-install-operations",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-install-operations@0.0.98"
+     },
+     {
+      "name": "uv-install-wheel",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-install-wheel@0.0.98"
+     },
+     {
+      "name": "uv-installer",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-installer@0.0.98"
+     },
+     {
+      "name": "uv-keyring",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-keyring@0.0.98"
+     },
+     {
+      "name": "uv-lock",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-lock@0.0.98"
+     },
+     {
+      "name": "uv-lock-operations",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-lock-operations@0.0.98"
+     },
+     {
+      "name": "uv-logging",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-logging@0.0.98"
+     },
+     {
+      "name": "uv-macros",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-macros@0.0.98"
+     },
+     {
+      "name": "uv-metadata",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-metadata@0.0.98"
+     },
+     {
+      "name": "uv-netrc",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-netrc@0.0.98"
+     },
+     {
+      "name": "uv-normalize",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-normalize@0.0.98"
+     },
+     {
+      "name": "uv-once-map",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-once-map@0.0.98"
+     },
+     {
+      "name": "uv-options-metadata",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-options-metadata@0.0.98"
+     },
+     {
+      "name": "uv-pep440",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-pep440@0.0.98"
+     },
+     {
+      "name": "uv-pep508",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-pep508@0.0.98"
+     },
+     {
+      "name": "uv-performance-memory-allocator",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-performance-memory-allocator@0.0.98"
+     },
+     {
+      "name": "uv-pip-commands",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-pip-commands@0.0.98"
+     },
+     {
+      "name": "uv-platform",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-platform@0.0.98"
+     },
+     {
+      "name": "uv-platform-tags",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-platform-tags@0.0.98"
+     },
+     {
+      "name": "uv-preview",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-preview@0.0.98"
+     },
+     {
+      "name": "uv-project-commands",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-project-commands@0.0.98"
+     },
+     {
+      "name": "uv-project-edit",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-project-edit@0.0.98"
+     },
+     {
+      "name": "uv-publish",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-publish@0.0.98"
+     },
+     {
+      "name": "uv-publish-commands",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-publish-commands@0.0.98"
+     },
+     {
+      "name": "uv-pypi-types",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-pypi-types@0.0.98"
+     },
+     {
+      "name": "uv-python-commands",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-python-commands@0.0.98"
+     },
+     {
+      "name": "uv-python-discovery",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-python-discovery@0.0.98"
+     },
+     {
+      "name": "uv-python-interpreter",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-python-interpreter@0.0.98"
+     },
+     {
+      "name": "uv-python-managed",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-python-managed@0.0.98"
+     },
+     {
+      "name": "uv-python-types",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-python-types@0.0.98"
+     },
+     {
+      "name": "uv-redacted",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-redacted@0.0.98"
+     },
+     {
+      "name": "uv-requirements",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-requirements@0.0.98"
+     },
+     {
+      "name": "uv-requirements-txt",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-requirements-txt@0.0.98"
+     },
+     {
+      "name": "uv-resolve-operations",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-resolve-operations@0.0.98"
+     },
+     {
+      "name": "uv-resolver",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-resolver@0.0.98"
+     },
+     {
+      "name": "uv-resolver-types",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-resolver-types@0.0.98"
+     },
+     {
+      "name": "uv-scripts",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-scripts@0.0.98"
+     },
+     {
+      "name": "uv-settings",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-settings@0.0.98"
+     },
+     {
+      "name": "uv-shell",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-shell@0.0.98"
+     },
+     {
+      "name": "uv-small-str",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-small-str@0.0.98"
+     },
+     {
+      "name": "uv-state",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-state@0.0.98"
+     },
+     {
+      "name": "uv-static",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-static@0.0.98"
+     },
+     {
+      "name": "uv-test",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-test@0.0.98"
+     },
+     {
+      "name": "uv-threads",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-threads@0.0.98"
+     },
+     {
+      "name": "uv-toml",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-toml@0.0.98"
+     },
+     {
+      "name": "uv-tool",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-tool@0.0.98"
+     },
+     {
+      "name": "uv-tool-commands",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-tool-commands@0.0.98"
+     },
+     {
+      "name": "uv-torch",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-torch@0.0.98"
+     },
+     {
+      "name": "uv-trampoline-builder",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-trampoline-builder@0.0.98"
+     },
+     {
+      "name": "uv-types",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-types@0.0.98"
+     },
+     {
+      "name": "uv-unix",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-unix@0.0.98"
+     },
+     {
+      "name": "uv-version",
+      "from": "0.13.5",
+      "to": "0.13.6",
+      "purl": "pkg:cargo/uv-version@0.13.6"
+     },
+     {
+      "name": "uv-virtualenv",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-virtualenv@0.0.98"
+     },
+     {
+      "name": "uv-warnings",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-warnings@0.0.98"
+     },
+     {
+      "name": "uv-workspace",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-workspace@0.0.98"
+     },
+     {
+      "name": "uv-workspace-commands",
+      "from": "0.0.97",
+      "to": "0.0.98",
+      "purl": "pkg:cargo/uv-workspace-commands@0.0.98"
+     },
+     {
+      "name": "zerocopy",
+      "from": "0.8.57",
+      "to": "0.8.63",
+      "purl": "pkg:cargo/zerocopy@0.8.63"
+     },
+     {
+      "name": "zerocopy-derive",
+      "from": "0.8.57",
+      "to": "0.8.63",
+      "purl": "pkg:cargo/zerocopy-derive@0.8.63"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 1,
+  "removed": 1,
+  "upgraded": 193,
+  "downgraded": 0
+ }
+}

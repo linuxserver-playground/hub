@@ -1,0 +1,579 @@
+{
+ "image": "radarr",
+ "branch": "nightly",
+ "tag": "nightly-7.0.1.10833-ls4",
+ "previous_tag": "nightly-7.0.0.10815-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "7.0.0.10815",
+  "to": "7.0.1.10833",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 96935616,
+   "to": 96215975,
+   "delta": -719641
+  },
+  "arm64": {
+   "from": 94636936,
+   "to": 93952898,
+   "delta": -684038
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "MailKit",
+      "from": "4.18.1",
+      "to": "4.18.2",
+      "purl": "pkg:nuget/MailKit@4.18.2"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Authentication.OpenIdConnect@10.0.14"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Cryptography.Internal",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Cryptography.Internal@10.0.14"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Cryptography.KeyDerivation",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Cryptography.KeyDerivation@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Binder@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.CommandLine",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.CommandLine@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.EnvironmentVariables@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.FileExtensions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.FileExtensions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Json",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Json@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.UserSecrets",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.UserSecrets@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyInjection@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyInjection.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.FileProviders.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileProviders.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.FileProviders.Physical",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileProviders.Physical@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.FileSystemGlobbing",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileSystemGlobbing@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting.WindowsServices",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting.WindowsServices@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Configuration",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Configuration@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Console",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Console@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Debug",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Debug@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.EventLog",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.EventLog@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.EventSource",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.EventSource@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Options",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Options@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Options.ConfigurationExtensions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Primitives",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Primitives@10.0.14"
+     },
+     {
+      "name": "MimeKit",
+      "from": "4.18.1",
+      "to": "4.18.2",
+      "purl": "pkg:nuget/MimeKit@4.18.2"
+     },
+     {
+      "name": "Swashbuckle.AspNetCore.Annotations",
+      "from": "10.3.0",
+      "to": "10.3.1",
+      "purl": "pkg:nuget/Swashbuckle.AspNetCore.Annotations@10.3.1"
+     },
+     {
+      "name": "Swashbuckle.AspNetCore.Swagger",
+      "from": "10.3.0",
+      "to": "10.3.1",
+      "purl": "pkg:nuget/Swashbuckle.AspNetCore.Swagger@10.3.1"
+     },
+     {
+      "name": "Swashbuckle.AspNetCore.SwaggerGen",
+      "from": "10.3.0",
+      "to": "10.3.1",
+      "purl": "pkg:nuget/Swashbuckle.AspNetCore.SwaggerGen@10.3.1"
+     },
+     {
+      "name": "System.Diagnostics.EventLog",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/System.Diagnostics.EventLog@10.0.14"
+     },
+     {
+      "name": "System.Security.Cryptography.Pkcs",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/System.Security.Cryptography.Pkcs@10.0.14"
+     },
+     {
+      "name": "System.ServiceProcess.ServiceController",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/System.ServiceProcess.ServiceController@10.0.14"
+     },
+     {
+      "name": "runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-x64@10.0.14"
+     },
+     {
+      "name": "runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-x64",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-x64@10.0.14"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "MailKit",
+      "from": "4.18.1",
+      "to": "4.18.2",
+      "purl": "pkg:nuget/MailKit@4.18.2"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Authentication.OpenIdConnect@10.0.14"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Cryptography.Internal",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Cryptography.Internal@10.0.14"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Cryptography.KeyDerivation",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Cryptography.KeyDerivation@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Binder@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.CommandLine",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.CommandLine@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.EnvironmentVariables@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.FileExtensions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.FileExtensions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Json",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Json@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.UserSecrets",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.UserSecrets@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyInjection@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyInjection.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.FileProviders.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileProviders.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.FileProviders.Physical",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileProviders.Physical@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.FileSystemGlobbing",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileSystemGlobbing@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting.WindowsServices",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting.WindowsServices@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Configuration",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Configuration@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Console",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Console@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Debug",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Debug@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.EventLog",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.EventLog@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.EventSource",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.EventSource@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Options",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Options@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Options.ConfigurationExtensions@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Primitives",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Primitives@10.0.14"
+     },
+     {
+      "name": "MimeKit",
+      "from": "4.18.1",
+      "to": "4.18.2",
+      "purl": "pkg:nuget/MimeKit@4.18.2"
+     },
+     {
+      "name": "Swashbuckle.AspNetCore.Annotations",
+      "from": "10.3.0",
+      "to": "10.3.1",
+      "purl": "pkg:nuget/Swashbuckle.AspNetCore.Annotations@10.3.1"
+     },
+     {
+      "name": "Swashbuckle.AspNetCore.Swagger",
+      "from": "10.3.0",
+      "to": "10.3.1",
+      "purl": "pkg:nuget/Swashbuckle.AspNetCore.Swagger@10.3.1"
+     },
+     {
+      "name": "Swashbuckle.AspNetCore.SwaggerGen",
+      "from": "10.3.0",
+      "to": "10.3.1",
+      "purl": "pkg:nuget/Swashbuckle.AspNetCore.SwaggerGen@10.3.1"
+     },
+     {
+      "name": "System.Diagnostics.EventLog",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/System.Diagnostics.EventLog@10.0.14"
+     },
+     {
+      "name": "System.Security.Cryptography.Pkcs",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/System.Security.Cryptography.Pkcs@10.0.14"
+     },
+     {
+      "name": "System.ServiceProcess.ServiceController",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/System.ServiceProcess.ServiceController@10.0.14"
+     },
+     {
+      "name": "runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-arm64@10.0.14"
+     },
+     {
+      "name": "runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-arm64",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-arm64@10.0.14"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 82,
+  "downgraded": 0
+ }
+}

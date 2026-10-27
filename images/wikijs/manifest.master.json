@@ -1,0 +1,174 @@
+{
+ "schema": 1,
+ "name": "wikijs",
+ "summary": "[Wikijs](https://github.com/Requarks/wiki) A modern, lightweight and powerful wiki app built on NodeJS.",
+ "upstream": {
+  "url": "https://github.com/Requarks/wiki",
+  "version": {
+   "type": "github_release",
+   "repo": "Requarks/wiki-v2"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "Requarks/wiki-v2"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "WIKIJS_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 60,
+  "web": {
+   "port": 3000
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Port for Wiki.js's web interface."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/wikijs/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/data",
+    "host_path": "/path/to/data",
+    "description": "Where Wiki.js data is stored."
+   }
+  ],
+  "env": [
+   {
+    "name": "DB_TYPE",
+    "value": "sqlite",
+    "description": "Set to sqlite (default) or postgres depending on the database engine you wish to use",
+    "optional": true
+   },
+   {
+    "name": "DB_HOST",
+    "value": "",
+    "description": "DB hostname (postgres only)",
+    "optional": true
+   },
+   {
+    "name": "DB_PORT",
+    "value": "",
+    "description": "DB port (postgres only)",
+    "optional": true
+   },
+   {
+    "name": "DB_NAME",
+    "value": "",
+    "description": "DB name (postgres only)",
+    "optional": true
+   },
+   {
+    "name": "DB_USER",
+    "value": "",
+    "description": "DB username (postgres only)",
+    "optional": true
+   },
+   {
+    "name": "DB_PASS",
+    "value": "",
+    "description": "DB password (postgres only)",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Content Management"
+  ],
+  "logo": "https://static.requarks.io/logo/wikijs-full.svg",
+  "setup": "Please note that the database configuration environment variables will apply _on first run only_, after which you will need to directly edit /config/config.yml to change your settings.\n\nFor more information please see the [official documentation](https://docs.requarks.io/).\n"
+ },
+ "proxy": {
+  "port": 3000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  },
+  "api_locations": [
+   "/graphql"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-10-10",
+   "text": "Rebase to Alpine 3.24, switch upstream repo to v2 maintenance repo."
+  },
+  {
+   "date": "2025-10-14",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-01-18",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-06-01",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-08-25",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-07-07",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-03-21",
+   "text": "Restore git and openssh packages for git storage support."
+  },
+  {
+   "date": "2023-03-21",
+   "text": "Create dummy /etc/os-release to fix System Info page."
+  },
+  {
+   "date": "2022-10-10",
+   "text": "Rebasing to alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2020-04-28",
+   "text": "Added python dependency for some NPM modules as well as git for storage module"
+  },
+  {
+   "date": "2019-12-14",
+   "text": "Initial Release."
+  }
+ ]
+}

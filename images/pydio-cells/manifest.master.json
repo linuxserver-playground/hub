@@ -1,0 +1,157 @@
+{
+ "schema": 1,
+ "name": "pydio-cells",
+ "summary": "[Pydio-cells](https://pydio.com/) is the nextgen file sharing platform for organizations. It is a full rewrite of the Pydio project using the Go language following a micro-service architecture.",
+ "upstream": {
+  "url": "https://pydio.com/",
+  "version": {
+   "type": "command",
+   "run": "curl -sX GET https://api.github.com/repos/pydio/cells/releases | jq -r '.[] | select(.prerelease != true) | .tag_name' | sort -rV | head -1"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "pydio/cells",
+   "tag": "${VERSION}"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "CELLS_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "EXTERNALURL": "https://localhost:8080"
+  },
+  "web": {
+   "port": 8080,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "hostname": {
+   "value": "pydio-cells",
+   "description": "Pydio Cells uses the hostname to verify local files. This setting is required and should not be changed after it has been set."
+  },
+  "ports": [
+   {
+    "internal": "8080",
+    "description": "Http port"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/pydio-cells/config",
+    "description": "All the config files reside here."
+   }
+  ],
+  "env": [
+   {
+    "name": "EXTERNALURL",
+    "value": "yourdomain.url",
+    "description": "The external url you would like to use to access Pydio Cells (Can be https://domain.url or https://IP:PORT)."
+   },
+   {
+    "name": "SERVER_IP",
+    "value": "0.0.0.0",
+    "description": "Enter the LAN IP of the docker server. Required for local access by IP, added to self signed cert as SAN (not required if accessing only through reverse proxy).",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "File Sharing"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pydio-cells-icon.png",
+  "setup": "You must first create a mysql database for Pydio Cells. Using our [mariadb image](https://hub.docker.com/r/linuxserver/mariadb) is recommended.\n\nThen access the web gui setup wizard at `https://SERVER_IP:8080` if accessing locally (must set `SERVER_IP` env var), or at `https://pydio-cells.domain.com` if reverse proxying.\n",
+  "notices": {
+   "strict_proxy": true
+  }
+ },
+ "proxy": {
+  "port": 8080,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  },
+  "extra_locations": [
+   {
+    "path": "/ws"
+   }
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-07-17",
+   "text": "Rebasing to Alpine 3.24."
+  },
+  {
+   "date": "2025-07-27",
+   "text": "Rebasing to Alpine 3.22."
+  },
+  {
+   "date": "2024-06-27",
+   "text": "Rebasing to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-14",
+   "text": "Rebasing to alpine 3.19. Grpc port defaults to 8080."
+  },
+  {
+   "date": "2023-10-11",
+   "text": "Rebasing to alpine 3.18. Build on alpine edge with Go 1.21."
+  },
+  {
+   "date": "2023-07-06",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2022-12-01",
+   "text": "Rebasing to alpine 3.17. Adding multi-arch support. Updating cli arguments for v4 compatibility."
+  },
+  {
+   "date": "2022-10-19",
+   "text": "Rebasing to alpine 3.16. Upgrading to s6v3. Updating build instructions for v4."
+  },
+  {
+   "date": "2022-09-19",
+   "text": "Rebasing to alpine 3.15."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2020-04-18",
+   "text": "Switch to https as default (only affects new installs). Add self signed cert, add `SERVER_IP` var for adding to cert as SAN. Add optional gRPC port mapping for CellsSync."
+  },
+  {
+   "date": "2020-04-17",
+   "text": "Update compile options, previous release was broken for new installs."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-12-12",
+   "text": "Initial Release"
+  }
+ ]
+}

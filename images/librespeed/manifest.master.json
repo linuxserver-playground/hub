@@ -1,0 +1,191 @@
+{
+ "schema": 1,
+ "name": "librespeed",
+ "summary": "[Librespeed](https://github.com/librespeed/speedtest) is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.\n\nNo Flash, No Java, No Websocket, No Bullshit.",
+ "upstream": {
+  "url": "https://github.com/librespeed/speedtest",
+  "version": {
+   "type": "github_release",
+   "repo": "librespeed/speedtest"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "librespeed/speedtest"
+  },
+  "sponsor": [
+   {
+    "name": "LibreSpeed (Liberapay)",
+    "url": "https://liberapay.com/fdossena/donate"
+   },
+   {
+    "name": "LibreSpeed (Paypal)",
+    "url": "https://www.paypal.me/sineisochronic"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "LIBRESPEED_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 80
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "web gui"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/librespeed/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "env": [
+   {
+    "name": "PASSWORD",
+    "value": "PASSWORD",
+    "description": "Set the password for the results database."
+   },
+   {
+    "name": "CUSTOM_RESULTS",
+    "value": "false",
+    "description": "(optional) set to `true` to enable custom results page in `/config/www/results/index.php`.",
+    "optional": true
+   },
+   {
+    "name": "DB_TYPE",
+    "value": "sqlite",
+    "description": "Defaults to `sqlite`, can also be set to `mysql` or `postgresql`.",
+    "optional": true
+   },
+   {
+    "name": "DB_NAME",
+    "value": "DB_NAME",
+    "description": "Database name. Required for mysql and pgsql.",
+    "optional": true
+   },
+   {
+    "name": "DB_HOSTNAME",
+    "value": "DB_HOSTNAME",
+    "description": "Database address. Required for mysql and pgsql.",
+    "optional": true
+   },
+   {
+    "name": "DB_USERNAME",
+    "value": "DB_USERNAME",
+    "description": "Database username. Required for mysql and pgsql.",
+    "optional": true
+   },
+   {
+    "name": "DB_PASSWORD",
+    "value": "DB_PASSWORD",
+    "description": "Database password. Required for mysql and pgsql.",
+    "optional": true
+   },
+   {
+    "name": "DB_PORT",
+    "value": "DB_PORT",
+    "description": "Database port. Required for mysql.",
+    "optional": true
+   },
+   {
+    "name": "IPINFO_APIKEY",
+    "value": "ACCESS_TOKEN",
+    "description": "Access token from ipinfo.io. Required for detailed IP information.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Monitoring"
+  ],
+  "logo": "https://raw.githubusercontent.com/librespeed/speedtest/master/.logo/logo3.png",
+  "setup": "Access the speedtest webui at `http://SERVERIP`. The results database can be accessed at `http://SERVERIP/results/stats.php` with the password set.\nThe default template used is based on `example-singleServer-full.html`. However, all templates are provided for reference at `/config/www/`. Feel free to customize `/config/www/index.html` as you like. Delete the file and restart to go back to the image default.\n\nYou can optionally place customized `speedtest.js` and `speedtest_worker.js` files under `/config/www` and they will supersede the defaults after a container start. Keep in mind that once you do so, they will no longer be updated. You can delete them and recreate the container to go back to the image defaults.\n\nIf you are setting up a mysql or postgresql database, you first need to import the tables into your database as described at the following link\nhttps://github.com/librespeed/speedtest/blob/master/doc.md#creating-the-database\n\nTo enable a custom results page set the environment variable `CUSTOM_RESULTS=true` and start (or restart) the container at least once for `/config/www/results/index.php` to be created and modify this file to your liking.\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-29",
+   "text": "Rebase to Alpine 3.24. Enable new UI with additional settings files available in the config folder."
+  },
+  {
+   "date": "2025-07-27",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-06-27",
+   "text": "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2023-12-06",
+   "text": "Replace php mysqli with php pdo_pgsql."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-05-14",
+   "text": "Added support for ipinfo.io"
+  },
+  {
+   "date": "2023-01-20",
+   "text": "Rebase to alpine 3.17 with php8.1."
+  },
+  {
+   "date": "2022-08-20",
+   "text": "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+  },
+  {
+   "date": "2021-03-01",
+   "text": "Fix up database settings. Make sure `index.html` is recreated."
+  },
+  {
+   "date": "2021-02-28",
+   "text": "Added php7-ctype."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2020-04-29",
+   "text": "Add donation links for LibreSpeed to Github sponsor button and container log."
+  },
+  {
+   "date": "2020-01-09",
+   "text": "Initial Release."
+  }
+ ]
+}

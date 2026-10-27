@@ -1,0 +1,132 @@
+{
+ "schema": 1,
+ "name": "remmina",
+ "summary": "[Remmina](https://remmina.org/) is a remote desktop client written in GTK, aiming to be useful for system administrators and travellers, who need to work with lots of remote computers in front of either large or tiny screens. Remmina supports multiple network protocols, in an integrated and consistent user interface. Currently RDP, VNC, SPICE, SSH and EXEC are supported.",
+ "upstream": {
+  "url": "https://remmina.org/",
+  "version": {
+   "type": "command",
+   "run": "curl -s -L https://security.ubuntu.com/ubuntu/dists/resolute-security/main/binary-amd64/Packages.gz | gunzip |grep -A 7 -m 1 'Package: remmina' | awk -F ': ' '/Version/{print $2;exit}'"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "REMMINA_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Remmina desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Remmina desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/remmina/config",
+    "description": "Users home directory in the container, stores program settings."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Remote Desktop"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/remmina-icon.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-06-20",
+   "text": "Rebase to resolute, stop ingesting from ppa."
+  },
+  {
+   "date": "2026-04-04",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-08-14",
+   "text": "Ingest from PPA."
+  },
+  {
+   "date": "2025-08-11",
+   "text": "Install librsvg2 for icons."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-08-28",
+   "text": "Rebase to noble."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-03-18",
+   "text": "Rebase to KasmVNC base image."
+  },
+  {
+   "date": "2022-12-16",
+   "text": "Rebase to Jammy. Drop nx, xdmcp plugins due to lack of packages. Add Kiosk, Secret, x2go plugins."
+  },
+  {
+   "date": "2022-06-19",
+   "text": "Rebase to Focal. Drop Telepathy plugin due to lack of packages."
+  },
+  {
+   "date": "2020-03-27",
+   "text": "Initial release."
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "schema": 1,
+ "name": "ungoogled-chromium",
+ "summary": "[Ungoogled Chromium](https://github.com/ungoogled-software/ungoogled-chromium) is Google Chromium, sans dependency on Google web services.",
+ "upstream": {
+  "url": "https://github.com/ungoogled-software/ungoogled-chromium",
+  "version": {
+   "type": "github_release",
+   "repo": "ungoogled-software/ungoogled-chromium-portablelinux"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "ungoogled-software/ungoogled-chromium-portablelinux"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "UGC_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP Ungoogled Chromium desktop gui, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Ungoogled Chromium desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "env": [
+   {
+    "name": "CHROME_CLI",
+    "value": "https://www.linuxserver.io/",
+    "description": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.",
+    "optional": true
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for any modern website to function like youtube."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Web Browser"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ungoogled-chromium-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-31",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-27",
+   "text": "Multi arch arm64 support added."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2025-04-03",
+   "text": "Update chromium launch options to improve performance."
+  },
+  {
+   "date": "2024-07-25",
+   "text": "Initial release."
+  }
+ ]
+}

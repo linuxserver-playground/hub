@@ -1,0 +1,80 @@
+{
+ "image": "minisatip",
+ "branch": "master",
+ "tag": "v2.0.174-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "v2.0.174",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 52057658,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 51843657,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "ATTACHED_DEVICES_PERMS",
+    "DEBIAN_FRONTEND",
+    "HOME",
+    "LANG",
+    "LANGUAGE",
+    "LSIO_FIRST_PARTY",
+    "MAKEFLAGS",
+    "PATH",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "1900/udp",
+    "554/tcp",
+    "8875/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

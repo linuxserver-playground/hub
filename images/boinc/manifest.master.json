@@ -1,0 +1,161 @@
+{
+ "schema": 1,
+ "name": "boinc",
+ "summary": "[BOINC](https://boinc.berkeley.edu/) is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized, parallel, and GPU-based applications.",
+ "upstream": {
+  "url": "https://boinc.berkeley.edu/",
+  "version": {
+   "type": "command",
+   "run": "curl -sX GET http://ppa.launchpad.net/costamagnagianfranco/boinc/ubuntu/dists/noble/main/binary-amd64/Packages.gz | gunzip |grep -A 7 -m 1 'Package: boinc-client' | awk -F ': ' '/Version/{print $2;exit}'"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "BOINC_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8181,
+   "scheme": "https",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8080",
+    "description": "Boinc desktop gui HTTP (only to be used by reverse proxies and not direct access)."
+   },
+   {
+    "internal": "8181",
+    "description": "Boinc desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/boinc/config",
+    "description": "Where BOINC should store its database and config."
+   }
+  ],
+  "env": [
+   {
+    "name": "PASSWORD",
+    "value": "",
+    "description": "Optionally set a password for the gui.",
+    "optional": true
+   }
+  ],
+  "devices": [
+   {
+    "path": "/dev/dri",
+    "description": "Only needed if you want to use your Intel GPU (vaapi).",
+    "optional": true
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Science"
+  ],
+  "logo": "https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg",
+  "setup": "The container can be accessed at:\n\n* https://yourhost:8181/\n",
+  "notices": {
+   "hwaccel": true,
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true,
+    "https_port": 8181,
+    "http_port": 8080
+   }
+  }
+ },
+ "proxy": {
+  "port": 8080,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-19",
+   "text": "Rebase to resolute, make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-07-07",
+   "text": "Rebase to selkies. Breaking change: HTTPS is now required. Use port 8181 with HTTPS for direct access. Reverse proxies can connect to 8080 over http as long as it's served over HTTPS to the user."
+  },
+  {
+   "date": "2024-08-19",
+   "text": "Rebase to noble."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-04-03",
+   "text": "Rebase to KasmVNC base image. Deprecate armhf build as the new base does not support it. Add bzip2 and xz-utils."
+  },
+  {
+   "date": "2022-11-14",
+   "text": "Fix opencl driver."
+  },
+  {
+   "date": "2022-09-18",
+   "text": "Rebase to jammy."
+  },
+  {
+   "date": "2022-02-24",
+   "text": "Rebase to focal."
+  },
+  {
+   "date": "2022-01-31",
+   "text": "Improve device permissions setting verbosity."
+  },
+  {
+   "date": "2021-03-23",
+   "text": "Rebase to rdesktop-web baseimage. Deprecate `GUAC_USER` and `GUAC_PASS` env vars. Existing users can set the new var `PASSWORD` for the user `abc`."
+  },
+  {
+   "date": "2020-04-01",
+   "text": "Install boinc from ppa."
+  },
+  {
+   "date": "2020-03-17",
+   "text": "Add armhf and aarch64 builds and switch to multi-arch image."
+  },
+  {
+   "date": "2020-03-16",
+   "text": "Clean up old pid files."
+  },
+  {
+   "date": "2020-03-15",
+   "text": "Initial release."
+  }
+ ]
+}
