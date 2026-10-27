@@ -103,6 +103,7 @@ def test_status_has_one_file_per_writer(tmp_path: Path) -> None:
         "manifests.json",
         "mods.json",
         "observed.json",
+        "proot-apps.json",
         "rejected.json",
         "releases.json",
         "vulnerabilities.json",

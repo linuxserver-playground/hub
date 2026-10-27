@@ -48,6 +48,7 @@ from .models import (
     PackageIndexResponse,
     PackageResponse,
     PackagesResponse,
+    ProotAppsResponse,
     ProxyResponse,
     StalenessResponse,
     StatsData,
@@ -62,8 +63,8 @@ from .store import ImageRecord
 
 DESCRIPTION = """
 Versions, tags, architectures, changelogs and container parameters for every LinuxServer.io image, every
-build with its packages, layers and changes, the mods index, and compose, Kubernetes, quadlet and reverse
-proxy snippets.
+build with its packages, layers and changes, the mods index, the PRoot Apps index, and compose, Kubernetes,
+quadlet and reverse proxy snippets.
 
 Every endpoint is a plain `GET` with no authentication. Fields that have no value are omitted rather than
 `null`. Query parameters are not supported: `include_config` and `include_deprecated` are separate files
@@ -77,6 +78,7 @@ TAGS = [
         "description": "Every build of an image: the build record, packages, layers and the diff.",
     },
     {"name": "Mods", "description": "Docker mods, fleet-wide and per image."},
+    {"name": "PRoot Apps", "description": "Desktop apps installed without privileges by the proot-apps CLI."},
     {"name": "Packages", "description": "Which images ship a package, and in which versions."},
     {"name": "Fleet", "description": "Numbers, categories, base images and changes across all images."},
     {"name": "Service", "description": "Whether the data is fresh, and where the store output is."},
@@ -359,6 +361,17 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
     def get_mods() -> ModsResponse:
         """The mods index from the mod.yml on every branch of docker-mods."""
         return envelope(ModsResponse, data=responses.mods(fleet))
+
+    @get(
+        "/api/v1/proot-apps.json",
+        tags=["PRoot Apps"],
+        operation_id="getProotApps",
+        summary="Get every PRoot app",
+    )
+    def get_proot_apps() -> ProotAppsResponse:
+        """The desktop apps `proot-apps` installs, from metadata.yml in the proot-apps repository, without the
+        disabled ones, and the CLI release the install command downloads."""
+        return envelope(ProotAppsResponse, data=responses.proot_apps(fleet))
 
     @get("/api/v1/packages.json", tags=["Packages"], operation_id="getPackages", summary="List every package")
     def get_packages() -> PackageIndexResponse:

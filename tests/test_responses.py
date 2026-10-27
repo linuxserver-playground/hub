@@ -1,12 +1,15 @@
 """Each endpoint's content, built without HTTP."""
 
+import httpx2
 import yaml
 
-from lsio_hub import responses
+from lsio_hub import prootapps, responses
 from lsio_hub.config import SiteConfig
 from lsio_hub.fleet import Fleet, load_fleet
 from lsio_hub.models import CHANGELOG_LIMIT
 from lsio_hub.store import Store
+
+from .conftest import FakeGitHub
 
 
 def test_images_response_envelope(fleet: Fleet) -> None:
@@ -63,6 +66,7 @@ def test_status_includes_rejected(fleet: Fleet) -> None:
         "releases",
         "observed",
         "mods",
+        "proot-apps",
         "vulnerabilities",
     }
     assert sorted(status.rejected) == ["multidb@bad-ls9", "multidb@feature-ls1"]
@@ -247,6 +251,34 @@ def test_mods(fleet: Fleet) -> None:
     assert sonarr == ["radarr-striptracks", "universal-calibre", "universal-docker", "universal-git"]
     code = [m.branch for m in responses.image_mods(fleet, "openvscode-server").mods]
     assert code == ["code-server-python3-poetry", "universal-docker", "universal-calibre", "universal-git"]
+
+
+def test_proot_apps(fleet: Fleet) -> None:
+    """Enabled apps only, by title, with the newest CLI release that is not a prerelease."""
+    data = responses.proot_apps(fleet)
+    assert data.source == "metadata/metadata.yml of linuxserver-playground/proot-apps"
+    assert [a.name for a in data.apps] == ["anydesk", "firefox"]
+    anydesk, firefox = data.apps
+    assert anydesk.title == "AnyDesk" and anydesk.platforms == ["amd64"]
+    assert firefox.platforms == ["amd64", "arm64"]
+    assert firefox.image == "ghcr.io/linuxserver-playground/proot-apps:firefox"
+    assert (
+        firefox.icon
+        == "https://raw.githubusercontent.com/linuxserver-playground/proot-apps/master/metadata/img/firefox.svg"
+    )
+    assert data.cli is not None and data.cli.version == "0.5.5" and data.cli.url == "https://github.test/0.5.5"
+
+
+def test_proot_apps_failure_keeps_previous_data(store: Store) -> None:
+    class Down(FakeGitHub):
+        def file_text(self, repo: str, path: str, ref: str) -> str | None:
+            raise httpx2.ConnectError("down")
+
+    before = store.proot_apps
+    prootapps.refresh_proot_apps(store, Down(), now=lambda: "2026-10-25T00:00:00.000Z")
+    assert store.proot_apps == before
+    status = store.status["sources"]["proot-apps"]
+    assert status["ok"] is False and status["fetched_at"] == before["fetched_at"] and "down" in status["error"]
 
 
 def test_mods_without_a_source_are_playground_mods(store: Store, config: SiteConfig) -> None:

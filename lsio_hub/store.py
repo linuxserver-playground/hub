@@ -19,15 +19,16 @@ readable diff.
     data/observed.json                             stars, archived flag, GHCR tags, the vulnerability scan ledger
                                                    (poller only)
     data/mods.json                                 the mods index
+    data/proot-apps.json                           the PRoot Apps index (desktop apps)
     data/status/<source>.json                      refresh status of one source (manifests, releases, observed,
-                                                   mods, vulnerabilities)
+                                                   mods, proot-apps, vulnerabilities)
     data/status/rejected.json                      releases whose bundle failed validation
     data/status/bases.json                         base image lookups that failed, retried a day later
 
 Every file has one writer: the ingest (images/, bases/, status/manifests, releases, rejected, bases) on the
-release path, and the observer, the vulnerability scan and the mods refresh (observed.json, mods.json, their
-status files, the vulns files) on the hourly refresh. The two run concurrently and both commit data/, so
-neither may write a file the other owns: saving writes a file only when its content changed.
+release path, and the observer, the vulnerability scan and the mods and PRoot Apps refreshes (observed.json, mods.json,
+proot-apps.json, their status files, the vulns files) on the hourly refresh. The two run concurrently and both commit
+data/, so neither may write a file the other owns: saving writes a file only when its content changed.
 """
 
 from __future__ import annotations
@@ -123,6 +124,8 @@ class Store:
     checked_at, builds: {"<image>@<tag>": {scanned_at, db_date, arches}}}}"""
     mods: Json = field(default_factory=dict)
     """{fetched_at, source, mods: [...]}"""
+    proot_apps: Json = field(default_factory=dict)
+    """{fetched_at, source, cli, apps: [...]}"""
     bases: dict[str, Json] = field(default_factory=dict)
     """base digest -> {image, digest, fetched_at, platforms: {arch: {digest, layers: [digests]}}}"""
     status: Json = field(default_factory=lambda: {"sources": {}, "rejected": {}, "bases": {}})
@@ -200,6 +203,7 @@ def load_store(data_dir: Path) -> Store:
             store.bases[base["digest"]] = base
     store.observed = _read(data_dir / "observed.json") or {}
     store.mods = _read(data_dir / "mods.json") or {}
+    store.proot_apps = _read(data_dir / "proot-apps.json") or {}
     legacy = _read(data_dir / "status.json") or {}  # one file for every source before status/ was split
     status_dir = data_dir / "status"
     sources = dict(legacy.get("sources", {}))
@@ -308,6 +312,7 @@ def save_store(data_dir: Path, store: Store) -> list[str]:
             path.unlink()
             changed.append(f"-bases/{path.name}")
     files: list[tuple[str, Any]] = [("observed.json", store.observed), ("mods.json", store.mods)]
+    files.append(("proot-apps.json", store.proot_apps))
     files += [(f"status/{source}.json", value) for source, value in sorted(store.status["sources"].items())]
     files += [(f"status/{name}.json", store.status.get(name, {})) for name in STATUS_FILES]
     for name, value in files:

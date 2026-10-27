@@ -280,8 +280,8 @@ class Status(BaseModel):
     deprecated: int
     sources: dict[str, SourceStatus] = Field(
         description="`manifests` (image.yml per branch), `releases` (build bundles), `observed` (stars, GHCR tags; its "
-        "`fetched_at` is `observed.json`'s), `mods` (the mods index), `vulnerabilities` (the grype poll; `ok: false` "
-        "with an `error` when grype or its database is unavailable)."
+        "`fetched_at` is `observed.json`'s), `mods` (the mods index), `proot-apps` (the PRoot Apps index), "
+        "`vulnerabilities` (the grype poll; `ok: false` with an `error` when grype or its database is unavailable)."
     )
     rejected: dict[str, RejectedRelease] = Field(
         description="Releases whose bundle failed validation, keyed `<image>@<tag>`; they are skipped until fixed."
@@ -995,6 +995,41 @@ class ImageModsData(BaseModel):
 
 class ImageModsResponse(Envelope):
     data: ImageModsData
+
+
+# ---------------------------------------------------------------------------------------------------
+# PRoot Apps
+
+
+class ProotApp(BaseModel):
+    name: str = Field(description="What `proot-apps install` takes.", examples=["firefox"])
+    title: str = Field(description="`full_name` in metadata.yml.", examples=["Firefox"])
+    category: str = Field(examples=["Network"])
+    description: str
+    platforms: list[str] = Field(examples=[["amd64", "arm64"]])
+    icon: str | None = Field(None, description="The app's icon in the proot-apps repository.")
+    image: str = Field(examples=["ghcr.io/linuxserver-playground/proot-apps:firefox"])
+    url: str = Field(description="The app's folder in the proot-apps repository.")
+
+
+class ProotCli(BaseModel):
+    version: str = Field(description="The newest release of the `proot-apps` CLI.", examples=["0.5.5"])
+    url: str
+    published_at: str | None = None
+
+
+class ProotAppsData(BaseModel):
+    source: str = Field(
+        description="Where the index came from: `metadata/metadata.yml` of linuxserver-playground/proot-apps."
+    )
+    cli: ProotCli | None = Field(
+        None, description="The CLI release the install command downloads; null until one exists."
+    )
+    apps: list[ProotApp] = Field(description="Every app that is not disabled, by title.")
+
+
+class ProotAppsResponse(Envelope):
+    data: ProotAppsData
 
 
 # ---------------------------------------------------------------------------------------------------

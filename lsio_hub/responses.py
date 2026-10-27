@@ -48,6 +48,7 @@ from .models import (
     PackageHolder,
     PackageIndexEntry,
     PackagesData,
+    ProotAppsData,
     ProxyData,
     ReportLinks,
     Repository,
@@ -453,6 +454,13 @@ def image_mods(fleet: Fleet, name: str) -> ImageModsData:
     universal = [m for m in fleet.mods if m.target == "universal"]
     curated = [m for m in universal if name in m.applies_to]
     return ImageModsData(image=name, mods=own + curated + [m for m in universal if m not in curated])
+
+
+def proot_apps(fleet: Fleet) -> ProotAppsData:
+    data = fleet.store.proot_apps
+    return ProotAppsData.model_validate(
+        {"source": data.get("source", "none"), "cli": data.get("cli"), "apps": data.get("apps", [])}
+    )
 
 
 # ---------------------------------------------------------------------------------------------------

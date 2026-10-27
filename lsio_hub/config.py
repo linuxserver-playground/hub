@@ -15,6 +15,8 @@ REGISTRY = "ghcr.io"
 IMAGE_PREFIX = f"{REGISTRY}/{ORG}"
 MODS_IMAGE = f"{IMAGE_PREFIX}/mods"
 MODS_REPO = f"{ORG}/docker-mods"
+PROOT_APPS_IMAGE = f"{IMAGE_PREFIX}/proot-apps"
+PROOT_APPS_REPO = f"{ORG}/proot-apps"
 STORE_REPOS = {"unraid": f"{ORG}/unraid-store", "umbrel": f"{ORG}/umbrel-store", "runtipi": f"{ORG}/runtipi-store"}
 """Platforms that read a git repository and want the store at its root: refresh.yml pushes out/stores/<platform>/
 to these repositories (scripts/publish_store.sh); the repository URL is the import URL."""

@@ -16,6 +16,7 @@ GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # data/: m
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.observe              # data/observed.json: stars, archived, GHCR tags; then grype
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.vulns                # the grype scan alone (GRYPE=/path/to/grype)
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.mods                 # data/mods.json (RESOLVE_VERSION=<workflows>/scripts/resolve_version.py for version lines)
+GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.prootapps            # data/proot-apps.json
 python -m lsio_hub.build                                 # dist/: the API, openapi.json, the docs page
 python -m lsio_hub.generate [--offline]                  # out/: stores/<platform>/ and builds/
 python -m lsio_hub.serve                                 # the same app, live, on http://localhost:8000/
@@ -31,7 +32,8 @@ GitHub org (GraphQL, REST) ──┐                     ┌─ dist/api/v1/… 
 image.yml per live branch ───┼─ ingest ─> data/ ───┼─ dist/openapi.json, index.html
 Release assets (bundles) ────┤  observe   (git)    ├─ out/stores/<platform>/  docs, unraid, portainer, casaos,
 GHCR tag lists ──────────────┤  mods               │                          umbrel, runtipi, cosmos, proxy,
-docker-mods mod.yml ─────────┘                     │                          kubernetes, quadlet, mods
+docker-mods mod.yml ─────────┤  prootapps          │                          kubernetes, quadlet, mods
+proot-apps metadata.yml ─────┘                     │
                                                    └─ out/builds/<image>/<tag>/  CI report pages
 ```
 
@@ -47,7 +49,7 @@ run at the same time and their data commits never conflict.
   `out/`, merges `out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and
   `/builds/…`. It is a single job: every job is a separate wait for a runner slot when image builds fill them.
 - `refresh.yml` runs hourly (its cron, and a dispatch from the control plane): `observe` (stars, archived flags,
-  GHCR tags, then the grype scan) and `mods`. It commits what changed and dispatches `deploy.yml`, then pushes the
+  GHCR tags, then the grype scan), `mods` and `prootapps`. It commits what changed and dispatches `deploy.yml`, then pushes the
   Unraid, Umbrel and Runtipi stores to their own repositories (see Generators).
 
 The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry.json`. Reads use `GITHUB_TOKEN` only.
@@ -59,7 +61,7 @@ The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry
 | `lsio_hub/ingest.py` | Reconcile (every repo's manifests and every release `data/` lacks; `--deep` lists every release over REST for a backfill) or one release; validates with the builder contracts. |
 | `lsio_hub/diff.py`, `packages.py` | The build diff engine and the syft normaliser: `builder.derive`'s, which the build also runs. |
 | `lsio_hub/layers.py` | Layer attribution: `from_base` from the base image's registry manifest, `dockerfile_lines` from `created_by`. |
-| `lsio_hub/observe.py`, `vulns.py`, `mods.py` | The observed pollers (stars, archived, GHCR tags; grype against the newest build of each branch) and the mods index. |
+| `lsio_hub/observe.py`, `vulns.py`, `mods.py`, `prootapps.py` | The observed pollers (stars, archived, GHCR tags; grype against the newest build of each branch), the mods index and the PRoot Apps index. |
 | `lsio_hub/transform.py` | Manifest plus builds to an API image (`builder.manifest.build_context`, `builder.snippets`). |
 | `lsio_hub/responses.py`, `app.py`, `build.py` | Endpoint content, the FastAPI routes, the static build. |
 | `lsio_hub/generate/` | One module per generator, each a function of `data/`. |
@@ -83,7 +85,8 @@ is a readable diff. Builds are stored compact, as received; everything else inde
 | `data/bases/<algorithm>-<hex>.json` | The layer digests per architecture of a base image, keyed by the index digest builds record as `base.digest`; read from GHCR with an anonymous pull token, once per digest, by the ingest. |
 | `data/observed.json` | stars, archived flag, GHCR tag list per image; written by the poller only. `vulnerabilities` is the scan ledger: the database date and grype version last used, and per newest build when it was scanned against which database. |
 | `data/mods.json` | The mods index. |
-| `data/status/<source>.json` | Per source (manifests, releases, observed, mods, vulnerabilities): ok, checked_at, fetched_at, error. One file each, because the release path and the hourly refresh write different sources at the same time. |
+| `data/proot-apps.json` | The PRoot Apps index: the enabled apps of proot-apps' `metadata/metadata.yml` and the CLI's newest release. |
+| `data/status/<source>.json` | Per source (manifests, releases, observed, mods, proot-apps, vulnerabilities): ok, checked_at, fetched_at, error. One file each, because the release path and the hourly refresh write different sources at the same time. |
 | `data/status/rejected.json` | Releases whose bundle failed validation, with the error. Retried a day later, or as soon as the image's manifests change. |
 | `data/status/bases.json` | Base image lookups that failed (a registry refusing, say), retried a day later instead of on every run. |
 
@@ -119,6 +122,7 @@ Added by the hub:
 | `/api/v1/catalog/{name}/builds/{tag}/packages.{arch}.json` | The package table; only for the newest build of each branch (older builds keep `packages.<arch>.json.gz` on the Release). |
 | `/api/v1/catalog/{name}/builds/{tag}/layers.{arch}.json` | Layers with digest, size and Dockerfile instruction, plus `from_base` and `dockerfile_lines` (see below). |
 | `/api/v1/catalog/{name}/mods.json`, `/api/v1/mods.json` | Mods for one image (its own, then universal), or all. |
+| `/api/v1/proot-apps.json` | The desktop apps the `proot-apps` CLI installs (disabled ones left out), and the CLI's newest release. |
 | `/api/v1/catalog/{name}/proxy.json` | The SWAG subdomain and subfolder sample texts, reference configs for Caddy (`caddy`, a Caddyfile site block) and Traefik (`traefik`, compose labels) with the same upstream, open API paths and extra locations, and the manifest's `proxy` block. |
 | `/api/v1/catalog/{name}/kubernetes.yaml`, `/quadlet.container` | Generated documents (only for images where `publish` enables them). |
 | `/api/v1/packages.json`, `/api/v1/packages/{package}.json` | Every package name with its file slug; which images ship it, in which versions, per branch and arch. |
@@ -244,6 +248,12 @@ tag (one request while its digest is unchanged). A line other than the default o
 own resolver (refresh.yml checks out `workflows@v1` `scripts/resolve_version.py` and sets `RESOLVE_VERSION`) and
 read from `:<branch>-<version>`; until that tag exists, or without the resolver, the line keeps what the previous
 refresh found. Registry errors keep the previous builds and are noted in `status/mods.json`.
+
+The PRoot Apps index reads `metadata/metadata.yml` from the default branch of `linuxserver-playground/proot-apps`:
+each app that is not `disabled`, with its title, category, description, platforms, icon (the repository's raw
+`metadata/img/` file) and image `ghcr.io/linuxserver-playground/proot-apps:<name>`, by title. `cli` is the newest
+release that is not a prerelease, whose tarballs the CLI's install command downloads. The site's PRoot Apps page
+renders it.
 
 ### Build report pages
 

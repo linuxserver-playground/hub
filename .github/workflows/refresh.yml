@@ -1,7 +1,7 @@
 # The hourly refresh: stars, archived flags and GHCR tags (observe), the vulnerability scans on the database's clock
-# (the scan runs at the end of observe), the mods index with what the mods package holds per mod, and the store
-# repositories. None of it is on a release's path, so it runs apart from deploy.yml and never makes a release wait:
-# it commits the files it owns (observed.json, mods.json, their status files and the vulns files; see
+# (the scan runs at the end of observe), the mods index with what the mods package holds per mod, the PRoot Apps
+# index (proot-apps' metadata.yml), and the store repositories. None of it is on a release's path, so it runs apart
+# from deploy.yml and never makes a release wait: it commits the files it owns (observed.json, mods.json, proot-apps.json, their status files and the vulns files; see
 # lsio_hub/store.py), asks deploy.yml to publish them, and
 # then pushes the Unraid, Umbrel and Runtipi stores. The control plane dispatches it every hour too, because GitHub
 # skips many runs of an hourly cron.
@@ -76,13 +76,14 @@ jobs:
           key: grype-db-${{ steps.grype.outputs.date }}
           restore-keys: grype-db-
 
-      - name: Observe, scan and refresh the mods index
+      - name: Observe, scan and refresh the mods and PRoot Apps indexes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RESOLVE_VERSION: .lsio-workflows/scripts/resolve_version.py
         run: |
           python -m lsio_hub.observe
           python -m lsio_hub.mods
+          python -m lsio_hub.prootapps
 
       - name: Commit and publish
         env:

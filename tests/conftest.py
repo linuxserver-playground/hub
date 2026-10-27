@@ -23,7 +23,7 @@ import yaml
 from fastapi.testclient import TestClient
 
 from lsio_hub import mods as mods_module
-from lsio_hub import vulns
+from lsio_hub import prootapps, vulns
 from lsio_hub.app import create_app
 from lsio_hub.build import render
 from lsio_hub.config import SiteConfig
@@ -355,6 +355,32 @@ def asset_bytes(url: str) -> bytes | None:
 
 MOD_YMLS: dict[str, Json] = yaml.safe_load((FIXTURES / "mods.yml").read_text())
 """The mod.yml of each fixture docker-mods branch."""
+PROOT_METADATA = """include:
+  - name: firefox
+    full_name: Firefox
+    arch: linux/amd64,linux/arm64
+    category: Network
+    icon: firefox.svg
+    description: "Firefox Browser."
+  - name: anydesk
+    full_name: AnyDesk 
+    arch: linux/amd64
+    category: Network
+    icon: anydesk.svg
+    description: "AnyDesk remote desktop."
+  - name: steam
+    full_name: Steam
+    arch: linux/amd64
+    category: Game
+    icon: steam.svg
+    description: "Steam."
+    disabled: True
+"""
+"""proot-apps' metadata/metadata.yml: two apps (out of title order) and a disabled one."""
+PROOT_RELEASES = [
+    {"tag_name": "prerelease-abc", "prerelease": True, "html_url": "https://github.test/pre", "created_at": NOW},
+    {"tag_name": "0.5.5", "prerelease": False, "html_url": "https://github.test/0.5.5", "published_at": NOW},
+]
 
 
 # ---------------------------------------------------------------------------------------------------
@@ -400,9 +426,13 @@ class FakeGitHub(GitHub):
             return yaml.safe_dump(MANIFESTS[(repo_name, ref)], sort_keys=False)
         if repo_name == "docker-mods" and path == "mod.yml" and ref in MOD_YMLS:
             return yaml.safe_dump(MOD_YMLS[ref], sort_keys=False)
+        if repo_name == "proot-apps" and path == "metadata/metadata.yml" and ref == "master":
+            return PROOT_METADATA
         return None
 
     def releases(self, repo: str, *, max_pages: int = 3) -> list[Json]:
+        if repo == f"{ORG}/proot-apps":
+            return list(PROOT_RELEASES)
         return list(RELEASES.get(repo.split("/")[1], []))
 
     def org_releases(self, org: str, *, per_repo: int = 30) -> dict[str, list[Json]]:
@@ -534,6 +564,7 @@ def build_store(github: FakeGitHub | None = None, grype: FakeGrype | None = None
     http = registry_http()
     observe(store, github, http, now=now)
     mods_module.refresh_mods(store, github, now=now)
+    prootapps.refresh_proot_apps(store, github, now=now)
     vulns.scan(store, grype or FakeGrype(), asset_bytes, now=now, cache_dir=None)
     return store
 
