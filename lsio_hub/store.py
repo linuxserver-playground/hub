@@ -312,7 +312,9 @@ def save_store(data_dir: Path, store: Store) -> list[str]:
             path.unlink()
             changed.append(f"-bases/{path.name}")
     files: list[tuple[str, Any]] = [("observed.json", store.observed), ("mods.json", store.mods)]
-    files.append(("proot-apps.json", store.proot_apps))
+    # Only the refresh creates it: the Deploy loads a store without it and must not write one back, or both runs
+    # would add the file and their data commits would conflict.
+    files += [("proot-apps.json", store.proot_apps)] if store.proot_apps else []
     files += [(f"status/{source}.json", value) for source, value in sorted(store.status["sources"].items())]
     files += [(f"status/{name}.json", store.status.get(name, {})) for name in STATUS_FILES]
     for name, value in files:

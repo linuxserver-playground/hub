@@ -39,6 +39,17 @@ def test_layout(tmp_path: Path) -> None:
     assert (sonarr / "manifest.master.json").read_text().startswith("{\n ")
 
 
+def test_proot_apps_json_is_only_written_by_its_refresh(tmp_path: Path) -> None:
+    """The Deploy saves a store loaded from data/; before the refresh has run once, it must not create the file."""
+    store = build_store()
+    save_store(tmp_path, store)
+    assert (tmp_path / "proot-apps.json").is_file()
+    empty = tmp_path / "empty"
+    store.proot_apps = {}
+    save_store(empty, store)
+    assert not (empty / "proot-apps.json").exists()
+
+
 def test_packages_filename() -> None:
     assert packages_filename("latest", "amd64") == "packages.amd64.json"
     assert packages_filename("develop", "arm64") == "packages.develop.arm64.json"
