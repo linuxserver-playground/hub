@@ -1,7 +1,8 @@
 # The hourly refresh: stars, archived flags and GHCR tags (observe), the vulnerability scans on the database's clock
-# (the scan runs at the end of observe), the mods index and the store repositories. None of it is on a release's
-# path, so it runs apart from deploy.yml and never makes a release wait: it commits the files it owns (observed.json,
-# mods.json, their status files and the vulns files; see lsio_hub/store.py), asks deploy.yml to publish them, and
+# (the scan runs at the end of observe), the mods index with what the mods package holds per mod, and the store
+# repositories. None of it is on a release's path, so it runs apart from deploy.yml and never makes a release wait:
+# it commits the files it owns (observed.json, mods.json, their status files and the vulns files; see
+# lsio_hub/store.py), asks deploy.yml to publish them, and
 # then pushes the Unraid, Umbrel and Runtipi stores. The control plane dispatches it every hour too, because GitHub
 # skips many runs of an hourly cron.
 #
@@ -42,6 +43,18 @@ jobs:
 
       - run: pip install -e .
 
+      - name: Check out the version resolver
+        # The mod builds' own resolver (workflows scripts/resolve_version.py at the tag the builds use): the mods
+        # index resolves each extra version line with it to find that line's newest build (lsio_hub/mods.py).
+        uses: actions/checkout@v7
+        with:
+          repository: linuxserver-playground/workflows
+          ref: v1
+          path: .lsio-workflows
+          persist-credentials: false
+          sparse-checkout: scripts/resolve_version.py
+          sparse-checkout-cone-mode: false
+
       - name: Install grype
         # Pinned; observe scans the newest build of each branch with it (skipped gracefully without it).
         id: grype
@@ -66,6 +79,7 @@ jobs:
       - name: Observe, scan and refresh the mods index
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESOLVE_VERSION: .lsio-workflows/scripts/resolve_version.py
         run: |
           python -m lsio_hub.observe
           python -m lsio_hub.mods

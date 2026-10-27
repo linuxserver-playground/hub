@@ -15,7 +15,7 @@ pip install -e '.[dev]'                                  # installs lsio-builder
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # data/: manifests, every release's bundle, base layers
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.observe              # data/observed.json: stars, archived, GHCR tags; then grype
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.vulns                # the grype scan alone (GRYPE=/path/to/grype)
-GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.mods                 # data/mods.json
+GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.mods                 # data/mods.json (RESOLVE_VERSION=<workflows>/scripts/resolve_version.py for version lines)
 python -m lsio_hub.build                                 # dist/: the API, openapi.json, the docs page
 python -m lsio_hub.generate [--offline]                  # out/: stores/<platform>/ and builds/
 python -m lsio_hub.serve                                 # the same app, live, on http://localhost:8000/
@@ -234,6 +234,16 @@ The mods index reads `mod.yml` from every branch of `linuxserver-playground/dock
 replaced the legacy `mod-list.yml`. `/api/v1/catalog/<image>/mods.json` gives an image's own mods first, then the
 universal mods curated for it, then every other universal mod. A branch whose `mod.yml` is missing or fails the
 schema is logged and left out.
+
+Each entry's `builds` say what `ghcr.io/linuxserver-playground/mods` holds for the mod, one per version line (the
+default line first, then `mod.yml` `upstream.lines`): `version` (the image's version label), `built_at` (its
+config's `created`), `pin` (the exact tag: `<branch>-<version>`, or `<branch>-<sha7>` for a mod without a version),
+`tags` (the floating tags that follow the line: `:<branch>` on the default line, then the line's major and minor
+tags that exist), `digest` and `revision`. The hourly refresh lists the package's tags once and reads each floating
+tag (one request while its digest is unchanged). A line other than the default one is resolved with the builds'
+own resolver (refresh.yml checks out `workflows@v1` `scripts/resolve_version.py` and sets `RESOLVE_VERSION`) and
+read from `:<branch>-<version>`; until that tag exists, or without the resolver, the line keeps what the previous
+refresh found. Registry errors keep the previous builds and are noted in `status/mods.json`.
 
 ### Build report pages
 

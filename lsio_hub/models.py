@@ -916,6 +916,31 @@ class ModUpstream(BaseModel):
     source: str = Field(description="The version source in short.", examples=["github_release cloudflare/cloudflared"])
 
 
+class ModBuild(BaseModel):
+    line: str | None = Field(
+        None,
+        description="The version line (`mod.yml` `upstream.lines` name); null for the default line, the one the "
+        "floating `:<branch>` tag follows.",
+    )
+    version: str | None = Field(
+        None, description="The upstream version built (the image's version label); null for a mod without one."
+    )
+    built_at: str | None = Field(None, description="When the newest build of the line was made (the image config).")
+    pin: str | None = Field(
+        None,
+        description="The exact tag of that build, to pin it: `<branch>-<version>`, or `<branch>-<sha7>` for a mod "
+        "without a version.",
+        examples=["ghcr.io/linuxserver-playground/mods:code-server-golang-1.27.3"],
+    )
+    tags: list[str] = Field(
+        default_factory=list,
+        description="The floating tags that follow the line: `:<branch>` for the default line, then the line's "
+        "major and minor tags.",
+    )
+    digest: str | None = Field(None, description="The image's digest.")
+    revision: str | None = Field(None, description="The docker-mods commit it was built from.")
+
+
 class Mod(BaseModel):
     name: str = Field(examples=["python3"])
     target: str = Field(description="The image the mod applies to, or `universal`.")
@@ -940,6 +965,11 @@ class Mod(BaseModel):
         None,
         description="Where the tool version the mod pins comes from. The control plane checks it hourly and builds "
         "the mod when a new version has no `<branch>-<version>` tag yet.",
+    )
+    builds: list[ModBuild] = Field(
+        default_factory=list,
+        description="What `ghcr.io/linuxserver-playground/mods` holds for the mod, one entry per version line, the "
+        "default line first; empty until it is published. Read hourly from the registry.",
     )
     source: Literal["playground"] = Field(
         description="A `mod.yml` branch of linuxserver-playground/docker-mods, published at "
