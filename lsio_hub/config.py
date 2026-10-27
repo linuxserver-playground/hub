@@ -16,7 +16,7 @@ IMAGE_PREFIX = f"{REGISTRY}/{ORG}"
 MODS_IMAGE = f"{IMAGE_PREFIX}/mods"
 MODS_REPO = f"{ORG}/docker-mods"
 STORE_REPOS = {"unraid": f"{ORG}/unraid-store", "umbrel": f"{ORG}/umbrel-store", "runtipi": f"{ORG}/runtipi-store"}
-"""Platforms that read a git repository and want the store at its root: deploy.yml pushes out/stores/<platform>/
+"""Platforms that read a git repository and want the store at its root: refresh.yml pushes out/stores/<platform>/
 to these repositories (scripts/publish_store.sh); the repository URL is the import URL."""
 UNRAID_RAW_URL = f"https://raw.githubusercontent.com/{STORE_REPOS['unraid']}/main"
 """Where each Unraid template's <TemplateURL> points, so Unraid updates it from the store repository."""

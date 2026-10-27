@@ -1,8 +1,15 @@
 # The hourly refresh: stars, archived flags and GHCR tags (observe), the vulnerability scans on the database's clock
-# (the scan runs at the end of observe) and the mods index. None of it is on a release's path, so it runs apart
-# from deploy.yml and never makes a release wait: it commits the files it owns (observed.json, mods.json, their
-# status files and the vulns files; see lsio_hub/store.py) and then asks deploy.yml to publish them. The control
-# plane dispatches it every hour too, because GitHub skips many runs of an hourly cron.
+# (the scan runs at the end of observe), the mods index and the store repositories. None of it is on a release's
+# path, so it runs apart from deploy.yml and never makes a release wait: it commits the files it owns (observed.json,
+# mods.json, their status files and the vulns files; see lsio_hub/store.py), asks deploy.yml to publish them, and
+# then pushes the Unraid, Umbrel and Runtipi stores. The control plane dispatches it every hour too, because GitHub
+# skips many runs of an hourly cron.
+#
+# The stores were a three-job matrix after every Deploy, which during a burst of releases was three more waits for a
+# runner slot per hub run. Store clients read their repository at most daily, so an hour's lag costs nothing. The
+# Pages copy under /stores/<platform>/ is still rendered by every Deploy. The pushes use an installation token of
+# the GitHub App whose id and private key are the STORE_APP_ID and STORE_APP_PRIVATE_KEY secrets; the app needs
+# contents: write on the three store repositories.
 name: Refresh
 
 on:
@@ -13,6 +20,7 @@ on:
 permissions:
   contents: write
   actions: write  # dispatching deploy.yml
+  pages: read  # the Pages URL the store templates link to
 
 concurrency:
   group: refresh
@@ -83,3 +91,47 @@ jobs:
           done
           # A push with GITHUB_TOKEN starts no workflow, so the deploy is asked for.
           gh workflow run deploy.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
+
+      - name: Check for store credentials
+        # Steps cannot read secrets in their `if`, so this step reports whether the store app is configured.
+        id: store
+        env:
+          CONFIGURED: ${{ secrets.STORE_APP_ID != '' && secrets.STORE_APP_PRIVATE_KEY != '' }}
+        run: |
+          echo "configured=$CONFIGURED" >> "$GITHUB_OUTPUT"
+          [ "$CONFIGURED" = "true" ] || echo "::notice::STORE_APP_ID / STORE_APP_PRIVATE_KEY not set; the store repositories are not updated"
+
+      - id: pages
+        if: steps.store.outputs.configured == 'true'
+        uses: actions/configure-pages@v6
+
+      - name: Generate the stores that live in git
+        # The same generators, on the same data/, as the Deploy's /stores/<platform>/ (now including this run's commit).
+        if: steps.store.outputs.configured == 'true'
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: python -m lsio_hub.generate --offline --only unraid,umbrel,runtipi
+
+      - id: token
+        if: steps.store.outputs.configured == 'true'
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.STORE_APP_ID }}
+          private-key: ${{ secrets.STORE_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: unraid-store,umbrel-store,runtipi-store
+
+      - name: Push the generated stores
+        # Unraid, Umbrel and Runtipi read a git repository and want the store at its root, so each has a repository of
+        # its own; the import URL is the repository URL. Each push is independent: one failing does not stop the others.
+        if: steps.store.outputs.configured == 'true'
+        env:
+          STORE_TOKEN: ${{ steps.token.outputs.token }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          failed=0
+          for store in unraid umbrel runtipi; do
+            scripts/publish_store.sh "$store" "out/stores/$store" "$OWNER/$store-store" main || failed=1
+          done
+          exit "$failed"

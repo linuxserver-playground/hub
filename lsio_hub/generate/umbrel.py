@@ -3,7 +3,7 @@ An Umbrel community app store: `umbrel-app-store.yml` plus `lsio-<name>/umbrel-a
 (the app_proxy pattern, data under APP_DATA_DIR) and `exports.sh` per app.
 
 Import: Umbrel > App Store > Community App Stores > `https://github.com/linuxserver-playground/umbrel-store`.
-Umbrel clones a git repository and wants `umbrel-app-store.yml` at its root, so deploy.yml pushes this output to
+Umbrel clones a git repository and wants `umbrel-app-store.yml` at its root, so refresh.yml pushes this output to
 that repository (scripts/publish_store.sh). Layout as the getumbrel/umbrel-community-app-store template: every app
 directory is named `<store id>-<app>` and holds `umbrel-app.yml` and `docker-compose.yml`; `exports.sh` is optional.
 """

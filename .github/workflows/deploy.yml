@@ -1,13 +1,15 @@
 # The release path: finds every release data/ lacks, commits data/, builds the API and the generated artefacts and
 # publishes everything to GitHub Pages. It runs when the control plane sends a repository_dispatch of type
 # `image-released` (its payload is only a hint), on every push to main, on demand, and when the hourly refresh
-# (refresh.yml) has committed new observed data. Nothing slow runs here: stars, GHCR tags, the mods index and the
-# vulnerability scans are refresh.yml's, so a release never queues behind them.
+# (refresh.yml) has committed new observed data. Nothing slow runs here: stars, GHCR tags, the mods index, the
+# vulnerability scans and the pushes to the store repositories are refresh.yml's, so a release never queues behind
+# them.
 #
-# GITHUB_TOKEN is enough for the data and the Pages site: the hub only reads public repositories and releases in
-# its own organisation. The Unraid, Umbrel and Runtipi stores are pushed to their own repositories (they read a
-# git repository and want the store at its root) with an installation token of the GitHub App whose id and private
-# key are the STORE_APP_ID and STORE_APP_PRIVATE_KEY secrets; the app needs contents: write on those repositories.
+# One job. Every job is a separate wait for one of the organisation's 20 runner slots, and during a burst of image
+# builds each of those waits was up to 22 minutes (docs/github-runners.md in the workspace), so the Pages deploy
+# and the cache pruning run as steps of the same job instead of jobs of their own.
+#
+# GITHUB_TOKEN is enough: the hub only reads public repositories and releases in its own organisation.
 name: Deploy
 
 on:
@@ -21,16 +23,18 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  actions: write  # pruning the build-reports cache
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    outputs:
-      store_credentials: ${{ steps.store.outputs.configured }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -38,15 +42,6 @@ jobs:
           # concurrency group while the one ahead of it commits data/, and starting from that older commit made
           # both rewrite the same lines of the same files, so the later commit could not rebase.
           ref: ${{ github.ref }}
-
-      - name: Check for store credentials
-        # Jobs cannot read secrets in their `if`, so the build job reports whether the store app is configured.
-        id: store
-        env:
-          CONFIGURED: ${{ secrets.STORE_APP_ID != '' && secrets.STORE_APP_PRIVATE_KEY != '' }}
-        run: |
-          echo "configured=$CONFIGURED" >> "$GITHUB_OUTPUT"
-          [ "$CONFIGURED" = "true" ] || echo "::notice::STORE_APP_ID / STORE_APP_PRIVATE_KEY not set; the Umbrel and Runtipi store repositories are not updated"
 
       - uses: actions/setup-python@v7
         with:
@@ -112,74 +107,17 @@ jobs:
         with:
           path: dist
 
-      - name: Keep the root-level stores for the publish job
-        uses: actions/upload-artifact@v7
-        with:
-          name: stores
-          path: |
-            out/stores/unraid
-            out/stores/umbrel
-            out/stores/runtipi
-          retention-days: 1
-          if-no-files-found: error
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - id: deployment
         uses: actions/deploy-pages@v5
 
-  prune-caches:
-    # Every run saves out/builds/ under its own key (a cache entry cannot be updated) and restores the newest, so
-    # older entries only crowd the repository's 10 GB and evict each other. Keeps the two newest; beside the deploy,
-    # not in front of it.
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - env:
+      - name: Prune old build-report caches
+        # Every run saves out/builds/ under its own key (a cache entry cannot be updated) and restores the newest,
+        # so older entries only crowd the repository's 10 GB and evict each other. Runs after the deploy, so the
+        # page never waits for it, and before this run's own save (a post step), so keeping the newest one leaves
+        # two. Never fails the run: control relays `hub-updated` to the site only after a successful one.
+        continue-on-error: true
+        env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh cache list -R "$GITHUB_REPOSITORY" --key build-reports- --sort created_at --order desc --limit 100 \
-            --json id --jq '.[2:][].id' | while read -r id; do gh cache delete -R "$GITHUB_REPOSITORY" "$id"; done
-
-  publish-stores:
-    # Unraid, Umbrel and Runtipi read a git repository and want the store at its root, so each gets a repository
-    # of its own: the import URL is the repository URL. Skipped until the store app's secrets exist; not on pull requests,
-    # those have no business pushing anywhere.
-    needs: build
-    if: github.event_name != 'pull_request' && needs.build.outputs.store_credentials == 'true'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    strategy:
-      fail-fast: false
-      matrix:
-        store: [unraid, umbrel, runtipi]
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          sparse-checkout: scripts
-
-      - uses: actions/download-artifact@v8
-        with:
-          name: stores
-          path: out/stores
-
-      - id: token
-        uses: actions/create-github-app-token@v3
-        with:
-          app-id: ${{ secrets.STORE_APP_ID }}
-          private-key: ${{ secrets.STORE_APP_PRIVATE_KEY }}
-          owner: ${{ github.repository_owner }}
-          repositories: ${{ matrix.store }}-store
-
-      - name: Push the generated store
-        env:
-          STORE_TOKEN: ${{ steps.token.outputs.token }}
-        run: scripts/publish_store.sh "${{ matrix.store }}" "out/stores/${{ matrix.store }}" "${{ github.repository_owner }}/${{ matrix.store }}-store" main
+            --json id --jq '.[1:][].id' | while read -r id; do gh cache delete -R "$GITHUB_REPOSITORY" "$id"; done

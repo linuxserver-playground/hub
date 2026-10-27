@@ -74,7 +74,7 @@ cat > README.md <<README
 # ${title}
 
 **This repository is generated.** Every file is written by the [hub](${hub_url}) from each image's \`image.yml\`
-and newest build, and pushed by its deploy workflow; edits here are overwritten by the next run. Changes belong in
+and newest build, and pushed by its hourly refresh workflow; edits here are overwritten by the next run. Changes belong in
 the image's repository (its \`image.yml\`) or in the hub's \`lsio_hub/generate/${platform}.py\`.
 
 ## Import

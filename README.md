@@ -45,10 +45,10 @@ run at the same time and their data commits never conflict.
   new. GitHub keeps one pending run per concurrency group and drops older ones, so a burst of releases is picked
   up by whichever run comes next and none is lost. It commits `data/` when it changed, builds `dist/`, generates
   `out/`, merges `out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and
-  `/builds/…`; a second job pushes the Unraid, Umbrel and Runtipi stores to their own repositories (see
-  Generators).
+  `/builds/…`. It is a single job: every job is a separate wait for a runner slot when image builds fill them.
 - `refresh.yml` runs hourly (its cron, and a dispatch from the control plane): `observe` (stars, archived flags,
-  GHCR tags, then the grype scan) and `mods`. It commits what changed and dispatches `deploy.yml`.
+  GHCR tags, then the grype scan) and `mods`. It commits what changed and dispatches `deploy.yml`, then pushes the
+  Unraid, Umbrel and Runtipi stores to their own repositories (see Generators).
 
 The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry.json`. Reads use `GITHUB_TOKEN` only.
 
@@ -201,8 +201,8 @@ manifest and the build records.
 report pages; `--only a,b` limits the run and `--offline` skips Release downloads. Each generator is tested
 against sonarr, swag and a constructed multi-arch image with an external database (`tests/fixtures/manifests/multidb.master.yml`).
 `<hub>` below is the Pages site, `https://linuxserver-playground.github.io/hub`. Unraid, Umbrel and Runtipi read
-a git repository and want the store's files at its root, so `deploy.yml` (`publish-stores`, after the generate
-step on every push, cron and dispatch run) pushes `out/stores/unraid/` to
+a git repository and want the store's files at its root, so `refresh.yml` (its last steps, hourly, from the data
+as of that run) pushes `out/stores/unraid/` to
 `https://github.com/linuxserver-playground/unraid-store`, `out/stores/umbrel/` to
 `https://github.com/linuxserver-playground/umbrel-store` and `out/stores/runtipi/` to
 `https://github.com/linuxserver-playground/runtipi-store`
@@ -255,9 +255,9 @@ copied as they are (Pages gzips text).
 3. The control plane triggers `repository_dispatch` type `image-released` with
    `{"repository": "linuxserver-playground/docker-sonarr", "tag": "4.0.20.3014-ls1"}`; the hourly reconcile
    catches anything missed.
-4. The `publish-stores` job needs the `STORE_APP_ID` and `STORE_APP_PRIVATE_KEY` secrets: a GitHub App installed
-   on the organisation with `contents: write` on `unraid-store`, `umbrel-store` and `runtipi-store`. Without them the job fails and
-   the Pages deployment is unaffected.
+4. Pushing the stores (`refresh.yml`) needs the `STORE_APP_ID` and `STORE_APP_PRIVATE_KEY` secrets: a GitHub App
+   installed on the organisation with `contents: write` on `unraid-store`, `umbrel-store` and `runtipi-store`. Without
+   them those steps are skipped and the Pages deployment is unaffected.
 5. The grype binary is pinned in `refresh.yml` (version and sha256); bump both together. Its database is a few GB on
    disk and lives in the Actions cache under `grype-db-<date>`.
 

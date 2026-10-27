@@ -3,7 +3,7 @@ Unraid Community Applications templates, a port of the legacy `unraid.xml.j2` fi
 is the manifest's `docs.logo`; the WebUI comes from `test.web`; `publish.unraid.requirement` fills
 <Requires> and `publish.unraid.webui` overrides the WebUI template.
 
-Import: Unraid reads templates from a repository; deploy.yml pushes this output to the root of unraid-store.
+Import: Unraid reads templates from a repository; the hourly refresh.yml pushes this output to the root of unraid-store.
 Images with `publish.stores.unraid: false` are listed in `ignore.list`; deprecated images move to `deprecated/`.
 """
 

@@ -20,7 +20,7 @@ site, the control plane (which links to the build pages), and anyone using the A
 | `lsio_hub/transform.py`, `fleet.py`, `responses.py` | Manifests and builds to API images; the content of each endpoint. |
 | `lsio_hub/app.py`, `build.py`, `site.py`, `templates/` | The FastAPI app, the static build of `dist/`, the docs page. |
 | `lsio_hub/generate/` | One module per generator; `python -m lsio_hub.generate` writes `out/`. |
-| `scripts/publish_store.sh` | Pushes `out/stores/umbrel/` and `out/stores/runtipi/` to their own repositories (deploy.yml's `publish-stores` job). |
+| `scripts/publish_store.sh` | Pushes `out/stores/umbrel/` and `out/stores/runtipi/` to their own repositories (the last steps of the hourly `refresh.yml`). |
 | `lsio_hub/sources/` | GitHub REST/GraphQL, GHCR, retrying HTTP. |
 | `data/` | Committed data, written only by the ingest (manifests, bundles, `bases/`), the observer and the mods refresh. |
 | `tests/` | pytest; `tests/fixtures/` holds live manifests, a real release's small assets and reference outputs. |

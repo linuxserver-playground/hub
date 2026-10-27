@@ -6,7 +6,7 @@ file in the repository; the hub does not copy logos into git, so `logo_url` in c
 and the description page shows it.
 
 Import: Runtipi > Settings > App Stores > Add App Store > `https://github.com/linuxserver-playground/runtipi-store`.
-Runtipi clones a git repository and wants `apps/` at its root, so deploy.yml pushes this output to that repository
+Runtipi clones a git repository and wants `apps/` at its root, so refresh.yml pushes this output to that repository
 (scripts/publish_store.sh).
 """
 
