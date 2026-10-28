@@ -554,6 +554,12 @@ class BuildSummary(BaseModel):
     test_success: bool | None = None
     base: BuildBase
     platforms: list[PlatformBuild]
+    tags: list[str] = Field(
+        default_factory=list,
+        description="Every tag the build published, unprefixed then arch-prefixed: `published.tags` of its build.json "
+        "(`version.tags` for releases made before that field). Floating tags (`latest`, `develop`) have moved on to "
+        "the newest build of the branch since.",
+    )
     classification: str | None = Field(None, description="From the diff against the previous build of the branch.")
     vulnerabilities: VulnerabilitySummary | None = Field(
         None,

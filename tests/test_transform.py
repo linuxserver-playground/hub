@@ -8,7 +8,7 @@ from lsio_hub.responses import to_v1_image
 from lsio_hub.store import Store
 from lsio_hub.transform import build_image
 
-from .conftest import FIXTURES, build_store
+from .conftest import FIXTURES
 
 LIVE = json.loads((FIXTURES / "live-v1-sonarr.json").read_text())
 
@@ -123,4 +123,3 @@ def test_broken_record_is_skipped(store: Store, config: SiteConfig) -> None:
 def test_archived_comes_from_observed(fleet: Fleet) -> None:
     assert fleet.image("multidb").archived is True  # type: ignore[union-attr]
     assert fleet.image("sonarr").archived is False  # type: ignore[union-attr]
-    assert build_store().observed["images"]["multidb"]["ghcr_tags"] == []

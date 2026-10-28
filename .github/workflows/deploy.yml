@@ -1,7 +1,7 @@
 # The release path: finds every release data/ lacks, publishes data/ to the data branch, builds the API and the
 # generated artefacts and publishes everything to GitHub Pages. It runs when the control plane sends a
 # repository_dispatch of type `image-released` (its payload is only a hint), on every push to main, on demand, and
-# when the hourly refresh (refresh.yml) has published new observed data. Nothing slow runs here: stars, GHCR tags, the
+# when the hourly refresh (refresh.yml) has published new observed data. Nothing slow runs here: stars, the
 # mods index and the pushes to the store repositories are refresh.yml's, so a release never queues behind them.
 #
 # One job. Every job is a separate wait for one of the organisation's 20 runner slots, and during a burst of image

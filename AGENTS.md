@@ -22,7 +22,7 @@ site, the control plane (which reads the API to hold Discord until a build is se
 | --- | --- |
 | `lsio_hub/models.py` | Every response shape (pydantic). The v1 models are the original API's, field for field. |
 | `lsio_hub/store.py` | The `data/` layout: load and save, rotation-aware. |
-| `lsio_hub/ingest.py`, `observe.py`, `mods.py` | Writers of `data/`: bundles, manifests and the counts of each build's own scan, stars and GHCR tags, the mods index. |
+| `lsio_hub/ingest.py`, `observe.py`, `mods.py` | Writers of `data/`: bundles, manifests and the counts of each build's own scan, stars and archived flags, the mods index. |
 | `lsio_hub/diff.py`, `packages.py`, `layers.py` | The build diff engine and the syft package normaliser (both re-export `builder.derive`, which the build runs for its `record.json`), layer attribution (`from_base`, `dockerfile_lines`). |
 | `lsio_hub/transform.py`, `fleet.py`, `responses.py` | Manifests and builds to API images; the content of each endpoint. |
 | `lsio_hub/app.py`, `build.py`, `site.py`, `templates/` | The FastAPI app, the static build of `dist/`, the docs page. |

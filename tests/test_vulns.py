@@ -93,7 +93,7 @@ def test_legacy_scan_files_stay_until_the_ingest_migrates_them(tmp_path: Path, s
     assert sorted(sonarr.legacy_vulns) == ["4.0.19.2000-ls1", "4.0.20.3014-ls2", "develop-5.0.1.1234-ls1"]
     assert not sonarr.vulns
     # The hourly refresh loads and saves the store without migrating: the files are written back as they were.
-    observe(loaded, FakeGitHub(), registry_http(), now=lambda: NOW)
+    observe(loaded, FakeGitHub(), now=lambda: NOW)
     changed = save_store(tmp_path, loaded)
     assert not [c for c in changed if ".vulns." in c] and len(list(builds.glob("*.vulns.*.json"))) == 6
 

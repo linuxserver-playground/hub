@@ -15,7 +15,7 @@ python3.13 -m venv .venv && . .venv/bin/activate
 pip install -e '.[dev]'                                  # installs lsio-builder from linuxserver-playground/builder
 scripts/data.sh                                          # data/: the published data (the data branch); again to update
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # data/: manifests, every release's bundle, base layers
-GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.observe              # data/observed.json: stars, archived, GHCR tags
+GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.observe              # data/observed.json: stars, archived (one GraphQL query)
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.mods                 # data/mods.json (RESOLVE_VERSION=<workflows>/scripts/resolve_version.py for version lines)
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.prootapps            # data/proot-apps.json
 python -m lsio_hub.build                                 # dist/: the API, openapi.json, the docs page
@@ -32,7 +32,7 @@ For local work against a checkout of the builder: `pip install -e ../builder` be
 GitHub org (GraphQL, REST) ──┐                     ┌─ dist/api/v1/…           the API (JSON, YAML, Atom)
 image.yml per live branch ───┼─ ingest ─> data/ ───┼─ dist/openapi.json, index.html
 Release assets (bundles) ────┤  observe   (git)    ├─ out/stores/<platform>/  docs, unraid, portainer, casaos,
-GHCR tag lists ──────────────┤  mods               │                          umbrel, runtipi, cosmos, proxy,
+GHCR (the mods package) ─────┤  mods               │                          umbrel, runtipi, cosmos, proxy,
 docker-mods mod.yml ─────────┤  prootapps          │                          kubernetes, quadlet, mods
 proot-apps metadata.yml ─────┘                     │
                                                    └─ out/builds/<image>/<tag>/  redirects to the website
@@ -65,8 +65,8 @@ run at the same time and whichever publishes second merges onto the other's data
   `out/`, merges `out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and
   `/builds/…` (redirects), all of it generated text (about 235 MB, 34 MB as the Pages artifact). It is a single job:
   every job is a separate wait for a runner slot when image builds fill them.
-- `refresh.yml` runs hourly (its cron, and a dispatch from the control plane): `observe` (stars, archived flags,
-  GHCR tags), `mods` and `prootapps`. It publishes what changed and dispatches `deploy.yml`, then pushes the
+- `refresh.yml` runs hourly (its cron, and a dispatch from the control plane): `observe` (stars and archived
+  flags), `mods` and `prootapps`. It publishes what changed and dispatches `deploy.yml`, then pushes the
   Unraid, Umbrel and Runtipi stores to their own repositories (see Generators).
 
 The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry.json`. Reads use `GITHUB_TOKEN` only.
@@ -78,7 +78,7 @@ The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry
 | `lsio_hub/ingest.py` | Reconcile (every repo's manifests and every release `data/` lacks; `--deep` lists every release over REST for a backfill) or one release; validates with the builder contracts. Keeps the counts of each build's own scan (`builder.derive.vulns.summary_of`), and once migrates the retired per-architecture scan files (`migrate_vulns`). |
 | `lsio_hub/diff.py`, `packages.py` | The build diff engine and the syft normaliser: `builder.derive`'s, which the build also runs. |
 | `lsio_hub/layers.py` | Layer attribution: `from_base` from the base image's registry manifest, `dockerfile_lines` from `created_by`. |
-| `lsio_hub/observe.py`, `mods.py`, `prootapps.py` | The observed poller (stars, archived, GHCR tags), the mods index and the PRoot Apps index. |
+| `lsio_hub/observe.py`, `mods.py`, `prootapps.py` | The observed poller (stars, archived), the mods index and the PRoot Apps index. |
 | `lsio_hub/transform.py` | Manifest plus builds to an API image (`builder.manifest.build_context`, `builder.snippets`). |
 | `lsio_hub/responses.py`, `app.py`, `build.py` | Endpoint content, the FastAPI routes, the static build. |
 | `lsio_hub/generate/` | One module per generator, each a function of `data/`. |
@@ -118,7 +118,7 @@ leaves out the retired per-architecture scan files (`<tag>.vulns.<arch>.json`), 
 | `data/images/<name>/latest.json` | branch → tag, created, release URL, asset URLs. |
 | `data/images/<name>/history.json` | branch → every release seen, newest first, including rotated-out builds: tag, created, release URL and the run that built it (`run_url`; recorded from 2026-10-28, so absent for releases rotated out before). |
 | `data/bases/<algorithm>-<hex>.json` | The layer digests per architecture of a base image, keyed by the index digest builds record as `base.digest`; read from GHCR with an anonymous pull token, once per digest, by the ingest. |
-| `data/observed.json` | stars, archived flag, GHCR tag list per image; written by the observer only. |
+| `data/observed.json` | stars, archived flag and last push per image; written by the observer only. A build's tags are its `build.json`'s (`published.tags`), never a registry listing. |
 | `data/mods.json` | The mods index. |
 | `data/proot-apps.json` | The PRoot Apps index: the enabled apps of proot-apps' `metadata/metadata.yml` and the CLI's newest release. |
 | `data/status/<source>.json` | Per source (manifests, releases, observed, mods, proot-apps): ok, checked_at, fetched_at, error. One file each, because the release path and the hourly refresh write different sources at the same time. |
@@ -148,7 +148,7 @@ Added by the hub:
 
 | Path | What |
 | --- | --- |
-| `/api/v1/catalog/{name}/builds.json` | Builds in `data/` (newest first, 5 per branch) with links, classification, `vulnerabilities` (the counts of the scan the build made of itself, for builds that have one) and the release history per branch. `links.pages` is the build's folder on the repository's Pages, `links.files`, `links.sbom` and `links.vulns` its `files.<arch>.json.gz`, `packages.<arch>.json.gz` and `vulns.json` there; `links.test_report` is the build's page on the website; `links.run_json` and `links.logs_zip` are download links on the Release (see "Changes for consumers"). Each `history` entry has `run_url`, `run_json` and `logs_zip`, so a release the hub no longer holds is still linked to its run. |
+| `/api/v1/catalog/{name}/builds.json` | Builds in `data/` (newest first, 5 per branch) with the tags each published (`tags`), links, classification, `vulnerabilities` (the counts of the scan the build made of itself, for builds that have one) and the release history per branch. `links.pages` is the build's folder on the repository's Pages, `links.files`, `links.sbom` and `links.vulns` its `files.<arch>.json.gz`, `packages.<arch>.json.gz` and `vulns.json` there; `links.test_report` is the build's page on the website; `links.run_json` and `links.logs_zip` are download links on the Release (see "Changes for consumers"). Each `history` entry has `run_url`, `run_json` and `logs_zip`, so a release the hub no longer holds is still linked to its run. |
 | `/api/v1/catalog/{name}/builds/{tag}.json` | The bundle record as received. |
 | `/api/v1/catalog/{name}/builds/{tag}/report.json` | The build page aggregate: record facts, platforms, result, test summary per arch, diff summary (no package lists), notes and every link. One request per build page. |
 | `/api/v1/catalog/{name}/builds/{tag}/tests.json` | The harness's `test.<arch>.json` per arch as received, with a summary (result, passed and failed tests, startup seconds, listening ports, warnings, `files`: the report's files on the repository's Pages by kind, `tarball`: the Release download) and `report_url`, the build's page on the website. Only for builds that have a report. |
@@ -198,6 +198,13 @@ Later on 2026-10-28 the vulnerability scans moved to the repositories' Pages too
   (`https://linuxserver-playground.github.io/site/images/<image>/builds/<tag>/`), `report.json` `links.history` at the
   image page's build list (`…/site/images/<image>/#builds`).
 - `/builds/<image>/<tag>/` and `/builds/<image>/` redirect there (see Build report pages).
+
+Later still on 2026-10-28, two changes:
+
+- `BuildSummary` (`builds.json`) has a new `tags`: every tag the build published, from its build.json (`published.tags`,
+  contracts 1.10; `version.tags` for releases made before that field). Additive.
+- `observed.json` (in `data/`) has no `ghcr_tags`: the hourly refresh no longer lists every GHCR package (about 50 s of
+  each run). Nothing read it; a build's tags are in its build.json, fixed when it publishes.
 
 ### Layer attribution
 

@@ -1,4 +1,4 @@
-# The hourly refresh: stars, archived flags and GHCR tags (observe), the mods index with what the mods package holds
+# The hourly refresh: stars and archived flags (observe; a build's tags come from its build.json at ingest), the mods index with what the mods package holds
 # per mod, the PRoot Apps index (proot-apps' metadata.yml), and the store repositories. None of it is on a release's
 # path, so it runs apart from deploy.yml and never makes a release wait: it publishes the files it owns to the data
 # branch (observed.json, mods.json, proot-apps.json and their status files; see lsio_hub/store.py), asks deploy.yml to

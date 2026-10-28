@@ -17,7 +17,7 @@ data/ is a checkout of the `data` branch, which holds one commit and no history 
     data/images/<name>/history.json                branch -> every release seen, newest first
     data/bases/<algorithm>-<hex>.json              a base image's layer digests per architecture, keyed by the
                                                    index digest builds record as base.digest (registry cache)
-    data/observed.json                             stars, archived flag, GHCR tags (observer only)
+    data/observed.json                             stars, archived flag, last push (observer only)
     data/mods.json                                 the mods index
     data/proot-apps.json                           the PRoot Apps index (desktop apps)
     data/status/<source>.json                      refresh status of one source (manifests, releases, observed,
@@ -130,7 +130,7 @@ class ImageRecord:
 class Store:
     images: dict[str, ImageRecord] = field(default_factory=dict)
     observed: Json = field(default_factory=dict)
-    """{fetched_at, images: {name: {stars, archived, pushed_at, ghcr_tags}}}"""
+    """{fetched_at, images: {name: {url, stars, archived, pushed_at}}}"""
     mods: Json = field(default_factory=dict)
     """{fetched_at, source, mods: [...]}"""
     proot_apps: Json = field(default_factory=dict)

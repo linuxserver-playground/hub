@@ -134,6 +134,17 @@ def test_builds(fleet: Fleet) -> None:
     assert responses.packages_table(sonarr, "4.0.19.2000-ls1", "amd64") is None
 
 
+def test_builds_list_the_tags_each_build_published(fleet: Fleet) -> None:
+    multidb = fleet.record("multidb")
+    assert multidb is not None
+    by_tag = {b.tag: b for b in responses.builds(fleet, multidb).builds}
+    # A release from before contracts 1.10: version.tags, which its publish pushed in full.
+    assert by_tag["1.0.0-ls1"].tags == ["latest", "1.0.0-ls1"]
+    published = {"image": "ghcr.io/linuxserver-playground/multidb", "tags": ["latest", "1.0.0-ls2", "amd64-latest"]}
+    multidb.builds["1.0.0-ls2"]["published"] = published
+    assert responses.builds(fleet, multidb).builds[0].tags == published["tags"]
+
+
 def test_layers_are_attributed(fleet: Fleet) -> None:
     sonarr = fleet.record("sonarr")
     assert sonarr is not None

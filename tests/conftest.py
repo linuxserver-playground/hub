@@ -576,8 +576,7 @@ def build_store(github: FakeGitHub | None = None) -> Store:
     store = Store()
     now = lambda: NOW  # noqa: E731
     reconcile(store, github, now=now)
-    http = registry_http()
-    observe(store, github, http, now=now)
+    observe(store, github, now=now)
     mods_module.refresh_mods(store, github, now=now)
     prootapps.refresh_proot_apps(store, github, now=now)
     for name, tags in SCANNED.items():

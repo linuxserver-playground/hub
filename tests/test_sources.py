@@ -27,12 +27,12 @@ from .conftest import (
 )
 
 
-def test_observe_records_stars_archived_and_tags() -> None:
+def test_observe_records_stars_and_archived_without_the_registry() -> None:
     store = build_store()
     sonarr = store.observed["images"]["sonarr"]
     assert sonarr["stars"] == 7 and sonarr["archived"] is False
-    assert sonarr["ghcr_tags"] == ["4.0.20.3014-ls2", "amd64-latest", "latest"]
-    assert store.observed["images"]["multidb"]["ghcr_tags"] == []  # package not published yet
+    # A build's tags come from its build.json at ingest (the builds list's `tags`), never from a registry listing.
+    assert "ghcr_tags" not in sonarr
     assert "builder" not in store.observed["images"]
     assert store.status["sources"]["observed"]["ok"] is True
 
@@ -43,7 +43,7 @@ def test_observe_failure_keeps_previous_data() -> None:
             raise RuntimeError("down")
 
     store = build_store()
-    observe(store, Broken(), registry_http(), now=lambda: "2026-10-25T00:00:00Z")
+    observe(store, Broken(), now=lambda: "2026-10-25T00:00:00Z")
     assert store.observed["images"]["sonarr"]["stars"] == 7
     status = store.status["sources"]["observed"]
     assert status == {"ok": False, "checked_at": "2026-10-25T00:00:00Z", "fetched_at": NOW, "error": "down"}
@@ -126,7 +126,7 @@ def test_org_repos_reads_stars_from_the_graphql_response() -> None:
     assert queries[0]["variables"] == {"org": "linuxserver-playground", "cursor": None}
     assert "stargazerCount" in str(queries[0]["query"])
     store = Store()
-    observe(store, gh, registry_http(), now=lambda: NOW)
+    observe(store, gh, now=lambda: NOW)
     assert store.observed["images"]["sonarr"]["stars"] == 42 and store.observed["images"]["swag"]["stars"] == 3
     assert "builder" not in store.observed["images"]
     assert store.observed["fetched_at"] == NOW

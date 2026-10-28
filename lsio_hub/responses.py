@@ -202,6 +202,19 @@ def _build_links(fleet: Fleet, record: ImageRecord, build: Json) -> BuildLinks:
     )
 
 
+def published_tags(build: Json) -> list[str]:
+    """
+    The tags a build pushed: build.json `published.tags` (CONVENTIONS §6), else, for a release made before that field,
+    `version.tags`, which a live release published in full (its Release exists only once they were). Never a registry
+    listing: a build's tags are fixed when it publishes.
+    """
+    published = build.get("published") or {}
+    tags = published.get("tags") if isinstance(published, dict) else None
+    if isinstance(tags, list) and tags:
+        return [str(t) for t in tags]
+    return [str(t) for t in (build.get("version") or {}).get("tags") or []]
+
+
 def build_summary(fleet: Fleet, record: ImageRecord, build: Json) -> BuildSummary:
     tag = build["version"]["tag"]
     diff = record.diffs.get(tag)
@@ -218,6 +231,7 @@ def build_summary(fleet: Fleet, record: ImageRecord, build: Json) -> BuildSummar
         test_success=build["test"]["success"] if build["test"].get("enabled", True) else None,
         base=build["base"],
         platforms=build["platforms"],
+        tags=published_tags(build),
         classification=diff["classification"] if diff else None,
         vulnerabilities=vuln_summary(record, tag),
         links=_build_links(fleet, record, build),
@@ -698,7 +712,7 @@ def _base_releases(fleet: Fleet) -> dict[str, str]:
         if not record.name.startswith("baseimage-"):
             continue
         for build in record.builds.values():
-            for tag in build["version"].get("tags", []) or [build["version"]["tag"]]:
+            for tag in published_tags(build) or [build["version"]["tag"]]:
                 ref = f"{fleet.settings.registry}/{fleet.settings.org}/{record.name}:{tag}"
                 out[ref] = max(out.get(ref, ""), build["created"])
     return out
