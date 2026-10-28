@@ -419,8 +419,10 @@ def test_a_release_with_a_record_needs_two_downloads(records: dict[str, bytes]) 
     sonarr = store.images["sonarr"]
     assert sonarr.builds == legacy.builds and sonarr.diffs == legacy.diffs
     assert sonarr.tests == legacy.tests and sonarr.layers == legacy.layers and sonarr.packages == legacy.packages
-    # The build's scan and base layers are kept, so the poller and the registry have nothing to do for it.
-    assert sonarr.vulns["4.0.20.3014-ls2"]["amd64"]["scanned_at"] == NOW
+    # The counts of the build's scan and its base layers are kept: the registry has nothing to do for it.
+    counts = sonarr.vulns["4.0.20.3014-ls2"]
+    assert counts["scanned_at"] == NOW and counts["summary"]["critical"] == 0 and "matches" not in counts
+    assert "5.2.0-ls1" not in store.images["swag"].vulns  # its build could not scan: no counts, nothing rescans it
     assert store.bases[SONARR_LS2_BASE]["platforms"]["amd64"]["layers"] == ["sha256:x"]
 
 
@@ -431,19 +433,3 @@ def test_an_unusable_record_is_ignored(records: dict[str, bytes]) -> None:
     legacy = build_store().images["sonarr"]
     assert store.images["sonarr"].diffs["4.0.20.3014-ls2"] == legacy.diffs["4.0.20.3014-ls2"]
     assert store.images["sonarr"].packages == legacy.packages
-
-
-def test_the_poller_does_not_scan_a_build_again_that_scanned_itself(records: dict[str, bytes]) -> None:
-    from lsio_hub import vulns
-
-    from .conftest import FakeGrype
-
-    store = Store()
-    reconcile(store, WithRecords(records), now=lambda: NOW)
-    later = "2026-10-24T13:00:00.000Z"
-    vulns.scan(store, FakeGrype(), asset_bytes, now=lambda: later, cache_dir=None)
-    ledger = store.observed["vulnerabilities"]["builds"]
-    # sonarr's builds scanned themselves; swag's and multidb's did not, so they are scanned here.
-    assert ledger["sonarr@4.0.20.3014-ls2"] == {"scanned_at": NOW, "db_date": NOW, "arches": ["amd64", "arm64"]}
-    assert ledger["sonarr@develop-5.0.1.1234-ls1"]["scanned_at"] == NOW
-    assert ledger["swag@5.2.0-ls1"]["scanned_at"] == later and ledger["multidb@1.0.0-ls2"]["scanned_at"] == later

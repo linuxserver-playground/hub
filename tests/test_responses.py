@@ -67,7 +67,6 @@ def test_status_includes_rejected(fleet: Fleet) -> None:
         "observed",
         "mods",
         "proot-apps",
-        "vulnerabilities",
     }
     assert sorted(status.rejected) == ["multidb@bad-ls9", "multidb@feature-ls1"]
     assert status.sources["observed"].fetched_at == fleet.store.observed["fetched_at"]
@@ -93,7 +92,10 @@ def test_builds(fleet: Fleet) -> None:
         "arm64": "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/packages.arm64.json",
     }
     assert data.builds[2].links.packages == {}  # only the newest build of a branch keeps its table
-    assert newest.links.test_report == "https://example.github.io/hub/builds/sonarr/4.0.20.3014-ls2/"
+    assert (
+        newest.links.test_report
+        == "https://linuxserver-playground.github.io/site/images/sonarr/builds/4.0.20.3014-ls2/"
+    )
     # Every held build's heavy files are on its repository's Pages, which keeps the same builds; the Release
     # only appears as download links.
     pages = "https://linuxserver-playground.github.io/docker-sonarr/builds/4.0.20.3014-ls2/"
@@ -112,7 +114,7 @@ def test_builds(fleet: Fleet) -> None:
     assert (
         newest.links.report == "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/report.json"
     )
-    assert newest.links.vulns == "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/vulns.json"
+    assert newest.links.vulns == f"{pages}vulns.json"  # the build's own scan, on its repository's Pages
     assert newest.vulnerabilities is not None and newest.vulnerabilities.critical == 1
     assert data.builds[2].vulnerabilities is None and data.builds[2].links.vulns is None
     assert [h.tag for h in data.history["master"]] == ["4.0.20.3014-ls2", "4.0.19.2000-ls1"]
@@ -156,7 +158,7 @@ def test_tests_and_report(fleet: Fleet) -> None:
     assert multidb is not None
     tests = responses.tests(fleet, multidb, "1.0.0-ls1")
     assert tests is not None and tests.enabled and tests.success is False
-    assert tests.report_url == "https://example.github.io/hub/builds/multidb/1.0.0-ls1/"
+    assert tests.report_url == "https://linuxserver-playground.github.io/site/images/multidb/builds/1.0.0-ls1/"
     assert sorted(tests.reports) == ["amd64", "arm64"] and tests.reports["arm64"].tests[2].status == "FAIL"
     arm64 = tests.summary["arm64"]
     assert (
@@ -189,7 +191,7 @@ def test_tests_and_report(fleet: Fleet) -> None:
     assert report.diff.config_changes == 1 and report.diff.totals.upgraded == 1 and not report.diff.base_changed
     assert report.tests["arm64"].success is False and report.links.run.endswith("/actions/runs/1002")
     assert report.links.registry == "ghcr.io/linuxserver-playground/multidb:1.0.0-ls2"
-    assert report.links.history == "https://example.github.io/hub/builds/multidb/"
+    assert report.links.history == "https://linuxserver-playground.github.io/site/images/multidb/#builds"
     assert report.links.files["amd64"] == (
         "https://linuxserver-playground.github.io/docker-multidb/builds/1.0.0-ls2/files.amd64.json.gz"
     )

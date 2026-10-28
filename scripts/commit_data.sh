@@ -9,20 +9,25 @@
 #
 # deploy.yml and refresh.yml both write data/ and may push at the same moment. When the other one replaced the commit
 # first, the lease fails; this one then merges its own changes onto theirs, three-way against the commit it checked
-# out, and pushes again. They write different files (lsio_hub/store.py), so the merge is clean; the one overlap, a
-# vulns file the refresh rescans while the Deploy rotates its build out, conflicts, and a conflict fails the run
-# rather than dropping either side (the next run redoes it).
+# out, and pushes again. They write different files (lsio_hub/store.py), so the merge is clean; should they ever
+# change the same file, the merge conflicts, and a conflict fails the run rather than dropping either side (the next
+# run redoes it).
 #
 # With no history there is no revert, and the data is not all rebuildable (history.json keeps every release, the
 # reconcile reads the newest 30). So the first publish of each UTC day is kept as refs/data-history/<date> for a
 # week (roll back by force-pushing one to refs/heads/data), and a publish that would drop more than a tenth of the
 # files, the mark of a glitched run, is refused unless ALLOW_SHRINK=1.
+#
+# The count leaves out the retired per-architecture scan files (images/*/builds/<tag>.vulns.<arch>.json, about a fifth
+# of the files when they were retired): the ingest replaces each build's pair with one file of counts once
+# (lsio_hub/ingest.py, migrate_vulns), an intended drop the guard must not refuse. Once none are left this changes
+# nothing, and the pattern can go.
 set -euo pipefail
 
 branch=data
 cd "$(dirname "$0")/../data"
 
-files() { git ls-tree -r --name-only "$1" | wc -l; }
+files() { git ls-tree -r --name-only "$1" | grep -cvE '^images/[^/]+/builds/.+\.vulns\.(amd64|arm64)\.json$' || true; }
 
 # Refuses to replace $1 with $2 when that drops more than a tenth of the files.
 guard() {

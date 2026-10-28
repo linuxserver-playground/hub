@@ -37,7 +37,7 @@ def test_per_build_files(files: dict[str, bytes]) -> None:
         f"{base}/packages.arm64.json",
     } <= files.keys()
     assert f"{base}/tests.json" in files and f"{base}/report.json" in files
-    assert f"{base}/vulns.json" in files and "api/v1/catalog/sonarr/builds/4.0.19.2000-ls1/vulns.json" not in files
+    assert f"{base}/vulns.json" not in files  # on the repository's Pages (links.vulns), never a copy here
     assert "api/v1/catalog/sonarr/builds/4.0.19.2000-ls1/packages.amd64.json" not in files
     assert "api/v1/catalog/multidb/builds/1.0.0-ls1/layers.arm64.json" not in files  # arm64 failed
     assert "api/v1/catalog/multidb/builds/1.0.0-ls1/layers.amd64.json" in files

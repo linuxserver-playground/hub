@@ -26,7 +26,6 @@ from .models import (
     BuildResponse,
     BuildsResponse,
     BuildTestsResponse,
-    BuildVulnsResponse,
     CatalogData,
     CatalogResponse,
     CategoriesData,
@@ -258,7 +257,9 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
     def get_builds(name: ImageName) -> BuildsResponse:
         """
         Every build held by the hub (the newest five per branch), newest first, with links to its files on the image
-        repository's Pages, and the release history per branch.
+        repository's Pages, and the release history per branch. `vulnerabilities` are the counts of the scan the build
+        made of itself when it was released, never rescanned; the findings are `links.vulns`, the build's `vulns.json`
+        on its repository's Pages (the hub serves no copy).
         """
         return envelope(BuildsResponse, data=responses.builds(fleet, record(name)))
 
@@ -322,8 +323,8 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
     def get_build_tests(name: ImageName, tag: BuildTag) -> BuildTestsResponse:
         """
         The ci harness's `test.<arch>.json` per architecture as received, with a summary per architecture (result,
-        startup time, listening ports, failed tests, the report's files on the repository's Pages) and the report page
-        URL. Only for builds that have a report.
+        startup time, listening ports, failed tests, the report's files on the repository's Pages) and the build's
+        page on the website. Only for builds that have a report.
         """
         return envelope(BuildTestsResponse, data=or_404(responses.tests(fleet, record(name), tag)))
 
@@ -342,22 +343,6 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
         return envelope(
             BuildReportResponse, data=BuildReportData(report=or_404(responses.report(fleet, record(name), tag)))
         )
-
-    @get(
-        "/api/v1/catalog/{name}/builds/{tag}/vulns.json",
-        tags=["Builds"],
-        operation_id="getBuildVulnerabilities",
-        summary="Get the vulnerability scan of a build",
-        responses=NOT_FOUND,
-    )
-    def get_build_vulns(name: ImageName, tag: BuildTag) -> BuildVulnsResponse:
-        """
-        grype's findings against the build's syft SBOM, per architecture and merged (one row per vulnerability and
-        package), with counts per severity and fix state. The data is dated by the vulnerability database, not the
-        build: the newest build of each branch is rescanned when the database moves. Read `caveats` before showing
-        the numbers. Only for builds that have been scanned.
-        """
-        return envelope(BuildVulnsResponse, data=or_404(responses.vulns(record(name), tag)))
 
     # ------------------------------------------------------------------------------------- Mods, packages
 

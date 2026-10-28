@@ -9,7 +9,7 @@ from typing import Any, Literal
 from builder.manifest import build_context
 from builder.render import render_all
 
-from .config import REPORT_FILES, STORE_REPOS, build_pages, release_download
+from .config import REPORT_FILES, STORE_REPOS, build_pages, release_download, site_build, site_builds
 from .dates import parse_iso
 from .fleet import Fleet
 from .generate import kubernetes, proxy, proxy_refs, quadlet
@@ -26,7 +26,6 @@ from .models import (
     BuildsData,
     BuildSummary,
     BuildTestsData,
-    BuildVulnsData,
     Bundle,
     Category,
     ChangelogEntry,
@@ -59,12 +58,10 @@ from .models import (
     StoreEntry,
     TestArchSummary,
     TestReport,
-    VulnerabilityMatch,
     VulnerabilitySummary,
 )
 from .packages import slug, version_key
 from .store import ImageRecord
-from .vulns import CAVEATS, merge, summarise
 
 Json = dict[str, Any]
 _V1_FIELDS = Image.model_fields.keys() - {"changelog", "config"}
@@ -174,7 +171,8 @@ def _asset_names(build: Json) -> set[str]:
 def _build_links(fleet: Fleet, record: ImageRecord, build: Json) -> BuildLinks:
     """
     The API's own documents, then the heavy files on the image repository's Pages (`config.repo_pages`), which keeps
-    the same newest builds the hub does. Release assets appear only as download links: they send no CORS headers.
+    the same newest builds the hub does, the build's own vulnerability scan among them. Release assets appear only as
+    download links: they send no CORS headers. The report page is the build's page on the website.
     """
     tag, branch, repository = build["version"]["tag"], build["branch"], build["repository"]
     api = f"{fleet.site.api_root}/api/v1/catalog/{record.name}/builds/{tag}"
@@ -197,10 +195,10 @@ def _build_links(fleet: Fleet, record: ImageRecord, build: Json) -> BuildLinks:
         files=on_pages("files"),
         sbom=on_pages("packages"),
         **{key: release_download(repository, tag, name) for key, name in RUN_FILES.items()},
-        test_report=f"{fleet.site.api_root}/builds/{record.name}/{tag}/",
+        test_report=site_build(record.name, tag),
         tests=f"{api}/tests.json" if record.tests.get(tag) else None,
         report=f"{api}/report.json",
-        vulns=f"{api}/vulns.json" if record.vulns.get(tag) else None,
+        vulns=f"{pages}vulns.json" if record.vulns.get(tag) else None,
     )
 
 
@@ -313,7 +311,7 @@ def tests(fleet: Fleet, record: ImageRecord, tag: str) -> BuildTestsData | None:
         tag=tag,
         enabled=enabled,
         success=build["test"]["success"] if enabled else None,
-        report_url=f"{fleet.site.api_root}/builds/{record.name}/{tag}/",
+        report_url=site_build(record.name, tag),
         summary=_test_summaries(record, build),
         reports={arch: TestReport.model_validate(reports[arch]) for arch in sorted(reports)},
     )
@@ -330,37 +328,9 @@ def test_routes(fleet: Fleet) -> list[tuple[str, str]]:
 
 
 def vuln_summary(record: ImageRecord, tag: str) -> VulnerabilitySummary | None:
-    scans = record.vulns.get(tag)
-    return VulnerabilitySummary.model_validate(summarise(merge(scans))) if scans else None
-
-
-def vulns(record: ImageRecord, tag: str) -> BuildVulnsData | None:
-    """The scans of every architecture merged into one list; None when the build has not been scanned."""
-    scans = record.vulns.get(tag)
-    if not scans or tag not in record.builds:
-        return None
-    merged = merge(scans)
-    newest = max(scans.values(), key=lambda s: str(s.get("db_date", "")))
-    return BuildVulnsData(
-        image=record.name,
-        tag=tag,
-        summary=VulnerabilitySummary.model_validate(summarise(merged)),
-        by_arch={a: VulnerabilitySummary.model_validate(summarise(merge({a: scans[a]}))) for a in sorted(scans)},
-        matches=[VulnerabilityMatch.model_validate(m) for m in merged],
-        db_date=str(newest.get("db_date", "")),
-        grype_version=str(newest.get("grype_version", "")),
-        caveats=list(CAVEATS),
-    )
-
-
-def vuln_routes(fleet: Fleet) -> list[tuple[str, str]]:
-    """(image, tag) for every build with a vulnerability scan."""
-    return [
-        (name, tag)
-        for name, record in sorted(fleet.store.images.items())
-        for tag in sorted(record.vulns)
-        if tag in record.builds
-    ]
+    """The counts of the build's own scan, made when it was built (its vulns.json is on the repository's Pages)."""
+    counts = record.vulns.get(tag)
+    return VulnerabilitySummary.model_validate(counts["summary"]) if counts else None
 
 
 def _diff_summary(diff: Json) -> DiffSummary:
@@ -437,7 +407,7 @@ def report(fleet: Fleet, record: ImageRecord, tag: str) -> BuildReport | None:
             commit=f"https://github.com/{build['repository']}/commit/{build['commit']}",
             repository=f"https://github.com/{build['repository']}",
             registry=f"{ref}:{tag}",
-            history=f"{fleet.site.api_root}/builds/{record.name}/",
+            history=site_builds(record.name),
         ),
     )
 

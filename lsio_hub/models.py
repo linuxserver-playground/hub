@@ -280,8 +280,7 @@ class Status(BaseModel):
     deprecated: int
     sources: dict[str, SourceStatus] = Field(
         description="`manifests` (image.yml per branch), `releases` (build bundles), `observed` (stars, GHCR tags; its "
-        "`fetched_at` is `observed.json`'s), `mods` (the mods index), `proot-apps` (the PRoot Apps index), "
-        "`vulnerabilities` (the grype poll; `ok: false` with an `error` when grype or its database is unavailable)."
+        "`fetched_at` is `observed.json`'s), `mods` (the mods index), `proot-apps` (the PRoot Apps index)."
     )
     rejected: dict[str, RejectedRelease] = Field(
         description="Releases whose bundle failed validation, keyed `<image>@<tag>`; they are skipped until fixed."
@@ -476,12 +475,12 @@ class Bundle(_Lenient):
     workflow: BuildWorkflow
 
 
-Severity = Literal["critical", "high", "medium", "low", "negligible", "unknown"]
-FixState = Literal["fixed", "not-fixed", "wont-fix", "unknown"]
-
-
 class VulnerabilitySummary(BaseModel):
-    """Counts over distinct findings (one per vulnerability id and package)."""
+    """
+    Counts of a build's own vulnerability scan, made when it was built (grype against each architecture's syft SBOM,
+    with that day's database) and never rescanned: over distinct findings, one per vulnerability id and package across
+    the architectures. The findings are the build's `vulns.json` on its repository's Pages (`links.vulns`).
+    """
 
     critical: Count
     high: Count
@@ -492,42 +491,6 @@ class VulnerabilitySummary(BaseModel):
     fixed: Count = Field(description="The distribution or upstream ships a fixed version.")
     unfixed: Count = Field(description="No fix is known: `not-fixed` and `unknown` fix states.")
     wont_fix: Count = Field(description="The distribution has decided not to fix it for this release.")
-
-
-class VulnerabilityMatch(BaseModel):
-    package: str
-    version: str
-    type: str = Field(description="syft package type: apk, deb, dotnet, python, npm, binary...", examples=["apk"])
-    id: str = Field(examples=["CVE-2024-43485", "GHSA-8g4q-xg66-9fp4"])
-    severity: Severity
-    fix_state: FixState = Field(
-        description="grype's fix state. For distribution packages it comes from the distribution's feed, so `fixed` "
-        "means a fixed package exists for this release and `not-fixed` means none does."
-    )
-    fixed_in: list[str] = Field(description="Versions that carry the fix, when known.")
-    urls: list[str] = Field(description="The advisory the match came from first, then its references.")
-    cvss: float | None = Field(None, description="The highest CVSS base score the database records, any version.")
-    arches: list[Arch] = Field(description="Architectures the finding was made on.")
-
-
-class BuildVulnsData(BaseModel):
-    """A build's vulnerability scan: grype against the syft SBOM of each architecture, merged."""
-
-    image: str
-    tag: str
-    summary: VulnerabilitySummary
-    by_arch: dict[str, VulnerabilitySummary]
-    matches: list[VulnerabilityMatch] = Field(
-        description="One per vulnerability id and package across architectures; worst severity first. The summaries "
-        "count these rows (`by_arch` too), so a package syft lists at several paths counts once."
-    )
-    db_date: str = Field(description="When grype's vulnerability database was built; the clock of this data.")
-    grype_version: str
-    caveats: list[str] = Field(description="How to read the counts. Always the same sentences; show them.")
-
-
-class BuildVulnsResponse(Envelope):
-    data: BuildVulnsData
 
 
 class BuildLinks(BaseModel):
@@ -541,8 +504,8 @@ class BuildLinks(BaseModel):
     release: str | None = None
     pages: str = Field(
         description="The build's folder on its image repository's GitHub Pages (`https://<owner>.github.io/<repo>/"
-        "builds/<tag>/`), with a trailing slash: `files.<arch>.json.gz`, `packages.<arch>.json.gz` and each "
-        "architecture's unpacked test report under `<arch>/` (see `tests.json`). Served with "
+        "builds/<tag>/`), with a trailing slash: `files.<arch>.json.gz`, `packages.<arch>.json.gz`, `vulns.json` "
+        "and each architecture's unpacked test report under `<arch>/` (see `tests.json`). Served with "
         "`access-control-allow-origin: *` for the newest 5 builds of each live branch, the builds the hub holds."
     )
     files: dict[str, str] = Field(
@@ -562,10 +525,20 @@ class BuildLinks(BaseModel):
         description="`logs.zip` on the Release: the run's masked log archive. A download link; 404 for releases made "
         "before control attached it."
     )
-    test_report: str | None = Field(None, description="The hub's plain report page, `/builds/<image>/<tag>/`.")
+    test_report: str | None = Field(
+        None,
+        description="The build's CI results page on the website, `<site>/images/<image>/builds/<tag>/` (the hub's own "
+        "`/builds/<image>/<tag>/` only redirects there).",
+    )
     tests: str | None = Field(None, description="`tests.json`: the harness reports per architecture, when any exist.")
     report: str | None = Field(None, description="`report.json`: the build page aggregate.")
-    vulns: str | None = Field(None, description="`vulns.json`: the vulnerability scan, when the build has one.")
+    vulns: str | None = Field(
+        None,
+        description="`vulns.json` on the repository's Pages (under `pages`), for builds that scanned themselves: the "
+        "scan made when the image was built, never rescanned. `{image, tag, summary, by_arch, matches, db_date, "
+        'grype_version, scanned_at, caveats}` (CONVENTIONS §6, "Repo Pages"); `summary` is `vulnerabilities`, and '
+        "`caveats` say how to read the counts. The hub serves no copy.",
+    )
 
 
 class BuildSummary(BaseModel):
@@ -583,7 +556,9 @@ class BuildSummary(BaseModel):
     platforms: list[PlatformBuild]
     classification: str | None = Field(None, description="From the diff against the previous build of the branch.")
     vulnerabilities: VulnerabilitySummary | None = Field(
-        None, description="Counts from the newest scan, for builds that have one (see `vulns.json` and its caveats)."
+        None,
+        description="Counts of the scan the build made of itself when it was built, for builds that have one (see "
+        "`links.vulns` and its caveats). Not updated after the release.",
     )
     links: BuildLinks
 
@@ -744,7 +719,7 @@ class BuildTestsData(BaseModel):
     tag: str
     enabled: bool = Field(description="`test.enabled` of the build.")
     success: bool | None = Field(None, description="`test.success` of the build; None when tests were disabled.")
-    report_url: str = Field(description="The hub's plain report page, `/builds/<image>/<tag>/`.")
+    report_url: str = Field(description="The build's CI results page on the website (`links.test_report`).")
     summary: dict[str, TestArchSummary] = Field(description="Per architecture.")
     reports: dict[str, TestReport] = Field(description="The harness reports per architecture, as received.")
 
@@ -888,7 +863,7 @@ class ReportLinks(BuildLinks):
     commit: str
     repository: str
     registry: str = Field(description="The image reference with this build's tag.")
-    history: str = Field(description="The image's build history page.")
+    history: str = Field(description="The image's build list on the website, `<site>/images/<image>/#builds`.")
 
 
 class BuildReport(BaseModel):

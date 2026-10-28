@@ -2,8 +2,7 @@
 The observed poller: what GitHub and the registry say about each image right now, as opposed to what the
 builds reported. Stars and the archived flag come from one GraphQL query over the organisation; the GHCR
 tag list from the registry API with an anonymous pull token. Written to data/observed.json; nothing else
-writes that file but the vulnerability poller (vulns.py), which keeps its ledger under `vulnerabilities` and
-runs after this one in `python -m lsio_hub.observe`.
+writes that file.
 
     GITHUB_TOKEN=... python -m lsio_hub.observe
 """
@@ -24,8 +23,6 @@ from .sources.github import GitHub, is_image_repo
 from .sources.http import client
 from .sources.registry import ghcr_tags
 from .store import Store, load_store, save_store
-from .vulns import Grype, release_fetcher
-from .vulns import scan as scan_vulnerabilities
 
 log = logging.getLogger(__name__)
 Json = dict[str, Any]
@@ -70,8 +67,6 @@ def observe(store: Store, gh: GitHub, http: httpx2.Client, now: Callable[[], str
     store.observed = {
         "fetched_at": now(),
         "images": dict(sorted(images.items())),
-        # The vulnerability poller's ledger (which builds were scanned against which database) belongs to it.
-        **({"vulnerabilities": store.observed["vulnerabilities"]} if store.observed.get("vulnerabilities") else {}),
     }
     status: Json = {"ok": True, "checked_at": checked_at, "fetched_at": store.observed["fetched_at"]}
     if failed:
@@ -87,7 +82,8 @@ def main() -> int:
     http = client()
     token = os.environ.get("GITHUB_TOKEN")
     observe(store, GitHub(http, token), http)
-    scan_vulnerabilities(store, Grype(), release_fetcher(http, token))
+    # The vulnerability poller's status, retired with it: builds are not rescanned (the refresh owned the file).
+    store.status["sources"].pop("vulnerabilities", None)
     changed = save_store(DATA_DIR, store)
     log.info("%d files changed in data/", len(changed))
     return 0

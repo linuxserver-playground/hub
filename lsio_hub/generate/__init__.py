@@ -1,7 +1,8 @@
 """
 Every downstream artefact, each a function of data/ alone.
 `python -m lsio_hub.generate` writes them under out/: store output under out/stores/<platform>/ and the
-build reports under out/builds/, so out/ merges onto the site root next to dist/.
+redirects from the retired build report pages to the website under out/builds/, so out/ merges onto the site root
+next to dist/.
 """
 
 from __future__ import annotations

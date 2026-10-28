@@ -7,10 +7,12 @@ attaches to its GitHub Release, keeps that data in git on the `data` branch (one
 as `data/`), serves a static API on GitHub Pages
 (`/api/v1/...`), and generates every downstream artefact: docs pages, store templates (Unraid, Portainer,
 CasaOS, Umbrel, Runtipi, Cosmos), SWAG proxy confs, Kubernetes manifests, Podman quadlets, the mods index
-and plain CI build report pages (`/builds/<image>/<tag>/`). It holds the newest 5 builds per live branch, as each
-image repository's own Pages does, and copies none of their heavy files (screenshots, logs, file trees, SBOMs): those
-are on `https://<owner>.github.io/<repo>/builds/<tag>/`, deployed by the image's build, and the API links there
-(`config.repo_pages`, the one place that URL is derived). Release assets send no CORS headers, so the API offers them
+and redirects from the retired build report pages (`/builds/<image>/<tag>/`) to each build's page on the website. It
+holds the newest 5 builds per live branch, as each image repository's own Pages does, and copies none of their heavy
+files (screenshots, logs, file trees, SBOMs, the vulnerability scan): those are on
+`https://<owner>.github.io/<repo>/builds/<tag>/`, deployed by the image's build, and the API links there
+(`config.repo_pages`, the one place that URL is derived). A build's vulnerability scan is the one it made of itself
+when it was released (record.json); the hub keeps only its counts and never rescans. Release assets send no CORS headers, so the API offers them
 only as download links, never as something a browser fetches. Consumers: the docs and stores repositories, the
 site, the control plane (which reads the API to hold Discord until a build is served), and anyone using the API.
 
@@ -20,7 +22,7 @@ site, the control plane (which reads the API to hold Discord until a build is se
 | --- | --- |
 | `lsio_hub/models.py` | Every response shape (pydantic). The v1 models are the original API's, field for field. |
 | `lsio_hub/store.py` | The `data/` layout: load and save, rotation-aware. |
-| `lsio_hub/ingest.py`, `observe.py`, `vulns.py`, `mods.py` | Writers of `data/`: bundles and manifests, stars and GHCR tags, the grype scan of the newest builds, the mods index. |
+| `lsio_hub/ingest.py`, `observe.py`, `mods.py` | Writers of `data/`: bundles, manifests and the counts of each build's own scan, stars and GHCR tags, the mods index. |
 | `lsio_hub/diff.py`, `packages.py`, `layers.py` | The build diff engine and the syft package normaliser (both re-export `builder.derive`, which the build runs for its `record.json`), layer attribution (`from_base`, `dockerfile_lines`). |
 | `lsio_hub/transform.py`, `fleet.py`, `responses.py` | Manifests and builds to API images; the content of each endpoint. |
 | `lsio_hub/app.py`, `build.py`, `site.py`, `templates/` | The FastAPI app, the static build of `dist/`, the docs page. |

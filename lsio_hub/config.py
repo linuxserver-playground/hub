@@ -39,6 +39,7 @@ def repo_pages(repository: str) -> str:
         index.json                               {"schema": "lsio-pages/1", "repo", "generated_at", "keep", "builds"}
         builds/<tag>/files.<arch>.json.gz        the Release assets as they are (served as application/gzip)
         builds/<tag>/packages.<arch>.json.gz
+        builds/<tag>/vulns.json                  the build's own vulnerability scan, as released (builder.derive.vulns)
         builds/<tag>/<arch>/screenshot.png ...   test.<arch>.tar.gz unpacked (REPORT_FILES, package_diff.txt)
 
     The hub copies none of it and links here instead. This is the one place the URL is derived: the domain
@@ -70,6 +71,17 @@ repository's Pages."""
 
 WEBSITE = f"https://{ORG}.github.io/site/"
 """The LinuxServer.io site, which the hub's pages link to for images, builds, docs and support."""
+
+
+def site_build(image: str, tag: str) -> str:
+    """A build's page on the website, its CI results page (CONVENTIONS §10). The site renders every build the hub
+    serves, including those newer than its own last build and those rotated out of data/ (its 404 page)."""
+    return f"{WEBSITE}images/{image}/builds/{tag}/"
+
+
+def site_builds(image: str) -> str:
+    """The build list on an image's page on the website."""
+    return f"{WEBSITE}images/{image}/#builds"
 
 
 @dataclass(frozen=True)

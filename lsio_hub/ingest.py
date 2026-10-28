@@ -7,13 +7,14 @@ Ingests build bundles and manifests into data/.
 
 A release is ingested once: its build.json is downloaded and validated against the bundle contract, then its
 record.json, in which the build derived the package tables, the diff against the previous release, its
-vulnerability scan and its base image's layers (CONVENTIONS §6). A release without one (made before records
-existed) has its package documents, layer lists and test reports fetched and the diff computed here, with the
-same code (builder.derive). Everything is written to data/. The layer digests of every base image a held
-build was built from come from its record, or else from the registry, once per base digest (data/bases/), so
-the layers endpoint can tell base layers from the image's own. A release whose bundle does not validate is
-recorded in status/rejected.json with the error and retried a day later, or as soon as the image's manifests
-change. Nothing here deletes data on failure: a source that cannot be reached keeps its previous data and the
+vulnerability scan (the hub keeps its counts; the scan itself is the build's vulns.json on its repository's Pages)
+and its base image's layers (CONVENTIONS §6). A release without one (made before records existed) has its package
+documents, layer lists and test reports fetched and the diff computed here, with the same code (builder.derive), and
+no scan. Everything is written to data/. The layer digests of every base image a held build was built from come from
+its record, or else from the registry, once per base digest (data/bases/), so the layers endpoint can tell base
+layers from the image's own. A release whose bundle does not validate is recorded in status/rejected.json with the
+error and retried a day later, or as soon as the image's manifests change. Nothing here deletes data on failure: a
+source that cannot be reached keeps its previous data and the
 failure is recorded, as static-api did.
 """
 
@@ -31,11 +32,12 @@ from typing import Any
 
 import httpx2
 import yaml
+from builder.derive.vulns import summary_of
 from builder.manifest import load_manifest_text
 from contracts import ContractError, validate
 
 from . import packages as pkg
-from .config import ARCHES, DATA_DIR, KEEP_BUILDS, ORG
+from .config import ARCHES, DATA_DIR, KEEP_BUILDS, ORG, release_download
 from .diff import diff_builds
 from .sources.github import GitHub, is_image_repo
 from .sources.http import client
@@ -299,8 +301,10 @@ def ingest_release(gh: GitHub, record: ImageRecord, release: Json, bases: dict[s
                 log.warning("  %s@%s: packages.%s.json.gz unreadable: %s", record.name, tag, arch, e)
             else:
                 tables[arch] = pkg.table(record.name, branch, release_tag, tag, arch, rows)
+    record.legacy_vulns.pop(tag, None)
     if derived.get("vulns"):
-        record.vulns[tag] = dict(derived["vulns"])
+        # Only the counts: the scan itself is the build's vulns.json on its repository's Pages (CONVENTIONS §6).
+        record.vulns[tag] = summary_of(derived["vulns"])
     base = derived.get("base")
     if bases is not None and base and base.get("digest") and base.get("platforms") and base["digest"] not in bases:
         bases[base["digest"]] = {**base, "fetched_at": derived["derived_at"]}
@@ -354,8 +358,64 @@ def rotate(record: ImageRecord, keep: int = KEEP_BUILDS) -> list[str]:
             record.diffs.pop(tag, None)
             record.layers.pop(tag, None)
             record.tests.pop(tag, None)
+            record.vulns.pop(tag, None)
+            record.legacy_vulns.pop(tag, None)
             dropped.append(tag)
     return dropped
+
+
+MIGRATE_WORKERS = 8
+
+
+def migrate_vulns(store: Store, gh: GitHub, workers: int = MIGRATE_WORKERS) -> int:
+    """
+    Replaces the retired per-architecture scans in data/ (`legacy_vulns`; partly rescans by the poller since removed,
+    so not always the build's own) with the counts of the build's own scan, read again from its record.json: one
+    download per held build, once. A release without a record.json, or a record without a scan, keeps no counts, as
+    its repository's Pages has no vulns.json for it. A download that fails keeps the old files for the next run.
+    Returns how many builds were migrated.
+    """
+    pending = [
+        (record, tag, record.builds[tag])
+        for record in store.images.values()
+        for tag in sorted(record.legacy_vulns)
+        if tag in record.builds
+    ]
+    for record in store.images.values():
+        for tag in [t for t in record.legacy_vulns if t not in record.builds]:
+            del record.legacy_vulns[tag]
+    if not pending:
+        return 0
+
+    def read(build: Json) -> Json | str | None:
+        url = release_download(build["repository"], build["version"]["tag"], "record.json")
+        try:
+            derived = json.loads(gh.download(url))
+        except httpx2.HTTPStatusError as e:
+            return None if e.response.status_code == 404 else str(e)
+        except (httpx2.HTTPError, ValueError) as e:
+            return str(e)
+        if not isinstance(derived, dict) or derived.get("tag") != build["version"]["tag"]:
+            return None
+        scans = derived.get("vulns")
+        return {"vulns": scans} if isinstance(scans, dict) else None
+
+    log.info("vulns: reading the builds' own scans from %d record.json files", len(pending))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        outcomes = list(pool.map(lambda item: read(item[2]), pending))
+    migrated = 0
+    for (record, tag, _), outcome in zip(pending, outcomes, strict=True):
+        if isinstance(outcome, str):
+            log.warning("  ! %s@%s: record.json not read, keeping the old scan files: %s", record.name, tag, outcome)
+            continue
+        del record.legacy_vulns[tag]
+        record.vulns.pop(tag, None)
+        if outcome and outcome["vulns"]:
+            record.vulns[tag] = summary_of(outcome["vulns"])
+        migrated += 1
+    held = sum(len(r.vulns) for r in store.images.values())
+    log.info("vulns: %d builds migrated; %d held builds have a scan of their own", migrated, held)
+    return migrated
 
 
 def _age_seconds(then: str, now: str) -> float:
@@ -543,6 +603,7 @@ def reconcile(store: Store, gh: GitHub, now: Now = _now, *, deep: bool = False) 
     for gone in sorted(set(store.images) - names):
         log.info("  - %s: repository no longer in the organisation; removing its data", gone)
         store.images.pop(gone)
+    migrate_vulns(store, gh)
     refresh_bases(store, gh.http, now)
     error = "; ".join(failures) if failures else None
     _set_status(store, "manifests", not failures, now, error)

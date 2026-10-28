@@ -1,86 +1,45 @@
 """
-CI result pages: one plain page per held build with the result per architecture, the test table from
-test.<arch>.json, the runtime probe, the diff summary and links, and a build history page per image, at
-`https://<hub>/builds/<image>/<tag>/`. The website's build page is the report people read; these stay because
-older release notes and bundles (`test.report_url`) and CONVENTIONS §10 still link them.
-
-Nothing heavy is copied here any more. The screenshot, the logs and the file trees are on the image repository's
-own Pages (`config.repo_pages`), which keeps the same newest builds the hub does, and the pages link there; the
-tarballs stay on the Release as downloads. So this generator reads data/ only and downloads nothing.
+Redirects from the retired CI report pages to the website. The hub used to render a plain report page per build at
+`https://<hub>/builds/<image>/<tag>/`; older release notes, bundles (`test.report_url`) and Discord posts link them.
+The build's page on the website is the report now (CONVENTIONS §10), and the site renders any build the hub serves
+or once served (its 404 page renders a build it predates, or one rotated out of data/, from the hub's API), so every
+build the hub knows, held or only in history.json, gets a small page that sends the browser there, and each image's
+`/builds/<image>/` goes to the build list on its page.
 """
 
 from __future__ import annotations
 
-from typing import Any
+import re
+from html import escape
 
-from ..config import REPORT_FILES, build_pages
-from ..templating import TEMPLATES, env
-from .common import Files, GenerateContext, ImageInput
+from ..config import site_build, site_builds
+from .common import Files, GenerateContext
 
-Json = dict[str, Any]
-
-EXTRA_FILES = ("package_diff.txt",)
-"""Files the harness may add to the report beyond those `files` names; linked, and absent when it wrote none."""
+TAG = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*")
+"""A release tag that is safe as one path segment (every tag the build workflow makes)."""
 
 
-def _asset_url(build: Json, name: str) -> str | None:
-    return next((str(a["url"]) for a in build.get("assets", []) if a["name"] == name and a.get("url")), None)
-
-
-def _pill(value: Any) -> str:
-    return str(value).lower() if isinstance(value, bool) else str(value)
-
-
-def _build_view(image: ImageInput, build: Json, ctx: GenerateContext) -> Json:
-    tag = build["version"]["tag"]
-    diff = image.record.diffs.get(tag)
-    tests = image.record.tests.get(tag, {})
-    api = f"{ctx.site.api_root}/api/v1/catalog/{image.name}/builds/{tag}"
-    pages = build_pages(build["repository"], tag)
-    names = {a["name"] for a in build.get("assets", [])}
-    release_url = next(
-        (h.get("release_url") for h in image.record.history.get(build["branch"], []) if h["tag"] == tag), None
+def redirect(target: str, title: str) -> str:
+    """A page of a few hundred bytes that moves the browser to `target`: a meta refresh, the canonical link and a
+    plain link for anything that does not follow either."""
+    url = escape(target, quote=True)
+    return (
+        f'<!doctype html><html lang="en"><meta charset="utf-8"><title>{escape(title)}</title>'
+        f'<meta name="robots" content="noindex"><link rel="canonical" href="{url}">'
+        f'<meta http-equiv="refresh" content="0; url={url}">'
+        f'<p>Moved to <a href="{url}">{escape(title)} on the website</a>.</p></html>\n'
     )
-    arches = []
-    for platform in build["platforms"]:
-        arch = platform["arch"]
-        report = tests.get(arch)
-        kinds = (report or {}).get("files") or {}
-        files = [REPORT_FILES[k] for k in REPORT_FILES if k in kinds] + list(EXTRA_FILES if report else ())
-        arches.append(
-            {
-                "arch": arch,
-                "platform": platform,
-                "report": report,
-                "tests": (report or {}).get("tests", []),
-                "runtime": (report or {}).get("runtime", {}),
-                "warnings": (report or {}).get("warnings", {}),
-                "tarball": _asset_url(build, f"test.{arch}.tar.gz"),
-                "report_files": [(name, f"{pages}{arch}/{name}") for name in files],
-                "screenshot": f"{pages}{arch}/{REPORT_FILES['screenshot']}" if "screenshot" in kinds else None,
-                "files": f"{pages}files.{arch}.json.gz" if f"files.{arch}.json.gz" in names else None,
-            }
-        )
-    return {
-        "image": image,
-        "build": build,
-        "tag": tag,
-        "diff": diff,
-        "arches": arches,
-        "release_url": release_url,
-        "api_build": f"{api}.json",
-        "api_diff": f"{api}/diff.json",
-    }
 
 
 def generate(ctx: GenerateContext) -> Files:
-    files: Files = {"report.css": (TEMPLATES / "report.css").read_text(encoding="utf-8")}
-    build_template = env.get_template("report_build.html")
-    history_template = env.get_template("report_history.html")
+    files: Files = {}
     for image in ctx.images:
-        views = [_build_view(image, build, ctx) for build in image.record.sorted_builds()]
-        files[f"{image.name}/index.html"] = history_template.render(image=image, views=views, site=ctx.site, pill=_pill)
-        for view in views:
-            page = build_template.render(view=view, site=ctx.site, pill=_pill)
-            files[f"{image.name}/{view['tag']}/index.html"] = page
+        record = image.record
+        tags = set(record.builds) | {str(h.get("tag")) for entries in record.history.values() for h in entries}
+        tags = {t for t in tags if TAG.fullmatch(t)}
+        if not tags:
+            continue
+        files[f"{image.name}/index.html"] = redirect(site_builds(image.name), f"{image.name} builds")
+        for tag in sorted(tags):
+            files[f"{image.name}/{tag}/index.html"] = redirect(site_build(image.name, tag), f"{image.name} {tag}")
     return files

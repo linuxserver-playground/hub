@@ -2,7 +2,8 @@
 The shared fixture: a store built by running the real ingest against a fake GitHub that serves three
 images (sonarr with two live branches, swag, and a constructed multi-arch image with an external database),
 releases with constructed bundles, syft documents, layer lists, test reports and report tarballs, then the
-observer and a vulnerability scan with a fake grype that answers from `fixtures/grype.json`.
+observer. The newest builds carry the counts of the scan their build made of itself (a fake grype that answers from
+`fixtures/grype.json`, as `builder record` would have stored it in record.json).
 """
 
 from __future__ import annotations
@@ -20,10 +21,11 @@ from typing import Any
 import httpx2
 import pytest
 import yaml
+from builder.derive.vulns import compact, summary_of
 from fastapi.testclient import TestClient
 
 from lsio_hub import mods as mods_module
-from lsio_hub import prootapps, vulns
+from lsio_hub import prootapps
 from lsio_hub.app import create_app
 from lsio_hub.build import render
 from lsio_hub.config import SiteConfig
@@ -556,7 +558,20 @@ class FakeGrype:
         return report
 
 
-def build_store(github: FakeGitHub | None = None, grype: FakeGrype | None = None) -> Store:
+SCANNED = {"sonarr": ["4.0.20.3014-ls2", "develop-5.0.1.1234-ls1"], "swag": ["5.2.0-ls1"], "multidb": ["1.0.0-ls2"]}
+"""The builds whose record.json held a scan; the others (older releases) have none."""
+
+
+def own_scans(grype: FakeGrype | None = None) -> dict[str, Json]:
+    """A build's scans per architecture, as `builder record` writes them into record.json `vulns`."""
+    grype = grype or FakeGrype()
+    return {
+        arch: compact(grype.scan(Path(f"packages.{arch}.json")), DB_DATE, "2026-10-20T19:30:00Z")
+        for arch in ("amd64", "arm64")
+    }
+
+
+def build_store(github: FakeGitHub | None = None) -> Store:
     github = github or FakeGitHub()
     store = Store()
     now = lambda: NOW  # noqa: E731
@@ -565,7 +580,9 @@ def build_store(github: FakeGitHub | None = None, grype: FakeGrype | None = None
     observe(store, github, http, now=now)
     mods_module.refresh_mods(store, github, now=now)
     prootapps.refresh_proot_apps(store, github, now=now)
-    vulns.scan(store, grype or FakeGrype(), asset_bytes, now=now, cache_dir=None)
+    for name, tags in SCANNED.items():
+        for tag in tags:
+            store.images[name].vulns[tag] = summary_of(own_scans())
     return store
 
 
