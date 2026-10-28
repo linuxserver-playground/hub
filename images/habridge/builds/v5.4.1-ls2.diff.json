@@ -1,0 +1,69 @@
+{
+ "image": "habridge",
+ "branch": "master",
+ "tag": "v5.4.1-ls2",
+ "previous_tag": "v5.4.1-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "v5.4.1",
+  "to": "v5.4.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.20",
+   "digest": "sha256:37c85bdd640fd71bf95221f8a8c8cffb151cd91ae114e9917a690a4e702344c3"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.20",
+   "digest": "sha256:37c85bdd640fd71bf95221f8a8c8cffb151cd91ae114e9917a690a4e702344c3"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 86477578,
+   "to": 86477448,
+   "delta": -130
+  },
+  "arm64": {
+   "from": 87811679,
+   "to": 87811625,
+   "delta": -54
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

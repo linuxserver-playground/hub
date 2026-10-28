@@ -1,0 +1,64 @@
+{
+ "image": "python",
+ "branch": "alpine324",
+ "tag": "alpine324-3.15.1-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "3.15.1",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 27772826,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 27669665,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "LSIO_FIRST_PARTY",
+    "PATH"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

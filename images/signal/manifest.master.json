@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "name": "signal",
+ "summary": "[Signal](https://signal.org/) is a messaging app with privacy at its core. It is free and easy to use, with strong end-to-end encryption that keeps your communication completely private.",
+ "upstream": {
+  "url": "https://signal.org/",
+  "version": {
+   "type": "command",
+   "run": "curl -sL https://mirror.rackspace.com/archlinux/extra/os/x86_64/extra.db | tar tzf - | awk -F '(-|/)' '/signal-desktop/ {print $3; exit}'"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "SIGNAL_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Signal desktop gui HTTP must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Signal desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Chat"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/signal-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n>[!WARNING]\n>This container does not encrypt Signal's config.json using a secret manager like gnome-keyring or kwallet, the file is stored in plaintext.\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-04",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-21",
+   "text": "Use Wayland ozone platform fixes scaling and acceleration."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-12-02",
+   "text": "Initial Version."
+  }
+ ]
+}

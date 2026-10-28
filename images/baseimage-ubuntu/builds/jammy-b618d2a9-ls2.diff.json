@@ -1,0 +1,95 @@
+{
+ "image": "baseimage-ubuntu",
+ "branch": "jammy",
+ "tag": "jammy-b618d2a9-ls2",
+ "previous_tag": "jammy-b618d2a9-ls1",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "b618d2a9",
+  "to": "b618d2a9",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 72113462,
+   "to": 72113279,
+   "delta": -183
+  },
+  "arm64": {
+   "from": 70235448,
+   "to": 70235521,
+   "delta": 73
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.0.9-2build6",
+      "to": "1.0.9-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.0.9-2ubuntu0.1?arch=amd64&distro=ubuntu-22.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.0.9-2build6",
+      "to": "1.0.9-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.0.9-2ubuntu0.1?arch=arm64&distro=ubuntu-22.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

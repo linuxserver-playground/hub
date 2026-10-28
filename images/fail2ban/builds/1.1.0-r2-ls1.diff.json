@@ -1,0 +1,75 @@
+{
+ "image": "fail2ban",
+ "branch": "main",
+ "tag": "1.1.0-r2-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "1.1.0-r2",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.21",
+   "digest": "sha256:1bec2d57ba13498c29b37227358e37782b12c358f5760c9a98fd4483827b58a8"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 30550113,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 31637504,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "HOME",
+    "LSIO_FIRST_PARTY",
+    "PATH",
+    "PS1",
+    "S6_BEHAVIOUR_IF_STAGE2_FAILS",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

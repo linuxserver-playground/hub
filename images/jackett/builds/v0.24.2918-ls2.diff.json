@@ -1,0 +1,206 @@
+{
+ "image": "jackett",
+ "branch": "master",
+ "tag": "v0.24.2918-ls2",
+ "previous_tag": "v0.24.2910-ls2",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v0.24.2910",
+  "to": "v0.24.2918",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 81292129,
+   "to": 81305623,
+   "delta": 13494
+  },
+  "arm64": {
+   "from": 80206078,
+   "to": 80224349,
+   "delta": 18271
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "AngleSharp",
+      "from": "1.8.4",
+      "to": "1.8.6",
+      "purl": "pkg:nuget/AngleSharp@1.8.6"
+     },
+     {
+      "name": "JackettUpdater",
+      "from": "0.24.2910",
+      "to": "0.24.2918",
+      "purl": "pkg:nuget/JackettUpdater@0.24.2918"
+     },
+     {
+      "name": "Microsoft.AspNetCore.JsonPatch",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.JsonPatch@9.0.22"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Mvc.NewtonsoftJson",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Mvc.NewtonsoftJson@9.0.22"
+     },
+     {
+      "name": "System.Diagnostics.EventLog",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/System.Diagnostics.EventLog@9.0.22"
+     },
+     {
+      "name": "System.Security.Cryptography.ProtectedData",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/System.Security.Cryptography.ProtectedData@9.0.22"
+     },
+     {
+      "name": "System.ServiceProcess.ServiceController",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/System.ServiceProcess.ServiceController@9.0.22"
+     },
+     {
+      "name": "jackett",
+      "from": "0.24.2910",
+      "to": "0.24.2918",
+      "purl": "pkg:nuget/jackett@0.24.2918"
+     },
+     {
+      "name": "runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-x64@9.0.22"
+     },
+     {
+      "name": "runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-x64",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-x64@9.0.22"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "AngleSharp",
+      "from": "1.8.4",
+      "to": "1.8.6",
+      "purl": "pkg:nuget/AngleSharp@1.8.6"
+     },
+     {
+      "name": "JackettUpdater",
+      "from": "0.24.2910",
+      "to": "0.24.2918",
+      "purl": "pkg:nuget/JackettUpdater@0.24.2918"
+     },
+     {
+      "name": "Microsoft.AspNetCore.JsonPatch",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.JsonPatch@9.0.22"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Mvc.NewtonsoftJson",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Mvc.NewtonsoftJson@9.0.22"
+     },
+     {
+      "name": "System.Diagnostics.EventLog",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/System.Diagnostics.EventLog@9.0.22"
+     },
+     {
+      "name": "System.Security.Cryptography.ProtectedData",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/System.Security.Cryptography.ProtectedData@9.0.22"
+     },
+     {
+      "name": "System.ServiceProcess.ServiceController",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/System.ServiceProcess.ServiceController@9.0.22"
+     },
+     {
+      "name": "jackett",
+      "from": "0.24.2910",
+      "to": "0.24.2918",
+      "purl": "pkg:nuget/jackett@0.24.2918"
+     },
+     {
+      "name": "runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-arm64@9.0.22"
+     },
+     {
+      "name": "runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-arm64",
+      "from": "9.0.21",
+      "to": "9.0.22",
+      "purl": "pkg:nuget/runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-arm64@9.0.22"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 20,
+  "downgraded": 0
+ }
+}

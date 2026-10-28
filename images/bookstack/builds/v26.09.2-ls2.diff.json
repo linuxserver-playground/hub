@@ -1,0 +1,69 @@
+{
+ "image": "bookstack",
+ "branch": "master",
+ "tag": "v26.09.2-ls2",
+ "previous_tag": "v26.09.2-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "v26.09.2",
+  "to": "v26.09.2",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:69428c23079c1f5aa65294457a835d2389ebbcb31af2f86eef05c4ae513ac249"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:69428c23079c1f5aa65294457a835d2389ebbcb31af2f86eef05c4ae513ac249"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 133084984,
+   "to": 133083884,
+   "delta": -1100
+  },
+  "arm64": {
+   "from": 133544818,
+   "to": 133545860,
+   "delta": 1042
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

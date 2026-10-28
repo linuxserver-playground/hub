@@ -1,0 +1,254 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-10-23-ls3",
+ "previous_tag": "2026-10-23-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-23",
+  "to": "2026-10-23",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:4851409d4f671b12aefedd6d85bf9c7370e7a253b9747c00ebcb27ca6fa44e3a"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:7573b628bd97397b86f0e61a98ddc5f70da413f4b43b1a7735632940abcc3869"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 9165816143,
+   "to": 9169320026,
+   "delta": 3503883
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,4 +1,4 @@\n-FROM ghcr.io/linuxserver/baseimage-selkies:arch\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:arch\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "glib-networking",
+      "from": "1:2.90.0-1",
+      "to": "1:2.90.1-1",
+      "purl": "pkg:alpm/arch/glib-networking@1%3A2.90.1-1?arch=x86_64&distro=arch-rolling&upstream=glib-networking"
+     },
+     {
+      "name": "librsvg",
+      "from": "2:2.63.3-1",
+      "to": "2:2.63.4-1",
+      "purl": "pkg:alpm/arch/librsvg@2%3A2.63.4-1?arch=x86_64&distro=arch-rolling&upstream=librsvg"
+     },
+     {
+      "name": "patch",
+      "from": "2.8-1",
+      "to": "2.8.1-1",
+      "purl": "pkg:alpm/arch/patch@2.8.1-1?arch=x86_64&distro=arch-rolling&upstream=patch"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@ai-sdk/amazon-bedrock",
+      "from": "5.0.124",
+      "to": "5.0.125",
+      "purl": "pkg:npm/%40ai-sdk/amazon-bedrock@5.0.125"
+     },
+     {
+      "name": "@ai-sdk/anthropic",
+      "from": "4.0.88",
+      "to": "4.0.89",
+      "purl": "pkg:npm/%40ai-sdk/anthropic@4.0.89"
+     },
+     {
+      "name": "@ai-sdk/google",
+      "from": "4.0.105",
+      "to": "4.0.106",
+      "purl": "pkg:npm/%40ai-sdk/google@4.0.106"
+     },
+     {
+      "name": "@ai-sdk/google-vertex",
+      "from": "5.0.122",
+      "to": "5.0.123",
+      "purl": "pkg:npm/%40ai-sdk/google-vertex@5.0.123"
+     },
+     {
+      "name": "@ai-sdk/mistral",
+      "from": "4.0.72",
+      "to": "4.0.73",
+      "purl": "pkg:npm/%40ai-sdk/mistral@4.0.73"
+     },
+     {
+      "name": "@ai-sdk/openai",
+      "from": "4.0.102",
+      "to": "4.0.103",
+      "purl": "pkg:npm/%40ai-sdk/openai@4.0.103"
+     },
+     {
+      "name": "@ai-sdk/openai-compatible",
+      "from": "3.0.78",
+      "to": "3.0.79",
+      "purl": "pkg:npm/%40ai-sdk/openai-compatible@3.0.79"
+     },
+     {
+      "name": "@ai-sdk/provider-utils",
+      "from": "5.0.68",
+      "to": "5.0.69",
+      "purl": "pkg:npm/%40ai-sdk/provider-utils@5.0.69"
+     },
+     {
+      "name": "@aws-sdk/core",
+      "from": "3.978.5",
+      "to": "3.978.6",
+      "purl": "pkg:npm/%40aws-sdk/core@3.978.6"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-cognito-identity",
+      "from": "3.972.75",
+      "to": "3.972.76",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-cognito-identity@3.972.76"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-env",
+      "from": "3.972.76",
+      "to": "3.972.77",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-env@3.972.77"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-http",
+      "from": "3.972.78",
+      "to": "3.972.79",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-http@3.972.79"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-ini",
+      "from": "3.973.21",
+      "to": "3.973.22",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-ini@3.973.22"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-login",
+      "from": "3.972.83",
+      "to": "3.972.84",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-login@3.972.84"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-node",
+      "from": "3.972.88",
+      "to": "3.972.89",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-node@3.972.89"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-process",
+      "from": "3.972.76",
+      "to": "3.972.77",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-process@3.972.77"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-sso",
+      "from": "3.973.20",
+      "to": "3.973.21",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-sso@3.973.21"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-web-identity",
+      "from": "3.972.82",
+      "to": "3.972.83",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-web-identity@3.972.83"
+     },
+     {
+      "name": "@aws-sdk/credential-providers",
+      "from": "3.1156.0",
+      "to": "3.1157.0",
+      "purl": "pkg:npm/%40aws-sdk/credential-providers@3.1157.0"
+     },
+     {
+      "name": "@aws-sdk/nested-clients",
+      "from": "3.997.50",
+      "to": "3.997.51",
+      "purl": "pkg:npm/%40aws-sdk/nested-clients@3.997.51"
+     },
+     {
+      "name": "@aws-sdk/token-providers",
+      "from": "3.1155.0",
+      "to": "3.1157.0",
+      "purl": "pkg:npm/%40aws-sdk/token-providers@3.1157.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.161.1",
+      "to": "0.162.0",
+      "purl": "pkg:pypi/fastapi@0.162.0"
+     },
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 28,
+  "downgraded": 0
+ }
+}

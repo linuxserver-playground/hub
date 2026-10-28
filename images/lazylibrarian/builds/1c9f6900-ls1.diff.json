@@ -1,0 +1,98 @@
+{
+ "image": "lazylibrarian",
+ "branch": "master",
+ "tag": "1c9f6900-ls1",
+ "previous_tag": "a51069d6-ls1",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "a51069d6",
+  "to": "1c9f6900",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 187427902,
+   "to": 188052145,
+   "delta": 624243
+  },
+  "arm64": {
+   "from": 183115878,
+   "to": 183789002,
+   "delta": 673124
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

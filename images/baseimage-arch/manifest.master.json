@@ -1,0 +1,39 @@
+{
+ "schema": 1,
+ "name": "baseimage-arch",
+ "kind": "base",
+ "summary": "baseimage-arch container image.",
+ "upstream": {
+  "version": {
+   "type": "command",
+   "run": "echo $(date +%F)"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "arch",
+  "version_arg": "OS",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ],
+  "first_party": false
+ },
+ "test": {
+  "startup_timeout": 30,
+  "env": {
+   "LSIO_FIRST_PARTY": "true"
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Uncategorized"
+  ],
+  "custom_readme": "[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)\n\n## Contact information:-\n\n| Type | Address/Details |\n| :---: | --- |\n| Discord | [Discord](https://linuxserver.io/discord) |\n| IRC | `#linuxserver.io` on irc.libera.chat |\n| Forum | [Discourse](https://discourse.linuxserver.io/) |\n\nA custom base image built with [Arch Linux](https://archlinux.org) and [s6-overlay](https://github.com/just-containers/s6-overlay).\n\n- Support for using our base images in your own projects is provided on a Reasonable Endeavours basis, please see our [Support Policy](https://www.linuxserver.io/supportpolicy) for details.\n- There is no `latest` tag for any of our base images, by design. We often make breaking changes between versions, and we don't publish release notes like we do for the downstream images.\n- If you're intending to distribute an image using one of our bases, please read our [docs on container branding](https://docs.linuxserver.io/general/container-branding/) first.\n\nThe following line is only in this repo for loop testing:\n\n- { date: \"01.01.50:\", desc: \"I am the release message for this internal repo.\" }\n"
+ }
+}

@@ -1,0 +1,246 @@
+{
+ "image": "kometa",
+ "branch": "nightly",
+ "tag": "nightly-67ec09b6-ls2",
+ "previous_tag": "nightly-234884d8-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "234884d8",
+  "to": "67ec09b6",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.24",
+   "digest": "sha256:52106d187a66ccb92e3289cb6dd25c549cb0b6b7bfec38a51994434c96db2d35"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:c70276612a28beebf4ef5864479a106ad24ee8a515e16744f8849eb26bdad174"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 317185854,
+   "to": 317864404,
+   "delta": 678550
+  },
+  "arm64": {
+   "from": 316551174,
+   "to": 317263570,
+   "delta": 712396
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-alpine:3.24\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:3.24\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-alpine:arm64v8-3.24\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:arm64v8-3.24\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=curl"
+     },
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r0?arch=x86_64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r0?arch=x86_64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r0?arch=x86_64&distro=alpine-3.24.3&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.19",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     },
+     {
+      "name": "httpcore2",
+      "from": "2.14.0",
+      "to": "2.16.0",
+      "purl": "pkg:pypi/httpcore2@2.16.0"
+     },
+     {
+      "name": "httpx2",
+      "from": "2.14.0",
+      "to": "2.16.0",
+      "purl": "pkg:pypi/httpx2@2.16.0"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.11",
+      "to": "3.12",
+      "purl": "pkg:pypi/pycparser@3.12"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:pypi/soupsieve@3.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=curl"
+     },
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r0?arch=aarch64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r0?arch=aarch64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r0?arch=aarch64&distro=alpine-3.24.3&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.19",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     },
+     {
+      "name": "httpcore2",
+      "from": "2.14.0",
+      "to": "2.16.0",
+      "purl": "pkg:pypi/httpcore2@2.16.0"
+     },
+     {
+      "name": "httpx2",
+      "from": "2.14.0",
+      "to": "2.16.0",
+      "purl": "pkg:pypi/httpx2@2.16.0"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.11",
+      "to": "3.12",
+      "purl": "pkg:pypi/pycparser@3.12"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:pypi/soupsieve@3.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 24,
+  "downgraded": 0
+ }
+}

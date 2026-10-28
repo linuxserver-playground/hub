@@ -1,0 +1,221 @@
+{
+ "image": "webtop",
+ "branch": "fedora-i3",
+ "tag": "fedora-i3-a3b63b17-ls2",
+ "previous_tag": "fedora-i3-a3b63b17-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "a3b63b17",
+  "to": "a3b63b17",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:fedora44",
+   "digest": "sha256:ba330b1a3d1fb4e6355b3d39b02aea1069cf30c237e119c49914ca971ba68eca"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:76d6b88cf87960bf5c546679c81631391939c87e26e210cde181ba5e11db558f"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1148121928,
+   "to": 1148164654,
+   "delta": 42726
+  },
+  "arm64": {
+   "from": 1050050246,
+   "to": 1050057158,
+   "delta": 6912
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,4 +1,4 @@\n-FROM ghcr.io/linuxserver/baseimage-selkies:fedora44\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:fedora44\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,4 +1,4 @@\n-FROM ghcr.io/linuxserver/baseimage-selkies:arm64v8-fedora44\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:arm64v8-fedora44\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nginx",
+      "from": "2:1.30.5-1.fc44",
+      "to": "2:1.30.6-2.fc44",
+      "purl": "pkg:rpm/fedora/nginx@1.30.6-2.fc44?arch=x86_64&distro=fedora-44&epoch=2&upstream=nginx-1.30.6-2.fc44.src.rpm"
+     },
+     {
+      "name": "nginx-core",
+      "from": "2:1.30.5-1.fc44",
+      "to": "2:1.30.6-2.fc44",
+      "purl": "pkg:rpm/fedora/nginx-core@1.30.6-2.fc44?arch=x86_64&distro=fedora-44&epoch=2&upstream=nginx-1.30.6-2.fc44.src.rpm"
+     },
+     {
+      "name": "nginx-filesystem",
+      "from": "2:1.30.5-1.fc44",
+      "to": "2:1.30.6-2.fc44",
+      "purl": "pkg:rpm/fedora/nginx-filesystem@1.30.6-2.fc44?arch=noarch&distro=fedora-44&epoch=2&upstream=nginx-1.30.6-2.fc44.src.rpm"
+     },
+     {
+      "name": "nginx-mod-fancyindex",
+      "from": "0.6.0-9.fc44",
+      "to": "0.6.0-10.fc44",
+      "purl": "pkg:rpm/fedora/nginx-mod-fancyindex@0.6.0-10.fc44?arch=x86_64&distro=fedora-44&upstream=nginx-mod-fancyindex-0.6.0-10.fc44.src.rpm"
+     },
+     {
+      "name": "openssh",
+      "from": "10.2p1-14.fc44",
+      "to": "10.2p1-16.fc44",
+      "purl": "pkg:rpm/fedora/openssh@10.2p1-16.fc44?arch=x86_64&distro=fedora-44&upstream=openssh-10.2p1-16.fc44.src.rpm"
+     },
+     {
+      "name": "openssh-clients",
+      "from": "10.2p1-14.fc44",
+      "to": "10.2p1-16.fc44",
+      "purl": "pkg:rpm/fedora/openssh-clients@10.2p1-16.fc44?arch=x86_64&distro=fedora-44&upstream=openssh-10.2p1-16.fc44.src.rpm"
+     },
+     {
+      "name": "pipewire-libs",
+      "from": "1.6.9-1.fc44",
+      "to": "1.6.10-1.fc44",
+      "purl": "pkg:rpm/fedora/pipewire-libs@1.6.10-1.fc44?arch=x86_64&distro=fedora-44&upstream=pipewire-1.6.10-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nginx",
+      "from": "2:1.30.5-1.fc44",
+      "to": "2:1.30.6-2.fc44",
+      "purl": "pkg:rpm/fedora/nginx@1.30.6-2.fc44?arch=aarch64&distro=fedora-44&epoch=2&upstream=nginx-1.30.6-2.fc44.src.rpm"
+     },
+     {
+      "name": "nginx-core",
+      "from": "2:1.30.5-1.fc44",
+      "to": "2:1.30.6-2.fc44",
+      "purl": "pkg:rpm/fedora/nginx-core@1.30.6-2.fc44?arch=aarch64&distro=fedora-44&epoch=2&upstream=nginx-1.30.6-2.fc44.src.rpm"
+     },
+     {
+      "name": "nginx-filesystem",
+      "from": "2:1.30.5-1.fc44",
+      "to": "2:1.30.6-2.fc44",
+      "purl": "pkg:rpm/fedora/nginx-filesystem@1.30.6-2.fc44?arch=noarch&distro=fedora-44&epoch=2&upstream=nginx-1.30.6-2.fc44.src.rpm"
+     },
+     {
+      "name": "nginx-mod-fancyindex",
+      "from": "0.6.0-9.fc44",
+      "to": "0.6.0-10.fc44",
+      "purl": "pkg:rpm/fedora/nginx-mod-fancyindex@0.6.0-10.fc44?arch=aarch64&distro=fedora-44&upstream=nginx-mod-fancyindex-0.6.0-10.fc44.src.rpm"
+     },
+     {
+      "name": "openssh",
+      "from": "10.2p1-14.fc44",
+      "to": "10.2p1-16.fc44",
+      "purl": "pkg:rpm/fedora/openssh@10.2p1-16.fc44?arch=aarch64&distro=fedora-44&upstream=openssh-10.2p1-16.fc44.src.rpm"
+     },
+     {
+      "name": "openssh-clients",
+      "from": "10.2p1-14.fc44",
+      "to": "10.2p1-16.fc44",
+      "purl": "pkg:rpm/fedora/openssh-clients@10.2p1-16.fc44?arch=aarch64&distro=fedora-44&upstream=openssh-10.2p1-16.fc44.src.rpm"
+     },
+     {
+      "name": "pipewire-libs",
+      "from": "1.6.9-1.fc44",
+      "to": "1.6.10-1.fc44",
+      "purl": "pkg:rpm/fedora/pipewire-libs@1.6.10-1.fc44?arch=aarch64&distro=fedora-44&upstream=pipewire-1.6.10-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 20,
+  "downgraded": 0
+ }
+}

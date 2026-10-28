@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "name": "intellij-idea",
+ "summary": "[IntelliJ IDEA](https://www.jetbrains.com/idea/) helps you write code faster with tools that eliminate tedious tasks and let you focus on what matters – building great software.",
+ "upstream": {
+  "url": "https://www.jetbrains.com/idea/",
+  "version": {
+   "type": "command",
+   "run": "curl -sL https://mirror.rackspace.com/archlinux/extra/os/x86_64/extra.db | tar tzf - | awk -F '(-|/)' '/intellij-idea-community-edition/ {print $5; exit}'"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "IDEA_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "IntelliJ IDEA desktop gui HTTP must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "IntelliJ IDEA desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Programming"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/intellij-idea-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-05-18",
+   "text": "Remove aarch64 support as it has been dropped upstream."
+  },
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-02-18",
+   "text": "Change aarch64 version to best effort."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-12-02",
+   "text": "Initial Version."
+  }
+ ]
+}

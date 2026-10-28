@@ -1,0 +1,120 @@
+{
+ "schema": 1,
+ "name": "librewolf",
+ "summary": "[LibreWolf](https://librewolf.net/) is a custom and independent version of Firefox, with the primary goals of privacy, security and user freedom. LibreWolf also aims to remove all the telemetry, data collection and annoyances, as well as disabling anti-freedom features like DRM.",
+ "upstream": {
+  "url": "https://librewolf.net/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "https://repo.librewolf.net/dists/librewolf/main/binary-amd64/Packages",
+   "package": "librewolf"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "LIBREWOLF_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "LibreWolf desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "LibreWolf desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/librewolf/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "env": [
+   {
+    "name": "LIBREWOLF_CLI",
+    "value": "https://www.linuxserver.io/",
+    "description": "Specify one or multiple LibreWolf CLI flags, this string will be passed to the application in full.",
+    "optional": true
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for any modern website to function like youtube."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Web Browser"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/librewolf-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-31",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-10-12",
+   "text": "Publish aarch64 image. Switch to new upstream repo."
+  },
+  {
+   "date": "2024-04-09",
+   "text": "Initial release."
+  }
+ ]
+}

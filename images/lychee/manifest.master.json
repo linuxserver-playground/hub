@@ -1,0 +1,240 @@
+{
+ "schema": 1,
+ "name": "lychee",
+ "summary": "[Lychee](https://lycheeorg.github.io/) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
+ "upstream": {
+  "url": "https://lycheeorg.github.io/",
+  "version": {
+   "type": "github_release",
+   "repo": "LycheeOrg/Lychee"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "LycheeOrg/Lychee"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "LYCHEE_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "DB_CONNECTION": "sqlite"
+  },
+  "web": {
+   "port": 80
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "http gui"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/lychee/config",
+    "description": "Persistent config files."
+   },
+   {
+    "path": "/pictures",
+    "host_path": "/path/to/pictures",
+    "description": "Where lychee will store uploaded images."
+   }
+  ],
+  "env": [
+   {
+    "name": "DB_CONNECTION",
+    "value": "",
+    "description": "DB type, from `sqlite`, `mysql`, `pqsql`."
+   },
+   {
+    "name": "DB_HOST",
+    "value": "",
+    "description": "DB server hostname. For `mysql` and `pgsql` only."
+   },
+   {
+    "name": "DB_PORT",
+    "value": "",
+    "description": "DB server port. For `mysql` and `pgsql` only."
+   },
+   {
+    "name": "DB_USERNAME",
+    "value": "",
+    "description": "DB user. For `mysql` and `pgsql` only."
+   },
+   {
+    "name": "DB_PASSWORD",
+    "value": "",
+    "description": "DB password. For `mysql` and `pgsql` only."
+   },
+   {
+    "name": "DB_DATABASE",
+    "value": "",
+    "description": "Path to DB file for `sqlite`. DB name for `mysql` and `pgsql`."
+   },
+   {
+    "name": "APP_NAME",
+    "value": "Lychee",
+    "description": "The gallery name.",
+    "optional": true
+   },
+   {
+    "name": "APP_URL",
+    "value": "",
+    "description": "The URL you will use to access Lychee including protocol, and port where appropriate.",
+    "optional": true
+   },
+   {
+    "name": "TRUSTED_PROXIES",
+    "value": "",
+    "description": "Set to the IP or netmask covering your reverse proxy, if running behind one. Set to `*` to trust all IPs (**do not** use `*` if exposed to the internet`).",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Photos"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png",
+  "setup": "**This image will not work with a prefilled `/pictures` mount, Lychee wants total control over this folder**\n\nSetup account via the webui, accessible at http://SERVERIP:PORT\n\nMore info at [lychee](https://lycheeorg.github.io/).\n\n### Customization\n\nIn certain scenarios, you might need to change the default settings of Lychee. For instance, if you encounter limitations when uploading large files, you can increase this limit.\n\n#### Increasing Upload Limit\n\nThe upload limit is defined in the `user.ini` file located in the config directory (`/config`). You can increase this limit by modifying the following values:\n\n```ini\npost_max_size = 500M\nupload_max_filesize = 500M\n```\n\nAfter making these changes, you'll need to restart the Docker container for the changes to take effect.\n\n**Please note that these changes might have implications on your server's performance, depending on its available resources. Thus, it's recommended to modify these settings with caution.**\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-05",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-07-09",
+   "text": "Add php84-ldap as dependency."
+  },
+  {
+   "date": "2025-07-09",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-12-03",
+   "text": "Verify build artifacts with cosign."
+  },
+  {
+   "date": "2024-05-27",
+   "text": "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2024-01-18",
+   "text": "Add php-sodium."
+  },
+  {
+   "date": "2024-01-13",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2023-12-27",
+   "text": "Update image to support v5."
+  },
+  {
+   "date": "2023-12-25",
+   "text": "Existing users should update: site-confs/default.conf - Cleanup default site conf. Build npm dependencies into image."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-04-13",
+   "text": "Move ssl.conf include to default.conf."
+  },
+  {
+   "date": "2023-01-11",
+   "text": "Rebasing to alpine 3.17 with php8.1. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base)). Switch to git clone as builds fail with the release artifact."
+  },
+  {
+   "date": "2021-05-13",
+   "text": "Make readme clearer."
+  },
+  {
+   "date": "2021-04-18",
+   "text": "Add php-intl for v4.3."
+  },
+  {
+   "date": "2021-01-31",
+   "text": "Add jpegoptim."
+  },
+  {
+   "date": "2021-01-15",
+   "text": "Rebase to alpine 3.13, add php7-ctype."
+  },
+  {
+   "date": "2020-07-10",
+   "text": "Upgrade to Lychee v4 and rebased to alpine 3.12."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-10-23",
+   "text": "Increase fastcgi timeouts (existing users need to manually update)."
+  },
+  {
+   "date": "2019-09-19",
+   "text": "Update project website url."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-05-05",
+   "text": "Rebase to alpine 3.9, use new armv7 image format."
+  },
+  {
+   "date": "2019-01-25",
+   "text": "Added ffmpeg for video thumbnail creation, switched to installing zip release instead of source tarball, created small thumbnails folder, switched to dynamic readme."
+  },
+  {
+   "date": "2019-01-14",
+   "text": "Adding pipeline logic and multi arch.."
+  },
+  {
+   "date": "2018-09-04",
+   "text": "Rebase to alpine 3.8, switch to LycheeOrg repository."
+  },
+  {
+   "date": "2018-01-08",
+   "text": "Rebase to alpine 3.7."
+  },
+  {
+   "date": "2017-05-25",
+   "text": "Rebase to alpine 3.6."
+  },
+  {
+   "date": "2017-05-03",
+   "text": "Use repo pinning to better solve dependencies, use repo version of php7-imagick."
+  },
+  {
+   "date": "2017-02-12",
+   "text": "Initial Release."
+  }
+ ]
+}

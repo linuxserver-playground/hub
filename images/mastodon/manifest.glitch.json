@@ -1,0 +1,369 @@
+{
+ "schema": 1,
+ "name": "mastodon",
+ "summary": "[Mastodon](https://github.com/mastodon/mastodon/) is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones..",
+ "upstream": {
+  "url": "https://github.com/mastodon/mastodon/",
+  "version": {
+   "type": "github_release",
+   "repo": "glitch-soc/mastodon"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "glitch-soc/mastodon"
+  }
+ },
+ "release": {
+  "branch": "glitch",
+  "tag": "glitch",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable releases."
+   },
+   {
+    "tag": "develop",
+    "description": "Pre-releases *only*."
+   },
+   {
+    "tag": "glitch",
+    "description": "[glitch-soc](https://github.com/glitch-soc/mastodon) fork releases."
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "MASTODON_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "enabled": false,
+  "startup_timeout": 120
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "Port for web frontend"
+   },
+   {
+    "internal": "443",
+    "description": "Port for web frontend"
+   },
+   {
+    "internal": "9394",
+    "description": "Port for Prometheus metrics",
+    "optional": true
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/mastodon/appdata/config",
+    "description": "Contains all relevant configuration files."
+   }
+  ],
+  "env": [
+   {
+    "name": "LOCAL_DOMAIN",
+    "value": "example.com",
+    "description": "This is the unique identifier of your server in the network. It cannot be safely changed later."
+   },
+   {
+    "name": "REDIS_HOST",
+    "value": "redis",
+    "description": "Redis server hostname"
+   },
+   {
+    "name": "REDIS_PORT",
+    "value": "6379",
+    "description": "Redis port"
+   },
+   {
+    "name": "DB_HOST",
+    "value": "db",
+    "description": "Postgres database hostname"
+   },
+   {
+    "name": "DB_USER",
+    "value": "mastodon",
+    "description": "Postgres username"
+   },
+   {
+    "name": "DB_NAME",
+    "value": "mastodon",
+    "description": "Postgres db name"
+   },
+   {
+    "name": "DB_PASS",
+    "value": "mastodon",
+    "description": "Postgres password"
+   },
+   {
+    "name": "DB_PORT",
+    "value": "5432",
+    "description": "Postgres port"
+   },
+   {
+    "name": "ES_ENABLED",
+    "value": "false",
+    "description": "Enable or disable Elasticsearch (requires a separate ES instance)"
+   },
+   {
+    "name": "ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY",
+    "value": "",
+    "description": "Primary key for [Active Record Encryption](https://github.com/mastodon/mastodon/pull/29831/files)."
+   },
+   {
+    "name": "ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY",
+    "value": "",
+    "description": "Deterministic key for [Active Record Encryption](https://github.com/mastodon/mastodon/pull/29831/files)."
+   },
+   {
+    "name": "ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT",
+    "value": "",
+    "description": "Derivation salt for [Active Record Encryption](https://github.com/mastodon/mastodon/pull/29831/files)."
+   },
+   {
+    "name": "SECRET_KEY_BASE",
+    "value": "",
+    "description": "Browser session secret. Changing it will break all active browser sessions."
+   },
+   {
+    "name": "OTP_SECRET",
+    "value": "",
+    "description": "MFA secret. Changing it will break two-factor authentication."
+   },
+   {
+    "name": "VAPID_PRIVATE_KEY",
+    "value": "",
+    "description": "Push notification private key. Changing it will break push notifications."
+   },
+   {
+    "name": "VAPID_PUBLIC_KEY",
+    "value": "",
+    "description": "Push notification public key. Changing it will break push notifications."
+   },
+   {
+    "name": "SMTP_SERVER",
+    "value": "mail.example.com",
+    "description": "SMTP server for email notifications"
+   },
+   {
+    "name": "SMTP_PORT",
+    "value": "25",
+    "description": "SMTP server port"
+   },
+   {
+    "name": "SMTP_LOGIN",
+    "value": "",
+    "description": "SMTP username"
+   },
+   {
+    "name": "SMTP_PASSWORD",
+    "value": "",
+    "description": "SMTP password"
+   },
+   {
+    "name": "SMTP_FROM_ADDRESS",
+    "value": "notifications@example.com",
+    "description": "From address for emails send from Mastodon"
+   },
+   {
+    "name": "S3_ENABLED",
+    "value": "false",
+    "description": "Enable or disable S3 storage of uploaded files"
+   },
+   {
+    "name": "WEB_DOMAIN",
+    "value": "mastodon.example.com",
+    "description": "This can be set if you want your server identifier to be different to the subdomain hosting Mastodon. See [https://docs.joinmastodon.org/admin/config/#basic](https://docs.joinmastodon.org/admin/config/#basic)",
+    "optional": true
+   },
+   {
+    "name": "ES_HOST",
+    "value": "es",
+    "description": "Elasticsearch server hostname",
+    "optional": true
+   },
+   {
+    "name": "ES_PORT",
+    "value": "9200",
+    "description": "Elasticsearch port",
+    "optional": true
+   },
+   {
+    "name": "ES_USER",
+    "value": "elastic",
+    "description": "Elasticsearch username",
+    "optional": true
+   },
+   {
+    "name": "ES_PASS",
+    "value": "elastic",
+    "description": "Elasticsearch password",
+    "optional": true
+   },
+   {
+    "name": "S3_BUCKET",
+    "value": "",
+    "description": "S3 bucket hostname",
+    "optional": true
+   },
+   {
+    "name": "AWS_ACCESS_KEY_ID",
+    "value": "",
+    "description": "S3 bucket access key ID",
+    "optional": true
+   },
+   {
+    "name": "AWS_SECRET_ACCESS_KEY",
+    "value": "",
+    "description": "S3 bucket secret access key",
+    "optional": true
+   },
+   {
+    "name": "S3_ALIAS_HOST",
+    "value": "",
+    "description": "Alternate hostname for object fetching if you are front the S3 connections.",
+    "optional": true
+   },
+   {
+    "name": "SIDEKIQ_ONLY",
+    "value": "false",
+    "description": "Only run the sidekiq service in this container instance. For large scale instances that need better queue handling.",
+    "optional": true
+   },
+   {
+    "name": "SIDEKIQ_QUEUE",
+    "value": "",
+    "description": "The name of the sidekiq queue to run in this container. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-queues).",
+    "optional": true
+   },
+   {
+    "name": "SIDEKIQ_DEFAULT",
+    "value": "false",
+    "description": "Set to `true` on the main container if you're running additional sidekiq instances. It will run the `default` queue.",
+    "optional": true
+   },
+   {
+    "name": "SIDEKIQ_THREADS",
+    "value": "5",
+    "description": "The number of threads for sidekiq to use. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads).",
+    "optional": true
+   },
+   {
+    "name": "DB_POOL",
+    "value": "5",
+    "description": "The size of the DB connection pool, must be *at least* the same as `SIDEKIQ_THREADS`. See [notes](https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads).",
+    "optional": true
+   },
+   {
+    "name": "NO_CHOWN",
+    "value": "",
+    "description": "Set to `true` to skip chown of /config on init. *READ THE APPLICATION NOTES BEFORE SETTING THIS*.",
+    "optional": true
+   },
+   {
+    "name": "MASTODON_PROMETHEUS_EXPORTER_ENABLED",
+    "value": "",
+    "description": "If set to `true`, Mastodon’s Ruby processes (web & Sidekiq) will enable the Prometheus instrumentation.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": false
+  },
+  "nonroot": {
+   "supported": false
+  }
+ },
+ "docs": {
+  "categories": [
+   "Social"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png",
+  "setup": "We provide aliases for the common commands that execute in the correct context so that environment variables from secrets are available to them:\n\n* To generate keys for `SECRET_KEY_BASE` & `OTP_SECRET` run `docker run --rm -it --entrypoint /bin/bash lscr.io/linuxserver/mastodon:glitch generate-secret` once for each.\n\n* To generate keys for `VAPID_PRIVATE_KEY` & `VAPID_PUBLIC_KEY` run `docker run --rm -it --entrypoint /bin/bash lscr.io/linuxserver/mastodon:glitch generate-vapid`\n\n* To generate keys for `ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY`, `ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT`, & `ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY` run `docker run --rm -it --entrypoint /bin/bash lscr.io/linuxserver/mastodon:glitch generate-active-record`\n\nBoth of the secret generation aliases above can be run without any other setup having been carried out.\n\n* To use `tootctl` you can run something like `docker exec -it lscr.io/linuxserver/mastodon /tootctl <command>`\n\nUsing `tootctl` requires you to complete the initial Mastodon configuration first.\n\nThis container *requires* separate postgres and redis instances to run.\n\nWe support all of the official [environment variables](https://docs.joinmastodon.org/admin/config) for configuration. In place of adding them all to your run/compose you can use an env file such as [this example](https://github.com/mastodon/mastodon/blob/main/.env.production.sample) from the upstream project.\n\nFor more information check out the [mastodon documentation](https://docs.joinmastodon.org/).\n\n### Running separate sidekiq instances\n\nIt is currently only supported to run a single queue per container instance *or* all queues in a single container instance.\n\nAll containers must share the same `/config` mount and be on a common docker network.\n\n### NO_CHOWN Option\n\nOn larger Mastodon instances, our init process to verify that permissions are set correctly can noticeably slow down the container startup. If you are experiencing this, you can set `NO_CHOWN` to `true` to skip that step of the init.\n\n*Do NOT set this on first run of the container. If you enable this option you are taking full responsibility for ensuring that the permissions in your /config mount are correct. If you're even slightly unsure, don't set it.*\n\n### Strict reverse proxies\n\nThis image automatically redirects to https with a self-signed certificate. If you are using a reverse proxy which validates certificates, you need to [disable this check for the container](https://docs.linuxserver.io/faq#strict-proxy).\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-05",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-10-21",
+   "text": "Add prometheus exporter support."
+  },
+  {
+   "date": "2025-10-20",
+   "text": "Add vips-heif."
+  },
+  {
+   "date": "2025-07-09",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-06-06",
+   "text": "Replace deprecated imagemagick with vips."
+  },
+  {
+   "date": "2025-01-16",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-12-03",
+   "text": "Switch from commit builds to releases to match upstream changes."
+  },
+  {
+   "date": "2024-05-27",
+   "text": "Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2024-05-23",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-05-02",
+   "text": "Rebase to Alpine 3.19, enable [Active Record Encryption](https://github.com/mastodon/mastodon/pull/29831/files)."
+  },
+  {
+   "date": "2023-12-21",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-05-30",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-04-16",
+   "text": "Rebase to alpine 3.17 with php8.1."
+  },
+  {
+   "date": "2023-02-09",
+   "text": "Add Glitch branch."
+  },
+  {
+   "date": "2023-01-09",
+   "text": "Updated nginx conf to fix bring inline with Mastodon configuration (fixes Elk integration)."
+  },
+  {
+   "date": "2022-12-19",
+   "text": "Support separate sidekiq queue instances."
+  },
+  {
+   "date": "2022-11-05",
+   "text": "Initial Release."
+  }
+ ]
+}

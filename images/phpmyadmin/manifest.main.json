@@ -1,0 +1,152 @@
+{
+ "schema": 1,
+ "name": "phpmyadmin",
+ "summary": "[Phpmyadmin](https://github.com/phpmyadmin/phpmyadmin/) is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.",
+ "upstream": {
+  "url": "https://github.com/phpmyadmin/phpmyadmin/",
+  "version": {
+   "type": "command",
+   "run": "curl -sL 'https://www.phpmyadmin.net/home_page/version.txt' | head -n 1 | cut -d ' ' -f 1"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "PHPMYADMIN_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 60,
+  "web": {
+   "port": 80
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "Port for web frontend"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/phpmyadmin/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "env": [
+   {
+    "name": "PMA_ARBITRARY",
+    "value": "1",
+    "description": "Set to `1` to allow you to connect to any server. Setting to `0` will only allow you to connect to specified hosts (See Application Setup)",
+    "optional": true
+   },
+   {
+    "name": "PMA_ABSOLUTE_URI",
+    "value": "https://phpmyadmin.example.com",
+    "description": "Set the URL you will use to access the web frontend",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true,
+   "notes": "* `/tmp` must be mounted to tmpfs\n* Custom themes are not supported\n"
+  },
+  "nonroot": {
+   "supported": true,
+   "notes": "* Custom themes are not supported\n"
+  }
+ },
+ "docs": {
+  "categories": [
+   "Databases"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/phpmyadmin-logo.png",
+  "setup": "This image uses nginx, in contrast to the official images which offer fpm-only or Apache variants.\n\nWe support all of the official [environment variables](https://docs.phpmyadmin.net/en/latest/setup.html#docker-environment-variables) for configuration as well as directly editing the config files.\n\nFor more information check out the [phpmyadmin documentation](https://www.phpmyadmin.net/docs/).\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-05",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-08-23",
+   "text": "Add support for mTLS. Existing users will need to delete their config.inc.php and restart the container."
+  },
+  {
+   "date": "2025-07-05",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-12-19",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-27",
+   "text": "Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2024-05-24",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-28",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2023-12-25",
+   "text": "Existing users should update: site-confs/default.conf - Cleanup default site conf."
+  },
+  {
+   "date": "2023-09-06",
+   "text": "Add support for custom themes."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-04-13",
+   "text": "Move ssl.conf include to default.conf."
+  },
+  {
+   "date": "2023-01-20",
+   "text": "Rebase to alpine 3.17 with php8.1."
+  },
+  {
+   "date": "2022-11-18",
+   "text": "Rebasing to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-08-20",
+   "text": "Rebasing to Alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+  },
+  {
+   "date": "2022-01-23",
+   "text": "Pin versions to 5.x.x."
+  },
+  {
+   "date": "2021-06-14",
+   "text": "Initial Release."
+  }
+ ]
+}

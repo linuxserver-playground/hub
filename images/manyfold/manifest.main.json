@@ -1,0 +1,124 @@
+{
+ "schema": 1,
+ "name": "manyfold",
+ "summary": "[Manyfold](https://github.com/manyfold3d/manyfold/)  is an open source, self-hosted web application for managing a collection of 3D models, particularly focused on 3D printing.",
+ "upstream": {
+  "url": "https://github.com/manyfold3d/manyfold/",
+  "version": {
+   "type": "github_release",
+   "repo": "manyfold3d/manyfold"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "manyfold3d/manyfold"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "MANYFOLD_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 240,
+  "env": {
+   "SECRET_KEY_BASE": "placeholder",
+   "DATABASE_URL": "sqlite3:/config/manyfold.sqlite3",
+   "DOCKER_MODS": "lscr.io/linuxserver/mods:universal-redis"
+  },
+  "web": {
+   "port": 3214
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3214",
+    "description": "Port for web frontend"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/manyfold/config",
+    "description": "Persistent storage for application configuration data."
+   },
+   {
+    "path": "/libraries",
+    "host_path": "/path/to/libraries",
+    "description": "Location of your 3D model libraries.",
+    "optional": true
+   }
+  ],
+  "env": [
+   {
+    "name": "DATABASE_URL",
+    "value": "",
+    "description": "Database connection URL. For sqlite use `sqlite3:/config/manyfold.sqlite3`. For postgres or mariadb use `<scheme>://<username>:<password>@<hostname>:<port>/<db name>` where `<scheme>` is `postgresql` or `mysql2`. Special characters in username/password must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding)."
+   },
+   {
+    "name": "REDIS_URL",
+    "value": "",
+    "description": "Redis/Valkey database URL in `redis://<hostname>:<port>/<db number>` format."
+   },
+   {
+    "name": "SECRET_KEY_BASE",
+    "value": "",
+    "description": "Browser session and database encryption key. If unset a random one will be generated on init, the database is locked to this key."
+   }
+  ],
+  "readonly": {
+   "supported": false
+  },
+  "nonroot": {
+   "supported": false
+  }
+ },
+ "docs": {
+  "categories": [
+   "3D Printing"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/manyfold-logo.png",
+  "setup": "This container *requires* a separate Redis/Valkey instance to run. Sqlite is supported but we recommend an external Postgres or MariaDB database for better performance.\n\nTo generate keys for `SECRET_KEY_BASE` you can run `docker run --rm -it --entrypoint /bin/bash lscr.io/linuxserver/manyfold:latest generate-secret`.\n\nYou don't have to use `/libraries` and you're not limited to a single path, you can mount as many arbitrary paths as you like as long as you make sure the permissions match the user running the container.\n\nFor more information check out the [Manyfold documentation](https://manyfold.app/get-started/).\n"
+ },
+ "proxy": {
+  "port": 3214,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-05",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-01-13",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-10-08",
+   "text": "Change key init to auto generate and persist."
+  },
+  {
+   "date": "2025-07-27",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-01-12",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-07-23",
+   "text": "Initial Release."
+  }
+ ]
+}

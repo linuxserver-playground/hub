@@ -1,0 +1,62 @@
+{
+ "image": "onlyoffice",
+ "branch": "master",
+ "tag": "v10.0.0-ls2",
+ "previous_tag": "v10.0.0-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "v10.0.0",
+  "to": "v10.0.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:debiantrixie",
+   "digest": "sha256:df4a9259e7535526005785202bd08b3b066250a64c65877802b2354fd6a975dd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:debiantrixie",
+   "digest": "sha256:df4a9259e7535526005785202bd08b3b066250a64c65877802b2354fd6a975dd"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1473815460,
+   "to": 1473815238,
+   "delta": -222
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

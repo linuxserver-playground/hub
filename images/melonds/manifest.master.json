@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "name": "melonds",
+ "summary": "[melonDS](https://melonds.kuribo64.net/) aims at providing fast and accurate Nintendo DS emulation.",
+ "upstream": {
+  "url": "https://melonds.kuribo64.net/",
+  "version": {
+   "type": "github_release",
+   "repo": "melonDS-emu/melonDS"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "melonDS-emu/melonDS"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "MELONDS_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "melonDS desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "melonDS desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores program settings and files."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/melonds-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-09-21",
+   "text": "Rebase to Ubuntu Resolute."
+  },
+  {
+   "date": "2026-03-05",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-08-29",
+   "text": "Initial release."
+  }
+ ]
+}

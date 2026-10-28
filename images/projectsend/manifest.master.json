@@ -1,0 +1,156 @@
+{
+ "schema": 1,
+ "name": "projectsend",
+ "summary": "[Projectsend](http://www.projectsend.org) is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.",
+ "upstream": {
+  "url": "http://www.projectsend.org",
+  "version": {
+   "type": "github_release",
+   "repo": "projectsend/legacy"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "projectsend/legacy"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "PROJECTSEND_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 80,
+   "path": "/install/make-config.php"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/projectsend/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/data",
+    "host_path": "/path/to/data",
+    "description": "Where to store files to share."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "File Sharing"
+  ],
+  "logo": "http://www.projectsend.org/wp-content/themes/projectsend/img/screenshots.png",
+  "setup": "Requires a user and database in either mysql or mariadb.\n\ncrontab for scheduled tasks should be added to /config/crontabs/abc and the container restarted to enable.\n\nTo set PHP options like max upload size please edit /config/php/projectsend.ini\n\nTo use translations, follow the instructions [here](https://www.projectsend.org/how-to-use-translation-files/). The necessary paths are symlinked under `/config/translations` (note that the \"templates\" paths don't need `lang` subdirectories).\n\nMore info at [ProjectSend](http://www.projectsend.org).\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-08-10",
+   "text": "Switch to legacy repo until migration steps are figured out."
+  },
+  {
+   "date": "2025-12-14",
+   "text": "Add php ldap module."
+  },
+  {
+   "date": "2025-11-16",
+   "text": "Add missing language files to default install."
+  },
+  {
+   "date": "2025-10-14",
+   "text": "Rebase to 3.22."
+  },
+  {
+   "date": "2025-06-06",
+   "text": "Add crontab handler for scheduled tasks."
+  },
+  {
+   "date": "2024-12-21",
+   "text": "Rebase to Alpine 3.21, move php .ini file to /config/php."
+  },
+  {
+   "date": "2024-06-06",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-03-08",
+   "text": "Rebasing to alpine 3.17 and upgrading to s6v3."
+  },
+  {
+   "date": "2022-08-23",
+   "text": "Add translation support"
+  },
+  {
+   "date": "2022-08-20",
+   "text": "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+  },
+  {
+   "date": "2021-06-24",
+   "text": "Rebasing to alpine 3.14, switch to nginx"
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2019-12-31",
+   "text": "Rebase to Alpine 3.11 and upgrade to PHP7."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-11",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-06-11",
+   "text": "Fetch version from github."
+  },
+  {
+   "date": "2017-12-09",
+   "text": "Rebase to alpine 3.7."
+  },
+  {
+   "date": "2017-06-13",
+   "text": "Initial Release."
+  }
+ ]
+}

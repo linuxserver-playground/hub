@@ -1,0 +1,249 @@
+{
+ "schema": 1,
+ "name": "code-server",
+ "summary": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser.\n- Code on your Chromebook, tablet, and laptop with a consistent dev environment.\n- If you have a Windows or Mac workstation, more easily develop for Linux.\n- Take advantage of large cloud servers to speed up tests, compilations, downloads, and more.\n- Preserve battery life when you're on the go.\n- All intensive computation runs on your server.\n- You're no longer running excess instances of Chrome.",
+ "upstream": {
+  "url": "https://coder.com",
+  "version": {
+   "type": "github_release",
+   "repo": "coder/code-server",
+   "transform": [
+    {
+     "regex": "^v",
+     "replace": ""
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "coder/code-server",
+   "tag": "v${VERSION}"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "CODE_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8443
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8443",
+    "description": "web gui"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/code-server/config",
+    "description": "Contains all relevant configuration files."
+   }
+  ],
+  "env": [
+   {
+    "name": "PASSWORD",
+    "value": "password",
+    "description": "Optional web gui password, if `PASSWORD` or `HASHED_PASSWORD` is not provided, there will be no auth.",
+    "optional": true
+   },
+   {
+    "name": "HASHED_PASSWORD",
+    "value": "",
+    "description": "Optional web gui password, overrides `PASSWORD`, instructions on how to create it is below.",
+    "optional": true
+   },
+   {
+    "name": "SUDO_PASSWORD",
+    "value": "password",
+    "description": "If this optional variable is set, user will have sudo access in the code-server terminal with the specified password.",
+    "optional": true
+   },
+   {
+    "name": "SUDO_PASSWORD_HASH",
+    "value": "",
+    "description": "Optionally set sudo password via hash (takes priority over `SUDO_PASSWORD` var). Format is `$type$salt$hashed`.",
+    "optional": true
+   },
+   {
+    "name": "PROXY_DOMAIN",
+    "value": "code-server.my.domain",
+    "description": "If this optional variable is set, this domain will be proxied for subdomain proxying. See [Documentation](https://github.com/coder/code-server/blob/main/docs/guide.md#using-a-subdomain)",
+    "optional": true
+   },
+   {
+    "name": "DEFAULT_WORKSPACE",
+    "value": "/config/workspace",
+    "description": "If this optional variable is set, code-server will open this directory by default",
+    "optional": true
+   },
+   {
+    "name": "PWA_APPNAME",
+    "value": "code-server",
+    "description": "If this optional variable is set, the PWA app will the specified name.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true,
+   "notes": "* `/tmp` must be mounted to tmpfs\n* `sudo` will not be available\n"
+  },
+  "nonroot": {
+   "supported": true,
+   "notes": "* `sudo` will not be available\n"
+  }
+ },
+ "docs": {
+  "categories": [
+   "Programming"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server-banner.png",
+  "setup": "Access the webui at `http://<your-ip>:8443`.\nFor github integration, drop your ssh key in to `/config/.ssh`.\nThen open a terminal from the top menu and set your github username and email via the following commands\n\n```bash\ngit config --global user.name \"username\"\ngit config --global user.email \"email address\"\n```\n\n### Hashed code-server password\n\nHow to create the [hashed password](https://github.com/cdr/code-server/blob/master/docs/FAQ.md#can-i-store-my-password-hashed).\n"
+ },
+ "proxy": {
+  "port": 8443,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-09-20",
+   "text": "Add fallback for legacy or misconfigured systems without IPv6 support."
+  },
+  {
+   "date": "2026-05-17",
+   "text": "Fix container only listening on IPv6 when running non-root."
+  },
+  {
+   "date": "2025-08-10",
+   "text": "Let server listen on both ipv4 and ipv6."
+  },
+  {
+   "date": "2025-06-03",
+   "text": "Allow setting PWA name using env var `PWA_APPNAME`."
+  },
+  {
+   "date": "2024-10-13",
+   "text": "Only chown config folder when change to ownership or new install is detected."
+  },
+  {
+   "date": "2024-10-09",
+   "text": "Manage permissions in /config/.ssh according to file type"
+  },
+  {
+   "date": "2024-08-19",
+   "text": "Rebase to Ubuntu Noble."
+  },
+  {
+   "date": "2023-07-01",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2022-10-05",
+   "text": "Install recommended deps to maintain parity with the older images."
+  },
+  {
+   "date": "2022-09-29",
+   "text": "Rebase to jammy, switch to s6v3. Fix chown logic to skip `/config/workspace` contents."
+  },
+  {
+   "date": "2022-02-20",
+   "text": "Install using the official tarballs."
+  },
+  {
+   "date": "2021-12-29",
+   "text": "Add `install-extension` as a helper for mods to install extensions."
+  },
+  {
+   "date": "2021-12-06",
+   "text": "Add `DEFAULT_WORKSPACE` env var."
+  },
+  {
+   "date": "2021-11-29",
+   "text": "Rebase to Ubuntu focal."
+  },
+  {
+   "date": "2021-09-16",
+   "text": "Fix slow `chown` on large workspace (contents of workspace folder no longer chowned)."
+  },
+  {
+   "date": "2021-07-11",
+   "text": "Bump node to 14 to fix builds"
+  },
+  {
+   "date": "2021-05-08",
+   "text": "Fix doc link"
+  },
+  {
+   "date": "2021-02-04",
+   "text": "Allow setting gui password via hash using env var `HASHED_PASSWORD`."
+  },
+  {
+   "date": "2020-12-23",
+   "text": "Allow setting sudo password via hash using env var `SUDO_PASSWORD_HASH`."
+  },
+  {
+   "date": "2020-05-29",
+   "text": "Add --domain-proxy support."
+  },
+  {
+   "date": "2020-05-21",
+   "text": "Shrink images, install via yarn, fix arm32v7 build."
+  },
+  {
+   "date": "2020-05-18",
+   "text": "Switch to multi-arch images, install via npm."
+  },
+  {
+   "date": "2020-04-29",
+   "text": "Update start arguments."
+  },
+  {
+   "date": "2020-04-01",
+   "text": "Structural changes required for v3."
+  },
+  {
+   "date": "2020-01-17",
+   "text": "Fix artifact url retrieval from github."
+  },
+  {
+   "date": "2019-10-24",
+   "text": "Upgrade to v2 builds."
+  },
+  {
+   "date": "2019-09-28",
+   "text": "Update project logo."
+  },
+  {
+   "date": "2019-09-21",
+   "text": "Add development builds/tag."
+  },
+  {
+   "date": "2019-07-09",
+   "text": "Add optional sudo access."
+  },
+  {
+   "date": "2019-07-01",
+   "text": "Add nano."
+  },
+  {
+   "date": "2019-06-24",
+   "text": "Initial Release."
+  }
+ ]
+}

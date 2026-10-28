@@ -1,0 +1,69 @@
+{
+ "image": "rpcs3",
+ "branch": "master",
+ "tag": "build-fff0c96bf38d1ada075e524c4753a7f263c06449-ls3",
+ "previous_tag": "build-fff0c96bf38d1ada075e524c4753a7f263c06449-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "build-fff0c96bf38d1ada075e524c4753a7f263c06449",
+  "to": "build-fff0c96bf38d1ada075e524c4753a7f263c06449",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:731016ff9660aac7a2328ef09c7818ac30a240fd6452035eb2750a4d4657b61b"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:2dee84b18c6bcbfd15703b870bfeeb434cafeea10d73931e9a08e50c261334fd"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1082659585,
+   "to": 1083177855,
+   "delta": 518270
+  },
+  "arm64": {
+   "from": 1033293129,
+   "to": 1033821392,
+   "delta": 528263
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

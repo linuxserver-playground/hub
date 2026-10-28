@@ -1,0 +1,203 @@
+{
+ "schema": 1,
+ "name": "ubooquity",
+ "summary": "[Ubooquity](https://vaemendis.net/ubooquity/) is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.",
+ "upstream": {
+  "url": "https://vaemendis.net/ubooquity/",
+  "version": {
+   "type": "command",
+   "run": "curl -IsL -w %{url_effective} -o /dev/null http://vaemendis.net/ubooquity/service/download.php | sed 's|.*Ubooquity-\\([0-9\\.]*\\).zip|\\1|'"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "UBOOQUITY_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 2203,
+   "path": "/ubooquity/admin"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "2202",
+    "description": "The library port."
+   },
+   {
+    "internal": "2203",
+    "description": "The admin port."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/ubooquity/data",
+    "description": "Config files and database for ubooquity."
+   },
+   {
+    "path": "/books",
+    "host_path": "/path/to/books",
+    "description": "Location of books."
+   },
+   {
+    "path": "/comics",
+    "host_path": "/path/to/comics",
+    "description": "Location of comics."
+   },
+   {
+    "path": "/files",
+    "host_path": "/path/to/raw/files",
+    "description": "Location of raw files."
+   }
+  ],
+  "env": [
+   {
+    "name": "MAXMEM",
+    "value": "",
+    "description": "To set the maximum memory. ( ex: set '1024' for 1GB )",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Books"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ubooquity-banner.png",
+  "setup": "Access the admin page at `http://<your-ip>:2203/ubooquity/admin` and set a password.\n\nThen you can access the webui at `http://<your-ip>:2202/ubooquity/`\n\nThis container will automatically scan your files at startup.\n\n### MAXMEM\n\nThe quantity of memory allocated to Ubooquity depends on the hardware your are running it on. If this quantity is too small, you might sometime saturate it with when performing memory intensive operations. That’s when you get `java.lang.OutOfMemoryError:` Java heap space errors.\n\nYou can explicitly set the amount of memory Ubooquity is allowed to use (be careful to set a value lower than the actual physical memory of your hardware). Value is a number of megabytes ( put just a number, without MB )\n\nIf no value is set it will default to 512MB.\n"
+ },
+ "proxy": {
+  "port": 2202,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true
+  },
+  "extra_locations": [
+   {
+    "path": "/admin",
+    "port": 2203,
+    "auth": false
+   },
+   {
+    "path": "/admin-res",
+    "port": 2203,
+    "auth": false
+   },
+   {
+    "path": "/admin-api",
+    "port": 2203,
+    "auth": false
+   }
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2025-07-27",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-06-06",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-20",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-10-29",
+   "text": "Bump JRE to 17 to support v3."
+  },
+  {
+   "date": "2023-07-12",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-07-04",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-03-05",
+   "text": "Rebase to Alpine 3.17."
+  },
+  {
+   "date": "2022-10-10",
+   "text": "Rebasing to alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2019-01-28",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-10-15",
+   "text": "Upgrade to Ubooquity 2.1.2."
+  },
+  {
+   "date": "2018-08-23",
+   "text": "Rebase to alpine 3.8."
+  },
+  {
+   "date": "2017-12-09",
+   "text": "Rebase to alpine 3.7."
+  },
+  {
+   "date": "2017-10-07",
+   "text": "Upgrade to Ubooquity 2.1.1."
+  },
+  {
+   "date": "2017-07-16",
+   "text": "Upgrade to Ubooquity 2.1.0, see setting up application section for important info for existing v1.x users."
+  },
+  {
+   "date": "2017-05-26",
+   "text": "Rebase to alpine 3.6."
+  },
+  {
+   "date": "2017-04-08",
+   "text": "Switch to java from 3.5 repo, fixes login crashes."
+  },
+  {
+   "date": "2017-02-06",
+   "text": "Rebase to alpine 3.5."
+  },
+  {
+   "date": "2016-12-06",
+   "text": "Initial Release."
+  }
+ ]
+}

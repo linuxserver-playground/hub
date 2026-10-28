@@ -1,0 +1,70 @@
+{
+ "image": "lazylibrarian",
+ "branch": "master",
+ "tag": "c776d11e-ls2",
+ "previous_tag": "c776d11e-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "c776d11e",
+  "to": "c776d11e",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8ab987000b0e8001e49199a3d633327473284419740066ddb45c32428c6c0d28"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 188070414,
+   "to": 187232430,
+   "delta": -837984
+  },
+  "arm64": {
+   "from": 183823422,
+   "to": 182973392,
+   "delta": -850030
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -4,7 +4,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:noble\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:noble\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -4,7 +4,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-noble\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-noble\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

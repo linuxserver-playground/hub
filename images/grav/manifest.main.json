@@ -1,0 +1,132 @@
+{
+ "schema": 1,
+ "name": "grav",
+ "summary": "[Grav](https://github.com/getgrav/grav/) is a Fast, Simple, and Flexible, file-based Web-platform.",
+ "upstream": {
+  "url": "https://github.com/getgrav/grav/",
+  "version": {
+   "type": "github_release",
+   "repo": "getgrav/grav"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "getgrav/grav"
+  },
+  "sponsor": [
+   {
+    "name": "Grav",
+    "url": "https://opencollective.com/grav/donate"
+   }
+  ]
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "GRAV_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 80
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "Port for web frontend"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/grav/config",
+    "description": "Persistent config files"
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Content Management"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grav-logo.png",
+  "setup": "For more information check out the [Grav documentation](https://learn.getgrav.org/). Our image includes the [grav-admin](https://github.com/getgrav/grav-plugin-admin) plugin.\n\nTo use the CLI tools you need to pass the working directory as part of your exec command (or use an interactive shell), e.g. `docker exec -it -w /app/www/public grav bin/gpm`\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-06-27",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-10-11",
+   "text": "Add php83-pdo and php83-pdo_sqlite"
+  },
+  {
+   "date": "2024-06-19",
+   "text": "Rebase to Alpine 3.20. Symlink robots.txt to /config. Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2024-03-06",
+   "text": "Add brotli to nginx."
+  },
+  {
+   "date": "2024-03-06",
+   "text": "Existing users should update: site-confs/default.conf - Cleanup default site conf."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-05-06",
+   "text": "Add php-ldap for LDAP support."
+  },
+  {
+   "date": "2023-04-13",
+   "text": "Move ssl.conf include to default.conf."
+  },
+  {
+   "date": "2022-12-11",
+   "text": "Rebase to Alpine 3.17, PHP 8.1."
+  },
+  {
+   "date": "2022-09-05",
+   "text": "All php to read envs passed to container."
+  },
+  {
+   "date": "2022-08-20",
+   "text": "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+  },
+  {
+   "date": "2021-09-03",
+   "text": "Added support for Redis caching."
+  },
+  {
+   "date": "2021-07-01",
+   "text": "Rebase to Alpine 3.14."
+  },
+  {
+   "date": "2021-04-09",
+   "text": "Initial Release."
+  }
+ ]
+}
