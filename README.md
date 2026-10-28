@@ -77,10 +77,9 @@ The Arcane template registry is served from Pages: `<hub>/stores/arcane/registry
 | `lsio_hub/store.py` | The `data/` layout: load, save, rotation. |
 | `lsio_hub/ingest.py` | Reconcile (every repo's manifests and every release `data/` lacks; `--deep` lists every release over REST for a backfill) or one release; validates with the builder contracts. Keeps the counts of each build's own scan (`builder.derive.vulns.summary_of`), and once migrates the retired per-architecture scan files (`migrate_vulns`). |
 | `lsio_hub/diff.py`, `packages.py` | The build diff engine and the syft normaliser: `builder.derive`'s, which the build also runs. |
-| `lsio_hub/layers.py` | Layer attribution: `from_base` from the base image's registry manifest, `dockerfile_lines` from `created_by`. |
 | `lsio_hub/observe.py`, `mods.py`, `prootapps.py` | The observed poller (stars, archived), the mods index and the PRoot Apps index. |
 | `lsio_hub/transform.py` | Manifest plus builds to an API image (`builder.manifest.build_context`, `builder.snippets`). |
-| `lsio_hub/responses.py`, `app.py`, `build.py` | Endpoint content, the FastAPI routes, the static build. |
+| `lsio_hub/responses.py`, `app.py`, `build.py` | Endpoint content (the per-build documents shaped by `builder.derive.documents` and `builder.derive.layers`, one implementation with the copies the image builds write on their repositories' Pages), the FastAPI routes, the static build. |
 | `lsio_hub/generate/` | One module per generator, each a function of `data/`. |
 
 ## Data layout
@@ -199,10 +198,13 @@ Later on 2026-10-28 the vulnerability scans moved to the repositories' Pages too
   image page's build list (`…/site/images/<image>/#builds`).
 - `/builds/<image>/<tag>/` and `/builds/<image>/` redirect there (see Build report pages).
 
-Later still on 2026-10-28, two changes:
+Later still on 2026-10-28:
 
 - `BuildSummary` (`builds.json`) has a new `tags`: every tag the build published, from its build.json (`published.tags`,
   contracts 1.10; `version.tags` for releases made before that field). Additive.
+- The per-build documents (`report.json`, `tests.json`, `layers.<arch>.json`) are rendered with `builder.derive.documents`,
+  the code the image builds also use to write copies on their repositories' Pages. Their URLs, shapes and envelope are
+  unchanged; the hub stays their API.
 - `observed.json` (in `data/`) has no `ghcr_tags`: the hourly refresh no longer lists every GHCR package (about 50 s of
   each run). Nothing read it; a build's tags are in its build.json, fixed when it publishes.
 
@@ -218,7 +220,7 @@ absent. `dockerfile_lines` attributes each non-base layer to its `RUN`/`COPY`/`A
 matching `created_by` (BuildKit's record of the instruction, build args and `/bin/sh -c` stripped) against the
 Dockerfile in `build.json`, sequentially from the last layer and the last instruction of the final stage
 backwards, so unknown base layers fall off the front; a layer without a confident match has no
-`dockerfile_lines`.
+`dockerfile_lines`. The code is `builder.derive.layers`, shared with the copies on the repositories' Pages.
 
 ### Vulnerabilities
 

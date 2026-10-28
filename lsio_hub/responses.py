@@ -4,17 +4,17 @@ from __future__ import annotations
 
 import datetime
 from collections import Counter, defaultdict
-from typing import Any, Literal
+from typing import Any
 
+from builder.derive import documents
 from builder.manifest import build_context
 from builder.render import render_all
 
-from .config import REPORT_FILES, STORE_REPOS, build_pages, release_download, site_build, site_builds
+from .config import STORE_REPOS, WEBSITE, build_pages, release_download, site_build
 from .dates import parse_iso
 from .fleet import Fleet
 from .generate import kubernetes, proxy, proxy_refs, quadlet
 from .generate.common import ImageInput
-from .layers import annotate
 from .models import (
     CHANGELOG_LIMIT,
     V1_CHANGELOG_ENTRIES,
@@ -30,7 +30,6 @@ from .models import (
     Category,
     ChangelogEntry,
     Diff,
-    DiffSummary,
     DocsData,
     DocSection,
     HistoryEntry,
@@ -49,7 +48,6 @@ from .models import (
     PackagesData,
     ProotAppsData,
     ProxyData,
-    ReportLinks,
     Repository,
     StaleImage,
     StalenessData,
@@ -57,7 +55,6 @@ from .models import (
     Status,
     StoreEntry,
     TestArchSummary,
-    TestReport,
     VulnerabilitySummary,
 )
 from .packages import slug, version_key
@@ -271,64 +268,32 @@ def diff(record: ImageRecord, tag: str) -> Diff | None:
 
 
 def layers(record: ImageRecord, tag: str, arch: str, bases: dict[str, Json] | None = None) -> LayersData | None:
-    """The layer table with `from_base` from the base's registry manifest and `dockerfile_lines` from the Dockerfile."""
+    """The layer table with `from_base` from the base's registry manifest and `dockerfile_lines` from the Dockerfile
+    (`builder.derive.documents.layers`, which the copies on the repository's Pages use too)."""
     per_arch = record.layers.get(tag, {})
     build = record.builds.get(tag)
     if arch not in per_arch or build is None:
         return None
     base = (bases or {}).get(build.get("base", {}).get("digest") or "")
-    annotated, meta = annotate(per_arch[arch], build.get("dockerfile", {}).get(arch), base, arch)
-    return LayersData(image=record.name, tag=tag, arch=arch, layers=annotated, **meta)
-
-
-def _test_summary(build: Json, arch: str, report: Json) -> TestArchSummary:
-    runtime = report.get("runtime") or {}
-    cases = report.get("tests") or []
-    failed = [c["name"] for c in cases if str(c.get("status", "")).upper() not in ("PASS", "SKIP")]
-    ports = [f"{p}/tcp" for p in runtime.get("listening_tcp") or []] + [
-        f"{p}/udp" for p in runtime.get("listening_udp") or []
-    ]
-    return TestArchSummary(
-        success=bool(report.get("success")),
-        passed=sum(1 for c in cases if str(c.get("status", "")).upper() == "PASS"),
-        failed=len(failed),
-        total=len(cases),
-        failed_tests=failed,
-        startup_seconds=report.get("startup_seconds"),
-        listening_ports=ports,
-        warnings=len(report.get("warnings") or {}),
-        rss_bytes=runtime.get("rss_bytes"),
-        pids=runtime.get("pids"),
-        tarball=_asset_urls(build).get(f"test.{arch}.tar.gz"),
-        files={
-            kind: f"{build_pages(build['repository'], build['version']['tag'])}{arch}/{REPORT_FILES[kind]}"
-            for kind in sorted(report.get("files") or {})
-            if kind in REPORT_FILES
-        },
-    )
+    doc = documents.layers({**build, "image": record.name}, arch, per_arch[arch], base)
+    return LayersData.model_validate(doc)
 
 
 def _test_summaries(record: ImageRecord, build: Json) -> dict[str, TestArchSummary]:
     reports = record.tests.get(build["version"]["tag"], {})
-    return {arch: _test_summary(build, arch, reports[arch]) for arch in sorted(reports)}
+    pages = build_pages(build["repository"], build["version"]["tag"])
+    summaries = documents.test_summaries(build, reports, pages)
+    return {arch: TestArchSummary.model_validate(summary) for arch, summary in summaries.items()}
 
 
 def tests(fleet: Fleet, record: ImageRecord, tag: str) -> BuildTestsData | None:
-    """The harness reports per architecture with a summary; None when the build has no report."""
+    """The harness reports per architecture with a summary (`builder.derive.documents.tests`); None without one."""
     build = record.builds.get(tag)
     reports = record.tests.get(tag)
     if build is None or not reports:
         return None
-    enabled = bool(build["test"].get("enabled", True))
-    return BuildTestsData(
-        image=record.name,
-        tag=tag,
-        enabled=enabled,
-        success=build["test"]["success"] if enabled else None,
-        report_url=site_build(record.name, tag),
-        summary=_test_summaries(record, build),
-        reports={arch: TestReport.model_validate(reports[arch]) for arch in sorted(reports)},
-    )
+    doc = documents.tests({**build, "image": record.name}, reports, build_pages(build["repository"], tag), WEBSITE)
+    return BuildTestsData.model_validate(doc) if doc else None
 
 
 def test_routes(fleet: Fleet) -> list[tuple[str, str]]:
@@ -347,83 +312,24 @@ def vuln_summary(record: ImageRecord, tag: str) -> VulnerabilitySummary | None:
     return VulnerabilitySummary.model_validate(counts["summary"]) if counts else None
 
 
-def _diff_summary(diff: Json) -> DiffSummary:
-    config = diff.get("config", {})
-    env = config.get("env", {})
-    changes = len(env.get("added", [])) + len(env.get("removed", [])) + len(env.get("changed", []))
-    for key in ("exposed_ports", "volumes"):
-        changes += len(config.get(key, {}).get("added", [])) + len(config.get(key, {}).get("removed", []))
-    base = diff.get("base", {})
-    return DiffSummary(
-        previous_tag=diff.get("previous_tag"),
-        classification=diff["classification"],
-        reasons=list(diff.get("reasons", [])),
-        upstream=diff["upstream"],
-        base_changed=bool(base.get("changed")),
-        base_from=(base.get("from") or {}).get("digest") if base.get("changed") else None,
-        size=diff.get("size", {}),
-        totals=diff["totals"],
-        config_changes=changes,
-        dockerfile_changed=sorted(arch for arch, text in diff.get("dockerfile", {}).items() if text),
-    )
-
-
-def build_result(build: Json) -> Literal["success", "failure", "partial"]:
-    """`success`, `failure` or `partial` over every platform and the test outcome."""
-    platforms = build.get("platforms", [])
-    ok = sum(1 for p in platforms if p.get("result") == "success")
-    tested = build["test"].get("success") if build["test"].get("enabled", True) else None
-    if ok == len(platforms) and tested is not False:
-        return "success"
-    if ok == 0 or tested is False:
-        return "failure"
-    return "partial"
+build_result = documents.build_result
+"""`success`, `failure` or `partial` over every platform and the test outcome."""
 
 
 def report(fleet: Fleet, record: ImageRecord, tag: str) -> BuildReport | None:
-    """Everything a build page shows, in one document."""
+    """Everything a build page shows, in one document (`builder.derive.documents.report`), with the hub's links."""
     build = record.builds.get(tag)
     if build is None:
         return None
-    diff = record.diffs.get(tag)
-    links = _build_links(fleet, record, build)
-    ref = f"{fleet.settings.registry}/{fleet.settings.org}/{record.name}"
-    return BuildReport(
-        image=record.name,
-        repository=build["repository"],
-        tag=tag,
-        branch=build["branch"],
-        release_tag=build["version"].get("release_tag"),
-        upstream_version=build["version"]["upstream"],
-        upstream_clean=build["version"]["upstream_clean"],
-        semver=build["version"].get("semver"),
-        ls_build=build["version"]["ls_build"],
-        created=build["created"],
-        reason=build["reason"],
-        commit=build["commit"],
-        tags=list(build["version"].get("tags") or [tag]),
-        base=build["base"],
-        platforms=build["platforms"],
-        index_digest=build.get("index_digest"),
-        result=build_result(build),
-        test_enabled=bool(build["test"].get("enabled", True)),
-        test_success=build["test"]["success"] if build["test"].get("enabled", True) else None,
-        tests=_test_summaries(record, build),
-        classification=diff["classification"] if diff else None,
-        diff=_diff_summary(diff) if diff else None,
-        packages=build.get("packages"),
-        notes=build.get("notes"),
-        config=build["config"],
+    doc = documents.report(
+        {**build, "image": record.name},
+        diff=record.diffs.get(tag),
+        reports=record.tests.get(tag, {}),
+        build_links=_build_links(fleet, record, build).model_dump(exclude_none=True),
+        site=WEBSITE,
         is_newest=is_newest(record, build),
-        links=ReportLinks(
-            **links.model_dump(),
-            run=build["workflow"]["run_url"],
-            commit=f"https://github.com/{build['repository']}/commit/{build['commit']}",
-            repository=f"https://github.com/{build['repository']}",
-            registry=f"{ref}:{tag}",
-            history=site_builds(record.name),
-        ),
     )
+    return BuildReport.model_validate(doc)
 
 
 def packages_table(record: ImageRecord, tag: str, arch: str) -> PackagesData | None:
