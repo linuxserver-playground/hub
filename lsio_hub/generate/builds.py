@@ -1,98 +1,30 @@
 """
-CI result pages: one page per ingested live build with the result per architecture, the test table from
-test.<arch>.json, the runtime probe, the diff summary and links, plus the unpacked `test.<arch>.tar.gz`
-(screenshot, logs) next to it; and a build history page per image. These are the deterministic
-report URLs other systems link to: `https://<hub>/builds/<image>/<tag>/`.
+CI result pages: one plain page per held build with the result per architecture, the test table from
+test.<arch>.json, the runtime probe, the diff summary and links, and a build history page per image, at
+`https://<hub>/builds/<image>/<tag>/`. The website's build page is the report people read; these stay because
+older release notes and bundles (`test.report_url`) and CONVENTIONS §10 still link them.
 
-Tarballs and `files.<arch>.json.gz` are never kept in git: they are downloaded from the Release when the
-pages are generated (`ctx.fetch`), the tarballs for every retained build, the file trees for the newest build
-of each branch only. Older builds link to the Release asset instead. A build's unpacked report is
-downloaded once: an `<arch>/` directory already in the output (`ctx.extra["existing"]`) is kept as it is,
-so a cached out/builds/ makes a run cheap, and a rotated build's directory is removed.
+Nothing heavy is copied here any more. The screenshot, the logs and the file trees are on the image repository's
+own Pages (`config.repo_pages`), which keeps the same newest builds the hub does, and the pages link there; the
+tarballs stay on the Release as downloads. So this generator reads data/ only and downloads nothing.
 """
 
 from __future__ import annotations
 
-import io
-import json
-import posixpath
-import tarfile
 from typing import Any
 
-from ..config import ARCHES
+from ..config import REPORT_FILES, build_pages
 from ..templating import TEMPLATES, env
 from .common import Files, GenerateContext, ImageInput
 
 Json = dict[str, Any]
 
-MAX_TARBALL_BYTES = 64 * 1024 * 1024
-"""Extracted bytes allowed per tarball; anything beyond is left on the Release."""
-
-REPORT_FILES = {
-    "screenshot": "screenshot.png",
-    "container_log": "container.log",
-    "browser_log": "browser.log",
-    "sysinfo": "sysinfo.txt",
-    "shellcheck": "shellcheck.xml",
-}
-"""test.<arch>.json `files` keys and the fixed names they get under <arch>/."""
 EXTRA_FILES = ("package_diff.txt",)
-"""Files copied by name when the tarball has them."""
-RETIRED = "index.html"
-"""The harness's old HTML report, still in the tarballs of older builds: never unpacked, and dropped from the output."""
-FETCHED = "fetched.json"
-"""Written under <arch>/ once the tarball is unpacked: the names it held, possibly none."""
+"""Files the harness may add to the report beyond those `files` names; linked, and absent when it wrote none."""
 
 
-def _asset_url(image: ImageInput, build: Json, name: str) -> str | None:
-    for asset in build.get("assets", []):
-        if asset["name"] == name and asset.get("url"):
-            return str(asset["url"])
-    pointer = image.record.latest.get(build["branch"], {})
-    if pointer.get("tag") == build["version"]["tag"]:
-        url = pointer.get("assets", {}).get(name)
-        return str(url) if url else None
-    return None
-
-
-def _member_path(member: tarfile.TarInfo) -> str | None:
-    """The normalised relative path of a regular file, or None for anything that escapes the archive root."""
-    if not member.isreg():
-        return None
-    path = posixpath.normpath(member.name)
-    if path.startswith(("/", "../")) or path in (".", ".."):
-        return None
-    return path
-
-
-def unpack(data: bytes, report: Json | None) -> dict[str, bytes]:
-    """
-    The tarball's regular files as {name under <arch>/: bytes}: the report's named files under their fixed
-    names, the extra files by basename, everything else under its path in the archive (one leading
-    directory stripped). Stops at MAX_TARBALL_BYTES.
-    """
-    out: dict[str, bytes] = {}
-    named = {v: REPORT_FILES[k] for k, v in (report or {}).get("files", {}).items() if k in REPORT_FILES}
-    total = 0
-    with tarfile.open(fileobj=io.BytesIO(data), mode="r:gz") as tar:
-        members = [(m, p) for m in tar.getmembers() if (p := _member_path(m)) is not None]
-        roots = {p.split("/", 1)[0] for _, p in members if "/" in p}
-        strip = next(iter(roots)) + "/" if len(roots) == 1 and all("/" in p for _, p in members) else ""
-        for member, path in members:
-            short = path[len(strip) :] if strip and path.startswith(strip) else path
-            base = posixpath.basename(short)
-            target = named.get(path) or named.get(short) or (base if base in EXTRA_FILES else short)
-            if target == RETIRED:
-                continue
-            if total + member.size > MAX_TARBALL_BYTES:
-                break
-            handle = tar.extractfile(member)
-            if handle is None:
-                continue
-            content = handle.read()
-            total += len(content)
-            out[target] = content
-    return out
+def _asset_url(build: Json, name: str) -> str | None:
+    return next((str(a["url"]) for a in build.get("assets", []) if a["name"] == name and a.get("url")), None)
 
 
 def _pill(value: Any) -> str:
@@ -104,6 +36,8 @@ def _build_view(image: ImageInput, build: Json, ctx: GenerateContext) -> Json:
     diff = image.record.diffs.get(tag)
     tests = image.record.tests.get(tag, {})
     api = f"{ctx.site.api_root}/api/v1/catalog/{image.name}/builds/{tag}"
+    pages = build_pages(build["repository"], tag)
+    names = {a["name"] for a in build.get("assets", [])}
     release_url = next(
         (h.get("release_url") for h in image.record.history.get(build["branch"], []) if h["tag"] == tag), None
     )
@@ -111,6 +45,8 @@ def _build_view(image: ImageInput, build: Json, ctx: GenerateContext) -> Json:
     for platform in build["platforms"]:
         arch = platform["arch"]
         report = tests.get(arch)
+        kinds = (report or {}).get("files") or {}
+        files = [REPORT_FILES[k] for k in REPORT_FILES if k in kinds] + list(EXTRA_FILES if report else ())
         arches.append(
             {
                 "arch": arch,
@@ -119,8 +55,10 @@ def _build_view(image: ImageInput, build: Json, ctx: GenerateContext) -> Json:
                 "tests": (report or {}).get("tests", []),
                 "runtime": (report or {}).get("runtime", {}),
                 "warnings": (report or {}).get("warnings", {}),
-                "tarball": _asset_url(image, build, f"test.{arch}.tar.gz"),
-                "files_asset": _asset_url(image, build, f"files.{arch}.json.gz"),
+                "tarball": _asset_url(build, f"test.{arch}.tar.gz"),
+                "report_files": [(name, f"{pages}{arch}/{name}") for name in files],
+                "screenshot": f"{pages}{arch}/{REPORT_FILES['screenshot']}" if "screenshot" in kinds else None,
+                "files": f"{pages}files.{arch}.json.gz" if f"files.{arch}.json.gz" in names else None,
             }
         )
     return {
@@ -132,54 +70,17 @@ def _build_view(image: ImageInput, build: Json, ctx: GenerateContext) -> Json:
         "release_url": release_url,
         "api_build": f"{api}.json",
         "api_diff": f"{api}/diff.json",
-        "is_latest": image.record.latest.get(build["branch"], {}).get("tag") == tag,
     }
 
 
 def generate(ctx: GenerateContext) -> Files:
-    """
-    The pages, plus the report files and file trees not yet in the output directory. The ones already there
-    that a retained build still uses are added to `ctx.extra["keep"]`; anything else there (rotated builds) goes.
-    """
-    existing: set[str] = set(ctx.extra.get("existing", set()))
-    keep: set[str] = ctx.extra.setdefault("keep", set())
     files: Files = {"report.css": (TEMPLATES / "report.css").read_text(encoding="utf-8")}
     build_template = env.get_template("report_build.html")
     history_template = env.get_template("report_history.html")
     for image in ctx.images:
-        builds = image.record.sorted_builds()
-        views = [_build_view(image, build, ctx) for build in builds]
+        views = [_build_view(image, build, ctx) for build in image.record.sorted_builds()]
         files[f"{image.name}/index.html"] = history_template.render(image=image, views=views, site=ctx.site, pill=_pill)
         for view in views:
-            tag = view["tag"]
-            folder = f"{image.name}/{tag}"
-            for arch_view in view["arches"]:
-                arch = arch_view["arch"]
-                prefix = f"{folder}/{arch}/"
-                have = sorted(p for p in existing if p.startswith(prefix) and p != prefix + RETIRED)
-                if have:
-                    keep.update(have)
-                    names = [p[len(prefix) :] for p in have if p != prefix + FETCHED]
-                elif arch_view["tarball"] and (data := ctx.fetch(arch_view["tarball"])):
-                    try:
-                        unpacked = unpack(data, arch_view["report"])
-                    except (tarfile.TarError, OSError):
-                        unpacked = {}
-                    for name, content in unpacked.items():
-                        files[prefix + name] = content
-                    # Marks the tarball as fetched even when it held no report, so it is not downloaded again.
-                    files[prefix + FETCHED] = json.dumps(sorted(unpacked)) + "\n"
-                    names = sorted(unpacked)
-                else:
-                    names = []
-                arch_view["unpacked"] = names
-                arch_view["has_screenshot"] = "screenshot.png" in names
-                if view["is_latest"] and arch_view["files_asset"] and arch in ARCHES:
-                    target = f"{folder}/files.{arch}.json.gz"
-                    if target in existing:
-                        keep.add(target)
-                    elif tree := ctx.fetch(arch_view["files_asset"]):
-                        files[target] = tree
-                    arch_view["files_local"] = target in existing or target in files
-            files[f"{folder}/index.html"] = build_template.render(view=view, site=ctx.site, pill=_pill)
+            page = build_template.render(view=view, site=ctx.site, pill=_pill)
+            files[f"{image.name}/{view['tag']}/index.html"] = page
     return files

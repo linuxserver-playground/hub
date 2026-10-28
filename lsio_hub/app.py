@@ -256,7 +256,10 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
         responses=NOT_FOUND,
     )
     def get_builds(name: ImageName) -> BuildsResponse:
-        """Every build held by the hub (the newest ten per branch), newest first, and the release history per branch."""
+        """
+        Every build held by the hub (the newest five per branch), newest first, with links to its files on the image
+        repository's Pages, and the release history per branch.
+        """
         return envelope(BuildsResponse, data=responses.builds(fleet, record(name)))
 
     @get(
@@ -291,7 +294,7 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
     def get_build_packages(name: ImageName, tag: BuildTag, arch: ArchName) -> PackagesResponse:
         """
         The normalised package table (name, version, type, purl, licenses) from the syft SBOM. Held for the newest
-        build of each branch; older builds keep their `packages.<arch>.json.gz` on the Release.
+        build of each branch; for the others, `links.sbom` is the syft document on the repository's Pages.
         """
         return envelope(PackagesResponse, data=or_404(responses.packages_table(record(name), tag, arch)))
 
@@ -319,7 +322,8 @@ def create_app(fleet: Fleet, config: SiteConfig) -> FastAPI:
     def get_build_tests(name: ImageName, tag: BuildTag) -> BuildTestsResponse:
         """
         The ci harness's `test.<arch>.json` per architecture as received, with a summary per architecture (result,
-        startup time, listening ports, failed tests) and the report page URL. Only for builds that have a report.
+        startup time, listening ports, failed tests, the report's files on the repository's Pages) and the report page
+        URL. Only for builds that have a report.
         """
         return envelope(BuildTestsResponse, data=or_404(responses.tests(fleet, record(name), tag)))
 

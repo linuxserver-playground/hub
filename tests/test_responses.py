@@ -94,15 +94,20 @@ def test_builds(fleet: Fleet) -> None:
     }
     assert data.builds[2].links.packages == {}  # only the newest build of a branch keeps its table
     assert newest.links.test_report == "https://example.github.io/hub/builds/sonarr/4.0.20.3014-ls2/"
-    # The newest build of a branch has its file trees copied next to the report page: same origin as the API.
-    assert newest.links.files == {
-        "amd64": "https://example.github.io/hub/builds/sonarr/4.0.20.3014-ls2/files.amd64.json.gz",
-        "arm64": "https://example.github.io/hub/builds/sonarr/4.0.20.3014-ls2/files.arm64.json.gz",
-    }
-    assert newest.links.files_release["amd64"] == "https://assets.test/sonarr/4.0.20.3014-ls2/files.amd64.json.gz"
+    # Every held build's heavy files are on its repository's Pages, which keeps the same builds; the Release
+    # only appears as download links.
+    pages = "https://linuxserver-playground.github.io/docker-sonarr/builds/4.0.20.3014-ls2/"
+    assert newest.links.pages == pages
+    assert newest.links.files == {"amd64": f"{pages}files.amd64.json.gz", "arm64": f"{pages}files.arm64.json.gz"}
+    assert newest.links.sbom == {"amd64": f"{pages}packages.amd64.json.gz", "arm64": f"{pages}packages.arm64.json.gz"}
+    release = "https://github.com/linuxserver-playground/docker-sonarr/releases/download/4.0.20.3014-ls2/"
+    assert newest.links.run_json == f"{release}run.json" and newest.links.logs_zip == f"{release}logs.zip"
+    assert "files_release" not in newest.links.model_dump()
     older = data.builds[2]
-    assert older.links.files == older.links.files_release
-    assert older.links.files["amd64"] == "https://assets.test/sonarr/4.0.19.2000-ls1/files.amd64.json.gz"
+    assert older.links.files["amd64"] == (
+        "https://linuxserver-playground.github.io/docker-sonarr/builds/4.0.19.2000-ls1/files.amd64.json.gz"
+    )
+    assert not [u for u in older.links.model_dump().values() if isinstance(u, str) and "assets.test" in u]
     assert newest.links.tests == "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/tests.json"
     assert (
         newest.links.report == "https://example.github.io/hub/api/v1/catalog/sonarr/builds/4.0.20.3014-ls2/report.json"
@@ -111,6 +116,12 @@ def test_builds(fleet: Fleet) -> None:
     assert newest.vulnerabilities is not None and newest.vulnerabilities.critical == 1
     assert data.builds[2].vulnerabilities is None and data.builds[2].links.vulns is None
     assert [h.tag for h in data.history["master"]] == ["4.0.20.3014-ls2", "4.0.19.2000-ls1"]
+    first = data.history["master"][1]
+    assert first.run_url == "https://github.com/linuxserver-playground/docker-sonarr/actions/runs/1001"
+    assert first.run_json == (
+        "https://github.com/linuxserver-playground/docker-sonarr/releases/download/4.0.19.2000-ls1/run.json"
+    )
+    assert first.logs_zip is not None and first.logs_zip.endswith("/releases/download/4.0.19.2000-ls1/logs.zip")
     bundle = responses.bundle(sonarr, "4.0.20.3014-ls2")
     assert bundle is not None and bundle.schema_version == 1 and bundle.model_dump(by_alias=True)["schema"] == 1
     assert responses.bundle(sonarr, "nope") is None
@@ -152,6 +163,13 @@ def test_tests_and_report(fleet: Fleet) -> None:
         arm64.success is False and arm64.failed_tests == ["Take screenshot"] and (arm64.passed, arm64.total) == (2, 3)
     )
     assert arm64.startup_seconds == 4.2 and arm64.listening_ports == ["8989/tcp"] and arm64.warnings == 1
+    pages = "https://linuxserver-playground.github.io/docker-multidb/builds/1.0.0-ls1/arm64/"
+    assert arm64.files == {
+        "container_log": f"{pages}container.log",
+        "screenshot": f"{pages}screenshot.png",
+        "sysinfo": f"{pages}sysinfo.txt",
+    }
+    assert arm64.tarball == "https://assets.test/multidb/1.0.0-ls1/test.arm64.tar.gz"
     assert tests.summary["amd64"].success is True and tests.summary["amd64"].failed_tests == []
     assert responses.tests(fleet, multidb, "nope") is None
     assert responses.test_routes(fleet)[:2] == [("multidb", "1.0.0-ls1"), ("multidb", "1.0.0-ls2")]
@@ -172,7 +190,9 @@ def test_tests_and_report(fleet: Fleet) -> None:
     assert report.tests["arm64"].success is False and report.links.run.endswith("/actions/runs/1002")
     assert report.links.registry == "ghcr.io/linuxserver-playground/multidb:1.0.0-ls2"
     assert report.links.history == "https://example.github.io/hub/builds/multidb/"
-    assert report.links.files["amd64"].startswith("https://example.github.io/hub/builds/multidb/1.0.0-ls2/")
+    assert report.links.files["amd64"] == (
+        "https://linuxserver-playground.github.io/docker-multidb/builds/1.0.0-ls2/files.amd64.json.gz"
+    )
     first = responses.report(fleet, multidb, "1.0.0-ls1")
     assert (
         first is not None

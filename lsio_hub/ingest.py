@@ -208,7 +208,12 @@ def _previous(record: ImageRecord, bundle: Json) -> Json | None:
 
 
 def _history_entry(bundle: Json, release: Json) -> Json:
-    return {"tag": bundle["version"]["tag"], "created": bundle["created"], "release_url": release.get("html_url")}
+    return {
+        "tag": bundle["version"]["tag"],
+        "created": bundle["created"],
+        "release_url": release.get("html_url"),
+        "run_url": bundle["workflow"]["run_url"],
+    }
 
 
 def read_record(gh: GitHub, assets: dict[str, Json], bundle: Json, name: str) -> Json | None:
@@ -332,7 +337,15 @@ def ingest_release(gh: GitHub, record: ImageRecord, release: Json, bases: dict[s
 
 
 def rotate(record: ImageRecord, keep: int = KEEP_BUILDS) -> list[str]:
-    """Keeps the newest `keep` builds per branch in data/; the rest stay on their Release and in history.json."""
+    """
+    Keeps the newest `keep` builds per branch in data/; the rest stay on their Release and in history.json, which
+    keeps the run that built each one (recorded here for entries written before history carried it).
+    """
+    runs = {tag: b["workflow"]["run_url"] for tag, b in record.builds.items() if b.get("workflow", {}).get("run_url")}
+    for entries in record.history.values():
+        for entry in entries:
+            if not entry.get("run_url") and entry["tag"] in runs:
+                entry["run_url"] = runs[entry["tag"]]
     dropped: list[str] = []
     for branch in {b["branch"] for b in record.builds.values()}:
         for build in record.builds_of(branch)[keep:]:

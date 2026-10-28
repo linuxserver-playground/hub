@@ -534,17 +534,35 @@ class BuildLinks(BaseModel):
     build: str
     diff: str
     layers: dict[str, str] = Field(description="Per architecture.")
-    packages: dict[str, str] = Field(description="Per architecture; only the newest build of each branch has one.")
+    packages: dict[str, str] = Field(
+        description="The hub's package table per architecture; only the newest build of each branch has one. For the "
+        "others, `sbom` is the build's syft document."
+    )
     release: str | None = None
+    pages: str = Field(
+        description="The build's folder on its image repository's GitHub Pages (`https://<owner>.github.io/<repo>/"
+        "builds/<tag>/`), with a trailing slash: `files.<arch>.json.gz`, `packages.<arch>.json.gz` and each "
+        "architecture's unpacked test report under `<arch>/` (see `tests.json`). Served with "
+        "`access-control-allow-origin: *` for the newest 5 builds of each live branch, the builds the hub holds."
+    )
     files: dict[str, str] = Field(
-        description="`files.<arch>.json.gz` per architecture: the hub's copy under `/builds/<image>/<tag>/` for the "
-        "newest build of each branch (same origin as the API), else the Release asset."
+        description="`files.<arch>.json.gz` per architecture on the repository's Pages (under `pages`): gzip served as "
+        "`application/gzip`, without `Content-Encoding`."
     )
-    files_release: dict[str, str] = Field(
+    sbom: dict[str, str] = Field(
         default_factory=dict,
-        description="`files.<arch>.json.gz` on the Release, per architecture; never copied into data/.",
+        description="`packages.<arch>.json.gz`, the build's syft document, per architecture on the repository's Pages "
+        "(under `pages`), served like `files`.",
     )
-    test_report: str | None = Field(None, description="The rendered report page, `/builds/<image>/<tag>/`.")
+    run_json: str = Field(
+        description="`run.json` on the Release: the control plane's record of the workflow run. A download link "
+        "(Release assets send no CORS headers); 404 for releases made before control attached it."
+    )
+    logs_zip: str = Field(
+        description="`logs.zip` on the Release: the run's masked log archive. A download link; 404 for releases made "
+        "before control attached it."
+    )
+    test_report: str | None = Field(None, description="The hub's plain report page, `/builds/<image>/<tag>/`.")
     tests: str | None = Field(None, description="`tests.json`: the harness reports per architecture, when any exist.")
     report: str | None = Field(None, description="`report.json`: the build page aggregate.")
     vulns: str | None = Field(None, description="`vulns.json`: the vulnerability scan, when the build has one.")
@@ -574,6 +592,17 @@ class HistoryEntry(BaseModel):
     tag: str
     created: str
     release_url: str | None = None
+    run_url: str | None = Field(
+        None, description="The workflow run that built it; absent for releases the hub rotated out before recording it."
+    )
+    run_json: str | None = Field(
+        None,
+        description="`run.json` on the Release (a download link): the control plane's record of the run. 404 for "
+        "releases made before control attached it.",
+    )
+    logs_zip: str | None = Field(
+        None, description="`logs.zip` on the Release (a download link): the run's masked logs. 404 like `run_json`."
+    )
 
 
 class BuildsData(BaseModel):
@@ -701,7 +730,13 @@ class TestArchSummary(BaseModel):
     warnings: int = Field(description="How many checks warned.")
     rss_bytes: int | None = None
     pids: int | None = None
-    tarball: str | None = Field(None, description="`test.<arch>.tar.gz` on the Release.")
+    tarball: str | None = Field(None, description="`test.<arch>.tar.gz` on the Release (a download link).")
+    files: dict[str, str] = Field(
+        default_factory=dict,
+        description="The report's files unpacked on the repository's Pages, by the kind `files` names in the report "
+        "(`screenshot`, `container_log`, `browser_log`, `sysinfo`, `shellcheck`). `package_diff.txt` sits next to them "
+        "when the harness wrote one.",
+    )
 
 
 class BuildTestsData(BaseModel):
@@ -709,7 +744,7 @@ class BuildTestsData(BaseModel):
     tag: str
     enabled: bool = Field(description="`test.enabled` of the build.")
     success: bool | None = Field(None, description="`test.success` of the build; None when tests were disabled.")
-    report_url: str = Field(description="The rendered report page, `/builds/<image>/<tag>/`.")
+    report_url: str = Field(description="The hub's plain report page, `/builds/<image>/<tag>/`.")
     summary: dict[str, TestArchSummary] = Field(description="Per architecture.")
     reports: dict[str, TestReport] = Field(description="The harness reports per architecture, as received.")
 

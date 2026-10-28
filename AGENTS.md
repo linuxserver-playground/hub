@@ -7,8 +7,12 @@ attaches to its GitHub Release, keeps that data in git on the `data` branch (one
 as `data/`), serves a static API on GitHub Pages
 (`/api/v1/...`), and generates every downstream artefact: docs pages, store templates (Unraid, Portainer,
 CasaOS, Umbrel, Runtipi, Cosmos), SWAG proxy confs, Kubernetes manifests, Podman quadlets, the mods index
-and the CI build report pages (`/builds/<image>/<tag>/`). Consumers: the docs and stores repositories, the
-site, the control plane (which links to the build pages), and anyone using the API.
+and plain CI build report pages (`/builds/<image>/<tag>/`). It holds the newest 5 builds per live branch, as each
+image repository's own Pages does, and copies none of their heavy files (screenshots, logs, file trees, SBOMs): those
+are on `https://<owner>.github.io/<repo>/builds/<tag>/`, deployed by the image's build, and the API links there
+(`config.repo_pages`, the one place that URL is derived). Release assets send no CORS headers, so the API offers them
+only as download links, never as something a browser fetches. Consumers: the docs and stores repositories, the
+site, the control plane (which reads the API to hold Discord until a build is served), and anyone using the API.
 
 ## Layout
 
@@ -42,7 +46,7 @@ pip install -e '.[dev]'                      # pulls lsio-builder from linuxserv
 scripts/data.sh                              # data/ from the data branch (again to update it)
 ruff check . && ruff format --check . && mypy && pytest
 python -m lsio_hub.build                     # dist/ from the published data
-python -m lsio_hub.generate --offline        # out/ from the published data, no Release downloads
+python -m lsio_hub.generate                  # out/ from the published data (downloads nothing)
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.ingest --reconcile   # refresh data/ (reads only)
 ```
 

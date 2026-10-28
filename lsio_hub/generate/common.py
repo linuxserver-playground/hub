@@ -3,25 +3,18 @@
 from __future__ import annotations
 
 import json
-from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 import yaml
 from builder.manifest import Settings, build_context
 
-from ..config import SiteConfig
+from ..config import REPORT_FILES, SiteConfig, build_pages
 from ..store import ImageRecord, Store
 
 Json = dict[str, Any]
 Files = dict[str, str | bytes]
 """Generated files by path relative to the generator's output directory."""
-Fetch = Callable[[str], bytes | None]
-"""Downloads a URL, or returns None when it cannot (offline, missing asset)."""
-
-
-def no_fetch(url: str) -> bytes | None:
-    return None
 
 
 @dataclass
@@ -34,7 +27,7 @@ class ImageInput:
     """builder's render context for that manifest: normalised runtime, titles, URLs."""
     observed: Json
     screenshot: str | None = None
-    """The ci screenshot of the newest default-branch build, from its hub build report, when one passed."""
+    """The ci screenshot of the newest default-branch build on its repository's Pages, when one passed."""
 
     @property
     def rt(self) -> Json:
@@ -137,8 +130,6 @@ class GenerateContext:
     images: list[ImageInput]
     site: SiteConfig
     settings: Settings
-    fetch: Fetch = no_fetch
-    extra: dict[str, Any] = field(default_factory=dict)
 
     @property
     def current(self) -> list[ImageInput]:
@@ -165,9 +156,9 @@ def image_inputs(store: Store, settings: Settings) -> list[ImageInput]:
     return inputs
 
 
-def screenshot_url(record: ImageRecord, site: SiteConfig) -> str | None:
-    """Where the build reports serve the newest default-branch build's screenshot, amd64 first. Only a passing
-    "Take screenshot" test counts, so a store never shows a timeout or an error page."""
+def screenshot_url(record: ImageRecord) -> str | None:
+    """Where the image repository's Pages serves the newest default-branch build's screenshot, amd64 first. Only a
+    passing "Take screenshot" test counts, so a store never shows a timeout or an error page."""
     build = record.latest_build()
     if not build:
         return None
@@ -177,15 +168,15 @@ def screenshot_url(record: ImageRecord, site: SiteConfig) -> str | None:
         report = reports.get(arch) or {}
         shot = next((t for t in report.get("tests") or [] if t.get("name") == "Take screenshot"), None)
         if shot and str(shot.get("status", "")).upper() == "PASS" and (report.get("files") or {}).get("screenshot"):
-            return f"{site.api_root}/builds/{record.name}/{tag}/{arch}/screenshot.png"
+            return f"{build_pages(build['repository'], tag)}{arch}/{REPORT_FILES['screenshot']}"
     return None
 
 
-def make_context(store: Store, site: SiteConfig, settings: Settings, fetch: Fetch = no_fetch) -> GenerateContext:
+def make_context(store: Store, site: SiteConfig, settings: Settings) -> GenerateContext:
     images = image_inputs(store, settings)
     for image in images:
-        image.screenshot = screenshot_url(image.record, site)
-    return GenerateContext(store=store, images=images, site=site, settings=settings, fetch=fetch)
+        image.screenshot = screenshot_url(image.record)
+    return GenerateContext(store=store, images=images, site=site, settings=settings)
 
 
 class _Dumper(yaml.SafeDumper):

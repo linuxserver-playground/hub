@@ -9,7 +9,7 @@ from typing import Any, Literal
 from builder.manifest import build_context
 from builder.render import render_all
 
-from .config import STORE_REPOS
+from .config import REPORT_FILES, STORE_REPOS, build_pages, release_download
 from .dates import parse_iso
 from .fleet import Fleet
 from .generate import kubernetes, proxy, proxy_refs, quadlet
@@ -155,33 +155,49 @@ def status(fleet: Fleet) -> Status:
 
 
 def is_newest(record: ImageRecord, build: Json) -> bool:
-    """Whether a build is the newest of its branch the hub holds (only then are its heavy assets copied)."""
+    """Whether a build is the newest of its branch the hub holds (only that one has a package table)."""
     return bool(record.latest.get(build["branch"], {}).get("tag") == build["version"]["tag"])
+
+
+RUN_FILES = {"run_json": "run.json", "logs_zip": "logs.zip"}
+"""The Release assets control attaches after a run: its structured record and the run's masked log archive."""
 
 
 def _asset_urls(build: Json) -> dict[str, str]:
     return {a["name"]: str(a["url"]) for a in build.get("assets", []) if a.get("url")}
 
 
+def _asset_names(build: Json) -> set[str]:
+    return {str(a["name"]) for a in build.get("assets", [])}
+
+
 def _build_links(fleet: Fleet, record: ImageRecord, build: Json) -> BuildLinks:
-    tag, branch = build["version"]["tag"], build["branch"]
+    """
+    The API's own documents, then the heavy files on the image repository's Pages (`config.repo_pages`), which keeps
+    the same newest builds the hub does. Release assets appear only as download links: they send no CORS headers.
+    """
+    tag, branch, repository = build["version"]["tag"], build["branch"], build["repository"]
     api = f"{fleet.site.api_root}/api/v1/catalog/{record.name}/builds/{tag}"
-    page = f"{fleet.site.api_root}/builds/{record.name}/{tag}/"
+    pages = build_pages(repository, tag)
     has_table = {arch for arch, t in record.packages.get(branch, {}).items() if t["tag"] == tag}
-    assets = _asset_urls(build)
+    names = _asset_names(build)
     release = next((h.get("release_url") for h in record.history.get(branch, []) if h["tag"] == tag), None)
-    on_release = {a[6:-8]: url for a, url in assets.items() if a.startswith("files.") and a.endswith(".json.gz")}
-    # The report generator copies files.<arch>.json.gz next to the page for the newest build of each branch.
-    copied = is_newest(record, build)
+
+    def on_pages(kind: str) -> dict[str, str]:
+        arches = {n[len(kind) + 1 : -8] for n in names if n.startswith(f"{kind}.") and n.endswith(".json.gz")}
+        return {arch: f"{pages}{kind}.{arch}.json.gz" for arch in sorted(arches)}
+
     return BuildLinks(
         build=f"{api}.json",
         diff=f"{api}/diff.json",
         layers={arch: f"{api}/layers.{arch}.json" for arch in sorted(record.layers.get(tag, {}))},
         packages={arch: f"{api}/packages.{arch}.json" for arch in sorted(has_table)},
         release=release,
-        files={arch: f"{page}files.{arch}.json.gz" if copied else url for arch, url in sorted(on_release.items())},
-        files_release=dict(sorted(on_release.items())),
-        test_report=page,
+        pages=pages,
+        files=on_pages("files"),
+        sbom=on_pages("packages"),
+        **{key: release_download(repository, tag, name) for key, name in RUN_FILES.items()},
+        test_report=f"{fleet.site.api_root}/builds/{record.name}/{tag}/",
         tests=f"{api}/tests.json" if record.tests.get(tag) else None,
         report=f"{api}/report.json",
         vulns=f"{api}/vulns.json" if record.vulns.get(tag) else None,
@@ -210,13 +226,24 @@ def build_summary(fleet: Fleet, record: ImageRecord, build: Json) -> BuildSummar
     )
 
 
+def _history_entry(record: ImageRecord, entry: Json) -> HistoryEntry:
+    """A release of the branch, with the run that built it and download links to control's run record and logs."""
+    build = record.builds.get(entry["tag"]) or {}
+    run_url = entry.get("run_url") or (build.get("workflow") or {}).get("run_url")
+    release = str(entry.get("release_url") or "")
+    links = {}
+    if "/releases/tag/" in release:
+        base = release.replace("/releases/tag/", "/releases/download/", 1)
+        links = {key: f"{base}/{name}" for key, name in RUN_FILES.items()}
+    return HistoryEntry.model_validate({**entry, "run_url": run_url, **links})
+
+
 def builds(fleet: Fleet, record: ImageRecord) -> BuildsData:
     return BuildsData(
         image=record.name,
         builds=[build_summary(fleet, record, b) for b in record.sorted_builds()],
         history={
-            branch: [HistoryEntry.model_validate(h) for h in entries]
-            for branch, entries in sorted(record.history.items())
+            branch: [_history_entry(record, h) for h in entries] for branch, entries in sorted(record.history.items())
         },
     )
 
@@ -261,6 +288,11 @@ def _test_summary(build: Json, arch: str, report: Json) -> TestArchSummary:
         rss_bytes=runtime.get("rss_bytes"),
         pids=runtime.get("pids"),
         tarball=_asset_urls(build).get(f"test.{arch}.tar.gz"),
+        files={
+            kind: f"{build_pages(build['repository'], build['version']['tag'])}{arch}/{REPORT_FILES[kind]}"
+            for kind in sorted(report.get("files") or {})
+            if kind in REPORT_FILES
+        },
     )
 
 

@@ -24,9 +24,50 @@ UNRAID_RAW_URL = f"https://raw.githubusercontent.com/{STORE_REPOS['unraid']}/mai
 """Where each Unraid template's <TemplateURL> points, so Unraid updates it from the store repository."""
 
 ARCHES = ("amd64", "arm64")
-KEEP_BUILDS = 10
-"""Builds kept in data/ per live branch; older ones stay on their GitHub Release and in history.json."""
+KEEP_BUILDS = 5
+"""Builds kept in data/ per live branch, as many as each image repository's own Pages keeps (`repo_pages`); older
+ones stay on their GitHub Release and in history.json."""
 GITHUB_API = "https://api.github.com"
+GITHUB = "https://github.com"
+
+
+def repo_pages(repository: str) -> str:
+    """
+    The GitHub Pages site of an image repository (`docker-<name>` or `<owner>/docker-<name>`), without a trailing
+    slash. Each image repository's build deploys the heavy files of its newest builds there:
+
+        index.json                               {"schema": "lsio-pages/1", "repo", "generated_at", "keep", "builds"}
+        builds/<tag>/files.<arch>.json.gz        the Release assets as they are (served as application/gzip)
+        builds/<tag>/packages.<arch>.json.gz
+        builds/<tag>/<arch>/screenshot.png ...   test.<arch>.tar.gz unpacked (REPORT_FILES, package_diff.txt)
+
+    The hub copies none of it and links here instead. This is the one place the URL is derived: the domain
+    changes at the cutover.
+    """
+    return f"https://{ORG}.github.io/{repository.rsplit('/', 1)[-1]}"
+
+
+def build_pages(repository: str, tag: str) -> str:
+    """A build's folder on its repository's Pages, with a trailing slash."""
+    return f"{repo_pages(repository)}/builds/{tag}/"
+
+
+def release_download(repository: str, tag: str, name: str) -> str:
+    """A Release asset's download URL. For links only: Release assets send no CORS headers, so no browser can
+    read one from another page."""
+    return f"{GITHUB}/{repository}/releases/download/{tag}/{name}"
+
+
+REPORT_FILES = {
+    "screenshot": "screenshot.png",
+    "container_log": "container.log",
+    "browser_log": "browser.log",
+    "sysinfo": "sysinfo.txt",
+    "shellcheck": "shellcheck.xml",
+}
+"""test.<arch>.json `files` keys and the fixed names their files have under `builds/<tag>/<arch>/` on the
+repository's Pages."""
+
 WEBSITE = f"https://{ORG}.github.io/site/"
 """The LinuxServer.io site, which the hub's pages link to for images, builds, docs and support."""
 

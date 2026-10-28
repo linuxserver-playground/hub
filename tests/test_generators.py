@@ -206,10 +206,10 @@ def test_umbrel(gen: GenerateContext) -> None:
 
 def test_stores_with_a_screenshot_field_take_the_ci_screenshot(gen: GenerateContext) -> None:
     sonarr = _image(gen, "sonarr")
-    assert sonarr.screenshot is not None and sonarr.screenshot.startswith(
-        "https://example.github.io/hub/builds/sonarr/"
+    # On the repository's Pages, which keeps the newest builds' report files, not the hub's.
+    assert sonarr.screenshot == (
+        "https://linuxserver-playground.github.io/docker-sonarr/builds/4.0.20.3014-ls2/amd64/screenshot.png"
     )
-    assert sonarr.screenshot.endswith("/amd64/screenshot.png")
     assert yaml.safe_load(str(umbrel.generate(gen)["lsio-sonarr/umbrel-app.yml"]))["gallery"] == [sonarr.screenshot]
     meta = yaml.safe_load(str(casaos.generate(gen)["Apps/sonarr/docker-compose.yml"]))["x-casaos"]
     assert meta["screenshot_link"] == [sonarr.screenshot]
@@ -222,7 +222,7 @@ def test_stores_with_a_screenshot_field_take_the_ci_screenshot(gen: GenerateCont
         for case in report["tests"]:
             if case["name"] == "Take screenshot":
                 case["status"] = "FAIL"
-    assert screenshot_url(sonarr.record, gen.site) is None
+    assert screenshot_url(sonarr.record) is None
 
 
 def test_runtipi(gen: GenerateContext) -> None:

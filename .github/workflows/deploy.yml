@@ -6,8 +6,12 @@
 # queues behind them.
 #
 # One job. Every job is a separate wait for one of the organisation's 20 runner slots, and during a burst of image
-# builds each of those waits was up to 22 minutes (docs/github-runners.md in the workspace), so the Pages deploy
-# and the cache pruning run as steps of the same job instead of jobs of their own.
+# builds each of those waits was up to 22 minutes (docs/github-runners.md in the workspace), so the Pages deploy runs
+# as a step of the same job instead of a job of its own.
+#
+# The heavy files of each build (screenshots, logs, file trees, SBOMs) are on the image repository's own Pages, which
+# its build deploys; the hub links there and downloads none of them, so this deploy holds only the API and the
+# generated text.
 #
 # GITHUB_TOKEN is enough: the hub only reads public repositories and releases in its own organisation.
 name: Deploy
@@ -23,7 +27,6 @@ permissions:
   contents: write
   pages: write
   id-token: write
-  actions: write  # pruning the build-reports cache
 
 concurrency:
   group: pages
@@ -80,21 +83,12 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v6
 
-      - name: Restore unpacked build reports
-        # Report tarballs and file trees come from the Releases; a cache keeps re-runs from downloading them again.
-        uses: actions/cache@v6
-        with:
-          path: out/builds
-          key: build-reports-${{ github.run_id }}
-          restore-keys: build-reports-
-
       - name: Build the API and every generated artefact
         env:
           SITE_URL: ${{ steps.pages.outputs.origin }}
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Independent: the API renders on every core while the generators download the new report tarballs.
+          # Independent: the API renders on every core while the generators write the stores and report pages.
           python -m lsio_hub.build &
           api=$!
           python -m lsio_hub.generate
@@ -108,15 +102,3 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v5
-
-      - name: Prune old build-report caches
-        # Every run saves out/builds/ under its own key (a cache entry cannot be updated) and restores the newest,
-        # so older entries only crowd the repository's 10 GB and evict each other. Runs after the deploy, so the
-        # page never waits for it, and before this run's own save (a post step), so keeping the newest one leaves
-        # two. Never fails the run: control relays `hub-updated` to the site only after a successful one.
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh cache list -R "$GITHUB_REPOSITORY" --key build-reports- --sort created_at --order desc --limit 100 \
-            --json id --jq '.[1:][].id' | while read -r id; do gh cache delete -R "$GITHUB_REPOSITORY" "$id"; done

@@ -20,7 +20,7 @@ GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.vulns                # the gryp
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.mods                 # data/mods.json (RESOLVE_VERSION=<workflows>/scripts/resolve_version.py for version lines)
 GITHUB_TOKEN=$(gh auth token) python -m lsio_hub.prootapps            # data/proot-apps.json
 python -m lsio_hub.build                                 # dist/: the API, openapi.json, the docs page
-python -m lsio_hub.generate [--offline]                  # out/: stores/<platform>/ and builds/
+python -m lsio_hub.generate                              # out/: stores/<platform>/ and builds/ (downloads nothing)
 python -m lsio_hub.serve                                 # the same app, live, on http://localhost:8000/
 ruff check . && ruff format --check . && mypy && pytest
 ```
@@ -36,8 +36,22 @@ Release assets (bundles) ────┤  observe   (git)    ├─ out/stores/<
 GHCR tag lists ──────────────┤  mods               │                          umbrel, runtipi, cosmos, proxy,
 docker-mods mod.yml ─────────┤  prootapps          │                          kubernetes, quadlet, mods
 proot-apps metadata.yml ─────┘                     │
-                                                   └─ out/builds/<image>/<tag>/  CI report pages
+                                                   └─ out/builds/<image>/<tag>/  plain CI report pages
+
+Image repository Pages (https://<owner>.github.io/docker-<name>/builds/<tag>/…): each build's screenshot, logs,
+file trees and SBOM, deployed by the image's own build. The hub links there and copies none of it.
 ```
+
+### Heavy files live on each image repository's Pages
+
+Every image repository has its own GitHub Pages site, deployed by its build, holding the heavy files of its newest
+5 builds per live branch: `index.json` (`{"schema": "lsio-pages/1", "repo", "generated_at", "keep", "builds"}`),
+`builds/<tag>/files.<arch>.json.gz` and `builds/<tag>/packages.<arch>.json.gz` (the Release assets as they are,
+served as `application/gzip` without `Content-Encoding`) and `builds/<tag>/<arch>/` (`test.<arch>.tar.gz`
+unpacked: `screenshot.png`, `container.log`, `browser.log`, `sysinfo.txt`, `package_diff.txt`). Pages sends
+`access-control-allow-origin: *`, so the website reads them from any origin; Release assets send no CORS headers,
+so the API only ever offers them as download links. The hub keeps the same 5 builds per branch (`KEEP_BUILDS`), so
+every build the API holds has its files there. `config.repo_pages` is the one place that URL is derived.
 
 Two workflows share the work, and each writes only its own files in `data/` (see `lsio_hub/store.py`), so they
 run at the same time and whichever publishes second merges onto the other's data.
@@ -49,7 +63,7 @@ run at the same time and whichever publishes second merges onto the other's data
   new. GitHub keeps one pending run per concurrency group and drops older ones, so a burst of releases is picked
   up by whichever run comes next and none is lost. It publishes `data/` when it changed, builds `dist/`, generates
   `out/`, merges `out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and
-  `/builds/…`. It is a single job: every job is a separate wait for a runner slot when image builds fill them.
+  `/builds/…`, all of it generated text (about 370 MB, 43 MB as the Pages artifact). It is a single job: every job is a separate wait for a runner slot when image builds fill them.
 - `refresh.yml` runs hourly (its cron, and a dispatch from the control plane): `observe` (stars, archived flags,
   GHCR tags, then the grype scan), `mods` and `prootapps`. It publishes what changed and dispatches `deploy.yml`, then pushes the
   Unraid, Umbrel and Runtipi stores to their own repositories (see Generators).
@@ -76,8 +90,8 @@ compact, as received; everything else indented.
 `data/` is not on `main`. It is a checkout of the `data` branch, which only ever holds one commit: each Deploy and
 Refresh that changes the data replaces that commit with a new root commit (`scripts/commit_data.sh`), so the data's
 history never grows and `main` holds only code. The data is a cache, not a record: every Deploy reconciles it with the
-organisation's releases, which stay the source, and each live branch keeps its newest 10 builds (`KEEP_BUILDS`), older
-ones staying on their Releases and in `history.json`. When both workflows publish at once, the second one's lease
+organisation's releases, which stay the source, and each live branch keeps its newest 5 builds (`KEEP_BUILDS`, as many
+as the image repositories' Pages keep), older ones staying on their Releases and in `history.json`. When both workflows publish at once, the second one's lease
 fails; it fetches the first one's commit, merges its own changes onto it (a three-way merge against the commit it
 started from) and pushes again. They write different files; the one overlap (a vulns file the refresh rescans while
 the Deploy rotates its build out) conflicts, and a conflict fails that run rather than dropping either side. Readers
@@ -99,7 +113,7 @@ reconcile reads the newest 30, `ingest --deep` all of them). So the first publis
 | `data/images/<name>/builds/<tag>.vulns.<arch>.json` | grype's findings against the build's syft SBOM, compact: `{db_date, grype_version, scanned_at, matches: [{package, version, type, id, severity, fix_state, fixed_in, urls, cvss}]}`. From the build's own `record.json`, then rescanned by the vulnerability poller for the newest build of each branch. |
 | `data/images/<name>/packages[.<release tag>].<arch>.json` | Normalised package table (name, version, type, purl, licenses) of the newest build of each branch; no infix for the `latest` branch. |
 | `data/images/<name>/latest.json` | branch → tag, created, release URL, asset URLs. |
-| `data/images/<name>/history.json` | branch → every release seen, newest first, including rotated-out builds. |
+| `data/images/<name>/history.json` | branch → every release seen, newest first, including rotated-out builds: tag, created, release URL and the run that built it (`run_url`; recorded from 2026-10-28, so absent for releases rotated out before). |
 | `data/bases/<algorithm>-<hex>.json` | The layer digests per architecture of a base image, keyed by the index digest builds record as `base.digest`; read from GHCR with an anonymous pull token, once per digest, by the ingest. |
 | `data/observed.json` | stars, archived flag, GHCR tag list per image; written by the poller only. `vulnerabilities` is the scan ledger: the database date and grype version last used, and per newest build when it was scanned against which database. |
 | `data/mods.json` | The mods index. |
@@ -108,9 +122,9 @@ reconcile reads the newest 30, `ingest --deep` all of them). So the first publis
 | `data/status/rejected.json` | Releases whose bundle failed validation, with the error. Retried a day later, or as soon as the image's manifests change. |
 | `data/status/bases.json` | Base image lookups that failed (a registry refusing, say), retried a day later instead of on every run. |
 
-Rotation keeps the newest 10 builds per branch in git. Older builds stay on their Release; their entry
+Rotation keeps the newest 5 builds per branch in git. Older builds stay on their Release; their entry
 stays in `history.json` and `latest.json` points at the newest. Heavy assets (`files.<arch>.json.gz`,
-tarballs, syft documents) are linked, never committed.
+tarballs, syft documents) are never committed or copied: the API links them on the repository's Pages.
 
 ## Endpoints
 
@@ -131,13 +145,13 @@ Added by the hub:
 
 | Path | What |
 | --- | --- |
-| `/api/v1/catalog/{name}/builds.json` | Builds in `data/` (newest first) with links, classification, `vulnerabilities` (the scan's counts, for builds that have one) and the release history per branch. `links.files` points at the hub's copy of `files.<arch>.json.gz` (same origin, newest build of each branch) and falls back to the Release asset, which `links.files_release` always carries. |
+| `/api/v1/catalog/{name}/builds.json` | Builds in `data/` (newest first, 5 per branch) with links, classification, `vulnerabilities` (the scan's counts, for builds that have one) and the release history per branch. `links.pages` is the build's folder on the repository's Pages, `links.files` and `links.sbom` its `files.<arch>.json.gz` and `packages.<arch>.json.gz` there; `links.run_json` and `links.logs_zip` are download links on the Release (see "Changes for consumers"). Each `history` entry has `run_url`, `run_json` and `logs_zip`, so a release the hub no longer holds is still linked to its run. |
 | `/api/v1/catalog/{name}/builds/{tag}.json` | The bundle record as received. |
 | `/api/v1/catalog/{name}/builds/{tag}/report.json` | The build page aggregate: record facts, platforms, result, test summary per arch, diff summary (no package lists), notes and every link. One request per build page. |
-| `/api/v1/catalog/{name}/builds/{tag}/tests.json` | The harness's `test.<arch>.json` per arch as received, with a summary (result, passed and failed tests, startup seconds, listening ports, warnings) and the report page URL. Only for builds that have a report. |
+| `/api/v1/catalog/{name}/builds/{tag}/tests.json` | The harness's `test.<arch>.json` per arch as received, with a summary (result, passed and failed tests, startup seconds, listening ports, warnings, `files`: the report's files on the repository's Pages by kind, `tarball`: the Release download) and the report page URL. Only for builds that have a report. |
 | `/api/v1/catalog/{name}/builds/{tag}/diff.json` | Packages per arch by ecosystem, config, base, size and Dockerfile changes, `classification`. |
 | `/api/v1/catalog/{name}/builds/{tag}/vulns.json` | The vulnerability scan: `summary` (critical, high, medium, low, negligible, unknown, fixed, unfixed, wont_fix), `by_arch`, `matches` merged across architectures (one per id and package, with `arches`), `db_date`, `grype_version` and `caveats` (see below). Only for builds that have been scanned. |
-| `/api/v1/catalog/{name}/builds/{tag}/packages.{arch}.json` | The package table; only for the newest build of each branch (older builds keep `packages.<arch>.json.gz` on the Release). |
+| `/api/v1/catalog/{name}/builds/{tag}/packages.{arch}.json` | The package table; only for the newest build of each branch (for the others, `links.sbom` is the syft document on the repository's Pages). |
 | `/api/v1/catalog/{name}/builds/{tag}/layers.{arch}.json` | Layers with digest, size and Dockerfile instruction, plus `from_base` and `dockerfile_lines` (see below). |
 | `/api/v1/catalog/{name}/mods.json`, `/api/v1/mods.json` | Mods for one image (its own, then universal), or all. |
 | `/api/v1/proot-apps.json` | The desktop apps the `proot-apps` CLI installs (disabled ones left out), and the CLI's newest release. |
@@ -147,6 +161,29 @@ Added by the hub:
 | `/api/v1/fleet/bases.json` | Base image references, the images on each, and the digests seen over time. |
 | `/api/v1/fleet/staleness.json` | Newest builds whose base was seen newer elsewhere (a later digest in another build, or a later `baseimage-*` release when base images join the fleet). |
 | `/api/v1/stores/index.json` | The six app stores (Unraid, Portainer, CasaOS, Umbrel, Runtipi, Cosmos), one import URL and a one-line how-to each. |
+
+### Changes for consumers
+
+From 2026-10-28 the heavy files of a build are on its image repository's Pages, not the hub's
+(`https://<owner>.github.io/<repo>/builds/<tag>/`), and the hub holds 5 builds per branch instead of 10. The shapes
+are otherwise unchanged:
+
+- `BuildLinks` (in `builds.json` and `report.json`): `files` now points at the repository's Pages for every held
+  build (it was the hub's copy under `/builds/<image>/<tag>/` for the newest build of a branch and the Release asset
+  for the others). `files_release` is gone: Release assets send no CORS headers, so no browser can read one; the
+  bundle's `assets` still carry every Release download URL. New: `pages` (the build's folder on the repository's
+  Pages), `sbom` (`packages.<arch>.json.gz` there, per architecture), `run_json` and `logs_zip` (download links on
+  the Release to the control plane's run record and the run's masked logs; a release made before control attached
+  them answers 404).
+- `TestArchSummary` (in `tests.json` and `report.json`): new `files`, the report's files on the repository's Pages
+  by kind (`screenshot`, `container_log`, `browser_log`, `sysinfo`, `shellcheck`); `package_diff.txt` sits next to
+  them when the harness wrote one. `tarball` is unchanged, a download link. The hub no longer serves
+  `/builds/<image>/<tag>/<arch>/…` or `/builds/<image>/<tag>/files.<arch>.json.gz`.
+- `HistoryEntry` (`builds.json` `history`): new `run_url` (absent for releases rotated out before 2026-10-28),
+  `run_json` and `logs_zip`, so releases the hub no longer holds still link to their run.
+- The store screenshots (Unraid `<Screenshot>`, CasaOS, Umbrel, Cosmos) point at the repository's Pages.
+- `links.test_report`, `tests.json` `report_url` and `report.json` `links.history` still point at the hub's plain
+  report pages, which stay (see Build report pages).
 
 ### Layer attribution
 
@@ -220,7 +257,7 @@ manifest and the build records.
 ## Generators
 
 `python -m lsio_hub.generate` writes `out/stores/<platform>/` for every store and `out/builds/` for the
-report pages; `--only a,b` limits the run and `--offline` skips Release downloads. Each generator is tested
+report pages; `--only a,b` limits the run. It downloads nothing (`--offline` is still accepted and changes nothing). Each generator is tested
 against sonarr, swag and a constructed multi-arch image with an external database (`tests/fixtures/manifests/multidb.master.yml`).
 `<hub>` below is the Pages site, `https://linuxserver-playground.github.io/hub`. Unraid, Umbrel and Runtipi read
 a git repository and want the store's files at its root, so `refresh.yml` (its last steps, hourly, from the data
@@ -275,15 +312,13 @@ renders it.
 
 ### Build report pages
 
-The control plane shows live status only; everything rendered from a Release lives here. For every ingested
-build the hub emits `out/builds/<image>/<tag>/index.html` (result per arch, the test table from
-`test.<arch>.json`, the runtime probe, links to the run, Release and API, the diff summary, release notes) and
-unpacks `test.<arch>.tar.gz` next to it (`<arch>/index.html`, `screenshot.png`, `container.log`,
-`browser.log`, `sysinfo.txt`, `package_diff.txt`). `files.<arch>.json.gz` is copied for the newest build of each
-branch; older builds link to the Release asset. `out/builds/<image>/index.html` is the build history of the
-image. Tarballs are downloaded at generation time, never committed; the workflow caches `out/builds` so a run
-only fetches new builds, and `--offline` renders the pages with links to the Release instead. Images are
-copied as they are (Pages gzips text).
+The website's build page is the report people read (`{SITE_URL}/images/<image>/builds/<tag>/`). The hub still emits
+`out/builds/<image>/<tag>/index.html` for every held build (result per arch, the test table from `test.<arch>.json`,
+the runtime probe, links to the run, Release and API, the diff summary, release notes) and
+`out/builds/<image>/index.html`, the image's build history, because the bundles and release notes of the first
+releases (`test.report_url`, made before `SITE_URL` was set), CONVENTIONS §10 and the workflows' fallback without
+`SITE_URL` still link them. They are plain text: the screenshot, logs and file trees they show are linked on the
+repository's Pages and the tarballs on the Release, and nothing is downloaded or copied next to them.
 
 ## Deploying
 

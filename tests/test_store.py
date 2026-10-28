@@ -64,6 +64,25 @@ def test_rotation_drops_old_builds_but_keeps_history(tmp_path: Path) -> None:
     assert [h["tag"] for h in sonarr.history["master"]] == ["4.0.20.3014-ls2", "4.0.19.2000-ls1"]
     save_store(tmp_path, store)
     assert not list((tmp_path / "images" / "sonarr" / "builds").glob("4.0.19.2000-ls1*"))
+    # The rotated build keeps the run that built it in history.json, which the site links instead of a page.
+    history = json.loads((tmp_path / "images" / "sonarr" / "history.json").read_text())
+    assert history["master"][1]["run_url"].endswith("/docker-sonarr/actions/runs/1001")
+
+
+def test_rotation_records_the_run_of_history_written_before_it_carried_one() -> None:
+    store = build_store()
+    sonarr = store.images["sonarr"]
+    for entries in sonarr.history.values():
+        for entry in entries:
+            entry.pop("run_url")
+    rotate(sonarr, keep=1)
+    assert [h["run_url"][-4:] for h in sonarr.history["master"]] == ["1002", "1001"]
+
+
+def test_five_builds_are_kept_per_branch_as_on_the_repository_pages() -> None:
+    from lsio_hub.config import KEEP_BUILDS
+
+    assert KEEP_BUILDS == 5
 
 
 def test_removed_image_directory_is_deleted(tmp_path: Path) -> None:

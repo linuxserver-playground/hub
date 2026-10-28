@@ -594,7 +594,7 @@ def fleet(store: Store, config: SiteConfig) -> Fleet:
 
 @pytest.fixture
 def gen(store: Store, config: SiteConfig) -> GenerateContext:
-    return make_context(store, config, hub_settings(config), asset_bytes)
+    return make_context(store, config, hub_settings(config))
 
 
 @pytest.fixture
