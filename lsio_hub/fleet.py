@@ -43,7 +43,7 @@ class Fleet:
 
     @property
     def apps(self) -> list[ImageDetail]:
-        """Current images users run: not deprecated, and neither a base image nor an internal tool."""
+        """Current long-running applications: not deprecated, and neither a base image nor a tool."""
         return [i for i in self.current if i.kind == "app"]
 
     def record(self, name: str) -> ImageRecord | None:

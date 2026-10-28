@@ -216,8 +216,8 @@ class ImageDetail(Image):
     title: str
     kind: Literal["app", "base", "tool"] = Field(
         "app",
-        description="`app` for an application; `base` for a base image, `tool` for an internal tool. Only apps are "
-        "in the v1 image list, the categories, the stores and the install artefacts.",
+        description="`app` for a long-running application; `base` for a base image, `tool` for a run-once or helper "
+        "image. Only apps are in the v1 image list, the categories, the stores and the install artefacts.",
     )
     categories: list[str] = Field(description="`category`, split and trimmed.")
     deprecation_message: str | None = Field(None, description="Why the image is deprecated, when it is.")
@@ -243,7 +243,7 @@ class Category(BaseModel):
 class Stats(BaseModel):
     images: int = Field(description="Current applications: base images and tools are counted apart.")
     base_images: int = Field(0, description="Current base images (`kind: base`).")
-    tools: int = Field(0, description="Current internal tools (`kind: tool`).")
+    tools: int = Field(0, description="Current tools (`kind: tool`).")
     deprecated: int = Field(description="Deprecated images (not counted anywhere else).")
     stars: int
     builds: int = Field(description="Build records held in data/ across all images.")
