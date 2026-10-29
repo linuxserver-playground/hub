@@ -1,0 +1,69 @@
+{
+ "image": "pwndrop",
+ "branch": "master",
+ "tag": "1.0.1-ls3",
+ "previous_tag": "1.0.1-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "1.0.1",
+  "to": "1.0.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:eb47a870474f80cd21a201d51986484bc09dfba5b8b099a252de947527a0c24c"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:c70276612a28beebf4ef5864479a106ad24ee8a515e16744f8849eb26bdad174"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 18732942,
+   "to": 18732784,
+   "delta": -158
+  },
+  "arm64": {
+   "from": 19348231,
+   "to": 19348287,
+   "delta": 56
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

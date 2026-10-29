@@ -1,0 +1,62 @@
+{
+ "image": "audacity",
+ "branch": "main",
+ "tag": "4.0.1-ls3",
+ "previous_tag": "4.0.1-ls2",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "4.0.1",
+  "to": "4.0.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:4a3966dadb1092dd0422197fa2b40938bc8f2e924ca64dbf14719cbd23fa3966"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:4a3966dadb1092dd0422197fa2b40938bc8f2e924ca64dbf14719cbd23fa3966"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1041298423,
+   "to": 1041298590,
+   "delta": 167
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "name": "weixin",
+ "summary": "[Weixin](https://weixin.qq.com/) (WeChat) is an instant messaging, social media, and mobile payment app developed by Tencent.",
+ "upstream": {
+  "url": "https://weixin.qq.com/",
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "WEIXIN_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP Weixin desktop gui, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Weixin desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/weixin/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for websites to function properly."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Chat"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/weixin-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-29",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-21",
+   "text": "Use Wayland ozone platform fixes scaling and acceleration."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-08-08",
+   "text": "Initial release."
+  }
+ ]
+}

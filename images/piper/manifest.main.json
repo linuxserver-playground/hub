@@ -1,0 +1,121 @@
+{
+ "schema": 1,
+ "name": "piper",
+ "summary": "[Piper](https://github.com/rhasspy/wyoming-piper) is a fast, local neural text to speech system that sounds great and is optimized for the Raspberry Pi 4. This container provides a Wyoming protocol server for Piper.",
+ "upstream": {
+  "url": "https://github.com/rhasspy/wyoming-piper",
+  "version": {
+   "type": "pip",
+   "package": "wyoming-piper"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "PIPER_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "PIPER_VOICE": "en_US-lessac-medium"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "10200",
+    "description": "Wyoming connection port."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/piper/data",
+    "description": "Local path for piper config files."
+   }
+  ],
+  "env": [
+   {
+    "name": "PIPER_VOICE",
+    "value": "en_US-lessac-medium",
+    "description": "The [Piper voice](https://huggingface.co/rhasspy/piper-voices/tree/main) to use, in the format `<language>-<name>-<quality>`"
+   },
+   {
+    "name": "LOCAL_ONLY",
+    "value": "",
+    "description": "If set to `true`, or any other value, the container will not attempt to download models from HuggingFace and will only use locally-provided models.",
+    "optional": true
+   },
+   {
+    "name": "PIPER_LENGTH",
+    "value": "1.0",
+    "description": "Voice speaking rate, 1.0 is default with < 1.0 being faster and > 1.0 being slower.",
+    "optional": true
+   },
+   {
+    "name": "PIPER_NOISE",
+    "value": "0.667",
+    "description": "Controls the variability of the voice by adding noise. Values above 1 will start to degrade audio.",
+    "optional": true
+   },
+   {
+    "name": "PIPER_NOISEW",
+    "value": "0.333",
+    "description": "Controls the variability of speaking cadence. Values above 1 produce extreme stutters and pauses.",
+    "optional": true
+   },
+   {
+    "name": "PIPER_SPEAKER",
+    "value": "0",
+    "description": "Speaker number to use if the voice supports multiple speakers.",
+    "optional": true
+   },
+   {
+    "name": "NO_STREAMING",
+    "value": "",
+    "description": "Setting to `true`, or any other value, will disable support for streaming audio on sentence boundaries.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Machine Learning"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piper-logo.png",
+  "setup": "For use with Home Assistant [Assist](https://www.home-assistant.io/voice_control/voice_remote_local_assistant/), add the Wyoming integration and supply the hostname/IP and port that piper is running add-on.\"\n\nFor more information see the [wyoming piper docs](https://github.com/rhasspy/wyoming-piper),\n"
+ },
+ "changelog": [
+  {
+   "date": "2026-07-14",
+   "text": "Rebase to Ubuntu Resolute."
+  },
+  {
+   "date": "2025-08-29",
+   "text": "Add support for local only mode."
+  },
+  {
+   "date": "2025-08-10",
+   "text": "Add streaming support."
+  },
+  {
+   "date": "2024-07-18",
+   "text": "Rebase to Ubuntu Noble."
+  },
+  {
+   "date": "2023-11-25",
+   "text": "Initial Release."
+  }
+ ]
+}

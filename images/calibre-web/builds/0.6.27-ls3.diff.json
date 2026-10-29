@@ -1,0 +1,119 @@
+{
+ "image": "calibre-web",
+ "branch": "master",
+ "tag": "0.6.27-ls3",
+ "previous_tag": "0.6.27-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "0.6.27",
+  "to": "0.6.27",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8ab987000b0e8001e49199a3d633327473284419740066ddb45c32428c6c0d28"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 261280265,
+   "to": 261992739,
+   "delta": 712474
+  },
+  "arm64": {
+   "from": 258222632,
+   "to": 257395290,
+   "delta": -827342
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -4,7 +4,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:noble\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:noble\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -4,7 +4,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-noble\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-noble\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "go-module": {
+    "added": [
+     {
+      "name": "github.com/beevik/etree",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/beevik/etree@v1.1.0"
+     },
+     {
+      "name": "github.com/kr/smartypants",
+      "version": "v0.1.0",
+      "purl": "pkg:golang/github.com/kr/smartypants@v0.1.0"
+     },
+     {
+      "name": "github.com/pgaskin/kepubify/_/html",
+      "version": "v0.0.0-20211223234002-6ee2cc632cdc",
+      "purl": "pkg:golang/github.com/pgaskin/kepubify/_/html@v0.0.0-20211223234002-6ee2cc632cdc"
+     },
+     {
+      "name": "github.com/pgaskin/kepubify/v4",
+      "version": "UNKNOWN",
+      "purl": "pkg:golang/github.com/pgaskin/kepubify/v4"
+     },
+     {
+      "name": "github.com/spf13/pflag",
+      "version": "v1.0.5",
+      "purl": "pkg:golang/github.com/spf13/pflag@v1.0.5"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "version": "v0.0.0-20210220032951-036812b2e83c",
+      "purl": "pkg:golang/golang.org/x/sync@v0.0.0-20210220032951-036812b2e83c"
+     },
+     {
+      "name": "golang.org/x/text",
+      "version": "v0.3.6",
+      "purl": "pkg:golang/golang.org/x/text@v0.3.6"
+     },
+     {
+      "name": "stdlib",
+      "version": "go1.17.8",
+      "purl": "pkg:golang/stdlib@1.17.8"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   }
+  },
+  "arm64": {}
+ },
+ "totals": {
+  "added": 8,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

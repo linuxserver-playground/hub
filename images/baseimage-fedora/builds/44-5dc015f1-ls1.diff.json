@@ -1,0 +1,70 @@
+{
+ "image": "baseimage-fedora",
+ "branch": "44",
+ "tag": "44-5dc015f1-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "5dc015f1",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "fedora",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 76763474,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 73559647,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "HOME",
+    "PATH",
+    "PS1",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

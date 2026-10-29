@@ -1,0 +1,69 @@
+{
+ "image": "code-server",
+ "branch": "master",
+ "tag": "4.143.1-ls2",
+ "previous_tag": "4.143.1-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "4.143.1",
+  "to": "4.143.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 307638900,
+   "to": 307638719,
+   "delta": -181
+  },
+  "arm64": {
+   "from": 307767501,
+   "to": 307766365,
+   "delta": -1136
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

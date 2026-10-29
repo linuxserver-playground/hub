@@ -1,0 +1,70 @@
+{
+ "image": "plex",
+ "branch": "master",
+ "tag": "1.43.5.11079-b3b13e506-ls4",
+ "previous_tag": "1.43.5.11079-b3b13e506-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "1.43.5.11079-b3b13e506",
+  "to": "1.43.5.11079-b3b13e506",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:af31dd6a7384f37b9936e8fa93c72fc8182603a5e4e1d749563f46d3d21e0993"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:e4c5ed98eea47c7cd2cbfbfd9a7f19bb19618b827f4ed28ecb5893f43284d96d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 178267422,
+   "to": 178267542,
+   "delta": 120
+  },
+  "arm64": {
+   "from": 170556031,
+   "to": 170555706,
+   "delta": -325
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/unrar:latest AS unrar\n+FROM ghcr.io/linuxserver-playground/unrar:latest AS unrar\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/unrar:arm64v8-latest AS unrar\n+FROM ghcr.io/linuxserver-playground/unrar:arm64v8-latest AS unrar\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

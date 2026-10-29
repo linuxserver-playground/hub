@@ -1,0 +1,125 @@
+{
+ "schema": 1,
+ "name": "chrome",
+ "summary": "[Chrome](https://www.google.com/chrome/) is the official web browser from Google, built to be fast, secure, and customizable.",
+ "upstream": {
+  "url": "https://www.google.com/chrome/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "http://dl.google.com/linux/chrome/deb/dists/stable/main/binary-amd64/Packages",
+   "package": "google-chrome-stable"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "CHROME_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP Chrome desktop gui must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Chrome desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "env": [
+   {
+    "name": "CHROME_CLI",
+    "value": "https://www.linuxserver.io/",
+    "description": "Specify one or multiple Chrome CLI flags, this string will be passed to the application in full.",
+    "optional": true
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for any modern website to function like youtube."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Web Browser"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-27",
+   "text": "Add aarch64 support."
+  },
+  {
+   "date": "2026-03-31",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-09-02",
+   "text": "Revert graceful shutdown script to rely on the baseimage fix."
+  },
+  {
+   "date": "2025-08-29",
+   "text": "Attempt graceful shutdown of Chrome."
+  },
+  {
+   "date": "2025-06-12",
+   "text": "Initial release."
+  }
+ ]
+}

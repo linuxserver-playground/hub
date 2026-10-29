@@ -1,0 +1,224 @@
+{
+ "schema": 1,
+ "name": "fail2ban",
+ "summary": "[Fail2ban](http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.",
+ "upstream": {
+  "url": "http://www.fail2ban.org/",
+  "version": {
+   "type": "alpine_apk",
+   "repo_url": "http://dl-cdn.alpinelinux.org/alpine/v3.21/main/",
+   "package": "fail2ban"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "FAIL2BAN_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  }
+ },
+ "runtime": {
+  "network": {
+   "mode": "host",
+   "description": "Shares host networking with container."
+  },
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/fail2ban/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/var/log:ro",
+    "host_path": "/var/log",
+    "description": "Host logs. Mounted as Read Only."
+   },
+   {
+    "path": "/remotelogs/airsonic:ro",
+    "host_path": "/path/to/airsonic/log",
+    "description": "Optional path to airsonic log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/apache2:ro",
+    "host_path": "/path/to/apache2/log",
+    "description": "Optional path to apache2 log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/authelia:ro",
+    "host_path": "/path/to/authelia/log",
+    "description": "Optional path to authelia log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/emby:ro",
+    "host_path": "/path/to/emby/log",
+    "description": "Optional path to emby log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/filebrowser:ro",
+    "host_path": "/path/to/filebrowser/log",
+    "description": "Optional path to filebrowser log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/homeassistant:ro",
+    "host_path": "/path/to/homeassistant/log",
+    "description": "Optional path to homeassistant log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/lighttpd:ro",
+    "host_path": "/path/to/lighttpd/log",
+    "description": "Optional path to lighttpd log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/nextcloud:ro",
+    "host_path": "/path/to/nextcloud/log",
+    "description": "Optional path to nextcloud log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/nginx:ro",
+    "host_path": "/path/to/nginx/log",
+    "description": "Optional path to nginx log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/nzbget:ro",
+    "host_path": "/path/to/nzbget/log",
+    "description": "Optional path to nzbget log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/overseerr:ro",
+    "host_path": "/path/to/overseerr/log",
+    "description": "Optional path to overseerr log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/prowlarr:ro",
+    "host_path": "/path/to/prowlarr/log",
+    "description": "Optional path to prowlarr log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/radarr:ro",
+    "host_path": "/path/to/radarr/log",
+    "description": "Optional path to radarr log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/sabnzbd:ro",
+    "host_path": "/path/to/sabnzbd/log",
+    "description": "Optional path to sabnzbd log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/sonarr:ro",
+    "host_path": "/path/to/sonarr/log",
+    "description": "Optional path to sonarr log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/unificontroller:ro",
+    "host_path": "/path/to/unificontroller/log",
+    "description": "Optional path to unificontroller log folder. Mounted as Read Only.",
+    "optional": true
+   },
+   {
+    "path": "/remotelogs/vaultwarden:ro",
+    "host_path": "/path/to/vaultwarden/log",
+    "description": "Optional path to vaultwarden log folder. Mounted as Read Only.",
+    "optional": true
+   }
+  ],
+  "env": [
+   {
+    "name": "VERBOSITY",
+    "value": "-vv",
+    "description": "Set the container log verbosity. Valid options are -v, -vv, -vvv, -vvvv, or leaving the value blank or not setting the variable.",
+    "title": "Verbosity",
+    "options": [
+     "",
+     "-v",
+     "-vv",
+     "-vvv",
+     "-vvvv"
+    ],
+    "optional": true
+   }
+  ],
+  "cap_add": [
+   {
+    "cap": "NET_ADMIN",
+    "description": "Required for fail2ban to be able to modify iptables rules."
+   },
+   {
+    "cap": "NET_RAW",
+    "description": "Required for fail2ban to be able to bind to any interface & use RAW sockets."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Network",
+   "Security"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png",
+  "setup": "This container is designed to allow fail2ban to function at the host level, as well as at the docker container level.\nIf you are running applications on the host, you will need to set the `chain` to `INPUT` in the jail for that application.\n\n### [Configuration Files](https://github.com/linuxserver/fail2ban-confs)\n\nOn first run, the container will create a number of folders and files in `/config`. The default configurations for fail2ban are all disabled by default.\n\nPlease refer to the [Configuration README](https://github.com/linuxserver/fail2ban-confs/blob/master/README.md), which can be viewed in our repository, or in your config folder at `/config/fail2ban/README.md`.\n\n### Remote Logs\n\nAll jails require the ability to read the application log files.\nWe recommend mounting each application's log folder as a volume to the container (illustrated by the optional volumes in our documentation).\nMounting individual log files can cause issues and is not recommended.\n\nThe `/remotelogs` path is designed to act as a parent for all log files you would like fail2ban to be able to use.\nEach log file should be mounted in a subfolder underneath `/remotelogs`, ex:\n- `/remotelogs/nginx/` would mount a folder containing the nginx logs to the container\n"
+ },
+ "changelog": [
+  {
+   "date": "2025-02-11",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-10-12",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-05",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-06-01",
+   "text": "Add optional VERBOSITY environment variable, allowing users to set the container log verbosity."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2022-12-15",
+   "text": "Replace unmaintained ssmtp with msmtp."
+  },
+  {
+   "date": "2022-12-15",
+   "text": "Rebase to Alpine 3.17, Add ssmtp and whois packages. Symlink config to allow live reloading."
+  },
+  {
+   "date": "2022-08-25",
+   "text": "Update README to clarify remote log information."
+  },
+  {
+   "date": "2022-08-09",
+   "text": "Initial Release."
+  }
+ ]
+}

@@ -1,0 +1,168 @@
+{
+ "schema": 1,
+ "name": "digikam",
+ "summary": "[digiKam](https://www.digikam.org/): Professional Photo Management with the Power of Open Source",
+ "upstream": {
+  "url": "https://www.digikam.org/",
+  "version": {
+   "type": "regex",
+   "url": "https://mirrors.mit.edu/kde/stable/digikam/",
+   "pattern": "href=\"\\./([0-9][^/\"]*)/\"",
+   "sort": "version"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "DIGIKAM_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "America/New_York"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Digikam desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Digikam desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores database."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Photos"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/digikam.png",
+  "setup": "#### Mysql Internal\n\nWhen using mysql internal mode for the database you will need to click on \"Find\" Button for all the required binaries (mysql_install_db,mysqladmin,mysqld). Then select the binary file and press Open.\n\nThe application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-21",
+   "text": "Use Wayland ozone platform for chromium fixes scaling and acceleration."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-28",
+   "text": "Fix CPU usage bug by disabling fake udev."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2025-04-03",
+   "text": "Update chromium launch options to improve performance."
+  },
+  {
+   "date": "2024-11-25",
+   "text": "Rebase to Debian using official appimage, drop aarch64 support."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-09-05",
+   "text": "Add openexr dependency."
+  },
+  {
+   "date": "2023-03-18",
+   "text": "Rebase to KasmVNC base image."
+  },
+  {
+   "date": "2023-01-20",
+   "text": "Added breeze-icons package for icon support."
+  },
+  {
+   "date": "2022-11-21",
+   "text": "Trigger upon baseimage updates (arch being a rolling distro has too many dependency breaks otherwise). Release version will be the baseimage build date going forward."
+  },
+  {
+   "date": "2022-10-20",
+   "text": "Migrate to s6v3."
+  },
+  {
+   "date": "2022-03-07",
+   "text": "Add Exiftool and firefox for image exports."
+  },
+  {
+   "date": "2022-02-20",
+   "text": "Add MariaDB, expand documentation."
+  },
+  {
+   "date": "2022-02-15",
+   "text": "Rebase to Arch."
+  },
+  {
+   "date": "2021-12-27",
+   "text": "Rebase to focal to resolve dependency issues."
+  },
+  {
+   "date": "2021-03-27",
+   "text": "Download link fixed."
+  },
+  {
+   "date": "2020-05-20",
+   "text": "Initial release."
+  }
+ ]
+}

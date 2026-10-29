@@ -1,0 +1,308 @@
+{
+ "image": "emby",
+ "branch": "beta",
+ "tag": "beta-4.11.0.11-ls2",
+ "previous_tag": "beta-4.11.0.9-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "4.11.0.9",
+  "to": "4.11.0.11",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:resolute",
+   "digest": "sha256:17f8127f438b5203c47149a87769ec8c82849d93c08cf8521c18949fd6ae8ee9"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:5260b5c74c8d3ce0acc4e5302059301507511a064df3bbfdc7967526d6ce14f3"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 444458958,
+   "to": 443743636,
+   "delta": -715322
+  },
+  "arm64": {
+   "from": 209169285,
+   "to": 208474394,
+   "delta": -694891
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-resolute\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-resolute\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-3build1",
+      "to": "1.2.0-3ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.2.0-3ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=brotli"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.1-1ubuntu3.1",
+      "to": "1:1.3.dfsg+really1.3.1-1ubuntu3.2",
+      "purl": "pkg:deb/ubuntu/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1ubuntu3.2?arch=amd64&distro=ubuntu-26.04&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "Emby.Ffmpeg.Base.Reference",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Base.Reference@4.11.0.11"
+     },
+     {
+      "name": "Emby.Ffmpeg.Lib.Reference",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Lib.Reference@4.11.0.11"
+     },
+     {
+      "name": "Emby.Ffmpeg.Reference",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Reference@4.11.0.11"
+     },
+     {
+      "name": "Emby.M3UTuner",
+      "from": "1.0.47.0",
+      "to": "1.0.49.0",
+      "purl": "pkg:nuget/Emby.M3UTuner@1.0.49.0"
+     },
+     {
+      "name": "Emby.XmlTV",
+      "from": "1.2.3.0",
+      "to": "1.2.4.0",
+      "purl": "pkg:nuget/Emby.XmlTV@1.2.4.0"
+     },
+     {
+      "name": "EmbyServer",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/EmbyServer@4.11.0.11"
+     },
+     {
+      "name": "MediaBrowser.Controller",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/MediaBrowser.Controller@4.11.0.11"
+     },
+     {
+      "name": "OpenSubtitles",
+      "from": "1.0.70.0",
+      "to": "1.0.71.0",
+      "purl": "pkg:nuget/OpenSubtitles@1.0.71.0"
+     },
+     {
+      "name": "SQLitePCLRawEx.core.Reference",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/SQLitePCLRawEx.core.Reference@4.11.0.11"
+     },
+     {
+      "name": "Tvdb",
+      "from": "1.7.0.0",
+      "to": "1.7.1.0",
+      "purl": "pkg:nuget/Tvdb@1.7.1.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054015-16d571fb31ca",
+      "to": "v1.33.3-0.20261021134118-f036f355de35",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134118-f036f355de35"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.45.0",
+      "to": "v0.46.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.46.0"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.1",
+      "to": "go1.27.3",
+      "purl": "pkg:golang/stdlib@1.27.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-3build1",
+      "to": "1.2.0-3ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.2.0-3ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=brotli"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.1-1ubuntu3.1",
+      "to": "1:1.3.dfsg+really1.3.1-1ubuntu3.2",
+      "purl": "pkg:deb/ubuntu/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1ubuntu3.2?arch=arm64&distro=ubuntu-26.04&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "Emby.Ffmpeg.Base.Reference",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Base.Reference@4.11.0.11"
+     },
+     {
+      "name": "Emby.Ffmpeg.Lib.Reference",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Lib.Reference@4.11.0.11"
+     },
+     {
+      "name": "Emby.Ffmpeg.Reference",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Reference@4.11.0.11"
+     },
+     {
+      "name": "Emby.M3UTuner",
+      "from": "1.0.47.0",
+      "to": "1.0.49.0",
+      "purl": "pkg:nuget/Emby.M3UTuner@1.0.49.0"
+     },
+     {
+      "name": "Emby.XmlTV",
+      "from": "1.2.3.0",
+      "to": "1.2.4.0",
+      "purl": "pkg:nuget/Emby.XmlTV@1.2.4.0"
+     },
+     {
+      "name": "EmbyServer",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/EmbyServer@4.11.0.11"
+     },
+     {
+      "name": "MediaBrowser.Controller",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/MediaBrowser.Controller@4.11.0.11"
+     },
+     {
+      "name": "OpenSubtitles",
+      "from": "1.0.70.0",
+      "to": "1.0.71.0",
+      "purl": "pkg:nuget/OpenSubtitles@1.0.71.0"
+     },
+     {
+      "name": "SQLitePCLRawEx.core.Reference",
+      "from": "4.11.0.9",
+      "to": "4.11.0.11",
+      "purl": "pkg:nuget/SQLitePCLRawEx.core.Reference@4.11.0.11"
+     },
+     {
+      "name": "Tvdb",
+      "from": "1.7.0.0",
+      "to": "1.7.1.0",
+      "purl": "pkg:nuget/Tvdb@1.7.1.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054016-2cbd1b20d20a",
+      "to": "v1.33.3-0.20261021134116-aa4f38dbfabd",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134116-aa4f38dbfabd"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.45.0",
+      "to": "v0.46.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.46.0"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.1",
+      "to": "go1.27.3",
+      "purl": "pkg:golang/stdlib@1.27.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 32,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,264 @@
+{
+ "image": "kdenlive",
+ "branch": "master",
+ "tag": "26.08.2-3-ls3",
+ "previous_tag": "26.08.2-3-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "26.08.2-3",
+  "to": "26.08.2-3",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:7573b628bd97397b86f0e61a98ddc5f70da413f4b43b1a7735632940abcc3869"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1637850122,
+   "to": 1638163734,
+   "delta": 313612
+  },
+  "arm64": {
+   "from": 1672702101,
+   "to": 1672879245,
+   "delta": 177144
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "qtpdf",
+      "from": "6.11.2+dirty",
+      "to": "6.11.3+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtpdf@6.11.3%2Bdirty"
+     },
+     {
+      "name": "qtwebengine",
+      "from": "6.11.2+dirty",
+      "to": "6.11.3+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtwebengine@6.11.3%2Bdirty"
+     },
+     {
+      "name": "QPdfPlugin",
+      "from": "6.11.2",
+      "to": "6.11.3",
+      "purl": "pkg:github/qt/qtpdf@6de08a0e1?library_name=QPdfPlugin#src/pdf/plugins/imageformats/pdf"
+     },
+     {
+      "name": "qwebengine_convert_dict",
+      "from": "6.11.2",
+      "to": "6.11.3",
+      "purl": "pkg:github/qt/qtwebengine@6de08a0e1?library_name=qwebengine_convert_dict#src/core/tools/qwebengine_convert_dict"
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "glycin",
+      "from": "2.2.4-1",
+      "to": "2.2.5-1",
+      "purl": "pkg:alpm/arch/glycin@2.2.5-1?arch=x86_64&distro=arch-rolling&upstream=glycin"
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.1-1",
+      "to": "2.7.2-2",
+      "purl": "pkg:alpm/arch/libldap@2.7.2-2?arch=x86_64&distro=arch-rolling&upstream=openldap"
+     },
+     {
+      "name": "libsoup3",
+      "from": "3.8.0-1",
+      "to": "3.8.1-1",
+      "purl": "pkg:alpm/arch/libsoup3@3.8.1-1?arch=x86_64&distro=arch-rolling&upstream=libsoup3"
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.3-4",
+      "to": "23.1.4-1",
+      "purl": "pkg:alpm/arch/llvm-libs@23.1.4-1?arch=x86_64&distro=arch-rolling&upstream=llvm"
+     },
+     {
+      "name": "openbsd-netcat",
+      "from": "1.238_1-1",
+      "to": "1.239_1-1",
+      "purl": "pkg:alpm/arch/openbsd-netcat@1.239_1-1?arch=x86_64&distro=arch-rolling&upstream=openbsd-netcat"
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-2",
+      "to": "6.12.0-3",
+      "purl": "pkg:alpm/arch/qt6-declarative@6.12.0-3?arch=x86_64&distro=arch-rolling&upstream=qt6-declarative"
+     },
+     {
+      "name": "qt6-webengine",
+      "from": "6.11.2-2",
+      "to": "6.11.3-2",
+      "purl": "pkg:alpm/arch/qt6-webengine@6.11.3-2?arch=x86_64&distro=arch-rolling&upstream=qt6-webengine"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "qtpdf",
+      "from": "6.11.2+dirty",
+      "to": "6.11.3+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtpdf@6.11.3%2Bdirty"
+     },
+     {
+      "name": "qtwebengine",
+      "from": "6.11.2+dirty",
+      "to": "6.11.3+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtwebengine@6.11.3%2Bdirty"
+     },
+     {
+      "name": "QPdfPlugin",
+      "from": "6.11.2",
+      "to": "6.11.3",
+      "purl": "pkg:github/qt/qtpdf@6de08a0e1?library_name=QPdfPlugin#src/pdf/plugins/imageformats/pdf"
+     },
+     {
+      "name": "qwebengine_convert_dict",
+      "from": "6.11.2",
+      "to": "6.11.3",
+      "purl": "pkg:github/qt/qtwebengine@6de08a0e1?library_name=qwebengine_convert_dict#src/core/tools/qwebengine_convert_dict"
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "brotli",
+      "from": "1.2.0-1",
+      "to": "1.2.1-1",
+      "purl": null
+     },
+     {
+      "name": "ca-certificates-mozilla",
+      "from": "3.131.1-1",
+      "to": "3.132-1",
+      "purl": null
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.1-1",
+      "to": "2.7.2-2",
+      "purl": null
+     },
+     {
+      "name": "libsoup3",
+      "from": "3.8.0-1",
+      "to": "3.8.1-1",
+      "purl": null
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.3-4.1",
+      "to": "23.1.4-1",
+      "purl": null
+     },
+     {
+      "name": "openbsd-netcat",
+      "from": "1.238_1-1",
+      "to": "1.239_1-1",
+      "purl": null
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-2",
+      "to": "6.12.0-3",
+      "purl": null
+     },
+     {
+      "name": "qt6-webengine",
+      "from": "6.11.2-2",
+      "to": "6.11.3-2",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 25,
+  "downgraded": 0
+ }
+}

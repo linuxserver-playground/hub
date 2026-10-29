@@ -1,0 +1,156 @@
+{
+ "schema": 1,
+ "name": "dokuwiki",
+ "summary": "[Dokuwiki](https://www.dokuwiki.org/dokuwiki/) is a simple to use and highly versatile Open Source wiki software that doesn't require a database. It is loved by users for its clean and readable syntax. The ease of maintenance, backup and integration makes it an administrator's favorite. Built in access controls and authentication connectors make DokuWiki especially useful in the enterprise context and the large number of plugins contributed by its vibrant community allow for a broad range of use cases beyond a traditional wiki.",
+ "upstream": {
+  "url": "https://www.dokuwiki.org/dokuwiki/",
+  "version": {
+   "type": "regex",
+   "url": "https://download.dokuwiki.org/rss",
+   "pattern": "<link>[^<]*dokuwiki-([0-9]{4}-[0-9]{2}-[0-9]{2}[a-z]?)\\.tgz</link>"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "DOKUWIKI_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 180,
+  "web": {
+   "port": 80
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "Application HTTP Port"
+   },
+   {
+    "internal": "443",
+    "description": "#optional Application HTTPS Port",
+    "optional": true
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/dokuwiki/config",
+    "description": "Persistent config files"
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Content Management"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dokuwiki-icon.png",
+  "setup": "Upon first install go to `http://$IP:$PORT/install.php` once you have completed the setup, restart the container, login as admin and set \"Use nice URLs\" in the `admin/Configuration Settings` panel to `.htaccess` and tick `Use slash as namespace separator in URLs` to enable [nice URLs](https://www.dokuwiki.org/rewrite) you will find the webui at `http://$IP:$PORT/`, for more info see [Dokuwiki](https://www.dokuwiki.org/dokuwiki/)\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-14",
+   "text": "Rebase to Alpine 3.24, add php-tokenizer."
+  },
+  {
+   "date": "2025-07-05",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-05-10",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-31",
+   "text": "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2024-01-23",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2023-12-25",
+   "text": "Existing users should update: site-confs/default.conf - Cleanup default site conf."
+  },
+  {
+   "date": "2023-07-21",
+   "text": "Update built-in plugins on container update."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-04-13",
+   "text": "Move ssl.conf include to default.conf."
+  },
+  {
+   "date": "2022-12-28",
+   "text": "Rebase to Alpine 3.17, migrate to s6v3."
+  },
+  {
+   "date": "2022-11-13",
+   "text": "Move lib/images/smileys/local and lib/images/interwiki outside of the container for user defined smiley and interwiki icon support."
+  },
+  {
+   "date": "2022-08-20",
+   "text": "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+  },
+  {
+   "date": "2021-07-20",
+   "text": "Add php7-dom, fixes minor issues in sprintdoc template."
+  },
+  {
+   "date": "2021-04-15",
+   "text": "Add `vendor` folder to deny list."
+  },
+  {
+   "date": "2021-02-21",
+   "text": "Store search index outside of container, set absolute (default) path for `savedir`."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-09-28",
+   "text": "Add php7-pdo_sqlite and php7-sqlite3."
+  },
+  {
+   "date": "2020-09-23",
+   "text": "Fix php-local.ini bug introduced in the prior PR."
+  },
+  {
+   "date": "2020-09-14",
+   "text": "Rebase to alpine 3.12. Add php7-ctype, php7-curl, php7-pdo_mysql, php7-pdo_pgsql, php7-pecl-imagick and php7-iconv. Bump upload max filesize and post max size to 100MB. Remove deprecated APP_URL env var. Fix breaking addons."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-12-01",
+   "text": "Add php7-ldap package to support LDAP authentication."
+  },
+  {
+   "date": "2019-05-28",
+   "text": "Initial Release."
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "image": "baseimage-alpine",
+ "branch": "3.24",
+ "tag": "3.24-bc9f8d41-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "bc9f8d41",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 12369667,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 13421283,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "HOME",
+    "PATH",
+    "PS1",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

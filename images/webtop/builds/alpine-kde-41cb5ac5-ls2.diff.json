@@ -1,0 +1,530 @@
+{
+ "image": "webtop",
+ "branch": "alpine-kde",
+ "tag": "alpine-kde-41cb5ac5-ls2",
+ "previous_tag": "alpine-kde-41cb5ac5-ls1",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "41cb5ac5",
+  "to": "41cb5ac5",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:alpine324",
+   "digest": "sha256:373af2db8faeeac43def5fecf71b9a33cfb16700e599e6928e1e2357c4c90d0d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:alpine324",
+   "digest": "sha256:373af2db8faeeac43def5fecf71b9a33cfb16700e599e6928e1e2357c4c90d0d"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1626955707,
+   "to": 1626954742,
+   "delta": -965
+  },
+  "arm64": {
+   "from": 1547494012,
+   "to": 1547501740,
+   "delta": 7728
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "UnknownPackage": {
+    "added": [
+     {
+      "name": "pip",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "FreeType",
+      "version": "2.14.3",
+      "purl": "pkg:generic/freetype2"
+     },
+     {
+      "name": "FriBiDi",
+      "version": "1.0.17",
+      "purl": "pkg:generic/fribidi"
+     },
+     {
+      "name": "HarfBuzz",
+      "version": "14.5.0",
+      "purl": "pkg:generic/harfbuzz"
+     },
+     {
+      "name": "libavif",
+      "version": "1.4.2",
+      "purl": "pkg:generic/libavif"
+     },
+     {
+      "name": "libimagequant",
+      "version": "4.4.1",
+      "purl": "pkg:generic/libimagequant"
+     },
+     {
+      "name": "libjpeg / libjpeg-turbo",
+      "version": "3.2.0",
+      "purl": "pkg:generic/libjpeg"
+     },
+     {
+      "name": "libtiff",
+      "version": "4.7.2",
+      "purl": "pkg:generic/libtiff"
+     },
+     {
+      "name": "libwebp",
+      "version": "1.6.0",
+      "purl": "pkg:generic/libwebp"
+     },
+     {
+      "name": "libxcb",
+      "version": "1.17.0",
+      "purl": "pkg:generic/libxcb"
+     },
+     {
+      "name": "Little CMS 2",
+      "version": "2.19.1",
+      "purl": "pkg:generic/littlecms2"
+     },
+     {
+      "name": "OpenJPEG",
+      "version": "2.5.4",
+      "purl": "pkg:generic/openjpeg"
+     },
+     {
+      "name": "zlib",
+      "version": "2.3.3",
+      "purl": "pkg:generic/zlib"
+     },
+     {
+      "name": "pythoncapi_compat",
+      "version": "UNKNOWN",
+      "purl": "pkg:github/python/pythoncapi-compat"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "apk": {
+    "added": [
+     {
+      "name": "lame",
+      "version": "libs-3.100-r5",
+      "purl": "pkg:apk/alpine/lame@libs-3.100-r5"
+     },
+     {
+      "name": "mpg123",
+      "version": "libs-1.32.10-r0",
+      "purl": "pkg:apk/alpine/mpg123@libs-1.32.10-r0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": [
+     {
+      "name": "dbus",
+      "from": "1.16.2-r2",
+      "to": "libs-1.16.2-r1",
+      "purl": "pkg:apk/alpine/dbus@libs-1.16.2-r1"
+     }
+    ]
+   },
+   "python": {
+    "added": [
+     {
+      "name": "CacheControl",
+      "version": "0.14.4",
+      "purl": "pkg:pypi/CacheControl@0.14.4"
+     },
+     {
+      "name": "distlib",
+      "version": "0.4.2",
+      "purl": "pkg:pypi/distlib@0.4.2"
+     },
+     {
+      "name": "distro",
+      "version": "1.9.0",
+      "purl": "pkg:pypi/distro@1.9.0"
+     },
+     {
+      "name": "PIL._avif",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.11.0",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/raqm"
+     },
+     {
+      "name": "pybind11",
+      "version": "UNKNOWN",
+      "purl": "pkg:pypi/pybind11"
+     },
+     {
+      "name": "pygments",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/pygments@2.20.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/pyproject-hooks@1.2.0"
+     },
+     {
+      "name": "resolvelib",
+      "version": "1.2.1",
+      "purl": "pkg:pypi/resolvelib@1.2.1"
+     },
+     {
+      "name": "rich",
+      "version": "14.2.0",
+      "purl": "pkg:pypi/rich@14.2.0"
+     },
+     {
+      "name": "tomli-w",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/tomli-w@1.2.0"
+     },
+     {
+      "name": "truststore",
+      "version": "0.10.4",
+      "purl": "pkg:pypi/truststore@0.10.4"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.2.25",
+      "to": "2026.6.17",
+      "purl": "pkg:pypi/certifi@2026.6.17"
+     },
+     {
+      "name": "requests",
+      "from": "2.33.1",
+      "to": "2.34.2",
+      "purl": "pkg:pypi/requests@2.34.2"
+     },
+     {
+      "name": "tomli",
+      "from": "2.4.0",
+      "to": "2.4.1",
+      "purl": "pkg:pypi/tomli@2.4.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "UnknownPackage": {
+    "added": [
+     {
+      "name": "pip",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "FreeType",
+      "version": "2.14.3",
+      "purl": "pkg:generic/freetype2"
+     },
+     {
+      "name": "FriBiDi",
+      "version": "1.0.17",
+      "purl": "pkg:generic/fribidi"
+     },
+     {
+      "name": "HarfBuzz",
+      "version": "14.5.0",
+      "purl": "pkg:generic/harfbuzz"
+     },
+     {
+      "name": "libavif",
+      "version": "1.4.2",
+      "purl": "pkg:generic/libavif"
+     },
+     {
+      "name": "libimagequant",
+      "version": "4.4.1",
+      "purl": "pkg:generic/libimagequant"
+     },
+     {
+      "name": "libjpeg / libjpeg-turbo",
+      "version": "3.2.0",
+      "purl": "pkg:generic/libjpeg"
+     },
+     {
+      "name": "libtiff",
+      "version": "4.7.2",
+      "purl": "pkg:generic/libtiff"
+     },
+     {
+      "name": "libwebp",
+      "version": "1.6.0",
+      "purl": "pkg:generic/libwebp"
+     },
+     {
+      "name": "libxcb",
+      "version": "1.17.0",
+      "purl": "pkg:generic/libxcb"
+     },
+     {
+      "name": "Little CMS 2",
+      "version": "2.19.1",
+      "purl": "pkg:generic/littlecms2"
+     },
+     {
+      "name": "OpenJPEG",
+      "version": "2.5.4",
+      "purl": "pkg:generic/openjpeg"
+     },
+     {
+      "name": "zlib",
+      "version": "2.3.3",
+      "purl": "pkg:generic/zlib"
+     },
+     {
+      "name": "pythoncapi_compat",
+      "version": "UNKNOWN",
+      "purl": "pkg:github/python/pythoncapi-compat"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "apk": {
+    "added": [
+     {
+      "name": "libgcc",
+      "version": "14.2.0-r6",
+      "purl": "pkg:apk/NotpineForGHA/libgcc@14.2.0-r6"
+     },
+     {
+      "name": "lame",
+      "version": "libs-3.100-r5",
+      "purl": "pkg:apk/alpine/lame@libs-3.100-r5"
+     },
+     {
+      "name": "mpg123",
+      "version": "libs-1.32.10-r0",
+      "purl": "pkg:apk/alpine/mpg123@libs-1.32.10-r0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": [
+     {
+      "name": "dbus",
+      "from": "1.16.2-r2",
+      "to": "libs-1.16.2-r1",
+      "purl": "pkg:apk/alpine/dbus@libs-1.16.2-r1"
+     }
+    ]
+   },
+   "python": {
+    "added": [
+     {
+      "name": "CacheControl",
+      "version": "0.14.4",
+      "purl": "pkg:pypi/CacheControl@0.14.4"
+     },
+     {
+      "name": "distlib",
+      "version": "0.4.2",
+      "purl": "pkg:pypi/distlib@0.4.2"
+     },
+     {
+      "name": "distro",
+      "version": "1.9.0",
+      "purl": "pkg:pypi/distro@1.9.0"
+     },
+     {
+      "name": "PIL._avif",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.11.0",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/raqm"
+     },
+     {
+      "name": "pybind11",
+      "version": "UNKNOWN",
+      "purl": "pkg:pypi/pybind11"
+     },
+     {
+      "name": "pygments",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/pygments@2.20.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/pyproject-hooks@1.2.0"
+     },
+     {
+      "name": "resolvelib",
+      "version": "1.2.1",
+      "purl": "pkg:pypi/resolvelib@1.2.1"
+     },
+     {
+      "name": "rich",
+      "version": "14.2.0",
+      "purl": "pkg:pypi/rich@14.2.0"
+     },
+     {
+      "name": "tomli-w",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/tomli-w@1.2.0"
+     },
+     {
+      "name": "truststore",
+      "version": "0.10.4",
+      "purl": "pkg:pypi/truststore@0.10.4"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.2.25",
+      "to": "2026.6.17",
+      "purl": "pkg:pypi/certifi@2026.6.17"
+     },
+     {
+      "name": "requests",
+      "from": "2.33.1",
+      "to": "2.34.2",
+      "purl": "pkg:pypi/requests@2.34.2"
+     },
+     {
+      "name": "tomli",
+      "from": "2.4.0",
+      "to": "2.4.1",
+      "purl": "pkg:pypi/tomli@2.4.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 73,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 2
+ }
+}

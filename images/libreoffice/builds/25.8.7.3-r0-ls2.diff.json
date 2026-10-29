@@ -1,0 +1,161 @@
+{
+ "image": "libreoffice",
+ "branch": "master",
+ "tag": "25.8.7.3-r0-ls2",
+ "previous_tag": "25.8.7.3-r0-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "25.8.7.3-r0",
+  "to": "25.8.7.3-r0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:alpine324",
+   "digest": "sha256:373af2db8faeeac43def5fecf71b9a33cfb16700e599e6928e1e2357c4c90d0d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:5449d53a64051d5a58931337762b55fa2fcfa63635150cf3d69bc40e11071ebc"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1005775933,
+   "to": 1004932840,
+   "delta": -843093
+  },
+  "arm64": {
+   "from": 952326111,
+   "to": 951464948,
+   "delta": -861163
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-selkies:alpine324\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:alpine324\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-selkies:arm64v8-alpine324\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:arm64v8-alpine324\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.2-r0",
+      "to": "3.24.3-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.3-r0?arch=x86_64&distro=alpine-3.24.3&upstream=alpine-base"
+     },
+     {
+      "name": "musl-utils",
+      "from": "1.2.6-r2",
+      "to": "1.2.6-r3",
+      "purl": "pkg:apk/alpine/musl-utils@1.2.6-r3?arch=x86_64&distro=alpine-3.24.3&upstream=musl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.2-r0",
+      "to": "3.24.3-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.3-r0?arch=aarch64&distro=alpine-3.24.3&upstream=alpine-base"
+     },
+     {
+      "name": "musl-utils",
+      "from": "1.2.6-r2",
+      "to": "1.2.6-r3",
+      "purl": "pkg:apk/alpine/musl-utils@1.2.6-r3?arch=aarch64&distro=alpine-3.24.3&upstream=musl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

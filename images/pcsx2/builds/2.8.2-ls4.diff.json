@@ -1,0 +1,62 @@
+{
+ "image": "pcsx2",
+ "branch": "master",
+ "tag": "2.8.2-ls4",
+ "previous_tag": "2.8.2-ls3",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "2.8.2",
+  "to": "2.8.2",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:968acfc9b937061cf1c1143c7c5c4fb636db2fbd020dfc4801a253ea32043dcd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:968acfc9b937061cf1c1143c7c5c4fb636db2fbd020dfc4801a253ea32043dcd"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1018619558,
+   "to": 1018619741,
+   "delta": 183
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

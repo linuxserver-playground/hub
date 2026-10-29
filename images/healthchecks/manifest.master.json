@@ -1,0 +1,318 @@
+{
+ "schema": 1,
+ "name": "healthchecks",
+ "summary": "[Healthchecks](https://github.com/healthchecks/healthchecks) is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.",
+ "upstream": {
+  "url": "https://github.com/healthchecks/healthchecks",
+  "version": {
+   "type": "github_release",
+   "repo": "healthchecks/healthchecks"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "healthchecks/healthchecks"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "HEALTHCHECKS_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "SITE_ROOT": "http://*",
+   "ALLOWED_HOSTS": "*"
+  },
+  "web": {
+   "port": 8000
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8000",
+    "description": "Healthchecks Web UI"
+   },
+   {
+    "internal": "2525",
+    "description": "Port for inbound SMTP pings",
+    "optional": true
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/healthchecks/config",
+    "description": "Persistent config files."
+   }
+  ],
+  "env": [
+   {
+    "name": "SECRET_KEY",
+    "value": "",
+    "description": "A secret key used for cryptographic signing. Will generate a random value if one is not supplied and save it to `/config/local_settings.py`."
+   },
+   {
+    "name": "SITE_ROOT",
+    "value": "",
+    "description": "The site's top-level URL and the port it listens to if different than 80 or 443 (e.g., https://healthchecks.example.com:8000)."
+   },
+   {
+    "name": "SITE_NAME",
+    "value": "",
+    "description": "The site's name (e.g., \"Example Corp HealthChecks\")."
+   },
+   {
+    "name": "SUPERUSER_EMAIL",
+    "value": "",
+    "description": "Superuser email."
+   },
+   {
+    "name": "SUPERUSER_PASSWORD",
+    "value": "",
+    "description": "Superuser password."
+   },
+   {
+    "name": "ALLOWED_HOSTS",
+    "value": "",
+    "description": "A comma-separated list of valid hostnames for the server. Default is the domain portion of `SITE_ROOT`.",
+    "optional": true
+   },
+   {
+    "name": "APPRISE_ENABLED",
+    "value": "False",
+    "description": "Set to `True` to enable the Apprise integration (https://github.com/caronc/apprise).",
+    "optional": true
+   },
+   {
+    "name": "CSRF_TRUSTED_ORIGINS",
+    "value": "",
+    "description": "A [list](https://docs.python.org/3/tutorial/introduction.html#lists) of trusted origins for unsafe requests (e.g. POST). Defaults to the value of `SITE_ROOT`.",
+    "optional": true
+   },
+   {
+    "name": "DEBUG",
+    "value": "True",
+    "description": "Set to `False` to disable. Debug mode relaxes CSRF protections and increases logging verbosity but should be disabled for production instances as it will impact performance and security.",
+    "optional": true
+   },
+   {
+    "name": "DEFAULT_FROM_EMAIL",
+    "value": "",
+    "description": "From email for alerts.",
+    "optional": true
+   },
+   {
+    "name": "EMAIL_HOST",
+    "value": "",
+    "description": "SMTP host.",
+    "optional": true
+   },
+   {
+    "name": "EMAIL_PORT",
+    "value": "",
+    "description": "SMTP port.",
+    "optional": true
+   },
+   {
+    "name": "EMAIL_HOST_USER",
+    "value": "",
+    "description": "SMTP user.",
+    "optional": true
+   },
+   {
+    "name": "EMAIL_HOST_PASSWORD",
+    "value": "",
+    "description": "SMTP password.",
+    "optional": true
+   },
+   {
+    "name": "EMAIL_USE_TLS",
+    "value": "",
+    "description": "Use TLS for SMTP (`True` or `False`).",
+    "optional": true
+   },
+   {
+    "name": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+    "value": "",
+    "description": "Defaults to False. Set to True to allow integrations to connect to private IP addresses.",
+    "optional": true
+   },
+   {
+    "name": "PING_EMAIL_DOMAIN",
+    "value": "",
+    "description": "The domain to use for generating ping email addresses. Defaults to `localhost`.",
+    "optional": true
+   },
+   {
+    "name": "RP_ID",
+    "value": "",
+    "description": "If using webauthn for 2FA set this to match your Healthchecks domain. Webauthn will only work over https.",
+    "optional": true
+   },
+   {
+    "name": "SITE_LOGO_URL",
+    "value": "",
+    "description": "Full URL to custom site logo.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Monitoring"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/healthchecks-logo.png",
+  "setup": "Access the WebUI at <your-ip>:8000. For more information, check out [Healthchecks](https://github.com/healthchecks/healthchecks).\n\nSee [here](https://healthchecks.io/docs/self_hosted_configuration/) for a complete list of available environment variables.\n"
+ },
+ "proxy": {
+  "port": 8000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-05",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-07-05",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-12-20",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-08-31",
+   "text": "Enable IPv6 on uwsgi."
+  },
+  {
+   "date": "2024-05-31",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-01-24",
+   "text": "No longer write envs to local_settings.py. Envs will take precedence over any existing values in config file. Removed `REGENERATE_SETTINGS` as it is now obsolete."
+  },
+  {
+   "date": "2024-01-22",
+   "text": "Fix CSRF handling."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-05-31",
+   "text": "Rebase to Alpine 3.18. Deprecate armhf."
+  },
+  {
+   "date": "2022-12-22",
+   "text": "Rebase to Alpine 3.17. Add extra deps for pycurl. Add INTEGRATIONS_ALLOW_PRIVATE_IPS."
+  },
+  {
+   "date": "2022-10-18",
+   "text": "Add curl-dev to fix broken pip builds."
+  },
+  {
+   "date": "2022-10-11",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-09-27",
+   "text": "Fix sending of Email Reports"
+  },
+  {
+   "date": "2022-01-08",
+   "text": "Fix CSRF setting for Django 4.0 (introduced in v1.25.0)"
+  },
+  {
+   "date": "2021-11-11",
+   "text": "Add Apprise to Docker as in v1.24.0"
+  },
+  {
+   "date": "2021-09-10",
+   "text": "Fix creation of superuser"
+  },
+  {
+   "date": "2021-08-07",
+   "text": "Update custom logo handling to support changes in v1.22.0"
+  },
+  {
+   "date": "2021-07-11",
+   "text": "Rebase to Alpine 3.14."
+  },
+  {
+   "date": "2021-05-18",
+   "text": "Add linuxserver wheel index."
+  },
+  {
+   "date": "2021-01-11",
+   "text": "Add libffi-dev to allow building of python cryptography lib."
+  },
+  {
+   "date": "2020-07-19",
+   "text": "Rebasing to alpine 3.12, fixed 'ALLOWED_HOSTS' bug, now defaults to wildcard"
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-10-31",
+   "text": "Add postgres client and fix config for CSRF."
+  },
+  {
+   "date": "2019-10-23",
+   "text": "Allow to create superuser"
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-04-12",
+   "text": "Rebase to Alpine 3.9."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-14",
+   "text": "Adding mysql libs needed for using a database."
+  },
+  {
+   "date": "2018-10-11",
+   "text": "adding pipeline logic and multi arching release"
+  },
+  {
+   "date": "2017-11-15",
+   "text": "`git pull` is now in Dockerfile so each tagged container contains the same code version"
+  },
+  {
+   "date": "2017-10-17",
+   "text": "Fixed `local_settings.py` output"
+  },
+  {
+   "date": "2017-09-27",
+   "text": "Initial Release."
+  }
+ ]
+}

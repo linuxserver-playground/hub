@@ -1,0 +1,80 @@
+{
+ "image": "diskover",
+ "branch": "master",
+ "tag": "v2.3.5-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "v2.3.5",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver/baseimage-alpine-nginx:3.20",
+   "digest": "sha256:95fc4e313a05b5847c881edfe88967e7588beea1877f87be1def6fde438a11db"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 51226875,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 52690050,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "DATABASE",
+    "DISKOVERDIR",
+    "ES_HOST",
+    "HOME",
+    "LSIO_FIRST_PARTY",
+    "PATH",
+    "PS1",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "443/tcp",
+    "80/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

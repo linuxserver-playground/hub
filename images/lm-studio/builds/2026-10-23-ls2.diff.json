@@ -1,0 +1,161 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-10-23-ls2",
+ "previous_tag": "2026-10-23-ls1",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-23",
+  "to": "2026-10-23",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:4851409d4f671b12aefedd6d85bf9c7370e7a253b9747c00ebcb27ca6fa44e3a"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:4851409d4f671b12aefedd6d85bf9c7370e7a253b9747c00ebcb27ca6fa44e3a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 9162562552,
+   "to": 9165816143,
+   "delta": 3253591
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "compiler-rt",
+      "from": "23.1.3-4",
+      "to": "23.1.4-1",
+      "purl": "pkg:alpm/arch/compiler-rt@23.1.4-1?arch=x86_64&distro=arch-rolling&upstream=llvm"
+     },
+     {
+      "name": "lld",
+      "from": "23.1.3-4",
+      "to": "23.1.4-1",
+      "purl": "pkg:alpm/arch/lld@23.1.4-1?arch=x86_64&distro=arch-rolling&upstream=llvm"
+     },
+     {
+      "name": "opentofu",
+      "from": "1.13.1-1",
+      "to": "1.13.2-1",
+      "purl": "pkg:alpm/arch/opentofu@1.13.2-1?arch=x86_64&distro=arch-rolling&upstream=opentofu"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [
+     {
+      "name": "@cline/plugin-runtime",
+      "version": "UNKNOWN",
+      "purl": "pkg:npm/%40cline/plugin-runtime"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@cline/agents",
+      "from": "0.0.95",
+      "to": "0.2.0",
+      "purl": "pkg:npm/%40cline/agents@0.2.0"
+     },
+     {
+      "name": "@cline/cli-linux-x64",
+      "from": "3.0.73",
+      "to": "3.0.74",
+      "purl": "pkg:npm/%40cline/cli-linux-x64@3.0.74"
+     },
+     {
+      "name": "@cline/core",
+      "from": "0.0.95",
+      "to": "0.2.0",
+      "purl": "pkg:npm/%40cline/core@0.2.0"
+     },
+     {
+      "name": "@cline/llms",
+      "from": "0.0.95",
+      "to": "0.2.0",
+      "purl": "pkg:npm/%40cline/llms@0.2.0"
+     },
+     {
+      "name": "@cline/sdk",
+      "from": "0.0.95",
+      "to": "0.2.0",
+      "purl": "pkg:npm/%40cline/sdk@0.2.0"
+     },
+     {
+      "name": "@cline/shared",
+      "from": "0.0.95",
+      "to": "0.2.0",
+      "purl": "pkg:npm/%40cline/shared@0.2.0"
+     },
+     {
+      "name": "@jerome-benoit/sap-ai-provider",
+      "from": "4.8.0",
+      "to": "5.0.3",
+      "purl": "pkg:npm/%40jerome-benoit/sap-ai-provider@5.0.3"
+     },
+     {
+      "name": "@smithy/core",
+      "from": "3.36.2",
+      "to": "3.37.0",
+      "purl": "pkg:npm/%40smithy/core@3.37.0"
+     },
+     {
+      "name": "@smithy/node-http-handler",
+      "from": "4.12.1",
+      "to": "4.13.0",
+      "purl": "pkg:npm/%40smithy/node-http-handler@4.13.0"
+     },
+     {
+      "name": "cline",
+      "from": "3.0.73",
+      "to": "3.0.74",
+      "purl": "pkg:npm/cline@3.0.74"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 1,
+  "removed": 0,
+  "upgraded": 13,
+  "downgraded": 0
+ }
+}

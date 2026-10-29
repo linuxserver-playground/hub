@@ -1,0 +1,96 @@
+{
+ "schema": 1,
+ "name": "bitcoin-knots",
+ "summary": "[Bitcoin Knots](https://bitcoinknots.org/) can be used as a desktop client for regular payments or as a full node server utility for merchants and other payment services.",
+ "upstream": {
+  "url": "https://bitcoinknots.org/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "http://ppa.launchpad.net/luke-jr/bitcoinknots/ubuntu/dists/resolute/main/binary-amd64/Packages.gz",
+   "package": "bitcoin-qt"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "BITCOIN_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Bitcoin Knots desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Bitcoin Knots desktop gui HTTPS."
+   },
+   {
+    "internal": "8333",
+    "description": "Bitcoin Knots node port."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/bitcoin-knots/config",
+    "description": "Users home directory in the container, stores all data."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Finance"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bitcoin-knots-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n>[!WARNING]\n>This container is intended to run as a full Bitcoin node for the network, using it as a wallet is dangerous unless you really know what you are doing. Even momentary accidental exposure of this container can completely compromise a stored wallet.\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-09-21",
+   "text": "Rebase to Ubuntu Resolute."
+  },
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-01-02",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-09",
+   "text": "Initial release."
+  }
+ ]
+}

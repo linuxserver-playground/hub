@@ -1,0 +1,67 @@
+{
+ "image": "baseimage-alpine",
+ "branch": "3.21",
+ "tag": "3.21-d221b02c-ls3",
+ "previous_tag": "3.21-d221b02c-ls2",
+ "classification": "linuxserver",
+ "reasons": [
+  "Dockerfile changed"
+ ],
+ "upstream": {
+  "from": "d221b02c",
+  "to": "d221b02c",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 11982526,
+   "to": 11982659,
+   "delta": 133
+  },
+  "arm64": {
+   "from": 13013969,
+   "to": 13013787,
+   "delta": -182
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -57,10 +57,10 @@\n LABEL build_version=\"Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}\"\n LABEL maintainer=\"TheLamer\"\n \n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/docker-mods.${MODS_VERSION}\" \"/docker-mods\"\n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/package-install.${PKG_INST_VERSION}\" \"/etc/s6-overlay/s6-rc.d/init-mods-package-install/run\"\n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/lsiown.${LSIOWN_VERSION}\" \"/usr/bin/lsiown\"\n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/with-contenv.${WITHCONTENV_VERSION}\" \"/usr/bin/with-contenv\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/docker-mods.${MODS_VERSION}\" \"/docker-mods\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/package-install.${PKG_INST_VERSION}\" \"/etc/s6-overlay/s6-rc.d/init-mods-package-install/run\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/lsiown.${LSIOWN_VERSION}\" \"/usr/bin/lsiown\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/with-contenv.${WITHCONTENV_VERSION}\" \"/usr/bin/with-contenv\"\n \n # environment variables\n ENV PS1=\"$(whoami)@$(hostname):$(pwd)\\\\$ \" \\\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -57,10 +57,10 @@\n LABEL build_version=\"Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}\"\n LABEL maintainer=\"TheLamer\"\n \n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/docker-mods.${MODS_VERSION}\" \"/docker-mods\"\n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/package-install.${PKG_INST_VERSION}\" \"/etc/s6-overlay/s6-rc.d/init-mods-package-install/run\"\n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/lsiown.${LSIOWN_VERSION}\" \"/usr/bin/lsiown\"\n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/with-contenv.${WITHCONTENV_VERSION}\" \"/usr/bin/with-contenv\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/docker-mods.${MODS_VERSION}\" \"/docker-mods\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/package-install.${PKG_INST_VERSION}\" \"/etc/s6-overlay/s6-rc.d/init-mods-package-install/run\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/lsiown.${LSIOWN_VERSION}\" \"/usr/bin/lsiown\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/with-contenv.${WITHCONTENV_VERSION}\" \"/usr/bin/with-contenv\"\n \n # environment variables\n ENV PS1=\"$(whoami)@$(hostname):$(pwd)\\\\$ \" \\\n"
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

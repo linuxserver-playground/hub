@@ -1,0 +1,145 @@
+{
+ "schema": 1,
+ "name": "synclounge",
+ "summary": "[Synclounge](https://github.com/samcm/synclounge) is a third party tool that allows you to watch Plex in sync with your friends/family, wherever you are.",
+ "upstream": {
+  "url": "https://github.com/samcm/synclounge",
+  "version": {
+   "type": "json",
+   "url": "https://registry.npmjs.org/synclounge/",
+   "jq": ".\"dist-tags\".latest"
+  },
+  "sponsor": [
+   {
+    "name": "SyncLounge",
+    "url": "http://docs.synclounge.tv/contributing/donating/"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "SYNCLOUNGE_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "EXTERNAL_URL": "0.0.0.0"
+  },
+  "web": {
+   "port": 8088,
+   "path": "/"
+  }
+ },
+ "runtime": {
+  "common_env": false,
+  "ports": [
+   {
+    "internal": "8088",
+    "description": "Web app and server port"
+   }
+  ],
+  "env": [
+   {
+    "name": "AUTH_LIST",
+    "value": "plexuser1,plexuser2,email1,machineid1",
+    "description": "If set, only the users defined here and the users of the plex servers defined here will be able to access the server. Use e-mails, plex usernames and/or plex server machine ids, comma separated, no spaces.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Media Tools"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/synclounge-banner.png",
+  "setup": "The web app and the server are both accessible at `http://SERVERIP:8088`.\n\nNote: It is recommended to use `http` as the external proto with a reverse proxy due to `https` not working with external plex clients.\n"
+ },
+ "proxy": {
+  "port": 8088,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-15",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2024-12-19",
+   "text": "Add support for read-only and non-root operation."
+  },
+  {
+   "date": "2024-12-05",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-06-04",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-08-26",
+   "text": "Rebase to Alpine 3.19. Remove deprecated `AUTOJOIN_ENABLED` & `AUTOJOIN_ROOM` options."
+  },
+  {
+   "date": "2023-08-26",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-07-04",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2022-11-29",
+   "text": "Rebase to alpine 3.17, upgrade to s6v3."
+  },
+  {
+   "date": "2022-09-19",
+   "text": "Rebase to alpine 3.15."
+  },
+  {
+   "date": "2021-02-12",
+   "text": "Fix optional dependency builds in aarch64 image."
+  },
+  {
+   "date": "2021-02-12",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-10-28",
+   "text": "Update to v4. Env vars `EXTERNAL_URL`, `EXTERNAL_SERVER_PORT` and `AUTOJOIN_PASSWORD` are deprecated and no longer have any effect. Env vars `AUTOJOIN_ENABLED` and `AUTOJOIN_ROOM` are still working but will be removed in the future in favor of synclounge's built-in var `autojoin__room`. If you are reverse proxying, do not forget to update your proxy settings ([here](https://github.com/linuxserver/reverse-proxy-confs/blob/master/synclounge.subdomain.conf.sample) and [here](https://github.com/linuxserver/reverse-proxy-confs/blob/master/synclounge.subfolder.conf.sample)) as the server port and addresses are changed."
+  },
+  {
+   "date": "2020-10-11",
+   "text": "Pin builds to upstream commit `6aecc9bd` while evaluating the breaking changes upstream."
+  },
+  {
+   "date": "2020-09-27",
+   "text": "Updating the external repo endpoint."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2020-05-11",
+   "text": "Initial Release."
+  }
+ ]
+}

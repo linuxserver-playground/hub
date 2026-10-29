@@ -1,0 +1,91 @@
+{
+ "image": "shadps4",
+ "branch": "master",
+ "tag": "shadPS4QtLauncher-2026-10-26-811fb0319cea2e76f1fb8f89d22d67efdf45761a-ls2",
+ "previous_tag": "shadPS4QtLauncher-2026-10-18-6f6b911f4865a1c8bf2425071ca8d39ec46d9ea9-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "shadPS4QtLauncher-2026-10-18-6f6b911f4865a1c8bf2425071ca8d39ec46d9ea9",
+  "to": "shadPS4QtLauncher-2026-10-26-811fb0319cea2e76f1fb8f89d22d67efdf45761a",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:debiantrixie",
+   "digest": "sha256:df4a9259e7535526005785202bd08b3b066250a64c65877802b2354fd6a975dd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:2dee84b18c6bcbfd15703b870bfeeb434cafeea10d73931e9a08e50c261334fd"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1039703784,
+   "to": 1039847447,
+   "delta": 143663
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-selkies:debiantrixie\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 3,
+  "downgraded": 0
+ }
+}

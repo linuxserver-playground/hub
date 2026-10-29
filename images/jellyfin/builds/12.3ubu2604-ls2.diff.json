@@ -1,0 +1,69 @@
+{
+ "image": "jellyfin",
+ "branch": "master",
+ "tag": "12.3ubu2604-ls2",
+ "previous_tag": "12.3ubu2604-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "12.3+ubu2604",
+  "to": "12.3+ubu2604",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:resolute",
+   "digest": "sha256:17f8127f438b5203c47149a87769ec8c82849d93c08cf8521c18949fd6ae8ee9"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:resolute",
+   "digest": "sha256:17f8127f438b5203c47149a87769ec8c82849d93c08cf8521c18949fd6ae8ee9"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 342391966,
+   "to": 342392090,
+   "delta": 124
+  },
+  "arm64": {
+   "from": 305857879,
+   "to": 305857912,
+   "delta": 33
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,119 @@
+{
+ "schema": 1,
+ "name": "brave",
+ "summary": "[The Brave browser](https://brave.com/) is a fast, private and secure web browser for PC, Mac and mobile.",
+ "upstream": {
+  "url": "https://brave.com/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "https://brave-browser-apt-release.s3.brave.com/dists/stable/main/binary-amd64/Packages.gz",
+   "package": "brave-browser"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable Brave releases"
+   },
+   {
+    "tag": "origin",
+    "description": "Brave Origin nightly releases"
+   }
+  ]
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "BRAVE_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Brave desktop gui HTTP must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Brave desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for Brave to function."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Web Browser"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/brave-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-20",
+   "text": "Added Brave Origin as origin tag."
+  },
+  {
+   "date": "2026-03-31",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-06-06",
+   "text": "Initial Version."
+  }
+ ]
+}

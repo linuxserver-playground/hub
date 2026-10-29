@@ -1,0 +1,69 @@
+{
+ "image": "sonarr",
+ "branch": "develop",
+ "tag": "develop-5.0.0.2785-ls2",
+ "previous_tag": "develop-5.0.0.2742-ls1",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed"
+ ],
+ "upstream": {
+  "from": "5.0.0.2742",
+  "to": "5.0.0.2785",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.24",
+   "digest": "sha256:52106d187a66ccb92e3289cb6dd25c549cb0b6b7bfec38a51994434c96db2d35"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.24",
+   "digest": "sha256:52106d187a66ccb92e3289cb6dd25c549cb0b6b7bfec38a51994434c96db2d35"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 97742853,
+   "to": 97741781,
+   "delta": -1072
+  },
+  "arm64": {
+   "from": 95432690,
+   "to": 95430048,
+   "delta": -2642
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,323 @@
+{
+ "schema": 1,
+ "name": "transmission",
+ "summary": "[Transmission](https://www.transmissionbt.com/) is designed for easy, powerful use. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch directories, tracker editing, global and per-torrent speed limits, and more.",
+ "upstream": {
+  "url": "https://www.transmissionbt.com/",
+  "version": {
+   "type": "alpine_apk",
+   "repo_url": "http://dl-cdn.alpinelinux.org/alpine/edge/community/",
+   "package": "transmission-daemon"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "TRANSMISSION_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 9091
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "9091",
+    "description": "WebUI"
+   },
+   {
+    "internal": "51413",
+    "description": "Torrent Port TCP"
+   },
+   {
+    "internal": "51413/udp",
+    "description": "Torrent Port UDP"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/transmission/data",
+    "description": "Where transmission should store config files and logs."
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/downloads",
+    "description": "Local path for downloads.",
+    "optional": true
+   },
+   {
+    "path": "/watch",
+    "host_path": "/path/to/watch/folder",
+    "description": "Watch folder for torrent files.",
+    "optional": true
+   }
+  ],
+  "env": [
+   {
+    "name": "TRANSMISSION_WEB_HOME",
+    "value": "",
+    "description": "Specify the path to an alternative UI folder.",
+    "optional": true
+   },
+   {
+    "name": "USER",
+    "value": "",
+    "description": "Specify an optional username for the interface",
+    "optional": true
+   },
+   {
+    "name": "PASS",
+    "value": "",
+    "description": "Specify an optional password for the interface",
+    "optional": true
+   },
+   {
+    "name": "WHITELIST",
+    "value": "",
+    "description": "Specify an optional list of comma separated ip whitelist. Fills rpc-whitelist setting.",
+    "optional": true
+   },
+   {
+    "name": "PEERPORT",
+    "value": "",
+    "description": "Specify an optional port for torrent TCP/UDP connections. Fills peer-port setting.",
+    "optional": true
+   },
+   {
+    "name": "HOST_WHITELIST",
+    "value": "",
+    "description": "Specify an optional list of comma separated dns name whitelist. Fills rpc-host-whitelist setting.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Downloaders"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/transmission.png",
+  "setup": "Webui is on port 9091, the settings.json file in /config has extra settings not available in the webui. Stop the container before editing it or any changes won't be saved.\n\n## Securing the webui with a username/password.\n\nUse the `USER` and `PASS` variables in docker run/create/compose to set authentication. Do not manually edit the `settings.json` to input user/pass, otherwise transmission cannot be stopped cleanly by the s6 supervisor.\n\n## Updating Blocklists Automatically\n\nThis requires `\"blocklist-enabled\": true,` to be set. By setting this to true, it is assumed you have also populated `blocklist-url` with a valid block list.\n\nThe automatic update is a shell script that downloads a blocklist from the url stored in the settings.json, gunzips it, and restarts the transmission daemon.\n\nThe automatic update will run once a day at 3am local server time.\n\n## Using whitelist\n\nUse `WHITELIST` to enable a list of ip as whitelist. This enable support for `rpc-whitelist`. When `WHITELIST` is empty support for whitelist is disabled.\n\nUse `HOST_WHITELIST` to enable an list of dns names as host-whitelist. This enable support for `rpc-host-whitelist`. When `HOST_WHITELIST` is empty support for host-whitelist is disabled.\n\n## Use alternative Transmission torrent ports\n\nUse `PEERPORT` to specify the port(s) Transmission should listen on.  This disables random port selection.  This should be the same as the port mapped in your docker configuration.\n"
+ },
+ "proxy": {
+  "port": 9091,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true,
+   "base_url_note": "Transmission serves its web interface under /transmission; nothing to change"
+  },
+  "api_locations": [
+   "/rpc"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-05-31",
+   "text": "Bind RPC to IPv6 interface by default, fall back to IPv4 if unavailable."
+  },
+  {
+   "date": "2024-11-29",
+   "text": "Fix PEERPORT setting."
+  },
+  {
+   "date": "2023-10-07",
+   "text": "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."
+  },
+  {
+   "date": "2023-08-10",
+   "text": "Bump unrar to 6.2.10."
+  },
+  {
+   "date": "2023-06-10",
+   "text": "Bump unrar to 6.2.8, install transmission-extra."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Deprecate armhf."
+  },
+  {
+   "date": "2023-05-14",
+   "text": "Explicitly install transmission-remote."
+  },
+  {
+   "date": "2023-03-02",
+   "text": "Add cron init to allow user customizable crontabs."
+  },
+  {
+   "date": "2023-02-08",
+   "text": "Rebase to Alpine Edge to get access to most up to date builds of Transmission. Remove bundled 3rd party UI packages."
+  },
+  {
+   "date": "2023-01-05",
+   "text": "Rebase to Alpine 3.17, restore GNU findutils package."
+  },
+  {
+   "date": "2022-11-02",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-08-12",
+   "text": "Bump unrar to 6.1.7."
+  },
+  {
+   "date": "2022-04-03",
+   "text": "Add Transmissionic as a UI option."
+  },
+  {
+   "date": "2022-02-21",
+   "text": "Build unrar from source, rebase to Alpine 3.15, add symlinks neeeded for TWC. Credit @alexbelgium"
+  },
+  {
+   "date": "2021-07-09",
+   "text": "Wait for the transmission-daemon termination after a caught sigterm."
+  },
+  {
+   "date": "2021-03-06",
+   "text": "Add Flood for Transmission as a UI option."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-11-02",
+   "text": "Add ca-certificates package to allow connecting to https trackers."
+  },
+  {
+   "date": "2020-06-02",
+   "text": "Rebase to alpine 3.12, update to transmission 3.0, remove python2, add python3."
+  },
+  {
+   "date": "2020-05-11",
+   "text": "Remove unnecessary chmod (remnant of previous change)."
+  },
+  {
+   "date": "2020-04-28",
+   "text": "Use transmission-remote to update blocklist."
+  },
+  {
+   "date": "2020-03-30",
+   "text": "Internalize blocklist-update.sh."
+  },
+  {
+   "date": "2020-03-29",
+   "text": "Update auth info in readme."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-10-04",
+   "text": "Update package label."
+  },
+  {
+   "date": "2019-08-21",
+   "text": "Add optional user/pass environment variables, fix transmission shut down if user/pass are set."
+  },
+  {
+   "date": "2019-07-19",
+   "text": "Send SIGTERM in blocklist update to properly close pid."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebase to Alpine 3.9, add themes to baseimage, add python and findutils."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Catch term and clean exit."
+  },
+  {
+   "date": "2019-02-07",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-08-15",
+   "text": "Rebase to alpine linux 3.8."
+  },
+  {
+   "date": "2018-02-12",
+   "text": "Pull transmission from edge repo."
+  },
+  {
+   "date": "2018-01-10",
+   "text": "Rebase to alpine linux 3.7."
+  },
+  {
+   "date": "2017-07-25",
+   "text": "Add rsync package."
+  },
+  {
+   "date": "2017-05-27",
+   "text": "Rebase to alpine linux 3.6."
+  },
+  {
+   "date": "2017-02-06",
+   "text": "Rebase to alpine linux 3.5."
+  },
+  {
+   "date": "2017-01-15",
+   "text": "Add p7zip, tar, unrar, and unzip packages."
+  },
+  {
+   "date": "2016-10-16",
+   "text": "Blocklist autoupdate with optional authentication."
+  },
+  {
+   "date": "2016-10-14",
+   "text": "Add version layer informationE."
+  },
+  {
+   "date": "2016-09-23",
+   "text": "Add information about securing the webui to README."
+  },
+  {
+   "date": "2016-09-21",
+   "text": "Add curl package."
+  },
+  {
+   "date": "2016-09-09",
+   "text": "Add layer badges to README."
+  },
+  {
+   "date": "2016-08-28",
+   "text": "Add badges to README."
+  },
+  {
+   "date": "2016-08-09",
+   "text": "Rebase to alpine linux."
+  },
+  {
+   "date": "2015-12-06",
+   "text": "Separate mapping for watch folder."
+  },
+  {
+   "date": "2015-11-16",
+   "text": "Initial Release."
+  }
+ ]
+}

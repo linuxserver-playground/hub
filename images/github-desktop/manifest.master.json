@@ -1,0 +1,129 @@
+{
+ "schema": 1,
+ "name": "github-desktop",
+ "summary": "[Github Desktop](https://desktop.github.com/) is an open source Electron-based GitHub app. It is written in TypeScript and uses React.",
+ "upstream": {
+  "url": "https://desktop.github.com/",
+  "version": {
+   "type": "github_release",
+   "repo": "shiftkey/desktop"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "shiftkey/desktop"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "GHDESKTOP_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP Github Desktop gui, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Github Desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/github-desktop/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "cap_add": [
+   {
+    "cap": "IPC_LOCK",
+    "description": "Required for keyring functionality."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for electron applications to function properly."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Programming"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-21",
+   "text": "Use Wayland ozone platform flag for apps fixes scaling and acceleration."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-08-03",
+   "text": "Rebase to Bookworm and multi arch."
+  },
+  {
+   "date": "2023-04-01",
+   "text": "Initial release."
+  }
+ ]
+}

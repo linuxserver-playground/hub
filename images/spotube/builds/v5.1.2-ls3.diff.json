@@ -1,0 +1,69 @@
+{
+ "image": "spotube",
+ "branch": "master",
+ "tag": "v5.1.2-ls3",
+ "previous_tag": "v5.1.2-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "v5.1.2",
+  "to": "v5.1.2",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:731016ff9660aac7a2328ef09c7818ac30a240fd6452035eb2750a4d4657b61b"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:2dee84b18c6bcbfd15703b870bfeeb434cafeea10d73931e9a08e50c261334fd"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1143280754,
+   "to": 1143271285,
+   "delta": -9469
+  },
+  "arm64": {
+   "from": 1096388685,
+   "to": 1096383321,
+   "delta": -5364
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

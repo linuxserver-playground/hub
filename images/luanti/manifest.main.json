@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "name": "luanti",
+ "summary": "[Luanti](https://www.luanti.org/) (formerly Minetest) is an open source voxel game-creation platform with easy modding and game creation ",
+ "upstream": {
+  "url": "https://www.luanti.org/",
+  "version": {
+   "type": "json",
+   "url": "https://api.github.com/repos/luanti-org/luanti/releases",
+   "jq": "first(.[] | select(.tag_name | contains(\"android\") | not)) | .tag_name"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "LUANTI_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "CLI_ARGS": "--gameid devtest"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "30000/udp",
+    "description": "Port Luanti listens on (UDP)."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config/.minetest",
+    "host_path": "/path/to/luanti/data",
+    "description": "Where luanti stores config files and maps etc."
+   }
+  ],
+  "env": [
+   {
+    "name": "CLI_ARGS",
+    "value": "--gameid devtest",
+    "description": "Optionally specify any [CLI variables](https://wiki.luanti.net/Command_line) you want to launch the app with",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minetest-icon.png",
+  "setup": "You can find the world maps, mods folder and config files in /config/.minetest.\n\nIf you want to override the advertised port, ensure you add --port in your CLI_ARGS AND ensure the internal port reflects the change, ie;\nif you set your advertised port to 40000 with --port 40000 then your ports declaration should be 40000:40000/udp\n\nClient and server must be the same version, please browse the tags here to pull the appropriate version for your server:\n\nhttps://hub.docker.com/r/linuxserver/luanti/tags\n\n### Bundled Games\n\nAs per [upstream request](https://github.com/luanti-org/luanti/releases/tag/5.8.0) this image no longer includes [minetest_game](https://github.com/luanti-org/minetest_game), so if required you will need to either install via ContentDB or download it from their repo and copy to `/config/.minetest/games/minetest`\n"
+ },
+ "changelog": [
+  {
+   "date": "2025-11-03",
+   "text": "Use latest LuaJIT from git to fix math bugs"
+  },
+  {
+   "date": "2025-07-09",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-01-30",
+   "text": "Initial Release."
+  }
+ ]
+}

@@ -1,0 +1,134 @@
+{
+ "schema": 1,
+ "name": "mullvad-browser",
+ "summary": "The [Mullvad Browser](https://mullvad.net/en/browser) is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project. It’s designed to minimize tracking and fingerprinting. You could say it’s a Tor Browser to use without the Tor Network. Instead, you can use it with a trustworthy VPN.",
+ "upstream": {
+  "url": "https://mullvad.net/en/browser",
+  "version": {
+   "type": "github_release",
+   "repo": "mullvad/mullvad-browser"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "mullvad/mullvad-browser"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "MULLVAD_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Mullvad Browser GUI."
+   },
+   {
+    "internal": "3001",
+    "description": "Mullvad Browser GUI HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/mullvad-browser/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "env": [
+   {
+    "name": "LOCAL_NET",
+    "value": "192.168.0.0/16",
+    "description": "If using a VPN, set this to your local LAN IP range using CIDR notation. Without it you will be unable to access the web interface. If you have multiple ranges or a complex LAN setup you will need to manage this yourself in the wg0.conf, see the App Setup section for details.",
+    "optional": true
+   }
+  ],
+  "cap_add": [
+   {
+    "cap": "NET_ADMIN",
+    "description": "Neccessary for Wireguard to create its VPN interface."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for any modern website to function like youtube."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Web Browser",
+   "VPN"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mullvad-browser-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-19",
+   "text": "Rebase to resolute."
+  },
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-08-26",
+   "text": "Suppress sandbox security warning as it's misleading inside a container."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-08-28",
+   "text": "Rebase to noble."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-04-03",
+   "text": "Initial release."
+  }
+ ]
+}
