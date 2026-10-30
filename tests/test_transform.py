@@ -50,6 +50,7 @@ def test_manifest_mapping(fleet: Fleet) -> None:
     assert sonarr.initial_date == "2015-08-31"
     assert sonarr.changelog is not None and sonarr.changelog[0].date == "2026-10-19"
     assert sonarr.project_logo and sonarr.project_logo.endswith("sonarr-banner.png")
+    assert [s.model_dump() for s in sonarr.sponsor] == [{"name": "Sonarr", "url": "https://sonarr.tv/donate"}]
     assert sonarr.github_url == "https://github.com/linuxserver-playground/docker-sonarr"
     assert sonarr.registries.ghcr == "ghcr.io/linuxserver-playground/sonarr"
     assert sonarr.docs_url == "https://linuxserver-playground.github.io/site/images/sonarr/"

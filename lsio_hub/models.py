@@ -209,11 +209,24 @@ class ImageLinks(BaseModel):
     mods: str
 
 
+class Sponsor(BaseModel):
+    """One of the upstream project's donation pages (`upstream.sponsor` in the manifest)."""
+
+    name: str = Field(examples=["Sonarr"])
+    url: str = Field(examples=["https://sonarr.tv/donate"])
+
+
 class ImageDetail(Image):
     """An image with everything this API knows about it."""
 
     config: Config  # always present
     title: str
+    sponsor: list[Sponsor] = Field(
+        default_factory=list,
+        description="The upstream project's donation pages, as the manifest lists them (up to 3); empty when the "
+        "project has none. The site shows them on the image page, the repo's FUNDING.yml and the container log carry "
+        "the same list.",
+    )
     kind: Literal["app", "base", "tool"] = Field(
         "app",
         description="`app` for a long-running application; `base` for a base image, `tool` for a run-once or helper "

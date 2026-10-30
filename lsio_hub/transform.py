@@ -31,6 +31,7 @@ from .models import (
     ReleaseInfo,
     SecurityOpt,
     Snippets,
+    Sponsor,
     Tag,
     Volume,
 )
@@ -183,6 +184,7 @@ def build_image(
         changelog=changelog,
         config=config,
         title=ctx["title"],
+        sponsor=[Sponsor(name=s["name"], url=s["url"]) for s in manifest["upstream"].get("sponsor") or []],
         kind=record.kind,
         categories=list(dict.fromkeys(manifest["docs"]["categories"])),
         deprecation_message=ctx["deprecation"]["message"] or None if deprecated else None,
