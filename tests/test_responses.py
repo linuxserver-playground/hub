@@ -148,11 +148,11 @@ def test_builds_list_the_tags_each_build_published(fleet: Fleet) -> None:
 def test_builds_carry_the_index_digest_an_image_records_as_its_base(fleet: Fleet) -> None:
     sonarr = fleet.record("sonarr")
     assert sonarr is not None
+    sonarr.builds["4.0.20.3014-ls2"]["index_digest"] = "sha256:" + "d7" * 32
     by_tag = {b.tag: b for b in responses.builds(fleet, sonarr).builds}
-    assert by_tag["4.0.20.3014-ls2"].index_digest == sonarr.builds["4.0.20.3014-ls2"]["index_digest"]
-    assert by_tag["4.0.20.3014-ls2"].index_digest is not None
-    sonarr.builds["4.0.20.3014-ls2"].pop("index_digest")
-    assert {b.tag: b for b in responses.builds(fleet, sonarr).builds}["4.0.20.3014-ls2"].index_digest is None
+    assert by_tag["4.0.20.3014-ls2"].index_digest == "sha256:" + "d7" * 32
+    # A release made before the publish job recorded the index digest.
+    assert by_tag["4.0.19.2000-ls1"].index_digest is None
 
 
 def test_layers_are_attributed(fleet: Fleet) -> None:
