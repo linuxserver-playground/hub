@@ -1,0 +1,67 @@
+{
+ "image": "baseimage-fedora",
+ "branch": "44",
+ "tag": "44-5dc015f1-ls2",
+ "previous_tag": "44-5dc015f1-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "5dc015f1",
+  "to": "5dc015f1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "fedora",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "fedora",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 76763474,
+   "to": 76763016,
+   "delta": -458
+  },
+  "arm64": {
+   "from": 73559647,
+   "to": 73558813,
+   "delta": -834
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

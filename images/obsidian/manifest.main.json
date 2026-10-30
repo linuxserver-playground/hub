@@ -1,0 +1,120 @@
+{
+ "schema": 1,
+ "name": "obsidian",
+ "summary": "[Obsidian](https://obsidian.md) is a note-taking app that lets you create, link, and organize your notes on your device, with hundreds of plugins and themes to customize your workflow. You can also publish your notes online, access them offline, and sync them securely with end-to-end encryption.",
+ "upstream": {
+  "url": "https://obsidian.md",
+  "version": {
+   "type": "json",
+   "url": "https://api.github.com/repos/obsidianmd/obsidian-releases/releases?per_page=30",
+   "jq": "[.[] | select(.prerelease==false and .draft==false) | select(any(.assets[]; .name | test(\"^Obsidian-[0-9.]+\\\\.AppImage$\")))][0].tag_name"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "OBSIDIAN_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Obsidian desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Obsidian desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores program settings and files."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for electron applications to function properly."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Content Management"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/obsidian-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-20",
+   "text": "Use Wayland ozone platform fixes scaling and acceleration."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-21",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies add no sandbox to launcher, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2025-04-03",
+   "text": "Update chromium launch options to improve performance."
+  },
+  {
+   "date": "2024-06-18",
+   "text": "Fix application init for Kasm."
+  },
+  {
+   "date": "2024-04-06",
+   "text": "Initial release."
+  }
+ ]
+}

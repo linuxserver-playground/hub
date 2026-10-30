@@ -1,0 +1,182 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "kali",
+ "tag": "kali-3a231ab9-ls4",
+ "previous_tag": "kali-1decc5f6-ls3",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1decc5f6",
+  "to": "3a231ab9",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:043f8d4e75fcf9300f45c000f2d19804aeea470b6e71096039c841d38087a9cd"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:043f8d4e75fcf9300f45c000f2d19804aeea470b6e71096039c841d38087a9cd"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1108836711,
+   "to": 1113067962,
+   "delta": 4231251
+  },
+  "arm64": {
+   "from": 1060279742,
+   "to": 1064318211,
+   "delta": 4038469
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dirmngr",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/dirmngr@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gnupg-l10n",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg-l10n@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg-agent",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg-agent@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgconf",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgconf@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgsm",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgsm@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "intel-media-va-driver-non-free",
+      "from": "26.2.4+ds1-1",
+      "to": "26.3.5+ds1-1",
+      "purl": "pkg:deb/kali/intel-media-va-driver-non-free@26.3.5%2Bds1-1?arch=amd64&distro=kali-2026.3&upstream=intel-media-driver-non-free"
+     },
+     {
+      "name": "libigdgmm12",
+      "from": "22.10.1+ds1-1",
+      "to": "22.10.2+ds1-1",
+      "purl": "pkg:deb/kali/libigdgmm12@22.10.2%2Bds1-1?arch=amd64&distro=kali-2026.3&upstream=intel-gmmlib"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dirmngr",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/dirmngr@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gnupg-l10n",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg-l10n@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg-agent",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg-agent@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgconf",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgconf@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgsm",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgsm@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 16,
+  "downgraded": 0
+ }
+}

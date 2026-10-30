@@ -1,0 +1,70 @@
+{
+ "image": "webtop",
+ "branch": "debian-mate",
+ "tag": "debian-mate-fb82d09c-ls3",
+ "previous_tag": "debian-mate-a1462162-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "a1462162",
+  "to": "fb82d09c",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:9ad1e42368b8cf23437d79b8bd037e59e500d6fc52dc1b374b76dd9181245807"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:6550465ab596cdca4845b180f7291000b5c8e9abffff8a368449cce9c2fb7ce0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1449834869,
+   "to": 1449840430,
+   "delta": 5561
+  },
+  "arm64": {
+   "from": 1408909957,
+   "to": 1408923782,
+   "delta": 13825
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

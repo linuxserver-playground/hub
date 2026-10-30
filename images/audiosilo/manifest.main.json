@@ -1,0 +1,88 @@
+{
+ "schema": 1,
+ "name": "audiosilo",
+ "summary": "[AudioSilo](https://audiosilo.app) is a self-hosted audiobook server. Point it at your audiobook folders and listen from the built-in web player or the AudioSilo apps for iOS and Android, with listening progress synced across devices.",
+ "upstream": {
+  "url": "https://audiosilo.app",
+  "version": {
+   "type": "github_release",
+   "repo": "KodeStar/audiosilo-server"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "KodeStar/audiosilo-server"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "AUDIOSILO_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8080,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8080",
+    "description": "Web player, admin console and the API the apps connect to."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/audiosilo/config",
+    "description": "Persistent config files, database, backups and TLS certificates."
+   },
+   {
+    "path": "/audiobooks:ro",
+    "host_path": "/path/to/audiobooks",
+    "description": "Audiobooks location, read-only (the server never writes to your books). Add it as a library in the admin console.",
+    "name": "Audiobooks"
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Audiobooks",
+   "Media Servers"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/audiosilo-logo.png",
+  "setup": "On first start AudioSilo creates an admin account and prints its password, plus an auth code for pairing devices, to the container log **once**, so check the log straight away (`docker logs audiosilo`).\n\nThe server listens on HTTPS with a self-signed certificate by default. Open `https://<your-ip>:8080/admin`, accept the certificate warning, sign in as `admin`, and add `/audiobooks` as a library. The web player is at `/web`. To connect a phone, enter the auth code on the page at `/`; it then shows the QR code the AudioSilo app scans.\n\nSettings live in the admin console under **Server > Settings**, saved to `/config/config.yaml`. To run behind a reverse proxy such as SWAG, either proxy to the HTTPS port as is, or set **HTTPS mode** to **Off** (then restart the container) and let the proxy terminate TLS. Either way, set **Public address** to the proxied URL so invite links and pairing QR codes point there, and add the proxy's address to **Trusted proxies** so rate limiting sees your visitors' real addresses.\n\nAny `AUDIOSILO_*` environment variable overrides its setting and shows as locked in the admin console. See the [configuration reference](https://docs.audiosilo.app/developers/server/configuration#environment-variables) for the full list.\n",
+  "notices": {
+   "strict_proxy": true
+  }
+ },
+ "proxy": {
+  "port": 8080,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-10-09",
+   "text": "Initial Release."
+  }
+ ]
+}

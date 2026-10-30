@@ -1,0 +1,208 @@
+{
+ "schema": 1,
+ "name": "kasm",
+ "summary": "[Kasm](https://www.kasmweb.com/?utm_campaign=LinuxServer&utm_source=listing) Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections.\n\nThe rendering of the graphical-based containers is powered by the open-source project [KasmVNC](https://www.kasmweb.com/kasmvnc.html?utm_campaign=LinuxServer&utm_source=kasmvnc).",
+ "upstream": {
+  "url": "https://www.kasmweb.com/?utm_campaign=LinuxServer&utm_source=listing",
+  "version": {
+   "type": "github_release",
+   "repo": "kasmtech/kasm-install-wizard"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "kasmtech/kasm-install-wizard"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "KASM_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "enabled": false,
+  "startup_timeout": 120
+ },
+ "runtime": {
+  "common_env": false,
+  "privileged": true,
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Kasm Installation wizard. (https)"
+   },
+   {
+    "internal": "443",
+    "description": "Kasm Workspaces interface. (https)"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/opt",
+    "host_path": "/path/to/kasm/data",
+    "description": "Docker and installation storage."
+   },
+   {
+    "path": "/profiles",
+    "host_path": "/path/to/kasm/profiles",
+    "description": "Optionally specify a path for persistent profile storage.",
+    "optional": true
+   },
+   {
+    "path": "/dev/input",
+    "host_path": "/dev/input",
+    "description": "Optional for gamepad support.",
+    "optional": true
+   },
+   {
+    "path": "/run/udev/data",
+    "host_path": "/run/udev/data",
+    "description": "Optional for gamepad support.",
+    "optional": true
+   }
+  ],
+  "env": [
+   {
+    "name": "KASM_PORT",
+    "value": "443",
+    "description": "Specify the port you bind to the outside for Kasm Workspaces."
+   },
+   {
+    "name": "DOCKER_HUB_USERNAME",
+    "value": "USER",
+    "description": "Optionally specify a DockerHub Username to pull private images.",
+    "optional": true
+   },
+   {
+    "name": "DOCKER_HUB_PASSWORD",
+    "value": "PASS",
+    "description": "Optionally specify a DockerHub password to pull private images.",
+    "optional": true
+   },
+   {
+    "name": "DOCKER_MTU",
+    "value": "1500",
+    "description": "Optionally specify the mtu options passed to dockerd.",
+    "optional": true
+   }
+  ],
+  "security_opt": [
+   {
+    "run": "apparmor=rootlesskit",
+    "compose": "apparmor:rootlesskit",
+    "description": "Some hosts require this on top of privileged for namespacing to work properly inside the DinD layer.",
+    "optional": true
+   }
+  ],
+  "custom": [
+   {
+    "flag": "stop-timeout",
+    "compose": "stop_grace_period",
+    "value": "90s",
+    "description": "Increase container shutdown delay to give Kasm services time to stop cleanly.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Remote Desktop",
+   "Business"
+  ],
+  "logo": "https://kasm-ci.s3.amazonaws.com/kasm_wide.png",
+  "setup": "This container uses [Docker in Docker](https://www.docker.com/blog/docker-can-now-run-within-docker/) and requires being run in `privileged` mode. This container also requires an initial setup that runs on port 3000.\n\n**Unlike other containers the web interface port (default 443) needs to be set for the env variable `KASM_PORT` and both the inside and outside port IE for 4443 `KASM_PORT=4443` `-p 4443:4443`**\n\n**Unraid users due to the DinD storage layer `/opt/` should be mounted directly to a disk IE `/mnt/disk1/appdata/path` or optimally with a cache disk at `/mnt/cache/appdata/path`**\n\nAccess the installation wizard at https://`your ip`:3000 and follow the instructions there. Once setup is complete access https://`your ip`:443 and login with the credentials you entered during setup. The default users are:\n\n* admin@kasm.local\n* user@kasm.local\n\nCurrently Synology systems are not supported due to them blocking CPU scheduling in their Kernel.\n\n### Upgrading KASM\n\nIn order to upgrade Kasm, first make sure you are using the latest docker image, and then perform the in app update from the installation wizard. Docker image update and recreation of container alone won't upgrade Kasm.\n\nFollowing the upgrade, you will need to update any workspace image tags to match the new version.\n\n### GPU Support\n\nDuring installation an option will be presented to force all Workspace containers to mount in and use a specific GPU. If using an NVIDIA GPU you will need to pass `-e NVIDIA_VISIBLE_DEVICES=all` or `--gpus all` and have the [NVIDIA Container Toolkit](https://github.com/NVIDIA/nvidia-container-toolkit) installed on the host. Also if using NVIDIA, Kasm Workspaces has [native NVIDIA support](https://docs.kasm.com/docs/latest/how-to/gpu/index.html) so you can optionally opt to simply use that instead of the manual override during installation.\n\nWhen NVIDIA devices are passed to this container, a [CDI](https://github.com/cncf-tags/container-device-interface) specification describing them is generated inside the DinD layer on startup and the NVIDIA runtime is made the default one there. This is what allows the driver, and with it Vulkan and OpenGL, to reach the Workspace containers.\n\n### Gamepad support\n\nIn order to properly create virtual Gamepads you will need to mount from your host `/dev/input` and `/run/udev/data`. Please see [HERE](https://docs.kasm.com/docs/latest/guide/gamepad_passthrough/index.html) for instructions on enabling gamepad support.\n\n### Persistant profiles\n\nIn order to use persistant profiles in Workspaces you will need to mount in a folder to use from your host to `/profiles`. From there when configuring a workspace you can set the `Persistant Profile Path` to IE `/profiles/ubuntu-focal/{username}/`, more infomation can be found [HERE](https://docs.kasm.com/docs/latest/guide/persistent_data/persistent_profiles).\n\n### Reverse proxy\n\nA sample for [SWAG](https://github.com/linuxserver/docker-swag) can be found [here](https://raw.githubusercontent.com/linuxserver/reverse-proxy-confs/master/kasm.subdomain.conf.sample). Post installation you will need to modify the \"Proxy Port\" setting under the default zone to 0 as outlined [here](https://docs.kasm.com/docs/latest/how-to/reverse_proxy/index.html#update-zones) to launch Workspaces sessions.\n",
+  "notices": {
+   "strict_proxy": true
+  }
+ },
+ "publish": {
+  "stores": {
+   "unraid": false
+  }
+ },
+ "proxy": {
+  "port": 8443,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-08-07",
+   "text": "Fix NVIDIA passthrough to Workspace containers by generating a CDI specification inside the DinD layer."
+  },
+  {
+   "date": "2026-08-04",
+   "text": "Give kasm_manager a healthcheck start period so a cold start does not leave kasm_proxy created but never started."
+  },
+  {
+   "date": "2026-04-16",
+   "text": "Update for 1.18.1 release. Use rolling service images. Bump docker to v29."
+  },
+  {
+   "date": "2025-11-13",
+   "text": "Pin docker to v28 to avoid API deprecation issues."
+  },
+  {
+   "date": "2025-10-22",
+   "text": "Update for 1.18.0 release."
+  },
+  {
+   "date": "2025-06-08",
+   "text": "Deprecate develop branch."
+  },
+  {
+   "date": "2025-06-03",
+   "text": "Rebase to Ubuntu Noble. Update for 1.17.0 release."
+  },
+  {
+   "date": "2024-11-09",
+   "text": "Update base image for 1.16.1 release."
+  },
+  {
+   "date": "2024-09-24",
+   "text": "Add base users in docker build logic to survive container upgrades."
+  },
+  {
+   "date": "2024-09-17",
+   "text": "Update base image for 1.16.0 release and fix Nvidia support."
+  },
+  {
+   "date": "2024-02-16",
+   "text": "Update base image for 1.15.0 release."
+  },
+  {
+   "date": "2023-08-22",
+   "text": "Update base image for 1.14.0 release."
+  },
+  {
+   "date": "2023-04-07",
+   "text": "Add mod layer for ingesting LSIO images for 1.13.0 release."
+  },
+  {
+   "date": "2023-03-28",
+   "text": "Pin compose to 2.5.0 to be in sync with upstream requirements."
+  },
+  {
+   "date": "2022-11-05",
+   "text": "Rebase to Jammy, add support for GPUs, add support for Gamepads."
+  },
+  {
+   "date": "2022-09-23",
+   "text": "Migrate to s6v3."
+  },
+  {
+   "date": "2022-07-02",
+   "text": "Initial Release."
+  }
+ ]
+}

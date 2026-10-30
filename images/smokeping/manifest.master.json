@@ -1,0 +1,267 @@
+{
+ "schema": 1,
+ "name": "smokeping",
+ "summary": "[Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. For a full example of what this application is capable of visit [UCDavis](http://smokeping.ucdavis.edu/cgi-bin/smokeping.fcgi).",
+ "upstream": {
+  "url": "https://oss.oetiker.ch/smokeping/",
+  "version": {
+   "type": "alpine_apk",
+   "repo_url": "http://dl-cdn.alpinelinux.org/alpine/v3.22/main/",
+   "package": "smokeping"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "SMOKEPING_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 80,
+   "path": "/smokeping/smokeping.cgi"
+  }
+ },
+ "runtime": {
+  "hostname": {
+   "value": "smokeping",
+   "description": "In a master-slave architecture, the hostname of the master node is displayed as its name in the web interface, while the hostname of the slave nodes represents their device aliases. These slave hostnames must match the aliases defined in the master's Slaves file.",
+   "optional": true
+  },
+  "ports": [
+   {
+    "internal": "80",
+    "description": "Allows HTTP access to the internal webserver."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/smokeping/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/data",
+    "host_path": "/path/to/smokeping/data",
+    "description": "Storage location for db and application data (graphs etc)"
+   }
+  ],
+  "env": [
+   {
+    "name": "MASTER_URL",
+    "value": "http://<master-host-ip>:80/smokeping/",
+    "description": "Specify the master url to connect to. Used when in slave mode.",
+    "optional": true
+   },
+   {
+    "name": "SHARED_SECRET",
+    "value": "password",
+    "description": "Specify the master shared secret for this host. Used when in slave mode.",
+    "optional": true
+   },
+   {
+    "name": "CACHE_DIR",
+    "value": "/tmp",
+    "description": "Specify the cache directory for this host. Used when in slave mode.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Monitoring"
+  ],
+  "logo": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/smokeping-logo.png",
+  "setup": "* Once running, the URL will be `http://<host-ip>/smokeping/smokeping.cgi`. For example, a full URL might look like `https://smokeping.yourdomain.com/smokeping/smokeping.cgi`.\n* Basic setup: edit the `Targets` file to ping the hosts you're interested in to match the format found there.\n* Wait 10 minutes.\n* To reload the configuration without restarting the container, run `docker exec smokeping pkill -f -HUP '/usr/bin/perl /usr/s?bin/smokeping(_cgi)?'`, where `smokeping` is the container ID.\n* To restart the container, run `docker restart smokeping`, where `smokeping` is the container ID.\n* Note that the default `Targets` file includes items that may or may not work. These are simply to provide examples of configuration.\n* Slave setup: modify the `Targets`, `Slaves`, and `smokeping_secrets` files on the master host, per [the documentation](https://manpages.ubuntu.com/manpages/trusty/en/man7/smokeping_master_slave.7.html).\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true,
+   "base_url_note": "Smokeping serves /smokeping by default; nothing to change"
+  }
+ },
+ "changelog": [
+  {
+   "date": "2025-12-17",
+   "text": "Replace busybox traceroute with APK version."
+  },
+  {
+   "date": "2025-09-26",
+   "text": "Add IO::Socket::INET6 perl module to improve IPv6 abilities."
+  },
+  {
+   "date": "2025-06-05",
+   "text": "Update TCPPing to 2.7 to fix traceroute incompatibility."
+  },
+  {
+   "date": "2025-06-03",
+   "text": "Rebase to Alpine 3.22. Update TCPPing. Add curl probe."
+  },
+  {
+   "date": "2024-07-27",
+   "text": "Add additional dependency packages for InfluxDB."
+  },
+  {
+   "date": "2024-06-25",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-04-12",
+   "text": "Added perl InfluxDB HTTP module for InfluxDB HTTP support."
+  },
+  {
+   "date": "2024-03-22",
+   "text": "Adding ability to run as a slave."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-11-29",
+   "text": "Bump tcpping to 1.8."
+  },
+  {
+   "date": "2023-11-21",
+   "text": "Add support for IRTT Probes."
+  },
+  {
+   "date": "2023-07-23",
+   "text": "Add Authen::TacacsPlus for Tacacs+ support."
+  },
+  {
+   "date": "2023-05-16",
+   "text": "Add perl-authen-radius for Radius support."
+  },
+  {
+   "date": "2023-05-16",
+   "text": "Rebase to Alpine 3.18. Deprecate armhf."
+  },
+  {
+   "date": "2023-05-11",
+   "text": "Add perl-lwp-protocol-https for master/slave support over https."
+  },
+  {
+   "date": "2023-01-22",
+   "text": "Revert to using Apache due to latency issues with nginx and fcgiwrap."
+  },
+  {
+   "date": "2022-12-12",
+   "text": "Rebase to Alpine 3.17, migrate to s6v3, switch to nginx and fcgiwrap."
+  },
+  {
+   "date": "2021-03-29",
+   "text": "Dockerfile: Install curl before we call it"
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2018-11-14",
+   "text": "Allow access without /smokeping in URL."
+  },
+  {
+   "date": "2018-04-28",
+   "text": "Rebase to alpine 3.8."
+  },
+  {
+   "date": "2018-04-09",
+   "text": "Add bc package."
+  },
+  {
+   "date": "2018-04-08",
+   "text": "Add tccping script and tcptraceroute package (thanks rcarmo)."
+  },
+  {
+   "date": "2017-12-13",
+   "text": "Expose httpd_conf to /config."
+  },
+  {
+   "date": "2017-12-13",
+   "text": "Rebase to alpine 3.7."
+  },
+  {
+   "date": "2017-07-24",
+   "text": "Add :unraid tag for hosts without ipv6."
+  },
+  {
+   "date": "2017-07-12",
+   "text": "Add inspect commands to README, move to jenkins build and push."
+  },
+  {
+   "date": "2017-05-28",
+   "text": "Rebase to alpine 3.6."
+  },
+  {
+   "date": "2017-05-07",
+   "text": "Expose smokeping.conf in /config/site-confs to allow user customisations"
+  },
+  {
+   "date": "2017-04-12",
+   "text": "Fix cropper.js path, thanks nibbledeez."
+  },
+  {
+   "date": "2017-02-09",
+   "text": "Rebase to alpine 3.5."
+  },
+  {
+   "date": "2016-10-17",
+   "text": "Add ttf-dejavu package as per [LT forum](http://lime-technology.com/forum/index.php?topic=43602.msg507875#msg507875)."
+  },
+  {
+   "date": "2016-09-10",
+   "text": "Add layer badges to README."
+  },
+  {
+   "date": "2016-09-05",
+   "text": "Add curl package."
+  },
+  {
+   "date": "2016-08-28",
+   "text": "Add badges to README."
+  },
+  {
+   "date": "2016-07-25",
+   "text": "Rebase to alpine linux."
+  },
+  {
+   "date": "2016-07-23",
+   "text": "Fix apt script confusion."
+  },
+  {
+   "date": "2015-06-29",
+   "text": "This is the first release, it is mostly stable, but may contain minor defects. (thus a beta tag)"
+  }
+ ]
+}

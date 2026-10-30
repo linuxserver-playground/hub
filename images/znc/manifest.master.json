@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "name": "znc",
+ "summary": "[Znc](http://wiki.znc.in/ZNC) is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
+ "upstream": {
+  "url": "http://wiki.znc.in/ZNC",
+  "version": {
+   "type": "json",
+   "url": "https://api.github.com/repos/znc/znc/tags",
+   "jq": "first(.[] | select(.name | contains(\"-rc\") | not)) | .name"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "ZNC_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 30,
+  "web": {
+   "port": 6501
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "6501",
+    "description": "Port ZNC listens on."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/znc/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "readonly": {
+   "supported": true,
+   "notes": "* Not supported when running with SSL (Further debuging into why is appreciated)\n"
+  }
+ },
+ "docs": {
+  "categories": [
+   "IRC"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/znc-logo.png",
+  "setup": "To log in to the application, browse to `http://<hostip>:6501`.\n\n* Default User: admin\n* Default Password: admin\n`change password ASAP.`\n"
+ },
+ "proxy": {
+  "port": 6501,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true
+  }
+ },
+ "changelog": [
+  {
+   "date": "2025-07-27",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-06-10",
+   "text": "Migrate default config file to newer format."
+  },
+  {
+   "date": "2024-06-06",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-26",
+   "text": "Switch back to multi-threaded builds and ignore `-beta` and `-alpha` tags as well as `-rc`."
+  },
+  {
+   "date": "2024-02-22",
+   "text": "Update build system for v1.9.0 (use cmake)."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-07-12",
+   "text": "Rebasing to Alpine 3.18."
+  },
+  {
+   "date": "2023-07-07",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-02-13",
+   "text": "Rebase to Alpine 3.17, migrate to s6v3."
+  },
+  {
+   "date": "2022-01-19",
+   "text": "Rebasing to alpine 3.15."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-11-02",
+   "text": "Add znc-palaver module."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2019-01-31",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2019-01-30",
+   "text": "Add push and clientbuffer modules."
+  },
+  {
+   "date": "2018-08-17",
+   "text": "Rebase to alpine 3.8, use buildstage."
+  },
+  {
+   "date": "2018-01-03",
+   "text": "Deprecate cpu_core routine lack of scaling."
+  },
+  {
+   "date": "2017-12-07",
+   "text": "Rebase alpine linux 3.7."
+  },
+  {
+   "date": "2017-10-25",
+   "text": "Remove debug switch from run command."
+  },
+  {
+   "date": "2017-05-26",
+   "text": "Rebase alpine linux 3.6."
+  },
+  {
+   "date": "2017-02-06",
+   "text": "Rebase alpine linux 3.5."
+  },
+  {
+   "date": "2017-01-19",
+   "text": "Add playback module."
+  },
+  {
+   "date": "2017-01-07",
+   "text": "Add ca-certificates package, resolve sasl issues."
+  },
+  {
+   "date": "2016-12-07",
+   "text": "Use scanelf to determine runtime dependencies. Fix error with continuation."
+  },
+  {
+   "date": "2016-10-14",
+   "text": "Add version layer information."
+  },
+  {
+   "date": "2016-09-30",
+   "text": "Fix umask."
+  },
+  {
+   "date": "2016-09-11",
+   "text": "Add layer badges to README."
+  },
+  {
+   "date": "2016-08-28",
+   "text": "Add badges to README."
+  },
+  {
+   "date": "2016-08-20",
+   "text": "Rebase to alpine linux, move to main repository."
+  },
+  {
+   "date": "2015-12-11",
+   "text": "Initial Release."
+  }
+ ]
+}

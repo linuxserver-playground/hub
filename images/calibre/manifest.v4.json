@@ -1,0 +1,47 @@
+{
+ "schema": 1,
+ "name": "calibre",
+ "summary": "calibre container image.",
+ "upstream": {
+  "version": {
+   "type": "static",
+   "version": "4.23.0"
+  }
+ },
+ "release": {
+  "branch": "v4",
+  "tag": "v4",
+  "channel": "prerelease"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "CALIBRE_RELEASE",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8181,
+   "scheme": "https"
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Books"
+  ],
+  "custom_readme": "Up to date documentation is available [here](https://github.com/linuxserver/docker-calibre/blob/master/README.md).\n"
+ },
+ "proxy": {
+  "port": 8080,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  },
+  "api_locations": [
+   "/content-server"
+  ]
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "schema": 1,
+ "name": "mstream",
+ "summary": "[mstream](https://mstream.io/) is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere.  There are mobile apps available for both Android and iPhone.",
+ "upstream": {
+  "url": "https://mstream.io/",
+  "version": {
+   "type": "github_release",
+   "repo": "IrosTheBeggar/mStream",
+   "exclude": "DESKTOP"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "IrosTheBeggar/mStream",
+   "tag": "${VERSION}"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "MSTREAM_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3000
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "The port for the mStream web interface"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/mstream/data",
+    "description": "mStream config"
+   },
+   {
+    "path": "/music",
+    "host_path": "/path/to/music",
+    "description": "Music location"
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Media Servers",
+   "Music"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mstream-icon.png",
+  "setup": "Access the webui at `http://<your-ip>:3000`\n\nSettings are adjusted through the web ui or via editing of `config.json`. For more information check out [Mstream](https://github.com/IrosTheBeggar/mStream/blob/master/docs/json_config.md#json-config).\n\n## IMPORTANT NOTICE:\nmStream v5 no longer accepts cli arguments for setting the user and password and requires the use of `config.json`. Therefore, the environment variables `USER`, `PASSWORD` and `USE_JSON` are deprecated.\n\nv4's `config.json` is not compatible with v5. Existing `config.json` will be renamed to `config.json.v4-bak` for your reference and a new default `config.json` will be created upon upgrade from v4 to v5.\n"
+ },
+ "proxy": {
+  "port": 3000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-08-31",
+   "text": "Bake the p2p discovery sidecar into the image at build time (manifest-pinned, sha256-verified) so discovery works without runtime egress to GitHub."
+  },
+  {
+   "date": "2026-07-08",
+   "text": "Rebase to Alpine 3.24. Use the distro onnxruntime so the discovery/recommendation features work on musl."
+  },
+  {
+   "date": "2026-04-24",
+   "text": "Make waveform data persistent."
+  },
+  {
+   "date": "2026-04-20",
+   "text": "Fix perms on rust binaries."
+  },
+  {
+   "date": "2026-04-07",
+   "text": "Add ffmpeg and yt-dlp."
+  },
+  {
+   "date": "2026-04-06",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2024-06-27",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-12",
+   "text": "Rebase to Alpine 3.19, move binaries to /app."
+  },
+  {
+   "date": "2023-07-05",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-02-13",
+   "text": "Rebase to Alpine 3.17, migrate to s6v3."
+  },
+  {
+   "date": "2022-04-05",
+   "text": "Move `sync` folder to `/config`."
+  },
+  {
+   "date": "2022-04-02",
+   "text": "Rebase to alpine 3.15. Fix ffmpeg download."
+  },
+  {
+   "date": "2021-05-17",
+   "text": "Deprecating the env vars `USER`, `PASSWORD` and `USE_JSON` as mStream v5 requires the use of `config.json`."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-05-18",
+   "text": "Inital Release"
+  }
+ ]
+}

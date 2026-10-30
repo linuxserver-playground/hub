@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "name": "limnoria",
+ "summary": "[Limnoria](https://github.com/ProgVal/limnoria) A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins. Successor of the well-known Supybot.",
+ "upstream": {
+  "url": "https://github.com/ProgVal/limnoria",
+  "version": {
+   "type": "pip",
+   "package": "limnoria"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "LIMNORIA_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8080",
+    "description": "Port for Limnoria's web interface."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/limnoria/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "readonly": {
+   "supported": false
+  },
+  "nonroot": {
+   "supported": false
+  }
+ },
+ "docs": {
+  "categories": [
+   "IRC"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/limnoria-icon.png",
+  "setup": "### New Configuration\n\nIf you do not have an existing config you will need to start the container and then run the following wizard command:\n\n`docker exec -it -w /config -u abc limnoria limnoria-wizard`\n\n### Existing Configuration\n\nIf you have an existing config, adjust the directory settings in your conf file as follows:\n\n```conf\nsupybot.directories.backup: /config/backup\nsupybot.directories.conf: /config/conf\nsupybot.directories.data: /config/data\nsupybot.directories.data.tmp: /config/data/tmp\nsupybot.directories.data.web: /config/web\nsupybot.directories.log: /config/logs\nsupybot.directories.plugins: /config/plugins\n```\n\nNOTE: These are not grouped together in the file. You will need to search your conf file for the variables.\n\nThen place your conf file and any of your existing directories in /config and start up the container.\n\n### Plugin Requirements\n\nThe container will pip install any requirements.txt it finds in the /config/plugins folder on startup.\n\nIf you install a plugin using the PluginDownloader that includes a requirements.txt you can\nexecute a shell into the container and then use `pip install /config/plugins/ThePlugin/requirements.txt`\nor restart the container and the requirements will be installed.\n"
+ },
+ "changelog": [
+  {
+   "date": "2025-02-01",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-06-27",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2022-12-22",
+   "text": "Rebase to alpine 3.17."
+  },
+  {
+   "date": "2022-09-19",
+   "text": "Rebase to alpine 3.15."
+  },
+  {
+   "date": "2021-05-25",
+   "text": "Install plugin requirements on container init."
+  },
+  {
+   "date": "2021-05-17",
+   "text": "Add linuxserver wheel index."
+  },
+  {
+   "date": "2021-02-13",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2020-01-13",
+   "text": "Initial Release."
+  }
+ ]
+}

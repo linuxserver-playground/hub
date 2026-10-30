@@ -1,0 +1,198 @@
+{
+ "schema": 1,
+ "name": "webgrabplus",
+ "summary": "[Webgrabplus](https://www.webgrabplus.com) is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.",
+ "upstream": {
+  "url": "https://www.webgrabplus.com",
+  "version": {
+   "type": "regex",
+   "url": "https://webgrabplus.com/download/sw",
+   "pattern": "/download/sw/v([^\"]+)\">V"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "WEBGRAB_VER",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120
+ },
+ "runtime": {
+  "hostname": {
+   "value": "webgrabplus",
+   "description": "Set the hostname for the container for the license check."
+  },
+  "mac_address": {
+   "value": "00:00:00:00:00:00",
+   "description": "Set the mac_address for the container for the license check."
+  },
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/webgrabplus/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/data",
+    "host_path": "/path/to/data",
+    "description": "Where webgrabplus should store it's data files."
+   }
+  ],
+  "readonly": {
+   "supported": false
+  },
+  "nonroot": {
+   "supported": false
+  }
+ },
+ "docs": {
+  "categories": [
+   "Media Tools"
+  ],
+  "logo": "https://www.webgrabplus.com/sites/default/themes/WgTheme/images/slideshows/EPG_fading.jpg",
+  "setup": "To configure WebGrab+Plus follow the [documentation](https://www.webgrabplus.com/documentation/configuration/)\n\n**Please note that depending on your host this container may not work with the `no-new-privileges=true` security-opt.**\n\nNote that there are some things in the guide that does not apply to this container. Below you can find the changes.\n\n**The configuration files are found where your config volume is mounted.**\n**Do not change the filename tag in the configuration file!**\n\nThe /data volume mapping is where WebGrab+Plus outputs the xml file. To use the xml file in another program, you have to point it to the host path you mapped the /data volume to.\n\nTo adjust the scheduled cron job, you can apply our [universal cron mod](https://github.com/linuxserver/docker-mods/tree/universal-cron).\n"
+ },
+ "changelog": [
+  {
+   "date": "2025-09-14",
+   "text": "Rebase to Alpine 3.22, upgrade dotnet to 9.0."
+  },
+  {
+   "date": "2024-06-25",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-06-25",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-04-23",
+   "text": "Bump dotnet framework to 8.x."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-08-18",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-08-16",
+   "text": "Update dotnet framework to 7.x."
+  },
+  {
+   "date": "2023-07-06",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-03-13",
+   "text": "Rebase to Alpine 3.17."
+  },
+  {
+   "date": "2022-10-02",
+   "text": "Rebase to Alpine 3.16 and s6v3. Update to dotnet 6."
+  },
+  {
+   "date": "2022-04-29",
+   "text": "Add `hostname` and `mac_address` arguments that are needed for the license check to compose and cli samples."
+  },
+  {
+   "date": "2022-03-23",
+   "text": "Rebase to Alpine 3.15."
+  },
+  {
+   "date": "2022-03-23",
+   "text": "Update to use dotnet instead of mono."
+  },
+  {
+   "date": "2022-01-06",
+   "text": "Rebase to Ubuntu focal. Enable auto builds on version updates (beta and stable)."
+  },
+  {
+   "date": "2021-12-17",
+   "text": "Update to version 3.2.2 beta."
+  },
+  {
+   "date": "2021-08-05",
+   "text": "Update to version 3.2.1 beta."
+  },
+  {
+   "date": "2021-06-05",
+   "text": "Added mono-devel dependency."
+  },
+  {
+   "date": "2021-06-04",
+   "text": "Update to version 3.1.8 beta."
+  },
+  {
+   "date": "2021-03-22",
+   "text": "Update to version 3.1.7 beta."
+  },
+  {
+   "date": "2021-03-07",
+   "text": "Update to version 3.1.6 beta."
+  },
+  {
+   "date": "2021-01-29",
+   "text": "Update external version number to show as 3.1.5."
+  },
+  {
+   "date": "2021-01-24",
+   "text": "Update to version 3.1.5 beta."
+  },
+  {
+   "date": "2020-12-22",
+   "text": "Update to version 3.1.4 beta."
+  },
+  {
+   "date": "2020-10-12",
+   "text": "Fix version number in jenkinsfile."
+  },
+  {
+   "date": "2020-10-12",
+   "text": "Update to version 3.1.1 beta."
+  },
+  {
+   "date": "2020-06-22",
+   "text": "Add mono webrequest library."
+  },
+  {
+   "date": "2020-06-18",
+   "text": "Update to v3.1.0."
+  },
+  {
+   "date": "2020-03-29",
+   "text": "Update to v3.0.0. Changed to use wg3-cron file."
+  },
+  {
+   "date": "2019-05-28",
+   "text": "Update to v2.1.0 and beta v2.1.9, rebase to bionic."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-03-21",
+   "text": "Update to beta 2.1.7."
+  },
+  {
+   "date": "2019-02-19",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-01-18",
+   "text": "Initial Release."
+  }
+ ]
+}

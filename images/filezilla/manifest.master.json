@@ -1,0 +1,149 @@
+{
+ "schema": 1,
+ "name": "filezilla",
+ "summary": "[FIleZilla](https://filezilla-project.org/) Client is a fast and reliable cross-platform FTP, FTPS and SFTP client with lots of useful features and an intuitive graphical user interface.",
+ "upstream": {
+  "url": "https://filezilla-project.org/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "https://archive.ubuntu.com/ubuntu/dists/resolute/universe/binary-amd64/Packages.gz",
+   "package": "filezilla"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "FILEZILLA_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "FileZilla desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "FileZilla desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "FTP"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/filezilla-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-05-20",
+   "text": "Rebase to Ubuntu Resolute."
+  },
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic, rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-07-26",
+   "text": "Rebase to Selkies and Alpine 3.22, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-12-06",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-23",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2024-01-02",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-07-03",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-05-13",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-03-18",
+   "text": "Rebase to KasmVNC base image."
+  },
+  {
+   "date": "2022-10-21",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2021-12-23",
+   "text": "Rebase to Alpine 3.15."
+  },
+  {
+   "date": "2021-09-26",
+   "text": "Rebase to Alpine 3.14."
+  },
+  {
+   "date": "2021-04-18",
+   "text": "Initial release."
+  }
+ ]
+}

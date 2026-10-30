@@ -1,0 +1,122 @@
+{
+ "schema": 1,
+ "name": "pairdrop",
+ "summary": "[PairDrop](https://github.com/schlagmichdoch/PairDrop) is a sublime alternative to AirDrop that works on all platforms. Send images, documents or text via peer to peer connection to devices in the same local network/Wi-Fi or to paired devices.",
+ "upstream": {
+  "url": "https://github.com/schlagmichdoch/PairDrop",
+  "version": {
+   "type": "json",
+   "url": "https://api.github.com/repos/schlagmichdoch/pairdrop/tags",
+   "jq": ".[0].name"
+  },
+  "sponsor": [
+   {
+    "name": "PairDrop",
+    "url": "https://www.buymeacoffee.com/pairdrop"
+   }
+  ]
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "PAIRDROP_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 60,
+  "web": {
+   "port": 3000
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "http gui"
+   }
+  ],
+  "env": [
+   {
+    "name": "RATE_LIMIT",
+    "value": "false",
+    "description": "Set to `true` to limit clients to 100 requests per 5 min",
+    "optional": true
+   },
+   {
+    "name": "WS_FALLBACK",
+    "value": "false",
+    "description": "Set to `true` to enable websocket fallback if the peer to peer WebRTC connection is not available to the client (see App Setup notes).",
+    "optional": true
+   },
+   {
+    "name": "RTC_CONFIG",
+    "value": "",
+    "description": "Path to a json file containing custom STUN/TURN config (see App Setup notes)",
+    "optional": true
+   },
+   {
+    "name": "DEBUG_MODE",
+    "value": "false",
+    "description": "Set to `true` to debug the http server configuration by logging clients IP addresses used by PairDrop to STDOUT. [See here for more info](https://github.com/schlagmichdoch/PairDrop/blob/master/docs/host-your-own.md#debug-mode). Do not use in production!",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "File Sharing"
+  ],
+  "logo": "https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png",
+  "setup": "Web UI is accessible at http://SERVERIP:PORT. It is strongly recommended to run PairDrop via a reverse proxy, served over HTTPS, if you are making it publicly available. In this configuration you must ensure that the `X-Forwarded-For` header is being set correctly, otherwise all clients will be mutually visible.\n\nMost proxies will set this header automatically but may require additional configuration if you are using something like Cloudflare Proxy.\n\n### Custom STUN/TURN Servers\n\nTo specify custom STUN/TURN servers for PairDrop clients to use, create a JSON config file in a mounted path and use the RTC_CONFIG environment variable to point to it.\n\nYou can use https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/rtc_config_example.json as a starting point.\n\n### Note on Websocket fallback\n\nEnabling WS_FALLBACK provides a fallback if the peer to peer WebRTC connection is not available to the client.\n\nThis is especially useful if you connect to your instance via a VPN as most VPN services block WebRTC completely in order to hide your real IP address.\n\n*Warning*: All traffic sent between devices using this fallback is routed through the server and therefore not peer to peer! Traffic routed via this fallback is readable by the server and uses the server's bandwidth.\n"
+ },
+ "proxy": {
+  "port": 3000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2025-07-05",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-12-21",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-31",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-01-31",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-05-30",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-03-06",
+   "text": "Run npm install as non-root user."
+  },
+  {
+   "date": "2023-02-20",
+   "text": "Initial Release."
+  }
+ ]
+}

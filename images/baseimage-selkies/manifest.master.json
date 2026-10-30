@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "name": "baseimage-selkies",
+ "kind": "base",
+ "summary": "baseimage-selkies container image.",
+ "upstream": {
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "debiantrixie",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "debiantrixie",
+    "description": "Debian 13 Trixie desktop base."
+   },
+   {
+    "tag": "alpine324",
+    "description": "Alpine 3.24 desktop base."
+   },
+   {
+    "tag": "arch",
+    "description": "Arch Linux desktop base."
+   },
+   {
+    "tag": "fedora44",
+    "description": "Fedora 44 desktop base."
+   },
+   {
+    "tag": "kali",
+    "description": "Kali Linux desktop base."
+   },
+   {
+    "tag": "ubunturesolute",
+    "description": "Ubuntu 26.04 Resolute desktop base."
+   },
+   {
+    "tag": "dev",
+    "description": "Development builds for testing upcoming changes. Unstable."
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "SELKIES_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ],
+  "first_party": false
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Uncategorized"
+  ],
+  "custom_readme": "# Selkies Base Images from LinuxServer\n\nThe purpose of these images is to provide a full featured web native Linux desktop experience for any Linux application or desktop environment. These images replace our old base images at [KasmVNC](https://github.com/linuxserver/docker-baseimage-kasmvnc) for greatly increased performance, fidelity, and feature set. They ship with passwordless sudo to allow easy package installation, testing, and customization. By default they have no logic to mount out anything but the users home directory, meaning on image updates anything outside of `/config` will be lost.\n\n- Support for using our base images in your own projects is provided on a Reasonable Endeavours basis, please see our [Support Policy](https://www.linuxserver.io/supportpolicy) for details.\n- There is no `latest` tag for any of our base images, by design. We often make breaking changes between versions, and we don't publish release notes like we do for the downstream images.\n- If you're intending to distribute an image using one of our bases, please read our [docs on container branding](https://docs.linuxserver.io/general/container-branding/) first.\n\nFull documentation for the Selkies platform lives at [docs.linuxserver.io/selkies](https://docs.linuxserver.io/selkies/).\n\nThese images bundle [Selkies](https://github.com/selkies-project/selkies) (the streaming server and web client), [pixelflux](https://github.com/linuxserver/pixelflux/) (video capture, encoding and the Wayland compositor), [pcmflux](https://github.com/linuxserver/pcmflux) (Opus audio), [NGINX](https://www.nginx.com/), [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/), [Docker](https://www.docker.com/) and [labwc](https://labwc.github.io/). Each piece is described in the [Components](https://docs.linuxserver.io/selkies/components/) section of the docs.\n\n# Quick start\n\n```\ndocker run --rm -it \\\n  --shm-size=1gb \\\n  -p 3001:3001 \\\n  -e PIXELFLUX_WAYLAND=true \\\n  ghcr.io/linuxserver/baseimage-selkies:debiantrixie bash\n```\n\nOpen https://localhost:3001 and accept the self signed certificate. The [Quickstart](https://docs.linuxserver.io/selkies/user-guide/quickstart/) explains the flags and the minimal command debugging philosophy, and [Installation](https://docs.linuxserver.io/selkies/user-guide/installation/) covers compose, volumes, PUID/PGID and the rest of the LinuxServer.io conventions.\n\n# Configuration\n\nEvery facet of the container is configured with environment variables. The baseimage variables (ports, basic auth, subfolder, Wayland mode, GPU nodes, dashboard selection, and so on) and the complete list of Selkies application settings are documented in the [Configuration Reference](https://docs.linuxserver.io/selkies/user-guide/configuration/). Other topics that used to live in this README:\n\n* [GPU Acceleration](https://docs.linuxserver.io/selkies/user-guide/gpu/) - Intel, AMD and Nvidia passthrough, zero copy encoding, multi GPU and the Nvidia host requirements.\n* [Security and Hardening](https://docs.linuxserver.io/selkies/user-guide/security/) - authentication, the hardening variables for kiosk style deployments, locking client settings and the token control plane.\n* [Reverse Proxy](https://docs.linuxserver.io/selkies/user-guide/reverse-proxy/) - SWAG, Nginx, Traefik and subfolder setups.\n* [Using the Web Client](https://docs.linuxserver.io/selkies/user-guide/web-client/) - the sidebar, clipboard, file transfer, gamepads, webcam and session sharing.\n* [WebRTC Transport](https://docs.linuxserver.io/selkies/user-guide/webrtc/) - the opt in UDP transport and the STUN/TURN setup it needs.\n* [Pelorus](https://docs.linuxserver.io/selkies/components/pelorus/) and [Pixelflux](https://docs.linuxserver.io/selkies/components/pixelflux/) - the agentic web interface, the Computer Use API and session recording.\n* [Troubleshooting](https://docs.linuxserver.io/selkies/user-guide/troubleshooting/) - the checklist to run before opening an issue.\n\n**Authentication for these containers is included as a convenience. In general this authentication mechanism should be used to keep the kids out not the internet. If you are looking for a robust secure application gateway please check out [SWAG](https://github.com/linuxserver/docker-swag).**\n\n# Available Distros\n\nAll base images are built for x86_64 and aarch64 platforms.\n\n| Distro | Current Tag |\n| :----: | --- |\n| Alpine | alpine324 |\n| Arch | arch |\n| Debian | debiantrixie |\n| Fedora | fedora44 |\n| Kali | kali |\n| Ubuntu | ubunturesolute |\n\n**A `dev` tag is also available based on the latest Ubuntu and the head Selkies codebase for integration testing.**\n\n# Installing applications\n\n* All images include [proot-apps](https://github.com/linuxserver/proot-apps), which install portable applications into the user's `$HOME` so they survive image updates and can be mounted into any other flavor of Selkies container. See [Installing Applications](https://docs.linuxserver.io/selkies/user-guide/installing-apps/).\n* The glibc based images carry a built in Steam installer, run `steam` inside the container without any permissions. See the [Steam section](https://docs.linuxserver.io/selkies/user-guide/installing-apps/#steam-built-in-reinstalls-itself) for the limits and how to disable it.\n* Selkies baseimages are compatible with [SealSkin](https://sealskin.app), a self hosted platform that launches isolated application containers on demand with browser extensions and mobile apps. See the [SealSkin docs](https://docs.linuxserver.io/selkies/components/sealskin/).\n\n# Building images\n\nIncluded in these base images is [labwc](https://labwc.github.io/) (or [Openbox](http://openbox.org/) in X11 fallback mode) and the init logic needed to launch a single application. The bare minimum needed to create an application container is a Dockerfile:\n\n```\nFROM ghcr.io/linuxserver/baseimage-selkies:debiantrixie\nRUN apt-get update && apt-get install -y --no-install-recommends firefox-esr\nCOPY /root /\n```\n\nand a `root/defaults/autostart_wayland` file containing the command to run, in this case `firefox-esr`. Build it, run it with the quick start command above and Firefox is streaming in the browser.\n\nRight click menus, full desktop environments via `startwm.sh`, hardening and kiosk builds, testing and multi arch CI are all covered in [Building Custom Images](https://docs.linuxserver.io/selkies/developer-guide/building-images/), with [Baseimage Internals](https://docs.linuxserver.io/selkies/developer-guide/baseimage-internals/) describing the init chain, services and nginx layout, and [Customizing Containers](https://docs.linuxserver.io/selkies/developer-guide/customization/) covering the runtime hooks available without rebuilding. Examples of full desktop images can be found in our [Webtop repository](https://github.com/linuxserver/docker-webtop).\n\n# Docker in Docker (DinD)\n\nThese base images include an installation of Docker. Mount `-v /var/run/docker.sock:/var/run/docker.sock` to manage the host Docker installation from inside the session, or pass `--privileged` to start an isolated in container Docker daemon (set `-e START_DOCKER=false` to keep privilege without the daemon). Details and the performance notes are in the [Docker in Docker](https://docs.linuxserver.io/selkies/user-guide/installation/#docker-in-docker) section of the installation docs.\n\n# Development\n\nThis container and any downstream images can also be used as a rapid development environment for the Selkies Project. Simply clone the upstream repo and run the container as shown:\n\n```\ngit clone https://github.com/selkies-project/selkies.git\ncd selkies\ndocker run --rm -it \\\n  --shm-size=1gb \\\n  -e DEV_MODE=selkies-dashboard \\\n  -e PUID=1000 \\\n  -e PGID=1000 \\\n  -v $(pwd):/config/src \\\n  -p 3001:3001 ghcr.io/linuxserver/webtop:ubuntu-kde bash\n```\n\nThe application will be restarted on code changes to the src directory you mounted in and provide feedback for debugging. The web side runs through Vite with hot module reload and is served at the root path of the container. `DEV_MODE` accepts the name of any dashboard directory under `addons/` in the Selkies repo, `core` to watch and rebuild `selkies-web-core` (the streaming engine itself), or `pixelflux` as shown below.\n\nTo run a pixelflux rapid development environment:\n\n```\ngit clone https://github.com/linuxserver/pixelflux.git\ncd pixelflux\ndocker run --rm -it \\\n  --shm-size=1gb \\\n  -e DEV_MODE=pixelflux \\\n  -e PUID=1000 \\\n  -e PGID=1000 \\\n  -v $(pwd):/config/src \\\n  -p 3001:3001 ghcr.io/linuxserver/webtop:ubuntu-kde bash\n```\n\nThe container builds the mounted source, all Rust build dependencies are present in the image, and runs the session against your working copy so a compositor or encoder change is one container restart away from being on screen. More on the workflow and a map of the repositories involved is in [Development Environment](https://docs.linuxserver.io/selkies/developer-guide/development/).\n\nThe following line is only in this repo for loop testing:\n- { date: \"01.01.50:\", desc: \"I am the release message for this internal repo.\" }\n"
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ }
+}

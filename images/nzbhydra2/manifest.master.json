@@ -1,0 +1,161 @@
+{
+ "schema": 1,
+ "name": "nzbhydra2",
+ "summary": "[Nzbhydra2](https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application [NZBHydra](https://github.com/theotherp/nzbhydra).\n\nIt provides easy access to a number of raw and newznab based indexers.",
+ "upstream": {
+  "url": "https://github.com/theotherp/nzbhydra2",
+  "version": {
+   "type": "github_release",
+   "repo": "theotherp/nzbhydra2"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "theotherp/nzbhydra2"
+  },
+  "sponsor": [
+   {
+    "name": "NZBHydra 2",
+    "url": "https://github.com/theotherp/nzbhydra2#donate"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable releases"
+   },
+   {
+    "tag": "dev",
+    "description": "Prereleases from their GitHub"
+   }
+  ]
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "NZBHYDRA2_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 5076,
+   "path": "/system/about"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "5076",
+    "description": "WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/nzbhydra2/data",
+    "description": "Where nzbhydra2 should store config data."
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/downloads",
+    "description": "NZB download folder.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Indexers"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png",
+  "setup": "The web interface is at `<your ip>:5076` , to set up indexers and connections to your nzb download applications.\n"
+ },
+ "proxy": {
+  "port": 5076,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2024-07-18",
+   "text": "Rebase to Ubuntu Noble. Remove standalone JRE ([#46](https://github.com/linuxserver/docker-nzbhydra2/pull/46))."
+  },
+  {
+   "date": "2023-07-04",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-01-22",
+   "text": "Update release URL for arch-specific packages."
+  },
+  {
+   "date": "2023-01-20",
+   "text": "Update dependencies for v5."
+  },
+  {
+   "date": "2022-12-10",
+   "text": "Bump master JRE to v17. Default mapIpToHost to false."
+  },
+  {
+   "date": "2022-09-11",
+   "text": "Migrate to s6v3."
+  },
+  {
+   "date": "2022-05-03",
+   "text": "Rebase to Jammy."
+  },
+  {
+   "date": "2022-04-18",
+   "text": "Rebase to Alpine 3.15."
+  },
+  {
+   "date": "2020-05-01",
+   "text": "Reorganize container, Relocate app to /app/nzbhydra2/bin, Create /app/nzbhydra2/package_info, Use nzbhydra2wrapperPy3.py from zip."
+  },
+  {
+   "date": "2020-04-14",
+   "text": "Correct Name, Hydra2 -> NZBHydra2."
+  },
+  {
+   "date": "2020-01-08",
+   "text": "Switch to python3."
+  },
+  {
+   "date": "2020-01-05",
+   "text": "Add dev tag for prereleases."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-11",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-08-18",
+   "text": "Bump java version to 10, (bionic currently refers to it as version 11)."
+  },
+  {
+   "date": "2018-08-10",
+   "text": "Rebase to ubuntu bionic."
+  },
+  {
+   "date": "2018-04-15",
+   "text": "Change to port 5076 in the Dockerfile."
+  },
+  {
+   "date": "2018-01-11",
+   "text": "Initial Release."
+  }
+ ]
+}

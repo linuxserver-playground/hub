@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "name": "shadps4",
+ "summary": "[shadPS4](https://shadps4.net/) is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++. ",
+ "upstream": {
+  "url": "https://shadps4.net/",
+  "version": {
+   "type": "github_release",
+   "repo": "shadps4-emu/shadps4-qtlauncher",
+   "prerelease": true
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "shadps4-emu/shadps4-qtlauncher"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "SHADPS4_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "shadPS4 desktop gui HTTP must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "shadPS4 desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores all files and games."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/shadps4-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n**This image should be run with a GPU**\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-02-25",
+   "text": "Initial Version."
+  }
+ ]
+}

@@ -1,0 +1,96 @@
+{
+ "image": "python",
+ "branch": "alpine324",
+ "tag": "alpine324-3.15.2-ls2",
+ "previous_tag": "alpine324-3.15.1-ls1",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "3.15.1",
+  "to": "3.15.2",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 27772826,
+   "to": 27799644,
+   "delta": 26818
+  },
+  "arm64": {
+   "from": 27669665,
+   "to": 27696655,
+   "delta": 26990
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "python",
+      "from": "3.15.1",
+      "to": "3.15.2",
+      "purl": "pkg:generic/python@3.15.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "python",
+      "from": "3.15.1",
+      "to": "3.15.2",
+      "purl": "pkg:generic/python@3.15.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

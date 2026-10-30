@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "name": "python",
+ "kind": "tool",
+ "summary": "python container image.",
+ "upstream": {
+  "version": {
+   "type": "command",
+   "run": "echo $(curl -fsL https://raw.githubusercontent.com/home-assistant/docker/refs/heads/master/Dockerfile | grep 'ARG BUILD_FROM=' | cut -d: -f2 | sed -E 's|.*-(alpine.*)-.*|\\1|' | sed 's|\\.||')-$(curl -fsL https://raw.githubusercontent.com/home-assistant/docker-base/refs/heads/master/python/$(curl -fsL https://raw.githubusercontent.com/home-assistant/docker/refs/heads/master/Dockerfile | grep 'ARG BUILD_FROM=' | cut -d: -f2 | sed -E 's|([0-9\\.]+)-alpine.*|\\1|')/Dockerfile | grep 'ARG PYTHON_VERSION=' | sed 's|.*PYTHON_VERSION=||')"
+  }
+ },
+ "release": {
+  "branch": "ha",
+  "tag": "ha",
+  "channel": "prerelease"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "OS_PYTHON_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "enabled": false,
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Internal"
+  ],
+  "custom_readme": "[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)\n\n[![Blog](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=Blog)](https://blog.linuxserver.io \"all the things you can do with our containers including How-To guides, opinions and much more!\")\n[![Discord](https://img.shields.io/discord/354974912613449730.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Discord&logo=discord)](https://discord.gg/YWrKVTn \"realtime support / chat with the community and the team.\")\n[![Discourse](https://img.shields.io/discourse/https/discourse.linuxserver.io/topics.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=discourse)](https://discourse.linuxserver.io \"post on our community forum.\")\n[![Fleet](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=Fleet)](https://fleet.linuxserver.io \"an online web interface which displays all of our maintained images.\")\n[![GitHub](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitHub&logo=github)](https://github.com/linuxserver \"view the source for all of our repositories.\")\n[![Open Collective](https://img.shields.io/opencollective/all/linuxserver.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Supporters&logo=open%20collective)](https://opencollective.com/linuxserver \"please consider helping us by either donating or contributing to our budget\")\n\nThe [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring:\n\n* regular and timely application updates\n* easy user mappings (PGID, PUID)\n* custom base image with s6 overlay\n* weekly base OS updates with common layers across the entire LinuxServer.io ecosystem to minimise space usage, down time and bandwidth\n* regular security updates\n\nFind us at:\n\n* [Blog](https://blog.linuxserver.io) - all the things you can do with our containers including How-To guides, opinions and much more!\n* [Discord](https://discord.gg/YWrKVTn) - realtime support / chat with the community and the team.\n* [Discourse](https://discourse.linuxserver.io) - post on our community forum.\n* [Fleet](https://fleet.linuxserver.io) - an online web interface which displays all of our maintained images.\n* [GitHub](https://github.com/linuxserver) - view the source for all of our repositories.\n* [Open Collective](https://opencollective.com/linuxserver) - please consider helping us by either donating or contributing to our budget\n\n# [linuxserver/python](https://github.com/linuxserver/docker-python)\n\n[![Scarf.io pulls](https://scarf.sh/installs-badge/linuxserver-ci/linuxserver%2Fpython?color=94398d&label-color=555555&logo-color=ffffff&style=for-the-badge&package-type=docker)](https://scarf.sh/gateway/linuxserver-ci/docker/linuxserver%2Fpython)\n[![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-python.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-python)\n[![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-python.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-python/releases)\n[![GitHub Package Repository](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitHub%20Package&logo=github)](https://github.com/linuxserver/docker-python/packages)\n[![GitLab Container Registry](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitLab%20Registry&logo=gitlab)](https://gitlab.com/linuxserver.io/docker-python/container_registry)\n[![Quay.io](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=Quay.io)](https://quay.io/repository/linuxserver.io/python)\n[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/python.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/linuxserver/python)\n[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/python.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/linuxserver/python)\n[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-python%2Fjob%2Falpine320%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-python/job/alpine320/)\n\n## Usage\n\nThis image only contains the compiled python files for Alpine, and is meant to be ingested by other images during build time. It is not for public consumption.\n\n## Versions\n\n* **02.07.26:** - Release `alpine324` tag.\n* **11.06.25:** - Release `alpine322` tag.\n* **05.12.24:** - Release `alpine321` tag.\n* **07.06.24:** - Release `alpine320` tag.\n* **07.03.24:** - Initial release.\n"
+ },
+ "publish": {
+  "stores": {
+   "unraid": false
+  }
+ }
+}

@@ -1,0 +1,96 @@
+{
+ "image": "lsio-api",
+ "branch": "main",
+ "tag": "1b0f653d-ls4",
+ "previous_tag": "230cb1e0-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "230cb1e0",
+  "to": "1b0f653d",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:889cf4f4ceb97407b0235fb63691988e256509daf50ca128ef2316f89955972a"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:8ae31d372c5164af2797088af67a9091ebf0f73d1958ca528fe04e837e10f853"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 63740059,
+   "to": 63742659,
+   "delta": 2600
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/pyc@3.14.10-r0?arch=x86_64&distro=busybox-1.38.0&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/python3@3.14.10-r0?arch=x86_64&distro=busybox-1.38.0"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/python3-pyc@3.14.10-r0?arch=x86_64&distro=busybox-1.38.0&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/python3-pycache-pyc0@3.14.10-r0?arch=x86_64&distro=busybox-1.38.0&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

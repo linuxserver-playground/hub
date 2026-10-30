@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "name": "blade-of-agony",
+ "summary": "[Wolfenstein: Blade of Agony](https://boa.realm667.com/) is a story-driven WWII shooter inspired by Wolfenstein and Doom.",
+ "upstream": {
+  "url": "https://boa.realm667.com/",
+  "version": {
+   "type": "github_release",
+   "repo": "Realm667/WolfenDoom"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "Realm667/WolfenDoom"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "BOA_RELEASE",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP Blade of Agony desktop gui must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Blade of Agony desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for Blade of Agony to function."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/boa-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n**To play this you will need to use a GPU!**\n\n## Gaming mode\n\nAn absolute must for mouse and keyboard input is sending relative mouse input from the browser, you will need to use the \"Gaming Mode\" which is a small crosshair in the top right of the sidebar. This runs in fullscreen and traps you in the window, to exit this mode hold down escape for 3 seconds.\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-26",
+   "text": "Initial release."
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+{
+ "image": "vscodium-web",
+ "branch": "main",
+ "tag": "1.143.17183-ls3",
+ "previous_tag": "1.143.17183-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1.143.17183",
+  "to": "1.143.17183",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8ab987000b0e8001e49199a3d633327473284419740066ddb45c32428c6c0d28"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:84f6719f5ac0aee8075b45bdf91857ac2eb7aba6daafc2509ffc01a88505caf4"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 177280713,
+   "to": 177281446,
+   "delta": 733
+  },
+  "arm64": {
+   "from": 175056465,
+   "to": 175057383,
+   "delta": 918
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.1.0-2build2",
+      "to": "1.1.0-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.1.0-2ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.1.0-2build2",
+      "to": "1.1.0-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.1.0-2ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

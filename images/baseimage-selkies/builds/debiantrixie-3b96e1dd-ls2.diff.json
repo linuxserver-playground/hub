@@ -1,0 +1,69 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "master",
+ "tag": "debiantrixie-3b96e1dd-ls2",
+ "previous_tag": "debiantrixie-3b96e1dd-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "3b96e1dd",
+  "to": "3b96e1dd",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-debian:trixie",
+   "digest": "sha256:0429544297f7a459bfd2971d4819c36399d5db66ac1c88b15aac207644568cc3"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-debian:trixie",
+   "digest": "sha256:0429544297f7a459bfd2971d4819c36399d5db66ac1c88b15aac207644568cc3"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 972217631,
+   "to": 972213640,
+   "delta": -3991
+  },
+  "arm64": {
+   "from": 927768811,
+   "to": 927763405,
+   "delta": -5406
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

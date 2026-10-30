@@ -1,0 +1,312 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-10-23-ls5",
+ "previous_tag": "2026-10-23-ls4",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-23",
+  "to": "2026-10-23",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 9170017570,
+   "to": 9198745819,
+   "delta": 28728249
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1",
+      "to": "156.0.8078.73-1",
+      "purl": "pkg:alpm/arch/chromium@156.0.8078.73-1?arch=x86_64&distro=arch-rolling&upstream=chromium"
+     },
+     {
+      "name": "cmake",
+      "from": "4.4.4-1",
+      "to": "4.4.5-1",
+      "purl": "pkg:alpm/arch/cmake@4.4.5-1?arch=x86_64&distro=arch-rolling&upstream=cmake"
+     },
+     {
+      "name": "nodejs",
+      "from": "26.12.1-1",
+      "to": "26.12.1-2",
+      "purl": "pkg:alpm/arch/nodejs@26.12.1-2?arch=x86_64&distro=arch-rolling&upstream=nodejs"
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-2",
+      "to": "6.12.0-3",
+      "purl": "pkg:alpm/arch/qt6-declarative@6.12.0-3?arch=x86_64&distro=arch-rolling&upstream=qt6-declarative"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@ai-sdk/amazon-bedrock",
+      "from": "5.0.125",
+      "to": "5.0.127",
+      "purl": "pkg:npm/%40ai-sdk/amazon-bedrock@5.0.127"
+     },
+     {
+      "name": "@ai-sdk/anthropic",
+      "from": "4.0.89",
+      "to": "4.0.91",
+      "purl": "pkg:npm/%40ai-sdk/anthropic@4.0.91"
+     },
+     {
+      "name": "@ai-sdk/google",
+      "from": "4.0.106",
+      "to": "4.0.107",
+      "purl": "pkg:npm/%40ai-sdk/google@4.0.107"
+     },
+     {
+      "name": "@ai-sdk/google-vertex",
+      "from": "5.0.123",
+      "to": "5.0.126",
+      "purl": "pkg:npm/%40ai-sdk/google-vertex@5.0.126"
+     },
+     {
+      "name": "@ai-sdk/mistral",
+      "from": "4.0.73",
+      "to": "4.0.74",
+      "purl": "pkg:npm/%40ai-sdk/mistral@4.0.74"
+     },
+     {
+      "name": "@ai-sdk/openai",
+      "from": "4.0.103",
+      "to": "4.0.104",
+      "purl": "pkg:npm/%40ai-sdk/openai@4.0.104"
+     },
+     {
+      "name": "@ai-sdk/openai-compatible",
+      "from": "3.0.79",
+      "to": "3.0.80",
+      "purl": "pkg:npm/%40ai-sdk/openai-compatible@3.0.80"
+     },
+     {
+      "name": "@ai-sdk/provider-utils",
+      "from": "5.0.69",
+      "to": "5.0.70",
+      "purl": "pkg:npm/%40ai-sdk/provider-utils@5.0.70"
+     },
+     {
+      "name": "@aws-sdk/core",
+      "from": "3.978.6",
+      "to": "3.978.7",
+      "purl": "pkg:npm/%40aws-sdk/core@3.978.7"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-cognito-identity",
+      "from": "3.972.76",
+      "to": "3.972.77",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-cognito-identity@3.972.77"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-env",
+      "from": "3.972.77",
+      "to": "3.972.78",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-env@3.972.78"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-http",
+      "from": "3.972.79",
+      "to": "3.972.80",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-http@3.972.80"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-ini",
+      "from": "3.973.22",
+      "to": "3.973.23",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-ini@3.973.23"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-login",
+      "from": "3.972.84",
+      "to": "3.972.85",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-login@3.972.85"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-node",
+      "from": "3.972.89",
+      "to": "3.972.90",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-node@3.972.90"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-process",
+      "from": "3.972.77",
+      "to": "3.972.78",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-process@3.972.78"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-sso",
+      "from": "3.973.21",
+      "to": "3.973.22",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-sso@3.973.22"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-web-identity",
+      "from": "3.972.83",
+      "to": "3.972.84",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-web-identity@3.972.84"
+     },
+     {
+      "name": "@aws-sdk/credential-providers",
+      "from": "3.1157.0",
+      "to": "3.1159.0",
+      "purl": "pkg:npm/%40aws-sdk/credential-providers@3.1159.0"
+     },
+     {
+      "name": "@aws-sdk/nested-clients",
+      "from": "3.997.51",
+      "to": "3.997.52",
+      "purl": "pkg:npm/%40aws-sdk/nested-clients@3.997.52"
+     },
+     {
+      "name": "@aws-sdk/signature-v4-multi-region",
+      "from": "3.996.49",
+      "to": "3.996.50",
+      "purl": "pkg:npm/%40aws-sdk/signature-v4-multi-region@3.996.50"
+     },
+     {
+      "name": "@aws-sdk/token-providers",
+      "from": "3.1157.0",
+      "to": "3.1159.0",
+      "purl": "pkg:npm/%40aws-sdk/token-providers@3.1159.0"
+     },
+     {
+      "name": "@aws-sdk/xml-builder",
+      "from": "3.972.41",
+      "to": "3.972.42",
+      "purl": "pkg:npm/%40aws-sdk/xml-builder@3.972.42"
+     },
+     {
+      "name": "@borewit/text-codec",
+      "from": "0.2.2",
+      "to": "0.2.3",
+      "purl": "pkg:npm/%40borewit/text-codec@0.2.3"
+     },
+     {
+      "name": "@opencode-ai/plugin",
+      "from": "1.19.4",
+      "to": "1.19.5",
+      "purl": "pkg:npm/%40opencode-ai/plugin@1.19.5"
+     },
+     {
+      "name": "@opencode-ai/sdk",
+      "from": "1.19.4",
+      "to": "1.19.5",
+      "purl": "pkg:npm/%40opencode-ai/sdk@1.19.5"
+     },
+     {
+      "name": "@types/node",
+      "from": "26.6.5",
+      "to": "26.6.6",
+      "purl": "pkg:npm/%40types/node@26.6.6"
+     },
+     {
+      "name": "gaxios",
+      "from": "7.3.1",
+      "to": "8.3.2",
+      "purl": "pkg:npm/gaxios@8.3.2"
+     },
+     {
+      "name": "gcp-metadata",
+      "from": "8.1.2",
+      "to": "9.2.2",
+      "purl": "pkg:npm/gcp-metadata@9.2.2"
+     },
+     {
+      "name": "google-auth-library",
+      "from": "10.9.1",
+      "to": "11.3.1",
+      "purl": "pkg:npm/google-auth-library@11.3.1"
+     },
+     {
+      "name": "google-logging-utils",
+      "from": "1.1.3",
+      "to": "2.1.0",
+      "purl": "pkg:npm/google-logging-utils@2.1.0"
+     },
+     {
+      "name": "msgpackr",
+      "from": "2.1.2",
+      "to": "2.1.3",
+      "purl": "pkg:npm/msgpackr@2.1.3"
+     },
+     {
+      "name": "opencode-ai",
+      "from": "1.19.4",
+      "to": "1.19.5",
+      "purl": "pkg:npm/opencode-ai@1.19.5"
+     },
+     {
+      "name": "opencode-linux-x64",
+      "from": "1.19.4",
+      "to": "1.19.5",
+      "purl": "pkg:npm/opencode-linux-x64@1.19.5"
+     },
+     {
+      "name": "opencode-linux-x64-baseline",
+      "from": "1.19.4",
+      "to": "1.19.5",
+      "purl": "pkg:npm/opencode-linux-x64-baseline@1.19.5"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 39,
+  "downgraded": 0
+ }
+}

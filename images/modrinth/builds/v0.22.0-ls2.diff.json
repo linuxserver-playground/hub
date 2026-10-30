@@ -1,0 +1,62 @@
+{
+ "image": "modrinth",
+ "branch": "master",
+ "tag": "v0.22.0-ls2",
+ "previous_tag": "v0.22.0-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "v0.22.0",
+  "to": "v0.22.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:beebd1f142f792e9767780a70cbc6c41c6c448e12fcda4504417404f1f118df3"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:beebd1f142f792e9767780a70cbc6c41c6c448e12fcda4504417404f1f118df3"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1071612520,
+   "to": 1071612657,
+   "delta": 137
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

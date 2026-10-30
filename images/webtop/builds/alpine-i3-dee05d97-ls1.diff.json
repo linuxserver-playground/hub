@@ -1,0 +1,92 @@
+{
+ "image": "webtop",
+ "branch": "alpine-i3",
+ "tag": "alpine-i3-dee05d97-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "dee05d97",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:alpine324",
+   "digest": "sha256:373af2db8faeeac43def5fecf71b9a33cfb16700e599e6928e1e2357c4c90d0d"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 807557769,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 758080464,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "DISABLE_DRI3",
+    "DISPLAY",
+    "HOME",
+    "LSIO_FIRST_PARTY",
+    "PATH",
+    "PERL5LIB",
+    "PS1",
+    "PULSE_RUNTIME_PATH",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "SELKIES_ALLOWED_ORIGINS",
+    "SELKIES_ENABLE_BASIC_AUTH",
+    "SELKIES_ENCODER",
+    "SELKIES_INTERPOSER",
+    "SELKIES_RATE_CONTROL_MODE",
+    "SELKIES_VIDEO_STREAMING_MODE",
+    "SELKIES_WAYLAND_SOCKET_INDEX",
+    "SELKIES_WEBCAM_INTERPOSER",
+    "SHELL",
+    "START_DOCKER",
+    "TERM",
+    "TITLE",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "3000/tcp",
+    "3001/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,135 @@
+{
+ "image": "lazylibrarian",
+ "branch": "master",
+ "tag": "a6673afa-ls4",
+ "previous_tag": "e8151c28-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "e8151c28",
+  "to": "a6673afa",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8df85defd173ea5a2d59744e1612cb4776009aff952310e136dee9656c9aa1f4"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 187234099,
+   "to": 187260760,
+   "delta": 26661
+  },
+  "arm64": {
+   "from": 182999802,
+   "to": 183028009,
+   "delta": 28207
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "httplib2",
+      "from": "0.32.0",
+      "to": "0.32.1",
+      "purl": "pkg:pypi/httplib2@0.32.1"
+     },
+     {
+      "name": "pypdf",
+      "from": "6.21.3",
+      "to": "6.21.4",
+      "purl": "pkg:pypi/pypdf@6.21.4"
+     },
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "httplib2",
+      "from": "0.32.0",
+      "to": "0.32.1",
+      "purl": "pkg:pypi/httplib2@0.32.1"
+     },
+     {
+      "name": "pypdf",
+      "from": "6.21.3",
+      "to": "6.21.4",
+      "purl": "pkg:pypi/pypdf@6.21.4"
+     },
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

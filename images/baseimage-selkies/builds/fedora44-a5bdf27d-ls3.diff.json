@@ -1,0 +1,111 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "fedora44",
+ "tag": "fedora44-a5bdf27d-ls3",
+ "previous_tag": "fedora44-a5bdf27d-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "a5bdf27d",
+  "to": "a5bdf27d",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-fedora:44",
+   "digest": "sha256:0de22eec433cf667e5ee52fd2f84c69e44d47c05924b3c34e611999aff47a459"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:4c79f83c001fc169c5f00a595e1c7d31e043b0e4e981bd877494ab216db09c68"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 884030192,
+   "to": 880624612,
+   "delta": -3405580
+  },
+  "arm64": {
+   "from": 790822767,
+   "to": 787474243,
+   "delta": -3348524
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,5 +1,5 @@\n # syntax=docker/dockerfile:1\n-FROM ghcr.io/linuxserver/baseimage-alpine:3.24 AS frontend\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:3.24 AS frontend\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -38,7 +38,7 @@\n     cp -ar dist/* /buildout/$DASH/; \\\n   done\n \n-FROM ghcr.io/linuxserver/baseimage-fedora:44 AS interposers\n+FROM ghcr.io/linuxserver-playground/baseimage-fedora:44 AS interposers\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -98,7 +98,7 @@\n     /buildout/opt/lib/libudev.so.1.0.0-fake_32\n \n # Runtime stage\n-FROM ghcr.io/linuxserver/baseimage-fedora:44\n+FROM ghcr.io/linuxserver-playground/baseimage-fedora:44\n \n # set version label\n ARG BUILD_DATE\n@@ -360,9 +360,9 @@\n COPY /root /\n COPY --from=frontend /buildout /usr/share/selkies\n COPY --from=interposers /buildout /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-fedora44-xvfb / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-fedora44-wtype / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-fedora44-labwc / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-fedora44-xvfb / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-fedora44-wtype / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-fedora44-labwc / /\n \n # ports and volumes\n EXPOSE 3000 3001\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,5 +1,5 @@\n # syntax=docker/dockerfile:1\n-FROM ghcr.io/linuxserver/baseimage-alpine:arm64v8-3.24 AS frontend\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:arm64v8-3.24 AS frontend\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -38,7 +38,7 @@\n     cp -ar dist/* /buildout/$DASH/; \\\n   done\n \n-FROM ghcr.io/linuxserver/baseimage-fedora:arm64v8-44 AS interposers\n+FROM ghcr.io/linuxserver-playground/baseimage-fedora:arm64v8-44 AS interposers\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -81,7 +81,7 @@\n     /buildout/opt/lib/libudev.so.1.0.0-fake\n \n # Runtime stage\n-FROM ghcr.io/linuxserver/baseimage-fedora:arm64v8-44\n+FROM ghcr.io/linuxserver-playground/baseimage-fedora:arm64v8-44\n \n # set version label\n ARG BUILD_DATE\n@@ -331,9 +331,9 @@\n COPY /root /\n COPY --from=frontend /buildout /usr/share/selkies\n COPY --from=interposers /buildout /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-fedora44-xvfb / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-fedora44-wtype / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-fedora44-labwc / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-fedora44-xvfb / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-fedora44-wtype / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-fedora44-labwc / /\n \n # ports and volumes\n EXPOSE 3000 3001\n"
+ },
+ "packages": {
+  "amd64": {
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "expat",
+      "from": "2.8.5-1.fc44",
+      "to": "2.9.0-1.fc44",
+      "purl": "pkg:rpm/fedora/expat@2.9.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=expat-2.9.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "259.9-1.fc44",
+      "to": "259.10-1.fc44",
+      "purl": "pkg:rpm/fedora/systemd-standalone-sysusers@259.10-1.fc44?arch=x86_64&distro=fedora-44&upstream=systemd-259.10-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "expat",
+      "from": "2.8.5-1.fc44",
+      "to": "2.9.0-1.fc44",
+      "purl": "pkg:rpm/fedora/expat@2.9.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=expat-2.9.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "259.9-1.fc44",
+      "to": "259.10-1.fc44",
+      "purl": "pkg:rpm/fedora/systemd-standalone-sysusers@259.10-1.fc44?arch=aarch64&distro=fedora-44&upstream=systemd-259.10-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,131 @@
+{
+ "schema": 1,
+ "name": "opera",
+ "summary": "[Opera](https://www.opera.com/) is a multi-platform web browser developed by its namesake company Opera. The browser is based on Chromium, but distinguishes itself from other Chromium-based browsers (Chrome, Edge, etc.) through its user interface and other features.",
+ "upstream": {
+  "url": "https://www.opera.com/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "https://deb.opera.com/opera-stable/dists/stable/non-free/binary-amd64/Packages",
+   "package": "opera-stable"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "OPERA_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Opera desktop gui."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Opera desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "env": [
+   {
+    "name": "OPERA_CLI",
+    "value": "https://www.linuxserver.io/",
+    "description": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.",
+    "optional": true
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is required for Opera to launch and function."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Web Browser"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/opera-icon.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-31",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-03",
+   "text": "Rebase to Selkies HTTPS is now required."
+  },
+  {
+   "date": "2025-03-12",
+   "text": "Clear singletons on launch to properly support persistance."
+  },
+  {
+   "date": "2024-02-13",
+   "text": "Remove manual codecs ingestion."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2024-01-06",
+   "text": "Rebase to Debian Bookworm."
+  },
+  {
+   "date": "2023-04-09",
+   "text": "Initial release."
+  }
+ ]
+}
