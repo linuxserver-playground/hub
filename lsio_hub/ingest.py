@@ -200,11 +200,13 @@ def validate_bundle(data: Any, release: Json, name: str, live_branches: set[str]
 
 
 def _previous(record: ImageRecord, bundle: Json) -> Json | None:
-    """The build this one follows: the newest earlier build of the same branch in data/."""
+    """The build this one follows: the newest earlier build of the same branch in data/ (never the record this
+    one replaces, when a rebuilt head is ingested again under its tag)."""
     earlier = [
         b
         for b in record.builds_of(bundle["branch"])
-        if (b["created"], b["version"].get("ls_build", 0)) < (bundle["created"], bundle["version"].get("ls_build", 0))
+        if b["version"]["tag"] != bundle["version"]["tag"]
+        and (b["created"], b["version"].get("ls_build", 0)) < (bundle["created"], bundle["version"].get("ls_build", 0))
     ]
     return earlier[0] if earlier else None
 
@@ -496,8 +498,34 @@ def guess_branch(record: ImageRecord, release: Json) -> str | None:
     return record.default_branch
 
 
-def pending_releases(record: ImageRecord, releases: list[Json], keep: int = KEEP_BUILDS) -> list[Json]:
-    """Releases of live branches not yet in data/, newest `keep` per branch, oldest first so diffs chain."""
+# A rebuild of an already released head republishes under the same tag and replaces the Release's build.json
+# (workflows' next-tag, `head_already_released`). Its asset is then uploaded long after the held record's
+# `created`; the original upload follows `created` within the publish job. The margin tells the two apart.
+REPLACED_MARGIN_SECONDS = 3600
+
+
+def bundle_uploaded_at(release: Json) -> str | None:
+    """When the release's build.json was uploaded: `bundle_at` from the GraphQL listing, else the asset's
+    `created_at` from a REST release (a replaced asset is created anew)."""
+    if release.get("bundle_at"):
+        return str(release["bundle_at"])
+    for asset in release.get("assets") or []:
+        if asset.get("name") == "build.json" and asset.get("created_at"):
+            return str(asset["created_at"])
+    return None
+
+
+def replaced(build: Json, release: Json) -> bool:
+    """True when the release's build.json was uploaded well after the held record was built: a rebuilt head."""
+    uploaded = bundle_uploaded_at(release)
+    return uploaded is not None and _age_seconds(build["created"], uploaded) > REPLACED_MARGIN_SECONDS
+
+
+def pending_releases(
+    record: ImageRecord, releases: list[Json], keep: int = KEEP_BUILDS, force: frozenset[str] = frozenset()
+) -> list[Json]:
+    """Releases of live branches not yet in data/, or held but republished since (`replaced`, or named in
+    `force` by tag: the dispatch's hint), newest `keep` per branch, oldest first so diffs chain."""
     by_branch: dict[str, list[Json]] = {}
     for release in releases:
         branch = guess_branch(record, release)
@@ -506,7 +534,10 @@ def pending_releases(record: ImageRecord, releases: list[Json], keep: int = KEEP
     pending: list[Json] = []
     for branch_releases in by_branch.values():
         newest = sorted(branch_releases, key=lambda r: r.get("created_at", ""), reverse=True)[:keep]
-        pending.extend(r for r in newest if r["tag_name"] not in record.builds)
+        for r in newest:
+            held = record.builds.get(r["tag_name"])
+            if held is None or r["tag_name"] in force or replaced(held, r):
+                pending.append(r)
     return sorted(pending, key=lambda r: r.get("created_at", ""))
 
 
@@ -518,12 +549,14 @@ def ingest_repo(
     *,
     texts: Texts | None = None,
     releases: list[Json] | None = None,
+    force: frozenset[str] = frozenset(),
 ) -> int:
     """
     Manifests of every live branch, then every pending release, for one image repository. `releases` is the
     repository's listing when the caller has it (without assets: each pending release is then read by tag);
     otherwise the releases are listed over REST. A release rejected less than REJECTED_RETRY_SECONDS ago is
-    not tried again unless the manifests changed. Returns how many releases were tried.
+    not tried again unless the manifests changed. `force` names tags to ingest again even when held. Returns
+    how many releases were tried.
     """
     name = image_name(repo["name"])
     full = f"{ORG}/{repo['name']}"
@@ -539,8 +572,9 @@ def ingest_repo(
 
     tried = 0
     listing = releases if releases is not None else gh.releases(full)
-    for release in [r for r in pending_releases(record, listing) if due(r)]:
+    for release in [r for r in pending_releases(record, listing, force=force) if due(r)]:
         tried += 1
+        again = release["tag_name"] in record.builds
         try:
             if "assets" not in release:
                 release = gh.release_by_tag(full, release["tag_name"])
@@ -550,7 +584,12 @@ def ingest_repo(
             continue
         _accept(store, record, release)
         log.info(
-            "  + %s@%s (%s)", name, bundle["version"]["tag"], record.diffs[bundle["version"]["tag"]]["classification"]
+            "  %s %s@%s (%s)%s",
+            "~" if again else "+",
+            name,
+            bundle["version"]["tag"],
+            record.diffs[bundle["version"]["tag"]]["classification"],
+            " republished" if again else "",
         )
     rotate(record)
     return tried
@@ -564,11 +603,14 @@ def _set_status(store: Store, source: str, ok: bool, now: Now, error: str | None
     store.status["sources"][source] = {k: v for k, v in status.items() if v is not None}
 
 
-def reconcile(store: Store, gh: GitHub, now: Now = _now, *, deep: bool = False) -> list[str]:
+def reconcile(
+    store: Store, gh: GitHub, now: Now = _now, *, deep: bool = False, force: dict[str, frozenset[str]] | None = None
+) -> list[str]:
     """
     Every docker-* repository in the organisation: the manifests of every live branch and every release the hub
-    does not hold yet. Every run of the hub does this; a dispatch's release is only a hint, because GitHub keeps
-    one pending run per concurrency group and drops the older ones, so each run must find everything pending.
+    does not hold yet, or holds from before its head was rebuilt. Every run of the hub does this; a dispatch's
+    release is only a hint (`force`, tags by repository name), because GitHub keeps one pending run per
+    concurrency group and drops the older ones, so each run must find everything pending.
 
     Four or five GraphQL requests cover the organisation: the repositories, the newest 30 releases of each, and
     every image.yml. REST is only used for what is new (each pending release and its assets). `deep` lists every
@@ -594,7 +636,8 @@ def reconcile(store: Store, gh: GitHub, now: Now = _now, *, deep: bool = False) 
     for repo in repos:
         try:
             listing = index.get(repo["name"], []) if index is not None else None
-            if ingest_repo(store, gh, repo, now, texts=texts, releases=listing):
+            forced = (force or {}).get(repo["name"], frozenset())
+            if ingest_repo(store, gh, repo, now, texts=texts, releases=listing, force=forced):
                 tried.append(f"{ORG}/{repo['name']}")
         except (IngestError, httpx2.HTTPError) as e:
             failures.append(f"{repo['name']}: {e}")
@@ -645,12 +688,30 @@ def ingest_one(store: Store, gh: GitHub, repo: str, tag: str, now: Now = _now) -
     return True
 
 
+def parse_force(items: list[str]) -> dict[str, frozenset[str]]:
+    """`owner/docker-name@tag` or `docker-name@tag` entries, by repository name."""
+    out: dict[str, set[str]] = {}
+    for item in items:
+        repo, sep, tag = item.partition("@")
+        if not sep or not tag:
+            continue
+        out.setdefault(repo.rsplit("/", 1)[-1], set()).add(tag)
+    return {k: frozenset(v) for k, v in out.items()}
+
+
 def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logging.getLogger("httpx2").setLevel(logging.WARNING)
     parser = argparse.ArgumentParser(description="Ingest manifests and build bundles into data/.")
     parser.add_argument("--reconcile", action="store_true", help="every repository and release in the organisation")
     parser.add_argument("--deep", action="store_true", help="with --reconcile: list every release over REST (backfill)")
+    parser.add_argument(
+        "--force",
+        action="append",
+        default=[],
+        metavar="REPO@TAG",
+        help="with --reconcile: ingest this release again even when held (the dispatch's hint; owner/ optional)",
+    )
     parser.add_argument("--pending", action="store_true", help="the same as --reconcile (kept for older callers)")
     parser.add_argument("--repo", help="owner/name of one image repository")
     parser.add_argument("--tag", help="the release tag to ingest from --repo")
@@ -663,7 +724,7 @@ def main(argv: list[str] | None = None) -> int:
     store = load_store(DATA_DIR)
     gh = GitHub(client(), token)
     if args.reconcile or args.pending:
-        reconcile(store, gh, deep=args.deep)
+        reconcile(store, gh, deep=args.deep, force=parse_force(args.force))
     else:
         ingest_one(store, gh, args.repo, args.tag)
     changed = save_store(DATA_DIR, store)

@@ -60,8 +60,11 @@ run at the same time and whichever publishes second merges onto the other's data
   plane after every live release; its payload is only a hint), on every push to `main`, on demand, and when
   `refresh.yml` has new data. Every run reconciles the whole organisation (`ingest --reconcile`): every `image.yml`
   and the newest 30 releases of every repository over GraphQL, in about 15 seconds, then the assets of whatever is
-  new. GitHub keeps one pending run per concurrency group and drops older ones, so a burst of releases is picked
-  up by whichever run comes next and none is lost. It publishes `data/` when it changed, builds `dist/`, generates
+  new or republished (a rebuild of an already released head replaces the Release's `build.json` under the same
+  tag: the listing carries that asset's upload time, and a tag whose asset is an hour or more newer than the held
+  record is ingested again; the dispatch's `tag` is passed as `--force` so the same run catches a quicker one).
+  GitHub keeps one pending run per concurrency group and drops older ones, so a burst of releases is picked up by
+  whichever run comes next and none is lost. It publishes `data/` when it changed, builds `dist/`, generates
   `out/`, merges `out/` onto the site root and deploys to Pages, so one site serves `/api/v1/…`, `/stores/…` and
   `/builds/…` (redirects), all of it generated text (about 235 MB, 34 MB as the Pages artifact). It is a single job:
   every job is a separate wait for a runner slot when image builds fill them.

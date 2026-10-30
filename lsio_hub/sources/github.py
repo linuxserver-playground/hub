@@ -42,7 +42,10 @@ query ($org: String!, $cursor: String, $releases: Int!) {
       nodes {
         name
         releases(first: $releases, orderBy: { field: CREATED_AT, direction: DESC }) {
-          nodes { tagName createdAt url isDraft }
+          nodes {
+            tagName createdAt url isDraft
+            releaseAssets(first: 1, name: "build.json") { nodes { createdAt } }
+          }
         }
       }
     }
@@ -117,8 +120,10 @@ class GitHub:
     def org_releases(self, org: str, *, per_repo: int = 30) -> dict[str, list[Json]]:
         """
         The newest `per_repo` published releases of every repository, by repository name, in the shape the REST
-        listing has (tag_name, created_at, html_url; no assets): one GraphQL request per 100 repositories instead
-        of one REST request per repository. Used to find what is pending; assets come from REST per release.
+        listing has (tag_name, created_at, html_url; no assets) plus `bundle_at`, when the build.json asset was
+        uploaded (a rebuild of a released head replaces it under the same tag): one GraphQL request per 100
+        repositories instead of one REST request per repository. Used to find what is pending; assets come from
+        REST per release.
         """
         releases: dict[str, list[Json]] = {}
         cursor = None
@@ -129,7 +134,15 @@ class GitHub:
                 raise RuntimeError(f"GitHub GraphQL: organization {org} not found")
             for node in page["nodes"]:
                 releases[node["name"]] = [
-                    {"tag_name": r["tagName"], "created_at": r["createdAt"], "html_url": r["url"], "draft": False}
+                    {
+                        "tag_name": r["tagName"],
+                        "created_at": r["createdAt"],
+                        "html_url": r["url"],
+                        "draft": False,
+                        "bundle_at": next(
+                            (a["createdAt"] for a in ((r.get("releaseAssets") or {}).get("nodes") or [])), None
+                        ),
+                    }
                     for r in (node.get("releases") or {}).get("nodes") or []
                     if not r.get("isDraft")
                 ]

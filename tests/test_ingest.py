@@ -10,9 +10,11 @@ import yaml
 
 from lsio_hub.ingest import (
     IngestError,
+    _previous,
     fetch_manifests,
     guess_branch,
     ingest_one,
+    parse_force,
     parse_manifest,
     pending_releases,
     reconcile,
@@ -88,6 +90,40 @@ def test_pending_releases_are_oldest_first_and_capped() -> None:
     sonarr.builds.clear()
     pending = pending_releases(sonarr, RELEASES["docker-sonarr"], keep=1)
     assert [r["tag_name"] for r in pending] == ["4.0.20.3014-ls2", "develop-5.0.1.1234-ls1"]
+
+
+def test_a_rebuilt_head_republished_under_its_tag_is_pending_again() -> None:
+    """A manual rebuild of a released head replaces the Release's build.json under the same tag; the upload time
+    of that asset, well after the held record was built, or the dispatch's hint, puts the tag back on the list."""
+    store = build_store()
+    sonarr = store.images["sonarr"]
+    held = sonarr.builds["4.0.20.3014-ls2"]
+    release = next(r for r in RELEASES["docker-sonarr"] if r["tag_name"] == "4.0.20.3014-ls2")
+    assert pending_releases(sonarr, [release]) == []
+    soon = {**release, "bundle_at": "2026-10-20T19:40:00Z"}  # the original upload, minutes after the build
+    assert pending_releases(sonarr, [soon]) == []
+    later = {**release, "bundle_at": "2026-10-22T09:00:00Z"}
+    assert [r["tag_name"] for r in pending_releases(sonarr, [later])] == ["4.0.20.3014-ls2"]
+    rest = {**release, "assets": [{"name": "build.json", "url": "u", "created_at": "2026-10-22T09:00:00Z"}]}
+    assert [r["tag_name"] for r in pending_releases(sonarr, [rest])] == ["4.0.20.3014-ls2"]
+    assert [r["tag_name"] for r in pending_releases(sonarr, [release], force=frozenset({"4.0.20.3014-ls2"}))] == [
+        "4.0.20.3014-ls2"
+    ]
+    assert held["created"] == "2026-10-20T19:16:08Z"
+
+
+def test_a_republished_build_diffs_against_the_build_before_it() -> None:
+    store = build_store()
+    sonarr = store.images["sonarr"]
+    rebuilt = {**sonarr.builds["4.0.20.3014-ls2"], "created": "2026-10-22T09:00:00Z"}
+    previous = _previous(sonarr, rebuilt)
+    assert previous is not None and previous["version"]["tag"] == "4.0.19.2000-ls1"
+
+
+def test_parse_force_takes_the_dispatch_hint() -> None:
+    assert parse_force(["linuxserver-playground/docker-sonarr@1-ls1", "docker-sonarr@2-ls2", "bad", "x@"]) == {
+        "docker-sonarr": frozenset({"1-ls1", "2-ls2"})
+    }
 
 
 def test_fetch_manifests_finds_live_branches() -> None:

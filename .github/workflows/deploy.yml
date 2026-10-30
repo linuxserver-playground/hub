@@ -64,10 +64,13 @@ jobs:
         # The event's release is only a hint. GitHub keeps one pending run in the concurrency group and drops older
         # ones, so each run reconciles the whole organisation: every image.yml and the newest releases of every
         # repository over GraphQL (about 15 s), then the assets of whatever is new. A dropped event loses nothing,
-        # and a burst of releases is picked up by whichever run comes next.
+        # and a burst of releases is picked up by whichever run comes next. The hint still matters for one case: a
+        # rebuild of an already released head republishes under its tag, and --force ingests that tag again at
+        # once (a replaced build.json is otherwise noticed by its upload time, an hour after the held record).
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python -m lsio_hub.ingest --reconcile
+          FORCE: ${{ github.event.client_payload.tag && format('{0}@{1}', github.event.client_payload.repository, github.event.client_payload.tag) || '' }}
+        run: python -m lsio_hub.ingest --reconcile ${FORCE:+--force "$FORCE"}
 
       - name: Publish the refreshed data
         # Replaces the data branch's one commit. refresh.yml may publish at the same moment; the script merges onto

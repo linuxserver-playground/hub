@@ -238,7 +238,13 @@ def test_org_releases_reads_every_page_and_drops_drafts() -> None:
                     "releases": {
                         "nodes": [
                             {"tagName": "2-ls2", "createdAt": "2026-10-26T13:00:00Z", "url": "u2", "isDraft": True},
-                            {"tagName": "1-ls1", "createdAt": "2026-10-25T13:00:00Z", "url": "u1", "isDraft": False},
+                            {
+                                "tagName": "1-ls1",
+                                "createdAt": "2026-10-25T13:00:00Z",
+                                "url": "u1",
+                                "isDraft": False,
+                                "releaseAssets": {"nodes": [{"createdAt": "2026-10-25T13:20:00Z"}]},
+                            },
                         ]
                     },
                 }
@@ -257,7 +263,13 @@ def test_org_releases_reads_every_page_and_drops_drafts() -> None:
     gh = GitHub(httpx2.Client(transport=httpx2.MockTransport(handle)), "t")
     assert gh.org_releases("linuxserver-playground", per_repo=5) == {
         "docker-sonarr": [
-            {"tag_name": "1-ls1", "created_at": "2026-10-25T13:00:00Z", "html_url": "u1", "draft": False}
+            {
+                "tag_name": "1-ls1",
+                "created_at": "2026-10-25T13:00:00Z",
+                "html_url": "u1",
+                "draft": False,
+                "bundle_at": "2026-10-25T13:20:00Z",
+            }
         ],
         "builder": [],
     }
