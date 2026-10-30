@@ -567,6 +567,11 @@ class BuildSummary(BaseModel):
     test_success: bool | None = None
     base: BuildBase
     platforms: list[PlatformBuild]
+    index_digest: str | None = Field(
+        None,
+        description="The digest of the build's multi-arch index: what an image built on this one records as "
+        "`base.digest`, so a base image's build can be found from the images that use it.",
+    )
     tags: list[str] = Field(
         default_factory=list,
         description="Every tag the build published, unprefixed then arch-prefixed: `published.tags` of its build.json "

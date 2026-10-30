@@ -228,6 +228,7 @@ def build_summary(fleet: Fleet, record: ImageRecord, build: Json) -> BuildSummar
         test_success=build["test"]["success"] if build["test"].get("enabled", True) else None,
         base=build["base"],
         platforms=build["platforms"],
+        index_digest=build.get("index_digest"),
         tags=published_tags(build),
         classification=diff["classification"] if diff else None,
         vulnerabilities=vuln_summary(record, tag),
