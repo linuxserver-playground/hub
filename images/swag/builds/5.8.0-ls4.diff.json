@@ -1,0 +1,225 @@
+{
+ "image": "swag",
+ "branch": "master",
+ "tag": "5.8.0-ls4",
+ "previous_tag": "5.8.0-ls3",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "5.8.0",
+  "to": "5.8.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:69428c23079c1f5aa65294457a835d2389ebbcb31af2f86eef05c4ae513ac249"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:69428c23079c1f5aa65294457a835d2389ebbcb31af2f86eef05c4ae513ac249"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 161098888,
+   "to": 161096931,
+   "delta": -1957
+  },
+  "arm64": {
+   "from": 161160847,
+   "to": 161158814,
+   "delta": -2033
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "UnknownPackage": {
+    "added": [
+     {
+      "name": "pip",
+      "version": "UNKNOWN",
+      "purl": null
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "CacheControl",
+      "version": "0.14.4",
+      "purl": "pkg:pypi/CacheControl@0.14.4"
+     },
+     {
+      "name": "distlib",
+      "version": "0.4.2",
+      "purl": "pkg:pypi/distlib@0.4.2"
+     },
+     {
+      "name": "msgpack",
+      "version": "1.1.2",
+      "purl": "pkg:pypi/msgpack@1.1.2"
+     },
+     {
+      "name": "pygments",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/pygments@2.20.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/pyproject-hooks@1.2.0"
+     },
+     {
+      "name": "resolvelib",
+      "version": "1.2.1",
+      "purl": "pkg:pypi/resolvelib@1.2.1"
+     },
+     {
+      "name": "rich",
+      "version": "14.2.0",
+      "purl": "pkg:pypi/rich@14.2.0"
+     },
+     {
+      "name": "tomli-w",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/tomli-w@1.2.0"
+     },
+     {
+      "name": "truststore",
+      "version": "0.10.4",
+      "purl": "pkg:pypi/truststore@0.10.4"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.0",
+      "to": "2.4.1",
+      "purl": "pkg:pypi/tomli@2.4.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "UnknownPackage": {
+    "added": [
+     {
+      "name": "pip",
+      "version": "UNKNOWN",
+      "purl": null
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "apk": {
+    "added": [
+     {
+      "name": "libgcc",
+      "version": "14.2.0-r6",
+      "purl": "pkg:apk/NotpineForGHA/libgcc@14.2.0-r6"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "CacheControl",
+      "version": "0.14.4",
+      "purl": "pkg:pypi/CacheControl@0.14.4"
+     },
+     {
+      "name": "distlib",
+      "version": "0.4.2",
+      "purl": "pkg:pypi/distlib@0.4.2"
+     },
+     {
+      "name": "msgpack",
+      "version": "1.1.2",
+      "purl": "pkg:pypi/msgpack@1.1.2"
+     },
+     {
+      "name": "pygments",
+      "version": "2.20.0",
+      "purl": "pkg:pypi/pygments@2.20.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/pyproject-hooks@1.2.0"
+     },
+     {
+      "name": "resolvelib",
+      "version": "1.2.1",
+      "purl": "pkg:pypi/resolvelib@1.2.1"
+     },
+     {
+      "name": "rich",
+      "version": "14.2.0",
+      "purl": "pkg:pypi/rich@14.2.0"
+     },
+     {
+      "name": "tomli-w",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/tomli-w@1.2.0"
+     },
+     {
+      "name": "truststore",
+      "version": "0.10.4",
+      "purl": "pkg:pypi/truststore@0.10.4"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.0",
+      "to": "2.4.1",
+      "purl": "pkg:pypi/tomli@2.4.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 21,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

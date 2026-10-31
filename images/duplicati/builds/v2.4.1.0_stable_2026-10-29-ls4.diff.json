@@ -1,0 +1,669 @@
+{
+ "image": "duplicati",
+ "branch": "master",
+ "tag": "v2.4.1.0_stable_2026-10-29-ls4",
+ "previous_tag": "v2.4.0.1_stable_2026-10-07-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v2.4.0.1_stable_2026-10-07",
+  "to": "v2.4.1.0_stable_2026-10-29",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8ab987000b0e8001e49199a3d633327473284419740066ddb45c32428c6c0d28"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 187341402,
+   "to": 186689245,
+   "delta": -652157
+  },
+  "arm64": {
+   "from": 183675346,
+   "to": 182980928,
+   "delta": -694418
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.1.0-2build2",
+      "to": "1.1.0-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.1.0-2ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   },
+   "dotnet": {
+    "added": [],
+    "removed": [
+     {
+      "name": "SQLitePCLRaw.lib.e_sqlite3",
+      "version": "3.53.3",
+      "purl": "pkg:nuget/SQLitePCLRaw.lib.e_sqlite3@3.53.3"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "Duplicati.Agent.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.Agent.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.AutoTuneTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.AutoTuneTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.AutoUpdater",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.AutoUpdater@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.BackendTester",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.BackendTester@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.BackendTester.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.BackendTester.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.BackendTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.BackendTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.BackendTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.BackendTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.ConfigureTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.ConfigureTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.ConfigureTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.ConfigureTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.DatabaseTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.DatabaseTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.DatabaseTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.DatabaseTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.RecoveryTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.RecoveryTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.RecoveryTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.RecoveryTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.SecretTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SecretTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.SecretTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SecretTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.ServerUtil",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.ServerUtil@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.ServerUtil.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.ServerUtil.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.SharpAESCrypt",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SharpAESCrypt@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.Snapshots",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.Snapshots@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.SourceTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SourceTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.SourceTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SourceTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.SyncTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SyncTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.GUI.TrayIcon",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.GUI.TrayIcon@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.GUI.TrayIcon.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.GUI.TrayIcon.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.Server",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.Server@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.Server.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.Server.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.Service",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.Service@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.Service.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.Service.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "MessagePack",
+      "from": "2.5.302",
+      "to": "2.5.307",
+      "purl": "pkg:nuget/MessagePack@2.5.307"
+     },
+     {
+      "name": "MessagePack.Annotations",
+      "from": "2.5.302",
+      "to": "2.5.307",
+      "purl": "pkg:nuget/MessagePack.Annotations@2.5.307"
+     },
+     {
+      "name": "Microsoft.VisualStudio.Threading.Only",
+      "from": "17.14.15",
+      "to": "18.7.23",
+      "purl": "pkg:nuget/Microsoft.VisualStudio.Threading.Only@18.7.23"
+     },
+     {
+      "name": "MimeKit",
+      "from": "4.17.0",
+      "to": "4.18.2",
+      "purl": "pkg:nuget/MimeKit@4.18.2"
+     },
+     {
+      "name": "Nerdbank.MessagePack",
+      "from": "1.2.4",
+      "to": "1.3.88",
+      "purl": "pkg:nuget/Nerdbank.MessagePack@1.3.88"
+     },
+     {
+      "name": "PolyType",
+      "from": "1.3.1",
+      "to": "1.4.1",
+      "purl": "pkg:nuget/PolyType@1.4.1"
+     },
+     {
+      "name": "SMBLibrary",
+      "from": "1.5.4",
+      "to": "1.5.8.1",
+      "purl": "pkg:nuget/SMBLibrary@1.5.8.1"
+     },
+     {
+      "name": "SMBLibrary.Win32",
+      "from": "1.5.4",
+      "to": "1.5.8",
+      "purl": "pkg:nuget/SMBLibrary.Win32@1.5.8"
+     },
+     {
+      "name": "SQLite",
+      "from": "3.53.4",
+      "to": "3.54.0",
+      "purl": "pkg:nuget/SQLite@3.54.0"
+     },
+     {
+      "name": "SQLiteHelper.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/SQLiteHelper.Reference@2.4.1.0"
+     },
+     {
+      "name": "StreamJsonRpc",
+      "from": "2.25.29",
+      "to": "2.26.150",
+      "purl": "pkg:nuget/StreamJsonRpc@2.26.150"
+     },
+     {
+      "name": "System.Security.Cryptography.Pkcs",
+      "from": "10.0.0",
+      "to": "10.0.13",
+      "purl": "pkg:nuget/System.Security.Cryptography.Pkcs@10.0.13"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "Microsoft.NET.StringTools",
+      "from": "18.4.0",
+      "to": "17.6.3",
+      "purl": "pkg:nuget/Microsoft.NET.StringTools@17.6.3"
+     }
+    ]
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@duplicati/ngclient",
+      "from": "0.0.238",
+      "to": "0.0.244",
+      "purl": "pkg:npm/%40duplicati/ngclient@0.0.244"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.1.0-2build2",
+      "to": "1.1.0-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.1.0-2ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   },
+   "dotnet": {
+    "added": [],
+    "removed": [
+     {
+      "name": "SQLitePCLRaw.lib.e_sqlite3",
+      "version": "3.53.3",
+      "purl": "pkg:nuget/SQLitePCLRaw.lib.e_sqlite3@3.53.3"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "Duplicati.Agent.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.Agent.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.AutoTuneTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.AutoTuneTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.AutoUpdater",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.AutoUpdater@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.BackendTester",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.BackendTester@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.BackendTester.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.BackendTester.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.BackendTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.BackendTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.BackendTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.BackendTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.ConfigureTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.ConfigureTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.ConfigureTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.ConfigureTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.DatabaseTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.DatabaseTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.DatabaseTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.DatabaseTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.RecoveryTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.RecoveryTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.RecoveryTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.RecoveryTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.SecretTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SecretTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.SecretTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SecretTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.ServerUtil",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.ServerUtil@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.ServerUtil.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.ServerUtil.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.SharpAESCrypt",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SharpAESCrypt@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.Snapshots",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.Snapshots@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.SourceTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SourceTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.CommandLine.SourceTool.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SourceTool.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.CommandLine.SyncTool",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.CommandLine.SyncTool@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.GUI.TrayIcon",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.GUI.TrayIcon@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.GUI.TrayIcon.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.GUI.TrayIcon.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.Server",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.Server@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.Server.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.Server.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "Duplicati.Service",
+      "from": "2.4.0.1-Stable-20261007",
+      "to": "2.4.1.0-Stable-20261029",
+      "purl": "pkg:nuget/Duplicati.Service@2.4.1.0-Stable-20261029"
+     },
+     {
+      "name": "Duplicati.Service.Implementation.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/Duplicati.Service.Implementation.Reference@2.4.1.0"
+     },
+     {
+      "name": "MessagePack",
+      "from": "2.5.302",
+      "to": "2.5.307",
+      "purl": "pkg:nuget/MessagePack@2.5.307"
+     },
+     {
+      "name": "MessagePack.Annotations",
+      "from": "2.5.302",
+      "to": "2.5.307",
+      "purl": "pkg:nuget/MessagePack.Annotations@2.5.307"
+     },
+     {
+      "name": "Microsoft.VisualStudio.Threading.Only",
+      "from": "17.14.15",
+      "to": "18.7.23",
+      "purl": "pkg:nuget/Microsoft.VisualStudio.Threading.Only@18.7.23"
+     },
+     {
+      "name": "MimeKit",
+      "from": "4.17.0",
+      "to": "4.18.2",
+      "purl": "pkg:nuget/MimeKit@4.18.2"
+     },
+     {
+      "name": "Nerdbank.MessagePack",
+      "from": "1.2.4",
+      "to": "1.3.88",
+      "purl": "pkg:nuget/Nerdbank.MessagePack@1.3.88"
+     },
+     {
+      "name": "PolyType",
+      "from": "1.3.1",
+      "to": "1.4.1",
+      "purl": "pkg:nuget/PolyType@1.4.1"
+     },
+     {
+      "name": "SMBLibrary",
+      "from": "1.5.4",
+      "to": "1.5.8.1",
+      "purl": "pkg:nuget/SMBLibrary@1.5.8.1"
+     },
+     {
+      "name": "SMBLibrary.Win32",
+      "from": "1.5.4",
+      "to": "1.5.8",
+      "purl": "pkg:nuget/SMBLibrary.Win32@1.5.8"
+     },
+     {
+      "name": "SQLite",
+      "from": "3.53.4",
+      "to": "3.54.0",
+      "purl": "pkg:nuget/SQLite@3.54.0"
+     },
+     {
+      "name": "SQLiteHelper.Reference",
+      "from": "2.4.0.1",
+      "to": "2.4.1.0",
+      "purl": "pkg:nuget/SQLiteHelper.Reference@2.4.1.0"
+     },
+     {
+      "name": "StreamJsonRpc",
+      "from": "2.25.29",
+      "to": "2.26.150",
+      "purl": "pkg:nuget/StreamJsonRpc@2.26.150"
+     },
+     {
+      "name": "System.Security.Cryptography.Pkcs",
+      "from": "10.0.0",
+      "to": "10.0.13",
+      "purl": "pkg:nuget/System.Security.Cryptography.Pkcs@10.0.13"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "Microsoft.NET.StringTools",
+      "from": "18.4.0",
+      "to": "17.6.3",
+      "purl": "pkg:nuget/Microsoft.NET.StringTools@17.6.3"
+     }
+    ]
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@duplicati/ngclient",
+      "from": "0.0.238",
+      "to": "0.0.244",
+      "purl": "pkg:npm/%40duplicati/ngclient@0.0.244"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 2,
+  "upgraded": 88,
+  "downgraded": 2
+ }
+}

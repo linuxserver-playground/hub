@@ -1,0 +1,259 @@
+{
+ "image": "webtop",
+ "branch": "ubuntu-lxqt",
+ "tag": "ubuntu-lxqt-5c989bfc-ls4",
+ "previous_tag": "ubuntu-lxqt-5c989bfc-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (f454321 → 316234a): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "5c989bfc",
+  "to": "5c989bfc",
+  "changed": false
+ },
+ "commit": {
+  "from": "f454321b9aa0ea105eb96e9773b1985e879a0c79",
+  "to": "316234a9ab0c8c87871ddac6cdc8d6ae1a6ae7c6",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/f454321b9aa0ea105eb96e9773b1985e879a0c79...316234a9ab0c8c87871ddac6cdc8d6ae1a6ae7c6",
+  "commits": [
+   {
+    "sha": "e850ee4b3d3e5121182abf9d796d3707ec2eda6b",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:54:33Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/e850ee4b3d3e5121182abf9d796d3707ec2eda6b",
+    "bot": true
+   },
+   {
+    "sha": "316234a9ab0c8c87871ddac6cdc8d6ae1a6ae7c6",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T15:30:53Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/316234a9ab0c8c87871ddac6cdc8d6ae1a6ae7c6",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 3
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:b09b9cc70889544ae3a2952adb04b21b68847a8965fae12dc8f9425f3bbda1e6"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:40830db5ae0f2c8f89f3779f7946fcfa07a190c5a97c4fac8dfbf05272072d41"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1230701175,
+   "to": 1229697986,
+   "delta": -1003189
+  },
+  "arm64": {
+   "from": 1198579370,
+   "to": 1197569705,
+   "delta": -1009665
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1xtradeb1.2604.1",
+      "to": "156.0.8078.73-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium@156.0.8078.73-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.47-1xtradeb1.2604.1",
+      "to": "156.0.8078.73-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium-common@156.0.8078.73-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04&upstream=chromium"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054015-16d571fb31ca",
+      "to": "v1.33.3-0.20261021134118-f036f355de35",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134118-f036f355de35"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1xtradeb1.2604.1",
+      "to": "156.0.8078.73-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium@156.0.8078.73-1xtradeb1.2604.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.47-1xtradeb1.2604.1",
+      "to": "156.0.8078.73-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium-common@156.0.8078.73-1xtradeb1.2604.1?arch=arm64&distro=ubuntu-26.04&upstream=chromium"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=arm64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054016-2cbd1b20d20a",
+      "to": "v1.33.3-0.20261021134116-aa4f38dbfabd",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134116-aa4f38dbfabd"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 18,
+  "downgraded": 0
+ }
+}

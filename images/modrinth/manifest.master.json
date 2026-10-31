@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "name": "modrinth",
+ "summary": "[Modrinth App](https://modrinth.com/) is a unique, open source launcher that allows you to play your favorite mods, and keep them up to date, all in one neat little package.",
+ "upstream": {
+  "url": "https://modrinth.com/",
+  "version": {
+   "type": "github_release",
+   "repo": "modrinth/code"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "modrinth/code"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "MODRINTH_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Modrinth desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Modrinth desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores program settings and files."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/modrinth-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n**This image can function without a GPU, but we highly recommend only using this with a GPU**\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-05-31",
+   "text": "Rebase to resolute."
+  },
+  {
+   "date": "2026-03-05",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-12-01",
+   "text": "Initial release."
+  }
+ ]
+}

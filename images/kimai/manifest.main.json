@@ -1,0 +1,163 @@
+{
+ "schema": 1,
+ "name": "kimai",
+ "summary": "[Kimai](https://kimai.org/) is a professional grade time-tracking application, free and open-source.\nIt handles use-cases of freelancers as well as companies with dozens or hundreds of users.\nKimai was build to track your project times and ships with many advanced features, including but not limited to:\n\nJSON API, invoicing, data exports, multi-timer and punch-in punch-out mode, tagging, multi-user - multi-timezones - multi-language ([over 30 translations existing](https://hosted.weblate.org/projects/kimai/)!), authentication via SAML/LDAP/Database, two-factor authentication (2FA) with TOTP, customizable role and team permissions, responsive design, user/customer/project specific rates, advanced search & filtering, money and time budgets, advanced reporting, support for [plugins](https://www.kimai.org/store/) and so much more.",
+ "upstream": {
+  "url": "https://kimai.org/",
+  "version": {
+   "type": "github_release",
+   "repo": "kimai/kimai"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "kimai/kimai"
+  },
+  "sponsor": [
+   {
+    "name": "Kimai",
+    "url": "https://www.kimai.org/donate/"
+   },
+   {
+    "name": "Kimai (Open Collective)",
+    "url": "https://opencollective.com/kimai"
+   },
+   {
+    "name": "Kimai (GitHub Sponsors)",
+    "url": "https://github.com/sponsors/kevinpapst"
+   }
+  ]
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "KIMAI_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "enabled": false,
+  "startup_timeout": 120
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "http gui"
+   },
+   {
+    "internal": "443",
+    "description": "https gui"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/kimai/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "env": [
+   {
+    "name": "APP_SECRET",
+    "value": "",
+    "description": "Random string used for session encryption. Generate using e.g. `openssl rand -hex 32`."
+   },
+   {
+    "name": "DATABASE_URL",
+    "value": "mysql://your_db_user:your_db_pass@your_db_host:3306/your_db_name?charset=your_db_charset&serverVersion=your_db_version",
+    "description": "Configure your database connection, see Application Setup instructions."
+   },
+   {
+    "name": "TRUSTED_HOSTS",
+    "value": "kimai.example.com",
+    "description": "Domain or IP you will be using to access Kimai. Can be a regex like `localhost|127.0.0.1|kimai.example.com`"
+   },
+   {
+    "name": "TRUSTED_PROXIES",
+    "value": "127.0.0.1/32",
+    "description": "If behind a reverse proxy set this to its IP or network CIDR so that Kimai trusts its headers.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Finance",
+   "Business"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kimai-logo.png",
+  "setup": "### Configure your database connection\n\nYou have to replace the following values with your defaults:\n\n* the database username \"your_db_user\"\n* the database password \"your_db_pass\"\n* the database schema name \"your_db_name\"\n* the database host or IP \"your_db_host\"\n* the database character set \"your_db_charset\" (usually \"utf8\")\n* the database version \"your_db_version\"\n  * run `SELECT VERSION();` in your MariaDB/MySQL database to get the version\n  * example for [MariaDB](https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#mariadb) use \"10.11.4-MariaDB-log\"\n  * example for [MySQL](https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#mysql) use \"8.0.32\"\n* you might have to adapt port \"3306\" as well\n\n```env\nDATABASE_URL=mysql://your_db_user:your_db_pass@your_db_host:3306/your_db_name?charset=your_db_charset&serverVersion=your_db_version\n````\n\n### Create your first user\n\n```shell\ndocker exec -it kimai console kimai:user:create your_username admin@example.com ROLE_SUPER_ADMIN\n```\n\n### Initial setup\n\nAccess the web gui at `http://<your-ip>:80`, for more information check out [Kimai Initial setup](https://www.kimai.org/documentation/initial-setup.html).\n",
+  "external_application": {
+   "cli": "docker run -d \\\n  --name=mariadb \\\n  -e PUID=1000 \\\n  -e PGID=1000 \\\n  -e TZ=Etc/UTC \\\n  -e MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD \\\n  -e MYSQL_DATABASE=your_db_name `#optional` \\\n  -e MYSQL_USER=your_db_user `#optional` \\\n  -e MYSQL_PASSWORD=your_db_pass `#optional` \\\n  -p 3306:3306 \\\n  -v path_to_data:/config \\\n  --restart unless-stopped \\\n  lscr.io/linuxserver/mariadb:latest\n",
+   "compose": "# MariaDB\n  mariadb:\n    image: lscr.io/linuxserver/mariadb:latest\n    container_name: mariadb\n    environment:\n      - PUID=1000\n      - PGID=1000\n      - TZ=Etc/UTC\n      - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD\n      - MYSQL_DATABASE=your_db_name #optional\n      - MYSQL_USER=your_db_user #optional\n      - MYSQL_PASSWORD=your_db_pass #optional\n    volumes:\n      - path_to_data:/config\n    ports:\n      - 3306:3306\n    restart: unless-stopped\n",
+   "unraid": "We recommend using our [MariaDB](https://github.com/linuxserver/docker-mariadb) container from community applications."
+  }
+ },
+ "publish": {
+  "unraid": {
+   "requirement": "A MySQL or MariaDB database is required."
+  }
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  },
+  "api_locations": [
+   "/api"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2027-07-04",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-07-04",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-04-06",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-06-30",
+   "text": "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2024-03-24",
+   "text": "Added LDAP module to composer"
+  },
+  {
+   "date": "2024-03-06",
+   "text": "Existing users should update: site-confs/default.conf - Cleanup default site conf."
+  },
+  {
+   "date": "2024-01-23",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2024-01-02",
+   "text": "Symlink config.yaml to /config for user editing."
+  },
+  {
+   "date": "2023-08-21",
+   "text": "Important documentation update for setting `DATABASE_URL` with version 2.0.30 and later."
+  },
+  {
+   "date": "2023-08-09",
+   "text": "Initial Release."
+  }
+ ]
+}

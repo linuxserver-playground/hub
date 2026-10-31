@@ -1,0 +1,931 @@
+{
+ "image": "spotube",
+ "branch": "master",
+ "tag": "v6.0.0-beta.0-ls4",
+ "previous_tag": "v5.1.2-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v5.1.2",
+  "to": "v6.0.0-beta.0",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:2dee84b18c6bcbfd15703b870bfeeb434cafeea10d73931e9a08e50c261334fd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1143271285,
+   "to": 1159011834,
+   "delta": 15740549
+  },
+  "arm64": {
+   "from": 1096383321,
+   "to": 1114336771,
+   "delta": 17953450
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [
+     {
+      "name": "libaribb24-0t64",
+      "version": "1.0.3-2.1+b2",
+      "purl": "pkg:deb/debian/libaribb24-0t64@1.0.3-2.1%2Bb2?arch=amd64&distro=debian-13.7&upstream=aribb24%401.0.3-2.1"
+     },
+     {
+      "name": "libcddb2",
+      "version": "1.3.2-7.1",
+      "purl": "pkg:deb/debian/libcddb2@1.3.2-7.1?arch=amd64&distro=debian-13.7&upstream=libcddb"
+     },
+     {
+      "name": "libdvbpsi10",
+      "version": "1.3.3-1+b2",
+      "purl": "pkg:deb/debian/libdvbpsi10@1.3.3-1%2Bb2?arch=amd64&distro=debian-13.7&upstream=libdvbpsi%401.3.3-1"
+     },
+     {
+      "name": "libebml5",
+      "version": "1.4.5-1+b1",
+      "purl": "pkg:deb/debian/libebml5@1.4.5-1%2Bb1?arch=amd64&distro=debian-13.7&upstream=libebml%401.4.5-1"
+     },
+     {
+      "name": "libfaad2",
+      "version": "2.11.2-1",
+      "purl": "pkg:deb/debian/libfaad2@2.11.2-1?arch=amd64&distro=debian-13.7&upstream=faad2"
+     },
+     {
+      "name": "libixml11t64",
+      "version": "1:1.14.20-1+deb13u1",
+      "purl": "pkg:deb/debian/libixml11t64@1%3A1.14.20-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=pupnp"
+     },
+     {
+      "name": "libkate1",
+      "version": "0.4.3-1",
+      "purl": "pkg:deb/debian/libkate1@0.4.3-1?arch=amd64&distro=debian-13.7&upstream=libkate"
+     },
+     {
+      "name": "liblirc-client0t64",
+      "version": "0.10.2-0.10",
+      "purl": "pkg:deb/debian/liblirc-client0t64@0.10.2-0.10?arch=amd64&distro=debian-13.7&upstream=lirc"
+     },
+     {
+      "name": "libmad0",
+      "version": "0.15.1b-11+b1",
+      "purl": "pkg:deb/debian/libmad0@0.15.1b-11%2Bb1?arch=amd64&distro=debian-13.7&upstream=libmad%400.15.1b-11"
+     },
+     {
+      "name": "libmatroska7",
+      "version": "1.7.1-1+b2",
+      "purl": "pkg:deb/debian/libmatroska7@1.7.1-1%2Bb2?arch=amd64&distro=debian-13.7&upstream=libmatroska%401.7.1-1"
+     },
+     {
+      "name": "libmpcdec6",
+      "version": "2:0.1~r495-3",
+      "purl": "pkg:deb/debian/libmpcdec6@2%3A0.1~r495-3?arch=amd64&distro=debian-13.7&upstream=libmpc"
+     },
+     {
+      "name": "libmtp-common",
+      "version": "1.1.22-1",
+      "purl": "pkg:deb/debian/libmtp-common@1.1.22-1?arch=all&distro=debian-13.7&upstream=libmtp"
+     },
+     {
+      "name": "libmtp9t64",
+      "version": "1.1.22-1",
+      "purl": "pkg:deb/debian/libmtp9t64@1.1.22-1?arch=amd64&distro=debian-13.7&upstream=libmtp"
+     },
+     {
+      "name": "libnfs14",
+      "version": "5.0.2-1+deb13u1",
+      "purl": "pkg:deb/debian/libnfs14@5.0.2-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=libnfs"
+     },
+     {
+      "name": "libopenmpt-modplug1",
+      "version": "0.8.9.0-openmpt1-2+b3",
+      "purl": "pkg:deb/debian/libopenmpt-modplug1@0.8.9.0-openmpt1-2%2Bb3?arch=amd64&distro=debian-13.7&upstream=libopenmpt-modplug%400.8.9.0-openmpt1-2"
+     },
+     {
+      "name": "libprotobuf-lite32t64",
+      "version": "3.21.12-11+deb13u1",
+      "purl": "pkg:deb/debian/libprotobuf-lite32t64@3.21.12-11%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=protobuf"
+     },
+     {
+      "name": "libresid-builder0c2a",
+      "version": "2.1.1-16",
+      "purl": "pkg:deb/debian/libresid-builder0c2a@2.1.1-16?arch=amd64&distro=debian-13.7&upstream=sidplay-libs"
+     },
+     {
+      "name": "libsidplay2",
+      "version": "2.1.1-16",
+      "purl": "pkg:deb/debian/libsidplay2@2.1.1-16?arch=amd64&distro=debian-13.7&upstream=sidplay-libs"
+     },
+     {
+      "name": "libspatialaudio0t64",
+      "version": "0.3.0+git20180730+dfsg1-2.1+b1",
+      "purl": "pkg:deb/debian/libspatialaudio0t64@0.3.0%2Bgit20180730%2Bdfsg1-2.1%2Bb1?arch=amd64&distro=debian-13.7&upstream=libspatialaudio%400.3.0%2Bgit20180730%2Bdfsg1-2.1"
+     },
+     {
+      "name": "libupnp17t64",
+      "version": "1:1.14.20-1+deb13u1",
+      "purl": "pkg:deb/debian/libupnp17t64@1%3A1.14.20-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=pupnp"
+     },
+     {
+      "name": "libvlc5",
+      "version": "3.0.24-0+deb13u1",
+      "purl": "pkg:deb/debian/libvlc5@3.0.24-0%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=vlc"
+     },
+     {
+      "name": "libvlccore9",
+      "version": "3.0.24-0+deb13u1",
+      "purl": "pkg:deb/debian/libvlccore9@3.0.24-0%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=vlc"
+     },
+     {
+      "name": "vlc-data",
+      "version": "3.0.24-0+deb13u1",
+      "purl": "pkg:deb/debian/vlc-data@3.0.24-0%2Bdeb13u1?arch=all&distro=debian-13.7&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-base",
+      "version": "3.0.24-0+deb13u1",
+      "purl": "pkg:deb/debian/vlc-plugin-base@3.0.24-0%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=vlc"
+     }
+    ],
+    "removed": [
+     {
+      "name": "avahi-daemon",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/avahi-daemon@0.8-16?arch=amd64&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "avahi-discover",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/avahi-discover@0.8-16?arch=all&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "avahi-utils",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/avahi-utils@0.8-16?arch=amd64&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "gir1.2-ayatanaappindicator3-0.1",
+      "version": "0.5.94-1",
+      "purl": "pkg:deb/debian/gir1.2-ayatanaappindicator3-0.1@0.5.94-1?arch=amd64&distro=debian-13.7&upstream=libayatana-appindicator"
+     },
+     {
+      "name": "libavahi-core7",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/libavahi-core7@0.8-16?arch=amd64&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "libavdevice61",
+      "version": "7:7.1.5-0+deb13u1",
+      "purl": "pkg:deb/debian/libavdevice61@7%3A7.1.5-0%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=ffmpeg"
+     },
+     {
+      "name": "libavfilter10",
+      "version": "7:7.1.5-0+deb13u1",
+      "purl": "pkg:deb/debian/libavfilter10@7%3A7.1.5-0%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=ffmpeg"
+     },
+     {
+      "name": "libayatana-appindicator3-1",
+      "version": "0.5.94-1",
+      "purl": "pkg:deb/debian/libayatana-appindicator3-1@0.5.94-1?arch=amd64&distro=debian-13.7&upstream=libayatana-appindicator"
+     },
+     {
+      "name": "libayatana-ido3-0.4-0",
+      "version": "0.10.4-1",
+      "purl": "pkg:deb/debian/libayatana-ido3-0.4-0@0.10.4-1?arch=amd64&distro=debian-13.7&upstream=ayatana-ido"
+     },
+     {
+      "name": "libayatana-indicator3-7",
+      "version": "0.9.4-1+b1",
+      "purl": "pkg:deb/debian/libayatana-indicator3-7@0.9.4-1%2Bb1?arch=amd64&distro=debian-13.7&upstream=libayatana-indicator%400.9.4-1"
+     },
+     {
+      "name": "libblas3",
+      "version": "3.12.1-6",
+      "purl": "pkg:deb/debian/libblas3@3.12.1-6?arch=amd64&distro=debian-13.7&upstream=lapack"
+     },
+     {
+      "name": "libbs2b0",
+      "version": "3.1.0+dfsg-8+b1",
+      "purl": "pkg:deb/debian/libbs2b0@3.1.0%2Bdfsg-8%2Bb1?arch=amd64&distro=debian-13.7&upstream=libbs2b%403.1.0%2Bdfsg-8"
+     },
+     {
+      "name": "libcdio-cdda2t64",
+      "version": "10.2+2.0.2-1+b1",
+      "purl": "pkg:deb/debian/libcdio-cdda2t64@10.2%2B2.0.2-1%2Bb1?arch=amd64&distro=debian-13.7&upstream=libcdio-paranoia%4010.2%2B2.0.2-1"
+     },
+     {
+      "name": "libcdio-paranoia2t64",
+      "version": "10.2+2.0.2-1+b1",
+      "purl": "pkg:deb/debian/libcdio-paranoia2t64@10.2%2B2.0.2-1%2Bb1?arch=amd64&distro=debian-13.7&upstream=libcdio-paranoia%4010.2%2B2.0.2-1"
+     },
+     {
+      "name": "libcdio19t64",
+      "version": "2.2.0-4.1~deb13u1",
+      "purl": "pkg:deb/debian/libcdio19t64@2.2.0-4.1~deb13u1?arch=amd64&distro=debian-13.7&upstream=libcdio"
+     },
+     {
+      "name": "libdaemon0",
+      "version": "0.14-7.1+b3",
+      "purl": "pkg:deb/debian/libdaemon0@0.14-7.1%2Bb3?arch=amd64&distro=debian-13.7&upstream=libdaemon%400.14-7.1"
+     },
+     {
+      "name": "libdbusmenu-glib4",
+      "version": "18.10.20180917~bzr492+repack1-4",
+      "purl": "pkg:deb/debian/libdbusmenu-glib4@18.10.20180917~bzr492%2Brepack1-4?arch=amd64&distro=debian-13.7&upstream=libdbusmenu"
+     },
+     {
+      "name": "libdbusmenu-gtk3-4",
+      "version": "18.10.20180917~bzr492+repack1-4",
+      "purl": "pkg:deb/debian/libdbusmenu-gtk3-4@18.10.20180917~bzr492%2Brepack1-4?arch=amd64&distro=debian-13.7&upstream=libdbusmenu"
+     },
+     {
+      "name": "libebur128-1",
+      "version": "1.2.6-1+b2",
+      "purl": "pkg:deb/debian/libebur128-1@1.2.6-1%2Bb2?arch=amd64&distro=debian-13.7&upstream=libebur128%401.2.6-1"
+     },
+     {
+      "name": "libfftw3-double3",
+      "version": "3.3.10-2+b1",
+      "purl": "pkg:deb/debian/libfftw3-double3@3.3.10-2%2Bb1?arch=amd64&distro=debian-13.7&upstream=fftw3%403.3.10-2"
+     },
+     {
+      "name": "libgfortran5",
+      "version": "14.2.0-19",
+      "purl": "pkg:deb/debian/libgfortran5@14.2.0-19?arch=amd64&distro=debian-13.7&upstream=gcc-14"
+     },
+     {
+      "name": "liblapack3",
+      "version": "3.12.1-6",
+      "purl": "pkg:deb/debian/liblapack3@3.12.1-6?arch=amd64&distro=debian-13.7&upstream=lapack"
+     },
+     {
+      "name": "liblilv-0-0",
+      "version": "0.24.26-1",
+      "purl": "pkg:deb/debian/liblilv-0-0@0.24.26-1?arch=amd64&distro=debian-13.7&upstream=lilv"
+     },
+     {
+      "name": "libmpv2",
+      "version": "0.40.0-3+deb13u1",
+      "purl": "pkg:deb/debian/libmpv2@0.40.0-3%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=mpv"
+     },
+     {
+      "name": "libmujs3",
+      "version": "1.3.6-1",
+      "purl": "pkg:deb/debian/libmujs3@1.3.6-1?arch=amd64&distro=debian-13.7&upstream=mujs"
+     },
+     {
+      "name": "libnss-mdns",
+      "version": "0.15.1-4+b1",
+      "purl": "pkg:deb/debian/libnss-mdns@0.15.1-4%2Bb1?arch=amd64&distro=debian-13.7&upstream=nss-mdns%400.15.1-4"
+     },
+     {
+      "name": "libopenal-data",
+      "version": "1:1.24.2-1",
+      "purl": "pkg:deb/debian/libopenal-data@1%3A1.24.2-1?arch=all&distro=debian-13.7&upstream=openal-soft"
+     },
+     {
+      "name": "libopenal1",
+      "version": "1:1.24.2-1",
+      "purl": "pkg:deb/debian/libopenal1@1%3A1.24.2-1?arch=amd64&distro=debian-13.7&upstream=openal-soft"
+     },
+     {
+      "name": "libpipewire-0.3-0t64",
+      "version": "1.4.2-1",
+      "purl": "pkg:deb/debian/libpipewire-0.3-0t64@1.4.2-1?arch=amd64&distro=debian-13.7&upstream=pipewire"
+     },
+     {
+      "name": "libplacebo349",
+      "version": "7.349.0-3",
+      "purl": "pkg:deb/debian/libplacebo349@7.349.0-3?arch=amd64&distro=debian-13.7&upstream=libplacebo"
+     },
+     {
+      "name": "libpocketsphinx3",
+      "version": "0.8+5prealpha+1-15+b4",
+      "purl": "pkg:deb/debian/libpocketsphinx3@0.8%2B5prealpha%2B1-15%2Bb4?arch=amd64&distro=debian-13.7&upstream=pocketsphinx%400.8%2B5prealpha%2B1-15"
+     },
+     {
+      "name": "librubberband2",
+      "version": "3.3.0+dfsg-2+b3",
+      "purl": "pkg:deb/debian/librubberband2@3.3.0%2Bdfsg-2%2Bb3?arch=amd64&distro=debian-13.7&upstream=rubberband%403.3.0%2Bdfsg-2"
+     },
+     {
+      "name": "libsdl2-2.0-0",
+      "version": "2.32.4+dfsg-1",
+      "purl": "pkg:deb/debian/libsdl2-2.0-0@2.32.4%2Bdfsg-1?arch=amd64&distro=debian-13.7&upstream=libsdl2"
+     },
+     {
+      "name": "libserd-0-0",
+      "version": "0.32.4-1",
+      "purl": "pkg:deb/debian/libserd-0-0@0.32.4-1?arch=amd64&distro=debian-13.7&upstream=serd"
+     },
+     {
+      "name": "libsixel1",
+      "version": "1.10.5-1",
+      "purl": "pkg:deb/debian/libsixel1@1.10.5-1?arch=amd64&distro=debian-13.7&upstream=libsixel"
+     },
+     {
+      "name": "libsndio7.0",
+      "version": "1.10.0-0.1",
+      "purl": "pkg:deb/debian/libsndio7.0@1.10.0-0.1?arch=amd64&distro=debian-13.7&upstream=sndio"
+     },
+     {
+      "name": "libsord-0-0",
+      "version": "0.16.18-1",
+      "purl": "pkg:deb/debian/libsord-0-0@0.16.18-1?arch=amd64&distro=debian-13.7&upstream=sord"
+     },
+     {
+      "name": "libspa-0.2-modules",
+      "version": "1.4.2-1",
+      "purl": "pkg:deb/debian/libspa-0.2-modules@1.4.2-1?arch=amd64&distro=debian-13.7&upstream=pipewire"
+     },
+     {
+      "name": "libsphinxbase3t64",
+      "version": "0.8+5prealpha+1-21+b1",
+      "purl": "pkg:deb/debian/libsphinxbase3t64@0.8%2B5prealpha%2B1-21%2Bb1?arch=amd64&distro=debian-13.7&upstream=sphinxbase%400.8%2B5prealpha%2B1-21"
+     },
+     {
+      "name": "libsratom-0-0",
+      "version": "0.6.18-1",
+      "purl": "pkg:deb/debian/libsratom-0-0@0.6.18-1?arch=amd64&distro=debian-13.7&upstream=sratom"
+     },
+     {
+      "name": "libva-wayland2",
+      "version": "2.22.0-3",
+      "purl": "pkg:deb/debian/libva-wayland2@2.22.0-3?arch=amd64&distro=debian-13.7&upstream=libva"
+     },
+     {
+      "name": "libvidstab1.1",
+      "version": "1.1.0-2+b2",
+      "purl": "pkg:deb/debian/libvidstab1.1@1.1.0-2%2Bb2?arch=amd64&distro=debian-13.7&upstream=libvidstab%401.1.0-2"
+     },
+     {
+      "name": "libxpresent1",
+      "version": "1.0.1-1+b2",
+      "purl": "pkg:deb/debian/libxpresent1@1.0.1-1%2Bb2?arch=amd64&distro=debian-13.7&upstream=libxpresent%401.0.1-1"
+     },
+     {
+      "name": "libzimg2",
+      "version": "3.0.5+ds1-1+b2",
+      "purl": "pkg:deb/debian/libzimg2@3.0.5%2Bds1-1%2Bb2?arch=amd64&distro=debian-13.7&upstream=zimg%403.0.5%2Bds1-1"
+     },
+     {
+      "name": "libzix-0-0",
+      "version": "0.6.2-1",
+      "purl": "pkg:deb/debian/libzix-0-0@0.6.2-1?arch=amd64&distro=debian-13.7&upstream=zix"
+     },
+     {
+      "name": "mdns-scan",
+      "version": "0.5-5+b1",
+      "purl": "pkg:deb/debian/mdns-scan@0.5-5%2Bb1?arch=amd64&distro=debian-13.7&upstream=mdns-scan%400.5-5"
+     },
+     {
+      "name": "mpv",
+      "version": "0.40.0-3+deb13u1",
+      "purl": "pkg:deb/debian/mpv@0.40.0-3%2Bdeb13u1?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "python3-avahi",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/python3-avahi@0.8-16?arch=amd64&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "python3-dbus",
+      "version": "1.4.0-1",
+      "purl": "pkg:deb/debian/python3-dbus@1.4.0-1?arch=amd64&distro=debian-13.7&upstream=dbus-python"
+     },
+     {
+      "name": "python3-gdbm",
+      "version": "3.13.5-1",
+      "purl": "pkg:deb/debian/python3-gdbm@3.13.5-1?arch=amd64&distro=debian-13.7&upstream=python3-stdlib-extensions"
+     },
+     {
+      "name": "python3.13-gdbm",
+      "version": "3.13.5-2+deb13u5",
+      "purl": "pkg:deb/debian/python3.13-gdbm@3.13.5-2%2Bdeb13u5?arch=amd64&distro=debian-13.7&upstream=python3.13"
+     },
+     {
+      "name": "xdg-user-dirs",
+      "version": "0.18-2",
+      "purl": "pkg:deb/debian/xdg-user-dirs@0.18-2?arch=amd64&distro=debian-13.7"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "spotube",
+      "from": "5.1.2+45",
+      "to": "6.0.0",
+      "purl": "pkg:deb/debian/spotube@6.0.0?arch=amd64&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [
+     {
+      "name": "dbus-python",
+      "version": "1.4.0",
+      "purl": "pkg:pypi/dbus-python@1.4.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [
+     {
+      "name": "libaribb24-0t64",
+      "version": "1.0.3-2.1+b2",
+      "purl": "pkg:deb/debian/libaribb24-0t64@1.0.3-2.1%2Bb2?arch=arm64&distro=debian-13.7&upstream=aribb24%401.0.3-2.1"
+     },
+     {
+      "name": "libcddb2",
+      "version": "1.3.2-7.1",
+      "purl": "pkg:deb/debian/libcddb2@1.3.2-7.1?arch=arm64&distro=debian-13.7&upstream=libcddb"
+     },
+     {
+      "name": "libdvbpsi10",
+      "version": "1.3.3-1+b2",
+      "purl": "pkg:deb/debian/libdvbpsi10@1.3.3-1%2Bb2?arch=arm64&distro=debian-13.7&upstream=libdvbpsi%401.3.3-1"
+     },
+     {
+      "name": "libebml5",
+      "version": "1.4.5-1+b1",
+      "purl": "pkg:deb/debian/libebml5@1.4.5-1%2Bb1?arch=arm64&distro=debian-13.7&upstream=libebml%401.4.5-1"
+     },
+     {
+      "name": "libfaad2",
+      "version": "2.11.2-1",
+      "purl": "pkg:deb/debian/libfaad2@2.11.2-1?arch=arm64&distro=debian-13.7&upstream=faad2"
+     },
+     {
+      "name": "libixml11t64",
+      "version": "1:1.14.20-1+deb13u1",
+      "purl": "pkg:deb/debian/libixml11t64@1%3A1.14.20-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=pupnp"
+     },
+     {
+      "name": "libkate1",
+      "version": "0.4.3-1",
+      "purl": "pkg:deb/debian/libkate1@0.4.3-1?arch=arm64&distro=debian-13.7&upstream=libkate"
+     },
+     {
+      "name": "liblirc-client0t64",
+      "version": "0.10.2-0.10",
+      "purl": "pkg:deb/debian/liblirc-client0t64@0.10.2-0.10?arch=arm64&distro=debian-13.7&upstream=lirc"
+     },
+     {
+      "name": "libmad0",
+      "version": "0.15.1b-11+b1",
+      "purl": "pkg:deb/debian/libmad0@0.15.1b-11%2Bb1?arch=arm64&distro=debian-13.7&upstream=libmad%400.15.1b-11"
+     },
+     {
+      "name": "libmatroska7",
+      "version": "1.7.1-1+b2",
+      "purl": "pkg:deb/debian/libmatroska7@1.7.1-1%2Bb2?arch=arm64&distro=debian-13.7&upstream=libmatroska%401.7.1-1"
+     },
+     {
+      "name": "libmpcdec6",
+      "version": "2:0.1~r495-3",
+      "purl": "pkg:deb/debian/libmpcdec6@2%3A0.1~r495-3?arch=arm64&distro=debian-13.7&upstream=libmpc"
+     },
+     {
+      "name": "libmtp-common",
+      "version": "1.1.22-1",
+      "purl": "pkg:deb/debian/libmtp-common@1.1.22-1?arch=all&distro=debian-13.7&upstream=libmtp"
+     },
+     {
+      "name": "libmtp9t64",
+      "version": "1.1.22-1",
+      "purl": "pkg:deb/debian/libmtp9t64@1.1.22-1?arch=arm64&distro=debian-13.7&upstream=libmtp"
+     },
+     {
+      "name": "libnfs14",
+      "version": "5.0.2-1+deb13u1",
+      "purl": "pkg:deb/debian/libnfs14@5.0.2-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=libnfs"
+     },
+     {
+      "name": "libopenmpt-modplug1",
+      "version": "0.8.9.0-openmpt1-2+b3",
+      "purl": "pkg:deb/debian/libopenmpt-modplug1@0.8.9.0-openmpt1-2%2Bb3?arch=arm64&distro=debian-13.7&upstream=libopenmpt-modplug%400.8.9.0-openmpt1-2"
+     },
+     {
+      "name": "libprotobuf-lite32t64",
+      "version": "3.21.12-11+deb13u1",
+      "purl": "pkg:deb/debian/libprotobuf-lite32t64@3.21.12-11%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=protobuf"
+     },
+     {
+      "name": "libresid-builder0c2a",
+      "version": "2.1.1-16",
+      "purl": "pkg:deb/debian/libresid-builder0c2a@2.1.1-16?arch=arm64&distro=debian-13.7&upstream=sidplay-libs"
+     },
+     {
+      "name": "libsidplay2",
+      "version": "2.1.1-16",
+      "purl": "pkg:deb/debian/libsidplay2@2.1.1-16?arch=arm64&distro=debian-13.7&upstream=sidplay-libs"
+     },
+     {
+      "name": "libspatialaudio0t64",
+      "version": "0.3.0+git20180730+dfsg1-2.1+b1",
+      "purl": "pkg:deb/debian/libspatialaudio0t64@0.3.0%2Bgit20180730%2Bdfsg1-2.1%2Bb1?arch=arm64&distro=debian-13.7&upstream=libspatialaudio%400.3.0%2Bgit20180730%2Bdfsg1-2.1"
+     },
+     {
+      "name": "libupnp17t64",
+      "version": "1:1.14.20-1+deb13u1",
+      "purl": "pkg:deb/debian/libupnp17t64@1%3A1.14.20-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=pupnp"
+     },
+     {
+      "name": "libvlc5",
+      "version": "3.0.24-0+deb13u1",
+      "purl": "pkg:deb/debian/libvlc5@3.0.24-0%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=vlc"
+     },
+     {
+      "name": "libvlccore9",
+      "version": "3.0.24-0+deb13u1",
+      "purl": "pkg:deb/debian/libvlccore9@3.0.24-0%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=vlc"
+     },
+     {
+      "name": "vlc-data",
+      "version": "3.0.24-0+deb13u1",
+      "purl": "pkg:deb/debian/vlc-data@3.0.24-0%2Bdeb13u1?arch=all&distro=debian-13.7&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-base",
+      "version": "3.0.24-0+deb13u1",
+      "purl": "pkg:deb/debian/vlc-plugin-base@3.0.24-0%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=vlc"
+     }
+    ],
+    "removed": [
+     {
+      "name": "avahi-daemon",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/avahi-daemon@0.8-16?arch=arm64&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "avahi-discover",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/avahi-discover@0.8-16?arch=all&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "avahi-utils",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/avahi-utils@0.8-16?arch=arm64&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "gir1.2-atk-1.0",
+      "version": "2.56.2-1+deb13u2",
+      "purl": "pkg:deb/debian/gir1.2-atk-1.0@2.56.2-1%2Bdeb13u2?arch=arm64&distro=debian-13.7&upstream=at-spi2-core"
+     },
+     {
+      "name": "gir1.2-ayatanaappindicator3-0.1",
+      "version": "0.5.94-1",
+      "purl": "pkg:deb/debian/gir1.2-ayatanaappindicator3-0.1@0.5.94-1?arch=arm64&distro=debian-13.7&upstream=libayatana-appindicator"
+     },
+     {
+      "name": "gir1.2-gdkpixbuf-2.0",
+      "version": "2.42.12+dfsg-4+deb13u1",
+      "purl": "pkg:deb/debian/gir1.2-gdkpixbuf-2.0@2.42.12%2Bdfsg-4%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=gdk-pixbuf"
+     },
+     {
+      "name": "gir1.2-gtk-3.0",
+      "version": "3.24.49-3",
+      "purl": "pkg:deb/debian/gir1.2-gtk-3.0@3.24.49-3?arch=arm64&distro=debian-13.7&upstream=gtk%2B3.0"
+     },
+     {
+      "name": "gir1.2-harfbuzz-0.0",
+      "version": "10.2.0-1+deb13u1",
+      "purl": "pkg:deb/debian/gir1.2-harfbuzz-0.0@10.2.0-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=harfbuzz"
+     },
+     {
+      "name": "gir1.2-pango-1.0",
+      "version": "1.56.3-1",
+      "purl": "pkg:deb/debian/gir1.2-pango-1.0@1.56.3-1?arch=arm64&distro=debian-13.7&upstream=pango1.0"
+     },
+     {
+      "name": "libavahi-core7",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/libavahi-core7@0.8-16?arch=arm64&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "libavdevice61",
+      "version": "7:7.1.5-0+deb13u1",
+      "purl": "pkg:deb/debian/libavdevice61@7%3A7.1.5-0%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=ffmpeg"
+     },
+     {
+      "name": "libavfilter10",
+      "version": "7:7.1.5-0+deb13u1",
+      "purl": "pkg:deb/debian/libavfilter10@7%3A7.1.5-0%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=ffmpeg"
+     },
+     {
+      "name": "libayatana-appindicator3-1",
+      "version": "0.5.94-1",
+      "purl": "pkg:deb/debian/libayatana-appindicator3-1@0.5.94-1?arch=arm64&distro=debian-13.7&upstream=libayatana-appindicator"
+     },
+     {
+      "name": "libayatana-ido3-0.4-0",
+      "version": "0.10.4-1",
+      "purl": "pkg:deb/debian/libayatana-ido3-0.4-0@0.10.4-1?arch=arm64&distro=debian-13.7&upstream=ayatana-ido"
+     },
+     {
+      "name": "libayatana-indicator3-7",
+      "version": "0.9.4-1+b1",
+      "purl": "pkg:deb/debian/libayatana-indicator3-7@0.9.4-1%2Bb1?arch=arm64&distro=debian-13.7&upstream=libayatana-indicator%400.9.4-1"
+     },
+     {
+      "name": "libblas3",
+      "version": "3.12.1-6",
+      "purl": "pkg:deb/debian/libblas3@3.12.1-6?arch=arm64&distro=debian-13.7&upstream=lapack"
+     },
+     {
+      "name": "libbs2b0",
+      "version": "3.1.0+dfsg-8+b1",
+      "purl": "pkg:deb/debian/libbs2b0@3.1.0%2Bdfsg-8%2Bb1?arch=arm64&distro=debian-13.7&upstream=libbs2b%403.1.0%2Bdfsg-8"
+     },
+     {
+      "name": "libcdio-cdda2t64",
+      "version": "10.2+2.0.2-1+b1",
+      "purl": "pkg:deb/debian/libcdio-cdda2t64@10.2%2B2.0.2-1%2Bb1?arch=arm64&distro=debian-13.7&upstream=libcdio-paranoia%4010.2%2B2.0.2-1"
+     },
+     {
+      "name": "libcdio-paranoia2t64",
+      "version": "10.2+2.0.2-1+b1",
+      "purl": "pkg:deb/debian/libcdio-paranoia2t64@10.2%2B2.0.2-1%2Bb1?arch=arm64&distro=debian-13.7&upstream=libcdio-paranoia%4010.2%2B2.0.2-1"
+     },
+     {
+      "name": "libcdio19t64",
+      "version": "2.2.0-4.1~deb13u1",
+      "purl": "pkg:deb/debian/libcdio19t64@2.2.0-4.1~deb13u1?arch=arm64&distro=debian-13.7&upstream=libcdio"
+     },
+     {
+      "name": "libdaemon0",
+      "version": "0.14-7.1+b3",
+      "purl": "pkg:deb/debian/libdaemon0@0.14-7.1%2Bb3?arch=arm64&distro=debian-13.7&upstream=libdaemon%400.14-7.1"
+     },
+     {
+      "name": "libdbusmenu-glib4",
+      "version": "18.10.20180917~bzr492+repack1-4",
+      "purl": "pkg:deb/debian/libdbusmenu-glib4@18.10.20180917~bzr492%2Brepack1-4?arch=arm64&distro=debian-13.7&upstream=libdbusmenu"
+     },
+     {
+      "name": "libdbusmenu-gtk3-4",
+      "version": "18.10.20180917~bzr492+repack1-4",
+      "purl": "pkg:deb/debian/libdbusmenu-gtk3-4@18.10.20180917~bzr492%2Brepack1-4?arch=arm64&distro=debian-13.7&upstream=libdbusmenu"
+     },
+     {
+      "name": "libebur128-1",
+      "version": "1.2.6-1+b2",
+      "purl": "pkg:deb/debian/libebur128-1@1.2.6-1%2Bb2?arch=arm64&distro=debian-13.7&upstream=libebur128%401.2.6-1"
+     },
+     {
+      "name": "libfftw3-double3",
+      "version": "3.3.10-2+b1",
+      "purl": "pkg:deb/debian/libfftw3-double3@3.3.10-2%2Bb1?arch=arm64&distro=debian-13.7&upstream=fftw3%403.3.10-2"
+     },
+     {
+      "name": "libgfortran5",
+      "version": "14.2.0-19",
+      "purl": "pkg:deb/debian/libgfortran5@14.2.0-19?arch=arm64&distro=debian-13.7&upstream=gcc-14"
+     },
+     {
+      "name": "libharfbuzz-gobject0",
+      "version": "10.2.0-1+deb13u1",
+      "purl": "pkg:deb/debian/libharfbuzz-gobject0@10.2.0-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=harfbuzz"
+     },
+     {
+      "name": "liblapack3",
+      "version": "3.12.1-6",
+      "purl": "pkg:deb/debian/liblapack3@3.12.1-6?arch=arm64&distro=debian-13.7&upstream=lapack"
+     },
+     {
+      "name": "liblilv-0-0",
+      "version": "0.24.26-1",
+      "purl": "pkg:deb/debian/liblilv-0-0@0.24.26-1?arch=arm64&distro=debian-13.7&upstream=lilv"
+     },
+     {
+      "name": "libmpv2",
+      "version": "0.40.0-3+deb13u1",
+      "purl": "pkg:deb/debian/libmpv2@0.40.0-3%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=mpv"
+     },
+     {
+      "name": "libmujs3",
+      "version": "1.3.6-1",
+      "purl": "pkg:deb/debian/libmujs3@1.3.6-1?arch=arm64&distro=debian-13.7&upstream=mujs"
+     },
+     {
+      "name": "libnss-mdns",
+      "version": "0.15.1-4+b1",
+      "purl": "pkg:deb/debian/libnss-mdns@0.15.1-4%2Bb1?arch=arm64&distro=debian-13.7&upstream=nss-mdns%400.15.1-4"
+     },
+     {
+      "name": "libopenal-data",
+      "version": "1:1.24.2-1",
+      "purl": "pkg:deb/debian/libopenal-data@1%3A1.24.2-1?arch=all&distro=debian-13.7&upstream=openal-soft"
+     },
+     {
+      "name": "libopenal1",
+      "version": "1:1.24.2-1",
+      "purl": "pkg:deb/debian/libopenal1@1%3A1.24.2-1?arch=arm64&distro=debian-13.7&upstream=openal-soft"
+     },
+     {
+      "name": "libpipewire-0.3-0t64",
+      "version": "1.4.2-1",
+      "purl": "pkg:deb/debian/libpipewire-0.3-0t64@1.4.2-1?arch=arm64&distro=debian-13.7&upstream=pipewire"
+     },
+     {
+      "name": "libplacebo349",
+      "version": "7.349.0-3",
+      "purl": "pkg:deb/debian/libplacebo349@7.349.0-3?arch=arm64&distro=debian-13.7&upstream=libplacebo"
+     },
+     {
+      "name": "libpocketsphinx3",
+      "version": "0.8+5prealpha+1-15+b4",
+      "purl": "pkg:deb/debian/libpocketsphinx3@0.8%2B5prealpha%2B1-15%2Bb4?arch=arm64&distro=debian-13.7&upstream=pocketsphinx%400.8%2B5prealpha%2B1-15"
+     },
+     {
+      "name": "librubberband2",
+      "version": "3.3.0+dfsg-2+b3",
+      "purl": "pkg:deb/debian/librubberband2@3.3.0%2Bdfsg-2%2Bb3?arch=arm64&distro=debian-13.7&upstream=rubberband%403.3.0%2Bdfsg-2"
+     },
+     {
+      "name": "libsdl2-2.0-0",
+      "version": "2.32.4+dfsg-1",
+      "purl": "pkg:deb/debian/libsdl2-2.0-0@2.32.4%2Bdfsg-1?arch=arm64&distro=debian-13.7&upstream=libsdl2"
+     },
+     {
+      "name": "libserd-0-0",
+      "version": "0.32.4-1",
+      "purl": "pkg:deb/debian/libserd-0-0@0.32.4-1?arch=arm64&distro=debian-13.7&upstream=serd"
+     },
+     {
+      "name": "libsixel1",
+      "version": "1.10.5-1",
+      "purl": "pkg:deb/debian/libsixel1@1.10.5-1?arch=arm64&distro=debian-13.7&upstream=libsixel"
+     },
+     {
+      "name": "libsndio7.0",
+      "version": "1.10.0-0.1",
+      "purl": "pkg:deb/debian/libsndio7.0@1.10.0-0.1?arch=arm64&distro=debian-13.7&upstream=sndio"
+     },
+     {
+      "name": "libsord-0-0",
+      "version": "0.16.18-1",
+      "purl": "pkg:deb/debian/libsord-0-0@0.16.18-1?arch=arm64&distro=debian-13.7&upstream=sord"
+     },
+     {
+      "name": "libspa-0.2-modules",
+      "version": "1.4.2-1",
+      "purl": "pkg:deb/debian/libspa-0.2-modules@1.4.2-1?arch=arm64&distro=debian-13.7&upstream=pipewire"
+     },
+     {
+      "name": "libsphinxbase3t64",
+      "version": "0.8+5prealpha+1-21+b1",
+      "purl": "pkg:deb/debian/libsphinxbase3t64@0.8%2B5prealpha%2B1-21%2Bb1?arch=arm64&distro=debian-13.7&upstream=sphinxbase%400.8%2B5prealpha%2B1-21"
+     },
+     {
+      "name": "libsratom-0-0",
+      "version": "0.6.18-1",
+      "purl": "pkg:deb/debian/libsratom-0-0@0.6.18-1?arch=arm64&distro=debian-13.7&upstream=sratom"
+     },
+     {
+      "name": "libva-wayland2",
+      "version": "2.22.0-3",
+      "purl": "pkg:deb/debian/libva-wayland2@2.22.0-3?arch=arm64&distro=debian-13.7&upstream=libva"
+     },
+     {
+      "name": "libvidstab1.1",
+      "version": "1.1.0-2+b2",
+      "purl": "pkg:deb/debian/libvidstab1.1@1.1.0-2%2Bb2?arch=arm64&distro=debian-13.7&upstream=libvidstab%401.1.0-2"
+     },
+     {
+      "name": "libxpresent1",
+      "version": "1.0.1-1+b2",
+      "purl": "pkg:deb/debian/libxpresent1@1.0.1-1%2Bb2?arch=arm64&distro=debian-13.7&upstream=libxpresent%401.0.1-1"
+     },
+     {
+      "name": "libzimg2",
+      "version": "3.0.5+ds1-1+b2",
+      "purl": "pkg:deb/debian/libzimg2@3.0.5%2Bds1-1%2Bb2?arch=arm64&distro=debian-13.7&upstream=zimg%403.0.5%2Bds1-1"
+     },
+     {
+      "name": "libzix-0-0",
+      "version": "0.6.2-1",
+      "purl": "pkg:deb/debian/libzix-0-0@0.6.2-1?arch=arm64&distro=debian-13.7&upstream=zix"
+     },
+     {
+      "name": "mdns-scan",
+      "version": "0.5-5+b1",
+      "purl": "pkg:deb/debian/mdns-scan@0.5-5%2Bb1?arch=arm64&distro=debian-13.7&upstream=mdns-scan%400.5-5"
+     },
+     {
+      "name": "mpv",
+      "version": "0.40.0-3+deb13u1",
+      "purl": "pkg:deb/debian/mpv@0.40.0-3%2Bdeb13u1?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "python3-avahi",
+      "version": "0.8-16",
+      "purl": "pkg:deb/debian/python3-avahi@0.8-16?arch=arm64&distro=debian-13.7&upstream=avahi"
+     },
+     {
+      "name": "python3-dbus",
+      "version": "1.4.0-1",
+      "purl": "pkg:deb/debian/python3-dbus@1.4.0-1?arch=arm64&distro=debian-13.7&upstream=dbus-python"
+     },
+     {
+      "name": "python3-gdbm",
+      "version": "3.13.5-1",
+      "purl": "pkg:deb/debian/python3-gdbm@3.13.5-1?arch=arm64&distro=debian-13.7&upstream=python3-stdlib-extensions"
+     },
+     {
+      "name": "python3.13-gdbm",
+      "version": "3.13.5-2+deb13u5",
+      "purl": "pkg:deb/debian/python3.13-gdbm@3.13.5-2%2Bdeb13u5?arch=arm64&distro=debian-13.7&upstream=python3.13"
+     },
+     {
+      "name": "xdg-user-dirs",
+      "version": "0.18-2",
+      "purl": "pkg:deb/debian/xdg-user-dirs@0.18-2?arch=arm64&distro=debian-13.7"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "spotube",
+      "from": "5.1.2+45",
+      "to": "6.0.0",
+      "purl": "pkg:deb/debian/spotube@6.0.0?arch=arm64&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [
+     {
+      "name": "dbus-python",
+      "version": "1.4.0",
+      "purl": "pkg:pypi/dbus-python@1.4.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 48,
+  "removed": 112,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

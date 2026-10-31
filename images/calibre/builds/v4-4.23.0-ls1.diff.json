@@ -1,0 +1,85 @@
+{
+ "image": "calibre",
+ "branch": "v4",
+ "tag": "v4-4.23.0-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "4.23.0",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubuntunoble",
+   "digest": "sha256:7cab02f9222937ad1e704cd904534d69a2300b2406af466241817be0ce1d0493"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 1157825771,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "CUSTOM_HTTPS_PORT",
+    "CUSTOM_PORT",
+    "DISABLE_DRI3",
+    "DISABLE_ZINK",
+    "DISPLAY",
+    "HOME",
+    "LANG",
+    "LANGUAGE",
+    "LSIO_FIRST_PARTY",
+    "NVIDIA_DRIVER_CAPABILITIES",
+    "PATH",
+    "PERL5LIB",
+    "PULSE_RUNTIME_PATH",
+    "QTWEBENGINE_DISABLE_SANDBOX",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "SELKIES_ENCODER",
+    "SELKIES_INTERPOSER",
+    "START_DOCKER",
+    "TERM",
+    "TITLE",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "3000/tcp",
+    "3001/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

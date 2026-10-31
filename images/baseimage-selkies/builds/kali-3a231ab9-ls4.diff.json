@@ -1,0 +1,377 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "kali",
+ "tag": "kali-3a231ab9-ls4",
+ "previous_tag": "kali-1decc5f6-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1decc5f6",
+  "to": "3a231ab9",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:043f8d4e75fcf9300f45c000f2d19804aeea470b6e71096039c841d38087a9cd"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:74853d443c3a793a1525dab0e72dd411bf2b978e2128d72c262d0eb99e66dc6c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1108836711,
+   "to": 1109181764,
+   "delta": 345053
+  },
+  "arm64": {
+   "from": 1060279742,
+   "to": 1060610488,
+   "delta": 330746
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cron",
+      "from": "3.0pl1-211",
+      "to": "3.0pl1-212",
+      "purl": "pkg:deb/kali/cron@3.0pl1-212?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "cron-daemon-common",
+      "from": "3.0pl1-211",
+      "to": "3.0pl1-212",
+      "purl": "pkg:deb/kali/cron-daemon-common@3.0pl1-212?arch=all&distro=kali-2026.3&upstream=cron"
+     },
+     {
+      "name": "dirmngr",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/dirmngr@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gir1.2-freedesktop",
+      "from": "1.86.0-7",
+      "to": "1.86.0-8",
+      "purl": "pkg:deb/kali/gir1.2-freedesktop@1.86.0-8?arch=amd64&distro=kali-2026.3&upstream=gobject-introspection"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gnupg-l10n",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg-l10n@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg-agent",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg-agent@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgconf",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgconf@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgsm",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgsm@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "intel-media-va-driver-non-free",
+      "from": "26.2.4+ds1-1",
+      "to": "26.3.5+ds1-1",
+      "purl": "pkg:deb/kali/intel-media-va-driver-non-free@26.3.5%2Bds1-1?arch=amd64&distro=kali-2026.3&upstream=intel-media-driver-non-free"
+     },
+     {
+      "name": "libgirepository-1.0-1",
+      "from": "1.86.0-7",
+      "to": "1.86.0-8",
+      "purl": "pkg:deb/kali/libgirepository-1.0-1@1.86.0-8?arch=amd64&distro=kali-2026.3&upstream=gobject-introspection"
+     },
+     {
+      "name": "libigdgmm12",
+      "from": "22.10.1+ds1-1",
+      "to": "22.10.2+ds1-1",
+      "purl": "pkg:deb/kali/libigdgmm12@22.10.2%2Bds1-1?arch=amd64&distro=kali-2026.3&upstream=intel-gmmlib"
+     },
+     {
+      "name": "libsasl2-2",
+      "from": "2.1.28+dfsg1-11",
+      "to": "2.1.28+dfsg1-12",
+      "purl": "pkg:deb/kali/libsasl2-2@2.1.28%2Bdfsg1-12?arch=amd64&distro=kali-2026.3&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "libsasl2-modules-db",
+      "from": "2.1.28+dfsg1-11",
+      "to": "2.1.28+dfsg1-12",
+      "purl": "pkg:deb/kali/libsasl2-modules-db@2.1.28%2Bdfsg1-12?arch=amd64&distro=kali-2026.3&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "libsemanage2",
+      "from": "3.11-1+b1",
+      "to": "3.11-1+b2",
+      "purl": "pkg:deb/kali/libsemanage2@3.11-1%2Bb2?arch=amd64&distro=kali-2026.3&upstream=libsemanage%403.11-1"
+     },
+     {
+      "name": "libtdb1",
+      "from": "2:1.4.15+samba4.25.0+dfsg-1",
+      "to": "2:1.4.15+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libtdb1@2%3A1.4.15%2Bsamba4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "python3-bcrypt",
+      "from": "5.0.0-8",
+      "to": "5.0.0-9",
+      "purl": "pkg:deb/kali/python3-bcrypt@5.0.0-9?arch=amd64&distro=kali-2026.3&upstream=python-bcrypt"
+     },
+     {
+      "name": "xterm",
+      "from": "411-1",
+      "to": "412-1",
+      "purl": "pkg:deb/kali/xterm@412-1?arch=amd64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cron",
+      "from": "3.0pl1-211",
+      "to": "3.0pl1-212",
+      "purl": "pkg:deb/kali/cron@3.0pl1-212?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "cron-daemon-common",
+      "from": "3.0pl1-211",
+      "to": "3.0pl1-212",
+      "purl": "pkg:deb/kali/cron-daemon-common@3.0pl1-212?arch=all&distro=kali-2026.3&upstream=cron"
+     },
+     {
+      "name": "dirmngr",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/dirmngr@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gir1.2-freedesktop",
+      "from": "1.86.0-7",
+      "to": "1.86.0-8",
+      "purl": "pkg:deb/kali/gir1.2-freedesktop@1.86.0-8?arch=arm64&distro=kali-2026.3&upstream=gobject-introspection"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gnupg-l10n",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg-l10n@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg-agent",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg-agent@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgconf",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgconf@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgsm",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgsm@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "libgirepository-1.0-1",
+      "from": "1.86.0-7",
+      "to": "1.86.0-8",
+      "purl": "pkg:deb/kali/libgirepository-1.0-1@1.86.0-8?arch=arm64&distro=kali-2026.3&upstream=gobject-introspection"
+     },
+     {
+      "name": "libsasl2-2",
+      "from": "2.1.28+dfsg1-11",
+      "to": "2.1.28+dfsg1-12",
+      "purl": "pkg:deb/kali/libsasl2-2@2.1.28%2Bdfsg1-12?arch=arm64&distro=kali-2026.3&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "libsasl2-modules-db",
+      "from": "2.1.28+dfsg1-11",
+      "to": "2.1.28+dfsg1-12",
+      "purl": "pkg:deb/kali/libsasl2-modules-db@2.1.28%2Bdfsg1-12?arch=arm64&distro=kali-2026.3&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "libsemanage2",
+      "from": "3.11-1+b1",
+      "to": "3.11-1+b2",
+      "purl": "pkg:deb/kali/libsemanage2@3.11-1%2Bb2?arch=arm64&distro=kali-2026.3&upstream=libsemanage%403.11-1"
+     },
+     {
+      "name": "libtdb1",
+      "from": "2:1.4.15+samba4.25.0+dfsg-1",
+      "to": "2:1.4.15+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libtdb1@2%3A1.4.15%2Bsamba4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "python3-bcrypt",
+      "from": "5.0.0-8",
+      "to": "5.0.0-9",
+      "purl": "pkg:deb/kali/python3-bcrypt@5.0.0-9?arch=arm64&distro=kali-2026.3&upstream=python-bcrypt"
+     },
+     {
+      "name": "xterm",
+      "from": "411-1",
+      "to": "412-1",
+      "purl": "pkg:deb/kali/xterm@412-1?arch=arm64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 46,
+  "downgraded": 0
+ }
+}

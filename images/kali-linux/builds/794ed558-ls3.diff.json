@@ -1,0 +1,253 @@
+{
+ "image": "kali-linux",
+ "branch": "master",
+ "tag": "794ed558-ls3",
+ "previous_tag": "794ed558-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "794ed558",
+  "to": "794ed558",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:kali",
+   "digest": "sha256:f2277b2d2ba122e03e38a3d5212f6a4b580b1da06dc352791e8a1e6c9971559f"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:88ccdbb5fabd6aa903d0e848ed8dc7223201c2456830e1dc646aa73ca839a108"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 4798715479,
+   "to": 4810236213,
+   "delta": 11520734
+  },
+  "arm64": {
+   "from": 4026215292,
+   "to": 4038143273,
+   "delta": 11927981
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-selkies:kali\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:kali\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-selkies:arm64v8-kali\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:arm64v8-kali\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libavcodec63",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavcodec63@7%3A9.0.2-3?arch=amd64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libavfilter12",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavfilter12@7%3A9.0.2-3?arch=amd64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libavformat63",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavformat63@7%3A9.0.2-3?arch=amd64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libavutil61",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavutil61@7%3A9.0.2-3?arch=amd64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libswresample7",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libswresample7@7%3A9.0.2-3?arch=amd64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libswscale10",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libswscale10@7%3A9.0.2-3?arch=amd64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "python3-lz4",
+      "from": "4.4.5+dfsg-1+b1",
+      "to": "4.4.5+dfsg-1+b2",
+      "purl": "pkg:deb/kali/python3-lz4@4.4.5%2Bdfsg-1%2Bb2?arch=amd64&distro=kali-2026.3&upstream=python-lz4%404.4.5%2Bdfsg-1"
+     },
+     {
+      "name": "python3-unicodedata2",
+      "from": "17.0.1+ds-1+b1",
+      "to": "17.0.1+ds-1+b2",
+      "purl": "pkg:deb/kali/python3-unicodedata2@17.0.1%2Bds-1%2Bb2?arch=amd64&distro=kali-2026.3&upstream=python-unicodedata2%4017.0.1%2Bds-1"
+     },
+     {
+      "name": "python3-zstandard",
+      "from": "0.25.0-1+b2",
+      "to": "0.25.0-1+b3",
+      "purl": "pkg:deb/kali/python3-zstandard@0.25.0-1%2Bb3?arch=amd64&distro=kali-2026.3&upstream=python-zstandard%400.25.0-1"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.7.0",
+      "purl": "pkg:pypi/starlette@1.7.0"
+     }
+    ]
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [
+     {
+      "name": "vim-tiny",
+      "version": "2:9.2.0858-1",
+      "purl": "pkg:deb/kali/vim-tiny@2%3A9.2.0858-1?arch=arm64&distro=kali-2026.3&upstream=vim"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libavcodec63",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavcodec63@7%3A9.0.2-3?arch=arm64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libavfilter12",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavfilter12@7%3A9.0.2-3?arch=arm64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libavformat63",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavformat63@7%3A9.0.2-3?arch=arm64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libavutil61",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libavutil61@7%3A9.0.2-3?arch=arm64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libswresample7",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libswresample7@7%3A9.0.2-3?arch=arm64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "libswscale10",
+      "from": "7:9.0.2-1",
+      "to": "7:9.0.2-3",
+      "purl": "pkg:deb/kali/libswscale10@7%3A9.0.2-3?arch=arm64&distro=kali-2026.3&upstream=ffmpeg"
+     },
+     {
+      "name": "python3-lz4",
+      "from": "4.4.5+dfsg-1+b1",
+      "to": "4.4.5+dfsg-1+b2",
+      "purl": "pkg:deb/kali/python3-lz4@4.4.5%2Bdfsg-1%2Bb2?arch=arm64&distro=kali-2026.3&upstream=python-lz4%404.4.5%2Bdfsg-1"
+     },
+     {
+      "name": "python3-unicodedata2",
+      "from": "17.0.1+ds-1+b1",
+      "to": "17.0.1+ds-1+b2",
+      "purl": "pkg:deb/kali/python3-unicodedata2@17.0.1%2Bds-1%2Bb2?arch=arm64&distro=kali-2026.3&upstream=python-unicodedata2%4017.0.1%2Bds-1"
+     },
+     {
+      "name": "python3-zstandard",
+      "from": "0.25.0-1+b2",
+      "to": "0.25.0-1+b3",
+      "purl": "pkg:deb/kali/python3-zstandard@0.25.0-1%2Bb3?arch=arm64&distro=kali-2026.3&upstream=python-zstandard%400.25.0-1"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.7.0",
+      "purl": "pkg:pypi/starlette@1.7.0"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "added": 1,
+  "removed": 0,
+  "upgraded": 22,
+  "downgraded": 2
+ }
+}

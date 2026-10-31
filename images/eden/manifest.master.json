@@ -1,0 +1,118 @@
+{
+ "schema": 1,
+ "name": "eden",
+ "summary": "[Eden](https://eden-emu.dev/) is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind.",
+ "upstream": {
+  "url": "https://eden-emu.dev/",
+  "version": {
+   "type": "json",
+   "url": "https://git.eden-emu.dev/api/v1/repos/eden-emu/eden/releases/latest",
+   "jq": ".tag_name"
+  },
+  "notes": {
+   "type": "gitea_release",
+   "base_url": "https://git.eden-emu.dev",
+   "repo": "eden-emu/eden"
+  },
+  "sponsor": [
+   {
+    "name": "Contribute page (Liberapay, PayPal, Bitcoin)",
+    "url": "https://eden-emu.dev/contribute"
+   },
+   {
+    "name": "Liberapay (crueter, Eden developer)",
+    "url": "https://liberapay.com/crueter"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "EDEN_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Eden desktop gui HTTP must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Eden desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/eden-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n**This image should be run with a GPU**\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-06-30",
+   "text": "Optimize build to match PGO v3 builds for better performance."
+  },
+  {
+   "date": "2026-05-05",
+   "text": "Rebase to Debian Trixie, build Eden from source, remove arm64 tag."
+  },
+  {
+   "date": "2026-03-17",
+   "text": "Ingest releases from self hosted git."
+  },
+  {
+   "date": "2026-02-18",
+   "text": "Initial Version."
+  }
+ ]
+}

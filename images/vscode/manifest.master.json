@@ -1,0 +1,102 @@
+{
+ "schema": 1,
+ "name": "vscode",
+ "summary": "[VS Code](https://code.visualstudio.com/) is an integrated development environment developed by Microsoft. This container runs the full desktop application, for a web native version see [Code Server](https://github.com/linuxserver/docker-code-server).",
+ "upstream": {
+  "url": "https://code.visualstudio.com/",
+  "version": {
+   "type": "json",
+   "url": "https://update.code.visualstudio.com/api/releases/stable",
+   "jq": ".[0]"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "microsoft/vscode"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "CODE_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "VS Code desktop gui."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS VS Code desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/vscode/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "cap_add": [
+   {
+    "cap": "IPC_LOCK",
+    "description": "Required for keyring functionality."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for electron applications to function properly."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Programming"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscode-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-04",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-20",
+   "text": "Initial release."
+  }
+ ]
+}

@@ -1,0 +1,370 @@
+{
+ "schema": 1,
+ "name": "nextcloud",
+ "summary": "[Nextcloud](https://nextcloud.com/) gives you access to all your files wherever you are.\n\nWhere are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices. Through Nextcloud you also access, sync and share your existing data on that FTP drive at the office, a Dropbox or a NAS you have at home.",
+ "upstream": {
+  "url": "https://nextcloud.com/",
+  "version": {
+   "type": "github_release",
+   "repo": "nextcloud/server",
+   "prerelease": true,
+   "include": "(alpha|beta|rc)",
+   "sort": "version",
+   "transform": [
+    {
+     "regex": "^v",
+     "replace": ""
+    }
+   ],
+   "require_assets": [
+    "https://download.nextcloud.com/server/prereleases/nextcloud-${VERSION}.tar.bz2"
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "nextcloud-releases/server",
+   "tag": "v${VERSION}"
+  }
+ },
+ "release": {
+  "branch": "develop",
+  "tag": "develop",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable Nextcloud releases"
+   },
+   {
+    "tag": "develop",
+    "description": "Beta Nextcloud pre-releases *only*"
+   },
+   {
+    "tag": "previous",
+    "description": "Nextcloud releases from the previous major version"
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "NEXTCLOUD_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 443,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "443",
+    "description": "WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/nextcloud/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/data",
+    "host_path": "/path/to/data",
+    "description": "Your personal data."
+   }
+  ],
+  "readonly": {
+   "supported": false
+  },
+  "nonroot": {
+   "supported": false
+  }
+ },
+ "docs": {
+  "categories": [
+   "Cloud",
+   "Documents"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png",
+  "setup": "Access the webui at `https://<your-ip>:443`, for more information check out [Nextcloud](https://nextcloud.com/).\n\nNote: `occ` should be run without prepending with `sudo -u abc php` or `sudo -u www-data php` ie; `docker exec -it nextcloud occ maintenance:mode --off`\n\n### Updating Nextcloud\n\nUpdating Nextcloud is done by pulling the new image, and recreating the container with it.\n\nIt is only possible to upgrade one major version at a time. For example, if you want to upgrade from version 14 to 16, you will have to upgrade from version 14 to 15, then from 15 to 16.\n\nSince all data is stored in the `/config` and `/data` volumes, nothing gets lost. The startup script will check for the version in your volume and the installed docker version. If it finds a mismatch, it automatically starts the upgrade process.\n\n### Collaborative Editing\n\nNextcloud's built-in collaborative editing packages (Collabora/CODE and OnlyOffice) only work on x86_64 systems with glibc, and therefore they are not compatible with our images. You should create separate containers for them and set them up in Nextcloud with their respective connector addons.\n\nIf (auto) installed, those built-in packages may cause instability and should be removed.\n\n### HEIC Image Previews\n\nIn order to enable HEIC image preview generation you will need to add the following to your `config.php` file in your `config/www/nextcloud/config' directory;\n\n```\n  'enable_previews' => true,\n  'enabledPreviewProviders' =>\n  array (\n    'OC\\Preview\\PNG',\n    'OC\\Preview\\JPEG',\n    'OC\\Preview\\GIF',\n    'OC\\Preview\\BMP',\n    'OC\\Preview\\XBitmap',\n    'OC\\Preview\\MP3',\n    'OC\\Preview\\TXT',\n    'OC\\Preview\\MarkDown',\n    'OC\\Preview\\OpenDocument',\n    'OC\\Preview\\Krita',\n    'OC\\Preview\\HEIC',\n  ),\n```\n\nYou may need to log out and back in for the changes to come in to effect.\n\nThis fix was sourced from [Nextcloud Documentation](https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/config_sample_php_parameters.html#enabledpreviewproviders)\n\nNextcloud state that HEIC preview is disabled by default due to performance or privacy concerns, so enable this at your own risk.\n\n### Custom App Directories\n\nIf you are [using custom app directories](https://docs.nextcloud.com/server/latest/admin_manual/apps_management.html#using-custom-app-directories) you will need to make the custom folder(s) you are using available to the web server. The recommended way to do this with our container is to add a volume. Ex:\n\n```yaml\n    volumes:\n      - /path/to/your_custom_apps_folder:/app/www/public/your_custom_apps_folder\n```\n\nAfterwards, you can set `\"path\" => OC::$SERVERROOT . \"/your_custom_apps_folder\",` in your `config.php` file, per the [official documentation](https://docs.nextcloud.com/server/latest/admin_manual/apps_management.html#using-custom-app-directories).\n",
+  "notices": {
+   "strict_proxy": true
+  }
+ },
+ "proxy": {
+  "port": 443,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-10-14",
+   "text": "Rebase to Alpine 3.24 with php 8.5. Tweak opcache settings according to upstream docs. Import upstream release notes in Github releases."
+  },
+  {
+   "date": "2025-07-10",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-02-12",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2025-01-09",
+   "text": "Fix uploading large files. Existing users should update their nginx confs."
+  },
+  {
+   "date": "2024-07-09",
+   "text": "Add `previous` tag for n-1 releases."
+  },
+  {
+   "date": "2024-06-24",
+   "text": "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2024-05-19",
+   "text": "Added util-linux package required for taskset."
+  },
+  {
+   "date": "2024-04-10",
+   "text": "Added imagemagick-pdf."
+  },
+  {
+   "date": "2024-04-05",
+   "text": "Added imagemagick-heic. Manual update to `config.php` required - see above."
+  },
+  {
+   "date": "2024-04-02",
+   "text": "Existing users should update: site-confs/default.conf - Add support for the Client Push (notify_push) plugin and the [new mod](https://github.com/linuxserver/docker-mods/tree/nextcloud-notify-push)."
+  },
+  {
+   "date": "2024-03-22",
+   "text": "Add imagemagick-svg module."
+  },
+  {
+   "date": "2024-03-06",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2024-01-02",
+   "text": "Existing users should update: site-confs/default.conf - Cleanup default site conf."
+  },
+  {
+   "date": "2023-12-22",
+   "text": "Site default conf updating to include mime.types for js and mjs and update location to include more file types."
+  },
+  {
+   "date": "2023-10-28",
+   "text": "Disable web upgrades using occ during init."
+  },
+  {
+   "date": "2023-08-31",
+   "text": "Re-add updatenotification app. This allows users to be notified for app updates, but also notifies for NextCloud updates. Updating NextCloud via the web UI is not supported when using this image."
+  },
+  {
+   "date": "2023-08-14",
+   "text": "Add develop branch."
+  },
+  {
+   "date": "2023-06-25",
+   "text": "Move Nextcloud installation inside container. Remove CLI updater. [See changes announcement](https://info.linuxserver.io/issues/2023-06-25-nextcloud/)."
+  },
+  {
+   "date": "2023-06-21",
+   "text": "Existing users should update `/config/nginx/site-confs/default.conf` - Security fix for real ip settings."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-04-13",
+   "text": "Move ssl.conf include to default.conf."
+  },
+  {
+   "date": "2023-03-21",
+   "text": "Add php81-sysvsem as new dep for v26. Update default X-Robots-Tag to `noindex, nofollow``."
+  },
+  {
+   "date": "2023-03-02",
+   "text": "Set permissions on crontabs during init."
+  },
+  {
+   "date": "2023-01-20",
+   "text": "Rebase to alpine 3.17 with php8.1."
+  },
+  {
+   "date": "2022-10-10",
+   "text": "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+  },
+  {
+   "date": "2022-09-30",
+   "text": "Disabled `output_buffering` as per [nextcloud docs](https://docs.nextcloud.com/server/latest/admin_manual/configuration_files/big_file_upload_configuration.html"
+  },
+  {
+   "date": "2022-05-21",
+   "text": "Update version check endpoint."
+  },
+  {
+   "date": "2022-04-28",
+   "text": "Increase OPCache interned strings buffered setting to 16."
+  },
+  {
+   "date": "2022-04-14",
+   "text": "Nginx default site config updated for v23 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container). Fix LDAP connection."
+  },
+  {
+   "date": "2021-09-11",
+   "text": "Rebasing to alpine 3.14"
+  },
+  {
+   "date": "2021-03-21",
+   "text": "Publish `php8` tag for testing."
+  },
+  {
+   "date": "2021-02-25",
+   "text": "Nginx default site config updated for v21 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."
+  },
+  {
+   "date": "2021-01-21",
+   "text": "Fix php iconv (was breaking the mail addon). If installed, attempt to remove broken CODE Server app during startup."
+  },
+  {
+   "date": "2021-01-20",
+   "text": "Increase php fcgi timeout to prevent 504 Gateway timeout errors (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."
+  },
+  {
+   "date": "2021-01-16",
+   "text": "Rebasing to alpine 3.13. Users with issues on 32-bit arm, [see this article](https://docs.linuxserver.io/faq#my-host-is-incompatible-with-images-based-on-ubuntu-focal-and-alpine-3-13)."
+  },
+  {
+   "date": "2020-08-12",
+   "text": "Various updates to default site config, including added support for webfinger (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."
+  },
+  {
+   "date": "2020-06-03",
+   "text": "Rebasing to alpine 3.12"
+  },
+  {
+   "date": "2020-06-03",
+   "text": "Add php7-bcmath and php7-fileinfo"
+  },
+  {
+   "date": "2020-05-31",
+   "text": "Add aliases for occ and updater.phar"
+  },
+  {
+   "date": "2020-03-31",
+   "text": "Allow crontab to be user customized, fix logrotate."
+  },
+  {
+   "date": "2020-01-17",
+   "text": "Updated php.ini defaults and site config, including an optional HSTS directive (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-11-18",
+   "text": "Nginx default site config updated for v17 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."
+  },
+  {
+   "date": "2019-10-28",
+   "text": "Change cronjob to run every 5 minutes."
+  },
+  {
+   "date": "2019-10-24",
+   "text": "Nginx default site config updated due to CVE-2019-11043 (existing users should delete `/config/nginx/site-confs/default.conf` and restart the container)."
+  },
+  {
+   "date": "2019-07-14",
+   "text": "Download nextcloud during build time."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-27",
+   "text": "Updating base nginx config to sync up with v15 requirements."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2019-01-28",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2019-01-25",
+   "text": "Add php7-phar for occ upgrades."
+  },
+  {
+   "date": "2018-09-05",
+   "text": "Rebase to alpine 3.8."
+  },
+  {
+   "date": "2018-06-11",
+   "text": "Use latest rather than specific version for initial install."
+  },
+  {
+   "date": "2018-04-26",
+   "text": "Bump default install to 13.0.1."
+  },
+  {
+   "date": "2018-02-06",
+   "text": "Bump default install to 13.0.0."
+  },
+  {
+   "date": "2018-01-26",
+   "text": "Rebase to alpine 3.7, bump default install to 12.0.5."
+  },
+  {
+   "date": "2017-12-12",
+   "text": "Bump default install to 12.0.4, fix continuation lines."
+  },
+  {
+   "date": "2017-10-15",
+   "text": "Sed php.ini for opcache requirements in newer nextcloud versions."
+  },
+  {
+   "date": "2017-09-20",
+   "text": "Bump default install to 12.0.3."
+  },
+  {
+   "date": "2017-08-19",
+   "text": "Bump default install to 12.0.2."
+  },
+  {
+   "date": "2017-05-25",
+   "text": "Rebase to alpine 3.6."
+  },
+  {
+   "date": "2017-05-22",
+   "text": "Update to nextcloud 12.0, adding required dependecies and note about commenting out SAMEORIGIN; line."
+  },
+  {
+   "date": "2017-05-03",
+   "text": "Use community repo of memcache."
+  },
+  {
+   "date": "2017-03-07",
+   "text": "Release into main repository and upgrade to php7 and Alpine 3.5."
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "image": "baseimage-arch",
+ "branch": "master",
+ "tag": "2026-10-31-ls5",
+ "previous_tag": "2026-10-30-ls4",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-30",
+  "to": "2026-10-31",
+  "changed": true
+ },
+ "commit": {
+  "from": "14af8dfcddb7c860453fc4999cbc5b8ef79efa93",
+  "to": "14af8dfcddb7c860453fc4999cbc5b8ef79efa93",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "arch",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "arch",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 133097119,
+   "to": 133097167,
+   "delta": 48
+  },
+  "arm64": {
+   "from": 196827228,
+   "to": 196827703,
+   "delta": 475
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 1,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,658 @@
+{
+ "image": "kometa",
+ "branch": "main",
+ "tag": "v2.5.4-ls3",
+ "previous_tag": "v2.5.3-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "3 commits (1097db0 → 9d12bbf): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v2.5.3",
+  "to": "v2.5.4",
+  "changed": true
+ },
+ "commit": {
+  "from": "1097db06257b4a90e0d9988119cf67177975755b",
+  "to": "9d12bbf422d6ee2c111f2c487fe985832052cad3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kometa/compare/1097db06257b4a90e0d9988119cf67177975755b...9d12bbf422d6ee2c111f2c487fe985832052cad3",
+  "commits": [
+   {
+    "sha": "7db1afee3a185bb3c0ba44d13b79770dc421364f",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:46:23Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/7db1afee3a185bb3c0ba44d13b79770dc421364f",
+    "bot": true
+   },
+   {
+    "sha": "625e513d65fd0508ba6643868e779c7a70d5e833",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T13:51:39Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/625e513d65fd0508ba6643868e779c7a70d5e833",
+    "bot": true
+   },
+   {
+    "sha": "9d12bbf422d6ee2c111f2c487fe985832052cad3",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T15:46:21Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/9d12bbf422d6ee2c111f2c487fe985832052cad3",
+    "bot": true
+   }
+  ],
+  "count": 3,
+  "truncated": false,
+  "areas": {
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 315638129,
+   "to": 317853616,
+   "delta": 2215487
+  },
+  "arm64": {
+   "from": 314897752,
+   "to": 317268869,
+   "delta": 2371117
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "FriBiDi",
+      "from": "1.0.16",
+      "to": "1.0.17",
+      "purl": "pkg:generic/fribidi"
+     },
+     {
+      "name": "HarfBuzz",
+      "from": "14.2.1",
+      "to": "14.5.0",
+      "purl": "pkg:generic/harfbuzz"
+     },
+     {
+      "name": "libjpeg / libjpeg-turbo",
+      "from": "3.1.4.1",
+      "to": "3.2.0",
+      "purl": "pkg:generic/libjpeg"
+     },
+     {
+      "name": "libtiff",
+      "from": "4.7.1",
+      "to": "4.7.2",
+      "purl": "pkg:generic/libtiff"
+     }
+    ],
+    "downgraded": []
+   },
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r1?arch=x86_64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r1?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r1?arch=x86_64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r1?arch=x86_64&distro=alpine-3.24.3&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "purl": "pkg:pypi/httpcore2@2.16.0"
+     },
+     {
+      "name": "httpx2",
+      "version": "2.16.0",
+      "purl": "pkg:pypi/httpx2@2.16.0"
+     },
+     {
+      "name": "PIL._avif",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.11.0",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/raqm"
+     },
+     {
+      "name": "pylast",
+      "version": "7.2.0",
+      "purl": "pkg:pypi/pylast@7.2.0"
+     },
+     {
+      "name": "tzdata",
+      "version": "2026.5",
+      "purl": "pkg:pypi/tzdata@2026.5"
+     },
+     {
+      "name": "ytmusicapi",
+      "version": "1.12.3",
+      "purl": "pkg:pypi/ytmusicapi@1.12.3"
+     }
+    ],
+    "removed": [
+     {
+      "name": "PIL._avif",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@12.3.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.10.5",
+      "purl": "pkg:pypi/pillow@12.3.0#thirdparty/raqm"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "apprise",
+      "from": "2.0.1",
+      "to": "2.1.0",
+      "purl": "pkg:pypi/apprise@2.1.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.7.22",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     },
+     {
+      "name": "gitpython",
+      "from": "3.2.0",
+      "to": "3.2.1",
+      "purl": "pkg:pypi/gitpython@3.2.1"
+     },
+     {
+      "name": "letterboxdpy",
+      "from": "6.5.9",
+      "to": "6.7.0",
+      "purl": "pkg:pypi/letterboxdpy@6.7.0"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11",
+      "to": "3.11.2",
+      "purl": "pkg:pypi/markdown@3.11.2"
+     },
+     {
+      "name": "pillow",
+      "from": "12.3.0",
+      "to": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0?file_name=pillow-13.0.0-cp314-cp314-musllinux_1_2_x86_64.whl"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.11",
+      "to": "3.12",
+      "purl": "pkg:pypi/pycparser@3.12"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "2.9.0.post0",
+      "to": "3.0.0",
+      "purl": "pkg:pypi/python-dateutil@3.0.0"
+     },
+     {
+      "name": "setuptools",
+      "from": "84.0.0",
+      "to": "84.2.1",
+      "purl": "pkg:pypi/setuptools@84.2.1"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.1",
+      "to": "3.0.4",
+      "purl": "pkg:pypi/soupsieve@3.0.4"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "FriBiDi",
+      "from": "1.0.16",
+      "to": "1.0.17",
+      "purl": "pkg:generic/fribidi"
+     },
+     {
+      "name": "HarfBuzz",
+      "from": "14.2.1",
+      "to": "14.5.0",
+      "purl": "pkg:generic/harfbuzz"
+     },
+     {
+      "name": "libjpeg / libjpeg-turbo",
+      "from": "3.1.4.1",
+      "to": "3.2.0",
+      "purl": "pkg:generic/libjpeg"
+     },
+     {
+      "name": "libtiff",
+      "from": "4.7.1",
+      "to": "4.7.2",
+      "purl": "pkg:generic/libtiff"
+     }
+    ],
+    "downgraded": []
+   },
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r1?arch=aarch64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r1?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r1?arch=aarch64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r1?arch=aarch64&distro=alpine-3.24.3&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "purl": "pkg:pypi/httpcore2@2.16.0"
+     },
+     {
+      "name": "httpx2",
+      "version": "2.16.0",
+      "purl": "pkg:pypi/httpx2@2.16.0"
+     },
+     {
+      "name": "PIL._avif",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.11.0",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/raqm"
+     },
+     {
+      "name": "pylast",
+      "version": "7.2.0",
+      "purl": "pkg:pypi/pylast@7.2.0"
+     },
+     {
+      "name": "tzdata",
+      "version": "2026.5",
+      "purl": "pkg:pypi/tzdata@2026.5"
+     },
+     {
+      "name": "ytmusicapi",
+      "version": "1.12.3",
+      "purl": "pkg:pypi/ytmusicapi@1.12.3"
+     }
+    ],
+    "removed": [
+     {
+      "name": "PIL._avif",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@12.3.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.10.5",
+      "purl": "pkg:pypi/pillow@12.3.0#thirdparty/raqm"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "apprise",
+      "from": "2.0.1",
+      "to": "2.1.0",
+      "purl": "pkg:pypi/apprise@2.1.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.7.22",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     },
+     {
+      "name": "gitpython",
+      "from": "3.2.0",
+      "to": "3.2.1",
+      "purl": "pkg:pypi/gitpython@3.2.1"
+     },
+     {
+      "name": "letterboxdpy",
+      "from": "6.5.9",
+      "to": "6.7.0",
+      "purl": "pkg:pypi/letterboxdpy@6.7.0"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11",
+      "to": "3.11.2",
+      "purl": "pkg:pypi/markdown@3.11.2"
+     },
+     {
+      "name": "pillow",
+      "from": "12.3.0",
+      "to": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0?file_name=pillow-13.0.0-cp314-cp314-musllinux_1_2_aarch64.whl"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.11",
+      "to": "3.12",
+      "purl": "pkg:pypi/pycparser@3.12"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "2.9.0.post0",
+      "to": "3.0.0",
+      "purl": "pkg:pypi/python-dateutil@3.0.0"
+     },
+     {
+      "name": "setuptools",
+      "from": "84.0.0",
+      "to": "84.2.1",
+      "purl": "pkg:pypi/setuptools@84.2.1"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.1",
+      "to": "3.0.4",
+      "purl": "pkg:pypi/soupsieve@3.0.4"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 30,
+  "removed": 20,
+  "upgraded": 40,
+  "downgraded": 0
+ }
+}

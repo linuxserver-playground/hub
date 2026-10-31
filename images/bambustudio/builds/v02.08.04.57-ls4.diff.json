@@ -1,0 +1,78 @@
+{
+ "image": "bambustudio",
+ "branch": "master",
+ "tag": "v02.08.04.57-ls4",
+ "previous_tag": "v02.08.04.57-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v02.08.04.57",
+  "to": "v02.08.04.57",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:968acfc9b937061cf1c1143c7c5c4fb636db2fbd020dfc4801a253ea32043dcd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1593250726,
+   "to": 1593388831,
+   "delta": 138105
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -39,8 +39,11 @@\n     libwebkit2gtk-4.1-0 \\\n     libwx-perl && \\\n   echo \"**** install bambu studio from appimage ****\" && \\\n-  RELEASE_URL=$(curl -sX GET \"https://api.github.com/repos/bambulab/BambuStudio/releases\" \\\n-    | jq -r '.[0].url') && \\\n+  if [ -z ${BAMBUSTUDIO_VERSION+x} ]; then \\\n+    BAMBUSTUDIO_VERSION=$(curl -sX GET \"https://api.github.com/repos/bambulab/BambuStudio/releases\" \\\n+      | jq -r '.[0].tag_name'); \\\n+  fi && \\\n+  RELEASE_URL=\"https://api.github.com/repos/bambulab/BambuStudio/releases/tags/${BAMBUSTUDIO_VERSION}\" && \\\n   DOWNLOAD_URL=$(curl -sX GET \"${RELEASE_URL}\" \\\n     | jq -r 'first(.assets[].browser_download_url | select(test(\"BambuStudio_ubu24\")))') && \\\n   cd /tmp && \\\n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 1,
+  "downgraded": 0
+ }
+}

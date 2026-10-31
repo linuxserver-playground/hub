@@ -1,0 +1,167 @@
+{
+ "schema": 1,
+ "name": "pidgin",
+ "summary": "[Pidgin](https://pidgin.im/) is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
+ "upstream": {
+  "url": "https://pidgin.im/",
+  "version": {
+   "type": "alpine_apk",
+   "repo_url": "http://dl-cdn.alpinelinux.org/alpine/v3.24/community/",
+   "package": "pidgin"
+  },
+  "sponsor": [
+   {
+    "name": "Donate to Instant Messaging Freedom",
+    "url": "https://imfreedom.org/donate/"
+   },
+   {
+    "name": "Patreon (Gary Kramlich, Pidgin lead developer)",
+    "url": "https://patreon.com/rw_grim"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "PIDGIN_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Pidgin desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Pidgin desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "IRC",
+   "Chat"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pidgin-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\nThis Pidgin installation comes with default chat plugins plus a series of third party ones. **Please note that the third party plugins for the most part are not simply plug and play, you will need to reference their documentation and possibly generate oauth tokens along with other workarounds**. Third party plugins are always in a state of constant development do not expect every single native feature to work flawlessly. To ease integration with some third party plugins we include Firefox in this image to allow you to fill out captchas or pre-auth before loading your credentials into the program, simply right click the desktop to launch it.\n\n* Bonjour- Default XMPP style plugin\n* Discord- Provided by [purple-discord](https://github.com/EionRobb/purple-discord)\n* Facebook- Provided by [purple-facebook](https://github.com/dequis/purple-facebook)\n* Gadu-Gadu- Default libgadu plugin\n* Google Talk- Provided by [purple-hangouts](https://github.com/EionRobb/purple-hangouts)\n* GroupWise- Default GroupWise plugin\n* Hangouts- Provided by [purple-hangouts](https://github.com/EionRobb/purple-hangouts)\n* ICQ (WIM)- Provided by [icyque](https://github.com/EionRobb/icyque)\n* IRC- Default IRC plugin\n* Instagram- Provided by [purple-instagram](https://github.com/EionRobb/purple-instagram)\n* Office Comminicator (SIPE)- Provided by [SIPE Project](https://sipe.sourceforge.io/)\n* Rocket.chat- Provided by [purple-rocketchat](https://github.com/EionRobb/purple-rocketchat)\n* SIMPLE- Default plugin\n* Skype (HTTP)- Provided by [skype4pidgin](https://github.com/EionRobb/skype4pidgin)\n* Slack- Provided by [slack-libpurple](https://github.com/EionRobb/slack-libpurple)\n* Telegram- Provided by [telegram-purple](https://github.com/majn/telegram-purple)\n* XMPP- Default XMPP plugin\n* Zephyr- Default project Athena plugin\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-06-10",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-05-07",
+   "text": "Remove Skype plugin."
+  },
+  {
+   "date": "2026-04-04",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic, rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies and Alpine 3.22, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-12-06",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-23",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2024-01-17",
+   "text": "Switch from Chromium to Firefox."
+  },
+  {
+   "date": "2024-01-02",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-05-13",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-03-18",
+   "text": "Rebase to KasmVNC base image."
+  },
+  {
+   "date": "2022-10-21",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-02-15",
+   "text": "Add build deps for discord."
+  },
+  {
+   "date": "2021-12-23",
+   "text": "Rebase to Alpine 3.15."
+  },
+  {
+   "date": "2021-09-26",
+   "text": "Rebase to Alpine 3.14."
+  },
+  {
+   "date": "2021-05-14",
+   "text": "Initial release."
+  }
+ ]
+}

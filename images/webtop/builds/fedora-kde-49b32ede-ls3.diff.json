@@ -1,0 +1,149 @@
+{
+ "image": "webtop",
+ "branch": "fedora-kde",
+ "tag": "fedora-kde-49b32ede-ls3",
+ "previous_tag": "fedora-kde-49b32ede-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "49b32ede",
+  "to": "49b32ede",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:76d6b88cf87960bf5c546679c81631391939c87e26e210cde181ba5e11db558f"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:56bcd84fe21cbd7e40ab26ba021d3c34658802cfce31bdd02cc4d5f5c501b38b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1902635315,
+   "to": 1899269330,
+   "delta": -3365985
+  },
+  "arm64": {
+   "from": 1781509668,
+   "to": 1778101468,
+   "delta": -3408200
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -84,7 +84,7 @@\n \n # add local files\n COPY /root /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-fedora44-kwin / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-fedora44-kwin / /\n \n # ports and volumes\n EXPOSE 3001\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -84,7 +84,7 @@\n \n # add local files\n COPY /root /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-fedora44-kwin / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-fedora44-kwin / /\n \n # ports and volumes\n EXPOSE 3001\n"
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "expat",
+      "from": "2.8.5-1.fc44",
+      "to": "2.9.0-1.fc44",
+      "purl": "pkg:rpm/fedora/expat@2.9.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=expat-2.9.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "fwupd",
+      "from": "2.1.8-1.fc44",
+      "to": "2.1.9-1.fc44",
+      "purl": "pkg:rpm/fedora/fwupd@2.1.9-1.fc44?arch=x86_64&distro=fedora-44&upstream=fwupd-2.1.9-1.fc44.src.rpm"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "259.9-1.fc44",
+      "to": "259.10-1.fc44",
+      "purl": "pkg:rpm/fedora/systemd-standalone-sysusers@259.10-1.fc44?arch=x86_64&distro=fedora-44&upstream=systemd-259.10-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "expat",
+      "from": "2.8.5-1.fc44",
+      "to": "2.9.0-1.fc44",
+      "purl": "pkg:rpm/fedora/expat@2.9.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=expat-2.9.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "fwupd",
+      "from": "2.1.8-1.fc44",
+      "to": "2.1.9-1.fc44",
+      "purl": "pkg:rpm/fedora/fwupd@2.1.9-1.fc44?arch=aarch64&distro=fedora-44&upstream=fwupd-2.1.9-1.fc44.src.rpm"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "259.9-1.fc44",
+      "to": "259.10-1.fc44",
+      "purl": "pkg:rpm/fedora/systemd-standalone-sysusers@259.10-1.fc44?arch=aarch64&distro=fedora-44&upstream=systemd-259.10-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

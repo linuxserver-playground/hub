@@ -1,0 +1,119 @@
+{
+ "image": "jackett",
+ "branch": "master",
+ "tag": "v0.24.2981-ls6",
+ "previous_tag": "v0.24.2977-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "repository at a newer commit (8a6e4c5 → 8030c68)"
+ ],
+ "upstream": {
+  "from": "v0.24.2977",
+  "to": "v0.24.2981",
+  "changed": true
+ },
+ "commit": {
+  "from": "8a6e4c5d0cbcaa6eb5382e4c924a30c976891d72",
+  "to": "8030c68d26898725fd700dfb20a1c1439b069f3a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-jackett/compare/8a6e4c5d0cbcaa6eb5382e4c924a30c976891d72...8030c68d26898725fd700dfb20a1c1439b069f3a"
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 81310059,
+   "to": 81309981,
+   "delta": -78
+  },
+  "arm64": {
+   "from": 80232661,
+   "to": 80233741,
+   "delta": 1080
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "JackettUpdater",
+      "from": "0.24.2977",
+      "to": "0.24.2981",
+      "purl": "pkg:nuget/JackettUpdater@0.24.2981"
+     },
+     {
+      "name": "jackett",
+      "from": "0.24.2977",
+      "to": "0.24.2981",
+      "purl": "pkg:nuget/jackett@0.24.2981"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "JackettUpdater",
+      "from": "0.24.2977",
+      "to": "0.24.2981",
+      "purl": "pkg:nuget/JackettUpdater@0.24.2981"
+     },
+     {
+      "name": "jackett",
+      "from": "0.24.2977",
+      "to": "0.24.2981",
+      "purl": "pkg:nuget/jackett@0.24.2981"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "image": "blender",
+ "branch": "master",
+ "tag": "5.2.3-ls4",
+ "previous_tag": "5.2.3-ls3",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "5.2.3",
+  "to": "5.2.3",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:968acfc9b937061cf1c1143c7c5c4fb636db2fbd020dfc4801a253ea32043dcd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:968acfc9b937061cf1c1143c7c5c4fb636db2fbd020dfc4801a253ea32043dcd"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1454164196,
+   "to": 1454164203,
+   "delta": 7
+  },
+  "arm64": {
+   "from": 1147322012,
+   "to": 1147322232,
+   "delta": 220
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,98 @@
+{
+ "image": "brave",
+ "branch": "borigin",
+ "tag": "origin-1.101.3-ls4",
+ "previous_tag": "origin-1.101.3-ls3",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1.101.3",
+  "to": "1.101.3",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1172055423,
+   "to": 1174390624,
+   "delta": 2335201
+  },
+  "arm64": {
+   "from": 1130363433,
+   "to": 1132993821,
+   "delta": 2630388
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "brave-origin-nightly",
+      "from": "1.101.3",
+      "to": "1.101.8",
+      "purl": "pkg:deb/debian/brave-origin-nightly@1.101.8?arch=amd64&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "brave-origin-nightly",
+      "from": "1.101.3",
+      "to": "1.101.8",
+      "purl": "pkg:deb/debian/brave-origin-nightly@1.101.8?arch=arm64&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

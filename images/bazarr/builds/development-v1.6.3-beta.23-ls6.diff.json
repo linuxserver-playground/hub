@@ -1,0 +1,69 @@
+{
+ "image": "bazarr",
+ "branch": "development",
+ "tag": "development-v1.6.3-beta.23-ls6",
+ "previous_tag": "development-v1.6.3-beta.23-ls5",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "v1.6.3-beta.23",
+  "to": "v1.6.3-beta.23",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:42ae9a62cb679a532b9ab4ef3f0a70c54d5f00431d453f524f31f7e9e34ee189"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:42ae9a62cb679a532b9ab4ef3f0a70c54d5f00431d453f524f31f7e9e34ee189"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 157957291,
+   "to": 157959161,
+   "delta": 1870
+  },
+  "arm64": {
+   "from": 153196781,
+   "to": 153193925,
+   "delta": -2856
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

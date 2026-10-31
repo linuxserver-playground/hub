@@ -1,0 +1,95 @@
+{
+ "image": "bazarr",
+ "branch": "master",
+ "tag": "v1.6.2-ls6",
+ "previous_tag": "v1.6.2-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "1 commit (2c0c14f → c7bc219): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v1.6.2",
+  "to": "v1.6.2",
+  "changed": false
+ },
+ "commit": {
+  "from": "2c0c14f768b1068a534010beb32a941cc284d719",
+  "to": "c7bc21927a3e6394fa3f95c792c410e0a453061a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-bazarr/compare/2c0c14f768b1068a534010beb32a941cc284d719...c7bc21927a3e6394fa3f95c792c410e0a453061a",
+  "commits": [
+   {
+    "sha": "c7bc21927a3e6394fa3f95c792c410e0a453061a",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T14:59:56Z",
+    "url": "https://github.com/linuxserver-playground/docker-bazarr/commit/c7bc21927a3e6394fa3f95c792c410e0a453061a",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 2
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:42ae9a62cb679a532b9ab4ef3f0a70c54d5f00431d453f524f31f7e9e34ee189"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:720a8b962c7cb6c8bcbc747ca074ee519c7e602ce4e217aa789087b602e4b29b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 156241509,
+   "to": 156243962,
+   "delta": 2453
+  },
+  "arm64": {
+   "from": 151472299,
+   "to": 151474486,
+   "delta": 2187
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

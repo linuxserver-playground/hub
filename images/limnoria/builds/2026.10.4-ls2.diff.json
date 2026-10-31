@@ -1,0 +1,69 @@
+{
+ "image": "limnoria",
+ "branch": "master",
+ "tag": "2026.10.4-ls2",
+ "previous_tag": "2026.10.4-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "2026.10.4",
+  "to": "2026.10.4",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.21",
+   "digest": "sha256:1bec2d57ba13498c29b37227358e37782b12c358f5760c9a98fd4483827b58a8"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.21",
+   "digest": "sha256:1bec2d57ba13498c29b37227358e37782b12c358f5760c9a98fd4483827b58a8"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 48842402,
+   "to": 48844316,
+   "delta": 1914
+  },
+  "arm64": {
+   "from": 49594367,
+   "to": 49594795,
+   "delta": 428
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

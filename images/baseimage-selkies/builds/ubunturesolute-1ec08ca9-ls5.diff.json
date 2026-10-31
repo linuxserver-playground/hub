@@ -1,0 +1,69 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "ubunturesolute",
+ "tag": "ubunturesolute-1ec08ca9-ls5",
+ "previous_tag": "ubunturesolute-1ec08ca9-ls4",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "1ec08ca9",
+  "to": "1ec08ca9",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:7b09d581d5901bdaf672a7419b3a59384a9aa6adc4fa8357f20264afd425178e"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:7b09d581d5901bdaf672a7419b3a59384a9aa6adc4fa8357f20264afd425178e"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 947363423,
+   "to": 947364494,
+   "delta": 1071
+  },
+  "arm64": {
+   "from": 911419560,
+   "to": 911418103,
+   "delta": -1457
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

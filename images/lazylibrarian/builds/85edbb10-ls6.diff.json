@@ -1,0 +1,125 @@
+{
+ "image": "lazylibrarian",
+ "branch": "master",
+ "tag": "85edbb10-ls6",
+ "previous_tag": "e78ad67b-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (394d597 → 539814c): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "e78ad67b",
+  "to": "85edbb10",
+  "changed": true
+ },
+ "commit": {
+  "from": "394d597ad9d902b14179decd8456eec1c30b098c",
+  "to": "539814c4cbe2339550dbd8218a6c610106fcd3da",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lazylibrarian/compare/394d597ad9d902b14179decd8456eec1c30b098c...539814c4cbe2339550dbd8218a6c610106fcd3da",
+  "commits": [
+   {
+    "sha": "539814c4cbe2339550dbd8218a6c610106fcd3da",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T11:32:30Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/539814c4cbe2339550dbd8218a6c610106fcd3da",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8dc1e22b6c3e42c8931a49af4a34f8d9f4fad73853523230315724840f8dc85f"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 187295112,
+   "to": 187293725,
+   "delta": -1387
+  },
+  "arm64": {
+   "from": 183056438,
+   "to": 183066706,
+   "delta": 10268
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

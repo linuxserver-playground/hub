@@ -1,0 +1,76 @@
+{
+ "image": "pairdrop",
+ "branch": "main",
+ "tag": "v1.11.2-ls5",
+ "previous_tag": "v1.11.2-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "v1.11.2",
+  "to": "v1.11.2",
+  "changed": false
+ },
+ "commit": {
+  "from": "6b8cf1357b2c56e72fbf0b2f0a6f1b2995018ce3",
+  "to": "6b8cf1357b2c56e72fbf0b2f0a6f1b2995018ce3",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:9008d6d5bb98aa82222a5c4a9463dd82801a1cc2bfacd5862caf4b895fbcf578"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:1ad91f856c8d9d443357d6e4c0a0c3515e5bc1ef830874f0defdb5d64b49f077"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 53265852,
+   "to": 53266077,
+   "delta": 225
+  },
+  "arm64": {
+   "from": 53492547,
+   "to": 53492519,
+   "delta": -28
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

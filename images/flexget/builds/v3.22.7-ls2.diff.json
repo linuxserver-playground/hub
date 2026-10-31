@@ -1,0 +1,111 @@
+{
+ "image": "flexget",
+ "branch": "main",
+ "tag": "v3.22.7-ls2",
+ "previous_tag": "v3.22.7-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v3.22.7",
+  "to": "v3.22.7",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.23",
+   "digest": "sha256:8b8bec70e3d1c2d5e94701290856866bb99a67f9ca45eaf27a9e86c6ac3197df"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:0b30fe6f4732e291add225156c29d5ffb7315aea6fb1aa86a0c9bc478f823494"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 232863797,
+   "to": 232875913,
+   "delta": 12116
+  },
+  "arm64": {
+   "from": 227583765,
+   "to": 227582036,
+   "delta": -1729
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -8,7 +8,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-alpine:3.23\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:3.23\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -8,7 +8,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-alpine:arm64v8-3.23\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:arm64v8-3.23\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=x86_64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=x86_64&distro=alpine-3.23.7&upstream=curl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=aarch64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=aarch64&distro=alpine-3.23.7&upstream=curl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

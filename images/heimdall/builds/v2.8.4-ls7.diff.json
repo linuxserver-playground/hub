@@ -1,0 +1,136 @@
+{
+ "image": "heimdall",
+ "branch": "master",
+ "tag": "v2.8.4-ls7",
+ "previous_tag": "v2.8.4-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (5c10a36 → 8d5540b): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v2.8.4",
+  "to": "v2.8.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "5c10a36a17be809e1b581202f2974b3d4d7f2d86",
+  "to": "8d5540bb7d3db9ab0ac67d8f94376bf758d7ba80",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-heimdall/compare/5c10a36a17be809e1b581202f2974b3d4d7f2d86...8d5540bb7d3db9ab0ac67d8f94376bf758d7ba80",
+  "commits": [
+   {
+    "sha": "8ad3bfb3538e6e6f298634e9c98ce85f5b9e41d0",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T01:56:49Z",
+    "url": "https://github.com/linuxserver-playground/docker-heimdall/commit/8ad3bfb3538e6e6f298634e9c98ce85f5b9e41d0",
+    "bot": true
+   },
+   {
+    "sha": "8d5540bb7d3db9ab0ac67d8f94376bf758d7ba80",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T21:02:22Z",
+    "url": "https://github.com/linuxserver-playground/docker-heimdall/commit/8d5540bb7d3db9ab0ac67d8f94376bf758d7ba80",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 2,
+   "packages": 1
+  }
+ },
+ "trigger": "manual",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:30be75c4c7470207fece77d8399848c405a6e5c14ff3fb7ca82a4cfc37498b7b"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a55ef6f5b72baa4997d79d545cdd81d262c2a719afbaddf2984d93f9250db2a0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 53394982,
+   "to": 53434732,
+   "delta": 39750
+  },
+  "arm64": {
+   "from": 54117973,
+   "to": 54165292,
+   "delta": 47319
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

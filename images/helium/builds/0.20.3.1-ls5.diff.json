@@ -1,0 +1,98 @@
+{
+ "image": "helium",
+ "branch": "master",
+ "tag": "0.20.3.1-ls5",
+ "previous_tag": "0.20.2.1-ls4",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "0.20.2.1",
+  "to": "0.20.3.1",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1149860876,
+   "to": 1149873809,
+   "delta": 12933
+  },
+  "arm64": {
+   "from": 1114085027,
+   "to": 1114104627,
+   "delta": 19600
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "helium-bin",
+      "from": "0.20.2.1-1",
+      "to": "0.20.3.1-1",
+      "purl": "pkg:deb/debian/helium-bin@0.20.3.1-1?arch=amd64&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "helium-bin",
+      "from": "0.20.2.1-1",
+      "to": "0.20.3.1-1",
+      "purl": "pkg:deb/debian/helium-bin@0.20.3.1-1?arch=arm64&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

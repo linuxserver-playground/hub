@@ -1,0 +1,76 @@
+{
+ "image": "craft-apps",
+ "branch": "master",
+ "tag": "v0.18.0-ls5",
+ "previous_tag": "v0.18.0-ls4",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "v0.18.0",
+  "to": "v0.18.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "d80742235fc5e2324284c434c53f9a96b19aeccf",
+  "to": "d80742235fc5e2324284c434c53f9a96b19aeccf",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:40830db5ae0f2c8f89f3779f7946fcfa07a190c5a97c4fac8dfbf05272072d41"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:40830db5ae0f2c8f89f3779f7946fcfa07a190c5a97c4fac8dfbf05272072d41"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 2078277994,
+   "to": 2078278019,
+   "delta": 25
+  },
+  "arm64": {
+   "from": 2019072852,
+   "to": 2019072598,
+   "delta": -254
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

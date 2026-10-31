@@ -1,0 +1,234 @@
+{
+ "schema": 1,
+ "name": "mariadb",
+ "summary": "[Mariadb](https://mariadb.org/) is one of the most popular database servers. Made by the original developers of MySQL.",
+ "upstream": {
+  "url": "https://mariadb.org/",
+  "version": {
+   "type": "alpine_apk",
+   "repo_url": "http://dl-cdn.alpinelinux.org/alpine/v3.24/main/",
+   "package": "mariadb"
+  },
+  "notes": {
+   "type": "command",
+   "run": "curl -H \"Authorization: token ${GITHUB_TOKEN}\" -s \"https://api.github.com/repos/mariadb/server/releases/tags/mariadb-${VERSION%%-r*}\" | jq -r '. |.body'"
+  },
+  "sponsor": [
+   {
+    "name": "MariaDB Foundation",
+    "url": "https://mariadb.org/donate/"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "MARIADB_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 360,
+  "env": {
+   "MYSQL_ROOT_PASSWORD": "password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3306",
+    "description": "MariaDB listens on this port."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/mariadb/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "env": [
+   {
+    "name": "MYSQL_ROOT_PASSWORD",
+    "value": "ROOT_ACCESS_PASSWORD",
+    "description": "Set this to root password for installation (minimum 4 characters & non-alphanumeric passwords must be properly escaped). (valid only for first run)"
+   },
+   {
+    "name": "MYSQL_DATABASE",
+    "value": "USER_DB_NAME",
+    "description": "Specify the name of a database to be created. (valid only for first run)",
+    "optional": true
+   },
+   {
+    "name": "MYSQL_USER",
+    "value": "MYSQL_USER",
+    "description": "This user will have superuser access to the database specified by MYSQL_DATABASE (do not use root here). (valid only for first run)",
+    "optional": true
+   },
+   {
+    "name": "MYSQL_PASSWORD",
+    "value": "DATABASE_PASSWORD",
+    "description": "Set this to the password you want to use for you MYSQL_USER (minimum 4 characters & non-alphanumeric passwords must be properly escaped). (valid only for first run)",
+    "optional": true
+   },
+   {
+    "name": "REMOTE_SQL",
+    "value": "http://URL1/your.sql,https://URL2/your.sql",
+    "description": "Set this to ingest sql files from an http/https endpoint (comma seperated array).",
+    "optional": true
+   },
+   {
+    "name": "CLI_OPTS",
+    "value": "",
+    "description": "Pass CLI options to mariadbd via mariadbd-safe. Use with caution as mariadbd option precedence is complex.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true,
+   "notes": "* `/tmp` must be mounted to tmpfs\n* Not supported on first run\n"
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Databases"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-git.png",
+  "setup": "Root via localhost (docker exec) no longer requires a password according to [upstream behavior](https://mariadb.com/docs/server/security/user-account-management/authentication-from-mariadb-10-4), if you didn't set a root password for remote access during the initial start follow the instructions in the container log.\n\nNOTE changing any of the MYSQL_ variables after the container has set up the initial databases has no effect, use the mysqladmin tool or cli to make changes.\n\nNOTE if you want to use (MYSQL_DATABASE MYSQL_USER MYSQL_PASSWORD) **all three** of these variables need to be set you cannot pick and choose.\n\nUnraid users, it is advisable to edit the template/webui after setup and remove reference to this variable.\n\nFind custom.cnf in /config for config changes (restart container for them to take effect)\n, the databases in /config/databases and the log in /config/log/myqsl\n\n### Loading passwords and users from files\n\nThe `MYSQL_ROOT_PASSWORD MYSQL_DATABASE MYSQL_USER MYSQL_PASSWORD REMOTE_SQL` env values can be set in a file:\n\n```path\n/config/env\n```\n\nUsing the following format:\n\n```env\nMYSQL_ROOT_PASSWORD=\"ROOT_ACCESS_PASSWORD\"\nMYSQL_DATABASE=\"USER_DB_NAME\"\nMYSQL_USER=\"MYSQL_USER\"\nMYSQL_PASSWORD=\"DATABASE_PASSWORD\"\nREMOTE_SQL=\"http://URL1/your.sql,https://URL2/your.sql\"\n```\n\nThese settings can be mixed and matched with Docker ENV settings as you require, but the settings in the file will always take precedence.\n\n### Bootstrapping a new instance\n\nWe support a one time run of custom sql files on init. In order to use this place `*.sql` files in:\n\n```path\n/config/initdb.d/\n```\nThis will have the same effect as setting the `REMOTE_SQL` environment variable. The sql will only be run on the containers first boot and setup.\n\n### Check and Repair\n\nIf user databases are not in a healthy state (sometimes caused by a failed upgrade), it may be remedied by running:\n\n```shell\nmariadb-check -c -A # check all databases for errors\nmariadb-check -r -A # repair all databases\nmariadb-check -a -A # analyze all databases\nmariadb-check -o -A # optimize all databases\n```\n\nAfter running the above commands, you may need to run the upgrade command again.\n\n### Upgrading\n\nWhen this container initializes, if `MYSQL_ROOT_PASSWORD` is set an upgrade check will run. If an upgrade is required the log will indicate the need stop any services that are accessing databases in this container, and then run the command:\n\n```shell\nmariadb-upgrade\n```\n"
+ },
+ "changelog": [
+  {
+   "date": "2026-07-05",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-02-14",
+   "text": "Rebase to Alpine 3.23. Add ability to pass CLI options to mariadbd."
+  },
+  {
+   "date": "2025-07-09",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-01-11",
+   "text": "Add log rotation, follow the instructions in the container log."
+  },
+  {
+   "date": "2025-01-06",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-31",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-06-09",
+   "text": "Update lc_messages path in shipped custom.cnf to match upstream."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-02-04",
+   "text": "Minor updates to defaults in custom.cnf."
+  },
+  {
+   "date": "2023-01-31",
+   "text": "Rebase to 3.17."
+  },
+  {
+   "date": "2022-12-09",
+   "text": "Add upgrade check warning."
+  },
+  {
+   "date": "2022-10-11",
+   "text": "Rebase master to Alpine 3.16, migrate to s6v3, remove password escape logic which caused problems for a small subset of users."
+  },
+  {
+   "date": "2021-07-06",
+   "text": "Rebase master to alpine."
+  },
+  {
+   "date": "2021-07-03",
+   "text": "Rebase to 3.14."
+  },
+  {
+   "date": "2021-02-08",
+   "text": "Fix new installs."
+  },
+  {
+   "date": "2021-02-08",
+   "text": "Rebase to alpine. Add mariadb-backup."
+  },
+  {
+   "date": "2021-02-08",
+   "text": "Release alpine tag. The alpine release will replace the latest tag in the near future."
+  },
+  {
+   "date": "2019-10-27",
+   "text": "Bump to 10.4, ability use custom sql on initial init ,defining root passwords via file."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-03-07",
+   "text": "Add ability to setup a database and default user on first spinup."
+  },
+  {
+   "date": "2019-01-26",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-09-10",
+   "text": "Rebase to ubuntu bionic and use 10.3 MariaDB repository."
+  },
+  {
+   "date": "2017-12-09",
+   "text": "Fix continuation lines."
+  },
+  {
+   "date": "2017-09-12",
+   "text": "Gracefully shut down MariaDB."
+  },
+  {
+   "date": "2016-10-27",
+   "text": "Implement linting suggestions on database init script."
+  },
+  {
+   "date": "2016-10-11",
+   "text": "Rebase to ubuntu xenial, add version labelling."
+  },
+  {
+   "date": "2016-03-09",
+   "text": "Update to MariaDB 10.1. Change to use custom.cnf over my.cnf in /config. Restructured init files to change config options on startup, rather than in the dockerfile."
+  },
+  {
+   "date": "2016-01-26",
+   "text": "Change user of mysqld_safe script to abc, better unclean shutdown handling on restart."
+  },
+  {
+   "date": "2015-12-23",
+   "text": "Remove autoupdating, between some version updates the container breaks."
+  },
+  {
+   "date": "2015-08-12",
+   "text": "Initial Release."
+  }
+ ]
+}

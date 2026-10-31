@@ -1,0 +1,165 @@
+{
+ "schema": 1,
+ "name": "sqlitebrowser",
+ "summary": "[DB Browser for SQLite](https://sqlitebrowser.org/) is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite.",
+ "upstream": {
+  "url": "https://sqlitebrowser.org/",
+  "version": {
+   "type": "alpine_apk",
+   "repo_url": "http://dl-cdn.alpinelinux.org/alpine/v3.24/community/",
+   "package": "sqlitebrowser"
+  },
+  "sponsor": [
+   {
+    "name": "DB Browser for SQLite",
+    "url": "https://www.patreon.com/db4s"
+   }
+  ],
+  "notes": {
+   "type": "github_release",
+   "repo": "sqlitebrowser/sqlitebrowser",
+   "tag": "v${VERSION}",
+   "transform": [
+    {
+     "regex": "-r\\d+$",
+     "replace": ""
+    }
+   ]
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "SQLITEB_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Sqlitebrowser desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Sqlitebrowser desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores program settings and potentially dump files."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Databases"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sqlitebrowser-banner.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-06-10",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-04-04",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic, rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-07-30",
+   "text": "Install Qt SVG for icon support."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies and Alpine 3.22, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-12-06",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-23",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2024-01-02",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-05-13",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-03-18",
+   "text": "Rebase to KasmVNC base image."
+  },
+  {
+   "date": "2022-10-23",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-02-16",
+   "text": "Rebase to Alpine."
+  },
+  {
+   "date": "2021-01-20",
+   "text": "Remove Wireshark reference."
+  },
+  {
+   "date": "2020-07-29",
+   "text": "Initial release."
+  }
+ ]
+}

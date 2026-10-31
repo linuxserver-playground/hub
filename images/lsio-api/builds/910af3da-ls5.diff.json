@@ -1,0 +1,147 @@
+{
+ "image": "lsio-api",
+ "branch": "main",
+ "tag": "910af3da-ls5",
+ "previous_tag": "1b0f653d-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "repository at a newer commit (daf84c3 → bbcc815)"
+ ],
+ "upstream": {
+  "from": "1b0f653d",
+  "to": "910af3da",
+  "changed": true
+ },
+ "commit": {
+  "from": "daf84c311be4e92575cd2e78d64cc241f6e25629",
+  "to": "bbcc815099bcecebc6a03f538bb747a5ea18d402",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lsio-api/compare/daf84c311be4e92575cd2e78d64cc241f6e25629...bbcc815099bcecebc6a03f538bb747a5ea18d402"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:8ae31d372c5164af2797088af67a9091ebf0f73d1958ca528fe04e837e10f853"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:1fcf6a32e2cb65ea49fbcfec43c3609993cf0ad8fe345f128d018f1e4ec9db09"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 63742659,
+   "to": 63787772,
+   "delta": 45113
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.14.10-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/busybox/pyc@3.14.10-r1?arch=x86_64&distro=busybox-1.38.0&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.10-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/busybox/python3@3.14.10-r1?arch=x86_64&distro=busybox-1.38.0"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.10-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/busybox/python3-pyc@3.14.10-r1?arch=x86_64&distro=busybox-1.38.0&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.10-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/busybox/python3-pycache-pyc0@3.14.10-r1?arch=x86_64&distro=busybox-1.38.0&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "deprecated",
+      "from": "3.0.0",
+      "to": "3.0.1",
+      "purl": "pkg:pypi/deprecated@3.0.1"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     },
+     {
+      "name": "wrapt",
+      "from": "2.5.1",
+      "to": "2.5.2",
+      "purl": "pkg:pypi/wrapt@2.5.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

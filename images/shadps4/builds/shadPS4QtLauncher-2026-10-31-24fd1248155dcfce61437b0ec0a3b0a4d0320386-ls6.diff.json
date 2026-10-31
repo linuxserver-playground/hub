@@ -1,0 +1,141 @@
+{
+ "image": "shadps4",
+ "branch": "master",
+ "tag": "shadPS4QtLauncher-2026-10-31-24fd1248155dcfce61437b0ec0a3b0a4d0320386-ls6",
+ "previous_tag": "shadPS4QtLauncher-2026-10-26-811fb0319cea2e76f1fb8f89d22d67efdf45761a-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (7a8fac6 → cbe2f5c): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "shadPS4QtLauncher-2026-10-26-811fb0319cea2e76f1fb8f89d22d67efdf45761a",
+  "to": "shadPS4QtLauncher-2026-10-31-24fd1248155dcfce61437b0ec0a3b0a4d0320386",
+  "changed": true
+ },
+ "commit": {
+  "from": "7a8fac6818b95232953224faa84a7ad53d29b322",
+  "to": "cbe2f5c0a4ce4c12da1d1887d3467bd2498543a3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-shadps4/compare/7a8fac6818b95232953224faa84a7ad53d29b322...cbe2f5c0a4ce4c12da1d1887d3467bd2498543a3",
+  "commits": [
+   {
+    "sha": "cbe2f5c0a4ce4c12da1d1887d3467bd2498543a3",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T08:39:34Z",
+    "url": "https://github.com/linuxserver-playground/docker-shadps4/commit/cbe2f5c0a4ce4c12da1d1887d3467bd2498543a3",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:b6b7498350faa15f558fa5a1e83cd67540e7ddeb164bd4f376037838df52c52e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1039443376,
+   "to": 1039577461,
+   "delta": 134085
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

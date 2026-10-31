@@ -1,0 +1,76 @@
+{
+ "image": "habridge",
+ "branch": "master",
+ "tag": "v5.4.1-ls4",
+ "previous_tag": "v5.4.1-ls3",
+ "classification": "none",
+ "reasons": [
+  "repository at a newer commit (6863db8 → 0270362)"
+ ],
+ "upstream": {
+  "from": "v5.4.1",
+  "to": "v5.4.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "6863db8f6c7bcaa991273e3b50f5eff01e8063b3",
+  "to": "0270362ed6226b7ccbe2ca9b8b8b4e74611533b9",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-habridge/compare/6863db8f6c7bcaa991273e3b50f5eff01e8063b3...0270362ed6226b7ccbe2ca9b8b8b4e74611533b9"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.20",
+   "digest": "sha256:37c85bdd640fd71bf95221f8a8c8cffb151cd91ae114e9917a690a4e702344c3"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.20",
+   "digest": "sha256:37c85bdd640fd71bf95221f8a8c8cffb151cd91ae114e9917a690a4e702344c3"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 86477538,
+   "to": 86477528,
+   "delta": -10
+  },
+  "arm64": {
+   "from": 87811635,
+   "to": 87811714,
+   "delta": 79
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "image": "duckstation",
+ "branch": "master",
+ "tag": "latest-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "latest",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:debiantrixie",
+   "digest": "sha256:df4a9259e7535526005785202bd08b3b066250a64c65877802b2354fd6a975dd"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 1074931166,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 1024148668,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "DISABLE_DRI3",
+    "DISPLAY",
+    "HOME",
+    "LANG",
+    "LANGUAGE",
+    "LSIO_FIRST_PARTY",
+    "NVIDIA_DRIVER_CAPABILITIES",
+    "PATH",
+    "PERL5LIB",
+    "PIXELFLUX_WAYLAND",
+    "PULSE_RUNTIME_PATH",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "SELKIES_ALLOWED_ORIGINS",
+    "SELKIES_ENABLE_BASIC_AUTH",
+    "SELKIES_ENCODER",
+    "SELKIES_INTERPOSER",
+    "SELKIES_RATE_CONTROL_MODE",
+    "SELKIES_VIDEO_STREAMING_MODE",
+    "SELKIES_WEBCAM_INTERPOSER",
+    "SHELL",
+    "START_DOCKER",
+    "TERM",
+    "TITLE",
+    "VIRTUAL_ENV",
+    "__GL_SYNC_TO_VBLANK"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "3000/tcp",
+    "3001/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

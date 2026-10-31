@@ -1,0 +1,77 @@
+{
+ "image": "pyload-ng",
+ "branch": "develop",
+ "tag": "develop-7f3567bb-ls5",
+ "previous_tag": "develop-7f3567bb-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "repository at a newer commit (cc8b5f2 → 2531936)"
+ ],
+ "upstream": {
+  "from": "7f3567bb",
+  "to": "7f3567bb",
+  "changed": false
+ },
+ "commit": {
+  "from": "cc8b5f291eea386bfb131342b070ee22eb8dd15a",
+  "to": "25319364b9ce2b8e2d93d98a769c7723a098ca24",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pyload-ng/compare/cc8b5f291eea386bfb131342b070ee22eb8dd15a...25319364b9ce2b8e2d93d98a769c7723a098ca24"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:9008d6d5bb98aa82222a5c4a9463dd82801a1cc2bfacd5862caf4b895fbcf578"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:1ad91f856c8d9d443357d6e4c0a0c3515e5bc1ef830874f0defdb5d64b49f077"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 146671646,
+   "to": 146671807,
+   "delta": 161
+  },
+  "arm64": {
+   "from": 145280379,
+   "to": 145280839,
+   "delta": 460
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

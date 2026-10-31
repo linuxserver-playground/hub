@@ -1,0 +1,125 @@
+{
+ "image": "socket-proxy",
+ "branch": "main",
+ "tag": "3.4.7-r0-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "3.4.7-r0",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "alpine",
+   "image": "docker.io/alpine:3.24",
+   "digest": "sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 7064409,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 7334240,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "ALLOW_ARCHIVE",
+    "ALLOW_CHANGES",
+    "ALLOW_EXPORT",
+    "ALLOW_LOGS",
+    "ALLOW_PAUSE",
+    "ALLOW_RESTARTS",
+    "ALLOW_START",
+    "ALLOW_STOP",
+    "ALLOW_TOP",
+    "ALLOW_UNPAUSE",
+    "AUTH",
+    "BUILD",
+    "COMMIT",
+    "CONFIGS",
+    "CONTAINERS",
+    "DISTRIBUTION",
+    "EVENTS",
+    "EXEC",
+    "IMAGES",
+    "INFO",
+    "LIBPOD_ALLOW_PAUSE",
+    "LIBPOD_ALLOW_POD_PAUSE",
+    "LIBPOD_ALLOW_POD_RESTARTS",
+    "LIBPOD_ALLOW_POD_START",
+    "LIBPOD_ALLOW_POD_STOP",
+    "LIBPOD_ALLOW_POD_UNPAUSE",
+    "LIBPOD_ALLOW_RESTARTS",
+    "LIBPOD_ALLOW_START",
+    "LIBPOD_ALLOW_STOP",
+    "LIBPOD_ALLOW_UNPAUSE",
+    "LIBPOD_CONTAINERS",
+    "LIBPOD_EVENTS",
+    "LIBPOD_EXEC",
+    "LIBPOD_GENERATE",
+    "LIBPOD_IMAGES",
+    "LIBPOD_INFO",
+    "LIBPOD_MANIFESTS",
+    "LIBPOD_NETWORKS",
+    "LIBPOD_PING",
+    "LIBPOD_PLAY",
+    "LIBPOD_PODS",
+    "LIBPOD_SECRETS",
+    "LIBPOD_SYSTEM",
+    "LIBPOD_VERSION",
+    "LIBPOD_VOLUMES",
+    "LOG_LEVEL",
+    "LSIO_FIRST_PARTY",
+    "NETWORKS",
+    "NODES",
+    "PATH",
+    "PING",
+    "PLUGINS",
+    "POST",
+    "SECRETS",
+    "SERVICES",
+    "SESSION",
+    "SOCKET_PATH",
+    "SWARM",
+    "SYSTEM",
+    "TASKS",
+    "VERSION",
+    "VOLUMES"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

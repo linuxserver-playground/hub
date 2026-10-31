@@ -1,0 +1,69 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "kali",
+ "tag": "kali-3a231ab9-ls5",
+ "previous_tag": "kali-3a231ab9-ls4",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "3a231ab9",
+  "to": "3a231ab9",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:74853d443c3a793a1525dab0e72dd411bf2b978e2128d72c262d0eb99e66dc6c"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:74853d443c3a793a1525dab0e72dd411bf2b978e2128d72c262d0eb99e66dc6c"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1109181764,
+   "to": 1109179158,
+   "delta": -2606
+  },
+  "arm64": {
+   "from": 1060610488,
+   "to": 1060611783,
+   "delta": 1295
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

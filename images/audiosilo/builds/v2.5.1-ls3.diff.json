@@ -1,0 +1,110 @@
+{
+ "image": "audiosilo",
+ "branch": "main",
+ "tag": "v2.5.1-ls3",
+ "previous_tag": "v2.5.0-ls2",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v2.5.0",
+  "to": "v2.5.1",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 76105037,
+   "to": 76274756,
+   "delta": 169719
+  },
+  "arm64": {
+   "from": 73509435,
+   "to": 73667200,
+   "delta": 157765
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/kodestar/audiosilo-server",
+      "from": "v1.17.5-0.20261028112837-e465ccb66205+dirty",
+      "to": "v1.17.5-0.20261030043326-62c9aac1d422+dirty",
+      "purl": "pkg:golang/github.com/kodestar/audiosilo-server@v1.17.5-0.20261030043326-62c9aac1d422%2Bdirty"
+     },
+     {
+      "name": "golang.org/x/net",
+      "from": "v0.60.0",
+      "to": "v0.62.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.62.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/kodestar/audiosilo-server",
+      "from": "v1.17.5-0.20261028112837-e465ccb66205+dirty",
+      "to": "v1.17.5-0.20261030043326-62c9aac1d422+dirty",
+      "purl": "pkg:golang/github.com/kodestar/audiosilo-server@v1.17.5-0.20261030043326-62c9aac1d422%2Bdirty"
+     },
+     {
+      "name": "golang.org/x/net",
+      "from": "v0.60.0",
+      "to": "v0.62.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.62.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

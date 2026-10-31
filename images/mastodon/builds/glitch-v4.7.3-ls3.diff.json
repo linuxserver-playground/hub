@@ -1,0 +1,196 @@
+{
+ "image": "mastodon",
+ "branch": "glitch",
+ "tag": "glitch-v4.7.3-ls3",
+ "previous_tag": "glitch-v4.7.3-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v4.7.3",
+  "to": "v4.7.3",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:b0d56c4c1b2d8029704eca17211f594e60c1372e06ce26e921fccae8479c3a14"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:30be75c4c7470207fece77d8399848c405a6e5c14ff3fb7ca82a4cfc37498b7b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 260520573,
+   "to": 260530949,
+   "delta": 10376
+  },
+  "arm64": {
+   "from": 256815764,
+   "to": 256827445,
+   "delta": 11681
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=curl"
+     },
+     {
+      "name": "ruby",
+      "from": "3.4.9-r0",
+      "to": "3.4.12-r0",
+      "purl": "pkg:apk/alpine/ruby@3.4.12-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "ruby-libs",
+      "from": "3.4.9-r0",
+      "to": "3.4.12-r0",
+      "purl": "pkg:apk/alpine/ruby-libs@3.4.12-r0?arch=x86_64&distro=alpine-3.24.3&upstream=ruby"
+     },
+     {
+      "name": "ruby-rdoc",
+      "from": "3.4.9-r0",
+      "to": "3.4.12-r0",
+      "purl": "pkg:apk/alpine/ruby-rdoc@3.4.12-r0?arch=x86_64&distro=alpine-3.24.3&upstream=ruby"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pstore",
+      "from": "0.1.4",
+      "to": "0.2.1",
+      "purl": "pkg:gem/pstore@0.2.1"
+     },
+     {
+      "name": "resolv",
+      "from": "0.6.2",
+      "to": "0.7.2",
+      "purl": "pkg:gem/resolv@0.7.2"
+     },
+     {
+      "name": "syntax_suggest",
+      "from": "2.0.2",
+      "to": "2.0.3",
+      "purl": "pkg:gem/syntax_suggest@2.0.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=curl"
+     },
+     {
+      "name": "ruby",
+      "from": "3.4.9-r0",
+      "to": "3.4.12-r0",
+      "purl": "pkg:apk/alpine/ruby@3.4.12-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "ruby-libs",
+      "from": "3.4.9-r0",
+      "to": "3.4.12-r0",
+      "purl": "pkg:apk/alpine/ruby-libs@3.4.12-r0?arch=aarch64&distro=alpine-3.24.3&upstream=ruby"
+     },
+     {
+      "name": "ruby-rdoc",
+      "from": "3.4.9-r0",
+      "to": "3.4.12-r0",
+      "purl": "pkg:apk/alpine/ruby-rdoc@3.4.12-r0?arch=aarch64&distro=alpine-3.24.3&upstream=ruby"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pstore",
+      "from": "0.1.4",
+      "to": "0.2.1",
+      "purl": "pkg:gem/pstore@0.2.1"
+     },
+     {
+      "name": "resolv",
+      "from": "0.6.2",
+      "to": "0.7.2",
+      "purl": "pkg:gem/resolv@0.7.2"
+     },
+     {
+      "name": "syntax_suggest",
+      "from": "2.0.2",
+      "to": "2.0.3",
+      "purl": "pkg:gem/syntax_suggest@2.0.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 16,
+  "downgraded": 0
+ }
+}

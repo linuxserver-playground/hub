@@ -1,0 +1,70 @@
+{
+ "image": "webtop",
+ "branch": "debian-xfce",
+ "tag": "debian-xfce-4d5d024c-ls3",
+ "previous_tag": "debian-xfce-a5b8a138-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "a5b8a138",
+  "to": "4d5d024c",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:9ad1e42368b8cf23437d79b8bd037e59e500d6fc52dc1b374b76dd9181245807"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1344564079,
+   "to": 1344556317,
+   "delta": -7762
+  },
+  "arm64": {
+   "from": 1303348100,
+   "to": 1303350370,
+   "delta": 2270
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,78 @@
+{
+ "image": "duckdns",
+ "branch": "master",
+ "tag": "8b6013ad-ls3",
+ "previous_tag": "8d8f7eba-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "repository at a newer commit (680fdbc → c683063)"
+ ],
+ "upstream": {
+  "from": "8d8f7eba",
+  "to": "8b6013ad",
+  "changed": true
+ },
+ "commit": {
+  "from": "680fdbce0d6fe28474ca9e5bb3a5b87c66ccbbf5",
+  "to": "c68306310be383a8edcf48c116a7dff210767933",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-duckdns/compare/680fdbce0d6fe28474ca9e5bb3a5b87c66ccbbf5...c68306310be383a8edcf48c116a7dff210767933"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 15716758,
+   "to": 15716803,
+   "delta": 45
+  },
+  "arm64": {
+   "from": 16834416,
+   "to": 16834508,
+   "delta": 92
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

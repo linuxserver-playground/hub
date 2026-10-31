@@ -1,0 +1,169 @@
+{
+ "image": "python",
+ "branch": "ha",
+ "tag": "ha-alpine324-3.14.10-ls2",
+ "previous_tag": "ha-alpine324-3.14.9-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "packages changed",
+  "5 commits (c1763eb → 287069a): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "alpine324-3.14.9",
+  "to": "alpine324-3.14.10",
+  "changed": true
+ },
+ "commit": {
+  "from": "c1763ebf8372145e147557a82c9f35dc30e60603",
+  "to": "287069ad91905597537bbe06f9864fafc0eb7b1e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-python/compare/c1763ebf8372145e147557a82c9f35dc30e60603...287069ad91905597537bbe06f9864fafc0eb7b1e",
+  "commits": [
+   {
+    "sha": "5a63c18e3bb06a62367d64d86f970b779ff43a61",
+    "subject": "Mark the image as an internal tool",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-26T12:33:28Z",
+    "url": "https://github.com/linuxserver-playground/docker-python/commit/5a63c18e3bb06a62367d64d86f970b779ff43a61",
+    "bot": false
+   },
+   {
+    "sha": "3d62e38136dd09a5d8ddae33b9fb7311c36d1e29",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:50:26Z",
+    "url": "https://github.com/linuxserver-playground/docker-python/commit/3d62e38136dd09a5d8ddae33b9fb7311c36d1e29",
+    "bot": true
+   },
+   {
+    "sha": "b8b614a62a6f8af9d74e4a921225bd811323dcef",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-29T21:08:34Z",
+    "url": "https://github.com/linuxserver-playground/docker-python/commit/b8b614a62a6f8af9d74e4a921225bd811323dcef",
+    "bot": true
+   },
+   {
+    "sha": "7cf3ed8942a2b16182ece752b3be80aab91eb14e",
+    "subject": "Add the upstream donation links",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T19:37:59Z",
+    "url": "https://github.com/linuxserver-playground/docker-python/commit/7cf3ed8942a2b16182ece752b3be80aab91eb14e",
+    "bot": false
+   },
+   {
+    "sha": "287069ad91905597537bbe06f9864fafc0eb7b1e",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T19:55:32Z",
+    "url": "https://github.com/linuxserver-playground/docker-python/commit/287069ad91905597537bbe06f9864fafc0eb7b1e",
+    "bot": true
+   }
+  ],
+  "count": 5,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 26219324,
+   "to": 26266041,
+   "delta": 46717
+  },
+  "arm64": {
+   "from": 26114284,
+   "to": 26138669,
+   "delta": 24385
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "python",
+      "from": "3.14.9",
+      "to": "3.14.10",
+      "purl": "pkg:generic/python@3.14.10"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "python",
+      "from": "3.14.9",
+      "to": "3.14.10",
+      "purl": "pkg:generic/python@3.14.10"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}
