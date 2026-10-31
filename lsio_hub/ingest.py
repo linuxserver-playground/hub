@@ -220,6 +220,22 @@ def _history_entry(bundle: Json, release: Json) -> Json:
     }
 
 
+def _compare(gh: GitHub, bundle: Json, previous: Json | None) -> Json | None:
+    """GitHub's compare between the previous build's commit and this one, for a diff the hub derives itself (a
+    release without a record): the commits and what they touched. None when there is nothing to compare or the
+    call fails; the diff then lists no commits, as a record made before contracts 1.15 does."""
+    old = (previous or {}).get("commit")
+    new = bundle.get("commit")
+    if not old or not new or old == new:
+        return None
+    try:
+        payload = gh.get(f"repos/{bundle['repository']}/compare/{old}...{new}", per_page=250)
+    except Exception as e:  # a missing commit list is not a reason to skip the release
+        log.warning("  %s@%s: commits since %s unavailable: %s", bundle["image"], bundle["version"]["tag"], old[:7], e)
+        return None
+    return payload if isinstance(payload, dict) else None
+
+
 def read_record(gh: GitHub, assets: dict[str, Json], bundle: Json, name: str) -> Json | None:
     """
     The release's record.json (CONVENTIONS §6), derived by the build itself, or None when the release has none or
@@ -320,7 +336,11 @@ def ingest_release(gh: GitHub, record: ImageRecord, release: Json, bases: dict[s
     )
     new_packages = {arch: t["packages"] for arch, t in tables.items()} or None
     record.builds[tag] = bundle
-    record.diffs[tag] = derived["diff"] if derived else diff_builds(bundle, previous, new_packages, old_packages)
+    if derived:
+        record.diffs[tag] = derived["diff"]
+    else:
+        compare = _compare(gh, bundle, previous)
+        record.diffs[tag] = diff_builds(bundle, previous, new_packages, old_packages, compare)
     if layers:
         record.layers[tag] = layers
     if tests:

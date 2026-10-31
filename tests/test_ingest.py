@@ -384,6 +384,12 @@ def _record_for(tmp: Path, bundle_: Json, previous: Json | None, *, vulns: bool 
     write(out, bundle_)
     if previous:
         write(prev, previous)
+        if previous["commit"] != bundle_["commit"]:
+            from .conftest import fake_compare
+
+            (prev / "compare.json").write_text(
+                json.dumps(fake_compare(bundle_["repository"], previous["commit"], bundle_["commit"]))
+            )
 
     class Scanner:
         def version(self) -> str:

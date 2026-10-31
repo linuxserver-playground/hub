@@ -808,8 +808,40 @@ class ValueChange(BaseModel):
     changed: bool
 
 
+class CommitAuthor(BaseModel):
+    name: str | None = None
+    login: str | None = None
+
+
+class CommitEntry(BaseModel):
+    """One commit between the two builds, as GitHub's compare lists it."""
+
+    sha: str
+    subject: str
+    author: CommitAuthor | None = None
+    date: str | None = None
+    url: str | None = None
+    bot: bool = Field(
+        description="The pipeline's own commit: a [bot] account, or one of the two subjects the shared workflow "
+        "writes (Update package versions, Update generated files)."
+    )
+
+
+class CommitAreas(BaseModel):
+    """Files changed in the range per area of the repository; only areas with changes. The first three can change
+    the image, the rest never do."""
+
+    manifest: int | None = Field(None, description="image.yml")
+    dockerfile: int | None = Field(None, description="Dockerfile, Dockerfile.aarch64")
+    root: int | None = Field(None, description="root/, copied into the image")
+    generated: int | None = Field(None, description="What builder render writes: README, AGENTS.md, the workflows")
+    packages: int | None = Field(None, description="package_versions.txt, the table the build commits")
+    other: int | None = None
+
+
 class CommitChange(BaseModel):
-    """The repository commit of the previous release and this one (absent in records made before contracts 1.14)."""
+    """The repository commit of the previous release and this one (absent in records made before contracts 1.14),
+    and from contracts 1.15 the commits between them and what they touched, when the build fetched the compare."""
 
     model_config = ConfigDict(populate_by_name=True)
 
@@ -817,6 +849,10 @@ class CommitChange(BaseModel):
     to: str | None = None
     changed: bool
     compare_url: str | None = Field(None, description="GitHub's compare page between the two, when they differ.")
+    commits: list[CommitEntry] | None = Field(None, description="Oldest first, as GitHub lists them (at most 250).")
+    count: int | None = Field(None, description="GitHub's total for the range; above the commits listed past 250.")
+    truncated: bool | None = Field(None, description="GitHub listed only part of the commits or files.")
+    areas: CommitAreas | None = None
 
 
 class BaseChange(BaseModel):

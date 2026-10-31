@@ -389,12 +389,32 @@ PROOT_RELEASES = [
 # Fake GitHub
 
 
+def fake_compare(repo: str, base: str, head: str) -> Json:
+    """GitHub's compare between two fixture builds: the one commit the release itself made."""
+    return {
+        "total_commits": 1,
+        "commits": [
+            {
+                "sha": head,
+                "html_url": f"https://github.com/{repo}/commit/{head}",
+                "commit": {
+                    "message": "Update package versions [skip ci]",
+                    "author": {"name": "github-actions[bot]", "date": NOW},
+                },
+                "author": {"login": "github-actions[bot]"},
+            }
+        ],
+        "files": [{"filename": "package_versions.txt"}],
+    }
+
+
 class FakeGitHub(GitHub):
     """Answers the calls ingest, observe and mods make, from the fixtures above."""
 
     def __init__(self) -> None:
         super().__init__(registry_http(), "token")  # the registry fixture, for the base image manifests
         self.downloads: list[str] = []
+        self.compares: list[str] = []
         self.listings = 0
         self.batched = 0
 
@@ -468,6 +488,10 @@ class FakeGitHub(GitHub):
     def get(self, path: str, **params: Any) -> Any:
         if path.startswith("repos/") and path.count("/") == 2:
             return {"default_branch": "master"}
+        if "/compare/" in path:
+            self.compares.append(path)
+            base, _, head = path.rsplit("/", 1)[1].partition("...")
+            return fake_compare(f"{path.split('/')[1]}/{path.split('/')[2]}", base, head)
         raise AssertionError(f"unexpected GET {path}")
 
     def paginate(self, path: str, *, per_page: int = 100, max_pages: int = 10, **params: Any) -> list[Json]:
