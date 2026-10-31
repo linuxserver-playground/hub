@@ -1,0 +1,89 @@
+{
+ "image": "mysql-workbench",
+ "branch": "master",
+ "tag": "8.0.47-ls4",
+ "previous_tag": "8.0.47-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "8.0.47",
+  "to": "8.0.47",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:6e38212f805bb73655d4c94a2977b5354abaa758f3114cf0afc9ea4b896d6aab"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1261669137,
+   "to": 1259254514,
+   "delta": -2414623
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "glycin",
+      "from": "2.2.4-1",
+      "to": "2.2.5-1",
+      "purl": "pkg:alpm/arch/glycin@2.2.5-1?arch=x86_64&distro=arch-rolling&upstream=glycin"
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.1-1",
+      "to": "2.7.2-2",
+      "purl": "pkg:alpm/arch/libldap@2.7.2-2?arch=x86_64&distro=arch-rolling&upstream=openldap"
+     },
+     {
+      "name": "openbsd-netcat",
+      "from": "1.238_1-1",
+      "to": "1.239_1-1",
+      "purl": "pkg:alpm/arch/openbsd-netcat@1.239_1-1?arch=x86_64&distro=arch-rolling&upstream=openbsd-netcat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 3,
+  "downgraded": 0
+ }
+}

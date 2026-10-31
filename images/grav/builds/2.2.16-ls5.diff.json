@@ -1,0 +1,69 @@
+{
+ "image": "grav",
+ "branch": "main",
+ "tag": "2.2.16-ls5",
+ "previous_tag": "2.2.16-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "2.2.16",
+  "to": "2.2.16",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:30be75c4c7470207fece77d8399848c405a6e5c14ff3fb7ca82a4cfc37498b7b"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:df6a63d8627d7f06e292f4e4cff695743d92f8735617ff755470962e58fd75f5"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 61807028,
+   "to": 61842313,
+   "delta": 35285
+  },
+  "arm64": {
+   "from": 62399327,
+   "to": 62445676,
+   "delta": 46349
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

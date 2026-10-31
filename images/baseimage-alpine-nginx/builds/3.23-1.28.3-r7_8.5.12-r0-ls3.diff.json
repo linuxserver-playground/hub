@@ -1,0 +1,97 @@
+{
+ "image": "baseimage-alpine-nginx",
+ "branch": "3.23",
+ "tag": "3.23-1.28.3-r7_8.5.12-r0-ls3",
+ "previous_tag": "3.23-1.28.3-r7_8.5.12-r0-ls2",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1.28.3-r7_8.5.12-r0",
+  "to": "1.28.3-r7_8.5.12-r0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.23",
+   "digest": "sha256:8b8bec70e3d1c2d5e94701290856866bb99a67f9ca45eaf27a9e86c6ac3197df"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.23",
+   "digest": "sha256:8b8bec70e3d1c2d5e94701290856866bb99a67f9ca45eaf27a9e86c6ac3197df"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 28375814,
+   "to": 28413205,
+   "delta": 37391
+  },
+  "arm64": {
+   "from": 29166794,
+   "to": 29209564,
+   "delta": 42770
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

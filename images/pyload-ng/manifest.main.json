@@ -1,0 +1,144 @@
+{
+ "schema": 1,
+ "name": "pyload-ng",
+ "summary": "[pyLoad](https://pyload.net/) is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.",
+ "upstream": {
+  "url": "https://pyload.net/",
+  "version": {
+   "type": "pip",
+   "package": "pyload-ng"
+  },
+  "sponsor": [
+   {
+    "name": "pyLoad",
+    "url": "https://PayPal.Me/nitzo2001/0usd"
+   }
+  ]
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable releases from pyLoad Next"
+   },
+   {
+    "tag": "develop",
+    "description": "Releases from pyload Next develop branch"
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "PYLOAD_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8000
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8000",
+    "description": "Allows HTTP access to the application"
+   },
+   {
+    "internal": "9666",
+    "description": "Click'n'Load port.",
+    "optional": true
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/pyload-ng/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/downloads",
+    "description": "Destination of pyLoad downloads"
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Downloaders"
+  ],
+  "logo": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/pyload-logo.png",
+  "setup": "Access the web interface at `http://your-ip:8000` the default login is:\nusername - **pyload**\npassword - **pyload**\n\nFor general usage please see the pyLoad wiki [here](https://github.com/pyload/pyload/wiki) .\n"
+ },
+ "proxy": {
+  "port": 8000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-01-09",
+   "text": "Add gcompat for mini-racer."
+  },
+  {
+   "date": "2025-09-01",
+   "text": "Add new dep, libatomic."
+  },
+  {
+   "date": "2025-06-09",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-07-20",
+   "text": "Revert to Alpine 3.19 due to inconsistent upstream addon support for Python 3.12."
+  },
+  {
+   "date": "2024-06-27",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-10-08",
+   "text": "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."
+  },
+  {
+   "date": "2023-08-10",
+   "text": "Bump unrar to 6.2.10."
+  },
+  {
+   "date": "2023-06-01",
+   "text": "Replace p7zip with 7zip, add unrar."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2022-02-02",
+   "text": "Rebase master to alpine 3.17."
+  },
+  {
+   "date": "2022-02-02",
+   "text": "Add ffmpeg for the Youtube plugin."
+  },
+  {
+   "date": "2022-01-24",
+   "text": "Replace unrar with p7zip."
+  },
+  {
+   "date": "2022-01-24",
+   "text": "Initial release."
+  }
+ ]
+}

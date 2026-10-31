@@ -1,0 +1,143 @@
+{
+ "schema": 1,
+ "name": "prowlarr",
+ "summary": "[Prowlarr](https://github.com/Prowlarr/Prowlarr) is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr offering complete management of your indexers with no per app Indexer setup required (we do it all).",
+ "upstream": {
+  "url": "https://github.com/Prowlarr/Prowlarr",
+  "version": {
+   "type": "json",
+   "url": "https://prowlarr.servarr.com/v1/update/master/changes?runtime=netcore&os=linuxmusl",
+   "jq": ".[0].version"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "Prowlarr/Prowlarr",
+   "tag": "v${VERSION}"
+  },
+  "sponsor": [
+   {
+    "name": "Prowlarr",
+    "url": "https://opencollective.com/prowlarr"
+   }
+  ]
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Prowlarr stable releases"
+   },
+   {
+    "tag": "develop",
+    "description": "Prowlarr releases from their develop branch"
+   },
+   {
+    "tag": "nightly",
+    "description": "Prowlarr releases from their nightly branch"
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "PROWLARR_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 240,
+  "web": {
+   "port": 9696,
+   "path": "/system/status"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "9696",
+    "description": "The port for the Prowlarr web UI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/prowlarr/data",
+    "description": "Database and Prowlarr configs"
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Indexers"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png",
+  "setup": "Access the webui at `<your-ip>:9696`, for more information check out [Prowlarr](https://github.com/Prowlarr/Prowlarr).\n\nSetup info can be found [here](https://wikijs.servarr.com/prowlarr/quick-start-guide).\n"
+ },
+ "proxy": {
+  "port": 9696,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true,
+   "base_url_note": "Settings → General → URL Base, set to /prowlarr"
+  },
+  "api_locations": [
+   "/api"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-10-19",
+   "text": "Add krb5-libs for better postgresql support."
+  },
+  {
+   "date": "2026-07-04",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-01-15",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-07-05",
+   "text": "Rebase Alpine 3.22."
+  },
+  {
+   "date": "2024-12-23",
+   "text": "Rebase Alpine 3.21."
+  },
+  {
+   "date": "2024-05-31",
+   "text": "Rebase Alpine 3.20."
+  },
+  {
+   "date": "2024-03-20",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-06-06",
+   "text": "Rebase master to Alpine 3.18, deprecate armhf as per [https://www.linuxserver.io/armhf](https://www.linuxserver.io/armhf)."
+  },
+  {
+   "date": "2023-01-03",
+   "text": "Publish stable release."
+  },
+  {
+   "date": "2022-02-20",
+   "text": "Rebase develop branch to Alpine."
+  },
+  {
+   "date": "2021-06-06",
+   "text": "Initial realease."
+  }
+ ]
+}

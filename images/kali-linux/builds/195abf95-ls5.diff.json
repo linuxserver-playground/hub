@@ -1,0 +1,833 @@
+{
+ "image": "kali-linux",
+ "branch": "master",
+ "tag": "195abf95-ls5",
+ "previous_tag": "794ed558-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "794ed558",
+  "to": "195abf95",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:e807e3b93f48492a5a3954a47a5585d256a0731e302af860ba25af15dfca1309"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:25783b53ed4758bac21b4b459793661cde24ad6774bbd165a772dcdf8abb9c05"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 4805186182,
+   "to": 4820121224,
+   "delta": 14935042
+  },
+  "arm64": {
+   "from": 4031100048,
+   "to": 4039419321,
+   "delta": 8319273
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [
+     {
+      "name": "ruby-readline-ext",
+      "version": "0.2.0-0kali1",
+      "purl": "pkg:deb/kali/ruby-readline-ext@0.2.0-0kali1?arch=amd64&distro=kali-2026.3"
+     }
+    ],
+    "removed": [
+     {
+      "name": "libflashrom1",
+      "version": "1.8.0-2",
+      "purl": "pkg:deb/kali/libflashrom1@1.8.0-2?arch=amd64&distro=kali-2026.3&upstream=flashrom"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "burpsuite",
+      "from": "2026.9-0kali1",
+      "to": "2026.10-0kali1",
+      "purl": "pkg:deb/kali/burpsuite@2026.10-0kali1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "dirmngr",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/dirmngr@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "evil-winrm",
+      "from": "4.1-0kali1",
+      "to": "4.1-0kali3",
+      "purl": "pkg:deb/kali/evil-winrm@4.1-0kali3?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gnupg-l10n",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg-l10n@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg-agent",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg-agent@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgconf",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgconf@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgsm",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgsm@2.4.9-8?arch=amd64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "intel-media-va-driver-non-free",
+      "from": "26.2.4+ds1-1",
+      "to": "26.3.5+ds1-1",
+      "purl": "pkg:deb/kali/intel-media-va-driver-non-free@26.3.5%2Bds1-1?arch=amd64&distro=kali-2026.3&upstream=intel-media-driver-non-free"
+     },
+     {
+      "name": "libftdi1-2",
+      "from": "1.6~rc1-2",
+      "to": "1.6~rc1-2+b1",
+      "purl": "pkg:deb/kali/libftdi1-2@1.6~rc1-2%2Bb1?arch=amd64&distro=kali-2026.3&upstream=libftdi1%401.6~rc1-2"
+     },
+     {
+      "name": "libigdgmm12",
+      "from": "22.10.1+ds1-1",
+      "to": "22.10.2+ds1-1",
+      "purl": "pkg:deb/kali/libigdgmm12@22.10.2%2Bds1-1?arch=amd64&distro=kali-2026.3&upstream=intel-gmmlib"
+     },
+     {
+      "name": "libimath-3-2-30",
+      "from": "3.2.2-3",
+      "to": "3.2.2-3+b1",
+      "purl": "pkg:deb/kali/libimath-3-2-30@3.2.2-3%2Bb1?arch=amd64&distro=kali-2026.3&upstream=imath%403.2.2-3"
+     },
+     {
+      "name": "libldb2",
+      "from": "2:2.11.0+samba4.25.0+dfsg-1",
+      "to": "2:2.11.0+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libldb2@2%3A2.11.0%2Bsamba4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "libmongocrypt0",
+      "from": "1.21.0-1",
+      "to": "1.21.1-1",
+      "purl": "pkg:deb/kali/libmongocrypt0@1.21.1-1?arch=amd64&distro=kali-2026.3&upstream=libmongocrypt"
+     },
+     {
+      "name": "libsimdutf35",
+      "from": "9.1.2-1",
+      "to": "9.3.0+really9.1.2-1",
+      "purl": "pkg:deb/kali/libsimdutf35@9.3.0%2Breally9.1.2-1?arch=amd64&distro=kali-2026.3&upstream=simdutf"
+     },
+     {
+      "name": "libsmbclient0",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libsmbclient0@2%3A4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "libtag2",
+      "from": "2.3.2-3",
+      "to": "2.3.2-4",
+      "purl": "pkg:deb/kali/libtag2@2.3.2-4?arch=amd64&distro=kali-2026.3&upstream=taglib"
+     },
+     {
+      "name": "libtalloc2",
+      "from": "2:2.5.0+samba4.25.0+dfsg-1",
+      "to": "2:2.5.0+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libtalloc2@2%3A2.5.0%2Bsamba4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "libtdb1",
+      "from": "2:1.4.15+samba4.25.0+dfsg-1",
+      "to": "2:1.4.15+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libtdb1@2%3A1.4.15%2Bsamba4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "libtevent0t64",
+      "from": "2:0.17.2+samba4.25.0+dfsg-1",
+      "to": "2:0.17.2+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libtevent0t64@2%3A0.17.2%2Bsamba4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "libwbclient0",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libwbclient0@2%3A4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "peass",
+      "from": "20261006.db34cc85-0kali1",
+      "to": "20261019.f07b7f97-0kali1",
+      "purl": "pkg:deb/kali/peass@20261019.f07b7f97-0kali1?arch=all&distro=kali-2026.3&upstream=peass-ng"
+     },
+     {
+      "name": "python3-aiohttp",
+      "from": "3.14.3-1",
+      "to": "3.14.3-1+b1",
+      "purl": "pkg:deb/kali/python3-aiohttp@3.14.3-1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=python-aiohttp%403.14.3-1"
+     },
+     {
+      "name": "python3-cbor2",
+      "from": "6.1.2-2+b1",
+      "to": "6.1.2-2+b2",
+      "purl": "pkg:deb/kali/python3-cbor2@6.1.2-2%2Bb2?arch=amd64&distro=kali-2026.3&upstream=cbor2%406.1.2-2"
+     },
+     {
+      "name": "python3-charset-normalizer",
+      "from": "3.4.7-2+b1",
+      "to": "3.4.7-2+b3",
+      "purl": "pkg:deb/kali/python3-charset-normalizer@3.4.7-2%2Bb3?arch=amd64&distro=kali-2026.3&upstream=python-charset-normalizer%403.4.7-2"
+     },
+     {
+      "name": "python3-cli-helpers",
+      "from": "2.15.1-2",
+      "to": "2.15.2-1",
+      "purl": "pkg:deb/kali/python3-cli-helpers@2.15.2-1?arch=all&distro=kali-2026.3&upstream=cli-helpers"
+     },
+     {
+      "name": "python3-flask-socketio",
+      "from": "5.6.1-0.1",
+      "to": "5.7.0-1",
+      "purl": "pkg:deb/kali/python3-flask-socketio@5.7.0-1?arch=all&distro=kali-2026.3&upstream=flask-socketio"
+     },
+     {
+      "name": "python3-frozenlist",
+      "from": "1.8.0-4",
+      "to": "1.8.0-4+b1",
+      "purl": "pkg:deb/kali/python3-frozenlist@1.8.0-4%2Bb1?arch=amd64&distro=kali-2026.3&upstream=frozenlist%401.8.0-4"
+     },
+     {
+      "name": "python3-jq",
+      "from": "1.12.0-1+b1",
+      "to": "1.12.0-1+b2",
+      "purl": "pkg:deb/kali/python3-jq@1.12.0-1%2Bb2?arch=amd64&distro=kali-2026.3&upstream=python-jq%401.12.0-1"
+     },
+     {
+      "name": "python3-more-itertools",
+      "from": "11.1.0-3",
+      "to": "11.2.1-1",
+      "purl": "pkg:deb/kali/python3-more-itertools@11.2.1-1?arch=all&distro=kali-2026.3&upstream=more-itertools"
+     },
+     {
+      "name": "python3-networkx",
+      "from": "3.4.2-6",
+      "to": "3.4.2-7",
+      "purl": "pkg:deb/kali/python3-networkx@3.4.2-7?arch=all&distro=kali-2026.3&upstream=networkx"
+     },
+     {
+      "name": "python3-propcache",
+      "from": "0.5.2-3",
+      "to": "0.5.2-3+b1",
+      "purl": "pkg:deb/kali/python3-propcache@0.5.2-3%2Bb1?arch=amd64&distro=kali-2026.3&upstream=python-propcache%400.5.2-3"
+     },
+     {
+      "name": "python3-pymssql",
+      "from": "2.3.10-2+b1",
+      "to": "2.3.10-2+b2",
+      "purl": "pkg:deb/kali/python3-pymssql@2.3.10-2%2Bb2?arch=amd64&distro=kali-2026.3&upstream=pymssql%402.3.10-2"
+     },
+     {
+      "name": "python3-pypsrp",
+      "from": "0.8.1-0kali4",
+      "to": "0.9.1-2",
+      "purl": "pkg:deb/kali/python3-pypsrp@0.9.1-2?arch=all&distro=kali-2026.3&upstream=pypsrp"
+     },
+     {
+      "name": "python3-rapidfuzz",
+      "from": "3.14.5+ds-1",
+      "to": "3.14.5+ds-1+b1",
+      "purl": "pkg:deb/kali/python3-rapidfuzz@3.14.5%2Bds-1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=rapidfuzz%403.14.5%2Bds-1"
+     },
+     {
+      "name": "python3-rpds-py",
+      "from": "0.30.0-2+b1",
+      "to": "0.30.0-4",
+      "purl": "pkg:deb/kali/python3-rpds-py@0.30.0-4?arch=amd64&distro=kali-2026.3&upstream=rpds-py"
+     },
+     {
+      "name": "python3-ruamel.yaml.clib",
+      "from": "0.2.15+ds2-2+b1",
+      "to": "0.2.15+ds2-2+b2",
+      "purl": "pkg:deb/kali/python3-ruamel.yaml.clib@0.2.15%2Bds2-2%2Bb2?arch=amd64&distro=kali-2026.3&upstream=ruamel.yaml.clib%400.2.15%2Bds2-2"
+     },
+     {
+      "name": "python3-starlette",
+      "from": "1.7.0-2",
+      "to": "1.9.0-1",
+      "purl": "pkg:deb/kali/python3-starlette@1.9.0-1?arch=all&distro=kali-2026.3&upstream=starlette"
+     },
+     {
+      "name": "python3-ubjson",
+      "from": "0.16.1-6+b1",
+      "to": "0.16.1-6+b2",
+      "purl": "pkg:deb/kali/python3-ubjson@0.16.1-6%2Bb2?arch=amd64&distro=kali-2026.3&upstream=py-ubjson%400.16.1-6"
+     },
+     {
+      "name": "python3-wsaccel",
+      "from": "0.6.3-6+b1",
+      "to": "0.6.3-6+b2",
+      "purl": "pkg:deb/kali/python3-wsaccel@0.6.3-6%2Bb2?arch=amd64&distro=kali-2026.3&upstream=python-wsaccel%400.6.3-6"
+     },
+     {
+      "name": "python3-yaml",
+      "from": "6.0.3-1+b1",
+      "to": "6.0.3-1+b2",
+      "purl": "pkg:deb/kali/python3-yaml@6.0.3-1%2Bb2?arch=amd64&distro=kali-2026.3&upstream=pyyaml%406.0.3-1"
+     },
+     {
+      "name": "python3-yarl",
+      "from": "1.24.5-1",
+      "to": "1.24.5-1+b1",
+      "purl": "pkg:deb/kali/python3-yarl@1.24.5-1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=yarl%401.24.5-1"
+     },
+     {
+      "name": "ruby-domain-name",
+      "from": "0.6.20240107-1",
+      "to": "0.7.20261007-1",
+      "purl": "pkg:deb/kali/ruby-domain-name@0.7.20261007-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "samba",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/samba@2%3A4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "samba-common",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/samba-common@2%3A4.25.1%2Bdfsg-1?arch=all&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "samba-common-bin",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/samba-common-bin@2%3A4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "samba-libs",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/samba-libs@2%3A4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "smbclient",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/smbclient@2%3A4.25.1%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "sqlmap",
+      "from": "1.10.9-1",
+      "to": "1.10.10-1",
+      "purl": "pkg:deb/kali/sqlmap@1.10.10-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "vboot-kernel-utils",
+      "from": "0~R106-15054.B+dfsg-0.3",
+      "to": "0~R156-16836.B+dfsg-1",
+      "purl": "pkg:deb/kali/vboot-kernel-utils@0~R156-16836.B%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=vboot-utils"
+     },
+     {
+      "name": "vboot-utils",
+      "from": "0~R106-15054.B+dfsg-0.3",
+      "to": "0~R156-16836.B+dfsg-1",
+      "purl": "pkg:deb/kali/vboot-utils@0~R156-16836.B%2Bdfsg-1?arch=amd64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [
+     {
+      "name": "readline-ext",
+      "version": "0.2.0",
+      "purl": "pkg:gem/readline-ext@0.2.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "burpsuite",
+      "from": "53998",
+      "to": "54643",
+      "purl": "pkg:maven/burpsuite/burpsuite@54643"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cli-helpers",
+      "from": "2.15.1",
+      "to": "2.15.2",
+      "purl": "pkg:pypi/cli-helpers@2.15.2"
+     },
+     {
+      "name": "flask-socketio",
+      "from": "5.6.1",
+      "to": "5.7.0",
+      "purl": "pkg:pypi/flask-socketio@5.7.0"
+     },
+     {
+      "name": "more-itertools",
+      "from": "11.1.0",
+      "to": "11.2.1",
+      "purl": "pkg:pypi/more-itertools@11.2.1"
+     },
+     {
+      "name": "pypsrp",
+      "from": "0.8.1",
+      "to": "0.9.1",
+      "purl": "pkg:pypi/pypsrp@0.9.1"
+     },
+     {
+      "name": "starlette",
+      "from": "1.7.0",
+      "to": "1.9.0",
+      "purl": "pkg:pypi/starlette@1.9.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [
+     {
+      "name": "ruby-readline-ext",
+      "version": "0.2.0-0kali1",
+      "purl": "pkg:deb/kali/ruby-readline-ext@0.2.0-0kali1?arch=arm64&distro=kali-2026.3"
+     }
+    ],
+    "removed": [
+     {
+      "name": "libflashrom1",
+      "version": "1.8.0-2",
+      "purl": "pkg:deb/kali/libflashrom1@1.8.0-2?arch=arm64&distro=kali-2026.3&upstream=flashrom"
+     },
+     {
+      "name": "vim-tiny",
+      "version": "2:9.2.0858-1",
+      "purl": "pkg:deb/kali/vim-tiny@2%3A9.2.0858-1?arch=arm64&distro=kali-2026.3&upstream=vim"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "dirmngr",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/dirmngr@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "evil-winrm",
+      "from": "4.1-0kali1",
+      "to": "4.1-0kali3",
+      "purl": "pkg:deb/kali/evil-winrm@4.1-0kali3?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gnupg-l10n",
+      "from": "2.4.9-7",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gnupg-l10n@2.4.9-8?arch=all&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpg-agent",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpg-agent@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgconf",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgconf@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "gpgsm",
+      "from": "2.4.9-7+b1",
+      "to": "2.4.9-8",
+      "purl": "pkg:deb/kali/gpgsm@2.4.9-8?arch=arm64&distro=kali-2026.3&upstream=gnupg2"
+     },
+     {
+      "name": "libftdi1-2",
+      "from": "1.6~rc1-2",
+      "to": "1.6~rc1-2+b1",
+      "purl": "pkg:deb/kali/libftdi1-2@1.6~rc1-2%2Bb1?arch=arm64&distro=kali-2026.3&upstream=libftdi1%401.6~rc1-2"
+     },
+     {
+      "name": "libimath-3-2-30",
+      "from": "3.2.2-3",
+      "to": "3.2.2-3+b1",
+      "purl": "pkg:deb/kali/libimath-3-2-30@3.2.2-3%2Bb1?arch=arm64&distro=kali-2026.3&upstream=imath%403.2.2-3"
+     },
+     {
+      "name": "libldb2",
+      "from": "2:2.11.0+samba4.25.0+dfsg-1",
+      "to": "2:2.11.0+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libldb2@2%3A2.11.0%2Bsamba4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "libmongocrypt0",
+      "from": "1.21.0-1",
+      "to": "1.21.1-1",
+      "purl": "pkg:deb/kali/libmongocrypt0@1.21.1-1?arch=arm64&distro=kali-2026.3&upstream=libmongocrypt"
+     },
+     {
+      "name": "libsimdutf35",
+      "from": "9.1.2-1",
+      "to": "9.3.0+really9.1.2-1",
+      "purl": "pkg:deb/kali/libsimdutf35@9.3.0%2Breally9.1.2-1?arch=arm64&distro=kali-2026.3&upstream=simdutf"
+     },
+     {
+      "name": "libsmbclient0",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libsmbclient0@2%3A4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "libtag2",
+      "from": "2.3.2-3",
+      "to": "2.3.2-4",
+      "purl": "pkg:deb/kali/libtag2@2.3.2-4?arch=arm64&distro=kali-2026.3&upstream=taglib"
+     },
+     {
+      "name": "libtalloc2",
+      "from": "2:2.5.0+samba4.25.0+dfsg-1",
+      "to": "2:2.5.0+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libtalloc2@2%3A2.5.0%2Bsamba4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "libtdb1",
+      "from": "2:1.4.15+samba4.25.0+dfsg-1",
+      "to": "2:1.4.15+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libtdb1@2%3A1.4.15%2Bsamba4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "libtevent0t64",
+      "from": "2:0.17.2+samba4.25.0+dfsg-1",
+      "to": "2:0.17.2+samba4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libtevent0t64@2%3A0.17.2%2Bsamba4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba%402%3A4.25.1%2Bdfsg-1"
+     },
+     {
+      "name": "libwbclient0",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/libwbclient0@2%3A4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "peass",
+      "from": "20261006.db34cc85-0kali1",
+      "to": "20261019.f07b7f97-0kali1",
+      "purl": "pkg:deb/kali/peass@20261019.f07b7f97-0kali1?arch=all&distro=kali-2026.3&upstream=peass-ng"
+     },
+     {
+      "name": "python3-aiohttp",
+      "from": "3.14.3-1",
+      "to": "3.14.3-1+b1",
+      "purl": "pkg:deb/kali/python3-aiohttp@3.14.3-1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=python-aiohttp%403.14.3-1"
+     },
+     {
+      "name": "python3-cbor2",
+      "from": "6.1.2-2+b1",
+      "to": "6.1.2-2+b2",
+      "purl": "pkg:deb/kali/python3-cbor2@6.1.2-2%2Bb2?arch=arm64&distro=kali-2026.3&upstream=cbor2%406.1.2-2"
+     },
+     {
+      "name": "python3-charset-normalizer",
+      "from": "3.4.7-2+b1",
+      "to": "3.4.7-2+b3",
+      "purl": "pkg:deb/kali/python3-charset-normalizer@3.4.7-2%2Bb3?arch=arm64&distro=kali-2026.3&upstream=python-charset-normalizer%403.4.7-2"
+     },
+     {
+      "name": "python3-cli-helpers",
+      "from": "2.15.1-2",
+      "to": "2.15.2-1",
+      "purl": "pkg:deb/kali/python3-cli-helpers@2.15.2-1?arch=all&distro=kali-2026.3&upstream=cli-helpers"
+     },
+     {
+      "name": "python3-flask-socketio",
+      "from": "5.6.1-0.1",
+      "to": "5.7.0-1",
+      "purl": "pkg:deb/kali/python3-flask-socketio@5.7.0-1?arch=all&distro=kali-2026.3&upstream=flask-socketio"
+     },
+     {
+      "name": "python3-frozenlist",
+      "from": "1.8.0-4",
+      "to": "1.8.0-4+b1",
+      "purl": "pkg:deb/kali/python3-frozenlist@1.8.0-4%2Bb1?arch=arm64&distro=kali-2026.3&upstream=frozenlist%401.8.0-4"
+     },
+     {
+      "name": "python3-jq",
+      "from": "1.12.0-1+b1",
+      "to": "1.12.0-1+b2",
+      "purl": "pkg:deb/kali/python3-jq@1.12.0-1%2Bb2?arch=arm64&distro=kali-2026.3&upstream=python-jq%401.12.0-1"
+     },
+     {
+      "name": "python3-more-itertools",
+      "from": "11.1.0-3",
+      "to": "11.2.1-1",
+      "purl": "pkg:deb/kali/python3-more-itertools@11.2.1-1?arch=all&distro=kali-2026.3&upstream=more-itertools"
+     },
+     {
+      "name": "python3-networkx",
+      "from": "3.4.2-6",
+      "to": "3.4.2-7",
+      "purl": "pkg:deb/kali/python3-networkx@3.4.2-7?arch=all&distro=kali-2026.3&upstream=networkx"
+     },
+     {
+      "name": "python3-propcache",
+      "from": "0.5.2-3",
+      "to": "0.5.2-3+b1",
+      "purl": "pkg:deb/kali/python3-propcache@0.5.2-3%2Bb1?arch=arm64&distro=kali-2026.3&upstream=python-propcache%400.5.2-3"
+     },
+     {
+      "name": "python3-pymssql",
+      "from": "2.3.10-2+b1",
+      "to": "2.3.10-2+b2",
+      "purl": "pkg:deb/kali/python3-pymssql@2.3.10-2%2Bb2?arch=arm64&distro=kali-2026.3&upstream=pymssql%402.3.10-2"
+     },
+     {
+      "name": "python3-pypsrp",
+      "from": "0.8.1-0kali4",
+      "to": "0.9.1-2",
+      "purl": "pkg:deb/kali/python3-pypsrp@0.9.1-2?arch=all&distro=kali-2026.3&upstream=pypsrp"
+     },
+     {
+      "name": "python3-rapidfuzz",
+      "from": "3.14.5+ds-1",
+      "to": "3.14.5+ds-1+b1",
+      "purl": "pkg:deb/kali/python3-rapidfuzz@3.14.5%2Bds-1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=rapidfuzz%403.14.5%2Bds-1"
+     },
+     {
+      "name": "python3-rpds-py",
+      "from": "0.30.0-2+b1",
+      "to": "0.30.0-4",
+      "purl": "pkg:deb/kali/python3-rpds-py@0.30.0-4?arch=arm64&distro=kali-2026.3&upstream=rpds-py"
+     },
+     {
+      "name": "python3-ruamel.yaml.clib",
+      "from": "0.2.15+ds2-2+b1",
+      "to": "0.2.15+ds2-2+b2",
+      "purl": "pkg:deb/kali/python3-ruamel.yaml.clib@0.2.15%2Bds2-2%2Bb2?arch=arm64&distro=kali-2026.3&upstream=ruamel.yaml.clib%400.2.15%2Bds2-2"
+     },
+     {
+      "name": "python3-starlette",
+      "from": "1.7.0-2",
+      "to": "1.9.0-1",
+      "purl": "pkg:deb/kali/python3-starlette@1.9.0-1?arch=all&distro=kali-2026.3&upstream=starlette"
+     },
+     {
+      "name": "python3-ubjson",
+      "from": "0.16.1-6+b1",
+      "to": "0.16.1-6+b2",
+      "purl": "pkg:deb/kali/python3-ubjson@0.16.1-6%2Bb2?arch=arm64&distro=kali-2026.3&upstream=py-ubjson%400.16.1-6"
+     },
+     {
+      "name": "python3-wsaccel",
+      "from": "0.6.3-6+b1",
+      "to": "0.6.3-6+b2",
+      "purl": "pkg:deb/kali/python3-wsaccel@0.6.3-6%2Bb2?arch=arm64&distro=kali-2026.3&upstream=python-wsaccel%400.6.3-6"
+     },
+     {
+      "name": "python3-yaml",
+      "from": "6.0.3-1+b1",
+      "to": "6.0.3-1+b2",
+      "purl": "pkg:deb/kali/python3-yaml@6.0.3-1%2Bb2?arch=arm64&distro=kali-2026.3&upstream=pyyaml%406.0.3-1"
+     },
+     {
+      "name": "python3-yarl",
+      "from": "1.24.5-1",
+      "to": "1.24.5-1+b1",
+      "purl": "pkg:deb/kali/python3-yarl@1.24.5-1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=yarl%401.24.5-1"
+     },
+     {
+      "name": "ruby-domain-name",
+      "from": "0.6.20240107-1",
+      "to": "0.7.20261007-1",
+      "purl": "pkg:deb/kali/ruby-domain-name@0.7.20261007-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "samba",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/samba@2%3A4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "samba-common",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/samba-common@2%3A4.25.1%2Bdfsg-1?arch=all&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "samba-common-bin",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/samba-common-bin@2%3A4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "samba-libs",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/samba-libs@2%3A4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "smbclient",
+      "from": "2:4.25.0+dfsg-1",
+      "to": "2:4.25.1+dfsg-1",
+      "purl": "pkg:deb/kali/smbclient@2%3A4.25.1%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=samba"
+     },
+     {
+      "name": "sqlmap",
+      "from": "1.10.9-1",
+      "to": "1.10.10-1",
+      "purl": "pkg:deb/kali/sqlmap@1.10.10-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "vboot-kernel-utils",
+      "from": "0~R106-15054.B+dfsg-0.3",
+      "to": "0~R156-16836.B+dfsg-1",
+      "purl": "pkg:deb/kali/vboot-kernel-utils@0~R156-16836.B%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=vboot-utils"
+     },
+     {
+      "name": "vboot-utils",
+      "from": "0~R106-15054.B+dfsg-0.3",
+      "to": "0~R156-16836.B+dfsg-1",
+      "purl": "pkg:deb/kali/vboot-utils@0~R156-16836.B%2Bdfsg-1?arch=arm64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [
+     {
+      "name": "readline-ext",
+      "version": "0.2.0",
+      "purl": "pkg:gem/readline-ext@0.2.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cli-helpers",
+      "from": "2.15.1",
+      "to": "2.15.2",
+      "purl": "pkg:pypi/cli-helpers@2.15.2"
+     },
+     {
+      "name": "flask-socketio",
+      "from": "5.6.1",
+      "to": "5.7.0",
+      "purl": "pkg:pypi/flask-socketio@5.7.0"
+     },
+     {
+      "name": "more-itertools",
+      "from": "11.1.0",
+      "to": "11.2.1",
+      "purl": "pkg:pypi/more-itertools@11.2.1"
+     },
+     {
+      "name": "pypsrp",
+      "from": "0.8.1",
+      "to": "0.9.1",
+      "purl": "pkg:pypi/pypsrp@0.9.1"
+     },
+     {
+      "name": "starlette",
+      "from": "1.7.0",
+      "to": "1.9.0",
+      "purl": "pkg:pypi/starlette@1.9.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 4,
+  "removed": 3,
+  "upgraded": 112,
+  "downgraded": 0
+ }
+}

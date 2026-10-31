@@ -1,0 +1,76 @@
+{
+ "image": "nzbget",
+ "branch": "master",
+ "tag": "v26.3-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "v26.3",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/unrar:latest",
+   "digest": "sha256:48c0ce2609bb3c35764956bbd9395e95b177421e3c74b3628c3676029f24f2e0"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 53279599,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 53876031,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "HOME",
+    "LSIO_FIRST_PARTY",
+    "PATH",
+    "PS1",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "6789/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

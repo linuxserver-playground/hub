@@ -1,0 +1,135 @@
+{
+ "image": "bazarr",
+ "branch": "development",
+ "tag": "development-v1.6.3-beta.22-ls4",
+ "previous_tag": "development-v1.6.3-beta.21-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v1.6.3-beta.21",
+  "to": "v1.6.3-beta.22",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:0b30fe6f4732e291add225156c29d5ffb7315aea6fb1aa86a0c9bc478f823494"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:42ae9a62cb679a532b9ab4ef3f0a70c54d5f00431d453f524f31f7e9e34ee189"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 157957890,
+   "to": 157956957,
+   "delta": -933
+  },
+  "arm64": {
+   "from": 153195872,
+   "to": 153200972,
+   "delta": 5100
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/pyc@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pyc@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/pyc@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pyc@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

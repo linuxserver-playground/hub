@@ -1,0 +1,110 @@
+{
+ "image": "phpmyadmin",
+ "branch": "main",
+ "tag": "5.2.3-ls3",
+ "previous_tag": "5.2.3-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "5.2.3",
+  "to": "5.2.3",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:b0d56c4c1b2d8029704eca17211f594e60c1372e06ce26e921fccae8479c3a14"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e0867f6ba6d1ecc1e7b95fa128143b3400748c8de7ccabf498044b009c4ca01a"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 54975695,
+   "to": 54981605,
+   "delta": 5910
+  },
+  "arm64": {
+   "from": 55515171,
+   "to": 55522710,
+   "delta": 7539
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=curl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=curl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

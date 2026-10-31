@@ -1,0 +1,98 @@
+{
+ "image": "thunderbird",
+ "branch": "master",
+ "tag": "1140.17.0build3-0ubuntu0.24.04.1mt1-ls4",
+ "previous_tag": "1140.17.0build3-0ubuntu0.24.04.1mt1-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1:140.17.0+build3-0ubuntu0.24.04.1~mt1",
+  "to": "1:140.17.0+build3-0ubuntu0.24.04.1~mt1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:968acfc9b937061cf1c1143c7c5c4fb636db2fbd020dfc4801a253ea32043dcd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1059276648,
+   "to": 1059415014,
+   "delta": 138366
+  },
+  "arm64": {
+   "from": 1015484680,
+   "to": 1015659480,
+   "delta": 174800
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=arm64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

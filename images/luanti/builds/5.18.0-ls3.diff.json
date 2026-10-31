@@ -1,0 +1,70 @@
+{
+ "image": "luanti",
+ "branch": "main",
+ "tag": "5.18.0-ls3",
+ "previous_tag": "5.18.0-rc1-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "5.18.0-rc1",
+  "to": "5.18.0",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:c9849bb7e2f68a29927bfd73214675e1209240eeb03444d1a603321c47af4db4"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:9008d6d5bb98aa82222a5c4a9463dd82801a1cc2bfacd5862caf4b895fbcf578"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 31182846,
+   "to": 31363178,
+   "delta": 180332
+  },
+  "arm64": {
+   "from": 31922245,
+   "to": 32105193,
+   "delta": 182948
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

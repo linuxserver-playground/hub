@@ -1,0 +1,977 @@
+{
+ "image": "kali-linux",
+ "branch": "master",
+ "tag": "794ed558-ls4",
+ "previous_tag": "794ed558-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "794ed558",
+  "to": "794ed558",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:88ccdbb5fabd6aa903d0e848ed8dc7223201c2456830e1dc646aa73ca839a108"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:e807e3b93f48492a5a3954a47a5585d256a0731e302af860ba25af15dfca1309"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 4810236213,
+   "to": 4805186182,
+   "delta": -5050031
+  },
+  "arm64": {
+   "from": 4038143273,
+   "to": 4031100048,
+   "delta": -7043225
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -86,7 +86,7 @@\n \n # add local files\n COPY /root /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-kali-kwin / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-kali-kwin / /\n \n # ports and volumes\n EXPOSE 3001\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -86,7 +86,7 @@\n \n # add local files\n COPY /root /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-kali-kwin / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-kali-kwin / /\n \n # ports and volumes\n EXPOSE 3001\n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "at-spi2-common",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/at-spi2-common@2.62.1-1?arch=all&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "at-spi2-core",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/at-spi2-core@2.62.1-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "bubblewrap",
+      "from": "0.13.0-1",
+      "to": "0.13.1-1",
+      "purl": "pkg:deb/kali/bubblewrap@0.13.1-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "findutils",
+      "from": "4.11.0-2",
+      "to": "4.11.0-3",
+      "purl": "pkg:deb/kali/findutils@4.11.0-3?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "gir1.2-atk-1.0",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/gir1.2-atk-1.0@2.62.1-1?arch=amd64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "gir1.2-atspi-2.0",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/gir1.2-atspi-2.0@2.62.1-1?arch=amd64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "gir1.2-girepository-3.0",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/gir1.2-girepository-3.0@2.90.1-2?arch=amd64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "gir1.2-glib-2.0",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/gir1.2-glib-2.0@2.90.1-2?arch=amd64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "glycin-loaders",
+      "from": "2.2.1+ds-2",
+      "to": "2.2.2+ds-1",
+      "purl": "pkg:deb/kali/glycin-loaders@2.2.2%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=glycin"
+     },
+     {
+      "name": "glycin-thumbnailers",
+      "from": "2.2.1+ds-2",
+      "to": "2.2.2+ds-1",
+      "purl": "pkg:deb/kali/glycin-thumbnailers@2.2.2%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=glycin"
+     },
+     {
+      "name": "john",
+      "from": "1.9.0-Jumbo-1+git20211102-0kali11",
+      "to": "1.9.0-Jumbo-1+git20261011-0kali1",
+      "purl": "pkg:deb/kali/john@1.9.0-Jumbo-1%2Bgit20261011-0kali1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "john-data",
+      "from": "1.9.0-Jumbo-1+git20211102-0kali11",
+      "to": "1.9.0-Jumbo-1+git20261011-0kali1",
+      "purl": "pkg:deb/kali/john-data@1.9.0-Jumbo-1%2Bgit20261011-0kali1?arch=all&distro=kali-2026.3&upstream=john"
+     },
+     {
+      "name": "kbd",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1+b1",
+      "purl": "pkg:deb/kali/kbd@2.10.0-1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=kbd%402.10.0-1"
+     },
+     {
+      "name": "libatk-bridge2.0-0t64",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/libatk-bridge2.0-0t64@2.62.1-1?arch=amd64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "libatk1.0-0t64",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/libatk1.0-0t64@2.62.1-1?arch=amd64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "libatspi2.0-0t64",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/libatspi2.0-0t64@2.62.1-1?arch=amd64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-bin@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-dev-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-dev-bin@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-gconv-modules-extra",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-gconv-modules-extra@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-l10n@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6-dev",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6-dev@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libcap-ng0",
+      "from": "0.9.6-1",
+      "to": "0.9.6-1+b1",
+      "purl": "pkg:deb/kali/libcap-ng0@0.9.6-1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=libcap-ng%400.9.6-1"
+     },
+     {
+      "name": "libevdev2",
+      "from": "1.13.7+dfsg-1",
+      "to": "1.14.0+dfsg-1",
+      "purl": "pkg:deb/kali/libevdev2@1.14.0%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=libevdev"
+     },
+     {
+      "name": "libfreetype6",
+      "from": "2.14.3+dfsg-2",
+      "to": "2.14.3+dfsg-3",
+      "purl": "pkg:deb/kali/libfreetype6@2.14.3%2Bdfsg-3?arch=amd64&distro=kali-2026.3&upstream=freetype"
+     },
+     {
+      "name": "libgirepository-2.0-0",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/libgirepository-2.0-0@2.90.1-2?arch=amd64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "libglib2.0-0t64",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/libglib2.0-0t64@2.90.1-2?arch=amd64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "libglib2.0-bin",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/libglib2.0-bin@2.90.1-2?arch=amd64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "libglib2.0-data",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/libglib2.0-data@2.90.1-2?arch=all&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "libglycin-2-0",
+      "from": "2.2.1+ds-2",
+      "to": "2.2.2+ds-1",
+      "purl": "pkg:deb/kali/libglycin-2-0@2.2.2%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=glycin"
+     },
+     {
+      "name": "libgpgmepp7",
+      "from": "2.2.0-2",
+      "to": "2.2.0-3",
+      "purl": "pkg:deb/kali/libgpgmepp7@2.2.0-3?arch=amd64&distro=kali-2026.3&upstream=gpgmepp"
+     },
+     {
+      "name": "libgstreamer1.0-0",
+      "from": "1.28.7-1",
+      "to": "1.28.8-1",
+      "purl": "pkg:deb/kali/libgstreamer1.0-0@1.28.8-1?arch=amd64&distro=kali-2026.3&upstream=gstreamer1.0"
+     },
+     {
+      "name": "libgtkmm-3.0-1t64",
+      "from": "3.24.11-1",
+      "to": "3.24.11-2",
+      "purl": "pkg:deb/kali/libgtkmm-3.0-1t64@3.24.11-2?arch=amd64&distro=kali-2026.3&upstream=gtkmm3.0"
+     },
+     {
+      "name": "libimath-3-2-30",
+      "from": "3.2.2-2+b1",
+      "to": "3.2.2-3",
+      "purl": "pkg:deb/kali/libimath-3-2-30@3.2.2-3?arch=amd64&distro=kali-2026.3&upstream=imath"
+     },
+     {
+      "name": "libltdl7",
+      "from": "2.6.2-2",
+      "to": "2.6.2-3",
+      "purl": "pkg:deb/kali/libltdl7@2.6.2-3?arch=amd64&distro=kali-2026.3&upstream=libtool"
+     },
+     {
+      "name": "libnftables1",
+      "from": "1.1.7-1",
+      "to": "1.1.7-3",
+      "purl": "pkg:deb/kali/libnftables1@1.1.7-3?arch=amd64&distro=kali-2026.3&upstream=nftables"
+     },
+     {
+      "name": "libpcap0.8t64",
+      "from": "1.10.7-1",
+      "to": "1.11.0-1",
+      "purl": "pkg:deb/kali/libpcap0.8t64@1.11.0-1?arch=amd64&distro=kali-2026.3&upstream=libpcap"
+     },
+     {
+      "name": "libqalculate-data",
+      "from": "5.12.0-1",
+      "to": "5.13.2-1",
+      "purl": "pkg:deb/kali/libqalculate-data@5.13.2-1?arch=all&distro=kali-2026.3&upstream=libqalculate"
+     },
+     {
+      "name": "libqalculate23",
+      "from": "5.12.0-1",
+      "to": "5.13.2-1",
+      "purl": "pkg:deb/kali/libqalculate23@5.13.2-1?arch=amd64&distro=kali-2026.3&upstream=libqalculate"
+     },
+     {
+      "name": "librabbitmq4",
+      "from": "0.18.0-1",
+      "to": "0.18.1-1",
+      "purl": "pkg:deb/kali/librabbitmq4@0.18.1-1?arch=amd64&distro=kali-2026.3&upstream=librabbitmq"
+     },
+     {
+      "name": "libseccomp2",
+      "from": "2.6.1-1+b1",
+      "to": "2.6.1-1+b2",
+      "purl": "pkg:deb/kali/libseccomp2@2.6.1-1%2Bb2?arch=amd64&distro=kali-2026.3&upstream=libseccomp%402.6.1-1"
+     },
+     {
+      "name": "libselinux1",
+      "from": "3.11-2.1",
+      "to": "3.11-2.1+b1",
+      "purl": "pkg:deb/kali/libselinux1@3.11-2.1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=libselinux%403.11-2.1"
+     },
+     {
+      "name": "locales",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "locales-all",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales-all@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "metasploit-framework",
+      "from": "6.5.5-0kali1",
+      "to": "6.5.7-0kali1",
+      "purl": "pkg:deb/kali/metasploit-framework@6.5.7-0kali1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "nftables",
+      "from": "1.1.7-1",
+      "to": "1.1.7-3",
+      "purl": "pkg:deb/kali/nftables@1.1.7-3?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "python3-apt",
+      "from": "3.1.0+b1",
+      "to": "3.1.0+b2",
+      "purl": "pkg:deb/kali/python3-apt@3.1.0%2Bb2?arch=amd64&distro=kali-2026.3&upstream=python-apt%403.1.0"
+     },
+     {
+      "name": "xwayland",
+      "from": "2:24.1.13-1",
+      "to": "2:24.1.14-1",
+      "purl": "pkg:deb/kali/xwayland@2%3A24.1.14-1?arch=amd64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [
+     {
+      "name": "hana",
+      "version": "1.3.7",
+      "purl": "pkg:gem/hana@1.3.7"
+     },
+     {
+      "name": "json_schemer",
+      "version": "2.5.0",
+      "purl": "pkg:gem/json_schemer@2.5.0"
+     },
+     {
+      "name": "regexp_parser",
+      "version": "2.13.1",
+      "purl": "pkg:gem/regexp_parser@2.13.1"
+     }
+    ],
+    "removed": [
+     {
+      "name": "json-schema",
+      "version": "6.2.1",
+      "purl": "pkg:gem/json-schema@6.2.1"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "aws-partitions",
+      "from": "1.1292.0",
+      "to": "1.1296.0",
+      "purl": "pkg:gem/aws-partitions@1.1296.0"
+     },
+     {
+      "name": "domain_name",
+      "from": "0.6.20260921",
+      "to": "0.7.20261007",
+      "purl": "pkg:gem/domain_name@0.7.20261007"
+     },
+     {
+      "name": "faraday",
+      "from": "2.14.4",
+      "to": "2.15.0",
+      "purl": "pkg:gem/faraday@2.15.0"
+     },
+     {
+      "name": "faraday-net_http",
+      "from": "3.4.4",
+      "to": "3.5.0",
+      "purl": "pkg:gem/faraday-net_http@3.5.0"
+     },
+     {
+      "name": "ipaddr",
+      "from": "1.2.9",
+      "to": "1.3.0",
+      "purl": "pkg:gem/ipaddr@1.3.0"
+     },
+     {
+      "name": "mcp",
+      "from": "0.13.0",
+      "to": "1.8.0",
+      "purl": "pkg:gem/mcp@1.8.0"
+     },
+     {
+      "name": "mime-types-data",
+      "from": "3.2026.0929",
+      "to": "3.2026.1013",
+      "purl": "pkg:gem/mime-types-data@3.2026.1013"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.6.1",
+      "to": "1.8.5",
+      "purl": "pkg:gem/msgpack@1.8.5"
+     },
+     {
+      "name": "net-imap",
+      "from": "0.6.7",
+      "to": "0.6.8",
+      "purl": "pkg:gem/net-imap@0.6.8"
+     },
+     {
+      "name": "net-ldap",
+      "from": "0.20.0",
+      "to": "0.21.0",
+      "purl": "pkg:gem/net-ldap@0.21.0"
+     },
+     {
+      "name": "prettyprint",
+      "from": "0.2.0",
+      "to": "0.2.1",
+      "purl": "pkg:gem/prettyprint@0.2.1"
+     },
+     {
+      "name": "recog",
+      "from": "3.1.36",
+      "to": "3.1.37",
+      "purl": "pkg:gem/recog@3.1.37"
+     },
+     {
+      "name": "rex-core",
+      "from": "0.1.36",
+      "to": "0.1.37",
+      "purl": "pkg:gem/rex-core@0.1.37"
+     },
+     {
+      "name": "uri",
+      "from": "1.1.1",
+      "to": "1.1.2",
+      "purl": "pkg:gem/uri@1.1.2"
+     },
+     {
+      "name": "winrm",
+      "from": "2.4.1",
+      "to": "2.4.2",
+      "purl": "pkg:gem/winrm@2.4.2"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "net-http",
+      "from": "0.9.1",
+      "to": "0.4.1",
+      "purl": "pkg:gem/net-http@0.4.1"
+     }
+    ]
+   },
+   "npm": {
+    "added": [
+     {
+      "name": "json-patch-test-suite",
+      "version": "1.1.0",
+      "purl": "pkg:npm/json-patch-test-suite@1.1.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "python-apt",
+      "from": "3.1.0+b1",
+      "to": "3.1.0+b2",
+      "purl": "pkg:pypi/python-apt@3.1.0%2Bb2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "at-spi2-common",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/at-spi2-common@2.62.1-1?arch=all&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "at-spi2-core",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/at-spi2-core@2.62.1-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "bubblewrap",
+      "from": "0.13.0-1",
+      "to": "0.13.1-1",
+      "purl": "pkg:deb/kali/bubblewrap@0.13.1-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "findutils",
+      "from": "4.11.0-2",
+      "to": "4.11.0-3",
+      "purl": "pkg:deb/kali/findutils@4.11.0-3?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "gir1.2-atk-1.0",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/gir1.2-atk-1.0@2.62.1-1?arch=arm64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "gir1.2-atspi-2.0",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/gir1.2-atspi-2.0@2.62.1-1?arch=arm64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "gir1.2-girepository-3.0",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/gir1.2-girepository-3.0@2.90.1-2?arch=arm64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "gir1.2-glib-2.0",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/gir1.2-glib-2.0@2.90.1-2?arch=arm64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "glycin-loaders",
+      "from": "2.2.1+ds-2",
+      "to": "2.2.2+ds-1",
+      "purl": "pkg:deb/kali/glycin-loaders@2.2.2%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=glycin"
+     },
+     {
+      "name": "glycin-thumbnailers",
+      "from": "2.2.1+ds-2",
+      "to": "2.2.2+ds-1",
+      "purl": "pkg:deb/kali/glycin-thumbnailers@2.2.2%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=glycin"
+     },
+     {
+      "name": "john",
+      "from": "1.9.0-Jumbo-1+git20211102-0kali11",
+      "to": "1.9.0-Jumbo-1+git20261011-0kali1",
+      "purl": "pkg:deb/kali/john@1.9.0-Jumbo-1%2Bgit20261011-0kali1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "john-data",
+      "from": "1.9.0-Jumbo-1+git20211102-0kali11",
+      "to": "1.9.0-Jumbo-1+git20261011-0kali1",
+      "purl": "pkg:deb/kali/john-data@1.9.0-Jumbo-1%2Bgit20261011-0kali1?arch=all&distro=kali-2026.3&upstream=john"
+     },
+     {
+      "name": "kbd",
+      "from": "2.9.0-1+b1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/kbd@2.10.0-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "libatk-bridge2.0-0t64",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/libatk-bridge2.0-0t64@2.62.1-1?arch=arm64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "libatk1.0-0t64",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/libatk1.0-0t64@2.62.1-1?arch=arm64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "libatspi2.0-0t64",
+      "from": "2.62.0-2",
+      "to": "2.62.1-1",
+      "purl": "pkg:deb/kali/libatspi2.0-0t64@2.62.1-1?arch=arm64&distro=kali-2026.3&upstream=at-spi2-core"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-bin@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-dev-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-dev-bin@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-gconv-modules-extra",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-gconv-modules-extra@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-l10n@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6-dev",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6-dev@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libcap-ng0",
+      "from": "0.9.6-1",
+      "to": "0.9.6-1+b1",
+      "purl": "pkg:deb/kali/libcap-ng0@0.9.6-1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=libcap-ng%400.9.6-1"
+     },
+     {
+      "name": "libevdev2",
+      "from": "1.13.7+dfsg-1",
+      "to": "1.14.0+dfsg-1",
+      "purl": "pkg:deb/kali/libevdev2@1.14.0%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=libevdev"
+     },
+     {
+      "name": "libfreetype6",
+      "from": "2.14.3+dfsg-2",
+      "to": "2.14.3+dfsg-3",
+      "purl": "pkg:deb/kali/libfreetype6@2.14.3%2Bdfsg-3?arch=arm64&distro=kali-2026.3&upstream=freetype"
+     },
+     {
+      "name": "libgirepository-2.0-0",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/libgirepository-2.0-0@2.90.1-2?arch=arm64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "libglib2.0-0t64",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/libglib2.0-0t64@2.90.1-2?arch=arm64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "libglib2.0-bin",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/libglib2.0-bin@2.90.1-2?arch=arm64&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "libglib2.0-data",
+      "from": "2.90.0-1",
+      "to": "2.90.1-2",
+      "purl": "pkg:deb/kali/libglib2.0-data@2.90.1-2?arch=all&distro=kali-2026.3&upstream=glib2.0"
+     },
+     {
+      "name": "libglycin-2-0",
+      "from": "2.2.1+ds-2",
+      "to": "2.2.2+ds-1",
+      "purl": "pkg:deb/kali/libglycin-2-0@2.2.2%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=glycin"
+     },
+     {
+      "name": "libgpgmepp7",
+      "from": "2.2.0-2",
+      "to": "2.2.0-3",
+      "purl": "pkg:deb/kali/libgpgmepp7@2.2.0-3?arch=arm64&distro=kali-2026.3&upstream=gpgmepp"
+     },
+     {
+      "name": "libgstreamer1.0-0",
+      "from": "1.28.7-1",
+      "to": "1.28.8-1",
+      "purl": "pkg:deb/kali/libgstreamer1.0-0@1.28.8-1?arch=arm64&distro=kali-2026.3&upstream=gstreamer1.0"
+     },
+     {
+      "name": "libgtkmm-3.0-1t64",
+      "from": "3.24.11-1",
+      "to": "3.24.11-2",
+      "purl": "pkg:deb/kali/libgtkmm-3.0-1t64@3.24.11-2?arch=arm64&distro=kali-2026.3&upstream=gtkmm3.0"
+     },
+     {
+      "name": "libimath-3-2-30",
+      "from": "3.2.2-2+b1",
+      "to": "3.2.2-3",
+      "purl": "pkg:deb/kali/libimath-3-2-30@3.2.2-3?arch=arm64&distro=kali-2026.3&upstream=imath"
+     },
+     {
+      "name": "libltdl7",
+      "from": "2.6.2-2",
+      "to": "2.6.2-3",
+      "purl": "pkg:deb/kali/libltdl7@2.6.2-3?arch=arm64&distro=kali-2026.3&upstream=libtool"
+     },
+     {
+      "name": "libnftables1",
+      "from": "1.1.7-1",
+      "to": "1.1.7-3",
+      "purl": "pkg:deb/kali/libnftables1@1.1.7-3?arch=arm64&distro=kali-2026.3&upstream=nftables"
+     },
+     {
+      "name": "libpcap0.8t64",
+      "from": "1.10.7-1",
+      "to": "1.11.0-1",
+      "purl": "pkg:deb/kali/libpcap0.8t64@1.11.0-1?arch=arm64&distro=kali-2026.3&upstream=libpcap"
+     },
+     {
+      "name": "libqalculate-data",
+      "from": "5.12.0-1",
+      "to": "5.13.2-1",
+      "purl": "pkg:deb/kali/libqalculate-data@5.13.2-1?arch=all&distro=kali-2026.3&upstream=libqalculate"
+     },
+     {
+      "name": "libqalculate23",
+      "from": "5.12.0-1",
+      "to": "5.13.2-1",
+      "purl": "pkg:deb/kali/libqalculate23@5.13.2-1?arch=arm64&distro=kali-2026.3&upstream=libqalculate"
+     },
+     {
+      "name": "librabbitmq4",
+      "from": "0.18.0-1",
+      "to": "0.18.1-1",
+      "purl": "pkg:deb/kali/librabbitmq4@0.18.1-1?arch=arm64&distro=kali-2026.3&upstream=librabbitmq"
+     },
+     {
+      "name": "libseccomp2",
+      "from": "2.6.1-1+b1",
+      "to": "2.6.1-1+b2",
+      "purl": "pkg:deb/kali/libseccomp2@2.6.1-1%2Bb2?arch=arm64&distro=kali-2026.3&upstream=libseccomp%402.6.1-1"
+     },
+     {
+      "name": "libselinux1",
+      "from": "3.11-2.1",
+      "to": "3.11-2.1+b1",
+      "purl": "pkg:deb/kali/libselinux1@3.11-2.1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=libselinux%403.11-2.1"
+     },
+     {
+      "name": "locales",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "locales-all",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales-all@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "metasploit-framework",
+      "from": "6.5.5-0kali1",
+      "to": "6.5.7-0kali1",
+      "purl": "pkg:deb/kali/metasploit-framework@6.5.7-0kali1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "nftables",
+      "from": "1.1.7-1",
+      "to": "1.1.7-3",
+      "purl": "pkg:deb/kali/nftables@1.1.7-3?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "python3-apt",
+      "from": "3.1.0+b1",
+      "to": "3.1.0+b2",
+      "purl": "pkg:deb/kali/python3-apt@3.1.0%2Bb2?arch=arm64&distro=kali-2026.3&upstream=python-apt%403.1.0"
+     },
+     {
+      "name": "xwayland",
+      "from": "2:24.1.13-1",
+      "to": "2:24.1.14-1",
+      "purl": "pkg:deb/kali/xwayland@2%3A24.1.14-1?arch=arm64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [
+     {
+      "name": "hana",
+      "version": "1.3.7",
+      "purl": "pkg:gem/hana@1.3.7"
+     },
+     {
+      "name": "json_schemer",
+      "version": "2.5.0",
+      "purl": "pkg:gem/json_schemer@2.5.0"
+     },
+     {
+      "name": "regexp_parser",
+      "version": "2.13.1",
+      "purl": "pkg:gem/regexp_parser@2.13.1"
+     }
+    ],
+    "removed": [
+     {
+      "name": "json-schema",
+      "version": "6.2.1",
+      "purl": "pkg:gem/json-schema@6.2.1"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "aws-partitions",
+      "from": "1.1292.0",
+      "to": "1.1296.0",
+      "purl": "pkg:gem/aws-partitions@1.1296.0"
+     },
+     {
+      "name": "domain_name",
+      "from": "0.6.20260921",
+      "to": "0.7.20261007",
+      "purl": "pkg:gem/domain_name@0.7.20261007"
+     },
+     {
+      "name": "faraday",
+      "from": "2.14.4",
+      "to": "2.15.0",
+      "purl": "pkg:gem/faraday@2.15.0"
+     },
+     {
+      "name": "faraday-net_http",
+      "from": "3.4.4",
+      "to": "3.5.0",
+      "purl": "pkg:gem/faraday-net_http@3.5.0"
+     },
+     {
+      "name": "ipaddr",
+      "from": "1.2.9",
+      "to": "1.3.0",
+      "purl": "pkg:gem/ipaddr@1.3.0"
+     },
+     {
+      "name": "mcp",
+      "from": "0.13.0",
+      "to": "1.8.0",
+      "purl": "pkg:gem/mcp@1.8.0"
+     },
+     {
+      "name": "mime-types-data",
+      "from": "3.2026.0929",
+      "to": "3.2026.1013",
+      "purl": "pkg:gem/mime-types-data@3.2026.1013"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.6.1",
+      "to": "1.8.5",
+      "purl": "pkg:gem/msgpack@1.8.5"
+     },
+     {
+      "name": "net-imap",
+      "from": "0.6.7",
+      "to": "0.6.8",
+      "purl": "pkg:gem/net-imap@0.6.8"
+     },
+     {
+      "name": "net-ldap",
+      "from": "0.20.0",
+      "to": "0.21.0",
+      "purl": "pkg:gem/net-ldap@0.21.0"
+     },
+     {
+      "name": "prettyprint",
+      "from": "0.2.0",
+      "to": "0.2.1",
+      "purl": "pkg:gem/prettyprint@0.2.1"
+     },
+     {
+      "name": "recog",
+      "from": "3.1.36",
+      "to": "3.1.37",
+      "purl": "pkg:gem/recog@3.1.37"
+     },
+     {
+      "name": "rex-core",
+      "from": "0.1.36",
+      "to": "0.1.37",
+      "purl": "pkg:gem/rex-core@0.1.37"
+     },
+     {
+      "name": "uri",
+      "from": "1.1.1",
+      "to": "1.1.2",
+      "purl": "pkg:gem/uri@1.1.2"
+     },
+     {
+      "name": "winrm",
+      "from": "2.4.1",
+      "to": "2.4.2",
+      "purl": "pkg:gem/winrm@2.4.2"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "net-http",
+      "from": "0.9.1",
+      "to": "0.4.1",
+      "purl": "pkg:gem/net-http@0.4.1"
+     }
+    ]
+   },
+   "npm": {
+    "added": [
+     {
+      "name": "json-patch-test-suite",
+      "version": "1.1.0",
+      "purl": "pkg:npm/json-patch-test-suite@1.1.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "python-apt",
+      "from": "3.1.0+b1",
+      "to": "3.1.0+b2",
+      "purl": "pkg:pypi/python-apt@3.1.0%2Bb2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 8,
+  "removed": 2,
+  "upgraded": 130,
+  "downgraded": 2
+ }
+}

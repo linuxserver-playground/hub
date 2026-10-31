@@ -1,0 +1,120 @@
+{
+ "schema": 1,
+ "name": "mame",
+ "summary": "[MAME](https://www.mamedev.org/) is a free and open-source emulator designed to emulate the hardware of arcade games, video game consoles, old computers and other systems in software on modern personal computers.",
+ "upstream": {
+  "url": "https://www.mamedev.org/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "https://ppa.launchpadcontent.net/c.falco/mame/ubuntu/dists/resolute/main/binary-amd64/Packages.gz",
+   "package": "mame",
+   "transform": [
+    {
+     "regex": "ubuntu.*$",
+     "replace": ""
+    },
+    {
+     "regex": "\\+",
+     "replace": ""
+    }
+   ]
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "MAME_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP MAME desktop gui, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS MAME desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   },
+   {
+    "path": "/mame:ro",
+    "host_path": "/path/to/mame/assets",
+    "description": "MAME directory containing artwork, roms, and assets."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for MAME to function."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mame-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-05-04",
+   "text": "Rebase to resolute."
+  },
+  {
+   "date": "2026-03-05",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-07-03",
+   "text": "Initial release."
+  }
+ ]
+}

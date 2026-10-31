@@ -1,0 +1,159 @@
+{
+ "image": "webtop",
+ "branch": "arch-mate",
+ "tag": "arch-mate-2026-10-23-ls4",
+ "previous_tag": "arch-mate-2025-07-12-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2025-07-12",
+  "to": "2026-10-23",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:6e38212f805bb73655d4c94a2977b5354abaa758f3114cf0afc9ea4b896d6aab"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1742169564,
+   "to": 1739780075,
+   "delta": -2389489
+  },
+  "arm64": {
+   "from": 1854283933,
+   "to": 1854282145,
+   "delta": -1788
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1",
+      "to": "156.0.8078.73-1",
+      "purl": "pkg:alpm/arch/chromium@156.0.8078.73-1?arch=x86_64&distro=arch-rolling&upstream=chromium"
+     },
+     {
+      "name": "cpupower",
+      "from": "7.2.11-1",
+      "to": "7.3-1",
+      "purl": "pkg:alpm/arch/cpupower@7.3-1?arch=x86_64&distro=arch-rolling&upstream=linux-tools"
+     },
+     {
+      "name": "glycin",
+      "from": "2.2.4-1",
+      "to": "2.2.5-1",
+      "purl": "pkg:alpm/arch/glycin@2.2.5-1?arch=x86_64&distro=arch-rolling&upstream=glycin"
+     },
+     {
+      "name": "harfbuzz-icu",
+      "from": "14.6.0-1",
+      "to": "15.0.0-1",
+      "purl": "pkg:alpm/arch/harfbuzz-icu@15.0.0-1?arch=x86_64&distro=arch-rolling&upstream=harfbuzz"
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.1-1",
+      "to": "2.7.2-2",
+      "purl": "pkg:alpm/arch/libldap@2.7.2-2?arch=x86_64&distro=arch-rolling&upstream=openldap"
+     },
+     {
+      "name": "openbsd-netcat",
+      "from": "1.238_1-1",
+      "to": "1.239_1-1",
+      "purl": "pkg:alpm/arch/openbsd-netcat@1.239_1-1?arch=x86_64&distro=arch-rolling&upstream=openbsd-netcat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "brotli",
+      "from": "1.2.0-1",
+      "to": "1.2.1-1",
+      "purl": null
+     },
+     {
+      "name": "ca-certificates-mozilla",
+      "from": "3.131.1-1",
+      "to": "3.132-1",
+      "purl": null
+     },
+     {
+      "name": "cpupower",
+      "from": "7.2.11-1",
+      "to": "7.3-1",
+      "purl": null
+     },
+     {
+      "name": "harfbuzz-icu",
+      "from": "14.6.0-1",
+      "to": "15.0.0-1",
+      "purl": null
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.1-1",
+      "to": "2.7.2-2",
+      "purl": null
+     },
+     {
+      "name": "openbsd-netcat",
+      "from": "1.238_1-1",
+      "to": "1.239_1-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

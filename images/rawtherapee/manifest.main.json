@@ -1,0 +1,125 @@
+{
+ "schema": 1,
+ "name": "rawtherapee",
+ "summary": "[RawTherapee](https://rawtherapee.com/) is a free, cross-platform raw image processing program!",
+ "upstream": {
+  "url": "https://rawtherapee.com/",
+  "version": {
+   "type": "github_release",
+   "repo": "rawtherapee/rawtherapee",
+   "require_assets": [
+    {
+     "asset": "^RawTherapee_.*_x86_64_release\\.AppImage$"
+    },
+    {
+     "asset": "^RawTherapee_.*_arm64_release\\.AppImage$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "rawtherapee/rawtherapee"
+  },
+  "sponsor": [
+   {
+    "name": "RawTherapee",
+    "url": "https://www.paypal.com/paypalme/rawtherapee"
+   }
+  ]
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "RAWTHERAPEE_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "RawTherapee desktop gui (only for reverse proxy access)."
+   },
+   {
+    "internal": "3001",
+    "description": "RawTherapee desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/rawtherapee/config",
+    "description": "User's home directory in the container, stores program settings and files."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Image Editor"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rawtherapee-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-26",
+   "text": "Add aarch64 support."
+  },
+  {
+   "date": "2026-04-04",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-29",
+   "text": "Rebase to selkies. Breaking Change: HTTPS is now required. Either use a reverse proxy with SSL cert or direct connect to port 8181 with HTTPS."
+  },
+  {
+   "date": "2024-09-24",
+   "text": "Initial release."
+  }
+ ]
+}

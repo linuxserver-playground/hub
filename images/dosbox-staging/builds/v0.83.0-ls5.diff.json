@@ -1,0 +1,62 @@
+{
+ "image": "dosbox-staging",
+ "branch": "master",
+ "tag": "v0.83.0-ls5",
+ "previous_tag": "v0.83.0-ls4",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "v0.83.0",
+  "to": "v0.83.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1007841662,
+   "to": 1007841753,
+   "delta": 91
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

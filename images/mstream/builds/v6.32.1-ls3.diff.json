@@ -1,0 +1,799 @@
+{
+ "image": "mstream",
+ "branch": "master",
+ "tag": "v6.32.1-ls3",
+ "previous_tag": "v6.31.1-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v6.31.1",
+  "to": "v6.32.1",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 398450030,
+   "to": 401694212,
+   "delta": 3244182
+  },
+  "arm64": {
+   "from": 399843516,
+   "to": 403192201,
+   "delta": 3348685
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r1?arch=x86_64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r1?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r1?arch=x86_64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r1?arch=x86_64&distro=alpine-3.24.3&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ONNX Runtime",
+      "from": "1.29.0.20260811.4.2e2543f",
+      "to": "1.30.0.20260909.4.f2c39fe",
+      "purl": null
+     },
+     {
+      "name": "mStream",
+      "from": "6.31.1.0",
+      "to": "6.32.1.0",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [
+     {
+      "name": "bare-os",
+      "version": "3.9.0",
+      "purl": "pkg:npm/bare-os@3.9.0"
+     },
+     {
+      "name": "undici-types",
+      "version": "6.21.0",
+      "purl": "pkg:npm/undici-types@6.21.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "@babel/runtime",
+      "from": "7.29.2",
+      "to": "7.29.10",
+      "purl": "pkg:npm/%40babel/runtime@7.29.10"
+     },
+     {
+      "name": "@colors/colors",
+      "from": "1.6.0",
+      "to": "1.6.1",
+      "purl": "pkg:npm/%40colors/colors@1.6.1"
+     },
+     {
+      "name": "@dabh/diagnostics",
+      "from": "2.0.8",
+      "to": "2.0.9",
+      "purl": "pkg:npm/%40dabh/diagnostics@2.0.9"
+     },
+     {
+      "name": "@hapi/tlds",
+      "from": "1.1.6",
+      "to": "1.1.7",
+      "purl": "pkg:npm/%40hapi/tlds@1.1.7"
+     },
+     {
+      "name": "@number0/iroh",
+      "from": "1.1.0",
+      "to": "1.2.0",
+      "purl": "pkg:npm/%40number0/iroh@1.2.0"
+     },
+     {
+      "name": "@number0/iroh-linux-x64-gnu",
+      "from": "1.1.0",
+      "to": "1.2.0",
+      "purl": "pkg:npm/%40number0/iroh-linux-x64-gnu@1.2.0"
+     },
+     {
+      "name": "@number0/iroh-linux-x64-musl",
+      "from": "1.1.0",
+      "to": "1.2.0",
+      "purl": "pkg:npm/%40number0/iroh-linux-x64-musl@1.2.0"
+     },
+     {
+      "name": "@tokenizer/inflate",
+      "from": "0.4.1",
+      "to": "0.5.2",
+      "purl": "pkg:npm/%40tokenizer/inflate@0.5.2"
+     },
+     {
+      "name": "@videojs/vhs-utils",
+      "from": "4.1.1",
+      "to": "4.1.2",
+      "purl": "pkg:npm/%40videojs/vhs-utils@4.1.2"
+     },
+     {
+      "name": "adm-zip",
+      "from": "0.6.0",
+      "to": "0.6.1",
+      "purl": "pkg:npm/adm-zip@0.6.1"
+     },
+     {
+      "name": "b4a",
+      "from": "1.8.0",
+      "to": "1.9.0",
+      "purl": "pkg:npm/b4a@1.9.0"
+     },
+     {
+      "name": "bare-events",
+      "from": "2.8.2",
+      "to": "2.9.2",
+      "purl": "pkg:npm/bare-events@2.9.2"
+     },
+     {
+      "name": "bare-fs",
+      "from": "4.7.1",
+      "to": "4.8.4",
+      "purl": "pkg:npm/bare-fs@4.8.4"
+     },
+     {
+      "name": "bare-path",
+      "from": "3.0.0",
+      "to": "3.1.2",
+      "purl": "pkg:npm/bare-path@3.1.2"
+     },
+     {
+      "name": "bare-stream",
+      "from": "2.13.0",
+      "to": "2.13.4",
+      "purl": "pkg:npm/bare-stream@2.13.4"
+     },
+     {
+      "name": "bare-url",
+      "from": "2.4.2",
+      "to": "2.5.5",
+      "purl": "pkg:npm/bare-url@2.5.5"
+     },
+     {
+      "name": "body-parser",
+      "from": "2.3.0",
+      "to": "2.4.0",
+      "purl": "pkg:npm/body-parser@2.4.0"
+     },
+     {
+      "name": "brace-expansion",
+      "from": "5.0.9",
+      "to": "5.0.12",
+      "purl": "pkg:npm/brace-expansion@5.0.12"
+     },
+     {
+      "name": "chokidar",
+      "from": "5.0.0",
+      "to": "6.0.0",
+      "purl": "pkg:npm/chokidar@6.0.0"
+     },
+     {
+      "name": "color-name",
+      "from": "2.1.0",
+      "to": "2.1.1",
+      "purl": "pkg:npm/color-name@2.1.1"
+     },
+     {
+      "name": "content-disposition",
+      "from": "1.1.0",
+      "to": "2.0.1",
+      "purl": "pkg:npm/content-disposition@2.0.1"
+     },
+     {
+      "name": "content-type",
+      "from": "2.1.0",
+      "to": "3.1.1",
+      "purl": "pkg:npm/content-type@3.1.1"
+     },
+     {
+      "name": "express",
+      "from": "5.2.1",
+      "to": "5.3.0",
+      "purl": "pkg:npm/express@5.3.0"
+     },
+     {
+      "name": "file-type",
+      "from": "21.3.4",
+      "to": "22.2.0",
+      "purl": "pkg:npm/file-type@22.2.0"
+     },
+     {
+      "name": "global-agent",
+      "from": "4.1.3",
+      "to": "4.1.6",
+      "purl": "pkg:npm/global-agent@4.1.6"
+     },
+     {
+      "name": "iconv-lite",
+      "from": "0.7.2",
+      "to": "0.7.3",
+      "purl": "pkg:npm/iconv-lite@0.7.3"
+     },
+     {
+      "name": "joi",
+      "from": "18.2.8",
+      "to": "18.3.0",
+      "purl": "pkg:npm/joi@18.3.0"
+     },
+     {
+      "name": "minimatch",
+      "from": "10.2.5",
+      "to": "10.2.6",
+      "purl": "pkg:npm/minimatch@10.2.6"
+     },
+     {
+      "name": "mstream",
+      "from": "6.31.1",
+      "to": "6.32.1",
+      "purl": "pkg:npm/mstream@6.32.1"
+     },
+     {
+      "name": "music-metadata",
+      "from": "11.15.0",
+      "to": "12.3.0",
+      "purl": "pkg:npm/music-metadata@12.3.0"
+     },
+     {
+      "name": "nanoid",
+      "from": "6.0.1",
+      "to": "6.0.2",
+      "purl": "pkg:npm/nanoid@6.0.2"
+     },
+     {
+      "name": "negotiator",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:npm/negotiator@1.1.0"
+     },
+     {
+      "name": "on-finished",
+      "from": "2.4.1",
+      "to": "2.4.2",
+      "purl": "pkg:npm/on-finished@2.4.2"
+     },
+     {
+      "name": "onnxruntime-common",
+      "from": "1.29.0",
+      "to": "1.30.0",
+      "purl": "pkg:npm/onnxruntime-common@1.30.0"
+     },
+     {
+      "name": "onnxruntime-node",
+      "from": "1.29.0",
+      "to": "1.30.0",
+      "purl": "pkg:npm/onnxruntime-node@1.30.0"
+     },
+     {
+      "name": "onnxruntime-web",
+      "from": "1.29.0",
+      "to": "1.30.0",
+      "purl": "pkg:npm/onnxruntime-web@1.30.0"
+     },
+     {
+      "name": "proxy-addr",
+      "from": "2.0.7",
+      "to": "2.0.8",
+      "purl": "pkg:npm/proxy-addr@2.0.8"
+     },
+     {
+      "name": "qs",
+      "from": "6.16.0",
+      "to": "6.16.1",
+      "purl": "pkg:npm/qs@6.16.1"
+     },
+     {
+      "name": "range-parser",
+      "from": "1.2.1",
+      "to": "1.3.0",
+      "purl": "pkg:npm/range-parser@1.3.0"
+     },
+     {
+      "name": "readable-stream",
+      "from": "4.7.0",
+      "to": "4.8.0",
+      "purl": "pkg:npm/readable-stream@4.8.0"
+     },
+     {
+      "name": "sax",
+      "from": "1.6.0",
+      "to": "1.6.1",
+      "purl": "pkg:npm/sax@1.6.1"
+     },
+     {
+      "name": "semver",
+      "from": "7.7.4",
+      "to": "7.8.5",
+      "purl": "pkg:npm/semver@7.8.5"
+     },
+     {
+      "name": "streamx",
+      "from": "2.25.0",
+      "to": "2.28.1",
+      "purl": "pkg:npm/streamx@2.28.1"
+     },
+     {
+      "name": "strtok3",
+      "from": "10.3.5",
+      "to": "10.6.2",
+      "purl": "pkg:npm/strtok3@10.6.2"
+     },
+     {
+      "name": "tar-stream",
+      "from": "3.1.8",
+      "to": "3.2.2",
+      "purl": "pkg:npm/tar-stream@3.2.2"
+     },
+     {
+      "name": "uint8array-extras",
+      "from": "1.5.0",
+      "to": "1.6.0",
+      "purl": "pkg:npm/uint8array-extras@1.6.0"
+     },
+     {
+      "name": "ws",
+      "from": "8.21.3",
+      "to": "8.22.0",
+      "purl": "pkg:npm/ws@8.22.0"
+     },
+     {
+      "name": "zod",
+      "from": "3.25.76",
+      "to": "4.6.7",
+      "purl": "pkg:npm/zod@4.6.7"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "@types/node",
+      "from": "22.20.3",
+      "to": "16.9.1",
+      "purl": "pkg:npm/%40types/node@16.9.1"
+     }
+    ]
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r1?arch=aarch64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r1?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r1?arch=aarch64&distro=alpine-3.24.3&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r1?arch=aarch64&distro=alpine-3.24.3&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ONNX Runtime",
+      "from": "1.29.0.20260811.4.2e2543f",
+      "to": "1.30.0.20260909.4.f2c39fe",
+      "purl": null
+     },
+     {
+      "name": "mStream",
+      "from": "6.31.1.0",
+      "to": "6.32.1.0",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [
+     {
+      "name": "bare-os",
+      "version": "3.9.0",
+      "purl": "pkg:npm/bare-os@3.9.0"
+     },
+     {
+      "name": "undici-types",
+      "version": "6.21.0",
+      "purl": "pkg:npm/undici-types@6.21.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "@babel/runtime",
+      "from": "7.29.2",
+      "to": "7.29.10",
+      "purl": "pkg:npm/%40babel/runtime@7.29.10"
+     },
+     {
+      "name": "@colors/colors",
+      "from": "1.6.0",
+      "to": "1.6.1",
+      "purl": "pkg:npm/%40colors/colors@1.6.1"
+     },
+     {
+      "name": "@dabh/diagnostics",
+      "from": "2.0.8",
+      "to": "2.0.9",
+      "purl": "pkg:npm/%40dabh/diagnostics@2.0.9"
+     },
+     {
+      "name": "@hapi/tlds",
+      "from": "1.1.6",
+      "to": "1.1.7",
+      "purl": "pkg:npm/%40hapi/tlds@1.1.7"
+     },
+     {
+      "name": "@number0/iroh",
+      "from": "1.1.0",
+      "to": "1.2.0",
+      "purl": "pkg:npm/%40number0/iroh@1.2.0"
+     },
+     {
+      "name": "@number0/iroh-linux-arm64-gnu",
+      "from": "1.1.0",
+      "to": "1.2.0",
+      "purl": "pkg:npm/%40number0/iroh-linux-arm64-gnu@1.2.0"
+     },
+     {
+      "name": "@number0/iroh-linux-arm64-musl",
+      "from": "1.1.0",
+      "to": "1.2.0",
+      "purl": "pkg:npm/%40number0/iroh-linux-arm64-musl@1.2.0"
+     },
+     {
+      "name": "@tokenizer/inflate",
+      "from": "0.4.1",
+      "to": "0.5.2",
+      "purl": "pkg:npm/%40tokenizer/inflate@0.5.2"
+     },
+     {
+      "name": "@videojs/vhs-utils",
+      "from": "4.1.1",
+      "to": "4.1.2",
+      "purl": "pkg:npm/%40videojs/vhs-utils@4.1.2"
+     },
+     {
+      "name": "adm-zip",
+      "from": "0.6.0",
+      "to": "0.6.1",
+      "purl": "pkg:npm/adm-zip@0.6.1"
+     },
+     {
+      "name": "b4a",
+      "from": "1.8.0",
+      "to": "1.9.0",
+      "purl": "pkg:npm/b4a@1.9.0"
+     },
+     {
+      "name": "bare-events",
+      "from": "2.8.2",
+      "to": "2.9.2",
+      "purl": "pkg:npm/bare-events@2.9.2"
+     },
+     {
+      "name": "bare-fs",
+      "from": "4.7.1",
+      "to": "4.8.4",
+      "purl": "pkg:npm/bare-fs@4.8.4"
+     },
+     {
+      "name": "bare-path",
+      "from": "3.0.0",
+      "to": "3.1.2",
+      "purl": "pkg:npm/bare-path@3.1.2"
+     },
+     {
+      "name": "bare-stream",
+      "from": "2.13.0",
+      "to": "2.13.4",
+      "purl": "pkg:npm/bare-stream@2.13.4"
+     },
+     {
+      "name": "bare-url",
+      "from": "2.4.2",
+      "to": "2.5.5",
+      "purl": "pkg:npm/bare-url@2.5.5"
+     },
+     {
+      "name": "body-parser",
+      "from": "2.3.0",
+      "to": "2.4.0",
+      "purl": "pkg:npm/body-parser@2.4.0"
+     },
+     {
+      "name": "brace-expansion",
+      "from": "5.0.9",
+      "to": "5.0.12",
+      "purl": "pkg:npm/brace-expansion@5.0.12"
+     },
+     {
+      "name": "chokidar",
+      "from": "5.0.0",
+      "to": "6.0.0",
+      "purl": "pkg:npm/chokidar@6.0.0"
+     },
+     {
+      "name": "color-name",
+      "from": "2.1.0",
+      "to": "2.1.1",
+      "purl": "pkg:npm/color-name@2.1.1"
+     },
+     {
+      "name": "content-disposition",
+      "from": "1.1.0",
+      "to": "2.0.1",
+      "purl": "pkg:npm/content-disposition@2.0.1"
+     },
+     {
+      "name": "content-type",
+      "from": "2.1.0",
+      "to": "3.1.1",
+      "purl": "pkg:npm/content-type@3.1.1"
+     },
+     {
+      "name": "express",
+      "from": "5.2.1",
+      "to": "5.3.0",
+      "purl": "pkg:npm/express@5.3.0"
+     },
+     {
+      "name": "file-type",
+      "from": "21.3.4",
+      "to": "22.2.0",
+      "purl": "pkg:npm/file-type@22.2.0"
+     },
+     {
+      "name": "global-agent",
+      "from": "4.1.3",
+      "to": "4.1.6",
+      "purl": "pkg:npm/global-agent@4.1.6"
+     },
+     {
+      "name": "iconv-lite",
+      "from": "0.7.2",
+      "to": "0.7.3",
+      "purl": "pkg:npm/iconv-lite@0.7.3"
+     },
+     {
+      "name": "joi",
+      "from": "18.2.8",
+      "to": "18.3.0",
+      "purl": "pkg:npm/joi@18.3.0"
+     },
+     {
+      "name": "minimatch",
+      "from": "10.2.5",
+      "to": "10.2.6",
+      "purl": "pkg:npm/minimatch@10.2.6"
+     },
+     {
+      "name": "mstream",
+      "from": "6.31.1",
+      "to": "6.32.1",
+      "purl": "pkg:npm/mstream@6.32.1"
+     },
+     {
+      "name": "music-metadata",
+      "from": "11.15.0",
+      "to": "12.3.0",
+      "purl": "pkg:npm/music-metadata@12.3.0"
+     },
+     {
+      "name": "nanoid",
+      "from": "6.0.1",
+      "to": "6.0.2",
+      "purl": "pkg:npm/nanoid@6.0.2"
+     },
+     {
+      "name": "negotiator",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:npm/negotiator@1.1.0"
+     },
+     {
+      "name": "on-finished",
+      "from": "2.4.1",
+      "to": "2.4.2",
+      "purl": "pkg:npm/on-finished@2.4.2"
+     },
+     {
+      "name": "onnxruntime-common",
+      "from": "1.29.0",
+      "to": "1.30.0",
+      "purl": "pkg:npm/onnxruntime-common@1.30.0"
+     },
+     {
+      "name": "onnxruntime-node",
+      "from": "1.29.0",
+      "to": "1.30.0",
+      "purl": "pkg:npm/onnxruntime-node@1.30.0"
+     },
+     {
+      "name": "onnxruntime-web",
+      "from": "1.29.0",
+      "to": "1.30.0",
+      "purl": "pkg:npm/onnxruntime-web@1.30.0"
+     },
+     {
+      "name": "proxy-addr",
+      "from": "2.0.7",
+      "to": "2.0.8",
+      "purl": "pkg:npm/proxy-addr@2.0.8"
+     },
+     {
+      "name": "qs",
+      "from": "6.16.0",
+      "to": "6.16.1",
+      "purl": "pkg:npm/qs@6.16.1"
+     },
+     {
+      "name": "range-parser",
+      "from": "1.2.1",
+      "to": "1.3.0",
+      "purl": "pkg:npm/range-parser@1.3.0"
+     },
+     {
+      "name": "readable-stream",
+      "from": "4.7.0",
+      "to": "4.8.0",
+      "purl": "pkg:npm/readable-stream@4.8.0"
+     },
+     {
+      "name": "sax",
+      "from": "1.6.0",
+      "to": "1.6.1",
+      "purl": "pkg:npm/sax@1.6.1"
+     },
+     {
+      "name": "semver",
+      "from": "7.7.4",
+      "to": "7.8.5",
+      "purl": "pkg:npm/semver@7.8.5"
+     },
+     {
+      "name": "streamx",
+      "from": "2.25.0",
+      "to": "2.28.1",
+      "purl": "pkg:npm/streamx@2.28.1"
+     },
+     {
+      "name": "strtok3",
+      "from": "10.3.5",
+      "to": "10.6.2",
+      "purl": "pkg:npm/strtok3@10.6.2"
+     },
+     {
+      "name": "tar-stream",
+      "from": "3.1.8",
+      "to": "3.2.2",
+      "purl": "pkg:npm/tar-stream@3.2.2"
+     },
+     {
+      "name": "uint8array-extras",
+      "from": "1.5.0",
+      "to": "1.6.0",
+      "purl": "pkg:npm/uint8array-extras@1.6.0"
+     },
+     {
+      "name": "ws",
+      "from": "8.21.3",
+      "to": "8.22.0",
+      "purl": "pkg:npm/ws@8.22.0"
+     },
+     {
+      "name": "zod",
+      "from": "3.25.76",
+      "to": "4.6.7",
+      "purl": "pkg:npm/zod@4.6.7"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "@types/node",
+      "from": "22.20.3",
+      "to": "16.9.1",
+      "purl": "pkg:npm/%40types/node@16.9.1"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 4,
+  "upgraded": 108,
+  "downgraded": 2
+ }
+}

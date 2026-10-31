@@ -1,0 +1,69 @@
+{
+ "image": "vscodium",
+ "branch": "master",
+ "tag": "1.143.17232-ls4",
+ "previous_tag": "1.143.17232-ls3",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "1.143.17232",
+  "to": "1.143.17232",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1413285577,
+   "to": 1413287214,
+   "delta": 1637
+  },
+  "arm64": {
+   "from": 1372146597,
+   "to": 1372148413,
+   "delta": 1816
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

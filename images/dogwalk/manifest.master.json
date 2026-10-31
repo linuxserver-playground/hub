@@ -1,0 +1,111 @@
+{
+ "schema": 1,
+ "name": "dogwalk",
+ "summary": "[DOGWALK](https://studio.blender.org/projects/dogwalk/) is Blender Studio's long awaited second game project, focused on creating a bite-sized interactive storytelling playground. Play as a big adorable dog and explore the winter woods with a little kid.",
+ "upstream": {
+  "url": "https://studio.blender.org/projects/dogwalk/",
+  "version": {
+   "type": "os"
+  },
+  "sponsor": [
+   {
+    "name": "Blender Studio subscription",
+    "url": "https://studio.blender.org/join/"
+   },
+   {
+    "name": "Blender Development Fund",
+    "url": "https://fund.blender.org/"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "DOGWALK_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP DOGWALK desktop gui, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS DOGWALK desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/dogwalk/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for DOGWALK to function properly."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dogwalk-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n**This game is currently buggy on Linux and this is known, it segfaults when trying to continue or launch a new game for the second time. As a workaround we purge their storage directory on every launch, so saving and continue is not available, hopefully this will be fixed in future versions. Not mashing buttons when the splash screen is loading helps a lot in testing.**\n\n**This container REQUIRES a GPU, either Nvidia via runtime or Intel/AMD via `--device /dev/dri:/dev/dri` it will not work without one, you will only see a gray screen on launch without one.**\n\n**Controller input is the best option, but if you lack a controller use gaming mode which will pointer lock your mouse at fullscreen.**\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-31",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic, rebase to Trixie, bump Dogwalk."
+  },
+  {
+   "date": "2025-07-23",
+   "text": "Bump DOGWALK to 1.0.2."
+  },
+  {
+   "date": "2025-07-14",
+   "text": "Initial release."
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+ "image": "jackett",
+ "branch": "master",
+ "tag": "v0.24.2977-ls4",
+ "previous_tag": "v0.24.2949-ls3",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v0.24.2949",
+  "to": "v0.24.2977",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 81308921,
+   "to": 81310012,
+   "delta": 1091
+  },
+  "arm64": {
+   "from": 80229065,
+   "to": 80232625,
+   "delta": 3560
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "JackettUpdater",
+      "from": "0.24.2949",
+      "to": "0.24.2977",
+      "purl": "pkg:nuget/JackettUpdater@0.24.2977"
+     },
+     {
+      "name": "jackett",
+      "from": "0.24.2949",
+      "to": "0.24.2977",
+      "purl": "pkg:nuget/jackett@0.24.2977"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "JackettUpdater",
+      "from": "0.24.2949",
+      "to": "0.24.2977",
+      "purl": "pkg:nuget/JackettUpdater@0.24.2977"
+     },
+     {
+      "name": "jackett",
+      "from": "0.24.2949",
+      "to": "0.24.2977",
+      "purl": "pkg:nuget/jackett@0.24.2977"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

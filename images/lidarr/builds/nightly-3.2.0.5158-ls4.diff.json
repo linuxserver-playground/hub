@@ -1,0 +1,69 @@
+{
+ "image": "lidarr",
+ "branch": "nightly",
+ "tag": "nightly-3.2.0.5158-ls4",
+ "previous_tag": "nightly-3.2.0.5150-ls3",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed"
+ ],
+ "upstream": {
+  "from": "3.2.0.5150",
+  "to": "3.2.0.5158",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 121291017,
+   "to": 121291357,
+   "delta": 340
+  },
+  "arm64": {
+   "from": 116977942,
+   "to": 116978418,
+   "delta": 476
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

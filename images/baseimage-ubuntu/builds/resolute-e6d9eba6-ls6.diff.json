@@ -1,0 +1,67 @@
+{
+ "image": "baseimage-ubuntu",
+ "branch": "resolute",
+ "tag": "resolute-e6d9eba6-ls6",
+ "previous_tag": "resolute-e6d9eba6-ls5",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "e6d9eba6",
+  "to": "e6d9eba6",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 60875339,
+   "to": 60875274,
+   "delta": -65
+  },
+  "arm64": {
+   "from": 60400602,
+   "to": 60400610,
+   "delta": 8
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

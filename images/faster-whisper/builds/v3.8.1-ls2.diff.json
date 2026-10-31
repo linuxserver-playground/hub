@@ -1,0 +1,161 @@
+{
+ "image": "faster-whisper",
+ "branch": "main",
+ "tag": "v3.8.1-ls2",
+ "previous_tag": "v3.8.1-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v3.8.1",
+  "to": "v3.8.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:resolute",
+   "digest": "sha256:17f8127f438b5203c47149a87769ec8c82849d93c08cf8521c18949fd6ae8ee9"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:e4c5ed98eea47c7cd2cbfbfd9a7f19bb19618b827f4ed28ecb5893f43284d96d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 232884505,
+   "to": 231997300,
+   "delta": -887205
+  },
+  "arm64": {
+   "from": 203786454,
+   "to": 202903573,
+   "delta": -882881
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-resolute\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-resolute\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054015-16d571fb31ca",
+      "to": "v1.33.3-0.20261021134118-f036f355de35",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134118-f036f355de35"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.45.0",
+      "to": "v0.46.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.46.0"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.1",
+      "to": "go1.27.3",
+      "purl": "pkg:golang/stdlib@1.27.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "onnxruntime",
+      "from": "1.31.0",
+      "to": "1.31.1",
+      "purl": "pkg:pypi/onnxruntime@1.31.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054016-2cbd1b20d20a",
+      "to": "v1.33.3-0.20261021134116-aa4f38dbfabd",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134116-aa4f38dbfabd"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.45.0",
+      "to": "v0.46.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.46.0"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.1",
+      "to": "go1.27.3",
+      "purl": "pkg:golang/stdlib@1.27.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "onnxruntime",
+      "from": "1.31.0",
+      "to": "1.31.1",
+      "purl": "pkg:pypi/onnxruntime@1.31.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

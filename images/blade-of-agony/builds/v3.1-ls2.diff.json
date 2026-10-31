@@ -1,0 +1,90 @@
+{
+ "image": "blade-of-agony",
+ "branch": "master",
+ "tag": "v3.1-ls2",
+ "previous_tag": "v3.1-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v3.1",
+  "to": "v3.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:debiantrixie",
+   "digest": "sha256:df4a9259e7535526005785202bd08b3b066250a64c65877802b2354fd6a975dd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:731016ff9660aac7a2328ef09c7818ac30a240fd6452035eb2750a4d4657b61b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1756542450,
+   "to": 1756601100,
+   "delta": 58650
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-selkies:debiantrixie\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 3,
+  "downgraded": 0
+ }
+}

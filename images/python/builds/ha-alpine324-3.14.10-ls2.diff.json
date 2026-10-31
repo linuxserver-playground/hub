@@ -1,0 +1,96 @@
+{
+ "image": "python",
+ "branch": "ha",
+ "tag": "ha-alpine324-3.14.10-ls2",
+ "previous_tag": "ha-alpine324-3.14.9-ls1",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "alpine324-3.14.9",
+  "to": "alpine324-3.14.10",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 26219324,
+   "to": 26255286,
+   "delta": 35962
+  },
+  "arm64": {
+   "from": 26114284,
+   "to": 26140032,
+   "delta": 25748
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "python",
+      "from": "3.14.9",
+      "to": "3.14.10",
+      "purl": "pkg:generic/python@3.14.10"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "python",
+      "from": "3.14.9",
+      "to": "3.14.10",
+      "purl": "pkg:generic/python@3.14.10"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

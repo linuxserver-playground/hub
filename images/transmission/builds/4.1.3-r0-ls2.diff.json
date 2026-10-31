@@ -1,0 +1,123 @@
+{
+ "image": "transmission",
+ "branch": "master",
+ "tag": "4.1.3-r0-ls2",
+ "previous_tag": "4.1.3-r0-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "4.1.3-r0",
+  "to": "4.1.3-r0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/unrar:latest",
+   "digest": "sha256:48c0ce2609bb3c35764956bbd9395e95b177421e3c74b3628c3676029f24f2e0"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:889cf4f4ceb97407b0235fb63691988e256509daf50ca128ef2316f89955972a"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 34037483,
+   "to": 34037305,
+   "delta": -178
+  },
+  "arm64": {
+   "from": 35050357,
+   "to": 35049854,
+   "delta": -503
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -4,7 +4,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-alpine:edge\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:edge\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -4,7 +4,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-alpine:arm64v8-edge\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:arm64v8-edge\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "busybox",
+      "from": "1.38.0-r7",
+      "to": "1.38.0-r8",
+      "purl": "pkg:apk/busybox/busybox@1.38.0-r8?arch=x86_64&distro=busybox-1.38.0"
+     },
+     {
+      "name": "busybox-binsh",
+      "from": "1.38.0-r7",
+      "to": "1.38.0-r8",
+      "purl": "pkg:apk/busybox/busybox-binsh@1.38.0-r8?arch=x86_64&distro=busybox-1.38.0&upstream=busybox"
+     },
+     {
+      "name": "ssl_client",
+      "from": "1.38.0-r7",
+      "to": "1.38.0-r8",
+      "purl": "pkg:apk/busybox/ssl_client@1.38.0-r8?arch=x86_64&distro=busybox-1.38.0&upstream=busybox"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "busybox",
+      "from": "1.38.0-r7",
+      "to": "1.38.0-r8",
+      "purl": "pkg:apk/busybox/busybox@1.38.0-r8?arch=aarch64&distro=busybox-1.38.0"
+     },
+     {
+      "name": "busybox-binsh",
+      "from": "1.38.0-r7",
+      "to": "1.38.0-r8",
+      "purl": "pkg:apk/busybox/busybox-binsh@1.38.0-r8?arch=aarch64&distro=busybox-1.38.0&upstream=busybox"
+     },
+     {
+      "name": "ssl_client",
+      "from": "1.38.0-r7",
+      "to": "1.38.0-r8",
+      "purl": "pkg:apk/busybox/ssl_client@1.38.0-r8?arch=aarch64&distro=busybox-1.38.0&upstream=busybox"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

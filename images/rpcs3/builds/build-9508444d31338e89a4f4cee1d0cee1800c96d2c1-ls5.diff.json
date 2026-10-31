@@ -1,0 +1,70 @@
+{
+ "image": "rpcs3",
+ "branch": "master",
+ "tag": "build-9508444d31338e89a4f4cee1d0cee1800c96d2c1-ls5",
+ "previous_tag": "build-dd47376ace6affd31c328724f85a6070ba1884d1-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed"
+ ],
+ "upstream": {
+  "from": "build-dd47376ace6affd31c328724f85a6070ba1884d1",
+  "to": "build-9508444d31338e89a4f4cee1d0cee1800c96d2c1",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1082795329,
+   "to": 1082795093,
+   "delta": -236
+  },
+  "arm64": {
+   "from": 1033435406,
+   "to": 1033435570,
+   "delta": 164
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -22,7 +22,11 @@\n     /usr/share/selkies/www/icon.png \\\n     https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rpcs3-logo.png && \\\n   echo \"**** install packages ****\" && \\\n-  DOWNLOAD_URL=$(curl -sX GET \"https://api.github.com/repos/RPCS3/rpcs3-binaries-linux/releases/latest\" \\\n+  if [ -z ${RPCS3_VERSION+x} ]; then \\\n+    RPCS3_VERSION=$(curl -sX GET \"https://api.github.com/repos/RPCS3/rpcs3-binaries-linux/releases/latest\" \\\n+      | jq -r '.tag_name'); \\\n+  fi && \\\n+  DOWNLOAD_URL=$(curl -sX GET \"https://api.github.com/repos/RPCS3/rpcs3-binaries-linux/releases/tags/${RPCS3_VERSION}\" \\\n     | jq -r 'first(.assets[].browser_download_url | select(test(\"AppImage\")))') && \\\n   curl -o \\\n     /tmp/rpcs3.app -L \\\n",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

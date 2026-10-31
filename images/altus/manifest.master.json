@@ -1,0 +1,140 @@
+{
+ "schema": 1,
+ "name": "altus",
+ "summary": "[Altus](https://github.com/amanharwara/altus) is an Electron-based WhatsApp client with themes and multiple account support.",
+ "upstream": {
+  "url": "https://github.com/amanharwara/altus",
+  "version": {
+   "type": "github_release",
+   "repo": "amanharwara/altus",
+   "require_assets": [
+    {
+     "asset": "^Altus\\-.*\\.AppImage$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "amanharwara/altus"
+  },
+  "sponsor": [
+   {
+    "name": "Altus (GitHub Sponsors)",
+    "url": "https://github.com/sponsors/amanharwara"
+   },
+   {
+    "name": "Altus (Ko-fi)",
+    "url": "https://ko-fi.com/amanharwara"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "ALTUS_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Altus desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Altus desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/altus/config",
+    "description": "Users home directory in the container, stores program settings and files."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Required for electron apps to fucntion properly."
+   }
+  ],
+  "readonly": {
+   "supported": false
+  },
+  "nonroot": {
+   "supported": false
+  }
+ },
+ "docs": {
+  "categories": [
+   "Chat"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/altus-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-21",
+   "text": "Use Wayland ozone platform fixes scaling and acceleration."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-10-19",
+   "text": "Switch to multi-arch."
+  },
+  {
+   "date": "2024-01-29",
+   "text": "Structural changes for v5."
+  },
+  {
+   "date": "2023-12-07",
+   "text": "Initial release."
+  }
+ ]
+}

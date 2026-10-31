@@ -1,0 +1,98 @@
+{
+ "image": "medusa",
+ "branch": "master",
+ "tag": "v1.0.27-ls3",
+ "previous_tag": "v1.0.27-ls2",
+ "classification": "linuxserver",
+ "reasons": [
+  "Dockerfile changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v1.0.27",
+  "to": "v1.0.27",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:0b30fe6f4732e291add225156c29d5ffb7315aea6fb1aa86a0c9bc478f823494"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:0b30fe6f4732e291add225156c29d5ffb7315aea6fb1aa86a0c9bc478f823494"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 141182178,
+   "to": 141185765,
+   "delta": 3587
+  },
+  "arm64": {
+   "from": 138955223,
+   "to": 138956563,
+   "delta": 1340
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/unrar:latest AS unrar\n+FROM ghcr.io/linuxserver-playground/unrar:latest AS unrar\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/unrar:arm64v8-latest AS unrar\n+FROM ghcr.io/linuxserver-playground/unrar:arm64v8-latest AS unrar\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "image": "airsonic-advanced",
+ "branch": "master",
+ "tag": "11.1.4-ls4",
+ "previous_tag": "11.1.4-ls3",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "11.1.4",
+  "to": "11.1.4",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.21",
+   "digest": "sha256:b7f755399fdcc3af9c8d97074fc14a6bc25fad5ac31c85142140419aacad54fd"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.21",
+   "digest": "sha256:b7f755399fdcc3af9c8d97074fc14a6bc25fad5ac31c85142140419aacad54fd"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 258077653,
+   "to": 258077650,
+   "delta": -3
+  },
+  "arm64": {
+   "from": 256598768,
+   "to": 256598831,
+   "delta": 63
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

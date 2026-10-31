@@ -1,0 +1,115 @@
+{
+ "schema": 1,
+ "name": "duckstation",
+ "summary": "[DuckStation](https://duckstation.org/) is a PS1 Emulator aiming for the best accuracy and game support.",
+ "upstream": {
+  "url": "https://duckstation.org/",
+  "version": {
+   "type": "github_release",
+   "repo": "stenzek/duckstation",
+   "require_assets": [
+    {
+     "asset": "-x64\\.AppImage$"
+    },
+    {
+     "asset": "-arm64\\.AppImage$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "stenzek/duckstation"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "DUCKSTATION_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP DuckStation desktop gui must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS DuckStation desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for DuckStation to function."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckstation-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-05",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-06-19",
+   "text": "Initial release."
+  }
+ ]
+}

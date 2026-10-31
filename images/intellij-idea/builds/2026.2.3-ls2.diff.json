@@ -1,0 +1,62 @@
+{
+ "image": "intellij-idea",
+ "branch": "master",
+ "tag": "2026.2.3-ls2",
+ "previous_tag": "2026.2.3-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "2026.2.3",
+  "to": "2026.2.3",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:e9b920dcb61b3e0d110aaa7d05a4b40ae3752d5512c258a35f36f3167ef5527e"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:e9b920dcb61b3e0d110aaa7d05a4b40ae3752d5512c258a35f36f3167ef5527e"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 2470235432,
+   "to": 2470234636,
+   "delta": -796
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

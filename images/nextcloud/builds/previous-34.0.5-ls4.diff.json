@@ -1,0 +1,136 @@
+{
+ "image": "nextcloud",
+ "branch": "previous",
+ "tag": "previous-34.0.5-ls4",
+ "previous_tag": "previous-34.0.5-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "34.0.5",
+  "to": "34.0.5",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:5ce9f07506a79f515bd3e29cae03193b013b7b88610e350cd3444e9452736a2b"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:df6a63d8627d7f06e292f4e4cff695743d92f8735617ff755470962e58fd75f5"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 404311548,
+   "to": 404345978,
+   "delta": 34430
+  },
+  "arm64": {
+   "from": 401486844,
+   "to": 401541839,
+   "delta": 54995
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=curl"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.0",
+      "purl": "pkg:generic/composer@2.11.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=curl"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.0",
+      "purl": "pkg:generic/composer@2.11.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

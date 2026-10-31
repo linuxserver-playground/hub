@@ -1,0 +1,69 @@
+{
+ "image": "duplicati",
+ "branch": "master",
+ "tag": "v2.4.1.0_stable_2026-10-29-ls5",
+ "previous_tag": "v2.4.1.0_stable_2026-10-29-ls4",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "v2.4.1.0_stable_2026-10-29",
+  "to": "v2.4.1.0_stable_2026-10-29",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 186689245,
+   "to": 186688907,
+   "delta": -338
+  },
+  "arm64": {
+   "from": 182980928,
+   "to": 182981627,
+   "delta": 699
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

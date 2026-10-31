@@ -1,0 +1,69 @@
+{
+ "image": "projectsend",
+ "branch": "master",
+ "tag": "r2098-ls5",
+ "previous_tag": "r2098-ls4",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "r2098",
+  "to": "r2098",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.22",
+   "digest": "sha256:18daf697a5c8bd9b9db02dd95816b97de72297b8373698ad13c0c5a697a16c12"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.22",
+   "digest": "sha256:18daf697a5c8bd9b9db02dd95816b97de72297b8373698ad13c0c5a697a16c12"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 55413367,
+   "to": 55413200,
+   "delta": -167
+  },
+  "arm64": {
+   "from": 56633407,
+   "to": 56631511,
+   "delta": -1896
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

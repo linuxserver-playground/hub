@@ -1,0 +1,69 @@
+{
+ "image": "xemu",
+ "branch": "master",
+ "tag": "v0.8.134-ls5",
+ "previous_tag": "v0.8.134-ls4",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "v0.8.134",
+  "to": "v0.8.134",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 983466487,
+   "to": 983466594,
+   "delta": 107
+  },
+  "arm64": {
+   "from": 945927599,
+   "to": 945927674,
+   "delta": 75
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "image": "audacity",
+ "branch": "main",
+ "tag": "4.0.1-ls4",
+ "previous_tag": "4.0.1-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "4.0.1",
+  "to": "4.0.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:4a3966dadb1092dd0422197fa2b40938bc8f2e924ca64dbf14719cbd23fa3966"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1041298590,
+   "to": 1040557788,
+   "delta": -740802
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-3build1",
+      "to": "1.2.0-3ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.2.0-3ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=brotli"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-2ubuntu1.11",
+      "to": "1.28.3-2ubuntu1.12",
+      "purl": "pkg:deb/ubuntu/nginx@1.28.3-2ubuntu1.12?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nginx-common",
+      "from": "1.28.3-2ubuntu1.11",
+      "to": "1.28.3-2ubuntu1.12",
+      "purl": "pkg:deb/ubuntu/nginx-common@1.28.3-2ubuntu1.12?arch=all&distro=ubuntu-26.04&upstream=nginx"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054015-16d571fb31ca",
+      "to": "v1.33.3-0.20261021134118-f036f355de35",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134118-f036f355de35"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

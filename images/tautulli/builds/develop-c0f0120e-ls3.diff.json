@@ -1,0 +1,69 @@
+{
+ "image": "tautulli",
+ "branch": "develop",
+ "tag": "develop-c0f0120e-ls3",
+ "previous_tag": "develop-d663368f-ls2",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed"
+ ],
+ "upstream": {
+  "from": "d663368f",
+  "to": "c0f0120e",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 58718667,
+   "to": 58721533,
+   "delta": 2866
+  },
+  "arm64": {
+   "from": 59603184,
+   "to": 59604831,
+   "delta": 1647
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,131 @@
+{
+ "image": "baseimage-debian",
+ "branch": "bookworm",
+ "tag": "bookworm-bba91358-ls4",
+ "previous_tag": "bookworm-bba91358-ls3",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "bba91358",
+  "to": "bba91358",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 51020111,
+   "to": 51009134,
+   "delta": -10977
+  },
+  "arm64": {
+   "from": 51383644,
+   "to": 51371763,
+   "delta": -11881
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsasl2-2",
+      "from": "2.1.28+dfsg-10",
+      "to": "2.1.28+dfsg-10+deb12u1",
+      "purl": "pkg:deb/debian/libsasl2-2@2.1.28%2Bdfsg-10%2Bdeb12u1?arch=amd64&distro=debian-12.15&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "libsasl2-modules",
+      "from": "2.1.28+dfsg-10",
+      "to": "2.1.28+dfsg-10+deb12u1",
+      "purl": "pkg:deb/debian/libsasl2-modules@2.1.28%2Bdfsg-10%2Bdeb12u1?arch=amd64&distro=debian-12.15&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "libsasl2-modules-db",
+      "from": "2.1.28+dfsg-10",
+      "to": "2.1.28+dfsg-10+deb12u1",
+      "purl": "pkg:deb/debian/libsasl2-modules-db@2.1.28%2Bdfsg-10%2Bdeb12u1?arch=amd64&distro=debian-12.15&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb12u1",
+      "to": "2026f-0+deb12u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb12u1?arch=all&distro=debian-12.15"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsasl2-2",
+      "from": "2.1.28+dfsg-10",
+      "to": "2.1.28+dfsg-10+deb12u1",
+      "purl": "pkg:deb/debian/libsasl2-2@2.1.28%2Bdfsg-10%2Bdeb12u1?arch=arm64&distro=debian-12.15&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "libsasl2-modules",
+      "from": "2.1.28+dfsg-10",
+      "to": "2.1.28+dfsg-10+deb12u1",
+      "purl": "pkg:deb/debian/libsasl2-modules@2.1.28%2Bdfsg-10%2Bdeb12u1?arch=arm64&distro=debian-12.15&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "libsasl2-modules-db",
+      "from": "2.1.28+dfsg-10",
+      "to": "2.1.28+dfsg-10+deb12u1",
+      "purl": "pkg:deb/debian/libsasl2-modules-db@2.1.28%2Bdfsg-10%2Bdeb12u1?arch=arm64&distro=debian-12.15&upstream=cyrus-sasl2"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb12u1",
+      "to": "2026f-0+deb12u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb12u1?arch=all&distro=debian-12.15"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

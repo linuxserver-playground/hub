@@ -1,0 +1,210 @@
+{
+ "schema": 1,
+ "name": "heimdall",
+ "summary": "[Heimdall](https://heimdall.site) is a way to organise all those links to your most used web sites and web applications in a simple way.\n\nSimplicity is the key to Heimdall.\n\nWhy not use it as your browser start page? It even has the ability to include a search bar using either Google, Bing or DuckDuckGo.",
+ "upstream": {
+  "url": "https://heimdall.site",
+  "version": {
+   "type": "github_commit",
+   "repo": "linuxserver/Heimdall",
+   "branch": "2.x"
+  },
+  "notes": {
+   "type": "github_commit",
+   "repo": "linuxserver/Heimdall",
+   "branch": "2.x"
+  }
+ },
+ "release": {
+  "branch": "development",
+  "tag": "development",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable Heimdall releases."
+   },
+   {
+    "tag": "development",
+    "description": "Latest commit from the github 2.x branch."
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "HEIMDALL_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 80
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "http gui"
+   },
+   {
+    "internal": "443",
+    "description": "https gui"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/heimdall/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "env": [
+   {
+    "name": "ALLOW_INTERNAL_REQUESTS",
+    "value": "false",
+    "description": "By default, Heimdall blocks lookup requests to private or reserved IP addresses, if your instance is not exposed to the internet, or is behind some level of authentication, you can set this to `true` to allow requests to private IP addresses.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Dashboard"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png",
+  "setup": "Access the web gui at http://SERVERIP:PORT\n\n### Adding password protection\n\nThis image now supports password protection through htpasswd. Run the following command on your host to generate the htpasswd file `docker exec -it heimdall htpasswd -c /config/nginx/.htpasswd <username>`. Replace <username> with a username of your choice and you will be asked to enter a password. Uncomment the `basic auth` lines in `/config/nginx/site-confs/default.conf` and restart the container.\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-14",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-07-17",
+   "text": "Rebase to Alpine 3.22, enable PHP environment passthrough."
+  },
+  {
+   "date": "2024-06-27",
+   "text": "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2024-03-07",
+   "text": "Enable the opcache and disable file revalidation."
+  },
+  {
+   "date": "2024-03-06",
+   "text": "Existing users should update: site-confs/default.conf - Cleanup default site conf."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-04-13",
+   "text": "Move ssl.conf include to default.conf."
+  },
+  {
+   "date": "2023-01-20",
+   "text": "Rebase to alpine 3.17 with php8.1."
+  },
+  {
+   "date": "2022-11-14",
+   "text": "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+  },
+  {
+   "date": "2022-11-04",
+   "text": "Build commits to upstream branch 2.x."
+  },
+  {
+   "date": "2021-03-13",
+   "text": "Make searchproviders.yaml user configurable."
+  },
+  {
+   "date": "2021-03-11",
+   "text": "Rebase to alpine 3.14."
+  },
+  {
+   "date": "2021-02-10",
+   "text": "Revert to alpine 3.12 as php 7.4 broke laravel."
+  },
+  {
+   "date": "2021-02-10",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-07-15",
+   "text": "Save laravel.log to /config, install heimdall during first start."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2018-11-04",
+   "text": "Add php7-zip."
+  },
+  {
+   "date": "2018-10-31",
+   "text": "Add queue service."
+  },
+  {
+   "date": "2018-10-17",
+   "text": "Symlink avatars folder."
+  },
+  {
+   "date": "2018-10-16",
+   "text": "Updated fastcgi_params for user login support."
+  },
+  {
+   "date": "2018-10-07",
+   "text": "Symlink `.env` rather than copy. It now resides under `/config/www`"
+  },
+  {
+   "date": "2018-09-30",
+   "text": "Multi-arch image. Move `.env` to `/config`."
+  },
+  {
+   "date": "2018-09-05",
+   "text": "Rebase to alpine linux 3.8."
+  },
+  {
+   "date": "2018-03-06",
+   "text": "Use password protection if htpasswd is set. Existing users can delete their default site config at /config/nginx/site-confs/default.conf and restart the container, a new default site config with htpasswd support will be created in its place"
+  },
+  {
+   "date": "2018-02-12",
+   "text": "Initial Release."
+  }
+ ]
+}

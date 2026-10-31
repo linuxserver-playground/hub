@@ -1,0 +1,122 @@
+{
+ "schema": 1,
+ "name": "vscodium-web",
+ "summary": "[Vscodium-web](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.",
+ "upstream": {
+  "url": "https://vscodium.com/",
+  "version": {
+   "type": "github_release",
+   "repo": "VSCodium/vscodium",
+   "require_assets": [
+    {
+     "asset": "^vscodium\\-reh\\-web\\-linux\\-x64\\-.*\\.tar\\.gz$"
+    },
+    {
+     "asset": "^vscodium\\-reh\\-web\\-linux\\-arm64\\-.*\\.tar\\.gz$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "VSCodium/vscodium"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "CODE_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "CONNECTION_TOKEN": "lsio"
+  },
+  "web": {
+   "port": 8000,
+   "path": "/?tkn=lsio"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8000",
+    "description": "Web UI port."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/vscodium-web/config",
+    "description": "Contains all relevant configuration files."
+   }
+  ],
+  "env": [
+   {
+    "name": "CONNECTION_TOKEN",
+    "value": "",
+    "description": "Optional security token for accessing the Web UI (ie. `supersecrettoken`).",
+    "optional": true
+   },
+   {
+    "name": "CONNECTION_TOKEN_FILE",
+    "value": "",
+    "description": "Optional path to a file inside the container that contains the security token for accessing the Web UI (ie. `/path/to/file`). Overrides `CONNECTION_TOKEN`.",
+    "optional": true
+   },
+   {
+    "name": "SUDO_PASSWORD",
+    "value": "password",
+    "description": "If this optional variable is set, user will have sudo access in the vscodium-web terminal with the specified password.",
+    "optional": true
+   },
+   {
+    "name": "SUDO_PASSWORD_HASH",
+    "value": "",
+    "description": "Optionally set sudo password via hash (takes priority over `SUDO_PASSWORD` var). Format is `$type$salt$hashed`.",
+    "optional": true
+   },
+   {
+    "name": "CODE_ARGS",
+    "value": "",
+    "description": "Optionally add cli parameters to vscodium binary.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Programming"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png",
+  "setup": ">[!NOTE]\n>This image sets up the `remote host web` component of VSCodium, which is only accessible in a web browser. If you are looking for the full desktop client of VSCodium, served over Selkies, see here: https://github.com/linuxserver/docker-vscodium\n\nIf `CONNECTION_TOKEN` or `CONNECTION_TOKEN_FILE` env vars are set, you can access the webui at `http://<your-ip>:8000/?tkn=supersecrettoken` (replace `supersecrettoken` with the value set). If not, you can access the webui at `http://<your-ip>:8000`.\n\nFor github integration, drop your ssh key in to `/config/.ssh`.\nThen open a terminal from the top menu and set your github username and email via the following commands\n\n```bash\ngit config --global user.name \"username\"\ngit config --global user.email \"email address\"\n```\n\nWhen reverse proxied through SWAG, custom services running on specific ports inside vscodium-web can be accessed at `https://PORT.vscodium-web.domain.com` very much like how code-server's port proxy function is handled. For that, a wildcard CNAME `*.vscodium-web.domain.com` needs to be created and the SWAG cert needs to cover those subdomains. Https access to a port can be initiated by adding an `s` to the end of the PORT in the url (ie. `https://PORTs.vscodium-web.domain.com`)\n"
+ },
+ "proxy": {
+  "port": 8000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-06-24",
+   "text": "Temporarily disable RISCV build due to ci issues."
+  },
+  {
+   "date": "2026-02-28",
+   "text": "Add RISCV build."
+  },
+  {
+   "date": "2025-12-18",
+   "text": "Initial Release."
+  }
+ ]
+}

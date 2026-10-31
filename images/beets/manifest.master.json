@@ -1,0 +1,245 @@
+{
+ "schema": 1,
+ "name": "beets",
+ "summary": "[Beets](http://beets.io/) is a music library manager and not, for the most part, a music player. It does include a simple player plugin and an experimental Web-based player, but it generally leaves actual sound-reproduction to specialized tools.",
+ "upstream": {
+  "url": "http://beets.io/",
+  "version": {
+   "type": "pip",
+   "package": "beets"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "beetbox/beets",
+   "tag": "v${VERSION}"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable Beets Releases"
+   },
+   {
+    "tag": "nightly",
+    "description": "Built against head of Beets git, generally considered unstable but a likely choice for power users of the application."
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "BEETS_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8337
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8337",
+    "description": "Application WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/beets/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/music",
+    "host_path": "/path/to/music/library",
+    "description": "Music library"
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/ingest",
+    "description": "Non processed music"
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Music"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/beets-icon.png",
+  "setup": "Edit the config file in /config\n\nTo edit the config from within the container use `beet config -e`\n\nFor a command prompt as user abc `docker exec -it -u abc beets bash`\n\nSee [Beets](http://beets.io/) for more info.\n\nContains [beets-extrafiles](https://github.com/Holzhaus/beets-extrafiles) plugin, [configuration details](https://github.com/Holzhaus/beets-extrafiles#usage)\n"
+ },
+ "proxy": {
+  "port": 8337,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-02-01",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-01-27",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-10-01",
+   "text": "Add packages required for Discogs plugin."
+  },
+  {
+   "date": "2024-08-28",
+   "text": "Rebase to Alpine 3.20, switch from Pillow to Imagemagick."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-08-25",
+   "text": "Rebase to Alpine 3.18, pin Pillow to 9.5.0."
+  },
+  {
+   "date": "2023-07-07",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-03-25",
+   "text": "Add requests_oauthlib required for [beatport plugin](https://beets.readthedocs.io/en/stable/plugins/beatport.html)."
+  },
+  {
+   "date": "2023-02-24",
+   "text": "Rebase to Alpine 3.17, migrate to s6v3, install chromaprint from Alpine repos, add beetcamp plugin."
+  },
+  {
+   "date": "2022-01-15",
+   "text": "Rebasing to alpine 3.15."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-05-12",
+   "text": "Add flac and mp3val binaries required for badfiles plugin."
+  },
+  {
+   "date": "2019-04-12",
+   "text": "Rebase to Alpine 3.9."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-03-11",
+   "text": "Swap copyartifacts for extrafiles, update endpoints with nightly tag."
+  },
+  {
+   "date": "2019-03-01",
+   "text": "Switch to python3."
+  },
+  {
+   "date": "2019-02-07",
+   "text": "Add fftw-dev build dependency for chromaprint."
+  },
+  {
+   "date": "2019-01-28",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-08-15",
+   "text": "Rebase to alpine 3.8, use alpine repo version of pylast."
+  },
+  {
+   "date": "2018-08-12",
+   "text": "Add requests pip package."
+  },
+  {
+   "date": "2018-03-04",
+   "text": "Upgrade mp3gain to 1.6.1."
+  },
+  {
+   "date": "2018-01-02",
+   "text": "Deprecate cpu_core routine lack of scaling."
+  },
+  {
+   "date": "2017-12-27",
+   "text": "Add beautifulsoup4 pip package."
+  },
+  {
+   "date": "2017-12-06",
+   "text": "Rebase to alpine linux 3.7."
+  },
+  {
+   "date": "2017-05-25",
+   "text": "Rebase to alpine linux 3.6."
+  },
+  {
+   "date": "2017-02-06",
+   "text": "Rebase to alpine linux 3.5."
+  },
+  {
+   "date": "2017-01-16",
+   "text": "Add packages required for replaygain."
+  },
+  {
+   "date": "2016-12-24",
+   "text": "Add [beets-copyartifacts](https://github.com/sbarakat/beets-copyartifacts) plugin."
+  },
+  {
+   "date": "2016-12-07",
+   "text": "Edit cmake options for chromaprint, should now build and install fpcalc, add gstreamer lib"
+  },
+  {
+   "date": "2016-10-14",
+   "text": "Add version layer information."
+  },
+  {
+   "date": "2016-10-01",
+   "text": "Add nano and editor variable to allow editing of the config from the container command line."
+  },
+  {
+   "date": "2016-09-30",
+   "text": "Fix umask."
+  },
+  {
+   "date": "2016-09-24",
+   "text": "Rebase to alpine linux."
+  },
+  {
+   "date": "2016-09-10",
+   "text": "Add layer badges to README."
+  },
+  {
+   "date": "2016-01-05",
+   "text": "Change ffpmeg repository, other version crashes container"
+  },
+  {
+   "date": "2015-11-29",
+   "text": "Take out term setting, causing issues with key entry for some users"
+  },
+  {
+   "date": "2015-11-06",
+   "text": "Initial Release"
+  }
+ ]
+}
