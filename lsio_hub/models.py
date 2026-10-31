@@ -808,6 +808,17 @@ class ValueChange(BaseModel):
     changed: bool
 
 
+class CommitChange(BaseModel):
+    """The repository commit of the previous release and this one (absent in records made before contracts 1.14)."""
+
+    model_config = ConfigDict(populate_by_name=True)
+
+    from_value: str | None = Field(None, alias="from")
+    to: str | None = None
+    changed: bool
+    compare_url: str | None = Field(None, description="GitHub's compare page between the two, when they differ.")
+
+
 class BaseChange(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
 
@@ -845,6 +856,8 @@ class Diff(BaseModel):
     )
     reasons: list[str] = Field(description="The signals behind `classification`, for humans.")
     upstream: ValueChange
+    commit: CommitChange | None = Field(None, description="The repository commits compared, with the compare page.")
+    trigger: str | None = Field(None, description="build.json's `reason`: why this build ran.")
     base: BaseChange
     size: dict[str, SizeChange] = Field(description="Compressed size per architecture.")
     config: ConfigDiff

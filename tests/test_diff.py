@@ -62,7 +62,29 @@ def test_mixed() -> None:
     new = bundle("x", "master", "1.1", 2, "2026-10-02T00:00:00Z", base_digest="2" * 64)
     diff = diff_builds(new, old, None, None)
     assert diff["classification"] == "mixed"
-    assert diff["reasons"] == ["upstream version changed", "base image digest changed"]
+    assert diff["reasons"][:2] == ["upstream version changed", "base image digest changed"]
+    assert diff["reasons"][2].startswith("repository at a newer commit (")
+    assert diff["commit"]["changed"]
+    assert (diff["commit"]["from"], diff["commit"]["to"]) == (old["commit"], new["commit"])
+    assert (
+        diff["commit"]["compare_url"]
+        == f"https://github.com/{new['repository']}/compare/{old['commit']}...{new['commit']}"
+    )
+    assert diff["trigger"] == new["reason"]
+    Diff.model_validate(diff)
+
+
+def test_os_image_version_change_is_a_package_refresh() -> None:
+    old = bundle("x", "master", "8d8f7eba", 2, "2026-10-01T00:00:00Z")
+    new = bundle("x", "master", "8b6013ad", 3, "2026-10-02T00:00:00Z", reason="rebuild")
+    new["version"]["source"] = "os"
+    diff = diff_builds(new, old, None, None)
+    assert diff["classification"] == "upstream"
+    assert diff["reasons"][0] == "package set changed (an os image's version is the hash of package_versions.txt)"
+    same = copy.deepcopy(new)
+    same["commit"] = old["commit"]
+    unchanged = {"from": old["commit"], "to": old["commit"], "changed": False, "compare_url": None}
+    assert diff_builds(same, old, None, None)["commit"] == unchanged
 
 
 def test_classify_table() -> None:
