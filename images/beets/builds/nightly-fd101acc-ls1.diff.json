@@ -1,0 +1,69 @@
+{
+ "image": "beets",
+ "branch": "nightly",
+ "tag": "nightly-fd101acc-ls1",
+ "previous_tag": "nightly-5592207c-ls1",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed"
+ ],
+ "upstream": {
+  "from": "5592207c",
+  "to": "fd101acc",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.23",
+   "digest": "sha256:8b8bec70e3d1c2d5e94701290856866bb99a67f9ca45eaf27a9e86c6ac3197df"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.23",
+   "digest": "sha256:8b8bec70e3d1c2d5e94701290856866bb99a67f9ca45eaf27a9e86c6ac3197df"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 237461427,
+   "to": 237460780,
+   "delta": -647
+  },
+  "arm64": {
+   "from": 228722039,
+   "to": 228722485,
+   "delta": 446
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

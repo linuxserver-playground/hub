@@ -1,0 +1,98 @@
+{
+ "image": "healthchecks",
+ "branch": "master",
+ "tag": "v5.0.2-ls1",
+ "previous_tag": "v5.0.1-ls1",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v5.0.1",
+  "to": "v5.0.2",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.24",
+   "digest": "sha256:52106d187a66ccb92e3289cb6dd25c549cb0b6b7bfec38a51994434c96db2d35"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.24",
+   "digest": "sha256:52106d187a66ccb92e3289cb6dd25c549cb0b6b7bfec38a51994434c96db2d35"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 93563989,
+   "to": 93564839,
+   "delta": 850
+  },
+  "arm64": {
+   "from": 92758256,
+   "to": 92761303,
+   "delta": 3047
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "minismtpd",
+      "from": "0.3",
+      "to": "0.5",
+      "purl": "pkg:pypi/minismtpd@0.5"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "minismtpd",
+      "from": "0.3",
+      "to": "0.5",
+      "purl": "pkg:pypi/minismtpd@0.5"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

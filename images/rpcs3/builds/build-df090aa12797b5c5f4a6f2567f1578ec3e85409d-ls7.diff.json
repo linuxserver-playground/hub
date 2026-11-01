@@ -1,0 +1,181 @@
+{
+ "image": "rpcs3",
+ "branch": "master",
+ "tag": "build-df090aa12797b5c5f4a6f2567f1578ec3e85409d-ls7",
+ "previous_tag": "build-9508444d31338e89a4f4cee1d0cee1800c96d2c1-ls6",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "repository at a newer commit (250a044 → 5967b3b)"
+ ],
+ "upstream": {
+  "from": "build-9508444d31338e89a4f4cee1d0cee1800c96d2c1",
+  "to": "build-df090aa12797b5c5f4a6f2567f1578ec3e85409d",
+  "changed": true
+ },
+ "commit": {
+  "from": "250a0440ab43a9ae8ed61792d4a66d4d9e8441f2",
+  "to": "5967b3b3ec459539387563b7298fb0dd77771222",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-rpcs3/compare/250a0440ab43a9ae8ed61792d4a66d4d9e8441f2...5967b3b3ec459539387563b7298fb0dd77771222"
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:b6b7498350faa15f558fa5a1e83cd67540e7ddeb164bd4f376037838df52c52e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1082795104,
+   "to": 1082931484,
+   "delta": 136380
+  },
+  "arm64": {
+   "from": 1033435569,
+   "to": 1033548741,
+   "delta": 113172
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

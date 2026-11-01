@@ -1,0 +1,106 @@
+{
+ "image": "nextcloud",
+ "branch": "previous",
+ "tag": "previous-34.0.5-ls5",
+ "previous_tag": "previous-34.0.5-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "repository at a newer commit (913793d → 258df01)"
+ ],
+ "upstream": {
+  "from": "34.0.5",
+  "to": "34.0.5",
+  "changed": false
+ },
+ "commit": {
+  "from": "913793d51a13fff0b729d406a7105b8e8eddcb7a",
+  "to": "258df01b224075e030056a1dafe1a4fb757f56f9",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-nextcloud/compare/913793d51a13fff0b729d406a7105b8e8eddcb7a...258df01b224075e030056a1dafe1a4fb757f56f9"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:df6a63d8627d7f06e292f4e4cff695743d92f8735617ff755470962e58fd75f5"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a55ef6f5b72baa4997d79d545cdd81d262c2a719afbaddf2984d93f9250db2a0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 404345978,
+   "to": 404351680,
+   "delta": 5702
+  },
+  "arm64": {
+   "from": 401541839,
+   "to": 401542489,
+   "delta": 650
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

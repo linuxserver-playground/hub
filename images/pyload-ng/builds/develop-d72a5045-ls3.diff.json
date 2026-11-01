@@ -1,0 +1,268 @@
+{
+ "image": "pyload-ng",
+ "branch": "develop",
+ "tag": "develop-d72a5045-ls3",
+ "previous_tag": "develop-4a6106a7-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "4a6106a7",
+  "to": "d72a5045",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:c9849bb7e2f68a29927bfd73214675e1209240eeb03444d1a603321c47af4db4"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:9008d6d5bb98aa82222a5c4a9463dd82801a1cc2bfacd5862caf4b895fbcf578"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 140762320,
+   "to": 146656736,
+   "delta": 5894416
+  },
+  "arm64": {
+   "from": 139421660,
+   "to": 145258915,
+   "delta": 5837255
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/unrar:latest AS unrar\n+FROM ghcr.io/linuxserver-playground/unrar:latest AS unrar\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/unrar:arm64v8-latest AS unrar\n+FROM ghcr.io/linuxserver-playground/unrar:arm64v8-latest AS unrar\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [
+     {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "purl": "pkg:pypi/aiohappyeyeballs@2.7.1"
+     },
+     {
+      "name": "aiohttp",
+      "version": "3.14.5",
+      "purl": "pkg:pypi/aiohttp@3.14.5"
+     },
+     {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "purl": "pkg:pypi/aiosignal@1.4.0"
+     },
+     {
+      "name": "attrs",
+      "version": "26.1.0",
+      "purl": "pkg:pypi/attrs@26.1.0"
+     },
+     {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "purl": "pkg:pypi/charset-normalizer@3.5.2"
+     },
+     {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "purl": "pkg:pypi/frozenlist@1.8.0"
+     },
+     {
+      "name": "google-auth",
+      "version": "2.62.0",
+      "purl": "pkg:pypi/google-auth@2.62.0"
+     },
+     {
+      "name": "multidict",
+      "version": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "propcache",
+      "version": "0.5.4",
+      "purl": "pkg:pypi/propcache@0.5.4"
+     },
+     {
+      "name": "pyasn1",
+      "version": "0.6.5",
+      "purl": "pkg:pypi/pyasn1@0.6.5"
+     },
+     {
+      "name": "pyasn1-modules",
+      "version": "0.4.2",
+      "purl": "pkg:pypi/pyasn1-modules@0.4.2"
+     },
+     {
+      "name": "pyfcm",
+      "version": "2.1.1",
+      "purl": "pkg:pypi/pyfcm@2.1.1"
+     },
+     {
+      "name": "yarl",
+      "version": "1.25.1",
+      "purl": "pkg:pypi/yarl@1.25.1"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cachetools",
+      "from": "7.2.5",
+      "to": "7.2.6",
+      "purl": "pkg:pypi/cachetools@7.2.6"
+     },
+     {
+      "name": "idna",
+      "from": "3.18",
+      "to": "3.20",
+      "purl": "pkg:pypi/idna@3.20"
+     },
+     {
+      "name": "pycurl",
+      "from": "7.48.0",
+      "to": "7.49.0",
+      "purl": "pkg:pypi/pycurl@7.49.0"
+     },
+     {
+      "name": "urllib3",
+      "from": "2.7.0",
+      "to": "2.8.0",
+      "purl": "pkg:pypi/urllib3@2.8.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [
+     {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "purl": "pkg:pypi/aiohappyeyeballs@2.7.1"
+     },
+     {
+      "name": "aiohttp",
+      "version": "3.14.5",
+      "purl": "pkg:pypi/aiohttp@3.14.5"
+     },
+     {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "purl": "pkg:pypi/aiosignal@1.4.0"
+     },
+     {
+      "name": "attrs",
+      "version": "26.1.0",
+      "purl": "pkg:pypi/attrs@26.1.0"
+     },
+     {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "purl": "pkg:pypi/charset-normalizer@3.5.2"
+     },
+     {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "purl": "pkg:pypi/frozenlist@1.8.0"
+     },
+     {
+      "name": "google-auth",
+      "version": "2.62.0",
+      "purl": "pkg:pypi/google-auth@2.62.0"
+     },
+     {
+      "name": "multidict",
+      "version": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "propcache",
+      "version": "0.5.4",
+      "purl": "pkg:pypi/propcache@0.5.4"
+     },
+     {
+      "name": "pyasn1",
+      "version": "0.6.5",
+      "purl": "pkg:pypi/pyasn1@0.6.5"
+     },
+     {
+      "name": "pyasn1-modules",
+      "version": "0.4.2",
+      "purl": "pkg:pypi/pyasn1-modules@0.4.2"
+     },
+     {
+      "name": "pyfcm",
+      "version": "2.1.1",
+      "purl": "pkg:pypi/pyfcm@2.1.1"
+     },
+     {
+      "name": "yarl",
+      "version": "1.25.1",
+      "purl": "pkg:pypi/yarl@1.25.1"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cachetools",
+      "from": "7.2.5",
+      "to": "7.2.6",
+      "purl": "pkg:pypi/cachetools@7.2.6"
+     },
+     {
+      "name": "idna",
+      "from": "3.18",
+      "to": "3.20",
+      "purl": "pkg:pypi/idna@3.20"
+     },
+     {
+      "name": "pycurl",
+      "from": "7.48.0",
+      "to": "7.49.0",
+      "purl": "pkg:pypi/pycurl@7.49.0"
+     },
+     {
+      "name": "urllib3",
+      "from": "2.7.0",
+      "to": "2.8.0",
+      "purl": "pkg:pypi/urllib3@2.8.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 26,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

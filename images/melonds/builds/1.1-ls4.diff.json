@@ -1,0 +1,124 @@
+{
+ "image": "melonds",
+ "branch": "master",
+ "tag": "1.1-ls4",
+ "previous_tag": "1.1-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1.1",
+  "to": "1.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:b09b9cc70889544ae3a2952adb04b21b68847a8965fae12dc8f9425f3bbda1e6"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1003259445,
+   "to": 1002104353,
+   "delta": -1155092
+  },
+  "arm64": {
+   "from": 966637801,
+   "to": 965508757,
+   "delta": -1129044
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054015-16d571fb31ca",
+      "to": "v1.33.3-0.20261021134118-f036f355de35",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134118-f036f355de35"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=arm64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054016-2cbd1b20d20a",
+      "to": "v1.33.3-0.20261021134116-aa4f38dbfabd",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134116-aa4f38dbfabd"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

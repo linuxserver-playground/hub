@@ -1,0 +1,181 @@
+{
+ "image": "beets",
+ "branch": "nightly",
+ "tag": "nightly-ab4bdfd5-ls3",
+ "previous_tag": "nightly-fd101acc-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "repository at a newer commit (4a29621 → 5873dd1)"
+ ],
+ "upstream": {
+  "from": "fd101acc",
+  "to": "ab4bdfd5",
+  "changed": true
+ },
+ "commit": {
+  "from": "4a29621a9905a6e88f3bf9a6dbdbe5f7f68a774b",
+  "to": "5873dd1c1a3b12e3550f5d7e2aaf64535315af8e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-beets/compare/4a29621a9905a6e88f3bf9a6dbdbe5f7f68a774b...5873dd1c1a3b12e3550f5d7e2aaf64535315af8e"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:0b30fe6f4732e291add225156c29d5ffb7315aea6fb1aa86a0c9bc478f823494"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:720a8b962c7cb6c8bcbc747ca074ee519c7e602ce4e217aa789087b602e4b29b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 237472104,
+   "to": 237477771,
+   "delta": 5667
+  },
+  "arm64": {
+   "from": 228727604,
+   "to": 228743613,
+   "delta": 16009
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/pyc@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pyc@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "beetcamp",
+      "from": "0.25.0",
+      "to": "0.26.0",
+      "purl": "pkg:pypi/beetcamp@0.26.0"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/pyc@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pyc@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "beetcamp",
+      "from": "0.25.0",
+      "to": "0.26.0",
+      "purl": "pkg:pypi/beetcamp@0.26.0"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

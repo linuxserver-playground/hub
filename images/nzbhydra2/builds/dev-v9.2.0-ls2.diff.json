@@ -1,0 +1,106 @@
+{
+ "image": "nzbhydra2",
+ "branch": "dev",
+ "tag": "dev-v9.2.0-ls2",
+ "previous_tag": "dev-v9.1.1-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v9.1.1",
+  "to": "v9.2.0",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:84f6719f5ac0aee8075b45bdf91857ac2eb7aba6daafc2509ffc01a88505caf4"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 167844944,
+   "to": 168552313,
+   "delta": 707369
+  },
+  "arm64": {
+   "from": 185026154,
+   "to": 186529455,
+   "delta": 1503301
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:noble\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:noble\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-jammy\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-jammy\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.1.0-2build2",
+      "to": "1.1.0-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.1.0-2ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=brotli"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg-3.1ubuntu2.2",
+      "to": "1:1.3.dfsg-3.1ubuntu2.3",
+      "purl": "pkg:deb/ubuntu/zlib1g@1%3A1.3.dfsg-3.1ubuntu2.3?arch=amd64&distro=ubuntu-24.04&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.0.9-2build6",
+      "to": "1.0.9-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.0.9-2ubuntu0.1?arch=arm64&distro=ubuntu-22.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 3,
+  "downgraded": 0
+ }
+}

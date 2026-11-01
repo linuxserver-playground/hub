@@ -1,0 +1,62 @@
+{
+ "image": "shadps4",
+ "branch": "master",
+ "tag": "shadPS4QtLauncher-2026-10-26-811fb0319cea2e76f1fb8f89d22d67efdf45761a-ls4",
+ "previous_tag": "shadPS4QtLauncher-2026-10-26-811fb0319cea2e76f1fb8f89d22d67efdf45761a-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "shadPS4QtLauncher-2026-10-26-811fb0319cea2e76f1fb8f89d22d67efdf45761a",
+  "to": "shadPS4QtLauncher-2026-10-26-811fb0319cea2e76f1fb8f89d22d67efdf45761a",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:6550465ab596cdca4845b180f7291000b5c8e9abffff8a368449cce9c2fb7ce0"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1039447945,
+   "to": 1039443268,
+   "delta": -4677
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

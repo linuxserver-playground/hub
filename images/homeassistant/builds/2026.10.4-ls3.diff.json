@@ -1,0 +1,170 @@
+{
+ "image": "homeassistant",
+ "branch": "main",
+ "tag": "2026.10.4-ls3",
+ "previous_tag": "2026.10.4-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026.10.4",
+  "to": "2026.10.4",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:eb47a870474f80cd21a201d51986484bc09dfba5b8b099a252de947527a0c24c"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 716034293,
+   "to": 716046343,
+   "delta": 12050
+  },
+  "arm64": {
+   "from": 703472155,
+   "to": 703512489,
+   "delta": 40334
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "azure-identity",
+      "from": "1.26.0",
+      "to": "1.27.0",
+      "purl": "pkg:pypi/azure-identity@1.27.0"
+     },
+     {
+      "name": "cachetools",
+      "from": "7.2.5",
+      "to": "7.2.6",
+      "purl": "pkg:pypi/cachetools@7.2.6"
+     },
+     {
+      "name": "mt-940",
+      "from": "5.1.1",
+      "to": "5.1.3",
+      "purl": "pkg:pypi/mt-940@5.1.3"
+     },
+     {
+      "name": "pyasn1",
+      "from": "0.6.4",
+      "to": "0.6.5",
+      "purl": "pkg:pypi/pyasn1@0.6.5"
+     },
+     {
+      "name": "python-engineio",
+      "from": "4.14.0",
+      "to": "4.15.0",
+      "purl": "pkg:pypi/python-engineio@4.15.0"
+     },
+     {
+      "name": "python-socks",
+      "from": "3.1.1",
+      "to": "3.2.0",
+      "purl": "pkg:pypi/python-socks@3.2.0"
+     },
+     {
+      "name": "virtualenv",
+      "from": "21.14.13",
+      "to": "21.15.1",
+      "purl": "pkg:pypi/virtualenv@21.15.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "azure-identity",
+      "from": "1.26.0",
+      "to": "1.27.0",
+      "purl": "pkg:pypi/azure-identity@1.27.0"
+     },
+     {
+      "name": "cachetools",
+      "from": "7.2.5",
+      "to": "7.2.6",
+      "purl": "pkg:pypi/cachetools@7.2.6"
+     },
+     {
+      "name": "mt-940",
+      "from": "5.1.1",
+      "to": "5.1.3",
+      "purl": "pkg:pypi/mt-940@5.1.3"
+     },
+     {
+      "name": "pyasn1",
+      "from": "0.6.4",
+      "to": "0.6.5",
+      "purl": "pkg:pypi/pyasn1@0.6.5"
+     },
+     {
+      "name": "python-engineio",
+      "from": "4.14.0",
+      "to": "4.15.0",
+      "purl": "pkg:pypi/python-engineio@4.15.0"
+     },
+     {
+      "name": "python-socks",
+      "from": "3.1.1",
+      "to": "3.2.0",
+      "purl": "pkg:pypi/python-socks@3.2.0"
+     },
+     {
+      "name": "virtualenv",
+      "from": "21.14.13",
+      "to": "21.15.1",
+      "purl": "pkg:pypi/virtualenv@21.15.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

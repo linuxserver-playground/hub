@@ -1,0 +1,67 @@
+{
+ "image": "baseimage-alpine",
+ "branch": "edge",
+ "tag": "edge-fd6b1951-ls4",
+ "previous_tag": "edge-fd6b1951-ls3",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "fd6b1951",
+  "to": "fd6b1951",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 12353290,
+   "to": 12353254,
+   "delta": -36
+  },
+  "arm64": {
+   "from": 13392142,
+   "to": 13392185,
+   "delta": 43
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

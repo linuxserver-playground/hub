@@ -1,0 +1,110 @@
+{
+ "image": "kdenlive",
+ "branch": "master",
+ "tag": "26.08.2-3-ls5",
+ "previous_tag": "26.08.2-3-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "repository at a newer commit (953849e → 9a9a743)"
+ ],
+ "upstream": {
+  "from": "26.08.2-3",
+  "to": "26.08.2-3",
+  "changed": false
+ },
+ "commit": {
+  "from": "953849ecd58a888d051ccb53ae7c1367f1a155d1",
+  "to": "9a9a743df63e91031e06e72751c6ab7dd43cede0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kdenlive/compare/953849ecd58a888d051ccb53ae7c1367f1a155d1...9a9a743df63e91031e06e72751c6ab7dd43cede0"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:455bc16ef1ea84666cc6c974b4f9ab1f78164891b03d5302afe16be6c3bc6bfd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b8c03e9b9565c0f91d326af3bddd794cf8bc4f9f6f0d843eb488edb80f4e5b4c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1638482024,
+   "to": 1638484353,
+   "delta": 2329
+  },
+  "arm64": {
+   "from": 1673330035,
+   "to": 1673330523,
+   "delta": 488
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "aom",
+      "from": "3.15.2-1",
+      "to": "3.15.3-1",
+      "purl": "pkg:alpm/arch/aom@3.15.3-1?arch=x86_64&distro=arch-rolling&upstream=aom"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": "pkg:alpm/arch/gnupg@2.4.9-4?arch=x86_64&distro=arch-rolling&upstream=gnupg"
+     },
+     {
+      "name": "libjpeg-turbo",
+      "from": "3.2.0-2",
+      "to": "3.2.1-1",
+      "purl": "pkg:alpm/arch/libjpeg-turbo@3.2.1-1?arch=x86_64&distro=arch-rolling&upstream=libjpeg-turbo"
+     },
+     {
+      "name": "wayland-protocols",
+      "from": "1.49-1",
+      "to": "1.50-1",
+      "purl": "pkg:alpm/arch/wayland-protocols@1.50-1?arch=any&distro=arch-rolling&upstream=wayland-protocols"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

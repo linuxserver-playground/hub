@@ -1,0 +1,149 @@
+{
+ "image": "webtop",
+ "branch": "dev",
+ "tag": "dev-a85ee3c0-ls2",
+ "previous_tag": "dev-a85ee3c0-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "a85ee3c0",
+  "to": "a85ee3c0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:dev",
+   "digest": "sha256:157b973dc1628f0b9422f1c343039fe641d549843a6e7927700eeaee9f3ffca3"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:dev",
+   "digest": "sha256:974487b96331861457e80418723b3e45210fa3c2344ab487ff6d83a6af4cde1e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1798672699,
+   "to": 1798724686,
+   "delta": 51987
+  },
+  "arm64": {
+   "from": 1752729380,
+   "to": 1752761855,
+   "delta": 32475
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,5 +1,5 @@\n # syntax=docker/dockerfile:1\n-FROM ghcr.io/linuxserver/baseimage-selkies:dev\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:dev\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,5 +1,5 @@\n # syntax=docker/dockerfile:1\n-FROM ghcr.io/linuxserver/baseimage-selkies:arm64v8-dev\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:arm64v8-dev\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pcre2",
+      "from": "10.32-3.el8_6",
+      "to": "10.32-4.el8_10",
+      "purl": "pkg:rpm/almalinux/pcre2@10.32-4.el8_10"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pcre2",
+      "from": "10.32-3.el8_6",
+      "to": "10.32-4.el8_10",
+      "purl": "pkg:rpm/almalinux/pcre2@10.32-4.el8_10"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

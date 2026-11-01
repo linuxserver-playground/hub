@@ -1,0 +1,124 @@
+{
+ "schema": 1,
+ "name": "joplin",
+ "summary": "[Joplin](https://joplinapp.org/) is a free, open source note taking and to-do application, which can handle a large number of notes organised into notebooks.",
+ "upstream": {
+  "url": "https://joplinapp.org/",
+  "version": {
+   "type": "github_release",
+   "repo": "laurent22/joplin",
+   "require_assets": [
+    {
+     "asset": "^Joplin\\-.*\\.deb$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "laurent22/joplin"
+  },
+  "sponsor": [
+   {
+    "name": "Joplin",
+    "url": "https://joplinapp.org/donate/"
+   },
+   {
+    "name": "Joplin (Patreon)",
+    "url": "https://www.patreon.com/joplin"
+   },
+   {
+    "name": "Joplin (GitHub Sponsors)",
+    "url": "https://github.com/sponsors/laurent22"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "JOPLIN_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Joplin desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Joplin desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores program settings and files."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for electron applications to function properly."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Content Management"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/joplin-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 22300,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-21",
+   "text": "Use Wayland ozone platform fixes scaling and acceleration."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-08-19",
+   "text": "Initial release."
+  }
+ ]
+}

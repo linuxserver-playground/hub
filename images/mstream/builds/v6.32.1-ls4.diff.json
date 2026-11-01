@@ -1,0 +1,98 @@
+{
+ "image": "mstream",
+ "branch": "master",
+ "tag": "v6.32.1-ls4",
+ "previous_tag": "v6.32.1-ls3",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v6.32.1",
+  "to": "v6.32.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 401694212,
+   "to": 401695680,
+   "delta": 1468
+  },
+  "arm64": {
+   "from": 403192201,
+   "to": 403192652,
+   "delta": 451
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r0",
+      "to": "24.22.1-r1",
+      "purl": "pkg:apk/alpine/nodejs@24.22.1-r1?arch=x86_64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r0",
+      "to": "24.22.1-r1",
+      "purl": "pkg:apk/alpine/nodejs@24.22.1-r1?arch=aarch64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

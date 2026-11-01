@@ -1,0 +1,109 @@
+{
+ "image": "grav",
+ "branch": "main",
+ "tag": "2.2.18-ls5",
+ "previous_tag": "2.2.16-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "2 commits (828de0f → f335c0f): changed image.yml, generated files"
+ ],
+ "upstream": {
+  "from": "2.2.16",
+  "to": "2.2.18",
+  "changed": true
+ },
+ "commit": {
+  "from": "828de0fb3ca6b033823256b5c216a34132cc1fda",
+  "to": "f335c0f662079f6a84b370da64171eb9b34ff30d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-grav/compare/828de0fb3ca6b033823256b5c216a34132cc1fda...f335c0f662079f6a84b370da64171eb9b34ff30d",
+  "commits": [
+   {
+    "sha": "bbabae80659ebc18c16bccc7bfb6c3ab7150c945",
+    "subject": "Wait for the upstream release assets before building",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T16:03:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-grav/commit/bbabae80659ebc18c16bccc7bfb6c3ab7150c945",
+    "bot": false
+   },
+   {
+    "sha": "f335c0f662079f6a84b370da64171eb9b34ff30d",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T04:32:10Z",
+    "url": "https://github.com/linuxserver-playground/docker-grav/commit/f335c0f662079f6a84b370da64171eb9b34ff30d",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 2
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:30be75c4c7470207fece77d8399848c405a6e5c14ff3fb7ca82a4cfc37498b7b"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a55ef6f5b72baa4997d79d545cdd81d262c2a719afbaddf2984d93f9250db2a0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 61807028,
+   "to": 61914459,
+   "delta": 107431
+  },
+  "arm64": {
+   "from": 62399327,
+   "to": 62513540,
+   "delta": 114213
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

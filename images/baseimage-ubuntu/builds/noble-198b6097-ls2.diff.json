@@ -1,0 +1,95 @@
+{
+ "image": "baseimage-ubuntu",
+ "branch": "noble",
+ "tag": "noble-198b6097-ls2",
+ "previous_tag": "noble-198b6097-ls1",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "198b6097",
+  "to": "198b6097",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 47794479,
+   "to": 47795491,
+   "delta": 1012
+  },
+  "arm64": {
+   "from": 47619882,
+   "to": 47621031,
+   "delta": 1149
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.1.0-2build2",
+      "to": "1.1.0-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.1.0-2ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.1.0-2build2",
+      "to": "1.1.0-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.1.0-2ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

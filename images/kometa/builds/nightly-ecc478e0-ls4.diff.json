@@ -1,0 +1,137 @@
+{
+ "image": "kometa",
+ "branch": "nightly",
+ "tag": "nightly-ecc478e0-ls4",
+ "previous_tag": "nightly-eedd765c-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "2 commits (3236614 → 2ec0093): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "eedd765c",
+  "to": "ecc478e0",
+  "changed": true
+ },
+ "commit": {
+  "from": "3236614a7eb471ec03f67cce5848cb749d158896",
+  "to": "2ec00931568765adf2c8cd0d2fdc2039afafee53",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kometa/compare/3236614a7eb471ec03f67cce5848cb749d158896...2ec00931568765adf2c8cd0d2fdc2039afafee53",
+  "commits": [
+   {
+    "sha": "2414d69fdf2c15e0c6c48a66a9dedef236f846db",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-29T08:37:43Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/2414d69fdf2c15e0c6c48a66a9dedef236f846db",
+    "bot": true
+   },
+   {
+    "sha": "2ec00931568765adf2c8cd0d2fdc2039afafee53",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T14:33:27Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/2ec00931568765adf2c8cd0d2fdc2039afafee53",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 2,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 317854603,
+   "to": 317853914,
+   "delta": -689
+  },
+  "arm64": {
+   "from": 317267118,
+   "to": 317269438,
+   "delta": 2320
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "letterboxdpy",
+      "from": "6.6.1",
+      "to": "6.7.0",
+      "purl": "pkg:pypi/letterboxdpy@6.7.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "letterboxdpy",
+      "from": "6.6.1",
+      "to": "6.7.0",
+      "purl": "pkg:pypi/letterboxdpy@6.7.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}
