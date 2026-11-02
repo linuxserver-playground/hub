@@ -227,6 +227,13 @@ class ImageDetail(Image):
         "project has none. The site shows them on the image page, the repo's FUNDING.yml and the container log carry "
         "the same list.",
     )
+    maintainers: list[str] = Field(
+        default_factory=list,
+        description="GitHub logins of the people who maintain the image (`maintainers` in the manifest): credit and "
+        "who gets mentioned, never access. Empty when the manifest names none; LinuxServer Labs images always name "
+        "them.",
+        examples=[["thelamer"]],
+    )
     kind: Literal["app", "base", "tool"] = Field(
         "app",
         description="`app` for a long-running application; `base` for a base image, `tool` for a run-once or helper "

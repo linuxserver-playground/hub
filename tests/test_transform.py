@@ -51,6 +51,7 @@ def test_manifest_mapping(fleet: Fleet) -> None:
     assert sonarr.changelog is not None and sonarr.changelog[0].date == "2026-10-19"
     assert sonarr.project_logo and sonarr.project_logo.endswith("sonarr-banner.png")
     assert [s.model_dump() for s in sonarr.sponsor] == [{"name": "Sonarr", "url": "https://sonarr.tv/donate"}]
+    assert sonarr.maintainers == []
     assert sonarr.github_url == "https://github.com/linuxserver-playground/docker-sonarr"
     assert sonarr.registries.ghcr == "ghcr.io/linuxserver-playground/sonarr"
     assert sonarr.docs_url == "https://linuxserver-playground.github.io/site/images/sonarr/"
@@ -124,3 +125,10 @@ def test_broken_record_is_skipped(store: Store, config: SiteConfig) -> None:
 def test_archived_comes_from_observed(fleet: Fleet) -> None:
     assert fleet.image("multidb").archived is True  # type: ignore[union-attr]
     assert fleet.image("sonarr").archived is False  # type: ignore[union-attr]
+
+
+def test_maintainers_come_from_the_default_branch_manifest(store: Store, config: SiteConfig) -> None:
+    store.images["swag"].manifests["master"]["maintainers"] = ["thelamer", "aptalca"]
+    swag = load_fleet(store, config).image("swag")
+    assert swag is not None and swag.maintainers == ["thelamer", "aptalca"]
+    assert "maintainers" not in to_v1_image(swag, include_config=True).model_dump()
