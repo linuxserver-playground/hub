@@ -26,7 +26,7 @@ query ($org: String!, $cursor: String) {
     repositories(first: 100, after: $cursor, orderBy: { field: NAME, direction: ASC }) {
       pageInfo { hasNextPage endCursor }
       nodes {
-        name url stargazerCount pushedAt isArchived defaultBranchRef { name }
+        name url stargazerCount pushedAt isArchived isTemplate defaultBranchRef { name }
         refs(refPrefix: "refs/heads/", first: 100) { nodes { name } }
       }
     }
@@ -93,7 +93,9 @@ class GitHub:
 
     def org_repos(self, org: str) -> list[Json]:
         """Every repository of the organisation (GraphQL, 100 a page) with stars, archived flag, default branch and
-        branch names (the first 100; docker-mods has about 95 and is not an image)."""
+        branch names (the first 100; docker-mods has about 95 and is not an image). Template repositories are left out:
+        one is copied into new repositories (Labs' docker-template, a starter kit with an example image.yml) and is
+        never an image itself."""
         repos: list[Json] = []
         cursor = None
         while True:
@@ -102,6 +104,8 @@ class GitHub:
             if not page:
                 raise RuntimeError(f"GitHub GraphQL: organization {org} not found")
             for node in page["nodes"]:
+                if node.get("isTemplate"):
+                    continue
                 repos.append(
                     {
                         "name": node["name"],

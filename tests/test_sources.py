@@ -106,7 +106,8 @@ def test_mods_failure_keeps_previous() -> None:
 
 
 def test_org_repos_reads_stars_from_the_graphql_response() -> None:
-    """Stars come from `stargazerCount`; a fixture response with non-zero counts must end up in observed.json."""
+    """Stars come from `stargazerCount`; a fixture response with non-zero counts must end up in observed.json. A
+    template repository (docker-template in the fixture) is not listed at all."""
     fixture = json.loads((FIXTURES / "graphql-repositories.json").read_text())
     queries: list[dict[str, object]] = []
 
