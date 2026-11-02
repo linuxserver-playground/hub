@@ -1,0 +1,157 @@
+{
+ "image": "steam",
+ "branch": "master",
+ "tag": "95181c2e-ls3",
+ "previous_tag": "95181c2e-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (8cb7162 → 205dbcc): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "95181c2e",
+  "to": "95181c2e",
+  "changed": false
+ },
+ "commit": {
+  "from": "8cb7162b3fe07fdf837b63779432677f9dbef106",
+  "to": "205dbcc0b54165a9b2e7e780474ead93d38419e5",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-steam/compare/8cb7162b3fe07fdf837b63779432677f9dbef106...205dbcc0b54165a9b2e7e780474ead93d38419e5",
+  "commits": [
+   {
+    "sha": "6831720467cb1ab8b177115b9d50398cdfd55229",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:52:10Z",
+    "url": "https://github.com/linuxserver-playground/docker-steam/commit/6831720467cb1ab8b177115b9d50398cdfd55229",
+    "bot": true
+   },
+   {
+    "sha": "205dbcc0b54165a9b2e7e780474ead93d38419e5",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T14:24:57Z",
+    "url": "https://github.com/linuxserver-playground/docker-steam/commit/205dbcc0b54165a9b2e7e780474ead93d38419e5",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 3
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:731016ff9660aac7a2328ef09c7818ac30a240fd6452035eb2750a4d4657b61b"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:b6b7498350faa15f558fa5a1e83cd67540e7ddeb164bd4f376037838df52c52e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1216565977,
+   "to": 1216292511,
+   "delta": -273466
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 7,
+  "downgraded": 0
+ }
+}

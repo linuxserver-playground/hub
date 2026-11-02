@@ -1,0 +1,224 @@
+{
+ "image": "rpcs3",
+ "branch": "master",
+ "tag": "build-4c17bf7589b2b894e71fe69e849b41761fc686cf-ls7",
+ "previous_tag": "build-9508444d31338e89a4f4cee1d0cee1800c96d2c1-ls6",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "3 commits (250a044 → 2eac71a): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "build-9508444d31338e89a4f4cee1d0cee1800c96d2c1",
+  "to": "build-4c17bf7589b2b894e71fe69e849b41761fc686cf",
+  "changed": true
+ },
+ "commit": {
+  "from": "250a0440ab43a9ae8ed61792d4a66d4d9e8441f2",
+  "to": "2eac71a10e45e6fe1617fde613e8a424b892514e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-rpcs3/compare/250a0440ab43a9ae8ed61792d4a66d4d9e8441f2...2eac71a10e45e6fe1617fde613e8a424b892514e",
+  "commits": [
+   {
+    "sha": "fd490965d70bb10ad37016a31abe99234d4d50ba",
+    "subject": "Add the upstream donation links",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T19:38:10Z",
+    "url": "https://github.com/linuxserver-playground/docker-rpcs3/commit/fd490965d70bb10ad37016a31abe99234d4d50ba",
+    "bot": false
+   },
+   {
+    "sha": "5967b3b3ec459539387563b7298fb0dd77771222",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T19:40:59Z",
+    "url": "https://github.com/linuxserver-playground/docker-rpcs3/commit/5967b3b3ec459539387563b7298fb0dd77771222",
+    "bot": true
+   },
+   {
+    "sha": "2eac71a10e45e6fe1617fde613e8a424b892514e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T14:24:29Z",
+    "url": "https://github.com/linuxserver-playground/docker-rpcs3/commit/2eac71a10e45e6fe1617fde613e8a424b892514e",
+    "bot": true
+   }
+  ],
+  "count": 3,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:b6b7498350faa15f558fa5a1e83cd67540e7ddeb164bd4f376037838df52c52e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1082795104,
+   "to": 1082933888,
+   "delta": 138784
+  },
+  "arm64": {
+   "from": 1033435569,
+   "to": 1033555502,
+   "delta": 119933
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

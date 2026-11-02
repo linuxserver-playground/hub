@@ -1,0 +1,134 @@
+{
+ "image": "transmission",
+ "branch": "master",
+ "tag": "4.1.3-r0-ls3",
+ "previous_tag": "4.1.3-r0-ls2",
+ "classification": "linuxserver",
+ "reasons": [
+  "Dockerfile changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "4.1.3-r0",
+  "to": "4.1.3-r0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:889cf4f4ceb97407b0235fb63691988e256509daf50ca128ef2316f89955972a"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:889cf4f4ceb97407b0235fb63691988e256509daf50ca128ef2316f89955972a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 34037305,
+   "to": 34039612,
+   "delta": 2307
+  },
+  "arm64": {
+   "from": 35049854,
+   "to": 35066379,
+   "delta": 16525
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/unrar:latest AS unrar\n+FROM ghcr.io/linuxserver-playground/unrar:latest AS unrar\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/unrar:arm64v8-latest AS unrar\n+FROM ghcr.io/linuxserver-playground/unrar:arm64v8-latest AS unrar\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/pyc@3.14.10-r0?arch=x86_64&distro=busybox-1.38.0&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/python3@3.14.10-r0?arch=x86_64&distro=busybox-1.38.0"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/python3-pyc@3.14.10-r0?arch=x86_64&distro=busybox-1.38.0&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/python3-pycache-pyc0@3.14.10-r0?arch=x86_64&distro=busybox-1.38.0&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/pyc@3.14.10-r0?arch=aarch64&distro=busybox-1.38.0&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/python3@3.14.10-r0?arch=aarch64&distro=busybox-1.38.0"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/python3-pyc@3.14.10-r0?arch=aarch64&distro=busybox-1.38.0&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.9-r2",
+      "to": "3.14.10-r0",
+      "purl": "pkg:apk/busybox/python3-pycache-pyc0@3.14.10-r0?arch=aarch64&distro=busybox-1.38.0&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

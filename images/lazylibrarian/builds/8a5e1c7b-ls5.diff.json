@@ -1,0 +1,78 @@
+{
+ "image": "lazylibrarian",
+ "branch": "master",
+ "tag": "8a5e1c7b-ls5",
+ "previous_tag": "a5f08524-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "repository at a newer commit (9016777 → 394d597)"
+ ],
+ "upstream": {
+  "from": "a5f08524",
+  "to": "8a5e1c7b",
+  "changed": true
+ },
+ "commit": {
+  "from": "90167779d1055de150a42ccfccb3fc400673020a",
+  "to": "394d597ad9d902b14179decd8456eec1c30b098c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lazylibrarian/compare/90167779d1055de150a42ccfccb3fc400673020a...394d597ad9d902b14179decd8456eec1c30b098c"
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8dc1e22b6c3e42c8931a49af4a34f8d9f4fad73853523230315724840f8dc85f"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 187289496,
+   "to": 187295757,
+   "delta": 6261
+  },
+  "arm64": {
+   "from": 183042047,
+   "to": 183055349,
+   "delta": 13302
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,160 @@
+{
+ "image": "pyload-ng",
+ "branch": "develop",
+ "tag": "develop-cb6d8632-ls5",
+ "previous_tag": "develop-7f3567bb-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "3 commits (cc8b5f2 → 826eacd): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "7f3567bb",
+  "to": "cb6d8632",
+  "changed": true
+ },
+ "commit": {
+  "from": "cc8b5f291eea386bfb131342b070ee22eb8dd15a",
+  "to": "826eacd5feba7162a924406a1f035d347449144a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pyload-ng/compare/cc8b5f291eea386bfb131342b070ee22eb8dd15a...826eacd5feba7162a924406a1f035d347449144a",
+  "commits": [
+   {
+    "sha": "2db76a07068a2ad3918dbc92def60328ee873670",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T09:39:50Z",
+    "url": "https://github.com/linuxserver-playground/docker-pyload-ng/commit/2db76a07068a2ad3918dbc92def60328ee873670",
+    "bot": true
+   },
+   {
+    "sha": "25319364b9ce2b8e2d93d98a769c7723a098ca24",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T09:44:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-pyload-ng/commit/25319364b9ce2b8e2d93d98a769c7723a098ca24",
+    "bot": true
+   },
+   {
+    "sha": "826eacd5feba7162a924406a1f035d347449144a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T00:45:14Z",
+    "url": "https://github.com/linuxserver-playground/docker-pyload-ng/commit/826eacd5feba7162a924406a1f035d347449144a",
+    "bot": true
+   }
+  ],
+  "count": 3,
+  "truncated": false,
+  "areas": {
+   "generated": 2,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:9008d6d5bb98aa82222a5c4a9463dd82801a1cc2bfacd5862caf4b895fbcf578"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:1ad91f856c8d9d443357d6e4c0a0c3515e5bc1ef830874f0defdb5d64b49f077"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 146671646,
+   "to": 146673951,
+   "delta": 2305
+  },
+  "arm64": {
+   "from": 145280379,
+   "to": 145283933,
+   "delta": 3554
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "aia-chaser",
+      "from": "3.6.0",
+      "to": "3.6.1",
+      "purl": "pkg:pypi/aia-chaser@3.6.1"
+     },
+     {
+      "name": "cachetools",
+      "from": "7.2.7",
+      "to": "7.2.8",
+      "purl": "pkg:pypi/cachetools@7.2.8"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "aia-chaser",
+      "from": "3.6.0",
+      "to": "3.6.1",
+      "purl": "pkg:pypi/aia-chaser@3.6.1"
+     },
+     {
+      "name": "cachetools",
+      "from": "7.2.7",
+      "to": "7.2.8",
+      "purl": "pkg:pypi/cachetools@7.2.8"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

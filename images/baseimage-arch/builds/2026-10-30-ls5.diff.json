@@ -1,0 +1,67 @@
+{
+ "image": "baseimage-arch",
+ "branch": "master",
+ "tag": "2026-10-30-ls5",
+ "previous_tag": "2026-10-30-ls4",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "2026-10-30",
+  "to": "2026-10-30",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "arch",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "arch",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 133097119,
+   "to": 133096938,
+   "delta": -181
+  },
+  "arm64": {
+   "from": 196827228,
+   "to": 196827817,
+   "delta": 589
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

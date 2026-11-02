@@ -1,0 +1,172 @@
+{
+ "image": "prowlarr",
+ "branch": "nightly",
+ "tag": "nightly-3.0.0.5736-ls4",
+ "previous_tag": "nightly-3.0.0.5726-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "3 commits (8511518 → 35a62d4): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "3.0.0.5726",
+  "to": "3.0.0.5736",
+  "changed": true
+ },
+ "commit": {
+  "from": "8511518ef7510d413a96fa4dc2984a5c38098b5b",
+  "to": "35a62d41f33164742e043c9c4cdb45c184c5c07f",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-prowlarr/compare/8511518ef7510d413a96fa4dc2984a5c38098b5b...35a62d41f33164742e043c9c4cdb45c184c5c07f",
+  "commits": [
+   {
+    "sha": "9cba041e1652217ca6dae9f90fd6611280f2570e",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:50:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-prowlarr/commit/9cba041e1652217ca6dae9f90fd6611280f2570e",
+    "bot": true
+   },
+   {
+    "sha": "c5405a0d581b7411442c243e90b475e21394d5de",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T17:35:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-prowlarr/commit/c5405a0d581b7411442c243e90b475e21394d5de",
+    "bot": true
+   },
+   {
+    "sha": "35a62d41f33164742e043c9c4cdb45c184c5c07f",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T21:00:09Z",
+    "url": "https://github.com/linuxserver-playground/docker-prowlarr/commit/35a62d41f33164742e043c9c4cdb45c184c5c07f",
+    "bot": true
+   }
+  ],
+  "count": 3,
+  "truncated": false,
+  "areas": {
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 84217733,
+   "to": 84227623,
+   "delta": 9890
+  },
+  "arm64": {
+   "from": 82609125,
+   "to": 82632153,
+   "delta": 23028
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "AngleSharp",
+      "from": "1.8.6",
+      "to": "1.9.0",
+      "purl": "pkg:nuget/AngleSharp@1.9.0"
+     },
+     {
+      "name": "Polly",
+      "from": "8.8.0",
+      "to": "8.9.0",
+      "purl": "pkg:nuget/Polly@8.9.0"
+     },
+     {
+      "name": "Polly.Core",
+      "from": "8.8.0",
+      "to": "8.9.0",
+      "purl": "pkg:nuget/Polly.Core@8.9.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "AngleSharp",
+      "from": "1.8.6",
+      "to": "1.9.0",
+      "purl": "pkg:nuget/AngleSharp@1.9.0"
+     },
+     {
+      "name": "Polly",
+      "from": "8.8.0",
+      "to": "8.9.0",
+      "purl": "pkg:nuget/Polly@8.9.0"
+     },
+     {
+      "name": "Polly.Core",
+      "from": "8.8.0",
+      "to": "8.9.0",
+      "purl": "pkg:nuget/Polly.Core@8.9.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

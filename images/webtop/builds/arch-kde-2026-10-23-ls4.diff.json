@@ -1,0 +1,153 @@
+{
+ "image": "webtop",
+ "branch": "arch-kde",
+ "tag": "arch-kde-2026-10-23-ls4",
+ "previous_tag": "arch-kde-2025-07-12-ls3",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2025-07-12",
+  "to": "2026-10-23",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 2181263915,
+   "to": 2181312569,
+   "delta": 48654
+  },
+  "arm64": {
+   "from": 2219123507,
+   "to": 2219333286,
+   "delta": 209779
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1",
+      "to": "156.0.8078.73-1",
+      "purl": "pkg:alpm/arch/chromium@156.0.8078.73-1?arch=x86_64&distro=arch-rolling&upstream=chromium"
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-2",
+      "to": "6.12.0-3",
+      "purl": "pkg:alpm/arch/qt6-declarative@6.12.0-3?arch=x86_64&distro=arch-rolling&upstream=qt6-declarative"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "qtpdf",
+      "from": "6.11.2+dirty",
+      "to": "6.11.3+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtpdf@6.11.3%2Bdirty"
+     },
+     {
+      "name": "qtwebengine",
+      "from": "6.11.2+dirty",
+      "to": "6.11.3+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtwebengine@6.11.3%2Bdirty"
+     },
+     {
+      "name": "QPdfPlugin",
+      "from": "6.11.2",
+      "to": "6.11.3",
+      "purl": "pkg:github/qt/qtpdf@6de08a0e1?library_name=QPdfPlugin#src/pdf/plugins/imageformats/pdf"
+     },
+     {
+      "name": "qwebengine_convert_dict",
+      "from": "6.11.2",
+      "to": "6.11.3",
+      "purl": "pkg:github/qt/qtwebengine@6de08a0e1?library_name=qwebengine_convert_dict#src/core/tools/qwebengine_convert_dict"
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "compiler-rt",
+      "from": "23.1.4-1",
+      "to": "23.1.4-1.1",
+      "purl": null
+     },
+     {
+      "name": "lld",
+      "from": "23.1.4-1",
+      "to": "23.1.4-1.1",
+      "purl": null
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-2",
+      "to": "6.12.0-3",
+      "purl": null
+     },
+     {
+      "name": "qt6-webengine",
+      "from": "6.11.2-2",
+      "to": "6.11.3-2",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

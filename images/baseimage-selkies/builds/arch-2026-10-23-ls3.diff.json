@@ -1,0 +1,129 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "arch",
+ "tag": "arch-2026-10-23-ls3",
+ "previous_tag": "arch-2026-10-23-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-23",
+  "to": "2026-10-23",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-arch:latest",
+   "digest": "sha256:7d6c5814d91133b2dbb44fb2f7126e51b205d697c1256b571ad239f1221bd225"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-arch:latest",
+   "digest": "sha256:a1a2ff2baa08507644771da84b12c682e6315375995952753cfa1313161fd4a2"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1188432514,
+   "to": 1186016839,
+   "delta": -2415675
+  },
+  "arm64": {
+   "from": 1237772872,
+   "to": 1237774194,
+   "delta": 1322
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,5 +1,5 @@\n # syntax=docker/dockerfile:1\n-FROM ghcr.io/linuxserver/baseimage-alpine:3.24 AS frontend\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:3.24 AS frontend\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -38,7 +38,7 @@\n     cp -ar dist/* /buildout/$DASH/; \\\n   done\n \n-FROM ghcr.io/linuxserver/baseimage-arch:latest AS interposers\n+FROM ghcr.io/linuxserver-playground/baseimage-arch:latest AS interposers\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -94,7 +94,7 @@\n     /buildout/opt/lib/libudev.so.1.0.0-fake_32\n \n # Runtime stage\n-FROM ghcr.io/linuxserver/baseimage-arch:latest\n+FROM ghcr.io/linuxserver-playground/baseimage-arch:latest\n \n # set version label\n ARG BUILD_DATE\n@@ -360,9 +360,9 @@\n COPY /root /\n COPY --from=frontend /buildout /usr/share/selkies\n COPY --from=interposers /buildout /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-arch-xvfb / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-arch-wtype / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-arch-labwc / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-arch-xvfb / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-arch-wtype / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-arch-labwc / /\n \n # ports and volumes\n EXPOSE 3000 3001\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,5 +1,5 @@\n # syntax=docker/dockerfile:1\n-FROM ghcr.io/linuxserver/baseimage-alpine:arm64v8-3.24 AS frontend\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:arm64v8-3.24 AS frontend\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -38,7 +38,7 @@\n     cp -ar dist/* /buildout/$DASH/; \\\n   done\n \n-FROM ghcr.io/linuxserver/baseimage-arch:arm64v8-latest AS interposers\n+FROM ghcr.io/linuxserver-playground/baseimage-arch:arm64v8-latest AS interposers\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -78,7 +78,7 @@\n     /buildout/opt/lib/libudev.so.1.0.0-fake\n \n # Runtime stage\n-FROM ghcr.io/linuxserver/baseimage-arch:arm64v8-latest\n+FROM ghcr.io/linuxserver-playground/baseimage-arch:arm64v8-latest\n \n # set version label\n ARG BUILD_DATE\n@@ -332,9 +332,9 @@\n COPY /root /\n COPY --from=frontend /buildout /usr/share/selkies\n COPY --from=interposers /buildout /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-arch-xvfb / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-arch-wtype / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-arch-labwc / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-arch-xvfb / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-arch-wtype / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-arch-labwc / /\n \n # ports and volumes\n EXPOSE 3000 3001\n"
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "glycin",
+      "from": "2.2.4-1",
+      "to": "2.2.5-1",
+      "purl": "pkg:alpm/arch/glycin@2.2.5-1?arch=x86_64&distro=arch-rolling&upstream=glycin"
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.1-1",
+      "to": "2.7.2-2",
+      "purl": "pkg:alpm/arch/libldap@2.7.2-2?arch=x86_64&distro=arch-rolling&upstream=openldap"
+     },
+     {
+      "name": "openbsd-netcat",
+      "from": "1.238_1-1",
+      "to": "1.239_1-1",
+      "purl": "pkg:alpm/arch/openbsd-netcat@1.239_1-1?arch=x86_64&distro=arch-rolling&upstream=openbsd-netcat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "brotli",
+      "from": "1.2.0-1",
+      "to": "1.2.1-1",
+      "purl": null
+     },
+     {
+      "name": "ca-certificates-mozilla",
+      "from": "3.131.1-1",
+      "to": "3.132-1",
+      "purl": null
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.1-1",
+      "to": "2.7.2-2",
+      "purl": null
+     },
+     {
+      "name": "openbsd-netcat",
+      "from": "1.238_1-1",
+      "to": "1.239_1-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 7,
+  "downgraded": 0
+ }
+}

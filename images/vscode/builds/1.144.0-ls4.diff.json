@@ -1,0 +1,196 @@
+{
+ "image": "vscode",
+ "branch": "master",
+ "tag": "1.144.0-ls4",
+ "previous_tag": "1.143.1-ls3",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1.143.1",
+  "to": "1.144.0",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1553115956,
+   "to": 1575971715,
+   "delta": 22855759
+  },
+  "arm64": {
+   "from": 1509272738,
+   "to": 1511550943,
+   "delta": 2278205
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "code",
+      "from": "1.143.1-1792691907",
+      "to": "1.144.0-1793133881",
+      "purl": "pkg:deb/debian/code@1.144.0-1793133881?arch=amd64&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [
+     {
+      "name": "media-preview",
+      "version": "10.0.0",
+      "purl": "pkg:npm/media-preview@10.0.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "@github/copilot-sdk-linux-x64",
+      "from": "1.0.23-preview.5",
+      "to": "1.0.27-unstable.40031404408.gba6c003",
+      "purl": "pkg:npm/%40github/copilot-sdk-linux-x64@1.0.27-unstable.40031404408.gba6c003"
+     },
+     {
+      "name": "Code",
+      "from": "1.143.1",
+      "to": "1.144.0",
+      "purl": "pkg:npm/Code@1.144.0"
+     },
+     {
+      "name": "copilot-chat",
+      "from": "0.71.0",
+      "to": "0.72.0",
+      "purl": "pkg:npm/copilot-chat@0.72.0"
+     },
+     {
+      "name": "jsts-chat-features",
+      "from": "0.0.4",
+      "to": "0.0.6",
+      "purl": "pkg:npm/jsts-chat-features@0.0.6"
+     },
+     {
+      "name": "node-pty",
+      "from": "1.2.0-beta.15",
+      "to": "1.2.0-beta.18",
+      "purl": "pkg:npm/node-pty@1.2.0-beta.18"
+     },
+     {
+      "name": "shell-quote",
+      "from": "1.10.0",
+      "to": "1.12.0",
+      "purl": "pkg:npm/shell-quote@1.12.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "code",
+      "from": "1.143.1-1792691836",
+      "to": "1.144.0-1793133877",
+      "purl": "pkg:deb/debian/code@1.144.0-1793133877?arch=arm64&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [
+     {
+      "name": "media-preview",
+      "version": "10.0.0",
+      "purl": "pkg:npm/media-preview@10.0.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "@github/copilot-sdk-linux-arm64",
+      "from": "1.0.23-preview.5",
+      "to": "1.0.27-unstable.40031404408.gba6c003",
+      "purl": "pkg:npm/%40github/copilot-sdk-linux-arm64@1.0.27-unstable.40031404408.gba6c003"
+     },
+     {
+      "name": "Code",
+      "from": "1.143.1",
+      "to": "1.144.0",
+      "purl": "pkg:npm/Code@1.144.0"
+     },
+     {
+      "name": "copilot-chat",
+      "from": "0.71.0",
+      "to": "0.72.0",
+      "purl": "pkg:npm/copilot-chat@0.72.0"
+     },
+     {
+      "name": "jsts-chat-features",
+      "from": "0.0.4",
+      "to": "0.0.6",
+      "purl": "pkg:npm/jsts-chat-features@0.0.6"
+     },
+     {
+      "name": "node-pty",
+      "from": "1.2.0-beta.15",
+      "to": "1.2.0-beta.18",
+      "purl": "pkg:npm/node-pty@1.2.0-beta.18"
+     },
+     {
+      "name": "shell-quote",
+      "from": "1.10.0",
+      "to": "1.12.0",
+      "purl": "pkg:npm/shell-quote@1.12.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 2,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}
