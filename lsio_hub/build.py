@@ -131,8 +131,10 @@ def main() -> int:
     config = SiteConfig.from_env()
     fleet = load_fleet(load_store(DATA_DIR), config)
     if not fleet.images:
-        log.error("No images in data/. Run `python -m lsio_hub.ingest --reconcile` first.")
-        return 1
+        if fleet.updated_at is None:
+            log.error("No images in data/. Run `python -m lsio_hub.ingest --reconcile` first.")
+            return 1
+        log.warning("The organisation has no images yet: rendering an empty API.")
     workers = int(os.environ.get("BUILD_WORKERS") or min(8, os.cpu_count() or 1))
     files = render_parallel(fleet, config, workers)
     write_site(DIST_DIR, files)

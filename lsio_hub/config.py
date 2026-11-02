@@ -10,7 +10,9 @@ DIST_DIR = ROOT / "dist"
 OUT_DIR = ROOT / "out"
 PUBLIC_DIR = ROOT / "public"
 
-ORG = "linuxserver-playground"
+ORG = os.environ.get("HUB_ORG") or "linuxserver-playground"
+"""The organisation the hub indexes. The workflows set it from the repository owner, so the same code serves the main
+org and Labs (workspace docs/labs.md), whose hub repository calls these workflows."""
 REGISTRY = "ghcr.io"
 IMAGE_PREFIX = f"{REGISTRY}/{ORG}"
 MODS_IMAGE = f"{IMAGE_PREFIX}/mods"
@@ -69,8 +71,9 @@ REPORT_FILES = {
 """test.<arch>.json `files` keys and the fixed names their files have under `builds/<tag>/<arch>/` on the
 repository's Pages."""
 
-WEBSITE = f"https://{ORG}.github.io/site/"
-"""The LinuxServer.io site, which the hub's pages link to for images, builds, docs and support."""
+WEBSITE = (os.environ.get("HUB_WEBSITE") or "https://linuxserver-playground.github.io/site").rstrip("/") + "/"
+"""The LinuxServer.io site, which the hub's pages link to for images, builds, docs and support: the org's SITE_URL
+variable, which for Labs is the site's /labs/ section."""
 
 
 def site_build(image: str, tag: str) -> str:
