@@ -1,0 +1,271 @@
+{
+ "image": "craft-apps",
+ "branch": "master",
+ "tag": "v0.17.0-ls3",
+ "previous_tag": "v0.16.0-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v0.16.0",
+  "to": "v0.17.0",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:4a3966dadb1092dd0422197fa2b40938bc8f2e924ca64dbf14719cbd23fa3966"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:968acfc9b937061cf1c1143c7c5c4fb636db2fbd020dfc4801a253ea32043dcd"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1956383261,
+   "to": 2057399974,
+   "delta": 101016713
+  },
+  "arm64": {
+   "from": 1900041848,
+   "to": 2000022818,
+   "delta": 99980970
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "designcraft",
+      "from": "0.13.0-1",
+      "to": "0.14.0-1",
+      "purl": "pkg:deb/ubuntu/designcraft@0.14.0-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "effectcraft",
+      "from": "0.17.0-1",
+      "to": "0.18.0-1",
+      "purl": "pkg:deb/ubuntu/effectcraft@0.18.0-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "figcraft",
+      "from": "0.11.2-1",
+      "to": "0.12.1-1",
+      "purl": "pkg:deb/ubuntu/figcraft@0.12.1-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "filmcraft",
+      "from": "0.13.0-1",
+      "to": "0.14.0-1",
+      "purl": "pkg:deb/ubuntu/filmcraft@0.14.0-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-3build1",
+      "to": "1.2.0-3ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.2.0-3ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=brotli"
+     },
+     {
+      "name": "lightcraft",
+      "from": "0.14.0-1",
+      "to": "0.15.0-1",
+      "purl": "pkg:deb/ubuntu/lightcraft@0.15.0-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-2ubuntu1.11",
+      "to": "1.28.3-2ubuntu1.12",
+      "purl": "pkg:deb/ubuntu/nginx@1.28.3-2ubuntu1.12?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nginx-common",
+      "from": "1.28.3-2ubuntu1.11",
+      "to": "1.28.3-2ubuntu1.12",
+      "purl": "pkg:deb/ubuntu/nginx-common@1.28.3-2ubuntu1.12?arch=all&distro=ubuntu-26.04&upstream=nginx"
+     },
+     {
+      "name": "pdfcraft",
+      "from": "0.14.0-1",
+      "to": "0.15.0-1",
+      "purl": "pkg:deb/ubuntu/pdfcraft@0.15.0-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "photocraft",
+      "from": "0.16.0-1",
+      "to": "0.17.0-1",
+      "purl": "pkg:deb/ubuntu/photocraft@0.17.0-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "vectorcraft",
+      "from": "0.17.0-1",
+      "to": "0.18.0-1",
+      "purl": "pkg:deb/ubuntu/vectorcraft@0.18.0-1?arch=amd64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054015-16d571fb31ca",
+      "to": "v1.33.3-0.20261021134118-f036f355de35",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134118-f036f355de35"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "designcraft",
+      "from": "0.13.0-1",
+      "to": "0.14.0-1",
+      "purl": "pkg:deb/ubuntu/designcraft@0.14.0-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "effectcraft",
+      "from": "0.17.0-1",
+      "to": "0.18.0-1",
+      "purl": "pkg:deb/ubuntu/effectcraft@0.18.0-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "figcraft",
+      "from": "0.11.2-1",
+      "to": "0.12.1-1",
+      "purl": "pkg:deb/ubuntu/figcraft@0.12.1-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "filmcraft",
+      "from": "0.13.0-1",
+      "to": "0.14.0-1",
+      "purl": "pkg:deb/ubuntu/filmcraft@0.14.0-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-3build1",
+      "to": "1.2.0-3ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.2.0-3ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=brotli"
+     },
+     {
+      "name": "lightcraft",
+      "from": "0.14.0-1",
+      "to": "0.15.0-1",
+      "purl": "pkg:deb/ubuntu/lightcraft@0.15.0-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-2ubuntu1.11",
+      "to": "1.28.3-2ubuntu1.12",
+      "purl": "pkg:deb/ubuntu/nginx@1.28.3-2ubuntu1.12?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nginx-common",
+      "from": "1.28.3-2ubuntu1.11",
+      "to": "1.28.3-2ubuntu1.12",
+      "purl": "pkg:deb/ubuntu/nginx-common@1.28.3-2ubuntu1.12?arch=all&distro=ubuntu-26.04&upstream=nginx"
+     },
+     {
+      "name": "pdfcraft",
+      "from": "0.14.0-1",
+      "to": "0.15.0-1",
+      "purl": "pkg:deb/ubuntu/pdfcraft@0.15.0-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "photocraft",
+      "from": "0.16.0-1",
+      "to": "0.17.0-1",
+      "purl": "pkg:deb/ubuntu/photocraft@0.17.0-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "vectorcraft",
+      "from": "0.17.0-1",
+      "to": "0.18.0-1",
+      "purl": "pkg:deb/ubuntu/vectorcraft@0.18.0-1?arch=arm64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054016-2cbd1b20d20a",
+      "to": "v1.33.3-0.20261021134116-aa4f38dbfabd",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134116-aa4f38dbfabd"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 26,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "name": "baseimage-alpine-nginx",
+ "kind": "base",
+ "summary": "baseimage-alpine-nginx container image.",
+ "upstream": {
+  "version": {
+   "type": "combined",
+   "separator": "_",
+   "sources": [
+    {
+     "type": "alpine_apk",
+     "repo_url": "http://dl-cdn.alpinelinux.org/alpine/v3.24/main/",
+     "package": "nginx"
+    },
+    {
+     "type": "alpine_apk",
+     "repo_url": "http://dl-cdn.alpinelinux.org/alpine/v3.24/community/",
+     "package": "php85"
+    }
+   ]
+  }
+ },
+ "release": {
+  "branch": "3.24",
+  "tag": "3.24",
+  "channel": "stable",
+  "tags": [
+   {
+    "tag": "3.24",
+    "description": "Alpine 3.24 with nginx and PHP."
+   },
+   {
+    "tag": "3.23",
+    "description": "Alpine 3.23 with nginx and PHP."
+   },
+   {
+    "tag": "3.22",
+    "description": "Alpine 3.22 with nginx and PHP."
+   },
+   {
+    "tag": "3.21",
+    "description": "Alpine 3.21 with nginx and PHP."
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "OS",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ],
+  "first_party": false
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "Etc/UTC"
+  },
+  "web": {
+   "port": 80,
+   "auth": "user:password"
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Uncategorized"
+  ],
+  "custom_readme": "[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)\n\n## Contact information:-\n\n| Type | Address/Details |\n| :---: | --- |\n| Discord | [Discord](https://linuxserver.io/discord) |\n| IRC | `#linuxserver.io` on irc.libera.chat |\n| Forum | [Discourse](https://discourse.linuxserver.io/) |\n\nA custom base image built with [Alpine Linux](https://alpinelinux.org), [nginx](https://nginx.org), and [s6-overlay](https://github.com/just-containers/s6-overlay).\n\n- Support for using our base images in your own projects is provided on a Reasonable Endeavours basis, please see our [Support Policy](https://www.linuxserver.io/supportpolicy) for details.\n- There is no `latest` tag for any of our base images, by design. We often make breaking changes between versions, and we don't publish release notes like we do for the downstream images.\n- If you're intending to distribute an image using one of our bases, please read our [docs on container branding](https://docs.linuxserver.io/general/container-branding/) first.\n- Alpine releases are supported for 2 years, after which we will stop building new base images for that version.\n\nThe following line is only in this repo for loop testing:\n\n- { date: \"01.01.50:\", desc: \"I am the release message for this internal repo.\" }\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ }
+}

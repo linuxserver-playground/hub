@@ -1,0 +1,99 @@
+{
+ "image": "duplicati",
+ "branch": "master",
+ "tag": "v2.4.0.1_stable_2026-10-07-ls3",
+ "previous_tag": "v2.4.0.1_stable_2026-10-07-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v2.4.0.1_stable_2026-10-07",
+  "to": "v2.4.0.1_stable_2026-10-07",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8ab987000b0e8001e49199a3d633327473284419740066ddb45c32428c6c0d28"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 188115582,
+   "to": 187341402,
+   "delta": -774180
+  },
+  "arm64": {
+   "from": 184450208,
+   "to": 183675346,
+   "delta": -774862
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:noble\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:noble\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-noble\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-noble\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg-3.1ubuntu2.2",
+      "to": "1:1.3.dfsg-3.1ubuntu2.3",
+      "purl": "pkg:deb/ubuntu/zlib1g@1%3A1.3.dfsg-3.1ubuntu2.3?arch=amd64&distro=ubuntu-24.04&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg-3.1ubuntu2.2",
+      "to": "1:1.3.dfsg-3.1ubuntu2.3",
+      "purl": "pkg:deb/ubuntu/zlib1g@1%3A1.3.dfsg-3.1ubuntu2.3?arch=arm64&distro=ubuntu-24.04&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

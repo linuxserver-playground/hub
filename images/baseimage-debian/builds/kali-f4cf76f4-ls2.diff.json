@@ -1,0 +1,203 @@
+{
+ "image": "baseimage-debian",
+ "branch": "kali",
+ "tag": "kali-f4cf76f4-ls2",
+ "previous_tag": "kali-f4cf76f4-ls1",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "f4cf76f4",
+  "to": "f4cf76f4",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 84233995,
+   "to": 84244257,
+   "delta": 10262
+  },
+  "arm64": {
+   "from": 83160839,
+   "to": 83164670,
+   "delta": 3831
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "findutils",
+      "from": "4.11.0-2",
+      "to": "4.11.0-3",
+      "purl": "pkg:deb/kali/findutils@4.11.0-3?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-4+b1",
+      "to": "1.2.0-4+b2",
+      "purl": "pkg:deb/kali/libbrotli1@1.2.0-4%2Bb2?arch=amd64&distro=kali-2026.3&upstream=brotli%401.2.0-4"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-bin@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-gconv-modules-extra",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-gconv-modules-extra@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-l10n@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6@2.43-7?arch=amd64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libcap-ng0",
+      "from": "0.9.6-1",
+      "to": "0.9.6-1+b1",
+      "purl": "pkg:deb/kali/libcap-ng0@0.9.6-1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=libcap-ng%400.9.6-1"
+     },
+     {
+      "name": "libseccomp2",
+      "from": "2.6.1-1+b1",
+      "to": "2.6.1-1+b2",
+      "purl": "pkg:deb/kali/libseccomp2@2.6.1-1%2Bb2?arch=amd64&distro=kali-2026.3&upstream=libseccomp%402.6.1-1"
+     },
+     {
+      "name": "libselinux1",
+      "from": "3.11-2.1",
+      "to": "3.11-2.1+b1",
+      "purl": "pkg:deb/kali/libselinux1@3.11-2.1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=libselinux%403.11-2.1"
+     },
+     {
+      "name": "locales",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "findutils",
+      "from": "4.11.0-2",
+      "to": "4.11.0-3",
+      "purl": "pkg:deb/kali/findutils@4.11.0-3?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-4+b1",
+      "to": "1.2.0-4+b2",
+      "purl": "pkg:deb/kali/libbrotli1@1.2.0-4%2Bb2?arch=arm64&distro=kali-2026.3&upstream=brotli%401.2.0-4"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-bin@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-gconv-modules-extra",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-gconv-modules-extra@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc-l10n@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/libc6@2.43-7?arch=arm64&distro=kali-2026.3&upstream=glibc"
+     },
+     {
+      "name": "libcap-ng0",
+      "from": "0.9.6-1",
+      "to": "0.9.6-1+b1",
+      "purl": "pkg:deb/kali/libcap-ng0@0.9.6-1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=libcap-ng%400.9.6-1"
+     },
+     {
+      "name": "libseccomp2",
+      "from": "2.6.1-1+b1",
+      "to": "2.6.1-1+b2",
+      "purl": "pkg:deb/kali/libseccomp2@2.6.1-1%2Bb2?arch=arm64&distro=kali-2026.3&upstream=libseccomp%402.6.1-1"
+     },
+     {
+      "name": "libselinux1",
+      "from": "3.11-2.1",
+      "to": "3.11-2.1+b1",
+      "purl": "pkg:deb/kali/libselinux1@3.11-2.1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=libselinux%403.11-2.1"
+     },
+     {
+      "name": "locales",
+      "from": "2.43-6",
+      "to": "2.43-7",
+      "purl": "pkg:deb/kali/locales@2.43-7?arch=all&distro=kali-2026.3&upstream=glibc"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 20,
+  "downgraded": 0
+ }
+}

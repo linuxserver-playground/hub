@@ -1,0 +1,70 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "master",
+ "tag": "debiantrixie-612493d5-ls6",
+ "previous_tag": "debiantrixie-612493d5-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "612493d5",
+  "to": "612493d5",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:trixie",
+   "digest": "sha256:e89a3742d22b9ad1a29a42c59fa94c9a4b013cb989f7e5ab2b57db408e1b8eff"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:trixie",
+   "digest": "sha256:2af25f328c9d73732b6763c263e15408178cf4426f258b85f2c5e5c49d750220"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 971814073,
+   "to": 971809403,
+   "delta": -4670
+  },
+  "arm64": {
+   "from": 927380749,
+   "to": 927375181,
+   "delta": -5568
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -376,9 +376,9 @@\n COPY /root /\n COPY --from=frontend /buildout /usr/share/selkies\n COPY --from=interposers /buildout /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-debiantrixie-xvfb / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-debiantrixie-wtype / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-debiantrixie-labwc / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-debiantrixie-xvfb / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-debiantrixie-wtype / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-debiantrixie-labwc / /\n \n # ports and volumes\n EXPOSE 3000 3001\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -351,9 +351,9 @@\n COPY /root /\n COPY --from=frontend /buildout /usr/share/selkies\n COPY --from=interposers /buildout /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-debiantrixie-xvfb / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-debiantrixie-wtype / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-debiantrixie-labwc / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-debiantrixie-xvfb / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-debiantrixie-wtype / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-debiantrixie-labwc / /\n \n # ports and volumes\n EXPOSE 3000 3001\n"
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

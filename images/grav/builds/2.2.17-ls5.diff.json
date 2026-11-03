@@ -1,0 +1,78 @@
+{
+ "image": "grav",
+ "branch": "main",
+ "tag": "2.2.17-ls5",
+ "previous_tag": "2.2.16-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "repository at a newer commit (828de0f → f335c0f)"
+ ],
+ "upstream": {
+  "from": "2.2.16",
+  "to": "2.2.17",
+  "changed": true
+ },
+ "commit": {
+  "from": "828de0fb3ca6b033823256b5c216a34132cc1fda",
+  "to": "f335c0f662079f6a84b370da64171eb9b34ff30d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-grav/compare/828de0fb3ca6b033823256b5c216a34132cc1fda...f335c0f662079f6a84b370da64171eb9b34ff30d"
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:30be75c4c7470207fece77d8399848c405a6e5c14ff3fb7ca82a4cfc37498b7b"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a55ef6f5b72baa4997d79d545cdd81d262c2a719afbaddf2984d93f9250db2a0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 61807028,
+   "to": 61853002,
+   "delta": 45974
+  },
+  "arm64": {
+   "from": 62399327,
+   "to": 62448538,
+   "delta": 49211
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

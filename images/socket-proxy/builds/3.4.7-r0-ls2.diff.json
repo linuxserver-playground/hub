@@ -1,0 +1,69 @@
+{
+ "image": "socket-proxy",
+ "branch": "main",
+ "tag": "3.4.7-r0-ls2",
+ "previous_tag": "3.4.7-r0-ls1",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "3.4.7-r0",
+  "to": "3.4.7-r0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "docker.io/alpine:3.24",
+   "digest": "sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "docker.io/alpine:3.24",
+   "digest": "sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 7064409,
+   "to": 7064427,
+   "delta": 18
+  },
+  "arm64": {
+   "from": 7334240,
+   "to": 7334263,
+   "delta": 23
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

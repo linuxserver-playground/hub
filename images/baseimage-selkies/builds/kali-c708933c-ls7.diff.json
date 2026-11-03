@@ -1,0 +1,255 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "kali",
+ "tag": "kali-c708933c-ls7",
+ "previous_tag": "kali-3a231ab9-ls6",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "Dockerfile changed",
+  "packages changed",
+  "2 commits (c6ec592 → 7e04df8): changed the Dockerfiles, the package table"
+ ],
+ "upstream": {
+  "from": "3a231ab9",
+  "to": "c708933c",
+  "changed": true
+ },
+ "commit": {
+  "from": "c6ec5922243052976d3b40584a327de19a54a98f",
+  "to": "7e04df8db23a2837c8278c6b374bc7763dbd0da4",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/c6ec5922243052976d3b40584a327de19a54a98f...7e04df8db23a2837c8278c6b374bc7763dbd0da4",
+  "commits": [
+   {
+    "sha": "b64d86d29c93e7c50c1d8e2e79a0f8ddd6f740c1",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T10:15:55Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/b64d86d29c93e7c50c1d8e2e79a0f8ddd6f740c1",
+    "bot": true
+   },
+   {
+    "sha": "7e04df8db23a2837c8278c6b374bc7763dbd0da4",
+    "subject": "Stop duplicating the base image's locales",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-11-01T18:12:44Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/7e04df8db23a2837c8278c6b374bc7763dbd0da4",
+    "bot": false
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "dockerfile": 2,
+   "packages": 1
+  }
+ },
+ "trigger": "push",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:74853d443c3a793a1525dab0e72dd411bf2b978e2128d72c262d0eb99e66dc6c"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:74853d443c3a793a1525dab0e72dd411bf2b978e2128d72c262d0eb99e66dc6c"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1109248404,
+   "to": 1055448587,
+   "delta": -53799817
+  },
+  "arm64": {
+   "from": 1060669439,
+   "to": 1006751818,
+   "delta": -53917621
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -353,10 +353,6 @@\n   chmod +x /usr/local/bin/dind && \\\n   echo 'hosts: files dns' > /etc/nsswitch.conf && \\\n   usermod -aG docker abc && \\\n-  echo \"**** locales ****\" && \\\n-  for LOCALE in $(curl -sL https://raw.githubusercontent.com/thelamer/lang-stash/master/langs); do \\\n-    localedef -i $LOCALE -f UTF-8 $LOCALE.UTF-8; \\\n-  done && \\\n   echo \"**** theme ****\" && \\\n   curl -s https://raw.githubusercontent.com/thelamer/lang-stash/master/theme.tar.gz \\\n     | tar xzvf - -C /usr/share/themes/Clearlooks/openbox-3/ && \\\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -328,10 +328,6 @@\n   chmod +x /usr/local/bin/dind && \\\n   echo 'hosts: files dns' > /etc/nsswitch.conf && \\\n   usermod -aG docker abc && \\\n-  echo \"**** locales ****\" && \\\n-  for LOCALE in $(curl -sL https://raw.githubusercontent.com/thelamer/lang-stash/master/langs); do \\\n-    localedef -i $LOCALE -f UTF-8 $LOCALE.UTF-8; \\\n-  done && \\\n   echo \"**** theme ****\" && \\\n   curl -s https://raw.githubusercontent.com/thelamer/lang-stash/master/theme.tar.gz \\\n     | tar xzvf - -C /usr/share/themes/Clearlooks/openbox-3/ && \\\n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.6.1-1~debian.12~bookworm",
+      "to": "5.7.0-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-compose-plugin@5.7.0-1~debian.12~bookworm?arch=amd64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.6.1",
+      "to": "v5.7.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.0"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.6.1-1~debian.12~bookworm",
+      "to": "5.7.0-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-compose-plugin@5.7.0-1~debian.12~bookworm?arch=arm64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.6.1",
+      "to": "v5.7.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.0"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 6,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

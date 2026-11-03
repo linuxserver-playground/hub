@@ -1,0 +1,107 @@
+{
+ "schema": 1,
+ "name": "dolphin",
+ "summary": "[Dolphin Emulator](https://dolphin-emu.org/) lets you play GameCube and Wii games with various graphical enhancements and other features are available to improve your game experience.",
+ "upstream": {
+  "url": "https://dolphin-emu.org/",
+  "version": {
+   "type": "regex",
+   "url": "https://raw.githubusercontent.com/flathub/org.DolphinEmu.dolphin-emu/refs/heads/master/org.DolphinEmu.dolphin-emu.metainfo.xml",
+   "pattern": "<release version=\"([^\"]+)\""
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "DOLPHIN_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Dolphin desktop gui HTTP must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Dolphin desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dolphin-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n**On container creation you need to exit and open dolphin in order for gamepads to work. Right click the desktop to open programs.**\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-05-06",
+   "text": "Build dolphin from source, ingest latest versions, remove aarch64 support."
+  },
+  {
+   "date": "2026-03-05",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-08-15",
+   "text": "Rebase to Debian Trixie for updated Dolphin, update controller mapping."
+  },
+  {
+   "date": "2025-06-18",
+   "text": "Initial Version."
+  }
+ ]
+}

@@ -1,0 +1,210 @@
+{
+ "image": "webtop",
+ "branch": "arch-kde",
+ "tag": "arch-kde-2026-10-30-ls5",
+ "previous_tag": "arch-kde-2026-10-30-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (fc70c0a → 90f6ca5): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "2026-10-30",
+  "to": "2026-10-30",
+  "changed": false
+ },
+ "commit": {
+  "from": "fc70c0a7951bbeff4fa4d358dc899ed9aef72f91",
+  "to": "90f6ca57a9e080a4a13fb704037eee81bfbae1c0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/fc70c0a7951bbeff4fa4d358dc899ed9aef72f91...90f6ca57a9e080a4a13fb704037eee81bfbae1c0",
+  "commits": [
+   {
+    "sha": "90f6ca57a9e080a4a13fb704037eee81bfbae1c0",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T02:54:11Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/90f6ca57a9e080a4a13fb704037eee81bfbae1c0",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 2
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:455bc16ef1ea84666cc6c974b4f9ab1f78164891b03d5302afe16be6c3bc6bfd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b8c03e9b9565c0f91d326af3bddd794cf8bc4f9f6f0d843eb488edb80f4e5b4c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 2182369102,
+   "to": 2182422648,
+   "delta": 53546
+  },
+  "arm64": {
+   "from": 2224909117,
+   "to": 2224996169,
+   "delta": 87052
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "aom",
+      "from": "3.15.2-1",
+      "to": "3.15.3-1",
+      "purl": "pkg:alpm/arch/aom@3.15.3-1?arch=x86_64&distro=arch-rolling&upstream=aom"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": "pkg:alpm/arch/gnupg@2.4.9-4?arch=x86_64&distro=arch-rolling&upstream=gnupg"
+     },
+     {
+      "name": "libjpeg-turbo",
+      "from": "3.2.0-2",
+      "to": "3.2.1-1",
+      "purl": "pkg:alpm/arch/libjpeg-turbo@3.2.1-1?arch=x86_64&distro=arch-rolling&upstream=libjpeg-turbo"
+     },
+     {
+      "name": "onetbb",
+      "from": "2023.1.0-1",
+      "to": "2023.2.0-1",
+      "purl": "pkg:alpm/arch/onetbb@2023.2.0-1?arch=x86_64&distro=arch-rolling&upstream=onetbb"
+     },
+     {
+      "name": "openexr",
+      "from": "3.5.2-1",
+      "to": "3.5.3-1",
+      "purl": "pkg:alpm/arch/openexr@3.5.3-1?arch=x86_64&distro=arch-rolling&upstream=openexr"
+     },
+     {
+      "name": "wayland-protocols",
+      "from": "1.49-1",
+      "to": "1.50-1",
+      "purl": "pkg:alpm/arch/wayland-protocols@1.50-1?arch=any&distro=arch-rolling&upstream=wayland-protocols"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tbb",
+      "from": "2023.1.0",
+      "to": "2023.2.0",
+      "purl": "pkg:pypi/tbb@2023.2.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1",
+      "to": "156.0.8078.79-1",
+      "purl": null
+     },
+     {
+      "name": "ldb",
+      "from": "2:4.25.0-1",
+      "to": "2:4.25.1-1",
+      "purl": null
+     },
+     {
+      "name": "libwbclient",
+      "from": "2:4.25.0-1",
+      "to": "2:4.25.1-1",
+      "purl": null
+     },
+     {
+      "name": "onetbb",
+      "from": "2023.1.0-1",
+      "to": "2023.2.0-1",
+      "purl": null
+     },
+     {
+      "name": "openexr",
+      "from": "3.5.2-1",
+      "to": "3.5.3-1",
+      "purl": null
+     },
+     {
+      "name": "smbclient",
+      "from": "2:4.25.0-1",
+      "to": "2:4.25.1-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tbb",
+      "from": "2023.1.0",
+      "to": "2023.2.0",
+      "purl": "pkg:pypi/tbb@2023.2.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

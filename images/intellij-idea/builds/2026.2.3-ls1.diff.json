@@ -1,0 +1,90 @@
+{
+ "image": "intellij-idea",
+ "branch": "master",
+ "tag": "2026.2.3-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "2026.2.3",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:e9b920dcb61b3e0d110aaa7d05a4b40ae3752d5512c258a35f36f3167ef5527e"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 2470235432,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "DISABLE_DRI3",
+    "DISPLAY",
+    "HOME",
+    "LC_ALL",
+    "LSIO_FIRST_PARTY",
+    "NO_GAMEPAD",
+    "NVIDIA_DRIVER_CAPABILITIES",
+    "PATH",
+    "PERL5LIB",
+    "PIXELFLUX_WAYLAND",
+    "PS1",
+    "PULSE_RUNTIME_PATH",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "SELKIES_ALLOWED_ORIGINS",
+    "SELKIES_ENABLE_BASIC_AUTH",
+    "SELKIES_ENCODER",
+    "SELKIES_INTERPOSER",
+    "SELKIES_RATE_CONTROL_MODE",
+    "SELKIES_VIDEO_STREAMING_MODE",
+    "SELKIES_WEBCAM_INTERPOSER",
+    "SHELL",
+    "START_DOCKER",
+    "TERM",
+    "TITLE",
+    "VIRTUAL_ENV",
+    "__GL_SYNC_TO_VBLANK"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "3000/tcp",
+    "3001/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}
