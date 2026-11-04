@@ -139,6 +139,7 @@ ignores query strings.
 | Path | What |
 | --- | --- |
 | `/health`, `/health.json` | `"Success"` or `"Failed"` (always HTTP 200 from a static host). |
+| `/deploy.json` | The Deploy run this site came from (`run_id`, `run_attempt`, `sha`, `built_at`). The Deploy checks Pages serves it before it finishes (`scripts/pages_serves.sh`), and control reads it to tell a stale site from data the hub lacks. |
 | `/api/v1/images`, `.json`, `.config.json`, `.deprecated.json`, `.config.deprecated.json` | The original list endpoint and its switches. |
 | `/api/v1/catalog.json`, `/api/v1/catalog/{name}.json` | Every image, or one, in full (`ImageDetail`). |
 | `/api/v1/catalog/{name}/docker-compose.yml` | Compose file from `builder.snippets`. |
