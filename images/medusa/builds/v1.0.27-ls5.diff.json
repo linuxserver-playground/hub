@@ -1,0 +1,221 @@
+{
+ "image": "medusa",
+ "branch": "master",
+ "tag": "v1.0.27-ls5",
+ "previous_tag": "v1.0.27-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (8653c54 → e7f1669): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v1.0.27",
+  "to": "v1.0.27",
+  "changed": false
+ },
+ "commit": {
+  "from": "8653c5428da9d3386cf18c30c0e63f0d5649dea5",
+  "to": "e7f1669e4ecc4a16bee0fece2aa75fb4e61c42c3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-medusa/compare/8653c5428da9d3386cf18c30c0e63f0d5649dea5...e7f1669e4ecc4a16bee0fece2aa75fb4e61c42c3",
+  "commits": [
+   {
+    "sha": "0c65a313bc46cef4085bbcfd9375a2bccba5f5a6",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:47:44Z",
+    "url": "https://github.com/linuxserver-playground/docker-medusa/commit/0c65a313bc46cef4085bbcfd9375a2bccba5f5a6",
+    "bot": true
+   },
+   {
+    "sha": "e7f1669e4ecc4a16bee0fece2aa75fb4e61c42c3",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T15:36:43Z",
+    "url": "https://github.com/linuxserver-playground/docker-medusa/commit/e7f1669e4ecc4a16bee0fece2aa75fb4e61c42c3",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 3
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:2407abb0b4203bf43b927c1004200b3a54815aa39e7544ec48079df3f0154cc5"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:720a8b962c7cb6c8bcbc747ca074ee519c7e602ce4e217aa789087b602e4b29b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 141184835,
+   "to": 141202758,
+   "delta": 17923
+  },
+  "arm64": {
+   "from": 138953989,
+   "to": 138975917,
+   "delta": 21928
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/pyc@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "python3-gdbm",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-gdbm@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pyc@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.12.16-r0?arch=x86_64&distro=alpine-3.23.7&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pysubs2",
+      "from": "1.9.0",
+      "to": "1.9.1",
+      "purl": "pkg:pypi/pysubs2@1.9.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/pyc@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "python3-gdbm",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-gdbm@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pyc@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.12.15-r0",
+      "to": "3.12.16-r0",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.12.16-r0?arch=aarch64&distro=alpine-3.23.7&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pysubs2",
+      "from": "1.9.0",
+      "to": "1.9.1",
+      "purl": "pkg:pypi/pysubs2@1.9.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

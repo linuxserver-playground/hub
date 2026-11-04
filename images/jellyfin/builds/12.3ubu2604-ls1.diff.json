@@ -1,0 +1,81 @@
+{
+ "image": "jellyfin",
+ "branch": "master",
+ "tag": "12.3ubu2604-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "12.3+ubu2604",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:resolute",
+   "digest": "sha256:17f8127f438b5203c47149a87769ec8c82849d93c08cf8521c18949fd6ae8ee9"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 342391966,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 305857879,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "ATTACHED_DEVICES_PERMS",
+    "HOME",
+    "LANG",
+    "LANGUAGE",
+    "LSIO_FIRST_PARTY",
+    "MALLOC_TRIM_THRESHOLD_",
+    "NVIDIA_DRIVER_CAPABILITIES",
+    "PATH",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "8096/tcp",
+    "8920/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

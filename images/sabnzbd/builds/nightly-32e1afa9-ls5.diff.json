@@ -1,0 +1,161 @@
+{
+ "image": "sabnzbd",
+ "branch": "nightly",
+ "tag": "nightly-32e1afa9-ls5",
+ "previous_tag": "nightly-cd098799-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "2 commits (60bba65 → 8838040): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "cd098799",
+  "to": "32e1afa9",
+  "changed": true
+ },
+ "commit": {
+  "from": "60bba658ca3f65d058f40c933188a1a1683d9bc6",
+  "to": "88380404e72196321fad90529d515a73bd85fb0b",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-sabnzbd/compare/60bba658ca3f65d058f40c933188a1a1683d9bc6...88380404e72196321fad90529d515a73bd85fb0b",
+  "commits": [
+   {
+    "sha": "046e12823ad7b413b2c6f6e476b9619286b04cdb",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T16:41:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-sabnzbd/commit/046e12823ad7b413b2c6f6e476b9619286b04cdb",
+    "bot": true
+   },
+   {
+    "sha": "88380404e72196321fad90529d515a73bd85fb0b",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T06:53:50Z",
+    "url": "https://github.com/linuxserver-playground/docker-sabnzbd/commit/88380404e72196321fad90529d515a73bd85fb0b",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 2,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 76279130,
+   "to": 76306501,
+   "delta": 27371
+  },
+  "arm64": {
+   "from": 76188854,
+   "to": 76214806,
+   "delta": 25952
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "markdown",
+      "from": "3.11",
+      "to": "3.11.1",
+      "purl": "pkg:pypi/markdown@3.11.1"
+     },
+     {
+      "name": "more-itertools",
+      "from": "11.1.0",
+      "to": "11.2.1",
+      "purl": "pkg:pypi/more-itertools@11.2.1"
+     },
+     {
+      "name": "starlette",
+      "from": "1.7.0",
+      "to": "1.9.0",
+      "purl": "pkg:pypi/starlette@1.9.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "markdown",
+      "from": "3.11",
+      "to": "3.11.1",
+      "purl": "pkg:pypi/markdown@3.11.1"
+     },
+     {
+      "name": "more-itertools",
+      "from": "11.1.0",
+      "to": "11.2.1",
+      "purl": "pkg:pypi/more-itertools@11.2.1"
+     },
+     {
+      "name": "starlette",
+      "from": "1.7.0",
+      "to": "1.9.0",
+      "purl": "pkg:pypi/starlette@1.9.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

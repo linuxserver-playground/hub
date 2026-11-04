@@ -1,0 +1,251 @@
+{
+ "schema": 1,
+ "name": "cops",
+ "summary": "[Cops](https://github.com/mikespub-org/seblucas-cops) by Sébastien Lucas, now maintained by MikesPub, stands for Calibre OPDS (and HTML) Php Server.\n\nCOPS links to your Calibre library database and allows downloading and emailing of books directly from a web browser and provides a OPDS feed to connect to your devices.\n\nChanges in your Calibre library are reflected immediately in your COPS pages.\n\nSee : [COPS's home](https://github.com/mikespub-org/seblucas-cops) for more details.\n\nDon't forget to check the [Wiki](https://github.com/mikespub-org/seblucas-cops/wiki).\n\n## Why? (taken from the author's site)\n\nIn my opinion Calibre is a marvelous tool but is too big and has too much\ndependencies to be used for its content server.\n\nThat's the main reason why I coded this OPDS server. I needed a simple\ntool to be installed on a small server (Seagate Dockstar in my case).\n\nI initially thought of Calibre2OPDS but as it generate static file no\nsearch was possible.\n\nLater I added an simple HTML catalog that should be usable on my Kobo.\n\nSo COPS's main advantages are :\n * No need for many dependencies.\n * No need for a lot of CPU or RAM.\n * Not much code.\n * Search is available.\n * With Dropbox / owncloud it's very easy to have an up to date OPDS server.\n * It was fun to code.\n\nIf you want to use the OPDS feed don't forget to specify /feed at the end of your URL.",
+ "upstream": {
+  "url": "https://github.com/mikespub-org/seblucas-cops",
+  "version": {
+   "type": "github_release",
+   "repo": "mikespub-org/seblucas-cops"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "mikespub-org/seblucas-cops"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "COPS_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 80
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "HTTP WebUI"
+   },
+   {
+    "internal": "443",
+    "description": "HTTPS WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/cops/config",
+    "description": "COPS Application Data."
+   },
+   {
+    "path": "/books",
+    "host_path": "/path/to/data",
+    "description": "Calibre metadata.db location."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Books"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cops-icon.png",
+  "setup": "Access the webui at `http://<docker host ip>:80`. For connecting via OPDS on a mobile device use `http://<docker host ip>:80/index.php/feed` or `http://<docker host ip>:80/feed`. It is strongly suggested that you reverse proxy this prior to exposing to the internet. For more information, such as requiring credentials, check the COPS Wiki (linked above).\n\nThe linuxserver version gives you access to `config/local.php` in `/config` to customise your install to suit your needs, it also includes the dependencies required to directly view epub books in your browser.\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-21",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-06-10",
+   "text": "Existing users should verify: site-confs/default.conf and config/local.php - Update redirect location and use front controller."
+  },
+  {
+   "date": "2026-02-08",
+   "text": "Existing users should update: site-confs/default.conf - Deny access to all dotfiles."
+  },
+  {
+   "date": "2026-02-08",
+   "text": "Adding missing php-tokenizer package."
+  },
+  {
+   "date": "2025-10-10",
+   "text": "Adding missing icu-data-full package."
+  },
+  {
+   "date": "2025-07-10",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-05-14",
+   "text": "Existing users should verify: site-confs/default.conf and config/local.php - Clean-up default site conf and local.php."
+  },
+  {
+   "date": "2024-12-16",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-09-24",
+   "text": "Existing users should verify: site-confs/default.conf - Update rewriting rules default site conf."
+  },
+  {
+   "date": "2024-09-14",
+   "text": "Ensure user config files have the right permissions."
+  },
+  {
+   "date": "2024-09-09",
+   "text": "In COPS 3.x, the config_local.php is being moved over to config/local.php and this container will automatically migrate it. Existing users should verify: config_local.php and/or config/local.php - define $config['cops_kepubify_path'] if they want to use it"
+  },
+  {
+   "date": "2024-08-28",
+   "text": "Add kepubify tool to update metadata for Kobo - see mikespub-org/seblucas-cops#77"
+  },
+  {
+   "date": "2024-06-24",
+   "text": "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2024-05-07",
+   "text": "Existing users should verify: site-confs/default.conf - Fix rewriting rules default site conf."
+  },
+  {
+   "date": "2024-03-20",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-12-25",
+   "text": "Existing users should update: site-confs/default.conf - Cleanup default site conf."
+  },
+  {
+   "date": "2023-08-11",
+   "text": "Undeprecate and add new branch with mikespub fork which is actively maintained."
+  },
+  {
+   "date": "2023-05-15",
+   "text": "Deprecate due to upstream dev abandonment of project."
+  },
+  {
+   "date": "2023-04-13",
+   "text": "Move ssl.conf include to default.conf."
+  },
+  {
+   "date": "2023-01-19",
+   "text": "Rebase to alpine 3.17 with php8.1."
+  },
+  {
+   "date": "2022-08-20",
+   "text": "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+  },
+  {
+   "date": "2020-11-22",
+   "text": "Pin composer version to 1.10.17."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-27",
+   "text": "Upgrade packages during install to prevent mismatch with baseimage."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2019-01-14",
+   "text": "Add multiarch and pipeline logic."
+  },
+  {
+   "date": "2018-08-21",
+   "text": "Rebase to alpine 3.8."
+  },
+  {
+   "date": "2018-07-02",
+   "text": "Add php7-ctype dependency."
+  },
+  {
+   "date": "2018-01-08",
+   "text": "Rebase to alpine 3.7."
+  },
+  {
+   "date": "2017-05-25",
+   "text": "Rebase to alpine 3.6."
+  },
+  {
+   "date": "2017-04-03",
+   "text": "Add composer packages, reduce layers."
+  },
+  {
+   "date": "2017-04-02",
+   "text": "Updated to version 1.1.0."
+  },
+  {
+   "date": "2017-02-05",
+   "text": "Updated to Alpine 3.5 & PHP7."
+  },
+  {
+   "date": "2016-10-24",
+   "text": "Updated to implement user based config."
+  },
+  {
+   "date": "2016-10-24",
+   "text": "Updated to version 1.0.1."
+  },
+  {
+   "date": "2016-10-14",
+   "text": "Add version layer information."
+  },
+  {
+   "date": "2016-09-28",
+   "text": "Add php5-zlib."
+  },
+  {
+   "date": "2016-09-11",
+   "text": "Add layer badges to README."
+  },
+  {
+   "date": "2016-08-29",
+   "text": "Add php5-opcache."
+  },
+  {
+   "date": "2016-08-28",
+   "text": "Add badges to README."
+  },
+  {
+   "date": "2016-08-12",
+   "text": "Initial Release."
+  }
+ ]
+}

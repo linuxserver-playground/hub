@@ -1,0 +1,1115 @@
+{
+ "image": "homeassistant",
+ "branch": "main",
+ "tag": "2026.10.4-ls4",
+ "previous_tag": "2026.10.4-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (b031c2b → 0dded4f): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "2026.10.4",
+  "to": "2026.10.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "b031c2bd16bd83c93c71d182432847e3e588c86d",
+  "to": "0dded4f29f0b6f47aca102bb81d0719aa2e02988",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-homeassistant/compare/b031c2bd16bd83c93c71d182432847e3e588c86d...0dded4f29f0b6f47aca102bb81d0719aa2e02988",
+  "commits": [
+   {
+    "sha": "9e5efa3ec819e7093a3603b6bac68e94b83e74d7",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:45:36Z",
+    "url": "https://github.com/linuxserver-playground/docker-homeassistant/commit/9e5efa3ec819e7093a3603b6bac68e94b83e74d7",
+    "bot": true
+   },
+   {
+    "sha": "0dded4f29f0b6f47aca102bb81d0719aa2e02988",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T13:46:23Z",
+    "url": "https://github.com/linuxserver-playground/docker-homeassistant/commit/0dded4f29f0b6f47aca102bb81d0719aa2e02988",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 3
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 716046343,
+   "to": 716393307,
+   "delta": 346964
+  },
+  "arm64": {
+   "from": 703512489,
+   "to": 703786673,
+   "delta": 274184
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "azure-storage-queue",
+      "from": "12.18.0",
+      "to": "12.18.1",
+      "purl": "pkg:pypi/azure-storage-queue@12.18.1"
+     },
+     {
+      "name": "cachetools",
+      "from": "7.2.6",
+      "to": "7.2.8",
+      "purl": "pkg:pypi/cachetools@7.2.8"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "frozendict",
+      "from": "2.4.7",
+      "to": "2.5.1",
+      "purl": "pkg:pypi/frozendict@2.5.1"
+     },
+     {
+      "name": "google-api-core",
+      "from": "2.43.0",
+      "to": "2.43.2",
+      "purl": "pkg:pypi/google-api-core@2.43.2"
+     },
+     {
+      "name": "httplib2",
+      "from": "0.32.0",
+      "to": "0.32.1",
+      "purl": "pkg:pypi/httplib2@0.32.1"
+     },
+     {
+      "name": "nodeenv",
+      "from": "1.11.0",
+      "to": "1.12.0",
+      "purl": "pkg:pypi/nodeenv@1.12.0"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "opentelemetry-sdk",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-sdk@1.45.2"
+     },
+     {
+      "name": "opentelemetry-semantic-conventions",
+      "from": "0.66b1",
+      "to": "0.66b2",
+      "purl": "pkg:pypi/opentelemetry-semantic-conventions@0.66b2"
+     },
+     {
+      "name": "pydantic-settings",
+      "from": "2.16.1",
+      "to": "2.16.2",
+      "purl": "pkg:pypi/pydantic-settings@2.16.2"
+     },
+     {
+      "name": "python-engineio",
+      "from": "4.15.0",
+      "to": "4.15.1",
+      "purl": "pkg:pypi/python-engineio@4.15.1"
+     },
+     {
+      "name": "python-multipart",
+      "from": "0.0.32",
+      "to": "0.0.33",
+      "purl": "pkg:pypi/python-multipart@0.0.33"
+     },
+     {
+      "name": "python-socketio",
+      "from": "5.17.0",
+      "to": "5.17.1",
+      "purl": "pkg:pypi/python-socketio@5.17.1"
+     },
+     {
+      "name": "python-socks",
+      "from": "3.2.0",
+      "to": "3.2.1",
+      "purl": "pkg:pypi/python-socks@3.2.1"
+     },
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "selenium",
+      "from": "4.51.0",
+      "to": "4.52.0",
+      "purl": "pkg:pypi/selenium@4.52.0"
+     },
+     {
+      "name": "trio",
+      "from": "0.34.0",
+      "to": "0.35.0",
+      "purl": "pkg:pypi/trio@0.35.0"
+     },
+     {
+      "name": "types-pytz",
+      "from": "2026.5.0.20261006",
+      "to": "2026.6.0.20261031",
+      "purl": "pkg:pypi/types-pytz@2026.6.0.20261031"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     },
+     {
+      "name": "virtualenv",
+      "from": "21.15.1",
+      "to": "21.15.2",
+      "purl": "pkg:pypi/virtualenv@21.15.2"
+     },
+     {
+      "name": "wrapt",
+      "from": "2.5.1",
+      "to": "2.5.2",
+      "purl": "pkg:pypi/wrapt@2.5.2"
+     },
+     {
+      "name": "xlsxwriter",
+      "from": "3.3.0",
+      "to": "3.3.1",
+      "purl": "pkg:pypi/xlsxwriter@3.3.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "rust-crate": {
+    "added": [
+     {
+      "name": "cpubits",
+      "version": "0.1.1",
+      "purl": "pkg:cargo/cpubits@0.1.1"
+     },
+     {
+      "name": "lzma-rust2",
+      "version": "0.23.0",
+      "purl": "pkg:cargo/lzma-rust2@0.23.0"
+     },
+     {
+      "name": "ppmd-rust",
+      "version": "1.5.2",
+      "purl": "pkg:cargo/ppmd-rust@1.5.2"
+     },
+     {
+      "name": "sevenz-rust2",
+      "version": "0.24.1",
+      "purl": "pkg:cargo/sevenz-rust2@0.24.1"
+     }
+    ],
+    "removed": [
+     {
+      "name": "bit-set",
+      "version": "0.6.0",
+      "purl": "pkg:cargo/bit-set@0.6.0"
+     },
+     {
+      "name": "bit-vec",
+      "version": "0.7.0",
+      "purl": "pkg:cargo/bit-vec@0.7.0"
+     },
+     {
+      "name": "filetime_creation",
+      "version": "0.2.0",
+      "purl": "pkg:cargo/filetime_creation@0.2.0"
+     },
+     {
+      "name": "fs2",
+      "version": "0.4.3",
+      "purl": "pkg:cargo/fs2@0.4.3"
+     },
+     {
+      "name": "lzma-rust",
+      "version": "0.1.7",
+      "purl": "pkg:cargo/lzma-rust@0.1.7"
+     },
+     {
+      "name": "nt-time",
+      "version": "0.8.1",
+      "purl": "pkg:cargo/nt-time@0.8.1"
+     },
+     {
+      "name": "sevenz-rust",
+      "version": "0.6.1",
+      "purl": "pkg:cargo/sevenz-rust@0.6.1"
+     },
+     {
+      "name": "time-macros",
+      "version": "0.2.32",
+      "purl": "pkg:cargo/time-macros@0.2.32"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "aes",
+      "from": "0.8.4",
+      "to": "0.9.3",
+      "purl": "pkg:cargo/aes@0.9.3"
+     },
+     {
+      "name": "block-padding",
+      "from": "0.3.3",
+      "to": "0.4.2",
+      "purl": "pkg:cargo/block-padding@0.4.2"
+     },
+     {
+      "name": "cbc",
+      "from": "0.1.2",
+      "to": "0.2.1",
+      "purl": "pkg:cargo/cbc@0.2.1"
+     },
+     {
+      "name": "cc",
+      "from": "1.6.0",
+      "to": "1.9.0",
+      "purl": "pkg:cargo/cc@1.9.0"
+     },
+     {
+      "name": "cipher",
+      "from": "0.4.4",
+      "to": "0.5.2",
+      "purl": "pkg:cargo/cipher@0.5.2"
+     },
+     {
+      "name": "combine",
+      "from": "4.6.8",
+      "to": "4.6.9",
+      "purl": "pkg:cargo/combine@4.6.9"
+     },
+     {
+      "name": "crc32fast",
+      "from": "1.5.2",
+      "to": "1.5.3",
+      "purl": "pkg:cargo/crc32fast@1.5.3"
+     },
+     {
+      "name": "defmt",
+      "from": "1.1.1",
+      "to": "1.2.0",
+      "purl": "pkg:cargo/defmt@1.2.0"
+     },
+     {
+      "name": "defmt-macros",
+      "from": "1.1.1",
+      "to": "1.2.0",
+      "purl": "pkg:cargo/defmt-macros@1.2.0"
+     },
+     {
+      "name": "defmt-parser",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:cargo/defmt-parser@1.1.0"
+     },
+     {
+      "name": "equivalent",
+      "from": "1.0.2",
+      "to": "1.0.3",
+      "purl": "pkg:cargo/equivalent@1.0.3"
+     },
+     {
+      "name": "find-msvc-tools",
+      "from": "0.1.14",
+      "to": "0.1.15",
+      "purl": "pkg:cargo/find-msvc-tools@0.1.15"
+     },
+     {
+      "name": "hybrid-array",
+      "from": "0.4.13",
+      "to": "0.4.15",
+      "purl": "pkg:cargo/hybrid-array@0.4.15"
+     },
+     {
+      "name": "hyper",
+      "from": "1.11.1",
+      "to": "1.12.0",
+      "purl": "pkg:cargo/hyper@1.12.0"
+     },
+     {
+      "name": "inout",
+      "from": "0.1.4",
+      "to": "0.2.5",
+      "purl": "pkg:cargo/inout@0.2.5"
+     },
+     {
+      "name": "jiff",
+      "from": "0.2.37",
+      "to": "0.2.38",
+      "purl": "pkg:cargo/jiff@0.2.38"
+     },
+     {
+      "name": "jiff-static",
+      "from": "0.2.37",
+      "to": "0.2.38",
+      "purl": "pkg:cargo/jiff-static@0.2.38"
+     },
+     {
+      "name": "libc",
+      "from": "0.2.190",
+      "to": "0.2.191",
+      "purl": "pkg:cargo/libc@0.2.191"
+     },
+     {
+      "name": "rustls",
+      "from": "0.23.45",
+      "to": "0.23.46",
+      "purl": "pkg:cargo/rustls@0.23.46"
+     },
+     {
+      "name": "rustls-native-certs",
+      "from": "0.8.4",
+      "to": "0.8.5",
+      "purl": "pkg:cargo/rustls-native-certs@0.8.5"
+     },
+     {
+      "name": "schannel",
+      "from": "0.1.29",
+      "to": "0.1.30",
+      "purl": "pkg:cargo/schannel@0.1.30"
+     },
+     {
+      "name": "selenium_manager",
+      "from": "0.4.51",
+      "to": "0.4.52",
+      "purl": "pkg:cargo/selenium-manager@0.4.52?download_url=file://.#src/lib.rs"
+     },
+     {
+      "name": "serde_json",
+      "from": "1.0.151",
+      "to": "1.0.154",
+      "purl": "pkg:cargo/serde_json@1.0.154"
+     },
+     {
+      "name": "serde_spanned",
+      "from": "1.1.1",
+      "to": "1.1.2",
+      "purl": "pkg:cargo/serde_spanned@1.1.2"
+     },
+     {
+      "name": "sha2",
+      "from": "0.11.0",
+      "to": "0.11.1",
+      "purl": "pkg:cargo/sha2@0.11.1"
+     },
+     {
+      "name": "smallvec",
+      "from": "1.16.2",
+      "to": "1.16.3",
+      "purl": "pkg:cargo/smallvec@1.16.3"
+     },
+     {
+      "name": "syn",
+      "from": "3.0.6",
+      "to": "3.0.9",
+      "purl": "pkg:cargo/syn@3.0.9"
+     },
+     {
+      "name": "tokio",
+      "from": "1.53.2",
+      "to": "1.54.0",
+      "purl": "pkg:cargo/tokio@1.54.0"
+     },
+     {
+      "name": "toml",
+      "from": "1.1.6+spec-1.1.0",
+      "to": "1.1.8+spec-1.1.0",
+      "purl": "pkg:cargo/toml@1.1.8+spec-1.1.0"
+     },
+     {
+      "name": "toml_datetime",
+      "from": "1.1.1+spec-1.1.0",
+      "to": "1.1.2+spec-1.1.0",
+      "purl": "pkg:cargo/toml_datetime@1.1.2+spec-1.1.0"
+     },
+     {
+      "name": "toml_writer",
+      "from": "1.1.2+spec-1.1.0",
+      "to": "1.1.3+spec-1.1.0",
+      "purl": "pkg:cargo/toml_writer@1.1.3+spec-1.1.0"
+     },
+     {
+      "name": "typed-path",
+      "from": "0.12.3",
+      "to": "0.12.4",
+      "purl": "pkg:cargo/typed-path@0.12.4"
+     },
+     {
+      "name": "unicode-ident",
+      "from": "1.0.26",
+      "to": "1.0.27",
+      "purl": "pkg:cargo/unicode-ident@1.0.27"
+     },
+     {
+      "name": "uuid",
+      "from": "1.27.0",
+      "to": "1.28.0",
+      "purl": "pkg:cargo/uuid@1.28.0"
+     },
+     {
+      "name": "want",
+      "from": "0.3.1",
+      "to": "0.3.2",
+      "purl": "pkg:cargo/want@0.3.2"
+     },
+     {
+      "name": "webpki-root-certs",
+      "from": "1.0.9",
+      "to": "1.0.10",
+      "purl": "pkg:cargo/webpki-root-certs@1.0.10"
+     },
+     {
+      "name": "webpki-roots",
+      "from": "1.0.9",
+      "to": "1.0.10",
+      "purl": "pkg:cargo/webpki-roots@1.0.10"
+     },
+     {
+      "name": "zerocopy",
+      "from": "0.8.59",
+      "to": "0.8.63",
+      "purl": "pkg:cargo/zerocopy@0.8.63"
+     },
+     {
+      "name": "zerocopy-derive",
+      "from": "0.8.59",
+      "to": "0.8.63",
+      "purl": "pkg:cargo/zerocopy-derive@0.8.63"
+     },
+     {
+      "name": "zeroize",
+      "from": "1.9.0",
+      "to": "1.9.1",
+      "purl": "pkg:cargo/zeroize@1.9.1"
+     },
+     {
+      "name": "zip",
+      "from": "8.6.0",
+      "to": "9.0.5",
+      "purl": "pkg:cargo/zip@9.0.5"
+     },
+     {
+      "name": "zopfli",
+      "from": "0.8.3",
+      "to": "0.8.4",
+      "purl": "pkg:cargo/zopfli@0.8.4"
+     },
+     {
+      "name": "zstd-sys",
+      "from": "2.1.0+zstd.1.5.7",
+      "to": "2.1.2+zstd.1.5.7",
+      "purl": "pkg:cargo/zstd-sys@2.1.2+zstd.1.5.7"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "crc",
+      "from": "3.4.0",
+      "to": "3.3.0",
+      "purl": "pkg:cargo/crc@3.3.0"
+     },
+     {
+      "name": "crc-catalog",
+      "from": "2.5.0",
+      "to": "2.4.0",
+      "purl": "pkg:cargo/crc-catalog@2.4.0"
+     },
+     {
+      "name": "num-conv",
+      "from": "0.2.2",
+      "to": "0.2.0",
+      "purl": "pkg:cargo/num-conv@0.2.0"
+     },
+     {
+      "name": "time",
+      "from": "0.3.55",
+      "to": "0.3.47",
+      "purl": "pkg:cargo/time@0.3.47"
+     },
+     {
+      "name": "time-core",
+      "from": "0.1.9",
+      "to": "0.1.8",
+      "purl": "pkg:cargo/time-core@0.1.8"
+     }
+    ]
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "azure-storage-queue",
+      "from": "12.18.0",
+      "to": "12.18.1",
+      "purl": "pkg:pypi/azure-storage-queue@12.18.1"
+     },
+     {
+      "name": "cachetools",
+      "from": "7.2.6",
+      "to": "7.2.8",
+      "purl": "pkg:pypi/cachetools@7.2.8"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "frozendict",
+      "from": "2.4.7",
+      "to": "2.5.1",
+      "purl": "pkg:pypi/frozendict@2.5.1"
+     },
+     {
+      "name": "google-api-core",
+      "from": "2.43.0",
+      "to": "2.43.2",
+      "purl": "pkg:pypi/google-api-core@2.43.2"
+     },
+     {
+      "name": "httplib2",
+      "from": "0.32.0",
+      "to": "0.32.1",
+      "purl": "pkg:pypi/httplib2@0.32.1"
+     },
+     {
+      "name": "nodeenv",
+      "from": "1.11.0",
+      "to": "1.12.0",
+      "purl": "pkg:pypi/nodeenv@1.12.0"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "opentelemetry-sdk",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-sdk@1.45.2"
+     },
+     {
+      "name": "opentelemetry-semantic-conventions",
+      "from": "0.66b1",
+      "to": "0.66b2",
+      "purl": "pkg:pypi/opentelemetry-semantic-conventions@0.66b2"
+     },
+     {
+      "name": "pydantic-settings",
+      "from": "2.16.1",
+      "to": "2.16.2",
+      "purl": "pkg:pypi/pydantic-settings@2.16.2"
+     },
+     {
+      "name": "python-engineio",
+      "from": "4.15.0",
+      "to": "4.15.1",
+      "purl": "pkg:pypi/python-engineio@4.15.1"
+     },
+     {
+      "name": "python-multipart",
+      "from": "0.0.32",
+      "to": "0.0.33",
+      "purl": "pkg:pypi/python-multipart@0.0.33"
+     },
+     {
+      "name": "python-socketio",
+      "from": "5.17.0",
+      "to": "5.17.1",
+      "purl": "pkg:pypi/python-socketio@5.17.1"
+     },
+     {
+      "name": "python-socks",
+      "from": "3.2.0",
+      "to": "3.2.1",
+      "purl": "pkg:pypi/python-socks@3.2.1"
+     },
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "selenium",
+      "from": "4.51.0",
+      "to": "4.52.0",
+      "purl": "pkg:pypi/selenium@4.52.0"
+     },
+     {
+      "name": "trio",
+      "from": "0.34.0",
+      "to": "0.35.0",
+      "purl": "pkg:pypi/trio@0.35.0"
+     },
+     {
+      "name": "types-pytz",
+      "from": "2026.5.0.20261006",
+      "to": "2026.6.0.20261031",
+      "purl": "pkg:pypi/types-pytz@2026.6.0.20261031"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     },
+     {
+      "name": "virtualenv",
+      "from": "21.15.1",
+      "to": "21.15.2",
+      "purl": "pkg:pypi/virtualenv@21.15.2"
+     },
+     {
+      "name": "wrapt",
+      "from": "2.5.1",
+      "to": "2.5.2",
+      "purl": "pkg:pypi/wrapt@2.5.2"
+     },
+     {
+      "name": "xlsxwriter",
+      "from": "3.3.0",
+      "to": "3.3.1",
+      "purl": "pkg:pypi/xlsxwriter@3.3.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "rust-crate": {
+    "added": [
+     {
+      "name": "cpubits",
+      "version": "0.1.1",
+      "purl": "pkg:cargo/cpubits@0.1.1"
+     },
+     {
+      "name": "lzma-rust2",
+      "version": "0.23.0",
+      "purl": "pkg:cargo/lzma-rust2@0.23.0"
+     },
+     {
+      "name": "ppmd-rust",
+      "version": "1.5.2",
+      "purl": "pkg:cargo/ppmd-rust@1.5.2"
+     },
+     {
+      "name": "sevenz-rust2",
+      "version": "0.24.1",
+      "purl": "pkg:cargo/sevenz-rust2@0.24.1"
+     }
+    ],
+    "removed": [
+     {
+      "name": "bit-set",
+      "version": "0.6.0",
+      "purl": "pkg:cargo/bit-set@0.6.0"
+     },
+     {
+      "name": "bit-vec",
+      "version": "0.7.0",
+      "purl": "pkg:cargo/bit-vec@0.7.0"
+     },
+     {
+      "name": "filetime_creation",
+      "version": "0.2.0",
+      "purl": "pkg:cargo/filetime_creation@0.2.0"
+     },
+     {
+      "name": "fs2",
+      "version": "0.4.3",
+      "purl": "pkg:cargo/fs2@0.4.3"
+     },
+     {
+      "name": "lzma-rust",
+      "version": "0.1.7",
+      "purl": "pkg:cargo/lzma-rust@0.1.7"
+     },
+     {
+      "name": "nt-time",
+      "version": "0.8.1",
+      "purl": "pkg:cargo/nt-time@0.8.1"
+     },
+     {
+      "name": "sevenz-rust",
+      "version": "0.6.1",
+      "purl": "pkg:cargo/sevenz-rust@0.6.1"
+     },
+     {
+      "name": "time-macros",
+      "version": "0.2.32",
+      "purl": "pkg:cargo/time-macros@0.2.32"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "aes",
+      "from": "0.8.4",
+      "to": "0.9.3",
+      "purl": "pkg:cargo/aes@0.9.3"
+     },
+     {
+      "name": "block-padding",
+      "from": "0.3.3",
+      "to": "0.4.2",
+      "purl": "pkg:cargo/block-padding@0.4.2"
+     },
+     {
+      "name": "cbc",
+      "from": "0.1.2",
+      "to": "0.2.1",
+      "purl": "pkg:cargo/cbc@0.2.1"
+     },
+     {
+      "name": "cc",
+      "from": "1.6.0",
+      "to": "1.9.0",
+      "purl": "pkg:cargo/cc@1.9.0"
+     },
+     {
+      "name": "cipher",
+      "from": "0.4.4",
+      "to": "0.5.2",
+      "purl": "pkg:cargo/cipher@0.5.2"
+     },
+     {
+      "name": "combine",
+      "from": "4.6.8",
+      "to": "4.6.9",
+      "purl": "pkg:cargo/combine@4.6.9"
+     },
+     {
+      "name": "crc32fast",
+      "from": "1.5.2",
+      "to": "1.5.3",
+      "purl": "pkg:cargo/crc32fast@1.5.3"
+     },
+     {
+      "name": "defmt",
+      "from": "1.1.1",
+      "to": "1.2.0",
+      "purl": "pkg:cargo/defmt@1.2.0"
+     },
+     {
+      "name": "defmt-macros",
+      "from": "1.1.1",
+      "to": "1.2.0",
+      "purl": "pkg:cargo/defmt-macros@1.2.0"
+     },
+     {
+      "name": "defmt-parser",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:cargo/defmt-parser@1.1.0"
+     },
+     {
+      "name": "equivalent",
+      "from": "1.0.2",
+      "to": "1.0.3",
+      "purl": "pkg:cargo/equivalent@1.0.3"
+     },
+     {
+      "name": "find-msvc-tools",
+      "from": "0.1.14",
+      "to": "0.1.15",
+      "purl": "pkg:cargo/find-msvc-tools@0.1.15"
+     },
+     {
+      "name": "hybrid-array",
+      "from": "0.4.13",
+      "to": "0.4.15",
+      "purl": "pkg:cargo/hybrid-array@0.4.15"
+     },
+     {
+      "name": "hyper",
+      "from": "1.11.1",
+      "to": "1.12.0",
+      "purl": "pkg:cargo/hyper@1.12.0"
+     },
+     {
+      "name": "inout",
+      "from": "0.1.4",
+      "to": "0.2.5",
+      "purl": "pkg:cargo/inout@0.2.5"
+     },
+     {
+      "name": "jiff",
+      "from": "0.2.37",
+      "to": "0.2.38",
+      "purl": "pkg:cargo/jiff@0.2.38"
+     },
+     {
+      "name": "jiff-static",
+      "from": "0.2.37",
+      "to": "0.2.38",
+      "purl": "pkg:cargo/jiff-static@0.2.38"
+     },
+     {
+      "name": "libc",
+      "from": "0.2.190",
+      "to": "0.2.191",
+      "purl": "pkg:cargo/libc@0.2.191"
+     },
+     {
+      "name": "rustls",
+      "from": "0.23.45",
+      "to": "0.23.46",
+      "purl": "pkg:cargo/rustls@0.23.46"
+     },
+     {
+      "name": "rustls-native-certs",
+      "from": "0.8.4",
+      "to": "0.8.5",
+      "purl": "pkg:cargo/rustls-native-certs@0.8.5"
+     },
+     {
+      "name": "schannel",
+      "from": "0.1.29",
+      "to": "0.1.30",
+      "purl": "pkg:cargo/schannel@0.1.30"
+     },
+     {
+      "name": "selenium_manager",
+      "from": "0.4.51",
+      "to": "0.4.52",
+      "purl": "pkg:cargo/selenium-manager@0.4.52?download_url=file://.#src/lib.rs"
+     },
+     {
+      "name": "serde_json",
+      "from": "1.0.151",
+      "to": "1.0.154",
+      "purl": "pkg:cargo/serde_json@1.0.154"
+     },
+     {
+      "name": "serde_spanned",
+      "from": "1.1.1",
+      "to": "1.1.2",
+      "purl": "pkg:cargo/serde_spanned@1.1.2"
+     },
+     {
+      "name": "sha2",
+      "from": "0.11.0",
+      "to": "0.11.1",
+      "purl": "pkg:cargo/sha2@0.11.1"
+     },
+     {
+      "name": "smallvec",
+      "from": "1.16.2",
+      "to": "1.16.3",
+      "purl": "pkg:cargo/smallvec@1.16.3"
+     },
+     {
+      "name": "syn",
+      "from": "3.0.6",
+      "to": "3.0.9",
+      "purl": "pkg:cargo/syn@3.0.9"
+     },
+     {
+      "name": "tokio",
+      "from": "1.53.2",
+      "to": "1.54.0",
+      "purl": "pkg:cargo/tokio@1.54.0"
+     },
+     {
+      "name": "toml",
+      "from": "1.1.6+spec-1.1.0",
+      "to": "1.1.8+spec-1.1.0",
+      "purl": "pkg:cargo/toml@1.1.8+spec-1.1.0"
+     },
+     {
+      "name": "toml_datetime",
+      "from": "1.1.1+spec-1.1.0",
+      "to": "1.1.2+spec-1.1.0",
+      "purl": "pkg:cargo/toml_datetime@1.1.2+spec-1.1.0"
+     },
+     {
+      "name": "toml_writer",
+      "from": "1.1.2+spec-1.1.0",
+      "to": "1.1.3+spec-1.1.0",
+      "purl": "pkg:cargo/toml_writer@1.1.3+spec-1.1.0"
+     },
+     {
+      "name": "typed-path",
+      "from": "0.12.3",
+      "to": "0.12.4",
+      "purl": "pkg:cargo/typed-path@0.12.4"
+     },
+     {
+      "name": "unicode-ident",
+      "from": "1.0.26",
+      "to": "1.0.27",
+      "purl": "pkg:cargo/unicode-ident@1.0.27"
+     },
+     {
+      "name": "uuid",
+      "from": "1.27.0",
+      "to": "1.28.0",
+      "purl": "pkg:cargo/uuid@1.28.0"
+     },
+     {
+      "name": "want",
+      "from": "0.3.1",
+      "to": "0.3.2",
+      "purl": "pkg:cargo/want@0.3.2"
+     },
+     {
+      "name": "webpki-root-certs",
+      "from": "1.0.9",
+      "to": "1.0.10",
+      "purl": "pkg:cargo/webpki-root-certs@1.0.10"
+     },
+     {
+      "name": "webpki-roots",
+      "from": "1.0.9",
+      "to": "1.0.10",
+      "purl": "pkg:cargo/webpki-roots@1.0.10"
+     },
+     {
+      "name": "zerocopy",
+      "from": "0.8.59",
+      "to": "0.8.63",
+      "purl": "pkg:cargo/zerocopy@0.8.63"
+     },
+     {
+      "name": "zerocopy-derive",
+      "from": "0.8.59",
+      "to": "0.8.63",
+      "purl": "pkg:cargo/zerocopy-derive@0.8.63"
+     },
+     {
+      "name": "zeroize",
+      "from": "1.9.0",
+      "to": "1.9.1",
+      "purl": "pkg:cargo/zeroize@1.9.1"
+     },
+     {
+      "name": "zip",
+      "from": "8.6.0",
+      "to": "9.0.5",
+      "purl": "pkg:cargo/zip@9.0.5"
+     },
+     {
+      "name": "zopfli",
+      "from": "0.8.3",
+      "to": "0.8.4",
+      "purl": "pkg:cargo/zopfli@0.8.4"
+     },
+     {
+      "name": "zstd-sys",
+      "from": "2.1.0+zstd.1.5.7",
+      "to": "2.1.2+zstd.1.5.7",
+      "purl": "pkg:cargo/zstd-sys@2.1.2+zstd.1.5.7"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "crc",
+      "from": "3.4.0",
+      "to": "3.3.0",
+      "purl": "pkg:cargo/crc@3.3.0"
+     },
+     {
+      "name": "crc-catalog",
+      "from": "2.5.0",
+      "to": "2.4.0",
+      "purl": "pkg:cargo/crc-catalog@2.4.0"
+     },
+     {
+      "name": "num-conv",
+      "from": "0.2.2",
+      "to": "0.2.0",
+      "purl": "pkg:cargo/num-conv@0.2.0"
+     },
+     {
+      "name": "time",
+      "from": "0.3.55",
+      "to": "0.3.47",
+      "purl": "pkg:cargo/time@0.3.47"
+     },
+     {
+      "name": "time-core",
+      "from": "0.1.9",
+      "to": "0.1.8",
+      "purl": "pkg:cargo/time-core@0.1.8"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "added": 8,
+  "removed": 16,
+  "upgraded": 132,
+  "downgraded": 10
+ }
+}

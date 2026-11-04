@@ -1,0 +1,98 @@
+{
+ "image": "plex",
+ "branch": "master",
+ "tag": "1.43.5.11079-b3b13e506-ls3",
+ "previous_tag": "1.43.5.11029-6bf8af3f0-ls3",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1.43.5.11029-6bf8af3f0",
+  "to": "1.43.5.11079-b3b13e506",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:af31dd6a7384f37b9936e8fa93c72fc8182603a5e4e1d749563f46d3d21e0993"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:af31dd6a7384f37b9936e8fa93c72fc8182603a5e4e1d749563f46d3d21e0993"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 178275962,
+   "to": 178267422,
+   "delta": -8540
+  },
+  "arm64": {
+   "from": 170569489,
+   "to": 170556031,
+   "delta": -13458
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "plexmediaserver",
+      "from": "1.43.5.11029-6bf8af3f0",
+      "to": "1.43.5.11079-b3b13e506",
+      "purl": "pkg:deb/ubuntu/plexmediaserver@1.43.5.11079-b3b13e506?arch=amd64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "plexmediaserver",
+      "from": "1.43.5.11029-6bf8af3f0",
+      "to": "1.43.5.11079-b3b13e506",
+      "purl": "pkg:deb/ubuntu/plexmediaserver@1.43.5.11079-b3b13e506?arch=arm64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

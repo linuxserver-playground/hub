@@ -1,0 +1,102 @@
+{
+ "image": "baseimage-arch",
+ "branch": "master",
+ "tag": "2026-10-31-ls6",
+ "previous_tag": "2026-10-31-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-31",
+  "to": "2026-10-31",
+  "changed": false
+ },
+ "commit": {
+  "from": "14af8dfcddb7c860453fc4999cbc5b8ef79efa93",
+  "to": "14af8dfcddb7c860453fc4999cbc5b8ef79efa93",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "arch",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "arch",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 133097167,
+   "to": 133100939,
+   "delta": 3772
+  },
+  "arm64": {
+   "from": 196827703,
+   "to": 196825742,
+   "delta": -1961
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "kmod",
+      "from": "34.2-1",
+      "to": "34.3-1",
+      "purl": "pkg:alpm/arch/kmod@34.3-1?arch=x86_64&distro=arch-rolling&upstream=kmod"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "kmod",
+      "from": "34.2-1",
+      "to": "34.3-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}
