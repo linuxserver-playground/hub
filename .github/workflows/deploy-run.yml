@@ -86,18 +86,23 @@ jobs:
           scripts/pages_serves.sh stamp dist
 
       - name: Upload the Pages artifact
+        id: upload
         uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
-      # deploy-pages reports success when GitHub accepts the deployment, not when the site serves it, and on
-      # 2026-11-04 GitHub accepted five in a row that never went live (scripts/pages_serves.sh). So ask the site for
-      # this run's stamp and deploy again when it is not there, three deploys in all, then fail: a red run is what
-      # control heals (it dispatches this workflow again with backoff, recover.py) and what keeps hub-updated from
-      # sending the site to rebuild from data Pages does not serve.
+      # Not actions/deploy-pages: it names every deploy after the commit, and main rarely moves now the data lives on
+      # its own branch, so Pages answered each deploy with an earlier deploy's status and kept serving that one (five
+      # "successful" deploys on 2026-11-04, an hour of them on 11-05). workflows' deploy-pages sends the same requests
+      # under a build version of each deploy's own. A deploy that reports success is still not trusted: ask the site
+      # for this run's stamp (scripts/pages_serves.sh) and deploy again when it is not there, three deploys in all,
+      # then fail: a red run is what control heals (it dispatches this workflow again with backoff, recover.py) and
+      # what keeps hub-updated from sending the site to rebuild from data Pages does not serve.
       - name: Deploy to Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: linuxserver-playground/workflows/.github/actions/deploy-pages@v1
+        with:
+          artifact_id: ${{ steps.upload.outputs.artifact_id }}
 
       - name: Check that Pages serves the deploy
         id: check
@@ -115,9 +120,10 @@ jobs:
       - name: Deploy to Pages again
         id: deployment2
         if: steps.upload2.outcome == 'success'
-        uses: actions/deploy-pages@v5
+        uses: linuxserver-playground/workflows/.github/actions/deploy-pages@v1
         with:
-          artifact_name: github-pages-2
+          artifact_id: ${{ steps.upload2.outputs.artifact_id }}
+          attempt: "2"
 
       - name: Check that Pages serves the second deploy
         id: check2
@@ -136,9 +142,10 @@ jobs:
       - name: Deploy to Pages a last time
         id: deployment3
         if: steps.upload3.outcome == 'success'
-        uses: actions/deploy-pages@v5
+        uses: linuxserver-playground/workflows/.github/actions/deploy-pages@v1
         with:
-          artifact_name: github-pages-3
+          artifact_id: ${{ steps.upload3.outputs.artifact_id }}
+          attempt: "3"
 
       # Control reads a failure in any step from the first upload on as Pages' (recover.py, HUB_PAGES_STEPS): keep
       # the step names in step with it. Failing here means Pages still serves an older deploy after three.

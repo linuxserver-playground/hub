@@ -7,8 +7,11 @@
 # deploy-pages reports success when GitHub has accepted a deployment, not when the site serves it. On 2026-11-04 five
 # deploys in a row (18:37 to 19:44 UTC) reported success while the hub kept serving its 18:32 deploy, with GitHub's
 # status page all green; three releases waited over an hour for their pages and every party thought its part was
-# done. So the deploy writes a stamp naming its run, and after deploying asks the live site for it, cache-busted,
-# until the stamp is this run's or CHECK_SECONDS (default 240; a deploy normally shows within a minute) have passed.
+# done. The cause, found on 2026-11-05: deploy-pages names a deploy after the commit, and Pages answers a second
+# deploy of the same commit with the first one's status. The Deploy now uses workflows' deploy-pages, which gives each
+# deploy a version of its own, and keeps this check, because a success Pages reports is still only a report. So the
+# deploy writes a stamp naming its run, and after deploying asks the live site for it, cache-busted, until the stamp
+# is this run's or CHECK_SECONDS (default 240; a deploy normally shows within a minute) have passed.
 # Run from the deploy job: GITHUB_RUN_ID, GITHUB_RUN_ATTEMPT and GITHUB_SHA name the run.
 set -euo pipefail
 
