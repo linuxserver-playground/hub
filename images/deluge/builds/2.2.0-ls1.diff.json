@@ -1,0 +1,81 @@
+{
+ "image": "deluge",
+ "branch": "master",
+ "tag": "2.2.0-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "2.2.0",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/unrar:latest",
+   "digest": "sha256:48c0ce2609bb3c35764956bbd9395e95b177421e3c74b3628c3676029f24f2e0"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 79499461,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 78628887,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "HOME",
+    "LSIO_FIRST_PARTY",
+    "PATH",
+    "PS1",
+    "PYTHON_EGG_CACHE",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "TMPDIR",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [
+    "58846/tcp",
+    "58946/tcp",
+    "58946/udp",
+    "8112/tcp"
+   ],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

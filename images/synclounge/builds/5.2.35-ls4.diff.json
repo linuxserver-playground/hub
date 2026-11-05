@@ -1,0 +1,148 @@
+{
+ "image": "synclounge",
+ "branch": "master",
+ "tag": "5.2.35-ls4",
+ "previous_tag": "5.2.35-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "5.2.35",
+  "to": "5.2.35",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:eb47a870474f80cd21a201d51986484bc09dfba5b8b099a252de947527a0c24c"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 55837097,
+   "to": 55865376,
+   "delta": 28279
+  },
+  "arm64": {
+   "from": 56506201,
+   "to": 56530368,
+   "delta": 24167
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r0",
+      "to": "24.22.1-r1",
+      "purl": "pkg:apk/alpine/nodejs@24.22.1-r1?arch=x86_64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@types/node",
+      "from": "26.6.5",
+      "to": "26.6.6",
+      "purl": "pkg:npm/%40types/node@26.6.6"
+     },
+     {
+      "name": "encodeurl",
+      "from": "2.0.0",
+      "to": "2.0.1",
+      "purl": "pkg:npm/encodeurl@2.0.1"
+     },
+     {
+      "name": "qs",
+      "from": "6.16.1",
+      "to": "6.16.2",
+      "purl": "pkg:npm/qs@6.16.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r0",
+      "to": "24.22.1-r1",
+      "purl": "pkg:apk/alpine/nodejs@24.22.1-r1?arch=aarch64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@types/node",
+      "from": "26.6.5",
+      "to": "26.6.6",
+      "purl": "pkg:npm/%40types/node@26.6.6"
+     },
+     {
+      "name": "encodeurl",
+      "from": "2.0.0",
+      "to": "2.0.1",
+      "purl": "pkg:npm/encodeurl@2.0.1"
+     },
+     {
+      "name": "qs",
+      "from": "6.16.1",
+      "to": "6.16.2",
+      "purl": "pkg:npm/qs@6.16.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

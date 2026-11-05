@@ -1,0 +1,120 @@
+{
+ "schema": 1,
+ "name": "openshot",
+ "summary": "[OpenShot](https://openshot.org/) Video Editor is an award-winning free and open-source video editor for Linux, Mac, and Windows, and is dedicated to delivering high quality video editing and animation solutions to the world.",
+ "upstream": {
+  "url": "https://openshot.org/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "http://ppa.launchpad.net/openshot.developers/ppa/ubuntu/dists/resolute/main/binary-amd64/Packages.gz",
+   "package": "openshot-qt"
+  },
+  "sponsor": [
+   {
+    "name": "OpenShot",
+    "url": "https://www.openshot.org/donate/"
+   }
+  ],
+  "notes": {
+   "type": "github_release",
+   "repo": "OpenShot/openshot-qt",
+   "tag": "v${VERSION}",
+   "transform": [
+    {
+     "regex": "\\+.*$",
+     "replace": ""
+    }
+   ]
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "OPENSHOT_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "OpenShot desktop gui (for reverse proxy only)."
+   },
+   {
+    "internal": "3001",
+    "description": "OpenShot desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/openshot/config",
+    "description": "User's home directory in the container, stores program settings and files."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Video Editor"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openshot-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-08-07",
+   "text": "Rebase to Ubuntu Resolute, install from ppa."
+  },
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-29",
+   "text": "Rebase to selkies. Breaking Change: HTTPS is now required. Either use a reverse proxy (like SWAG) with SSL cert or direct connect to port 3001 with HTTPS."
+  },
+  {
+   "date": "2024-12-23",
+   "text": "Initial release."
+  }
+ ]
+}

@@ -1,0 +1,124 @@
+{
+ "image": "kometa",
+ "branch": "develop",
+ "tag": "develop-61fe2586-ls5",
+ "previous_tag": "develop-cc35af06-ls4",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed",
+  "1 commit (a188a4f → 4c8dfab): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "cc35af06",
+  "to": "61fe2586",
+  "changed": true
+ },
+ "commit": {
+  "from": "a188a4f2eb45f40f3c2c9b17ea0e452e7d684ca2",
+  "to": "4c8dfab3ca9f738c37233ab4505ee643b18eb0f8",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kometa/compare/a188a4f2eb45f40f3c2c9b17ea0e452e7d684ca2...4c8dfab3ca9f738c37233ab4505ee643b18eb0f8",
+  "commits": [
+   {
+    "sha": "4c8dfab3ca9f738c37233ab4505ee643b18eb0f8",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T15:26:33Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/4c8dfab3ca9f738c37233ab4505ee643b18eb0f8",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 317854249,
+   "to": 317851094,
+   "delta": -3155
+  },
+  "arm64": {
+   "from": 317268322,
+   "to": 317271705,
+   "delta": 3383
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

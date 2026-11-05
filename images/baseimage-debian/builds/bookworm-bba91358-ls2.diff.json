@@ -1,0 +1,107 @@
+{
+ "image": "baseimage-debian",
+ "branch": "bookworm",
+ "tag": "bookworm-bba91358-ls2",
+ "previous_tag": "bookworm-bba91358-ls1",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "bba91358",
+  "to": "bba91358",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 51020491,
+   "to": 51020325,
+   "delta": -166
+  },
+  "arm64": {
+   "from": 51383019,
+   "to": 51383861,
+   "delta": 842
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libssl3",
+      "from": "3.0.22-1~deb12u1",
+      "to": "3.0.22-1~deb12u2",
+      "purl": "pkg:deb/debian/libssl3@3.0.22-1~deb12u2?arch=amd64&distro=debian-12.15&upstream=openssl"
+     },
+     {
+      "name": "openssl",
+      "from": "3.0.22-1~deb12u1",
+      "to": "3.0.22-1~deb12u2",
+      "purl": "pkg:deb/debian/openssl@3.0.22-1~deb12u2?arch=amd64&distro=debian-12.15"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libssl3",
+      "from": "3.0.22-1~deb12u1",
+      "to": "3.0.22-1~deb12u2",
+      "purl": "pkg:deb/debian/libssl3@3.0.22-1~deb12u2?arch=arm64&distro=debian-12.15&upstream=openssl"
+     },
+     {
+      "name": "openssl",
+      "from": "3.0.22-1~deb12u1",
+      "to": "3.0.22-1~deb12u2",
+      "purl": "pkg:deb/debian/openssl@3.0.22-1~deb12u2?arch=arm64&distro=debian-12.15"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

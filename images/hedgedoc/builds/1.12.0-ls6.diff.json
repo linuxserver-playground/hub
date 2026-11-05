@@ -1,0 +1,123 @@
+{
+ "image": "hedgedoc",
+ "branch": "main",
+ "tag": "1.12.0-ls6",
+ "previous_tag": "1.12.0-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (c4ce739 → 9c481d7): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "1.12.0",
+  "to": "1.12.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "c4ce7397457de4eded8d28ff153fd204b6f4ce39",
+  "to": "9c481d73fc449484f7472b0b23092a4d5455afb7",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-hedgedoc/compare/c4ce7397457de4eded8d28ff153fd204b6f4ce39...9c481d73fc449484f7472b0b23092a4d5455afb7",
+  "commits": [
+   {
+    "sha": "9c481d73fc449484f7472b0b23092a4d5455afb7",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T00:33:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-hedgedoc/commit/9c481d73fc449484f7472b0b23092a4d5455afb7",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 179988316,
+   "to": 179986164,
+   "delta": -2152
+  },
+  "arm64": {
+   "from": 190875000,
+   "to": 190873952,
+   "delta": -1048
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

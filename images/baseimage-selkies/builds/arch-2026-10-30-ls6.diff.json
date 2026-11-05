@@ -1,0 +1,385 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "arch",
+ "tag": "arch-2026-10-30-ls6",
+ "previous_tag": "arch-2026-10-30-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (a3886f1 → 21e14c1): changed the Dockerfiles"
+ ],
+ "upstream": {
+  "from": "2026-10-30",
+  "to": "2026-10-30",
+  "changed": false
+ },
+ "commit": {
+  "from": "a3886f1c82fecf0b935e4a56b7cd29635df61aa3",
+  "to": "21e14c1dd1735db05958abe1e99723ec399bc3c5",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/a3886f1c82fecf0b935e4a56b7cd29635df61aa3...21e14c1dd1735db05958abe1e99723ec399bc3c5",
+  "commits": [
+   {
+    "sha": "21e14c1dd1735db05958abe1e99723ec399bc3c5",
+    "subject": "Use glibc-locales instead of building locales",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-11-01T18:33:14Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/21e14c1dd1735db05958abe1e99723ec399bc3c5",
+    "bot": false
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "dockerfile": 2
+  }
+ },
+ "trigger": "push",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-arch:latest",
+   "digest": "sha256:8895ec8678b84d60cf3ccc6c619cb27c26c2608ebc2e2d395948560334613cf0"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-arch:latest",
+   "digest": "sha256:fda6aa9633ed13449d148e997c127da173ef6210d187d80599b0cc7993cba087"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1186336619,
+   "to": 1205488942,
+   "delta": 19152323
+  },
+  "arm64": {
+   "from": 1238225427,
+   "to": 1254443317,
+   "delta": 16217890
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -244,7 +244,10 @@\n     zlib \\\n     zstd && \\\n   pacman -Sy --noconfirm \\\n-    glibc && \\\n+    glib2 \\\n+    glibc \\\n+    glibc-locales \\\n+    libsecret && \\\n   echo \"**** user perms ****\" && \\\n   echo \"abc:abc\" | chpasswd && \\\n   usermod -s /bin/bash abc && \\\n@@ -333,10 +336,7 @@\n     https://raw.githubusercontent.com/moby/moby/master/hack/dind && \\\n   chmod +x /usr/local/bin/dind && \\\n   usermod -aG docker abc && \\\n-  echo \"**** configure locale and nginx ****\" && \\\n-  for LOCALE in $(curl -sL https://raw.githubusercontent.com/thelamer/lang-stash/master/langs); do \\\n-    localedef -i $LOCALE -f UTF-8 $LOCALE.UTF-8; \\\n-  done && \\\n+  echo \"**** configure nginx ****\" && \\\n   sed -i '$d' /etc/nginx/nginx.conf && \\\n   echo \"include /etc/nginx/conf.d/*;}\" >> /etc/nginx/nginx.conf && \\\n   mkdir -p /etc/nginx/conf.d && \\\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -222,7 +222,10 @@\n     zlib \\\n     zstd && \\\n   pacman -Sy --noconfirm \\\n-    glibc && \\\n+    glib2 \\\n+    glibc \\\n+    glibc-locales \\\n+    libsecret && \\\n   echo \"**** user perms ****\" && \\\n   echo \"abc:abc\" | chpasswd && \\\n   usermod -s /bin/bash abc && \\\n@@ -305,10 +308,7 @@\n     https://raw.githubusercontent.com/moby/moby/master/hack/dind && \\\n   chmod +x /usr/local/bin/dind && \\\n   usermod -aG docker abc && \\\n-  echo \"**** configure locale and nginx ****\" && \\\n-  for LOCALE in $(curl -sL https://raw.githubusercontent.com/thelamer/lang-stash/master/langs); do \\\n-    localedef -i $LOCALE -f UTF-8 $LOCALE.UTF-8; \\\n-  done && \\\n+  echo \"**** configure nginx ****\" && \\\n   sed -i '$d' /etc/nginx/nginx.conf && \\\n   echo \"include /etc/nginx/conf.d/*;}\" >> /etc/nginx/nginx.conf && \\\n   mkdir -p /etc/nginx/conf.d && \\\n"
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [
+     {
+      "name": "glibc-locales",
+      "version": "2.44+r50+g1848099f063e-1",
+      "purl": "pkg:alpm/arch/glibc-locales@2.44%2Br50%2Bg1848099f063e-1?arch=x86_64&distro=arch-rolling&upstream=glibc"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "debugedit",
+      "from": "5.3-2",
+      "to": "5.4-1",
+      "purl": "pkg:alpm/arch/debugedit@5.4-1?arch=x86_64&distro=arch-rolling&upstream=debugedit"
+     },
+     {
+      "name": "gperftools",
+      "from": "2.19.1-1",
+      "to": "2.19.2-1",
+      "purl": "pkg:alpm/arch/gperftools@2.19.2-1?arch=x86_64&distro=arch-rolling&upstream=gperftools"
+     },
+     {
+      "name": "kmod",
+      "from": "34.2-1",
+      "to": "34.3-1",
+      "purl": "pkg:alpm/arch/kmod@34.3-1?arch=x86_64&distro=arch-rolling&upstream=kmod"
+     },
+     {
+      "name": "lcms2",
+      "from": "2.19.1-1",
+      "to": "2.20-1",
+      "purl": "pkg:alpm/arch/lcms2@2.20-1?arch=x86_64&distro=arch-rolling&upstream=lcms2"
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.10-1",
+      "to": "3.8.11-1",
+      "purl": "pkg:alpm/arch/libarchive@3.8.11-1?arch=x86_64&distro=arch-rolling&upstream=libarchive"
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r32.gd49e9284-1",
+      "to": "2.2.1.r57.g9fcc4bf4-1",
+      "purl": "pkg:alpm/arch/libcupsfilters@2.2.1.r57.g9fcc4bf4-1?arch=x86_64&distro=arch-rolling&upstream=libcupsfilters"
+     },
+     {
+      "name": "noto-fonts",
+      "from": "1:2026.10.01-1",
+      "to": "1:2026.11.01-1",
+      "purl": "pkg:alpm/arch/noto-fonts@1%3A2026.11.01-1?arch=any&distro=arch-rolling&upstream=noto-fonts"
+     },
+     {
+      "name": "noto-fonts-emoji",
+      "from": "1:2.057-1",
+      "to": "1:20260924-1",
+      "purl": "pkg:alpm/arch/noto-fonts-emoji@1%3A20260924-1?arch=any&distro=arch-rolling&upstream=noto-fonts-emoji"
+     },
+     {
+      "name": "pdfio",
+      "from": "1.6.5-1",
+      "to": "1.6.6-1",
+      "purl": "pkg:alpm/arch/pdfio@1.6.6-1?arch=x86_64&distro=arch-rolling&upstream=pdfio"
+     },
+     {
+      "name": "python",
+      "from": "3.14.8-1",
+      "to": "3.14.9-1",
+      "purl": "pkg:alpm/arch/python@3.14.9-1?arch=x86_64&distro=arch-rolling&upstream=python"
+     },
+     {
+      "name": "sqlite",
+      "from": "3.54.0-1",
+      "to": "3.54.1-1",
+      "purl": "pkg:alpm/arch/sqlite@3.54.1-1?arch=x86_64&distro=arch-rolling&upstream=sqlite"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": "pkg:alpm/arch/tzdata@2026f-1?arch=x86_64&distro=arch-rolling&upstream=tzdata"
+     },
+     {
+      "name": "xf86-video-qxl",
+      "from": "0.1.6-2",
+      "to": "0.1.6-3",
+      "purl": "pkg:alpm/arch/xf86-video-qxl@0.1.6-3?arch=x86_64&distro=arch-rolling&upstream=xf86-video-qxl"
+     },
+     {
+      "name": "xkeyboard-config",
+      "from": "2.48-1",
+      "to": "2.49-1",
+      "purl": "pkg:alpm/arch/xkeyboard-config@2.49-1?arch=any&distro=arch-rolling&upstream=xkeyboard-config"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.6.17",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.1",
+      "to": "26.2.2",
+      "purl": "pkg:pypi/pip@26.2.2"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [
+     {
+      "name": "glibc-locales",
+      "version": "2.43+r22+g8362e8ce10b2-2",
+      "purl": null
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "debugedit",
+      "from": "5.3-2",
+      "to": "5.4-1",
+      "purl": null
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": null
+     },
+     {
+      "name": "gperftools",
+      "from": "2.19.1-1",
+      "to": "2.19.2-1",
+      "purl": null
+     },
+     {
+      "name": "kmod",
+      "from": "34.2-1",
+      "to": "34.3-1",
+      "purl": null
+     },
+     {
+      "name": "lcms2",
+      "from": "2.19.1-1",
+      "to": "2.20-1",
+      "purl": null
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.10-1",
+      "to": "3.8.11-1",
+      "purl": null
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r32.gd49e9284-1",
+      "to": "2.2.1.r57.g9fcc4bf4-1",
+      "purl": null
+     },
+     {
+      "name": "libjpeg-turbo",
+      "from": "3.2.0-2",
+      "to": "3.2.1-1",
+      "purl": null
+     },
+     {
+      "name": "noto-fonts",
+      "from": "1:2026.10.01-1",
+      "to": "1:2026.11.01-1",
+      "purl": null
+     },
+     {
+      "name": "noto-fonts-emoji",
+      "from": "1:2.057-1",
+      "to": "1:20260924-1",
+      "purl": null
+     },
+     {
+      "name": "pdfio",
+      "from": "1.6.5-1",
+      "to": "1.6.6-1",
+      "purl": null
+     },
+     {
+      "name": "python",
+      "from": "3.14.8-1",
+      "to": "3.14.9-1",
+      "purl": null
+     },
+     {
+      "name": "sqlite",
+      "from": "3.54.0-1",
+      "to": "3.54.1-1",
+      "purl": null
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": null
+     },
+     {
+      "name": "wayland-protocols",
+      "from": "1.49-1",
+      "to": "1.50-1",
+      "purl": null
+     },
+     {
+      "name": "xf86-video-qxl",
+      "from": "0.1.6-2",
+      "to": "0.1.6-3",
+      "purl": null
+     },
+     {
+      "name": "xkeyboard-config",
+      "from": "2.48-1",
+      "to": "2.49-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.6.17",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.1",
+      "to": "26.2.2",
+      "purl": "pkg:pypi/pip@26.2.2"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 0,
+  "upgraded": 41,
+  "downgraded": 0
+ }
+}

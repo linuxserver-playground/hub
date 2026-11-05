@@ -1,0 +1,173 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-10-30-ls6",
+ "previous_tag": "2026-10-30-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-30",
+  "to": "2026-10-30",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:455bc16ef1ea84666cc6c974b4f9ab1f78164891b03d5302afe16be6c3bc6bfd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:455bc16ef1ea84666cc6c974b4f9ab1f78164891b03d5302afe16be6c3bc6bfd"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 9423982422,
+   "to": 9423937994,
+   "delta": -44428
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "26.12.1-2",
+      "to": "26.13.0-1",
+      "purl": "pkg:alpm/arch/nodejs@26.13.0-1?arch=x86_64&distro=arch-rolling&upstream=nodejs"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@aws-sdk/core",
+      "from": "3.979.0",
+      "to": "3.979.1",
+      "purl": "pkg:npm/%40aws-sdk/core@3.979.1"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-cognito-identity",
+      "from": "3.972.78",
+      "to": "3.972.79",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-cognito-identity@3.972.79"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-env",
+      "from": "3.972.79",
+      "to": "3.972.80",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-env@3.972.80"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-http",
+      "from": "3.972.81",
+      "to": "3.972.82",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-http@3.972.82"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-ini",
+      "from": "3.973.24",
+      "to": "3.973.25",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-ini@3.973.25"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-login",
+      "from": "3.972.86",
+      "to": "3.972.87",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-login@3.972.87"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-node",
+      "from": "3.972.91",
+      "to": "3.972.92",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-node@3.972.92"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-process",
+      "from": "3.972.79",
+      "to": "3.972.80",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-process@3.972.80"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-sso",
+      "from": "3.973.23",
+      "to": "3.973.24",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-sso@3.973.24"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-web-identity",
+      "from": "3.972.85",
+      "to": "3.972.86",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-web-identity@3.972.86"
+     },
+     {
+      "name": "@aws-sdk/credential-providers",
+      "from": "3.1160.0",
+      "to": "3.1161.0",
+      "purl": "pkg:npm/%40aws-sdk/credential-providers@3.1161.0"
+     },
+     {
+      "name": "@aws-sdk/nested-clients",
+      "from": "3.997.53",
+      "to": "3.997.54",
+      "purl": "pkg:npm/%40aws-sdk/nested-clients@3.997.54"
+     },
+     {
+      "name": "@aws-sdk/signature-v4-multi-region",
+      "from": "3.996.50",
+      "to": "3.996.51",
+      "purl": "pkg:npm/%40aws-sdk/signature-v4-multi-region@3.996.51"
+     },
+     {
+      "name": "@aws-sdk/token-providers",
+      "from": "3.1160.0",
+      "to": "3.1161.0",
+      "purl": "pkg:npm/%40aws-sdk/token-providers@3.1161.0"
+     },
+     {
+      "name": "tslib",
+      "from": "2.8.1",
+      "to": "2.9.1",
+      "purl": "pkg:npm/tslib@2.9.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 16,
+  "downgraded": 0
+ }
+}

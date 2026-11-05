@@ -1,0 +1,77 @@
+{
+ "image": "joplin",
+ "branch": "master",
+ "tag": "v3.7.22-ls4",
+ "previous_tag": "v3.7.21-ls3",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v3.7.21",
+  "to": "v3.7.22",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1190783676,
+   "to": 1197111760,
+   "delta": 6328084
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "joplin",
+      "from": "3.7.21",
+      "to": "3.7.22",
+      "purl": "pkg:deb/debian/joplin@3.7.22?arch=amd64&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 1,
+  "downgraded": 0
+ }
+}

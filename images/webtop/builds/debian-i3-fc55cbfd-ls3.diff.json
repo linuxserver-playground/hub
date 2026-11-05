@@ -1,0 +1,217 @@
+{
+ "image": "webtop",
+ "branch": "debian-i3",
+ "tag": "debian-i3-fc55cbfd-ls3",
+ "previous_tag": "debian-i3-f14942b6-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "repository at a newer commit (b2d71d9 → abc3f1b)"
+ ],
+ "upstream": {
+  "from": "f14942b6",
+  "to": "fc55cbfd",
+  "changed": true
+ },
+ "commit": {
+  "from": "b2d71d98a466ad9d7588173578f34e2011f46480",
+  "to": "abc3f1b1d064cf3548488f091d23f822bd1c3c68",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/b2d71d98a466ad9d7588173578f34e2011f46480...abc3f1b1d064cf3548488f091d23f822bd1c3c68"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:9ad1e42368b8cf23437d79b8bd037e59e500d6fc52dc1b374b76dd9181245807"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:b6b7498350faa15f558fa5a1e83cd67540e7ddeb164bd4f376037838df52c52e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1171968599,
+   "to": 1172106793,
+   "delta": 138194
+  },
+  "arm64": {
+   "from": 1131987595,
+   "to": 1132118291,
+   "delta": 130696
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.73-1~deb13u1?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.73-1~deb13u1?arch=amd64&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.73-1~deb13u1?arch=all&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.73-1~deb13u1?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.73-1~deb13u1?arch=arm64&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.73-1~deb13u1?arch=all&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 18,
+  "downgraded": 0
+ }
+}
