@@ -345,8 +345,8 @@ The website's build page is the report (`https://linuxserver-playground.github.i
 CONVENTIONS §10). The hub's own report pages are retired, but the bundles and release notes of the first releases
 (`test.report_url`, made before `SITE_URL` was set) and older Discord posts link them, so `out/builds/` keeps one page
 of about 500 bytes per build the hub knows, held or only in `history.json`: a meta refresh, a canonical link and a
-plain link to the build's page on the website, which renders every such build (its 404 page renders one it predates
-or that rotated out from the API). `out/builds/<image>/index.html` redirects to the image page's build list
+plain link to the build's page on the website, which renders every such build in the browser from the API (or says
+it rotated out). `out/builds/<image>/index.html` redirects to the image page's build list
 (`…/images/<image>/#builds`).
 
 ## Deploying
