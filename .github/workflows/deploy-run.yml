@@ -41,6 +41,14 @@ jobs:
 
       - run: pip install -e .
 
+      - name: Wait for the Pages deploy budget
+        # Pages leaves deploys unpublished, while reporting them successful, once a repository deploys about ten
+        # times an hour, so deploys keep PAGES_GAP_SECONDS apart (scripts/pages_serves.sh). Waiting here, before the
+        # ingest, puts every release that arrives meanwhile into this deploy.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/pages_serves.sh pace
+
       - name: Ingest every pending release
         # The event's release is only a hint. GitHub keeps one pending run in the concurrency group and drops older
         # ones, so each run reconciles the whole organisation: every image.yml and the newest releases of every
@@ -90,11 +98,10 @@ jobs:
         with:
           path: dist
 
-      # deploy-pages reports success when GitHub accepts the deployment, not when the site serves it, and on
-      # 2026-11-04 GitHub accepted five in a row that never went live (scripts/pages_serves.sh). So ask the site for
-      # this run's stamp and deploy again when it is not there, three deploys in all, then fail: a red run is what
-      # control heals (it dispatches this workflow again with backoff, recover.py) and what keeps hub-updated from
-      # sending the site to rebuild from data Pages does not serve.
+      # deploy-pages reports success when GitHub accepts the deployment, not when the site serves it. So ask the site
+      # for this run's stamp and deploy once more when it is not there, after the same wait as before every deploy,
+      # then fail: a red run is what control heals (it dispatches this workflow again with backoff, recover.py) and
+      # what keeps hub-updated from sending the site to rebuild from data Pages does not serve.
       - name: Deploy to Pages
         id: deployment
         uses: actions/deploy-pages@v5
@@ -102,11 +109,20 @@ jobs:
       - name: Check that Pages serves the deploy
         id: check
         continue-on-error: true
-        run: scripts/pages_serves.sh check "${{ steps.deployment.outputs.page_url }}"
+        run: |
+          scripts/pages_serves.sh deployed
+          scripts/pages_serves.sh check "${{ steps.deployment.outputs.page_url }}"
+
+      - name: Wait for the Pages deploy budget again
+        id: pace2
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/pages_serves.sh pace
 
       - name: Upload the Pages artifact again
         id: upload2
-        if: steps.check.outcome == 'failure'
+        if: steps.pace2.outcome == 'success'
         uses: actions/upload-pages-artifact@v5
         with:
           name: github-pages-2
@@ -119,29 +135,8 @@ jobs:
         with:
           artifact_name: github-pages-2
 
-      - name: Check that Pages serves the second deploy
-        id: check2
-        if: steps.deployment2.outcome == 'success'
-        continue-on-error: true
-        run: scripts/pages_serves.sh check "${{ steps.deployment2.outputs.page_url }}"
-
-      - name: Upload the Pages artifact a last time
-        id: upload3
-        if: steps.check2.outcome == 'failure'
-        uses: actions/upload-pages-artifact@v5
-        with:
-          name: github-pages-3
-          path: dist
-
-      - name: Deploy to Pages a last time
-        id: deployment3
-        if: steps.upload3.outcome == 'success'
-        uses: actions/deploy-pages@v5
-        with:
-          artifact_name: github-pages-3
-
       # Control reads a failure in any step from the first upload on as Pages' (recover.py, HUB_PAGES_STEPS): keep
-      # the step names in step with it. Failing here means Pages still serves an older deploy after three.
+      # the step names in step with it. Failing here means Pages still serves an older deploy after two.
       - name: Check that Pages serves the last deploy
-        if: steps.deployment3.outcome == 'success'
-        run: scripts/pages_serves.sh check "${{ steps.deployment3.outputs.page_url }}"
+        if: steps.deployment2.outcome == 'success'
+        run: scripts/pages_serves.sh check "${{ steps.deployment2.outputs.page_url }}"
