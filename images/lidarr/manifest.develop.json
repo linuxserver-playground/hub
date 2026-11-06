@@ -1,0 +1,215 @@
+{
+ "schema": 1,
+ "name": "lidarr",
+ "summary": "[Lidarr](https://github.com/lidarr/Lidarr) is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
+ "upstream": {
+  "url": "https://github.com/lidarr/Lidarr",
+  "version": {
+   "type": "json",
+   "url": "https://lidarr.servarr.com/v1/update/develop/changes?runtime=netcore&os=linuxmusl",
+   "jq": ".[0].version"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "Lidarr/Lidarr",
+   "tag": "v${VERSION}"
+  },
+  "sponsor": [
+   {
+    "name": "Lidarr",
+    "url": "https://opencollective.com/lidarr"
+   }
+  ]
+ },
+ "release": {
+  "branch": "develop",
+  "tag": "develop",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable Lidarr releases."
+   },
+   {
+    "tag": "develop",
+    "description": "Develop Lidarr Releases."
+   },
+   {
+    "tag": "nightly",
+    "description": "Nightly Lidarr Releases."
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "LIDARR_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 240,
+  "web": {
+   "port": 8686,
+   "path": "/system/status"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8686",
+    "description": "Application WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/lidarr/config",
+    "description": "Configuration files for Lidarr."
+   },
+   {
+    "path": "/music",
+    "host_path": "/path/to/music",
+    "description": "Music files (See note in Application setup).",
+    "optional": true
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/download-client-downloads",
+    "description": "Path to your download folder for music (See note in Application setup).",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Media Management",
+   "Music"
+  ],
+  "logo": "https://github.com/lidarr/Lidarr/blob/develop/Logo/400.png",
+  "setup": "Access the webui at `<your-ip>:8686`, for more information check out [Lidarr](https://github.com/lidarr/Lidarr).\n\nSpecial Note: Following our current folder structure will result in an inability to hardlink from your downloads to your Music folder because they are on separate volumes. To support hardlinking, simply ensure that the Music and downloads data are on a single volume. For example, if you have /mnt/storage/Music and /mnt/storage/downloads/completed/Music, you would want something like /mnt/storage:/media for your volume. Then you can hardlink from /media/downloads/completed to /media/Music.\n\nAnother item to keep in mind, is that within Lidarr itself, you should then map your download client folder to your Lidarr folder: Settings -> Download Client -> advanced -> remote path mappings. I input the host of my download client (matches the download client defined) remote path is /downloads/Music (relative to the internal container path) and local path is /media/downloads/completed/Music, assuming you have folders to separate your downloaded data types.\n",
+  "notices": {
+   "media": true
+  }
+ },
+ "proxy": {
+  "port": 8686,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true,
+   "base_url_note": "Settings → General → URL Base, set to /lidarr"
+  },
+  "api_locations": [
+   "/api"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-10-19",
+   "text": "Add krb5-libs for better postgresql support."
+  },
+  {
+   "date": "2026-07-04",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-01-15",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2024-12-20",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-12-20",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-26",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-20",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-06-06",
+   "text": "Rebase develop to Alpine 3.18."
+  },
+  {
+   "date": "2022-05-06",
+   "text": "Rebase develop branch to Alpine 3.17, migrate to s6v3."
+  },
+  {
+   "date": "2022-05-06",
+   "text": "Rebase develop branch to Alpine."
+  },
+  {
+   "date": "2021-08-01",
+   "text": "Add libchromaprint-tools."
+  },
+  {
+   "date": "2021-07-11",
+   "text": "Make the paths clearer to the user."
+  },
+  {
+   "date": "2021-01-20",
+   "text": "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information."
+  },
+  {
+   "date": "2020-09-27",
+   "text": "Move preview branch/tag to nightly."
+  },
+  {
+   "date": "2020-04-05",
+   "text": "Move app to /app."
+  },
+  {
+   "date": "2019-10-29",
+   "text": "Switch preview branch to netcore builds."
+  },
+  {
+   "date": "2019-08-01",
+   "text": "Rebase to Linuxserver LTS mono version."
+  },
+  {
+   "date": "2019-06-13",
+   "text": "Add env variable for setting umask."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-03-08",
+   "text": "Rebase to Bionic, use proposed endpoint for libchromaprint."
+  },
+  {
+   "date": "2019-01-26",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-04-22",
+   "text": "Switch to beta builds."
+  },
+  {
+   "date": "2018-03-17",
+   "text": "Add ENV XDG_CONFIG_HOME=\"/config/xdg\" to Dockerfile for signalr fix."
+  },
+  {
+   "date": "2018-02-27",
+   "text": "Use json to query for new version."
+  },
+  {
+   "date": "2018-02-23",
+   "text": "Initial Release."
+  }
+ ]
+}

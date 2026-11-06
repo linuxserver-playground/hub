@@ -1,0 +1,133 @@
+{
+ "schema": 1,
+ "name": "xbackbone",
+ "summary": "[Xbackbone](https://github.com/SergiX44/XBackBone) is a simple, self-hosted, lightweight PHP file manager that support the instant sharing tool ShareX and *NIX systems. It supports uploading and displaying images, GIF, video, code, formatted text, and file downloading and uploading. Also have a web UI with multi user management, past uploads history and search support.",
+ "upstream": {
+  "url": "https://github.com/SergiX44/XBackBone",
+  "version": {
+   "type": "github_release",
+   "repo": "SergiX44/XBackBone",
+   "require_assets": [
+    {
+     "asset": "^release\\-v.*\\.zip$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "SergiX44/XBackBone"
+  },
+  "sponsor": [
+   {
+    "name": "XBackBone (GitHub Sponsors)",
+    "url": "https://github.com/sponsors/SergiX44"
+   }
+  ]
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine-nginx",
+  "version_arg": "XBACKBONE_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 60,
+  "web": {
+   "port": 80
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "80",
+    "description": "http gui"
+   },
+   {
+    "internal": "443",
+    "description": "https gui"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/xbackbone/config",
+    "description": "Persistent config files"
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "File Sharing"
+  ],
+  "logo": "https://raw.githubusercontent.com/SergiX44/XBackBone/master/docs/img/xbackbone.png",
+  "setup": "Access the WebUI at \\<your-ip>:80/443. Follow the installation wizard. For more information, check out [XBackBone](https://github.com/SergiX44/XBackBone).\n\nIf you want to change the PHP max upload size you can override the php.ini file by adding options in `/config/php/php-local.ini`\n\nExample:\n\n```ini\n  upload_max_filesize = 25M\n  post_max_size = 25M\n```\n\nFor reverse proxying, remember to change the `base_url` in `/config/www/xbackbone/config.php` to your domain if you initially set up the application with a local url. E.g. `'base_url' => 'https://images.yourdomain.com',`\n"
+ },
+ "proxy": {
+  "port": 80,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-05",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-07-09",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-05-27",
+   "text": "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."
+  },
+  {
+   "date": "2023-12-28",
+   "text": "Rebase to Alpine 3.19 with php 8.3."
+  },
+  {
+   "date": "2023-12-25",
+   "text": "Existing users should update: site-confs/default.conf - Cleanup default site conf."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-04-13",
+   "text": "Move ssl.conf include to default.conf."
+  },
+  {
+   "date": "2023-01-19",
+   "text": "Rebase to alpine 3.17 with php8.1."
+  },
+  {
+   "date": "2022-11-04",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-11-01",
+   "text": "Move application install to /app/www/public, add migration notices for existing users. Container updates should now update the application correctly"
+  },
+  {
+   "date": "2022-08-20",
+   "text": "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."
+  },
+  {
+   "date": "2022-08-02",
+   "text": "Added note about updating."
+  },
+  {
+   "date": "2021-06-06",
+   "text": "Initial Release."
+  }
+ ]
+}

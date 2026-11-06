@@ -1,0 +1,69 @@
+{
+ "image": "calibre",
+ "branch": "master",
+ "tag": "v9.17.0-ls2",
+ "previous_tag": "v9.17.0-ls1",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "v9.17.0",
+  "to": "v9.17.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:beebd1f142f792e9767780a70cbc6c41c6c448e12fcda4504417404f1f118df3"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:beebd1f142f792e9767780a70cbc6c41c6c448e12fcda4504417404f1f118df3"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1297151659,
+   "to": 1297151726,
+   "delta": 67
+  },
+  "arm64": {
+   "from": 1253452877,
+   "to": 1253452658,
+   "delta": -219
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

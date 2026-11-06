@@ -1,0 +1,90 @@
+{
+ "image": "lsio-api",
+ "branch": "main",
+ "tag": "230cb1e0-ls3",
+ "previous_tag": "230cb1e0-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "230cb1e0",
+  "to": "230cb1e0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:edge",
+   "digest": "sha256:bc426b463f45cb6ce61037469a0574bd58759b30cb58fc288019f811b9f6b08a"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:889cf4f4ceb97407b0235fb63691988e256509daf50ca128ef2316f89955972a"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 63739952,
+   "to": 63740059,
+   "delta": 107
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,4 +1,4 @@\n-FROM ghcr.io/linuxserver/baseimage-alpine:edge\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:edge\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "busybox",
+      "from": "1.38.0-r7",
+      "to": "1.38.0-r8",
+      "purl": "pkg:apk/busybox/busybox@1.38.0-r8?arch=x86_64&distro=busybox-1.38.0"
+     },
+     {
+      "name": "busybox-binsh",
+      "from": "1.38.0-r7",
+      "to": "1.38.0-r8",
+      "purl": "pkg:apk/busybox/busybox-binsh@1.38.0-r8?arch=x86_64&distro=busybox-1.38.0&upstream=busybox"
+     },
+     {
+      "name": "ssl_client",
+      "from": "1.38.0-r7",
+      "to": "1.38.0-r8",
+      "purl": "pkg:apk/busybox/ssl_client@1.38.0-r8?arch=x86_64&distro=busybox-1.38.0&upstream=busybox"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 3,
+  "downgraded": 0
+ }
+}

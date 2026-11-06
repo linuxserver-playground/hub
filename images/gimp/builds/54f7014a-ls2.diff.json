@@ -1,0 +1,295 @@
+{
+ "image": "gimp",
+ "branch": "master",
+ "tag": "54f7014a-ls2",
+ "previous_tag": "9c377b16-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed",
+  "5 commits (a3a2df7 → afe1dc6): changed image.yml, the Dockerfiles, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "9c377b16",
+  "to": "54f7014a",
+  "changed": true
+ },
+ "commit": {
+  "from": "a3a2df7b20c827a56a7ee4507629bebc076a5f6c",
+  "to": "afe1dc6dd9a84eb61770bf348de33f355b98e0a4",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-gimp/compare/a3a2df7b20c827a56a7ee4507629bebc076a5f6c...afe1dc6dd9a84eb61770bf348de33f355b98e0a4",
+  "commits": [
+   {
+    "sha": "359b6102090fa7aab89fa230f096d9e4ea2b37a8",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-25T23:07:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-gimp/commit/359b6102090fa7aab89fa230f096d9e4ea2b37a8",
+    "bot": true
+   },
+   {
+    "sha": "0095c98a916ebd42882702e16c017204c5482522",
+    "subject": "Build on the playground base images",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-26T01:50:53Z",
+    "url": "https://github.com/linuxserver-playground/docker-gimp/commit/0095c98a916ebd42882702e16c017204c5482522",
+    "bot": false
+   },
+   {
+    "sha": "60813aecfd5bff77f2313fff2abf4245d73fa664",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:44:50Z",
+    "url": "https://github.com/linuxserver-playground/docker-gimp/commit/60813aecfd5bff77f2313fff2abf4245d73fa664",
+    "bot": true
+   },
+   {
+    "sha": "809ac17bf2c977c80399286bef2c6cf07e9c6189",
+    "subject": "Add the upstream donation links",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T19:36:50Z",
+    "url": "https://github.com/linuxserver-playground/docker-gimp/commit/809ac17bf2c977c80399286bef2c6cf07e9c6189",
+    "bot": false
+   },
+   {
+    "sha": "afe1dc6dd9a84eb61770bf348de33f355b98e0a4",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T19:44:53Z",
+    "url": "https://github.com/linuxserver-playground/docker-gimp/commit/afe1dc6dd9a84eb61770bf348de33f355b98e0a4",
+    "bot": true
+   }
+  ],
+  "count": 5,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "dockerfile": 2,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "debian",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:debiantrixie",
+   "digest": "sha256:df4a9259e7535526005785202bd08b3b066250a64c65877802b2354fd6a975dd"
+  },
+  "to": {
+   "family": "debian",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:b6b7498350faa15f558fa5a1e83cd67540e7ddeb164bd4f376037838df52c52e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1098415590,
+   "to": 1098201990,
+   "delta": -213600
+  },
+  "arm64": {
+   "from": 1051220094,
+   "to": 1050978400,
+   "delta": -241694
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-debian:trixie AS resynth\n+FROM ghcr.io/linuxserver-playground/baseimage-debian:trixie AS resynth\n \n ENV LSIO_FIRST_PARTY=true\n \n@@ -31,7 +31,7 @@\n   rm -Rf /buildout/usr/local\n \n # runtime stage\n-FROM ghcr.io/linuxserver/baseimage-selkies:debiantrixie\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-debian:arm64v8-trixie AS resynth\n+FROM ghcr.io/linuxserver-playground/baseimage-debian:arm64v8-trixie AS resynth\n \n ENV LSIO_FIRST_PARTY=true\n \n@@ -31,7 +31,7 @@\n   rm -Rf /buildout/usr/local\n \n # runtime stage\n-FROM ghcr.io/linuxserver/baseimage-selkies:arm64v8-debiantrixie\n+FROM ghcr.io/linuxserver-playground/baseimage-selkies:arm64v8-debiantrixie\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "multidict",
+      "from": "7.1.0",
+      "to": "7.2.1",
+      "purl": "pkg:pypi/multidict@7.2.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "pyee",
+      "from": "15.0.0",
+      "to": "16.0.0",
+      "purl": "pkg:pypi/pyee@16.0.0"
+     },
+     {
+      "name": "starlette",
+      "from": "1.9.0",
+      "to": "1.10.0",
+      "purl": "pkg:pypi/starlette@1.10.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 20,
+  "downgraded": 0
+ }
+}

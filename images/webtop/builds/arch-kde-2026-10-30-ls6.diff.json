@@ -1,0 +1,136 @@
+{
+ "image": "webtop",
+ "branch": "arch-kde",
+ "tag": "arch-kde-2026-10-30-ls6",
+ "previous_tag": "arch-kde-2026-10-30-ls5",
+ "classification": "linuxserver",
+ "reasons": [
+  "repository files that reach the image changed (image.yml or root/)",
+  "packages changed",
+  "2 commits (90f6ca5 → a21279e): changed root/, the package table"
+ ],
+ "upstream": {
+  "from": "2026-10-30",
+  "to": "2026-10-30",
+  "changed": false
+ },
+ "commit": {
+  "from": "90f6ca57a9e080a4a13fb704037eee81bfbae1c0",
+  "to": "a21279e81156fa5e9b33fae7a0ad45d4f1b7e6fc",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/90f6ca57a9e080a4a13fb704037eee81bfbae1c0...a21279e81156fa5e9b33fae7a0ad45d4f1b7e6fc",
+  "commits": [
+   {
+    "sha": "65be588e74047edb090d5cf887185df2cdbdbe21",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T03:09:29Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/65be588e74047edb090d5cf887185df2cdbdbe21",
+    "bot": true
+   },
+   {
+    "sha": "a21279e81156fa5e9b33fae7a0ad45d4f1b7e6fc",
+    "subject": "Cap llvmpipe threads and trim plasma effects on arch kde without a GPU",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-11-01T17:33:27Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/a21279e81156fa5e9b33fae7a0ad45d4f1b7e6fc",
+    "bot": false
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "root": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "push",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b8c03e9b9565c0f91d326af3bddd794cf8bc4f9f6f0d843eb488edb80f4e5b4c"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b8c03e9b9565c0f91d326af3bddd794cf8bc4f9f6f0d843eb488edb80f4e5b4c"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 2182422648,
+   "to": 2182427947,
+   "delta": 5299
+  },
+  "arm64": {
+   "from": 2224996169,
+   "to": 2224998397,
+   "delta": 2228
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "simdutf",
+      "from": "9.2.1-2",
+      "to": "9.2.2-1",
+      "purl": "pkg:alpm/arch/simdutf@9.2.2-1?arch=x86_64&distro=arch-rolling&upstream=simdutf"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "simdutf",
+      "from": "9.2.1-2",
+      "to": "9.2.2-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

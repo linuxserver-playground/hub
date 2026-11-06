@@ -1,0 +1,159 @@
+{
+ "image": "grocy",
+ "branch": "master",
+ "tag": "v4.7.1-ls3",
+ "previous_tag": "v4.7.1-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v4.7.1",
+  "to": "v4.7.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:69428c23079c1f5aa65294457a835d2389ebbcb31af2f86eef05c4ae513ac249"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:1edd33d8985a6727aed30b306fcebe1f2d0576c948c16a911fe2d61ba37bcd31"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 87118830,
+   "to": 87123466,
+   "delta": 4636
+  },
+  "arm64": {
+   "from": 87679144,
+   "to": 87686615,
+   "delta": 7471
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.24\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:arm64v8-3.24\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine-nginx:arm64v8-3.24\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.2-r0",
+      "to": "3.24.3-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.3-r0?arch=x86_64&distro=alpine-3.24.3&upstream=alpine-base"
+     },
+     {
+      "name": "brotli-libs",
+      "from": "1.2.0-r1",
+      "to": "1.2.1-r0",
+      "purl": "pkg:apk/alpine/brotli-libs@1.2.1-r0?arch=x86_64&distro=alpine-3.24.3&upstream=brotli"
+     },
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=curl"
+     },
+     {
+      "name": "musl",
+      "from": "1.2.6-r2",
+      "to": "1.2.6-r3",
+      "purl": "pkg:apk/alpine/musl@1.2.6-r3?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "musl-utils",
+      "from": "1.2.6-r2",
+      "to": "1.2.6-r3",
+      "purl": "pkg:apk/alpine/musl-utils@1.2.6-r3?arch=x86_64&distro=alpine-3.24.3&upstream=musl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.2-r0",
+      "to": "3.24.3-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.3-r0?arch=aarch64&distro=alpine-3.24.3&upstream=alpine-base"
+     },
+     {
+      "name": "brotli-libs",
+      "from": "1.2.0-r1",
+      "to": "1.2.1-r0",
+      "purl": "pkg:apk/alpine/brotli-libs@1.2.1-r0?arch=aarch64&distro=alpine-3.24.3&upstream=brotli"
+     },
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=curl"
+     },
+     {
+      "name": "musl",
+      "from": "1.2.6-r2",
+      "to": "1.2.6-r3",
+      "purl": "pkg:apk/alpine/musl@1.2.6-r3?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "musl-utils",
+      "from": "1.2.6-r2",
+      "to": "1.2.6-r3",
+      "purl": "pkg:apk/alpine/musl-utils@1.2.6-r3?arch=aarch64&distro=alpine-3.24.3&upstream=musl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}
