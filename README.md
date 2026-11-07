@@ -58,7 +58,7 @@ run at the same time and whichever publishes second merges onto the other's data
 
 - `deploy.yml` is the release path. Only the control plane starts it, on its slots (control's `deploys.py`: at most
   nine an hour, and only when something changed since the last run: a live release, a push to `main`, a `Refresh
-  data` commit, an image repository created or deleted, an hourly reconcile when nothing else asked). The releases
+  data` commit, an image repository created or deleted, a reconcile after six hours without one). The releases
   control saw go in its `force` input. Every run reconciles the whole organisation (`ingest --reconcile`): every `image.yml`
   and the newest 30 releases of every repository over GraphQL, in about 15 seconds, then the assets of whatever is
   new or republished (a rebuild of an already released head replaces the Release's `build.json` under the same
@@ -67,7 +67,8 @@ run at the same time and whichever publishes second merges onto the other's data
   It publishes `data/` when it changed, builds `dist/`, generates `out/`, merges `out/` onto the site root and
   publishes that as the one commit of the `gh-pages` branch, which Pages serves, so one site serves `/api/v1/…`,
   `/stores/…` and `/builds/…` (redirects), all of it generated text (about 235 MB). When the build is the same as
-  what `gh-pages` holds nothing is pushed and Pages does not build (`scripts/pages_publish.sh`). It is a single job:
+  what `gh-pages` holds, apart from the times the run stamps (`lsio_hub/pages_digest.py`), nothing is pushed and
+  Pages does not build (`scripts/pages_publish.sh`). It is a single job:
   every job is a separate wait for a runner slot when image builds fill them.
 - `refresh.yml` runs hourly (its cron, and a dispatch from the control plane): `observe` (stars and archived
   flags), `mods` and `prootapps`. It publishes what changed as a `Refresh data` commit, which control serves at the
@@ -359,7 +360,7 @@ it rotated out). `out/builds/<image>/index.html` redirects to the image page's b
 2. The data (`Update data`) is force-pushed with a lease to the `data` branch by `github-actions[bot]`; branch rules
    must allow force pushes to `data`.
 3. The control plane dispatches `deploy.yml` with `force` (`linuxserver-playground/docker-sonarr@4.0.20.3014-ls1`,
-   comma-separated) at its next slot after a release; the hourly reconcile catches anything missed.
+   comma-separated) at its next slot after a release; every run reconciles the whole organisation, so it catches anything missed.
 4. Pushing the stores (`refresh.yml`) needs the `STORE_APP_ID` and `STORE_APP_PRIVATE_KEY` secrets: a GitHub App
    installed on the organisation with `contents: write` on `unraid-store`, `umbrel-store` and `runtipi-store`. Without
    them those steps are skipped and the Pages deployment is unaffected.

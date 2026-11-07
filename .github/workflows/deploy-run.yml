@@ -96,9 +96,10 @@ jobs:
           wait "$api"
           # dist/ is the API and docs page; out/ merges onto the site root: /stores/<platform>/ and /builds/ (redirects).
           cp -r out/. dist/
-          # /deploy.json names this run and digests the rest, so the publish can tell a change and the check (and
-          # control) which deploy Pages serves.
-          scripts/pages_publish.sh stamp dist
+          # /deploy.json names this run and digests the rest, the times this run stamped left out
+          # (lsio_hub/pages_digest.py), so the publish can tell a change and the check (and control) which deploy
+          # Pages serves.
+          PAGES_CONTENT=$(python -m lsio_hub.pages_digest dist) scripts/pages_publish.sh stamp dist
 
       # A Pages build that reports success is not trusted: the check asks the site for this deploy's stamp and fails
       # when it never shows. A red run is what control heals (it requests the next Deploy slot with backoff,

@@ -24,8 +24,13 @@ remote="https://github.com/${GITHUB_REPOSITORY}.git"
 git_dir="${RUNNER_TEMP:-/tmp}/gh-pages.git"
 state="${RUNNER_TEMP:-/tmp}/gh-pages.sha"
 
-# The digest of every file of <dir> but deploy.json: names and contents.
+# The digest of every file of <dir> but deploy.json: names and contents. PAGES_CONTENT, when set, is the caller's own
+# digest of the same files (the hub's leaves out the times every Deploy stamps: lsio_hub/pages_digest.py).
 content() {
+  if [[ -n "${PAGES_CONTENT:-}" ]]; then
+    echo "$PAGES_CONTENT"
+    return
+  fi
   (cd "$1" && find . -type f ! -path ./deploy.json -print0 | LC_ALL=C sort -z | xargs -0 sha256sum | sha256sum | cut -c1-64)
 }
 
