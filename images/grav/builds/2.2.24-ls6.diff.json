@@ -1,0 +1,207 @@
+{
+ "image": "grav",
+ "branch": "main",
+ "tag": "2.2.24-ls6",
+ "previous_tag": "2.2.16-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "6 commits (828de0f → 32b3640): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "2.2.16",
+  "to": "2.2.24",
+  "changed": true
+ },
+ "commit": {
+  "from": "828de0fb3ca6b033823256b5c216a34132cc1fda",
+  "to": "32b36404da3ef145020130b45a9e16c9bd477726",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-grav/compare/828de0fb3ca6b033823256b5c216a34132cc1fda...32b36404da3ef145020130b45a9e16c9bd477726",
+  "commits": [
+   {
+    "sha": "bbabae80659ebc18c16bccc7bfb6c3ab7150c945",
+    "subject": "Wait for the upstream release assets before building",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T16:03:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-grav/commit/bbabae80659ebc18c16bccc7bfb6c3ab7150c945",
+    "bot": false
+   },
+   {
+    "sha": "f335c0f662079f6a84b370da64171eb9b34ff30d",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T04:32:10Z",
+    "url": "https://github.com/linuxserver-playground/docker-grav/commit/f335c0f662079f6a84b370da64171eb9b34ff30d",
+    "bot": true
+   },
+   {
+    "sha": "8ea08a24c37545407eb13ea9896b735ba5b4dd08",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T21:38:08Z",
+    "url": "https://github.com/linuxserver-playground/docker-grav/commit/8ea08a24c37545407eb13ea9896b735ba5b4dd08",
+    "bot": true
+   },
+   {
+    "sha": "a38007b124cb70c867e437e49a4764de7020eda0",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T05:31:55Z",
+    "url": "https://github.com/linuxserver-playground/docker-grav/commit/a38007b124cb70c867e437e49a4764de7020eda0",
+    "bot": true
+   },
+   {
+    "sha": "eb4b57d083eaaeb3a7a121569416811343050a66",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T17:39:54Z",
+    "url": "https://github.com/linuxserver-playground/docker-grav/commit/eb4b57d083eaaeb3a7a121569416811343050a66",
+    "bot": true
+   },
+   {
+    "sha": "32b36404da3ef145020130b45a9e16c9bd477726",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T03:37:55Z",
+    "url": "https://github.com/linuxserver-playground/docker-grav/commit/32b36404da3ef145020130b45a9e16c9bd477726",
+    "bot": true
+   }
+  ],
+  "count": 6,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:30be75c4c7470207fece77d8399848c405a6e5c14ff3fb7ca82a4cfc37498b7b"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a5464bb0b85935854231e0dfa14bd55963c132d4acdfc3f5997de04f2e2bfa52"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 61807028,
+   "to": 62180834,
+   "delta": 373806
+  },
+  "arm64": {
+   "from": 62399327,
+   "to": 62775524,
+   "delta": 376197
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [
+     {
+      "name": "lbuchs/webauthn",
+      "version": "v2.2.0",
+      "purl": "pkg:composer/lbuchs/webauthn@v2.2.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [
+     {
+      "name": "lbuchs/webauthn",
+      "version": "v2.2.0",
+      "purl": "pkg:composer/lbuchs/webauthn@v2.2.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

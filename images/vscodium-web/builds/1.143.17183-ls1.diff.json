@@ -1,0 +1,222 @@
+{
+ "image": "vscodium-web",
+ "branch": "main",
+ "tag": "1.143.17183-ls1",
+ "previous_tag": "1.140.06880-ls1",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1.140.06880",
+  "to": "1.143.17183",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:noble",
+   "digest": "sha256:81fe4872e32337f95bc44169622eb6c53cbbadbfd32f5584442c87a8a16cefb2"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 176411772,
+   "to": 178055224,
+   "delta": 1643452
+  },
+  "arm64": {
+   "from": 174209991,
+   "to": 175831267,
+   "delta": 1621276
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "node",
+      "from": "24.21.0",
+      "to": "24.22.1",
+      "purl": "pkg:generic/node@24.22.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [
+     {
+      "name": "@hpke/common",
+      "version": "1.10.1",
+      "purl": "pkg:npm/%40hpke/common@1.10.1"
+     },
+     {
+      "name": "@hpke/core",
+      "version": "1.9.0",
+      "purl": "pkg:npm/%40hpke/core@1.9.0"
+     },
+     {
+      "name": "libsodium",
+      "version": "0.8.4",
+      "purl": "pkg:npm/libsodium@0.8.4"
+     },
+     {
+      "name": "libsodium-wrappers",
+      "version": "0.8.4",
+      "purl": "pkg:npm/libsodium-wrappers@0.8.4"
+     }
+    ],
+    "removed": [
+     {
+      "name": "@microsoft/mxc-sdk",
+      "version": "0.8.0",
+      "purl": "pkg:npm/%40microsoft/mxc-sdk@0.8.0"
+     },
+     {
+      "name": "@vscode/copilot-api",
+      "version": "0.5.2",
+      "purl": "pkg:npm/%40vscode/copilot-api@0.5.2"
+     },
+     {
+      "name": "vscode-capi-scripts",
+      "version": "1.0.0",
+      "purl": "pkg:npm/vscode-capi-scripts@1.0.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "VSCodium",
+      "from": "1.140.06880",
+      "to": "1.143.17183",
+      "purl": "pkg:npm/VSCodium@1.143.17183"
+     },
+     {
+      "name": "ip-address",
+      "from": "10.4.0",
+      "to": "10.7.2",
+      "purl": "pkg:npm/ip-address@10.7.2"
+     },
+     {
+      "name": "undici",
+      "from": "7.29.0",
+      "to": "7.29.1",
+      "purl": "pkg:npm/undici@7.29.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "node",
+      "from": "24.21.0",
+      "to": "24.22.1",
+      "purl": "pkg:generic/node@24.22.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [
+     {
+      "name": "@hpke/common",
+      "version": "1.10.1",
+      "purl": "pkg:npm/%40hpke/common@1.10.1"
+     },
+     {
+      "name": "@hpke/core",
+      "version": "1.9.0",
+      "purl": "pkg:npm/%40hpke/core@1.9.0"
+     },
+     {
+      "name": "libsodium",
+      "version": "0.8.4",
+      "purl": "pkg:npm/libsodium@0.8.4"
+     },
+     {
+      "name": "libsodium-wrappers",
+      "version": "0.8.4",
+      "purl": "pkg:npm/libsodium-wrappers@0.8.4"
+     }
+    ],
+    "removed": [
+     {
+      "name": "@microsoft/mxc-sdk",
+      "version": "0.8.0",
+      "purl": "pkg:npm/%40microsoft/mxc-sdk@0.8.0"
+     },
+     {
+      "name": "@vscode/copilot-api",
+      "version": "0.5.2",
+      "purl": "pkg:npm/%40vscode/copilot-api@0.5.2"
+     },
+     {
+      "name": "vscode-capi-scripts",
+      "version": "1.0.0",
+      "purl": "pkg:npm/vscode-capi-scripts@1.0.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "VSCodium",
+      "from": "1.140.06880",
+      "to": "1.143.17183",
+      "purl": "pkg:npm/VSCodium@1.143.17183"
+     },
+     {
+      "name": "ip-address",
+      "from": "10.4.0",
+      "to": "10.7.2",
+      "purl": "pkg:npm/ip-address@10.7.2"
+     },
+     {
+      "name": "undici",
+      "from": "7.29.0",
+      "to": "7.29.1",
+      "purl": "pkg:npm/undici@7.29.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 8,
+  "removed": 6,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "image": "ddclient",
+ "branch": "master",
+ "tag": "v4.0.0-ls1",
+ "previous_tag": null,
+ "classification": "initial",
+ "reasons": [
+  "first build of this branch in the hub"
+ ],
+ "upstream": {
+  "from": null,
+  "to": "v4.0.0",
+  "changed": false
+ },
+ "base": {
+  "from": null,
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.22",
+   "digest": "sha256:334f316218c800cf2374258a6e79ba831221a25a04f1ca1c74c993ee38ade354"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": null,
+   "to": 26274283,
+   "delta": null
+  },
+  "arm64": {
+   "from": null,
+   "to": 27321301,
+   "delta": null
+  }
+ },
+ "config": {
+  "env": {
+   "added": [
+    "HOME",
+    "LSIO_FIRST_PARTY",
+    "PATH",
+    "PS1",
+    "S6_CMD_WAIT_FOR_SERVICES_MAXTIME",
+    "S6_STAGE2_HOOK",
+    "S6_VERBOSITY",
+    "TERM",
+    "VIRTUAL_ENV"
+   ],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [
+    "/config"
+   ],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": null,
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

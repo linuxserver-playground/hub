@@ -1,0 +1,235 @@
+{
+ "image": "webtop",
+ "branch": "fedora-mate",
+ "tag": "fedora-mate-b1abb003-ls5",
+ "previous_tag": "fedora-mate-11293ea8-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (859e016 → bb4e24c): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "11293ea8",
+  "to": "b1abb003",
+  "changed": true
+ },
+ "commit": {
+  "from": "859e01641ea2dc45541c27168236655d8059d35c",
+  "to": "bb4e24cedca4c2335098be377275312bbdfbc295",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/859e01641ea2dc45541c27168236655d8059d35c...bb4e24cedca4c2335098be377275312bbdfbc295",
+  "commits": [
+   {
+    "sha": "bb4e24cedca4c2335098be377275312bbdfbc295",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T18:27:26Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/bb4e24cedca4c2335098be377275312bbdfbc295",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:4dd3c377f7ec9be57dcb3d91a3018910715844cf1efeef411929aeb4592d1fac"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:41071b08049be70f9411ebc65ddcc682d956bcd343d41fd12f086df9885e9243"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1348424849,
+   "to": 1350229464,
+   "delta": 1804615
+  },
+  "arm64": {
+   "from": 1246854156,
+   "to": 1248686684,
+   "delta": 1832528
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.2",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.2",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "file",
+      "from": "5.46-10.fc44",
+      "to": "5.48-2.fc44",
+      "purl": "pkg:rpm/fedora/file@5.48-2.fc44?arch=x86_64&distro=fedora-44&upstream=file-5.48-2.fc44.src.rpm"
+     },
+     {
+      "name": "file-libs",
+      "from": "5.46-10.fc44",
+      "to": "5.48-2.fc44",
+      "purl": "pkg:rpm/fedora/file-libs@5.48-2.fc44?arch=x86_64&distro=fedora-44&upstream=file-5.48-2.fc44.src.rpm"
+     },
+     {
+      "name": "hwdata",
+      "from": "0.412-1.fc44",
+      "to": "0.413-1.fc44",
+      "purl": "pkg:rpm/fedora/hwdata@0.413-1.fc44?arch=noarch&distro=fedora-44&upstream=hwdata-0.413-1.fc44.src.rpm"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1.fc44",
+      "to": "2026f-1.fc44",
+      "purl": "pkg:rpm/fedora/tzdata@2026f-1.fc44?arch=noarch&distro=fedora-44&upstream=tzdata-2026f-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.2",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.2",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "file",
+      "from": "5.46-10.fc44",
+      "to": "5.48-2.fc44",
+      "purl": "pkg:rpm/fedora/file@5.48-2.fc44?arch=aarch64&distro=fedora-44&upstream=file-5.48-2.fc44.src.rpm"
+     },
+     {
+      "name": "file-libs",
+      "from": "5.46-10.fc44",
+      "to": "5.48-2.fc44",
+      "purl": "pkg:rpm/fedora/file-libs@5.48-2.fc44?arch=aarch64&distro=fedora-44&upstream=file-5.48-2.fc44.src.rpm"
+     },
+     {
+      "name": "hwdata",
+      "from": "0.412-1.fc44",
+      "to": "0.413-1.fc44",
+      "purl": "pkg:rpm/fedora/hwdata@0.413-1.fc44?arch=noarch&distro=fedora-44&upstream=hwdata-0.413-1.fc44.src.rpm"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1.fc44",
+      "to": "2026f-1.fc44",
+      "purl": "pkg:rpm/fedora/tzdata@2026f-1.fc44?arch=noarch&distro=fedora-44&upstream=tzdata-2026f-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 18,
+  "downgraded": 0
+ }
+}

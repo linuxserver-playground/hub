@@ -1,0 +1,69 @@
+{
+ "image": "retroarch",
+ "branch": "master",
+ "tag": "1.22.2ppa1.1-1ubuntu24.04.1-ls5",
+ "previous_tag": "1.22.2ppa1.1-1ubuntu24.04.1-ls4",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "1.22.2ppa1.1-1ubuntu24.04.1",
+  "to": "1.22.2ppa1.1-1ubuntu24.04.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1096813211,
+   "to": 1096813291,
+   "delta": 80
+  },
+  "arm64": {
+   "from": 1055198973,
+   "to": 1055199077,
+   "delta": 104
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

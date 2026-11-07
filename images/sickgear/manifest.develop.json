@@ -1,0 +1,169 @@
+{
+ "schema": 1,
+ "name": "sickgear",
+ "summary": "[SickGear](https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more..\n\nFor more information on SickGear visit their website and check it out: https://github.com/SickGear/SickGear",
+ "upstream": {
+  "url": "https://github.com/sickgear/sickgear",
+  "version": {
+   "type": "github_commit",
+   "repo": "sickgear/sickgear",
+   "branch": "dev"
+  },
+  "notes": {
+   "type": "github_commit",
+   "repo": "sickgear/sickgear",
+   "branch": "dev"
+  }
+ },
+ "release": {
+  "branch": "develop",
+  "tag": "develop",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable SickGear releases"
+   },
+   {
+    "tag": "develop",
+    "description": "SickGear develop branch commits"
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "SICKGEAR_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8081,
+   "path": "/home/view-changes"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8081",
+    "description": "will map the container's port 8081 to port 8081 on the host"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/sickgear/data",
+    "description": "Persistent config files."
+   },
+   {
+    "path": "/tv",
+    "host_path": "/path/to/tv",
+    "description": "where you store your tv shows"
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/downloads",
+    "description": "your downloads folder for post processing (must not be download in progress)"
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Media Management"
+  ],
+  "logo": "https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png",
+  "setup": "## Setting up the application\n\nAccess the webui at `<your-ip>:8081`, for more information check out [SickGear](https://github.com/sickgear/sickgear).\n"
+ },
+ "proxy": {
+  "port": 8081,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2025-07-10",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-06-25",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-20",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-10-08",
+   "text": "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."
+  },
+  {
+   "date": "2023-08-10",
+   "text": "Bump unrar to 6.2.10."
+  },
+  {
+   "date": "2023-05-27",
+   "text": "Rebase develop to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-03-05",
+   "text": "Rebase develop to Alpine 3.17."
+  },
+  {
+   "date": "2022-11-18",
+   "text": "Update service file from legacy SickBeard.py to sickgear.py."
+  },
+  {
+   "date": "2022-10-10",
+   "text": "Rebase develop branch to Alpine 3.16, migrate to s6v3, build unrar from source."
+  },
+  {
+   "date": "2021-01-31",
+   "text": "Add unrar."
+  },
+  {
+   "date": "2021-01-29",
+   "text": "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-05",
+   "text": "Create `develop` tag to track the upstream `develop` branch commits."
+  },
+  {
+   "date": "2020-06-03",
+   "text": "Rebasing to alpine 3.12, switch to python3."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2018-11-07",
+   "text": "Pipeline prep"
+  },
+  {
+   "date": "2018-07-07",
+   "text": "Initial draft release"
+  }
+ ]
+}

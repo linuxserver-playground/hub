@@ -1,0 +1,105 @@
+{
+ "image": "smokeping",
+ "branch": "master",
+ "tag": "2.9.0-r0-ls5",
+ "previous_tag": "2.9.0-r0-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2.9.0-r0",
+  "to": "2.9.0-r0",
+  "changed": false
+ },
+ "commit": {
+  "from": "5232a4db7e70b61835d307dee31c82e74876ed96",
+  "to": "5232a4db7e70b61835d307dee31c82e74876ed96",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:9008d6d5bb98aa82222a5c4a9463dd82801a1cc2bfacd5862caf4b895fbcf578"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:1ad91f856c8d9d443357d6e4c0a0c3515e5bc1ef830874f0defdb5d64b49f077"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 122976092,
+   "to": 122977277,
+   "delta": 1185
+  },
+  "arm64": {
+   "from": 123958898,
+   "to": 123960918,
+   "delta": 2020
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.22.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.22.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}
