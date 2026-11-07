@@ -58,22 +58,17 @@ jobs:
             python -m lsio_hub.prootapps
           fi
 
-      - name: Publish and deploy
+      - name: Publish
+        # deploy.yml publishes data/ at any time too, but never a file this job writes (scripts/commit_data.sh). A
+        # commit made here is titled DATA_MESSAGE, which tells the control plane that the hub's next Deploy slot has
+        # something to serve (its deploys.py); nothing is pushed when nothing changed, and nothing is deployed then.
         env:
-          GH_TOKEN: ${{ github.token }}
           ALLOW_SHRINK: ${{ vars.DATA_ALLOW_SHRINK }}
+          DATA_MESSAGE: Refresh data
         run: |
           git -C data config user.name "github-actions[bot]"
           git -C data config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          before=$(git -C data rev-parse HEAD)
-          # deploy.yml publishes data/ at any time too, but never a file this job writes (scripts/commit_data.sh).
           scripts/commit_data.sh
-          if [ "$(git -C data rev-parse HEAD)" = "$before" ]; then
-            echo "Nothing changed"
-            exit 0
-          fi
-          # A push with GITHUB_TOKEN starts no workflow, so the deploy is asked for.
-          gh workflow run deploy.yml -R "$GITHUB_REPOSITORY" --ref "$GITHUB_REF_NAME"
 
       - name: Check for store credentials
         # Steps cannot read secrets in their `if`, so this step reports whether the store app is configured.
@@ -85,8 +80,16 @@ jobs:
           [ "$CONFIGURED" = "true" ] || echo "::notice::STORE_APP_ID / STORE_APP_PRIVATE_KEY not set; the store repositories are not updated"
 
       - id: pages
+        # The hub's origin and base path, read from the repository's Pages settings.
         if: steps.store.outputs.configured == 'true'
-        uses: actions/configure-pages@v6
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          url=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq .html_url)
+          origin=$(sed -E 's#^(https?://[^/]+).*#\1#' <<<"$url")
+          base=$(sed -E 's#^https?://[^/]+##; s#/$##' <<<"$url")
+          echo "origin=${origin}" >>"$GITHUB_OUTPUT"
+          echo "base_path=${base}" >>"$GITHUB_OUTPUT"
 
       - name: Generate the stores that live in git
         # The same generators, on the same data/, as the Deploy's /stores/<platform>/ (now including this run's commit).

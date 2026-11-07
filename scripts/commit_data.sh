@@ -7,6 +7,9 @@
 # root commit, so the data's history never grows (the replaced commit becomes unreachable and GitHub collects it). The
 # code on main keeps its own history, free of data commits.
 #
+# The commit is titled DATA_MESSAGE (default `Update data`); refresh.yml titles its own `Refresh data`, which tells the
+# control plane that the next Deploy has something new to serve.
+#
 # deploy.yml and refresh.yml both write data/ and may push at the same moment. When the other one replaced the commit
 # first, the lease fails; this one then merges its own changes onto theirs, three-way against the commit it checked
 # out, and pushes again. They write different files (lsio_hub/store.py), so the merge is clean; should they ever
@@ -59,7 +62,7 @@ if git diff --cached --quiet; then
 fi
 
 base=$(git rev-parse HEAD)
-ours=$(git commit-tree "$(git write-tree)" -m "Update data")
+ours=$(git commit-tree "$(git write-tree)" -m "${DATA_MESSAGE:-Update data}")
 for attempt in 1 2 3 4 5; do
   guard "$base" "$ours"
   if git push --force-with-lease="$branch:$base" origin "$ours:refs/heads/$branch"; then
@@ -81,5 +84,5 @@ for attempt in 1 2 3 4 5; do
     exit 1
   fi
   base=$theirs
-  ours=$(git commit-tree "${merged%%$'\n'*}" -m "Update data")
+  ours=$(git commit-tree "${merged%%$'\n'*}" -m "${DATA_MESSAGE:-Update data}")
 done

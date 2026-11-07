@@ -1,8 +1,9 @@
 # The hourly refresh: stars and archived flags (observe; a build's tags come from its build.json at ingest), the mods index with what the mods package holds
 # per mod, the PRoot Apps index (proot-apps' metadata.yml), and the store repositories. None of it is on a release's
 # path, so it runs apart from deploy.yml and never makes a release wait: it publishes the files it owns to the data
-# branch (observed.json, mods.json, proot-apps.json and their status files; see lsio_hub/store.py), asks deploy.yml to
-# publish them to Pages, and then pushes the Unraid, Umbrel and Runtipi stores. The control plane dispatches it every
+# branch (observed.json, mods.json, proot-apps.json and their status files; see lsio_hub/store.py) as a `Refresh data`
+# commit, which the control plane serves at the hub's next Deploy slot, and then pushes the Unraid, Umbrel and Runtipi
+# stores. The control plane dispatches it every
 # hour too, because GitHub skips many runs of an hourly cron.
 #
 # The stores were a three-job matrix after every Deploy, which during a burst of releases was three more waits for a
@@ -19,7 +20,6 @@ on:
 
 permissions:
   contents: write
-  actions: write  # dispatching deploy.yml
   pages: read  # the Pages URL the store templates link to
 
 concurrency:
