@@ -1,0 +1,768 @@
+{
+ "image": "telegram",
+ "branch": "master",
+ "tag": "7.4.0-ls7",
+ "previous_tag": "7.3.3-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "6 commits (1d0e35b → 5b8d6a1): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "7.3.3",
+  "to": "7.4.0",
+  "changed": true
+ },
+ "commit": {
+  "from": "1d0e35b6b5705eefb6163174531a8e854568cca3",
+  "to": "5b8d6a147a60760014fb987dcb306b2a1de9c543",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-telegram/compare/1d0e35b6b5705eefb6163174531a8e854568cca3...5b8d6a147a60760014fb987dcb306b2a1de9c543",
+  "commits": [
+   {
+    "sha": "e4b6bd28230181ead42880839cd1cf4065ae4e76",
+    "subject": "Add the upstream release notes source",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T19:38:26Z",
+    "url": "https://github.com/linuxserver-playground/docker-telegram/commit/e4b6bd28230181ead42880839cd1cf4065ae4e76",
+    "bot": false
+   },
+   {
+    "sha": "53cfa4252264fb8123286249c32f0a37c91dc10b",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T20:01:32Z",
+    "url": "https://github.com/linuxserver-playground/docker-telegram/commit/53cfa4252264fb8123286249c32f0a37c91dc10b",
+    "bot": true
+   },
+   {
+    "sha": "c973fba7f387209e0eb23d19d8147d1a7c505ea5",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T04:50:47Z",
+    "url": "https://github.com/linuxserver-playground/docker-telegram/commit/c973fba7f387209e0eb23d19d8147d1a7c505ea5",
+    "bot": true
+   },
+   {
+    "sha": "0c74ef01e7d9e7c7097b706f7cd33d18b57ea468",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T17:40:31Z",
+    "url": "https://github.com/linuxserver-playground/docker-telegram/commit/0c74ef01e7d9e7c7097b706f7cd33d18b57ea468",
+    "bot": true
+   },
+   {
+    "sha": "03ab677b0f6e582348db076c618d68afb7e6c43d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T17:52:52Z",
+    "url": "https://github.com/linuxserver-playground/docker-telegram/commit/03ab677b0f6e582348db076c618d68afb7e6c43d",
+    "bot": true
+   },
+   {
+    "sha": "5b8d6a147a60760014fb987dcb306b2a1de9c543",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T08:48:56Z",
+    "url": "https://github.com/linuxserver-playground/docker-telegram/commit/5b8d6a147a60760014fb987dcb306b2a1de9c543",
+    "bot": true
+   }
+  ],
+  "count": 6,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:52fa07df164b16b16aef191b51e80acf9911a6dd98d836f3e41cee05b1c07f37"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1666691189,
+   "to": 1690009007,
+   "delta": 23317818
+  },
+  "arm64": {
+   "from": 1730318262,
+   "to": 1751397832,
+   "delta": 21079570
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "CMake",
+      "from": "4.4.4",
+      "to": "4.4.5",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [
+     {
+      "name": "glibc-locales",
+      "version": "2.44+r50+g1848099f063e-1",
+      "purl": "pkg:alpm/arch/glibc-locales@2.44%2Br50%2Bg1848099f063e-1?arch=x86_64&distro=arch-rolling&upstream=glibc"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "aom",
+      "from": "3.15.2-1",
+      "to": "3.15.3-1",
+      "purl": "pkg:alpm/arch/aom@3.15.3-1?arch=x86_64&distro=arch-rolling&upstream=aom"
+     },
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1",
+      "to": "156.0.8078.79-1",
+      "purl": "pkg:alpm/arch/chromium@156.0.8078.79-1?arch=x86_64&distro=arch-rolling&upstream=chromium"
+     },
+     {
+      "name": "cmake",
+      "from": "4.4.4-1",
+      "to": "4.4.5-1",
+      "purl": "pkg:alpm/arch/cmake@4.4.5-1?arch=x86_64&distro=arch-rolling&upstream=cmake"
+     },
+     {
+      "name": "debugedit",
+      "from": "5.3-2",
+      "to": "5.4-1",
+      "purl": "pkg:alpm/arch/debugedit@5.4-1?arch=x86_64&distro=arch-rolling&upstream=debugedit"
+     },
+     {
+      "name": "device-mapper",
+      "from": "2.03.43-2",
+      "to": "2.03.44-1",
+      "purl": "pkg:alpm/arch/device-mapper@2.03.44-1?arch=x86_64&distro=arch-rolling&upstream=lvm2"
+     },
+     {
+      "name": "fribidi",
+      "from": "1.0.17-1",
+      "to": "1.0.18-1",
+      "purl": "pkg:alpm/arch/fribidi@1.0.18-1?arch=x86_64&distro=arch-rolling&upstream=fribidi"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": "pkg:alpm/arch/gnupg@2.4.9-4?arch=x86_64&distro=arch-rolling&upstream=gnupg"
+     },
+     {
+      "name": "gperftools",
+      "from": "2.19.1-1",
+      "to": "2.19.2-1",
+      "purl": "pkg:alpm/arch/gperftools@2.19.2-1?arch=x86_64&distro=arch-rolling&upstream=gperftools"
+     },
+     {
+      "name": "harfbuzz",
+      "from": "14.6.0-1",
+      "to": "15.0.0-1",
+      "purl": "pkg:alpm/arch/harfbuzz@15.0.0-1?arch=x86_64&distro=arch-rolling&upstream=harfbuzz"
+     },
+     {
+      "name": "harfbuzz-icu",
+      "from": "15.0.0-1",
+      "to": "15.1.0-1",
+      "purl": "pkg:alpm/arch/harfbuzz-icu@15.1.0-1?arch=x86_64&distro=arch-rolling&upstream=harfbuzz"
+     },
+     {
+      "name": "hunspell",
+      "from": "1.7.5-1",
+      "to": "1.7.6-1",
+      "purl": "pkg:alpm/arch/hunspell@1.7.6-1?arch=x86_64&distro=arch-rolling&upstream=hunspell"
+     },
+     {
+      "name": "hyphen",
+      "from": "2.8.9-1",
+      "to": "2.8.10-1",
+      "purl": "pkg:alpm/arch/hyphen@2.8.10-1?arch=x86_64&distro=arch-rolling&upstream=hyphen"
+     },
+     {
+      "name": "kmod",
+      "from": "34.2-1",
+      "to": "34.3-1",
+      "purl": "pkg:alpm/arch/kmod@34.3-1?arch=x86_64&distro=arch-rolling&upstream=kmod"
+     },
+     {
+      "name": "lcms2",
+      "from": "2.19.1-1",
+      "to": "2.20-1",
+      "purl": "pkg:alpm/arch/lcms2@2.20-1?arch=x86_64&distro=arch-rolling&upstream=lcms2"
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.10-1",
+      "to": "3.8.11-1",
+      "purl": "pkg:alpm/arch/libarchive@3.8.11-1?arch=x86_64&distro=arch-rolling&upstream=libarchive"
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r32.gd49e9284-1",
+      "to": "2.2.1.r57.g9fcc4bf4-1",
+      "purl": "pkg:alpm/arch/libcupsfilters@2.2.1.r57.g9fcc4bf4-1?arch=x86_64&distro=arch-rolling&upstream=libcupsfilters"
+     },
+     {
+      "name": "libjpeg-turbo",
+      "from": "3.2.0-2",
+      "to": "3.2.1-1",
+      "purl": "pkg:alpm/arch/libjpeg-turbo@3.2.1-1?arch=x86_64&distro=arch-rolling&upstream=libjpeg-turbo"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-1",
+      "to": "0.8.10-1",
+      "purl": "pkg:alpm/arch/libopenmpt@0.8.10-1?arch=x86_64&distro=arch-rolling&upstream=libopenmpt"
+     },
+     {
+      "name": "mesa",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/mesa@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "noto-fonts",
+      "from": "1:2026.10.01-1",
+      "to": "1:2026.11.01-1",
+      "purl": "pkg:alpm/arch/noto-fonts@1%3A2026.11.01-1?arch=any&distro=arch-rolling&upstream=noto-fonts"
+     },
+     {
+      "name": "noto-fonts-emoji",
+      "from": "1:2.057-1",
+      "to": "1:20260924-1",
+      "purl": "pkg:alpm/arch/noto-fonts-emoji@1%3A20260924-1?arch=any&distro=arch-rolling&upstream=noto-fonts-emoji"
+     },
+     {
+      "name": "pdfio",
+      "from": "1.6.5-1",
+      "to": "1.6.6-1",
+      "purl": "pkg:alpm/arch/pdfio@1.6.6-1?arch=x86_64&distro=arch-rolling&upstream=pdfio"
+     },
+     {
+      "name": "poppler",
+      "from": "26.10.0-1",
+      "to": "26.10.0-2",
+      "purl": "pkg:alpm/arch/poppler@26.10.0-2?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "python",
+      "from": "3.14.8-1",
+      "to": "3.14.9-1",
+      "purl": "pkg:alpm/arch/python@3.14.9-1?arch=x86_64&distro=arch-rolling&upstream=python"
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-3",
+      "to": "6.12.0-4",
+      "purl": "pkg:alpm/arch/qt6-declarative@6.12.0-4?arch=x86_64&distro=arch-rolling&upstream=qt6-declarative"
+     },
+     {
+      "name": "simdutf",
+      "from": "9.2.1-2",
+      "to": "9.2.2-1",
+      "purl": "pkg:alpm/arch/simdutf@9.2.2-1?arch=x86_64&distro=arch-rolling&upstream=simdutf"
+     },
+     {
+      "name": "sqlite",
+      "from": "3.54.0-1",
+      "to": "3.54.1-1",
+      "purl": "pkg:alpm/arch/sqlite@3.54.1-1?arch=x86_64&distro=arch-rolling&upstream=sqlite"
+     },
+     {
+      "name": "telegram-desktop",
+      "from": "7.3.3-1",
+      "to": "7.4.0-1",
+      "purl": "pkg:alpm/arch/telegram-desktop@7.4.0-1?arch=x86_64&distro=arch-rolling&upstream=telegram-desktop"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": "pkg:alpm/arch/tzdata@2026f-1?arch=x86_64&distro=arch-rolling&upstream=tzdata"
+     },
+     {
+      "name": "vulkan-intel",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/vulkan-intel@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-mesa-implicit-layers",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/vulkan-mesa-implicit-layers@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-radeon",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/vulkan-radeon@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "wayland-protocols",
+      "from": "1.49-1",
+      "to": "1.50-1",
+      "purl": "pkg:alpm/arch/wayland-protocols@1.50-1?arch=any&distro=arch-rolling&upstream=wayland-protocols"
+     },
+     {
+      "name": "xf86-video-qxl",
+      "from": "0.1.6-2",
+      "to": "0.1.6-3",
+      "purl": "pkg:alpm/arch/xf86-video-qxl@0.1.6-3?arch=x86_64&distro=arch-rolling&upstream=xf86-video-qxl"
+     },
+     {
+      "name": "xkeyboard-config",
+      "from": "2.48-1",
+      "to": "2.49-1",
+      "purl": "pkg:alpm/arch/xkeyboard-config@2.49-1?arch=any&distro=arch-rolling&upstream=xkeyboard-config"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.6.17",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.1",
+      "to": "26.2.2",
+      "purl": "pkg:pypi/pip@26.2.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "CMake",
+      "from": "4.4.4",
+      "to": "4.4.5",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [
+     {
+      "name": "glibc-locales",
+      "version": "2.43+r22+g8362e8ce10b2-2",
+      "purl": null
+     },
+     {
+      "name": "simdutf",
+      "version": "9.2.2-1",
+      "purl": null
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "aom",
+      "from": "3.15.2-1",
+      "to": "3.15.3-1",
+      "purl": null
+     },
+     {
+      "name": "chromium",
+      "from": "153.0.8010.36-1",
+      "to": "156.0.8078.79-1",
+      "purl": null
+     },
+     {
+      "name": "cmake",
+      "from": "4.4.4-1",
+      "to": "4.4.5-1",
+      "purl": null
+     },
+     {
+      "name": "debugedit",
+      "from": "5.3-2",
+      "to": "5.4-1",
+      "purl": null
+     },
+     {
+      "name": "device-mapper",
+      "from": "2.03.43-2",
+      "to": "2.03.44-1",
+      "purl": null
+     },
+     {
+      "name": "fribidi",
+      "from": "1.0.17-1",
+      "to": "1.0.18-1",
+      "purl": null
+     },
+     {
+      "name": "glycin",
+      "from": "2.2.4-1",
+      "to": "2.2.5-1",
+      "purl": null
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": null
+     },
+     {
+      "name": "gperftools",
+      "from": "2.19.1-1",
+      "to": "2.19.2-1",
+      "purl": null
+     },
+     {
+      "name": "harfbuzz",
+      "from": "14.6.0-1",
+      "to": "15.0.0-1",
+      "purl": null
+     },
+     {
+      "name": "harfbuzz-icu",
+      "from": "15.0.0-1",
+      "to": "15.1.0-1",
+      "purl": null
+     },
+     {
+      "name": "hunspell",
+      "from": "1.7.5-1",
+      "to": "1.7.6-1",
+      "purl": null
+     },
+     {
+      "name": "hyphen",
+      "from": "2.8.9-1",
+      "to": "2.8.10-1",
+      "purl": null
+     },
+     {
+      "name": "kmod",
+      "from": "34.2-1",
+      "to": "34.3-1",
+      "purl": null
+     },
+     {
+      "name": "lcms2",
+      "from": "2.19.1-1",
+      "to": "2.20-1",
+      "purl": null
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.10-1",
+      "to": "3.8.11-1",
+      "purl": null
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r32.gd49e9284-1",
+      "to": "2.2.1.r57.g9fcc4bf4-1",
+      "purl": null
+     },
+     {
+      "name": "libjpeg-turbo",
+      "from": "3.2.0-2",
+      "to": "3.2.1-1",
+      "purl": null
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-1",
+      "to": "0.8.10-1",
+      "purl": null
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.4-1",
+      "to": "23.1.4-1.1",
+      "purl": null
+     },
+     {
+      "name": "mesa",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": null
+     },
+     {
+      "name": "noto-fonts",
+      "from": "1:2026.10.01-1",
+      "to": "1:2026.11.01-1",
+      "purl": null
+     },
+     {
+      "name": "noto-fonts-emoji",
+      "from": "1:2.057-1",
+      "to": "1:20260924-1",
+      "purl": null
+     },
+     {
+      "name": "pdfio",
+      "from": "1.6.5-1",
+      "to": "1.6.6-1",
+      "purl": null
+     },
+     {
+      "name": "poppler",
+      "from": "26.10.0-1",
+      "to": "26.10.0-2",
+      "purl": null
+     },
+     {
+      "name": "python",
+      "from": "3.14.8-1",
+      "to": "3.14.9-1",
+      "purl": null
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-3",
+      "to": "6.12.0-4",
+      "purl": null
+     },
+     {
+      "name": "sqlite",
+      "from": "3.54.0-1",
+      "to": "3.54.1-1",
+      "purl": null
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": null
+     },
+     {
+      "name": "vulkan-broadcom",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": null
+     },
+     {
+      "name": "vulkan-mesa-implicit-layers",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": null
+     },
+     {
+      "name": "vulkan-radeon",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": null
+     },
+     {
+      "name": "wayland-protocols",
+      "from": "1.49-1",
+      "to": "1.50-1",
+      "purl": null
+     },
+     {
+      "name": "xf86-video-qxl",
+      "from": "0.1.6-2",
+      "to": "0.1.6-3",
+      "purl": null
+     },
+     {
+      "name": "xkeyboard-config",
+      "from": "2.48-1",
+      "to": "2.49-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.6.17",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.1",
+      "to": "26.2.2",
+      "purl": "pkg:pypi/pip@26.2.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 3,
+  "removed": 0,
+  "upgraded": 92,
+  "downgraded": 0
+ }
+}

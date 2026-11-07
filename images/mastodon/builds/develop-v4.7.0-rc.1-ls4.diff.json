@@ -1,0 +1,106 @@
+{
+ "image": "mastodon",
+ "branch": "develop",
+ "tag": "develop-v4.7.0-rc.1-ls4",
+ "previous_tag": "develop-v4.7.0-rc.1-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "repository at a newer commit (04ae8a5 → 83baa7b)"
+ ],
+ "upstream": {
+  "from": "v4.7.0-rc.1",
+  "to": "v4.7.0-rc.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "04ae8a58c0929d8ef34aa19d11bc6315ceaa9645",
+  "to": "83baa7b380e9c7449a00f01d1386cb5a599dcc84",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mastodon/compare/04ae8a58c0929d8ef34aa19d11bc6315ceaa9645...83baa7b380e9c7449a00f01d1386cb5a599dcc84"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:df6a63d8627d7f06e292f4e4cff695743d92f8735617ff755470962e58fd75f5"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a55ef6f5b72baa4997d79d545cdd81d262c2a719afbaddf2984d93f9250db2a0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 254520785,
+   "to": 254532742,
+   "delta": 11957
+  },
+  "arm64": {
+   "from": 250836717,
+   "to": 250838103,
+   "delta": 1386
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

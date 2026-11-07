@@ -1,0 +1,69 @@
+{
+ "image": "calibre",
+ "branch": "v4",
+ "tag": "v4-4.23.0-ls4",
+ "previous_tag": "v4-4.23.0-ls3",
+ "classification": "none",
+ "reasons": [
+  "repository at a newer commit (2215fa2 → b1dc584)"
+ ],
+ "upstream": {
+  "from": "4.23.0",
+  "to": "4.23.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "2215fa22772591f863766bcd08df0cbd9ca5e353",
+  "to": "b1dc584ccd74612fbea3964ccf666ee306af2a6d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-calibre/compare/2215fa22772591f863766bcd08df0cbd9ca5e353...b1dc584ccd74612fbea3964ccf666ee306af2a6d"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubuntunoble",
+   "digest": "sha256:7cab02f9222937ad1e704cd904534d69a2300b2406af466241817be0ce1d0493"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubuntunoble",
+   "digest": "sha256:7cab02f9222937ad1e704cd904534d69a2300b2406af466241817be0ce1d0493"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1157825927,
+   "to": 1157826024,
+   "delta": 97
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

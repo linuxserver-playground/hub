@@ -1,0 +1,69 @@
+{
+ "image": "nextcloud",
+ "branch": "develop",
+ "tag": "develop-35.0.2rc2-ls5",
+ "previous_tag": "develop-35.0.2rc2-ls4",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "35.0.2rc2",
+  "to": "35.0.2rc2",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e0867f6ba6d1ecc1e7b95fa128143b3400748c8de7ccabf498044b009c4ca01a"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e0867f6ba6d1ecc1e7b95fa128143b3400748c8de7ccabf498044b009c4ca01a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 379224773,
+   "to": 379225524,
+   "delta": 751
+  },
+  "arm64": {
+   "from": 376327174,
+   "to": 376327661,
+   "delta": 487
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

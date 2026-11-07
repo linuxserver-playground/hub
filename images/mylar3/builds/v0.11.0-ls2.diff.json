@@ -1,0 +1,70 @@
+{
+ "image": "mylar3",
+ "branch": "master",
+ "tag": "v0.11.0-ls2",
+ "previous_tag": "v0.11.0-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "v0.11.0",
+  "to": "v0.11.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/unrar:latest",
+   "digest": "sha256:48c0ce2609bb3c35764956bbd9395e95b177421e3c74b3628c3676029f24f2e0"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy",
+   "digest": "sha256:a89013a65b390a28ca59633a3b6fd15cf0b12ce168eb224a8e3badde886fd6d9"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 194995927,
+   "to": 194996765,
+   "delta": 838
+  },
+  "arm64": {
+   "from": 189268416,
+   "to": 189268282,
+   "delta": -134
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -4,7 +4,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -4,7 +4,7 @@\n \n ENV LSIO_FIRST_PARTY=true\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-jammy\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-jammy\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}
