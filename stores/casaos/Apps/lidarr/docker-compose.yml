@@ -1,0 +1,63 @@
+name: lidarr
+services:
+  lidarr:
+    image: ghcr.io/linuxserver-playground/lidarr:latest
+    container_name: lidarr
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/lidarr/config:/config
+    - /DATA/AppData/lidarr/music:/music
+    - /DATA/AppData/lidarr/downloads:/downloads
+    ports:
+    - 8686:8686
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8686'
+        description:
+          en_us: Application WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Configuration files for Lidarr.
+      - container: /music
+        description:
+          en_us: Music files (See note in Application setup).
+      - container: /downloads
+        description:
+          en_us: Path to your download folder for music (See note in Application setup).
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: lidarr
+  author: LinuxServer.io
+  developer: Lidarr
+  category: Media Management
+  description:
+    en_us: Lidarr is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
+  tagline:
+    en_us: Lidarr is a music collection manager for Usenet and BitTorrent users
+  title:
+    en_us: Lidarr
+  icon: https://github.com/lidarr/Lidarr/raw/develop/Logo/400.png
+  thumbnail: https://github.com/lidarr/Lidarr/raw/develop/Logo/400.png
+  store_app_id: lidarr
+  index: /system/status
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-lidarr/builds/3.1.6.5079-ls3/amd64/screenshot.png
+  port_map: '8686'

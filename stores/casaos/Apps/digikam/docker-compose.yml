@@ -1,0 +1,58 @@
+name: digikam
+services:
+  digikam:
+    image: ghcr.io/linuxserver-playground/digikam:latest
+    container_name: digikam
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/digikam/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Digikam desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Digikam desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores database.
+x-casaos:
+  architectures:
+  - amd64
+  main: digikam
+  author: LinuxServer.io
+  developer: Digikam
+  category: Photos
+  description:
+    en_us: 'digiKam: Professional Photo Management with the Power of Open Source'
+  tagline:
+    en_us: 'digiKam: Professional Photo Management with the Power of Open Source'
+  title:
+    en_us: Digikam
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/digikam.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/digikam.png
+  store_app_id: digikam
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-digikam/builds/9.1.0-ls8/amd64/screenshot.png
+  port_map: '3000'

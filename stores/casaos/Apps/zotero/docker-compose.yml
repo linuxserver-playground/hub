@@ -1,0 +1,58 @@
+name: zotero
+services:
+  zotero:
+    image: ghcr.io/linuxserver-playground/zotero:latest
+    container_name: zotero
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/zotero/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Zotero gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Zotero gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: zotero
+  author: LinuxServer.io
+  developer: Zotero
+  category: Documents
+  description:
+    en_us: Zotero is a free, easy-to-use tool to help you collect, organize, annotate, cite, and share research.
+  tagline:
+    en_us: Zotero is a free, easy-to-use tool to help you collect, organize, annotate, cite, and share research
+  title:
+    en_us: Zotero
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/zotero-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/zotero-icon.png
+  store_app_id: zotero
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-zotero/builds/10.0.8-ls7/amd64/screenshot.png
+  port_map: '3000'

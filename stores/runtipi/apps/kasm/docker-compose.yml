@@ -1,0 +1,21 @@
+services:
+  kasm:
+    image: ghcr.io/linuxserver-playground/kasm:latest
+    environment:
+      KASM_PORT: ${KASM_KASM_PORT}
+      DOCKER_HUB_USERNAME: ${KASM_DOCKER_HUB_USERNAME}
+      DOCKER_HUB_PASSWORD: ${KASM_DOCKER_HUB_PASSWORD}
+      DOCKER_MTU: ${KASM_DOCKER_MTU}
+    volumes:
+    - ${APP_DATA_DIR}/data/opt:/opt
+    - ${APP_DATA_DIR}/data/profiles:/profiles
+    - ${APP_DATA_DIR}/data/dev/input:/dev/input
+    - ${APP_DATA_DIR}/data/run/udev/data:/run/udev/data
+    ports:
+    - 443:443
+    privileged: true
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+x-runtipi:
+  schema_version: 2

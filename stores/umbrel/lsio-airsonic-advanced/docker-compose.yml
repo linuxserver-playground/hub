@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-airsonic-advanced_server_1
+      APP_PORT: 4040
+  server:
+    image: ghcr.io/linuxserver-playground/airsonic-advanced:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      CONTEXT_PATH: ''
+      JAVA_OPTS: ''
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/music:/music
+    - ${APP_DATA_DIR}/data/playlists:/playlists
+    - ${APP_DATA_DIR}/data/podcasts:/podcasts
+    - ${APP_DATA_DIR}/data/media:/media

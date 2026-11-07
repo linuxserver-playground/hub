@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-deluge/blob/master/image.yml -->
+<Container version="2">
+    <Name>deluge</Name>
+    <Repository>ghcr.io/linuxserver-playground/deluge</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/deluge</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-deluge/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-deluge#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-deluge#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable Deluge releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>libtorrentv1</Tag>
+        <TagDescription>Stable Deluge releases using libtorrentv1</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-deluge/tree/libtorrentv1#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-deluge/tree/libtorrentv1#application-setup</GitHub>
+    </Branch>
+    <Project>http://deluge-torrent.org/</Project>
+    <Overview>Deluge(http://deluge-torrent.org/) is a lightweight, Free Software, cross-platform BitTorrent client.</Overview>
+    <WebUI>http://[IP]:[PORT:8112]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/deluge.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/deluge-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-deluge/builds/2.2.0-ls5/amd64/screenshot.png</Screenshot>
+    <Date>2026-09-27</Date>
+    <Changes>
+### 2026-09-27
+- Pin libtorrent to 2.0.13 due to deprecated function. Fix cron for GeoIP updates.
+
+### 2026-04-02
+- Install from pypi due to Alpine geoip package deprecation.
+
+### 2025-12-29
+- Fix some issues with GeoIP updates.
+
+### 2025-08-23
+- Update GeoIP provider, add weekly cronjob to update.
+
+### 2025-01-12
+- Rebase libtorrentv1 branch to Alpine 3.21.
+
+### 2024-09-19
+- Prevent race condition related delay during container stop.
+
+### 2024-08-26
+- Add libtorrentv1 tag.
+
+### 2023-12-26
+- Replace source for GeoIP database.
+
+### 2023-12-07
+- Add optional port 58846 to readme for thin client connectivity.
+
+### 2023-10-07
+- Install unrar from linuxserver repo(https://github.com/linuxserver/docker-unrar).
+
+### 2023-08-10
+- Bump unrar to 6.2.10.
+
+### 2023-06-30
+- Bump unrar to 6.2.8, deprecate armhf as per https://www.linuxserver.io/armhf(https://www.linuxserver.io/armhf).
+
+### 2022-11-29
+- Restore geoip using py3-geoip as an interim measure.
+
+### 2022-11-24
+- Remove GeoIP packages as geoip will not build under Py 3.11 and Deluge still doesn&#x27;t support geoip2.
+
+### 2022-11-22
+- Update GeoIP URL for new IPFS domain.
+
+### 2022-08-29
+- Rebase to Alpine Edge again to follow latest releases.
+
+### 2022-08-12
+- Bump unrar to 6.1.7.
+
+### 2022-06-16
+- Rebase to Alpine 3.16 from edge.
+
+### 2022-02-22
+- Rebase to Alpine, config on first startup, add GeoIP.
+
+### 2022-01-15
+- Rebase to Focal.
+
+### 2021-06-07
+- Remove host networking from readme examples
+
+### 2021-01-23
+- Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information.
+
+### 2020-05-09
+- Add python3 requests and future modules.
+
+### 2019-08-24
+- Add ability to set LogLevel for Deluge.
+
+### 2019-06-09
+- Update to 2.x using deluge ppa.
+
+### 2019-05-02
+- Install full version of 7zip.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2018-11-15
+- Add deluge-console.
+
+### 2018-11-11
+- Rebase to Ubuntu Bionic, add pipeline multiarch logic.
+
+### 2018-04-09
+- update to libressl2.7-libssl.
+
+### 2018-03-29
+- Rebase to alpine edge.
+
+### 2017-12-07
+- Rebase to alpine 3.7.
+
+### 2017-11-20
+- Change libressl2.6-libssl repo.
+
+### 2017-07-01
+- Add curl package.
+
+### 2017-05-26
+- Rebase to alpine 3.6.
+
+### 2017-04-29
+- Add variable for user defined umask.
+
+### 2017-04-28
+- update to libressl2.5-libssl.
+
+### 2016-12-28
+- Rebase to alpine 3.5 baseimage.
+
+### 2016-11-17
+- Rebase to edge baseimage.
+
+### 2016-10-13
+- Switch to libressl as openssl deprecated from alpine linux and deluge dependency no longer installs
+
+### 2016-09-30
+- Fix umask.
+
+### 2016-09-09
+- Add layer badges to README.
+
+### 2016-08-30
+- Use pip packages for some critical dependencies.
+
+### 2016-08-28
+- Add badges to README.
+
+### 2016-08-15
+- Rebase to alpine linux.
+
+### 2015-11-09
+- Add unrar and unzip
+
+### 2015-10-15
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8112" Default="8112" Mode="tcp" Description="Port for webui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 6881" Target="6881" Default="6881" Mode="tcp" Description="Inbound torrent traffic (See App Setup)" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 6881" Target="6881" Default="6881" Mode="udp" Description="Inbound torrent traffic (See App Setup)" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 58846" Target="58846" Default="58846" Mode="tcp" Description="Default deluged port for thin client connectivity" Type="Port" Display="always" Required="false" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="deluge configs" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /downloads" Target="/downloads" Default="" Mode="rw" Description="torrent download directory" Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="DELUGE_LOGLEVEL" Target="DELUGE_LOGLEVEL" Default="error" Description="set the loglevel output when running Deluge, default is info for deluged and warning for delgued-web" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

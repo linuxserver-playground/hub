@@ -1,0 +1,33 @@
+{
+  "name": "Librewolf",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "librewolf",
+  "tipi_version": 1,
+  "version": "159.0.1-1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "LibreWolf is a custom and independent version of Firefox, with the primary goals of privacy, security and user freedom. LibreWolf also aims to remove all the telemetry, data collection and annoyances, as well as disabling anti-freedom features like DRM.",
+  "short_desc": "LibreWolf is a custom and independent version of Firefox, with the primary goals of privacy, security and user freedom",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-librewolf",
+  "website": "https://librewolf.net/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/librewolf-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "LIBREWOLF_CLI",
+      "hint": "Specify one or multiple LibreWolf CLI flags, this string will be passed to the application in full.",
+      "required": false,
+      "env_variable": "LIBREWOLF_LIBREWOLF_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

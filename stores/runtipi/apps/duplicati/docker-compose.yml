@@ -1,0 +1,19 @@
+services:
+  duplicati:
+    image: ghcr.io/linuxserver-playground/duplicati:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      SETTINGS_ENCRYPTION_KEY: ${DUPLICATI_SETTINGS_ENCRYPTION_KEY}
+      CLI_ARGS: ${DUPLICATI_CLI_ARGS}
+      DUPLICATI__WEBSERVICE_PASSWORD: ${DUPLICATI_DUPLICATI__WEBSERVICE_PASSWORD}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/backups:/backups
+    - ${APP_DATA_DIR}/data/source:/source
+    x-runtipi:
+      is_main: true
+      internal_port: 8200
+x-runtipi:
+  schema_version: 2

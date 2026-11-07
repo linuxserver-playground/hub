@@ -1,0 +1,61 @@
+name: vscode
+services:
+  vscode:
+    image: ghcr.io/linuxserver-playground/vscode:latest
+    container_name: vscode
+    restart: unless-stopped
+    cap_add:
+    - IPC_LOCK
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/vscode/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: VS Code desktop gui.
+      - container: '3001'
+        description:
+          en_us: HTTPS VS Code desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: vscode
+  author: LinuxServer.io
+  developer: Vscode
+  category: Programming
+  description:
+    en_us: VS Code is an integrated development environment developed by Microsoft. This container runs the full desktop application, for a web native version see Code Server.
+  tagline:
+    en_us: VS Code is an integrated development environment developed by Microsoft
+  title:
+    en_us: Vscode
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscode-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscode-logo.png
+  store_app_id: vscode
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-vscode/builds/1.145.2-ls9/amd64/screenshot.png
+  port_map: '3000'

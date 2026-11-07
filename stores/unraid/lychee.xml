@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-lychee/blob/master/image.yml -->
+<Container version="2">
+    <Name>lychee</Name>
+    <Repository>ghcr.io/linuxserver-playground/lychee</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/lychee</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-lychee/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-lychee#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-lychee#readme</ReadMe>
+    <Project>https://lycheeorg.github.io/</Project>
+    <Overview>Lychee(https://lycheeorg.github.io/) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.</Overview>
+    <WebUI>http://[IP]:[PORT:80]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/lychee.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-lychee/builds/v7.12.2-ls8/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-05</Date>
+    <Changes>
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2025-07-09
+- Add php84-ldap as dependency.
+
+### 2025-07-09
+- Rebase to Alpine 3.22.
+
+### 2024-12-03
+- Verify build artifacts with cosign.
+
+### 2024-05-27
+- Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2024-01-18
+- Add php-sodium.
+
+### 2024-01-13
+- Rebase to Alpine 3.19 with php 8.3.
+
+### 2023-12-27
+- Update image to support v5.
+
+### 2023-12-25
+- Existing users should update: site-confs/default.conf - Cleanup default site conf. Build npm dependencies into image.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-04-13
+- Move ssl.conf include to default.conf.
+
+### 2023-01-11
+- Rebasing to alpine 3.17 with php8.1. Restructure nginx configs (see changes announcement(https://info.linuxserver.io/issues/2022-08-20-nginx-base)). Switch to git clone as builds fail with the release artifact.
+
+### 2021-05-13
+- Make readme clearer.
+
+### 2021-04-18
+- Add php-intl for v4.3.
+
+### 2021-01-31
+- Add jpegoptim.
+
+### 2021-01-15
+- Rebase to alpine 3.13, add php7-ctype.
+
+### 2020-07-10
+- Upgrade to Lychee v4 and rebased to alpine 3.12.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-10-23
+- Increase fastcgi timeouts (existing users need to manually update).
+
+### 2019-09-19
+- Update project website url.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-05-05
+- Rebase to alpine 3.9, use new armv7 image format.
+
+### 2019-01-25
+- Added ffmpeg for video thumbnail creation, switched to installing zip release instead of source tarball, created small thumbnails folder, switched to dynamic readme.
+
+### 2019-01-14
+- Adding pipeline logic and multi arch..
+
+### 2018-09-04
+- Rebase to alpine 3.8, switch to LycheeOrg repository.
+
+### 2018-01-08
+- Rebase to alpine 3.7.
+
+### 2017-05-25
+- Rebase to alpine 3.6.
+
+### 2017-05-03
+- Use repo pinning to better solve dependencies, use repo version of php7-imagick.
+
+### 2017-02-12
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="http gui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /pictures" Target="/pictures" Default="" Mode="rw" Description="Where lychee will store uploaded images." Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_CONNECTION" Target="DB_CONNECTION" Default="" Description="DB type, from `sqlite`, `mysql`, `pqsql`." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_HOST" Target="DB_HOST" Default="" Description="DB server hostname. For `mysql` and `pgsql` only." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_PORT" Target="DB_PORT" Default="" Description="DB server port. For `mysql` and `pgsql` only." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_USERNAME" Target="DB_USERNAME" Default="" Description="DB user. For `mysql` and `pgsql` only." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Description="DB password. For `mysql` and `pgsql` only." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="DB_DATABASE" Target="DB_DATABASE" Default="" Description="Path to DB file for `sqlite`. DB name for `mysql` and `pgsql`." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="APP_NAME" Target="APP_NAME" Default="Lychee" Description="The gallery name." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="APP_URL" Target="APP_URL" Default="" Description="The URL you will use to access Lychee including protocol, and port where appropriate." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="TRUSTED_PROXIES" Target="TRUSTED_PROXIES" Default="" Description="Set to the IP or netmask covering your reverse proxy, if running behind one. Set to `*` to trust all IPs (**do not** use `*` if exposed to the internet`)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

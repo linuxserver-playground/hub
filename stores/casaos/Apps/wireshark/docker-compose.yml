@@ -1,0 +1,59 @@
+name: wireshark
+services:
+  wireshark:
+    image: ghcr.io/linuxserver-playground/wireshark:latest
+    container_name: wireshark
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+    - NET_ADMIN
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/wireshark/config:/config
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: WireShark desktop gui HTTPS, must be proxied.
+      - container: '3001'
+        description:
+          en_us: WireShark desktop gui HTTPS, only use this if you are not using host mode and sniffing Docker network traffic.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and potentially dump files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: wireshark
+  author: LinuxServer.io
+  developer: Wireshark
+  category: Network
+  description:
+    en_us: Wireshark is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises, government agencies, and educational institutions. Wireshark development thrives thanks to the volunteer contributions of networking experts around the globe and is the continuation of a project started by Gerald Combs in 1998.
+  tagline:
+    en_us: Wireshark is the world’s foremost and widely-used network protocol analyzer
+  title:
+    en_us: Wireshark
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/wireshark-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/wireshark-icon.png
+  store_app_id: wireshark
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-wireshark/builds/4.6.9-r0-ls7/amd64/screenshot.png
+  port_map: '3001'

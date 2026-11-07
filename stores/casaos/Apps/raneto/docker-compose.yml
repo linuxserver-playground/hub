@@ -1,0 +1,55 @@
+name: raneto
+services:
+  raneto:
+    image: ghcr.io/linuxserver-playground/raneto:latest
+    container_name: raneto
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/raneto/config:/config
+    ports:
+    - 3000:3000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: The port for the Raneto web interface
+      volumes:
+      - container: /config
+        description:
+          en_us: Raneto config and Markdown files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: raneto
+  author: LinuxServer.io
+  developer: Raneto
+  category: Content Management
+  description:
+    en_us: Raneto - is an open source Knowledgebase platform that uses static Markdown files to power your Knowledgebase.
+  tagline:
+    en_us: Raneto - is an open source Knowledgebase platform that uses static Markdown files to power your Knowledgebase
+  title:
+    en_us: Raneto
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/raneto-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/raneto-logo.png
+  store_app_id: raneto
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-raneto/builds/0.18.1-ls4/amd64/screenshot.png
+  port_map: '3000'

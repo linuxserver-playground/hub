@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png
+  urls:
+  - https://github.com/sickgear/sickgear
+  - https://github.com/linuxserver-playground/docker-sickgear
+services:
+  sickgear:
+    image: ghcr.io/linuxserver-playground/sickgear:latest
+    container_name: sickgear
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${TV_PATH:-./tv}:/tv
+    - ${DOWNLOADS_PATH:-./downloads}:/downloads
+    ports:
+    - ${PORT_8081:-8081}:8081
+    restart: unless-stopped

@@ -1,0 +1,67 @@
+name: plex
+services:
+  plex:
+    image: ghcr.io/linuxserver-playground/plex:latest
+    container_name: plex
+    restart: unless-stopped
+    network_mode: host
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - VERSION=docker
+    - PLEX_CLAIM=
+    volumes:
+    - /DATA/AppData/plex/config:/config
+    - /DATA/AppData/plex/tv:/tv
+    - /DATA/AppData/plex/movies:/movies
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: VERSION
+        description:
+          en_us: Set whether to update plex or not - see Application Setup section.
+      - container: PLEX_CLAIM
+        description:
+          en_us: Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes.
+      ports: []
+      volumes:
+      - container: /config
+        description:
+          en_us: Plex library location. This can grow very large, 50gb+ is likely for a large collection.
+      - container: /tv
+        description:
+          en_us: Media goes here. Add as many as needed e.g. /movies, /tv, etc.
+      - container: /movies
+        description:
+          en_us: Media goes here. Add as many as needed e.g. /movies, /tv, etc.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: plex
+  author: LinuxServer.io
+  developer: Plex
+  category: Media Servers
+  description:
+    en_us: Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.
+  tagline:
+    en_us: Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices
+  title:
+    en_us: Plex
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-logo.png
+  store_app_id: plex
+  index: /web/index.html
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-plex/builds/1.43.5.11079-b3b13e506-ls7/amd64/screenshot.png
+  port_map: '32400'

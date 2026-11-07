@@ -1,0 +1,75 @@
+name: duplicati
+services:
+  duplicati:
+    image: ghcr.io/linuxserver-playground/duplicati:latest
+    container_name: duplicati
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - SETTINGS_ENCRYPTION_KEY=
+    - CLI_ARGS=
+    - DUPLICATI__WEBSERVICE_PASSWORD=
+    volumes:
+    - /DATA/AppData/duplicati/config:/config
+    - /DATA/AppData/duplicati/backups:/backups
+    - /DATA/AppData/duplicati/source:/source
+    ports:
+    - 8200:8200
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: SETTINGS_ENCRYPTION_KEY
+        description:
+          en_us: Encryption key for settings database. Minimum 8 characters, alphanumeric.
+      - container: CLI_ARGS
+        description:
+          en_us: Optionally specify any CLI variables you want to launch the app with
+      - container: DUPLICATI__WEBSERVICE_PASSWORD
+        description:
+          en_us: Password for the webui. If left unset will default to changeme and can be changed from the webui settings.
+      ports:
+      - container: '8200'
+        description:
+          en_us: http gui
+      volumes:
+      - container: /config
+        description:
+          en_us: Contains all relevant configuration files.
+      - container: /backups
+        description:
+          en_us: Path to store local backups.
+      - container: /source
+        description:
+          en_us: Path to source for files to backup.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: duplicati
+  author: LinuxServer.io
+  developer: Duplicati
+  category: Backup
+  description:
+    en_us: Duplicati is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers. It works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon S3, Google Drive, box.com, Mega, B2, and many others.
+  tagline:
+    en_us: Duplicati is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers
+  title:
+    en_us: Duplicati
+  icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/duplicati-icon.png
+  thumbnail: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/duplicati-icon.png
+  store_app_id: duplicati
+  index: /login.html
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-duplicati/builds/v2.4.1.0_stable_2026-10-29-ls7/amd64/screenshot.png
+  port_map: '8200'

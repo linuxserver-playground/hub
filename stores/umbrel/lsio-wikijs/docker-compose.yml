@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-wikijs_server_1
+      APP_PORT: 3000
+  server:
+    image: ghcr.io/linuxserver-playground/wikijs:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      DB_TYPE: sqlite
+      DB_HOST: ''
+      DB_PORT: ''
+      DB_NAME: ''
+      DB_USER: ''
+      DB_PASS: ''
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data:/data

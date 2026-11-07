@@ -1,0 +1,66 @@
+name: ldap-auth
+services:
+  ldap-auth:
+    image: ghcr.io/linuxserver-playground/ldap-auth:latest
+    container_name: ldap-auth
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - FERNETKEY=
+    - CERTFILE=
+    - KEYFILE=
+    ports:
+    - 8888:8888
+    - 9000:9000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: FERNETKEY
+        description:
+          en_us: Optionally define a custom valid fernet key (only needed if container is frequently recreated, or if using multi-node setups, invalidating previous authentications)
+      - container: CERTFILE
+        description:
+          en_us: Optionally point this to a certificate file to enable HTTP over SSL (HTTPS) for the ldap auth daemon
+      - container: KEYFILE
+        description:
+          en_us: Optionally point this to the private key file, matching the certificate file referred to in CERTFILE
+      ports:
+      - container: '8888'
+        description:
+          en_us: the port for ldap auth daemon
+      - container: '9000'
+        description:
+          en_us: the port for ldap login page
+      volumes: []
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: ldap-auth
+  author: LinuxServer.io
+  developer: Ldap-auth
+  category: Administration
+  description:
+    en_us: Ldap-auth software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).
+  tagline:
+    en_us: Ldap-auth software is for authenticating users who request protected resources from servers proxied by nginx
+  title:
+    en_us: Ldap-auth
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ldap-auth-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ldap-auth-logo.png
+  store_app_id: ldap-auth
+  index: /test
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-ldap-auth/builds/3.4.8-ls4/amd64/screenshot.png
+  port_map: '8888'

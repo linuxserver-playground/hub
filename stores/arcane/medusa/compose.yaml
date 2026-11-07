@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/medusa-icon.png
+  urls:
+  - https://pymedusa.com/
+  - https://github.com/linuxserver-playground/docker-medusa
+services:
+  medusa:
+    image: ghcr.io/linuxserver-playground/medusa:latest
+    container_name: medusa
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DOWNLOADS_PATH:-./downloads}:/downloads
+    - ${TV_PATH:-./tv}:/tv
+    ports:
+    - ${PORT_8081:-8081}:8081
+    restart: unless-stopped

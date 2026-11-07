@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-flexget_server_1
+      APP_PORT: 5050
+  server:
+    image: ghcr.io/linuxserver-playground/flexget:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      FG_LOG_LEVEL: info
+      FG_LOG_FILE: /config/flexget.log
+      FG_CONFIG_FILE: /config/.flexget/config.yml
+      FG_WEBUI_PASSWORD: info
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data:/data

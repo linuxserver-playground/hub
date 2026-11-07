@@ -1,0 +1,59 @@
+name: nomacs
+services:
+  nomacs:
+    image: ghcr.io/linuxserver-playground/nomacs:latest
+    container_name: nomacs
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/nomacs/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Nomacs desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Nomacs desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: User's home directory in the container, stores program settings and images
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: nomacs
+  author: LinuxServer.io
+  developer: Nomacs
+  category: Image Editor
+  description:
+    en_us: Nomacs is a free, open source image viewer, which supports multiple platforms. You can use it for viewing all common image formats including RAW and psd images.
+  tagline:
+    en_us: Nomacs is a free, open source image viewer, which supports multiple platforms
+  title:
+    en_us: Nomacs
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nomacs-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nomacs-logo.png
+  store_app_id: nomacs
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-nomacs/builds/3.22.4-ls6/amd64/screenshot.png
+  port_map: '3000'

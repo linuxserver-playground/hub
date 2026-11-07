@@ -1,0 +1,12 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/synclounge-banner.png
+  urls:
+  - https://github.com/samcm/synclounge
+  - https://github.com/linuxserver-playground/docker-synclounge
+services:
+  synclounge:
+    image: ghcr.io/linuxserver-playground/synclounge:latest
+    container_name: synclounge
+    ports:
+    - ${PORT_8088:-8088}:8088
+    restart: unless-stopped

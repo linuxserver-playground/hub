@@ -1,0 +1,58 @@
+name: modrinth
+services:
+  modrinth:
+    image: ghcr.io/linuxserver-playground/modrinth:latest
+    container_name: modrinth
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/modrinth/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Modrinth desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Modrinth desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  main: modrinth
+  author: LinuxServer.io
+  developer: Modrinth
+  category: Games
+  description:
+    en_us: Modrinth App is a unique, open source launcher that allows you to play your favorite mods, and keep them up to date, all in one neat little package.
+  tagline:
+    en_us: Modrinth App is a unique, open source launcher that allows you to play your favorite mods, and keep them up to date, all in one neat little package
+  title:
+    en_us: Modrinth
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/modrinth-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/modrinth-logo.png
+  store_app_id: modrinth
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-modrinth/builds/v0.23.1-ls6/amd64/screenshot.png
+  port_map: '3000'

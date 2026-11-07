@@ -1,0 +1,17 @@
+x-arcane:
+  urls:
+  - https://github.com/SYSTRAN/faster-whisper
+  - https://github.com/linuxserver-playground/docker-faster-whisper
+services:
+  faster-whisper:
+    image: ghcr.io/linuxserver-playground/faster-whisper:latest
+    container_name: faster-whisper
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_10300:-10300}:10300
+    restart: unless-stopped

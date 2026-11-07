@@ -1,0 +1,33 @@
+{
+  "name": "Chromium",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "chromium",
+  "tipi_version": 1,
+  "version": "3ccb2194",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.",
+  "short_desc": "Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to expe",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-chromium",
+  "website": "https://www.chromium.org/chromium-projects/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chromium-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "CHROME_CLI",
+      "hint": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.",
+      "required": false,
+      "env_variable": "CHROMIUM_CHROME_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tvheadend-big.png
+  urls:
+  - https://www.tvheadend.org/
+  - https://github.com/linuxserver-playground/docker-tvheadend
+services:
+  tvheadend:
+    image: ghcr.io/linuxserver-playground/tvheadend:latest
+    container_name: tvheadend
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${RECORDINGS_PATH:-./recordings}:/recordings
+    ports:
+    - ${PORT_9981:-9981}:9981
+    - ${PORT_9982:-9982}:9982
+    restart: unless-stopped

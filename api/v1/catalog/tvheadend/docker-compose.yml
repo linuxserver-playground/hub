@@ -1,0 +1,20 @@
+---
+services:
+  tvheadend:
+    image: ghcr.io/linuxserver-playground/tvheadend:latest
+    container_name: tvheadend
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - RUN_OPTS= #optional
+    volumes:
+      - /path/to/tvheadend/data:/config
+      - /path/to/recordings:/recordings
+    ports:
+      - 9981:9981
+      - 9982:9982
+    devices:
+      - /dev/dri:/dev/dri #optional
+      - /dev/dvb:/dev/dvb #optional
+    restart: unless-stopped

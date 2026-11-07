@@ -1,0 +1,56 @@
+{
+  "name": "Fail2ban",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "fail2ban",
+  "tipi_version": 1,
+  "version": "1.1.0-r2",
+  "categories": [
+    "network",
+    "security"
+  ],
+  "description": "Fail2ban is a daemon to ban hosts that cause multiple authentication errors.",
+  "short_desc": "Fail2ban is a daemon to ban hosts that cause multiple authentication errors",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-fail2ban",
+  "website": "http://www.fail2ban.org/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "Verbosity",
+      "hint": "Set the container log verbosity. Valid options are -v, -vv, -vvv, -vvvv, or leaving the value blank or not setting the variable.",
+      "required": false,
+      "env_variable": "FAIL2BAN_VERBOSITY",
+      "default": "-vv",
+      "options": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "-v",
+          "value": "-v"
+        },
+        {
+          "label": "-vv",
+          "value": "-vv"
+        },
+        {
+          "label": "-vvv",
+          "value": "-vvv"
+        },
+        {
+          "label": "-vvvv",
+          "value": "-vvvv"
+        }
+      ]
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

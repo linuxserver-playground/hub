@@ -1,0 +1,23 @@
+services:
+  librespeed:
+    image: ghcr.io/linuxserver-playground/librespeed:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      PASSWORD: ${LIBRESPEED_PASSWORD}
+      CUSTOM_RESULTS: ${LIBRESPEED_CUSTOM_RESULTS}
+      DB_TYPE: ${LIBRESPEED_DB_TYPE}
+      DB_NAME: ${LIBRESPEED_DB_NAME}
+      DB_HOSTNAME: ${LIBRESPEED_DB_HOSTNAME}
+      DB_USERNAME: ${LIBRESPEED_DB_USERNAME}
+      DB_PASSWORD: ${LIBRESPEED_DB_PASSWORD}
+      DB_PORT: ${LIBRESPEED_DB_PORT}
+      IPINFO_APIKEY: ${LIBRESPEED_IPINFO_APIKEY}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

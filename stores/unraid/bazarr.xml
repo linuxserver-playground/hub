@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-bazarr/blob/master/image.yml -->
+<Container version="2">
+    <Name>bazarr</Name>
+    <Repository>ghcr.io/linuxserver-playground/bazarr</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/bazarr</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-bazarr/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-bazarr#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-bazarr#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable releases from Bazarr</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>development</Tag>
+        <TagDescription>Pre-releases from Bazarr</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-bazarr/tree/development#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-bazarr/tree/development#application-setup</GitHub>
+    </Branch>
+    <Project>https://www.bazarr.media/</Project>
+    <Overview>Bazarr(https://www.bazarr.media/) is a companion application to Sonarr and Radarr. It can manage and download subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.</Overview>
+    <WebUI>http://[IP]:[PORT:6767]/system/status</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/bazarr.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-bazarr/builds/v1.6.2-ls7/amd64/screenshot.png</Screenshot>
+    <Date>2025-12-28</Date>
+    <Changes>
+### 2025-12-28
+- Rebase to Alpine 3.23.
+
+### 2025-07-05
+- Rebase to Alpine 3.22.
+
+### 2024-12-24
+- Rebase to Alpine 3.21.
+
+### 2024-06-24
+- Rebase to Alpine 3.20.
+
+### 2023-12-23
+- Rebase to Alpine 3.19.
+
+### 2023-09-19
+- Install unrar from linuxserver repo(https://github.com/linuxserver/docker-unrar).
+
+### 2023-08-11
+- Rebase to Alpine 3.18.
+
+### 2023-08-10
+- Bump unrar to 6.2.10.
+
+### 2023-07-04
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-02-26
+- Add dependencies for postgres support. Add mediainfo.
+
+### 2023-01-23
+- Rebase master branch to Alpine 3.17.
+
+### 2022-10-11
+- Rebase master branch to Alpine 3.16, migrate to s6v3.
+
+### 2021-11-15
+- Temp fix for lxml, compile from scratch to avoid broken official wheel.
+
+### 2021-10-25
+- Rebase to alpine 3.14. Fix numpy wheel.
+
+### 2021-10-22
+- Added openblas package to prevent numpy error.
+
+### 2021-05-16
+- Use wheel index.
+
+### 2021-04-19
+- Install from release zip.
+
+### 2021-04-07
+- Move app to /app/bazarr/bin, add `package_info`.
+
+### 2021-01-23
+- Rebasing to alpine 3.13.
+
+### 2021-01-23
+- Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information.
+
+### 2020-06-01
+- Rebasing to alpine 3.12.
+
+### 2020-05-13
+- Add donation links for Bazarr to Github sponsors button and container log.
+
+### 2020-04-08
+- Removed /movies and /tv volumes from Dockerfiles.
+
+### 2019-12-28
+- Upgrade to Python 3.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-06-13
+- Add env variable for setting umask.
+
+### 2019-06-12
+- Swap to install deps using maintainers requirements.txt, add ffmpeg for ffprobe.
+
+### 2019-04-17
+- Add default UTC timezone if user does not set it.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-02-22
+- Rebasing to alpine 3.9.
+
+### 2018-09-11
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="6767" Default="6767" Mode="tcp" Description="Allows HTTP access to the internal webserver." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /movies" Target="/movies" Default="" Mode="rw" Description="Location of your movies" Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /tv" Target="/tv" Default="" Mode="rw" Description="Location of your TV Shows" Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

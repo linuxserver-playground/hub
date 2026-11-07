@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-boinc/blob/master/image.yml -->
+<Container version="2">
+    <Name>boinc</Name>
+    <Repository>ghcr.io/linuxserver-playground/boinc</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/boinc</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-boinc/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-boinc#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-boinc#readme</ReadMe>
+    <Project>https://boinc.berkeley.edu/</Project>
+    <Overview>BOINC(https://boinc.berkeley.edu/) is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized, parallel, and GPU-based applications.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:8181]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/boinc.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-boinc/builds/8.2.8dfsg202512070716ubuntu24.04.1-ls8/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-boinc#security for more information.
+    </Requires>
+    <Date>2026-04-19</Date>
+    <Changes>
+### 2026-04-19
+- Rebase to resolute, make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2025-12-28
+- Add Wayland init logic.
+
+### 2025-07-07
+- Rebase to selkies. Breaking change: HTTPS is now required. Use port 8181 with HTTPS for direct access. Reverse proxies can connect to 8080 over http as long as it&#x27;s served over HTTPS to the user.
+
+### 2024-08-19
+- Rebase to noble.
+
+### 2024-02-10
+- Update Readme with new env vars and ingest proper PWA icon.
+
+### 2023-04-03
+- Rebase to KasmVNC base image. Deprecate armhf build as the new base does not support it. Add bzip2 and xz-utils.
+
+### 2022-11-14
+- Fix opencl driver.
+
+### 2022-09-18
+- Rebase to jammy.
+
+### 2022-02-24
+- Rebase to focal.
+
+### 2022-01-31
+- Improve device permissions setting verbosity.
+
+### 2021-03-23
+- Rebase to rdesktop-web baseimage. Deprecate `GUAC_USER` and `GUAC_PASS` env vars. Existing users can set the new var `PASSWORD` for the user `abc`.
+
+### 2020-04-01
+- Install boinc from ppa.
+
+### 2020-03-17
+- Add armhf and aarch64 builds and switch to multi-arch image.
+
+### 2020-03-16
+- Clean up old pid files.
+
+### 2020-03-15
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8080" Default="8080" Mode="tcp" Description="Boinc desktop gui HTTP (only to be used by reverse proxies and not direct access)." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 8181" Target="8181" Default="8181" Mode="tcp" Description="Boinc desktop gui HTTPS." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Where BOINC should store its database and config." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PASSWORD" Target="PASSWORD" Default="" Description="Optionally set a password for the gui." Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="/dev/dri" Default="/dev/dri" Description="Only needed if you want to use your Intel GPU (vaapi)." Type="Device" Display="always" Required="false" Mask="false"/>
+</Container>

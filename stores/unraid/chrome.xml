@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-chrome/blob/master/image.yml -->
+<Container version="2">
+    <Name>chrome</Name>
+    <Repository>ghcr.io/linuxserver-playground/chrome</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/chrome</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-chrome/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-chrome#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-chrome#readme</ReadMe>
+    <Project>https://www.google.com/chrome/</Project>
+    <Overview>Chrome(https://www.google.com/chrome/) is the official web browser from Google, built to be fast, secure, and customizable.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/chrome.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-chrome/builds/157.0.8103.38-1-ls4/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-chrome#security for more information.
+    </Requires>
+    <Date>2026-07-27</Date>
+    <Changes>
+### 2026-07-27
+- Add aarch64 support.
+
+### 2026-03-31
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2025-12-20
+- Add Wayland init logic.
+
+### 2025-09-22
+- Rebase to Debian Trixie.
+
+### 2025-09-02
+- Revert graceful shutdown script to rely on the baseimage fix.
+
+### 2025-08-29
+- Attempt graceful shutdown of Chrome.
+
+### 2025-06-12
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="HTTP Chrome desktop gui must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="HTTPS Chrome desktop gui." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores local files and settings" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="CHROME_CLI" Target="CHROME_CLI" Default="https://www.linuxserver.io/" Description="Specify one or multiple Chrome CLI flags, this string will be passed to the application in full." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

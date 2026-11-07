@@ -1,0 +1,59 @@
+name: ferdium
+services:
+  ferdium:
+    image: ghcr.io/linuxserver-playground/ferdium:latest
+    container_name: ferdium
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/ferdium/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Ferdium desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Ferdium desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: ferdium
+  author: LinuxServer.io
+  developer: Ferdium
+  category: Chat
+  description:
+    en_us: Ferdium is a desktop app that helps you organize how you use your favourite apps by combining them into one application.
+  tagline:
+    en_us: Ferdium is a desktop app that helps you organize how you use your favourite apps by combining them into one application
+  title:
+    en_us: Ferdium
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ferdium-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ferdium-logo.png
+  store_app_id: ferdium
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-ferdium/builds/v7.2.3-ls6/amd64/screenshot.png
+  port_map: '3000'

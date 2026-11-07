@@ -1,0 +1,41 @@
+{
+  "name": "Nzbget",
+  "available": true,
+  "exposable": true,
+  "port": 6789,
+  "id": "nzbget",
+  "tipi_version": 1,
+  "version": "v26.3",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Nzbget is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.",
+  "short_desc": "Nzbget is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-nzbget",
+  "website": "http://nzbget.com/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nzbget-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "NZBGET_USER",
+      "hint": "Specify the user for web authentication.",
+      "required": false,
+      "env_variable": "NZBGET_NZBGET_USER",
+      "default": "nzbget"
+    },
+    {
+      "type": "password",
+      "label": "NZBGET_PASS",
+      "hint": "Specify the password for web authentication.",
+      "required": false,
+      "env_variable": "NZBGET_NZBGET_PASS",
+      "default": "tegbzn6789"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

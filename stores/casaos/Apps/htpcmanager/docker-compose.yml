@@ -1,0 +1,55 @@
+name: htpcmanager
+services:
+  htpcmanager:
+    image: ghcr.io/linuxserver-playground/htpcmanager:latest
+    container_name: htpcmanager
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/htpcmanager/config:/config
+    ports:
+    - 8085:8085
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8085'
+        description:
+          en_us: Application WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: htpcmanager
+  author: LinuxServer.io
+  developer: Htpcmanager
+  category: Media Tools
+  description:
+    en_us: Htpcmanager is a front end for many htpc related applications.
+  tagline:
+    en_us: Htpcmanager is a front end for many htpc related applications
+  title:
+    en_us: Htpcmanager
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/htpcmanager-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/htpcmanager-icon.png
+  store_app_id: htpcmanager
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-htpcmanager/builds/26a641bf-ls5/amd64/screenshot.png
+  port_map: '8085'

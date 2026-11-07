@@ -1,0 +1,30 @@
+services:
+  swag:
+    image: ghcr.io/linuxserver-playground/swag:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      URL: ${SWAG_URL}
+      VALIDATION: ${SWAG_VALIDATION}
+      SUBDOMAINS: ${SWAG_SUBDOMAINS}
+      CERTPROVIDER: ${SWAG_CERTPROVIDER}
+      CERT_PROFILE: ${SWAG_CERT_PROFILE}
+      DNSPLUGIN: ${SWAG_DNSPLUGIN}
+      PROPAGATION: ${SWAG_PROPAGATION}
+      EMAIL: ${SWAG_EMAIL}
+      ONLY_SUBDOMAINS: ${SWAG_ONLY_SUBDOMAINS}
+      EXTRA_DOMAINS: ${SWAG_EXTRA_DOMAINS}
+      STAGING: ${SWAG_STAGING}
+      DISABLE_F2B: ${SWAG_DISABLE_F2B}
+      SWAG_AUTORELOAD: ${SWAG_SWAG_AUTORELOAD}
+      SWAG_AUTORELOAD_WATCHLIST: ${SWAG_SWAG_AUTORELOAD_WATCHLIST}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    cap_add:
+    - NET_ADMIN
+    x-runtipi:
+      is_main: true
+      internal_port: 443
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,313 @@
+{
+  "name": "Mastodon",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "mastodon",
+  "tipi_version": 1,
+  "version": "v4.7.5",
+  "categories": [
+    "social"
+  ],
+  "description": "Mastodon is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones..",
+  "short_desc": "Mastodon is a free, open-source social network server based on ActivityPub where users can follow friends and discover n",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-mastodon",
+  "website": "https://github.com/mastodon/mastodon/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "LOCAL_DOMAIN",
+      "hint": "This is the unique identifier of your server in the network. It cannot be safely changed later.",
+      "required": true,
+      "env_variable": "MASTODON_LOCAL_DOMAIN",
+      "default": "example.com"
+    },
+    {
+      "type": "text",
+      "label": "REDIS_HOST",
+      "hint": "Redis server hostname",
+      "required": true,
+      "env_variable": "MASTODON_REDIS_HOST",
+      "default": "redis"
+    },
+    {
+      "type": "text",
+      "label": "REDIS_PORT",
+      "hint": "Redis port",
+      "required": true,
+      "env_variable": "MASTODON_REDIS_PORT",
+      "default": "6379"
+    },
+    {
+      "type": "text",
+      "label": "DB_HOST",
+      "hint": "Postgres database hostname",
+      "required": true,
+      "env_variable": "MASTODON_DB_HOST",
+      "default": "db"
+    },
+    {
+      "type": "text",
+      "label": "DB_USER",
+      "hint": "Postgres username",
+      "required": true,
+      "env_variable": "MASTODON_DB_USER",
+      "default": "mastodon"
+    },
+    {
+      "type": "text",
+      "label": "DB_NAME",
+      "hint": "Postgres db name",
+      "required": true,
+      "env_variable": "MASTODON_DB_NAME",
+      "default": "mastodon"
+    },
+    {
+      "type": "password",
+      "label": "DB_PASS",
+      "hint": "Postgres password",
+      "required": true,
+      "env_variable": "MASTODON_DB_PASS",
+      "default": "mastodon"
+    },
+    {
+      "type": "text",
+      "label": "DB_PORT",
+      "hint": "Postgres port",
+      "required": true,
+      "env_variable": "MASTODON_DB_PORT",
+      "default": "5432"
+    },
+    {
+      "type": "text",
+      "label": "ES_ENABLED",
+      "hint": "Enable or disable Elasticsearch (requires a separate ES instance)",
+      "required": true,
+      "env_variable": "MASTODON_ES_ENABLED",
+      "default": "false"
+    },
+    {
+      "type": "password",
+      "label": "ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY",
+      "hint": "Primary key for Active Record Encryption.",
+      "required": true,
+      "env_variable": "MASTODON_ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY"
+    },
+    {
+      "type": "password",
+      "label": "ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY",
+      "hint": "Deterministic key for Active Record Encryption.",
+      "required": true,
+      "env_variable": "MASTODON_ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY"
+    },
+    {
+      "type": "password",
+      "label": "ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT",
+      "hint": "Derivation salt for Active Record Encryption.",
+      "required": true,
+      "env_variable": "MASTODON_ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT"
+    },
+    {
+      "type": "password",
+      "label": "SECRET_KEY_BASE",
+      "hint": "Browser session secret. Changing it will break all active browser sessions.",
+      "required": true,
+      "env_variable": "MASTODON_SECRET_KEY_BASE"
+    },
+    {
+      "type": "text",
+      "label": "OTP_SECRET",
+      "hint": "MFA secret. Changing it after initial setup will break two-factor authentication.",
+      "required": true,
+      "env_variable": "MASTODON_OTP_SECRET"
+    },
+    {
+      "type": "password",
+      "label": "VAPID_PRIVATE_KEY",
+      "hint": "Push notification private key. Changing it after initial setup will break push notifications.",
+      "required": true,
+      "env_variable": "MASTODON_VAPID_PRIVATE_KEY"
+    },
+    {
+      "type": "password",
+      "label": "VAPID_PUBLIC_KEY",
+      "hint": "Push notification public key. Changing it after initial setup will break push notifications.",
+      "required": true,
+      "env_variable": "MASTODON_VAPID_PUBLIC_KEY"
+    },
+    {
+      "type": "text",
+      "label": "SMTP_SERVER",
+      "hint": "SMTP server for email notifications",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_SERVER",
+      "default": "mail.example.com"
+    },
+    {
+      "type": "text",
+      "label": "SMTP_PORT",
+      "hint": "SMTP server port",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_PORT",
+      "default": "25"
+    },
+    {
+      "type": "text",
+      "label": "SMTP_LOGIN",
+      "hint": "SMTP username",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_LOGIN"
+    },
+    {
+      "type": "password",
+      "label": "SMTP_PASSWORD",
+      "hint": "SMTP password",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "SMTP_FROM_ADDRESS",
+      "hint": "From address for emails send from Mastodon",
+      "required": true,
+      "env_variable": "MASTODON_SMTP_FROM_ADDRESS",
+      "default": "notifications@example.com"
+    },
+    {
+      "type": "text",
+      "label": "S3_ENABLED",
+      "hint": "Enable or disable S3 storage of uploaded files",
+      "required": true,
+      "env_variable": "MASTODON_S3_ENABLED",
+      "default": "false"
+    },
+    {
+      "type": "text",
+      "label": "WEB_DOMAIN",
+      "hint": "This can be set if you want your server identifier to be different to the subdomain hosting Mastodon. See https://docs.joinmastodon.org/admin/config/#basic",
+      "required": false,
+      "env_variable": "MASTODON_WEB_DOMAIN",
+      "default": "mastodon.example.com"
+    },
+    {
+      "type": "text",
+      "label": "ES_HOST",
+      "hint": "Elasticsearch server hostname",
+      "required": false,
+      "env_variable": "MASTODON_ES_HOST",
+      "default": "es"
+    },
+    {
+      "type": "text",
+      "label": "ES_PORT",
+      "hint": "Elasticsearch port",
+      "required": false,
+      "env_variable": "MASTODON_ES_PORT",
+      "default": "9200"
+    },
+    {
+      "type": "text",
+      "label": "ES_USER",
+      "hint": "Elasticsearch username",
+      "required": false,
+      "env_variable": "MASTODON_ES_USER",
+      "default": "elastic"
+    },
+    {
+      "type": "password",
+      "label": "ES_PASS",
+      "hint": "Elasticsearch password",
+      "required": false,
+      "env_variable": "MASTODON_ES_PASS",
+      "default": "elastic"
+    },
+    {
+      "type": "text",
+      "label": "S3_BUCKET",
+      "hint": "S3 bucket hostname",
+      "required": false,
+      "env_variable": "MASTODON_S3_BUCKET"
+    },
+    {
+      "type": "password",
+      "label": "AWS_ACCESS_KEY_ID",
+      "hint": "S3 bucket access key ID",
+      "required": false,
+      "env_variable": "MASTODON_AWS_ACCESS_KEY_ID"
+    },
+    {
+      "type": "password",
+      "label": "AWS_SECRET_ACCESS_KEY",
+      "hint": "S3 bucket secret access key",
+      "required": false,
+      "env_variable": "MASTODON_AWS_SECRET_ACCESS_KEY"
+    },
+    {
+      "type": "text",
+      "label": "S3_ALIAS_HOST",
+      "hint": "Alternate hostname for object fetching if you are front the S3 connections.",
+      "required": false,
+      "env_variable": "MASTODON_S3_ALIAS_HOST"
+    },
+    {
+      "type": "text",
+      "label": "SIDEKIQ_ONLY",
+      "hint": "Only run the sidekiq service in this container instance. For large scale instances that need better queue handling.",
+      "required": false,
+      "env_variable": "MASTODON_SIDEKIQ_ONLY",
+      "default": "false"
+    },
+    {
+      "type": "text",
+      "label": "SIDEKIQ_QUEUE",
+      "hint": "The name of the sidekiq queue to run in this container. See notes.",
+      "required": false,
+      "env_variable": "MASTODON_SIDEKIQ_QUEUE"
+    },
+    {
+      "type": "text",
+      "label": "SIDEKIQ_DEFAULT",
+      "hint": "Set to true on the main container if you're running additional sidekiq instances. It will run the default queue.",
+      "required": false,
+      "env_variable": "MASTODON_SIDEKIQ_DEFAULT",
+      "default": "false"
+    },
+    {
+      "type": "text",
+      "label": "SIDEKIQ_THREADS",
+      "hint": "The number of threads for sidekiq to use. See notes.",
+      "required": false,
+      "env_variable": "MASTODON_SIDEKIQ_THREADS",
+      "default": "5"
+    },
+    {
+      "type": "text",
+      "label": "DB_POOL",
+      "hint": "The size of the DB connection pool, must be at least the same as SIDEKIQTHREADS. See notes.",
+      "required": false,
+      "env_variable": "MASTODON_DB_POOL",
+      "default": "5"
+    },
+    {
+      "type": "text",
+      "label": "NO_CHOWN",
+      "hint": "Set to true to skip chown of /config on init. READ THE APPLICATION NOTES BEFORE SETTING THIS.",
+      "required": false,
+      "env_variable": "MASTODON_NO_CHOWN"
+    },
+    {
+      "type": "text",
+      "label": "MASTODON_PROMETHEUS_EXPORTER_ENABLED",
+      "hint": "If set to true, Mastodon’s Ruby processes (web & Sidekiq) will enable the Prometheus instrumentation.",
+      "required": false,
+      "env_variable": "MASTODON_MASTODON_PROMETHEUS_EXPORTER_ENABLED"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

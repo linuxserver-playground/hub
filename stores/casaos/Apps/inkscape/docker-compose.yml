@@ -1,0 +1,59 @@
+name: inkscape
+services:
+  inkscape:
+    image: ghcr.io/linuxserver-playground/inkscape:latest
+    container_name: inkscape
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/inkscape/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Inkscape desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Inkscape desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: inkscape
+  author: LinuxServer.io
+  developer: Inkscape
+  category: 3D Modeling
+  description:
+    en_us: Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers.
+  tagline:
+    en_us: Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers
+  title:
+    en_us: Inkscape
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/inkscape-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/inkscape-logo.png
+  store_app_id: inkscape
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-inkscape/builds/1.4.2-r8-ls6/amd64/screenshot.png
+  port_map: '3000'

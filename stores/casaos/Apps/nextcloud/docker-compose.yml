@@ -1,0 +1,59 @@
+name: nextcloud
+services:
+  nextcloud:
+    image: ghcr.io/linuxserver-playground/nextcloud:latest
+    container_name: nextcloud
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/nextcloud/config:/config
+    - /DATA/AppData/nextcloud/data:/data
+    ports:
+    - 443:443
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '443'
+        description:
+          en_us: WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /data
+        description:
+          en_us: Your personal data.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: nextcloud
+  author: LinuxServer.io
+  developer: Nextcloud
+  category: Cloud
+  description:
+    en_us: Nextcloud gives you access to all your files wherever you are.
+  tagline:
+    en_us: Nextcloud gives you access to all your files wherever you are
+  title:
+    en_us: Nextcloud
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png
+  store_app_id: nextcloud
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-nextcloud/builds/35.0.2-ls6/amd64/screenshot.png
+  port_map: '443'

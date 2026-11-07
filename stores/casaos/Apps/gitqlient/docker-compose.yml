@@ -1,0 +1,59 @@
+name: gitqlient
+services:
+  gitqlient:
+    image: ghcr.io/linuxserver-playground/gitqlient:latest
+    container_name: gitqlient
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/gitqlient/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP GitQlient desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS GitQlient desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: gitqlient
+  author: LinuxServer.io
+  developer: Gitqlient
+  category: Programming
+  description:
+    en_us: GitQlient is a multi-platform Git client originally forked from QGit. Nowadays it goes beyond of just a fork and adds a lot of new functionality.
+  tagline:
+    en_us: GitQlient is a multi-platform Git client originally forked from QGit
+  title:
+    en_us: Gitqlient
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png
+  store_app_id: gitqlient
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-gitqlient/builds/v1.6.3-ls4/amd64/screenshot.png
+  port_map: '3000'

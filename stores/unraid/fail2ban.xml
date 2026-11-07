@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-fail2ban/blob/main/image.yml -->
+<Container version="2">
+    <Name>fail2ban</Name>
+    <Repository>ghcr.io/linuxserver-playground/fail2ban</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/fail2ban</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>host</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-fail2ban/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-fail2ban#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-fail2ban#readme</ReadMe>
+    <Project>http://www.fail2ban.org/</Project>
+    <Overview>Fail2ban(http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.</Overview>
+    <ExtraParams>--cap-add=NET_ADMIN --cap-add=NET_RAW</ExtraParams>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/fail2ban.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png</Icon>
+    <Date>2025-02-11</Date>
+    <Changes>
+### 2025-02-11
+- Rebase to Alpine 3.21.
+
+### 2024-10-12
+- Rebase to Alpine 3.20.
+
+### 2024-03-05
+- Rebase to Alpine 3.19.
+
+### 2023-06-01
+- Add optional VERBOSITY environment variable, allowing users to set the container log verbosity.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2022-12-15
+- Replace unmaintained ssmtp with msmtp.
+
+### 2022-12-15
+- Rebase to Alpine 3.17, Add ssmtp and whois packages. Symlink config to allow live reloading.
+
+### 2022-08-25
+- Update README to clarify remote log information.
+
+### 2022-08-09
+- Initial Release.
+
+    </Changes>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /var/log:ro" Target="/var/log:ro" Default="" Mode="rw" Description="Host logs. Mounted as Read Only." Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="Path: /remotelogs/airsonic:ro" Target="/remotelogs/airsonic:ro" Default="" Mode="rw" Description="Optional path to airsonic log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/apache2:ro" Target="/remotelogs/apache2:ro" Default="" Mode="rw" Description="Optional path to apache2 log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/authelia:ro" Target="/remotelogs/authelia:ro" Default="" Mode="rw" Description="Optional path to authelia log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/emby:ro" Target="/remotelogs/emby:ro" Default="" Mode="rw" Description="Optional path to emby log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/filebrowser:ro" Target="/remotelogs/filebrowser:ro" Default="" Mode="rw" Description="Optional path to filebrowser log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/homeassistant:ro" Target="/remotelogs/homeassistant:ro" Default="" Mode="rw" Description="Optional path to homeassistant log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/lighttpd:ro" Target="/remotelogs/lighttpd:ro" Default="" Mode="rw" Description="Optional path to lighttpd log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/nextcloud:ro" Target="/remotelogs/nextcloud:ro" Default="" Mode="rw" Description="Optional path to nextcloud log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/nginx:ro" Target="/remotelogs/nginx:ro" Default="" Mode="rw" Description="Optional path to nginx log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/nzbget:ro" Target="/remotelogs/nzbget:ro" Default="" Mode="rw" Description="Optional path to nzbget log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/overseerr:ro" Target="/remotelogs/overseerr:ro" Default="" Mode="rw" Description="Optional path to overseerr log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/prowlarr:ro" Target="/remotelogs/prowlarr:ro" Default="" Mode="rw" Description="Optional path to prowlarr log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/radarr:ro" Target="/remotelogs/radarr:ro" Default="" Mode="rw" Description="Optional path to radarr log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/sabnzbd:ro" Target="/remotelogs/sabnzbd:ro" Default="" Mode="rw" Description="Optional path to sabnzbd log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/sonarr:ro" Target="/remotelogs/sonarr:ro" Default="" Mode="rw" Description="Optional path to sonarr log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/unificontroller:ro" Target="/remotelogs/unificontroller:ro" Default="" Mode="rw" Description="Optional path to unificontroller log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /remotelogs/vaultwarden:ro" Target="/remotelogs/vaultwarden:ro" Default="" Mode="rw" Description="Optional path to vaultwarden log folder. Mounted as Read Only." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Verbosity" Target="VERBOSITY" Default="-vv" Description="Set the container log verbosity. Valid options are -v, -vv, -vvv, -vvvv, or leaving the value blank or not setting the variable." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

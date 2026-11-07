@@ -1,0 +1,18 @@
+services:
+  smokeping:
+    image: ghcr.io/linuxserver-playground/smokeping:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      MASTER_URL: ${SMOKEPING_MASTER_URL}
+      SHARED_SECRET: ${SMOKEPING_SHARED_SECRET}
+      CACHE_DIR: ${SMOKEPING_CACHE_DIR}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data:/data
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

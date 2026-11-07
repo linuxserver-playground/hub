@@ -1,0 +1,61 @@
+name: vscodium
+services:
+  vscodium:
+    image: ghcr.io/linuxserver-playground/vscodium:latest
+    container_name: vscodium
+    restart: unless-stopped
+    cap_add:
+    - IPC_LOCK
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/vscodium/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: VSCodium desktop gui.
+      - container: '3001'
+        description:
+          en_us: HTTPS VSCodium desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: vscodium
+  author: LinuxServer.io
+  developer: Vscodium
+  category: Programming
+  description:
+    en_us: VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code.
+  tagline:
+    en_us: VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code
+  title:
+    en_us: Vscodium
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png
+  store_app_id: vscodium
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-vscodium/builds/1.143.17232-ls6/amd64/screenshot.png
+  port_map: '3000'

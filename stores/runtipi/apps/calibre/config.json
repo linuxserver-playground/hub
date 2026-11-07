@@ -1,0 +1,40 @@
+{
+  "name": "Calibre",
+  "available": true,
+  "exposable": true,
+  "port": 8080,
+  "id": "calibre",
+  "tipi_version": 1,
+  "version": "v9.18.0",
+  "categories": [
+    "media",
+    "books"
+  ],
+  "description": "Calibre is a powerful and easy to use e-book manager. Users say it's outstanding and a must-have. It'll allow you to do nearly everything and it takes things a step beyond normal e-book software. It's also completely free and open source and great for both casual users and computer experts.",
+  "short_desc": "Calibre is a powerful and easy to use e-book manager",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-calibre",
+  "website": "https://calibre-ebook.com/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-logo.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "PASSWORD",
+      "hint": "Optionally set a password for the gui.",
+      "required": false,
+      "env_variable": "CALIBRE_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "CLI_ARGS",
+      "hint": "Optionally pass cli start arguments to calibre.",
+      "required": false,
+      "env_variable": "CALIBRE_CLI_ARGS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

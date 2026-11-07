@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/phpmyadmin-logo.png
+  urls:
+  - https://github.com/phpmyadmin/phpmyadmin/
+  - https://github.com/linuxserver-playground/docker-phpmyadmin
+services:
+  phpmyadmin:
+    image: ghcr.io/linuxserver-playground/phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_80:-80}:80
+    restart: unless-stopped

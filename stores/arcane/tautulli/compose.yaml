@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tautulli-icon.png
+  urls:
+  - http://tautulli.com
+  - https://github.com/linuxserver-playground/docker-tautulli
+services:
+  tautulli:
+    image: ghcr.io/linuxserver-playground/tautulli:latest
+    container_name: tautulli
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8181:-8181}:8181
+    restart: unless-stopped

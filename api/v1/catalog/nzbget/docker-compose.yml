@@ -1,0 +1,17 @@
+---
+services:
+  nzbget:
+    image: ghcr.io/linuxserver-playground/nzbget:latest
+    container_name: nzbget
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - NZBGET_USER=nzbget #optional
+      - NZBGET_PASS=tegbzn6789 #optional
+    volumes:
+      - /path/to/nzbget/data:/config
+      - /path/to/downloads:/downloads #optional
+    ports:
+      - 6789:6789
+    restart: unless-stopped

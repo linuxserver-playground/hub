@@ -1,0 +1,59 @@
+name: kali-linux
+services:
+  kali-linux:
+    image: ghcr.io/linuxserver-playground/kali-linux:latest
+    container_name: kali-linux
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/kali-linux/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Web Desktop GUI
+      - container: '3001'
+        description:
+          en_us: Web Desktop GUI HTTPS
+      volumes:
+      - container: /config
+        description:
+          en_us: abc users home directory
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: kali-linux
+  author: LinuxServer.io
+  developer: Kali-linux
+  category: Remote Desktop
+  description:
+    en_us: Kali-linux - is an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments. KALI LINUX ™ is a trademark of OffSec.
+  tagline:
+    en_us: Kali-linux - is an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments
+  title:
+    en_us: Kali-linux
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png
+  store_app_id: kali-linux
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-kali-linux/builds/69cb40d2-ls7/amd64/screenshot.png
+  port_map: '3000'

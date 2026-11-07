@@ -1,0 +1,82 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "CONNECTION_TOKEN",
+        "label": "Optional security token for accessing the Web UI (ie. supersecrettoken).",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "CONNECTION_TOKEN_FILE",
+        "label": "Optional path to a file inside the container that contains the security token for accessing the Web UI (ie. /path/to/file). Overrides CONNECTIONTOKEN.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "SUDO_PASSWORD",
+        "label": "If this optional variable is set, user will have sudo access in the vscodium-web terminal with the specified password.",
+        "initialValue": "password",
+        "type": "password"
+      },
+      {
+        "name": "SUDO_PASSWORD_HASH",
+        "label": "Optionally set sudo password via hash (takes priority over SUDOPASSWORD var). Format is $type$salt$hashed.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "CODE_ARGS",
+        "label": "Optionally add cli parameters to vscodium binary.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/vscodium-web:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "CONNECTION_TOKEN={Context.CONNECTION_TOKEN}",
+        "CONNECTION_TOKEN_FILE={Context.CONNECTION_TOKEN_FILE}",
+        "SUDO_PASSWORD={Context.SUDO_PASSWORD}",
+        "SUDO_PASSWORD_HASH={Context.SUDO_PASSWORD_HASH}",
+        "CODE_ARGS={Context.CODE_ARGS}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png",
+        "cosmos.stack": "{ServiceName}-vscodium-web"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

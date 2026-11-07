@@ -1,0 +1,59 @@
+name: rustdesk
+services:
+  rustdesk:
+    image: ghcr.io/linuxserver-playground/rustdesk:latest
+    container_name: rustdesk
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/rustdesk/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP RustDesk desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Rustdesk desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: rustdesk
+  author: LinuxServer.io
+  developer: Rustdesk
+  category: Remote Desktop
+  description:
+    en_us: RustDesk is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.
+  tagline:
+    en_us: RustDesk is a full-featured open source remote control alternative for self-hosting and security with minimal configuration
+  title:
+    en_us: Rustdesk
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rustdesk-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rustdesk-logo.png
+  store_app_id: rustdesk
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-rustdesk/builds/1.5.1-ls6/amd64/screenshot.png
+  port_map: '3000'

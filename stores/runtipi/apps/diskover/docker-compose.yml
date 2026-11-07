@@ -1,0 +1,17 @@
+services:
+  diskover:
+    image: ghcr.io/linuxserver-playground/diskover:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      ES_HOST: ${DISKOVER_ES_HOST}
+      ES_PORT: ${DISKOVER_ES_PORT}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data:/data
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

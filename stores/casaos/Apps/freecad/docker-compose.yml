@@ -1,0 +1,59 @@
+name: freecad
+services:
+  freecad:
+    image: ghcr.io/linuxserver-playground/freecad:latest
+    container_name: freecad
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/freecad/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: FreeCAD desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: FreeCAD desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: freecad
+  author: LinuxServer.io
+  developer: Freecad
+  category: 3D Modeling
+  description:
+    en_us: FreeCAD is a general-purpose parametric 3D computer-aided design (CAD) modeler and a building information modeling (BIM) software application with finite element method (FEM) support.
+  tagline:
+    en_us: FreeCAD is a general-purpose parametric 3D computer-aided design (CAD) modeler and a building information modeling (BIM) software application with finite element method (FEM) support
+  title:
+    en_us: Freecad
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/freecad-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/freecad-logo.png
+  store_app_id: freecad
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-freecad/builds/1.1.4-ls6/amd64/screenshot.png
+  port_map: '3000'

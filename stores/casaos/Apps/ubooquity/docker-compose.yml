@@ -1,0 +1,75 @@
+name: ubooquity
+services:
+  ubooquity:
+    image: ghcr.io/linuxserver-playground/ubooquity:latest
+    container_name: ubooquity
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - MAXMEM=
+    volumes:
+    - /DATA/AppData/ubooquity/config:/config
+    - /DATA/AppData/ubooquity/books:/books
+    - /DATA/AppData/ubooquity/comics:/comics
+    - /DATA/AppData/ubooquity/files:/files
+    ports:
+    - 2202:2202
+    - 2203:2203
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: MAXMEM
+        description:
+          en_us: 'To set the maximum memory. ( ex: set ''1024'' for 1GB )'
+      ports:
+      - container: '2202'
+        description:
+          en_us: The library port.
+      - container: '2203'
+        description:
+          en_us: The admin port.
+      volumes:
+      - container: /config
+        description:
+          en_us: Config files and database for ubooquity.
+      - container: /books
+        description:
+          en_us: Location of books.
+      - container: /comics
+        description:
+          en_us: Location of comics.
+      - container: /files
+        description:
+          en_us: Location of raw files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: ubooquity
+  author: LinuxServer.io
+  developer: Ubooquity
+  category: Books
+  description:
+    en_us: Ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.
+  tagline:
+    en_us: Ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks
+  title:
+    en_us: Ubooquity
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ubooquity-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ubooquity-banner.png
+  store_app_id: ubooquity
+  index: /ubooquity/admin
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-ubooquity/builds/3.1.0-ls7/amd64/screenshot.png
+  port_map: '2202'

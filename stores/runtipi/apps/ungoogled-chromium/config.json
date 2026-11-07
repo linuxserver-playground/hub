@@ -1,0 +1,33 @@
+{
+  "name": "Ungoogled-chromium",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "ungoogled-chromium",
+  "tipi_version": 1,
+  "version": "156.0.8078.79-1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Ungoogled Chromium is Google Chromium, sans dependency on Google web services.",
+  "short_desc": "Ungoogled Chromium is Google Chromium, sans dependency on Google web services",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-ungoogled-chromium",
+  "website": "https://github.com/ungoogled-software/ungoogled-chromium",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ungoogled-chromium-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "CHROME_CLI",
+      "hint": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.",
+      "required": false,
+      "env_variable": "UNGOOGLED_CHROMIUM_CHROME_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

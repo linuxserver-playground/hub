@@ -1,0 +1,16 @@
+services:
+  phpmyadmin:
+    image: ghcr.io/linuxserver-playground/phpmyadmin:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      PMA_ARBITRARY: ${PHPMYADMIN_PMA_ARBITRARY}
+      PMA_ABSOLUTE_URI: ${PHPMYADMIN_PMA_ABSOLUTE_URI}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

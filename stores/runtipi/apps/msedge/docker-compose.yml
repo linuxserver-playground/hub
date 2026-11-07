@@ -1,0 +1,17 @@
+services:
+  msedge:
+    image: ghcr.io/linuxserver-playground/msedge:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      EDGE_CLI: ${MSEDGE_EDGE_CLI}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 3001:3001
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+x-runtipi:
+  schema_version: 2

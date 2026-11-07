@@ -1,0 +1,58 @@
+name: blade-of-agony
+services:
+  blade-of-agony:
+    image: ghcr.io/linuxserver-playground/blade-of-agony:latest
+    container_name: blade-of-agony
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/blade-of-agony/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Blade of Agony desktop gui must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Blade of Agony desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: blade-of-agony
+  author: LinuxServer.io
+  developer: Blade-of-agony
+  category: Games
+  description:
+    en_us: 'Wolfenstein: Blade of Agony is a story-driven WWII shooter inspired by Wolfenstein and Doom.'
+  tagline:
+    en_us: 'Wolfenstein: Blade of Agony is a story-driven WWII shooter inspired by Wolfenstein and Doom'
+  title:
+    en_us: Blade-of-agony
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/boa-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/boa-logo.png
+  store_app_id: blade-of-agony
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-blade-of-agony/builds/v3.1-ls5/amd64/screenshot.png
+  port_map: '3000'

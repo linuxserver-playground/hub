@@ -1,0 +1,19 @@
+services:
+  deluge:
+    image: ghcr.io/linuxserver-playground/deluge:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      DELUGE_LOGLEVEL: ${DELUGE_DELUGE_LOGLEVEL}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/downloads:/downloads
+    ports:
+    - 6881:6881
+    - 6881:6881/udp
+    x-runtipi:
+      is_main: true
+      internal_port: 8112
+x-runtipi:
+  schema_version: 2

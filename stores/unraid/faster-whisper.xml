@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-faster-whisper/blob/main/image.yml -->
+<Container version="2">
+    <Name>faster-whisper</Name>
+    <Repository>ghcr.io/linuxserver-playground/faster-whisper</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/faster-whisper</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-faster-whisper/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-faster-whisper#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-faster-whisper#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>gpu</Tag>
+        <TagDescription>Releases with Nvidia GPU support (amd64 only)</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-faster-whisper/tree/gpu#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-faster-whisper/tree/gpu#application-setup</GitHub>
+    </Branch>
+    <Branch>
+        <Tag>gpu-legacy</Tag>
+        <TagDescription>Legacy releases with Nvidia GPU support for pre-Turing cards (amd64 only)</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-faster-whisper/tree/gpu-legacy#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-faster-whisper/tree/gpu-legacy#application-setup</GitHub>
+    </Branch>
+    <Project>https://github.com/SYSTRAN/faster-whisper</Project>
+    <Overview>Faster-whisper(https://github.com/SYSTRAN/faster-whisper) is a reimplementation of OpenAI&#x27;s Whisper model using CTranslate2, which is a fast inference engine for Transformer models. This container provides a Wyoming protocol server for faster-whisper.</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/faster-whisper.xml</TemplateURL>
+    <Icon></Icon>
+    <Date>2026-10-05</Date>
+    <Changes>
+### 2026-10-05
+- Pin `av` to 18.x.
+
+### 2026-08-16
+- Rebase to Ubuntu Resolute.
+
+### 2026-01-26
+- Default to `auto` for model and language if not set.
+
+### 2025-08-20
+- Add gpu-legacy branch for pre-Turing cards.
+
+### 2025-08-10
+- Add support for local-only mode.
+
+### 2024-12-30
+- Add arm64 support for non-GPU builds.
+
+### 2024-12-05
+- Build from Github releases rather than Pypi.
+
+### 2024-07-18
+- Rebase to Ubuntu Noble.
+
+### 2024-05-19
+- Bump CUDA to 12 on GPU branch.
+
+### 2024-01-08
+- Add GPU branch.
+
+### 2023-11-25
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="10300" Default="10300" Mode="tcp" Description="Wyoming connection port." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Local path for Whisper config files." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="DEBUG" Target="DEBUG" Default="" Description="If set to `true`, or any other value, the container will output debug logs." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="LOCAL_ONLY" Target="LOCAL_ONLY" Default="" Description="If set to `true`, or any other value, the container will not attempt to download models from HuggingFace and will only use locally-provided models." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="WHISPER_BEAM" Target="WHISPER_BEAM" Default="1" Description="Number of candidates to consider simultaneously during transcription." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="WHISPER_LANG" Target="WHISPER_LANG" Default="auto" Description="Two character code for the language that you will speak to the add-on." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="WHISPER_MODEL" Target="WHISPER_MODEL" Default="auto" Description="Whisper model that will be used for transcription. From here(https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/utils.py#L11-L31)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

@@ -1,0 +1,59 @@
+name: retroarch
+services:
+  retroarch:
+    image: ghcr.io/linuxserver-playground/retroarch:latest
+    container_name: retroarch
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/retroarch/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: RetroArch desktop gui HTTP must be proxied.
+      - container: '3001'
+        description:
+          en_us: RetroArch desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: retroarch
+  author: LinuxServer.io
+  developer: Retroarch
+  category: Games
+  description:
+    en_us: RetroArch is a frontend for emulators, game engines and media players. It enables you to run classic games on a wide range of computers and consoles through its slick graphical interface.
+  tagline:
+    en_us: RetroArch is a frontend for emulators, game engines and media players
+  title:
+    en_us: Retroarch
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/retroarch-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/retroarch-logo.png
+  store_app_id: retroarch
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-retroarch/builds/1.22.2ppa1.1-1ubuntu24.04.1-ls7/amd64/screenshot.png
+  port_map: '3000'

@@ -1,0 +1,77 @@
+name: mariadb
+services:
+  mariadb:
+    image: ghcr.io/linuxserver-playground/mariadb:latest
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
+    - MYSQL_DATABASE=USER_DB_NAME
+    - MYSQL_USER=MYSQL_USER
+    - MYSQL_PASSWORD=DATABASE_PASSWORD
+    - REMOTE_SQL=http://URL1/your.sql,https://URL2/your.sql
+    - CLI_OPTS=
+    volumes:
+    - /DATA/AppData/mariadb/config:/config
+    ports:
+    - 3306:3306
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: MYSQL_ROOT_PASSWORD
+        description:
+          en_us: Set this to root password for installation (minimum 4 characters & non-alphanumeric passwords must be properly escaped). (valid only for first run)
+      - container: MYSQL_DATABASE
+        description:
+          en_us: Specify the name of a database to be created. (valid only for first run)
+      - container: MYSQL_USER
+        description:
+          en_us: This user will have superuser access to the database specified by MYSQLDATABASE (do not use root here). (valid only for first run)
+      - container: MYSQL_PASSWORD
+        description:
+          en_us: Set this to the password you want to use for you MYSQLUSER (minimum 4 characters & non-alphanumeric passwords must be properly escaped). (valid only for first run)
+      - container: REMOTE_SQL
+        description:
+          en_us: Set this to ingest sql files from an http/https endpoint (comma seperated array).
+      - container: CLI_OPTS
+        description:
+          en_us: Pass CLI options to mariadbd via mariadbd-safe. Use with caution as mariadbd option precedence is complex.
+      ports:
+      - container: '3306'
+        description:
+          en_us: MariaDB listens on this port.
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: mariadb
+  author: LinuxServer.io
+  developer: Mariadb
+  category: Databases
+  description:
+    en_us: Mariadb is one of the most popular database servers. Made by the original developers of MySQL.
+  tagline:
+    en_us: Mariadb is one of the most popular database servers
+  title:
+    en_us: Mariadb
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-git.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-git.png
+  store_app_id: mariadb
+  index: /
+  scheme: http
+  port_map: '3306'

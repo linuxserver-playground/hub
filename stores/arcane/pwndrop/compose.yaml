@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/kgretzky/pwndrop/master/media/pwndrop-logo-512.png
+  urls:
+  - https://github.com/kgretzky/pwndrop
+  - https://github.com/linuxserver-playground/docker-pwndrop
+services:
+  pwndrop:
+    image: ghcr.io/linuxserver-playground/pwndrop:latest
+    container_name: pwndrop
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8080:-8080}:8080
+    restart: unless-stopped

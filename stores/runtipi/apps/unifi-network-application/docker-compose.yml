@@ -1,0 +1,27 @@
+services:
+  unifi-network-application:
+    image: ghcr.io/linuxserver-playground/unifi-network-application:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      MONGO_USER: ${UNIFI_NETWORK_APPLICATION_MONGO_USER}
+      MONGO_PASS: ${UNIFI_NETWORK_APPLICATION_MONGO_PASS}
+      MONGO_HOST: ${UNIFI_NETWORK_APPLICATION_MONGO_HOST}
+      MONGO_PORT: ${UNIFI_NETWORK_APPLICATION_MONGO_PORT}
+      MONGO_DBNAME: ${UNIFI_NETWORK_APPLICATION_MONGO_DBNAME}
+      MONGO_AUTHSOURCE: ${UNIFI_NETWORK_APPLICATION_MONGO_AUTHSOURCE}
+      MEM_LIMIT: ${UNIFI_NETWORK_APPLICATION_MEM_LIMIT}
+      MEM_STARTUP: ${UNIFI_NETWORK_APPLICATION_MEM_STARTUP}
+      MONGO_TLS: ${UNIFI_NETWORK_APPLICATION_MONGO_TLS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 3478:3478/udp
+    - 10001:10001/udp
+    - 8080:8080
+    x-runtipi:
+      is_main: true
+      internal_port: 8443
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,179 @@
+{
+  "name": "Netbox",
+  "available": true,
+  "exposable": true,
+  "port": 8000,
+  "id": "netbox",
+  "tipi_version": 1,
+  "version": "v4.7.4",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Netbox is an IP address management (IPAM) and data center infrastructure management (DCIM) tool. Initially conceived by the network engineering team at DigitalOcean, NetBox was developed specifically to address the needs of network and infrastructure engineers. It is intended to function as a domain-specific source of truth for network operations.",
+  "short_desc": "Netbox is an IP address management (IPAM) and data center infrastructure management (DCIM) tool",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-netbox",
+  "website": "https://github.com/netbox-community/netbox",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/netbox-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "SUPERUSER_EMAIL",
+      "hint": "Email address for admin account",
+      "required": true,
+      "env_variable": "NETBOX_SUPERUSER_EMAIL"
+    },
+    {
+      "type": "password",
+      "label": "SUPERUSER_PASSWORD",
+      "hint": "Password for admin account",
+      "required": true,
+      "env_variable": "NETBOX_SUPERUSER_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "ALLOWED_HOST",
+      "hint": "The hostname you will use to access the app (e.g., netbox.example.com)",
+      "required": true,
+      "env_variable": "NETBOX_ALLOWED_HOST"
+    },
+    {
+      "type": "text",
+      "label": "DB_NAME",
+      "hint": "Database name (default: netbox)",
+      "required": true,
+      "env_variable": "NETBOX_DB_NAME"
+    },
+    {
+      "type": "text",
+      "label": "DB_USER",
+      "hint": "Database user",
+      "required": true,
+      "env_variable": "NETBOX_DB_USER"
+    },
+    {
+      "type": "password",
+      "label": "DB_PASSWORD",
+      "hint": "Database password",
+      "required": true,
+      "env_variable": "NETBOX_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "DB_HOST",
+      "hint": "Database host (default: postgres)",
+      "required": true,
+      "env_variable": "NETBOX_DB_HOST"
+    },
+    {
+      "type": "text",
+      "label": "DB_PORT",
+      "hint": "Database port (default: 5432)",
+      "required": true,
+      "env_variable": "NETBOX_DB_PORT"
+    },
+    {
+      "type": "text",
+      "label": "REDIS_HOST",
+      "hint": "Redis host (default: redis)",
+      "required": true,
+      "env_variable": "NETBOX_REDIS_HOST"
+    },
+    {
+      "type": "text",
+      "label": "REDIS_PORT",
+      "hint": "Redis port number (default: 6379)",
+      "required": true,
+      "env_variable": "NETBOX_REDIS_PORT"
+    },
+    {
+      "type": "text",
+      "label": "REDIS_USERNAME",
+      "hint": "Redis username (default: none)",
+      "required": true,
+      "env_variable": "NETBOX_REDIS_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "REDIS_PASSWORD",
+      "hint": "Redis password (default: none)",
+      "required": true,
+      "env_variable": "NETBOX_REDIS_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "REDIS_DB_TASK",
+      "hint": "Redis database ID for tasks (default: 0)",
+      "required": true,
+      "env_variable": "NETBOX_REDIS_DB_TASK"
+    },
+    {
+      "type": "text",
+      "label": "REDIS_DB_CACHE",
+      "hint": "Redis database ID for caching (default: 1)",
+      "required": true,
+      "env_variable": "NETBOX_REDIS_DB_CACHE"
+    },
+    {
+      "type": "text",
+      "label": "BASE_PATH",
+      "hint": "The path you will use to access the app (i.e., /netbox, default: none)",
+      "required": false,
+      "env_variable": "NETBOX_BASE_PATH"
+    },
+    {
+      "type": "text",
+      "label": "CSRF_TRUSTED_ORIGINS",
+      "hint": "List of comma-separated, single quoted, trusted origins. Must include protocol, and port if applicable (default: [])",
+      "required": false,
+      "env_variable": "NETBOX_CSRF_TRUSTED_ORIGINS"
+    },
+    {
+      "type": "text",
+      "label": "REMOTE_AUTH_ENABLED",
+      "hint": "Enable remote authentication (default: False)",
+      "required": false,
+      "env_variable": "NETBOX_REMOTE_AUTH_ENABLED"
+    },
+    {
+      "type": "text",
+      "label": "REMOTE_AUTH_BACKEND",
+      "hint": "Python path to the custom Django authentication backend to use for external user authentication (default: netbox.authentication.RemoteUserBackend)",
+      "required": false,
+      "env_variable": "NETBOX_REMOTE_AUTH_BACKEND"
+    },
+    {
+      "type": "text",
+      "label": "REMOTE_AUTH_HEADER",
+      "hint": "Name of the HTTP header which informs NetBox of the currently authenticated user. (default: HTTPREMOTEUSER)",
+      "required": false,
+      "env_variable": "NETBOX_REMOTE_AUTH_HEADER"
+    },
+    {
+      "type": "text",
+      "label": "REMOTE_AUTH_AUTO_CREATE_USER",
+      "hint": "If true, NetBox will automatically create local accounts for users authenticated via a remote service (default: False)",
+      "required": false,
+      "env_variable": "NETBOX_REMOTE_AUTH_AUTO_CREATE_USER"
+    },
+    {
+      "type": "text",
+      "label": "REMOTE_AUTH_DEFAULT_GROUPS",
+      "hint": "The list of groups to assign a new user account when created using remote authentication (default: [])",
+      "required": false,
+      "env_variable": "NETBOX_REMOTE_AUTH_DEFAULT_GROUPS"
+    },
+    {
+      "type": "text",
+      "label": "REMOTE_AUTH_DEFAULT_PERMISSIONS",
+      "hint": "A mapping of permissions to assign a new user account when created using remote authentication (default: {})",
+      "required": false,
+      "env_variable": "NETBOX_REMOTE_AUTH_DEFAULT_PERMISSIONS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

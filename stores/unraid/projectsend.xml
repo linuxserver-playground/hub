@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-projectsend/blob/master/image.yml -->
+<Container version="2">
+    <Name>projectsend</Name>
+    <Repository>ghcr.io/linuxserver-playground/projectsend</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/projectsend</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-projectsend/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-projectsend#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-projectsend#readme</ReadMe>
+    <Project>http://www.projectsend.org</Project>
+    <Overview>Projectsend(http://www.projectsend.org) is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.</Overview>
+    <WebUI>http://[IP]:[PORT:80]/install/make-config.php</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/projectsend.xml</TemplateURL>
+    <Icon>http://www.projectsend.org/wp-content/themes/projectsend/img/screenshots.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-projectsend/builds/r2098-ls6/amd64/screenshot.png</Screenshot>
+    <Date>2026-08-10</Date>
+    <Changes>
+### 2026-08-10
+- Switch to legacy repo until migration steps are figured out.
+
+### 2025-12-14
+- Add php ldap module.
+
+### 2025-11-16
+- Add missing language files to default install.
+
+### 2025-10-14
+- Rebase to 3.22.
+
+### 2025-06-06
+- Add crontab handler for scheduled tasks.
+
+### 2024-12-21
+- Rebase to Alpine 3.21, move php .ini file to /config/php.
+
+### 2024-06-06
+- Rebase to Alpine 3.20.
+
+### 2023-12-23
+- Rebase to Alpine 3.19 with php 8.3.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-03-08
+- Rebasing to alpine 3.17 and upgrading to s6v3.
+
+### 2022-08-23
+- Add translation support
+
+### 2022-08-20
+- Rebasing to alpine 3.15 with php8. Restructure nginx configs (see changes announcement(https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
+
+### 2021-06-24
+- Rebasing to alpine 3.14, switch to nginx
+
+### 2021-01-23
+- Rebasing to alpine 3.13.
+
+### 2020-06-01
+- Rebasing to alpine 3.12.
+
+### 2019-12-31
+- Rebase to Alpine 3.11 and upgrade to PHP7.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-02-11
+- Add pipeline logic and multi arch.
+
+### 2018-06-11
+- Fetch version from github.
+
+### 2017-12-09
+- Rebase to alpine 3.7.
+
+### 2017-06-13
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="WebUI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /data" Target="/data" Default="" Mode="rw" Description="Where to store files to share." Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

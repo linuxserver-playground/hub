@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://www.webgrabplus.com/sites/default/themes/WgTheme/images/slideshows/EPG_fading.jpg
+  urls:
+  - https://www.webgrabplus.com
+  - https://github.com/linuxserver-playground/docker-webgrabplus
+services:
+  webgrabplus:
+    image: ghcr.io/linuxserver-playground/webgrabplus:latest
+    container_name: webgrabplus
+    hostname: webgrabplus
+    mac_address: 00:00:00:00:00:00
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DATA_PATH:-./data}:/data
+    restart: unless-stopped

@@ -1,0 +1,21 @@
+manifestVersion: 1
+id: lsio-openssh-server
+category: utilities
+name: Openssh-server
+tagline: Openssh-server is a sandboxed environment that allows ssh access without giving keys to the entire s
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openssh-server-logo.png
+version: 10.3_p1-r2
+description: Openssh-server is a sandboxed environment that allows ssh access without giving keys to the entire server. Giving ssh access via private key often means giving full access to the server. This container creates a limited and sandboxed environment that others can ssh into. The users only have access to the folders mapped and the processes running inside this container.
+developer: LinuxServer.io
+website: https://www.openssh.com/
+dependencies: []
+repo: https://github.com/linuxserver-playground/docker-openssh-server
+support: https://github.com/linuxserver-playground/docker-openssh-server/issues
+port: 2222
+gallery: []
+releaseNotes: ''
+path: ''
+defaultUsername: ''
+defaultPassword: ''
+submitter: LinuxServer.io
+submission: https://github.com/linuxserver-playground/docker-openssh-server

@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/thelounge/thelounge/master/client/img/logo-vertical-transparent-bg.svg?sanitize=true
+  urls:
+  - https://thelounge.github.io/
+  - https://github.com/linuxserver-playground/docker-thelounge
+services:
+  thelounge:
+    image: ghcr.io/linuxserver-playground/thelounge:latest
+    container_name: thelounge
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_9000:-9000}:9000
+    restart: unless-stopped

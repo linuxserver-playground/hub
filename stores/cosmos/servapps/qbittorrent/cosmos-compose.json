@@ -1,0 +1,66 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "WEBUI_PORT",
+        "label": "for changing the port of the web UI, see below for explanation",
+        "initialValue": "8080",
+        "type": "text"
+      },
+      {
+        "name": "TORRENTING_PORT",
+        "label": "for changing the port of tcp/udp connection, see below for explanation",
+        "initialValue": "6881",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/qbittorrent:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "WEBUI_PORT={Context.WEBUI_PORT}",
+        "TORRENTING_PORT={Context.TORRENTING_PORT}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/qbittorrent-icon.png",
+        "cosmos.stack": "{ServiceName}-qbittorrent"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-downloads",
+          "target": "/downloads",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8080",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

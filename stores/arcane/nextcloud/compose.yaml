@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png
+  urls:
+  - https://nextcloud.com/
+  - https://github.com/linuxserver-playground/docker-nextcloud
+services:
+  nextcloud:
+    image: ghcr.io/linuxserver-playground/nextcloud:latest
+    container_name: nextcloud
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DATA_PATH:-./data}:/data
+    ports:
+    - ${PORT_443:-443}:443
+    restart: unless-stopped

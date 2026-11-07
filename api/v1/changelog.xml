@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>LinuxServer.io image changelog</title>
+  <subtitle>Notable changes to LinuxServer.io container images.</subtitle>
+  <id>https://linuxserver-playground.github.io/hub/api/v1/changelog.xml</id>
+  <link rel="self" href="https://linuxserver-playground.github.io/hub/api/v1/changelog.xml"/>
+  <link rel="alternate" href="https://linuxserver-playground.github.io/hub/"/>
+  <updated>2026-11-07T14:37:33.793Z</updated>
+  <author><name>LinuxServer.io</name></author>
+  <entry>
+    <id>urn:sha1:a60576cadd7033ee75f7e31aa57f4e99e76ef3c4</id>
+    <title>kimai: Rebase to Alpine 3.24.</title>
+    <updated>2027-07-04T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-kimai#versions"/>
+    <category term="kimai"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:6b92acacb90007bec6f083ad3a96faec2b9cc649</id>
+    <title>intellij-idea: Install intellij-idea-oss, Arch&#39;s new name for the community edition package.</title>
+    <updated>2026-10-29T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-intellij-idea#versions"/>
+    <category term="intellij-idea"/>
+    <content type="text">Install intellij-idea-oss, Arch&#39;s new name for the community edition package.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:20ceceaf4e781a24232cb85de1dcac1bbca33ca3</id>
+    <title>grocy: Rebase to Alpine 3.24.</title>
+    <updated>2026-10-21T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-grocy#versions"/>
+    <category term="grocy"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:aaa4129b94767ccdfc396cbefffe6a37ba5f8bac</id>
+    <title>piwigo: Rebase to Alpine 3.24.</title>
+    <updated>2026-10-21T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-piwigo#versions"/>
+    <category term="piwigo"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:28e3bb539d98731268f834f6561ad85fc56d8698</id>
+    <title>sealskin: Update docs and installer for the 0.4.0 release: web app and root key sign in, reverse proxy support, cluster peer port.</title>
+    <updated>2026-10-20T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-sealskin#versions"/>
+    <category term="sealskin"/>
+    <content type="text">Update docs and installer for the 0.4.0 release: web app and root key sign in, reverse proxy support, cluster peer port.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:81411df3f8beabf471f1e6a4701a3d856604ce66</id>
+    <title>swag: [Existing users should update:](https://github.com/linuxserver/docker-swag/blob/master/README.md#updating-configs) proxy.conf, authelia-server.conf, authentik-server.conf, tinyauth-server.conf - Update Nginx configuration to replace $http_host with $host$is_request_port$request_port for better compatibility.</title>
+    <updated>2026-10-20T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-swag#versions"/>
+    <category term="swag"/>
+    <content type="text">[Existing users should update:](https://github.com/linuxserver/docker-swag/blob/master/README.md#updating-configs) proxy.conf, authelia-server.conf, authentik-server.conf, tinyauth-server.conf - Update Nginx configuration to replace $http_host with $host$is_request_port$request_port for better compatibility.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:d74a10ccf339fbbf7d99df92201a894475e8d9cf</id>
+    <title>lidarr: Add krb5-libs for better postgresql support.</title>
+    <updated>2026-10-19T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-lidarr#versions"/>
+    <category term="lidarr"/>
+    <content type="text">Add krb5-libs for better postgresql support.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:77da42b1f42772a452b1315c81a62c5de635bd29</id>
+    <title>prowlarr: Add krb5-libs for better postgresql support.</title>
+    <updated>2026-10-19T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-prowlarr#versions"/>
+    <category term="prowlarr"/>
+    <content type="text">Add krb5-libs for better postgresql support.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:a10624cea325f7c28ee724d2a636e5db2d5c41fa</id>
+    <title>radarr: Add krb5-libs for better postgresql support.</title>
+    <updated>2026-10-19T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-radarr#versions"/>
+    <category term="radarr"/>
+    <content type="text">Add krb5-libs for better postgresql support.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:88bd9a04e7a821698d5c13a3eacec0dbd9145748</id>
+    <title>sonarr: Add krb5-libs for better postgresql support.</title>
+    <updated>2026-10-19T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-sonarr#versions"/>
+    <category term="sonarr"/>
+    <content type="text">Add krb5-libs for better postgresql support.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:91d4c65f29d7c5979fa7ef2505baaae63cca4785</id>
+    <title>craft-apps: Add FigCraft.</title>
+    <updated>2026-10-18T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-craft-apps#versions"/>
+    <category term="craft-apps"/>
+    <content type="text">Add FigCraft.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:b15030aa3876c273a54cb12736e55b0260b1ecbd</id>
+    <title>orcaslicer: Force OrcaSlicer to use the X11 GDK backend to fix UI rendering issues under Wayland.</title>
+    <updated>2026-10-18T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-orcaslicer#versions"/>
+    <category term="orcaslicer"/>
+    <content type="text">Force OrcaSlicer to use the X11 GDK backend to fix UI rendering issues under Wayland.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:3660d91b2b2534e7950d5155dad04ab7a6c08933</id>
+    <title>nextcloud: Rebase to Alpine 3.24 with php 8.5. Tweak opcache settings according to upstream docs. Import upstream release notes in Github releases.</title>
+    <updated>2026-10-14T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-nextcloud#versions"/>
+    <category term="nextcloud"/>
+    <content type="text">Rebase to Alpine 3.24 with php 8.5. Tweak opcache settings according to upstream docs. Import upstream release notes in Github releases.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:8dc44272b2e478e3a3b64ff98eabab4f9dbe361c</id>
+    <title>nomacs: Initial release.</title>
+    <updated>2026-10-13T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-nomacs#versions"/>
+    <category term="nomacs"/>
+    <content type="text">Initial release.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:680098bbf324188f4f50bc96e4373d7116d21b42</id>
+    <title>sonarr: Update `develop` branch to v5. New v5 installs will write initial credentials to container log.</title>
+    <updated>2026-10-12T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-sonarr#versions"/>
+    <category term="sonarr"/>
+    <content type="text">Update `develop` branch to v5. New v5 installs will write initial credentials to container log.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:263b98ed3a5b065636beac0c2f74f15893c1d0df</id>
+    <title>craft-apps: Initial release.</title>
+    <updated>2026-10-11T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-craft-apps#versions"/>
+    <category term="craft-apps"/>
+    <content type="text">Initial release.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:81544dea5115a228b34f9a682d8f6196733ac7b6</id>
+    <title>wikijs: Rebase to Alpine 3.24, switch upstream repo to v2 maintenance repo.</title>
+    <updated>2026-10-10T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-wikijs#versions"/>
+    <category term="wikijs"/>
+    <content type="text">Rebase to Alpine 3.24, switch upstream repo to v2 maintenance repo.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:5ade57b94eaabff9498355e65de93aa5de957d5a</id>
+    <title>audiosilo: Initial Release.</title>
+    <updated>2026-10-09T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-audiosilo#versions"/>
+    <category term="audiosilo"/>
+    <content type="text">Initial Release.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:9bd3b2c041ba4c2d88ed4716051138b597961d0b</id>
+    <title>faster-whisper: Pin `av` to 18.x.</title>
+    <updated>2026-10-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-faster-whisper#versions"/>
+    <category term="faster-whisper"/>
+    <content type="text">Pin `av` to 18.x.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:011153bd1da7aac5aeafdb7759a29218eff36154</id>
+    <title>webtop: Quality of life upgrades for KDE, MATE, and Xfce. Install base packages for flavors initialize KDE sessions properly.</title>
+    <updated>2026-10-02T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-webtop#versions"/>
+    <category term="webtop"/>
+    <content type="text">Quality of life upgrades for KDE, MATE, and Xfce. Install base packages for flavors initialize KDE sessions properly.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:724aa6e8420b41bb72a8a5a00395149588ac6df5</id>
+    <title>deluge: Pin libtorrent to 2.0.13 due to deprecated function. Fix cron for GeoIP updates.</title>
+    <updated>2026-09-27T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-deluge#versions"/>
+    <category term="deluge"/>
+    <content type="text">Pin libtorrent to 2.0.13 due to deprecated function. Fix cron for GeoIP updates.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:2642a1ab46578cc348f5faf323b96fc464f23363</id>
+    <title>webstation: Updates for selkies v2, add X11 support.</title>
+    <updated>2026-09-23T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-webstation#versions"/>
+    <category term="webstation"/>
+    <content type="text">Updates for selkies v2, add X11 support.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:421745fa7f0ec84edf850e612d0585e3f07c8ac3</id>
+    <title>scummvm: Update for Selkies v2, default to X11 for cursor.</title>
+    <updated>2026-09-22T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-scummvm#versions"/>
+    <category term="scummvm"/>
+    <content type="text">Update for Selkies v2, default to X11 for cursor.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:c4b0a9970bdad661d1b26f8acce8e1e9bdcd989d</id>
+    <title>bitcoin-knots: Rebase to Ubuntu Resolute.</title>
+    <updated>2026-09-21T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-bitcoin-knots#versions"/>
+    <category term="bitcoin-knots"/>
+    <content type="text">Rebase to Ubuntu Resolute.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:240b67bfe30088fc6e936ed824846038cf3509b3</id>
+    <title>melonds: Rebase to Ubuntu Resolute.</title>
+    <updated>2026-09-21T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-melonds#versions"/>
+    <category term="melonds"/>
+    <content type="text">Rebase to Ubuntu Resolute.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:1b24fb78d95d15ff066208e5a57ed18f78527118</id>
+    <title>webtop: Updates for Selkies v2, add x11 init for ubuntu-kde, show ubuntu-lxqt branch.</title>
+    <updated>2026-09-21T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-webtop#versions"/>
+    <category term="webtop"/>
+    <content type="text">Updates for Selkies v2, add x11 init for ubuntu-kde, show ubuntu-lxqt branch.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:6ba99d4b25c674c1b73f88cc0b03eab441adb8a1</id>
+    <title>code-server: Add fallback for legacy or misconfigured systems without IPv6 support.</title>
+    <updated>2026-09-20T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-code-server#versions"/>
+    <category term="code-server"/>
+    <content type="text">Add fallback for legacy or misconfigured systems without IPv6 support.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:8e596f03555ab0891b418e61b49a4fc76a8c6fd7</id>
+    <title>steam: Make seccomp and apparmor unconfined optional with proot-bwrap.</title>
+    <updated>2026-09-12T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-steam#versions"/>
+    <category term="steam"/>
+    <content type="text">Make seccomp and apparmor unconfined optional with proot-bwrap.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:255d019ee41011099c9da7d8c0c0d1a4178b05b0</id>
+    <title>emby: Update lib paths to fix hw transcoding.</title>
+    <updated>2026-09-11T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-emby#versions"/>
+    <category term="emby"/>
+    <content type="text">Update lib paths to fix hw transcoding.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:a98ac0260feae09e8d2034ec2d07abbf7487c6a6</id>
+    <title>kavita: Rebase to Ubuntu Resolute. Enable jemalloc to reduce memory footprint.</title>
+    <updated>2026-09-11T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-kavita#versions"/>
+    <category term="kavita"/>
+    <content type="text">Rebase to Ubuntu Resolute. Enable jemalloc to reduce memory footprint.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:0d406976e7c9e9da56629ad5001f3703b8cb8fa8</id>
+    <title>syncthing: Rebase to Alpine 3.24. Compile on Alpine edge.</title>
+    <updated>2026-09-10T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-syncthing#versions"/>
+    <category term="syncthing"/>
+    <content type="text">Rebase to Alpine 3.24. Compile on Alpine edge.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:8497a7c332b21ccb32c8ec9467cb25f2acc06018</id>
+    <title>swag: Use new X-Tinyauth-Location header in Tinyauth locations and remove duplicate auth module headers.</title>
+    <updated>2026-09-09T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-swag#versions"/>
+    <category term="swag"/>
+    <content type="text">Use new X-Tinyauth-Location header in Tinyauth locations and remove duplicate auth module headers.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:c069bcce631acb725f1ae015b7126e6ea25c8de7</id>
+    <title>sealskin: Install Sealskin from the upstream Python wheel, rebase to Alpine 3.24.</title>
+    <updated>2026-09-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-sealskin#versions"/>
+    <category term="sealskin"/>
+    <content type="text">Install Sealskin from the upstream Python wheel, rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:8cbb5d4062f73a9c26c0a49b2f216a1fcc09da13</id>
+    <title>duplicati: Make sure /config is only accessible by the PUID user.</title>
+    <updated>2026-09-03T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-duplicati#versions"/>
+    <category term="duplicati"/>
+    <content type="text">Make sure /config is only accessible by the PUID user.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:2f014d74248c95407cb92b3552371030b8598035</id>
+    <title>mstream: Bake the p2p discovery sidecar into the image at build time (manifest-pinned, sha256-verified) so discovery works without runtime egress to GitHub.</title>
+    <updated>2026-08-31T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-mstream#versions"/>
+    <category term="mstream"/>
+    <content type="text">Bake the p2p discovery sidecar into the image at build time (manifest-pinned, sha256-verified) so discovery works without runtime egress to GitHub.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:53850d006573288c6165b92fb8ada8ec315519a7</id>
+    <title>planka: Add python dep, apprise.</title>
+    <updated>2026-08-24T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-planka#versions"/>
+    <category term="planka"/>
+    <content type="text">Add python dep, apprise.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:ecf39bef7d2cb0c288abf9a11d85f0a9b714a752</id>
+    <title>webstation: Add Xenia Edge emulator.</title>
+    <updated>2026-08-21T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-webstation#versions"/>
+    <category term="webstation"/>
+    <content type="text">Add Xenia Edge emulator.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:e5253ecb738cb36bb3c984e351608a5b95d083ee</id>
+    <title>faster-whisper: Rebase to Ubuntu Resolute.</title>
+    <updated>2026-08-16T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-faster-whisper#versions"/>
+    <category term="faster-whisper"/>
+    <content type="text">Rebase to Ubuntu Resolute.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:9b206b44e2ab3da5f85a8274a8b4b404a4495b5c</id>
+    <title>medusa: Rebase to Alpine 3.23. Add python gdbm backend.</title>
+    <updated>2026-08-16T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-medusa#versions"/>
+    <category term="medusa"/>
+    <content type="text">Rebase to Alpine 3.23. Add python gdbm backend.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:ee039c24dc29275ad636e7493195f016a5f308e4</id>
+    <title>flexget: Rebase to Alpine 3.23.</title>
+    <updated>2026-08-15T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-flexget#versions"/>
+    <category term="flexget"/>
+    <content type="text">Rebase to Alpine 3.23.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:8b33cc6a303535460241c15c84b31de12d62c52c</id>
+    <title>webstation: Add Azahar emulator.</title>
+    <updated>2026-08-13T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-webstation#versions"/>
+    <category term="webstation"/>
+    <content type="text">Add Azahar emulator.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:82d481e365aca66754313060e4e20379e9461f79</id>
+    <title>projectsend: Switch to legacy repo until migration steps are figured out.</title>
+    <updated>2026-08-10T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-projectsend#versions"/>
+    <category term="projectsend"/>
+    <content type="text">Switch to legacy repo until migration steps are figured out.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:731f52597df9525c9dc640216bcac31fbd2082bd</id>
+    <title>webstation: Add Cemu emulator.</title>
+    <updated>2026-08-10T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-webstation#versions"/>
+    <category term="webstation"/>
+    <content type="text">Add Cemu emulator.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:17702da4722c3f839320b3ff4c9ba7006a4e290f</id>
+    <title>kasm: Fix NVIDIA passthrough to Workspace containers by generating a CDI specification inside the DinD layer.</title>
+    <updated>2026-08-07T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-kasm#versions"/>
+    <category term="kasm"/>
+    <content type="text">Fix NVIDIA passthrough to Workspace containers by generating a CDI specification inside the DinD layer.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:487fd6febe082b94129466694af7842f1bb006b3</id>
+    <title>openshot: Rebase to Ubuntu Resolute, install from ppa.</title>
+    <updated>2026-08-07T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-openshot#versions"/>
+    <category term="openshot"/>
+    <content type="text">Rebase to Ubuntu Resolute, install from ppa.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:ad39fb3b62578a76b98fcf0b8818ca0706c159ab</id>
+    <title>bookstack: Run the async queue worker as the PUID/PGID-managed abc user.</title>
+    <updated>2026-08-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-bookstack#versions"/>
+    <category term="bookstack"/>
+    <content type="text">Run the async queue worker as the PUID/PGID-managed abc user.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:7dbd33629b96c2d94f8f78b4cf3d82646fe963a8</id>
+    <title>kasm: Give kasm_manager a healthcheck start period so a cold start does not leave kasm_proxy created but never started.</title>
+    <updated>2026-08-04T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-kasm#versions"/>
+    <category term="kasm"/>
+    <content type="text">Give kasm_manager a healthcheck start period so a cold start does not leave kasm_proxy created but never started.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:07f336b68151b73f4dcf7c0d0c041ca8e6ba343f</id>
+    <title>rpcs3: Start ingesting head appimage again, add notes on using SDL for controller support.</title>
+    <updated>2026-07-30T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-rpcs3#versions"/>
+    <category term="rpcs3"/>
+    <content type="text">Start ingesting head appimage again, add notes on using SDL for controller support.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:c8621545c88678e75831f86f261a428f731761e0</id>
+    <title>hedgedoc: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-29T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-hedgedoc#versions"/>
+    <category term="hedgedoc"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:69f790791117f2bdfeff01f0bb106e42a8c9e04a</id>
+    <title>librespeed: Rebase to Alpine 3.24. Enable new UI with additional settings files available in the config folder.</title>
+    <updated>2026-07-29T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-librespeed#versions"/>
+    <category term="librespeed"/>
+    <content type="text">Rebase to Alpine 3.24. Enable new UI with additional settings files available in the config folder.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:b68b90b911703f58e6ecf8f46072353a12c1dfca</id>
+    <title>chrome: Add aarch64 support.</title>
+    <updated>2026-07-27T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-chrome#versions"/>
+    <category term="chrome"/>
+    <content type="text">Add aarch64 support.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:03fb443da76356a87c44e4338add827287bfa4ff</id>
+    <title>rawtherapee: Add aarch64 support.</title>
+    <updated>2026-07-26T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-rawtherapee#versions"/>
+    <category term="rawtherapee"/>
+    <content type="text">Add aarch64 support.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:9262ecd3df577d3f474582ff28128f4c47d767e3</id>
+    <title>babybuddy: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-21T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-babybuddy#versions"/>
+    <category term="babybuddy"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:9f57c0acc5b5f7046ff36598082a0772281ff2a9</id>
+    <title>cops: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-21T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-cops#versions"/>
+    <category term="cops"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:eb9a1650bde7e6a0b4e0fdb22157b12e56bd3645</id>
+    <title>freshrss: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-21T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-freshrss#versions"/>
+    <category term="freshrss"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:f641e6040c236c55b33fcee5aff01e4cd3575f7b</id>
+    <title>pelorus: Initial release.</title>
+    <updated>2026-07-19T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-pelorus#versions"/>
+    <category term="pelorus"/>
+    <content type="text">Initial release.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:d1c6a0c48d4decdc3de6c81311cd8a2716760bc1</id>
+    <title>swag: Rebase to Alpine 3.24 with PHP 8.5.</title>
+    <updated>2026-07-19T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-swag#versions"/>
+    <category term="swag"/>
+    <content type="text">Rebase to Alpine 3.24 with PHP 8.5.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:04a8942542e5d0016b16306745d2803dcb3cf491</id>
+    <title>ldap-auth: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-17T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-ldap-auth#versions"/>
+    <category term="ldap-auth"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:e294b4d132292575f34d5cda0806d5e6561516e2</id>
+    <title>oscam: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-17T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-oscam#versions"/>
+    <category term="oscam"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:8a4acf90ec7027bca4c741408252ba82bcb93901</id>
+    <title>pwndrop: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-17T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-pwndrop#versions"/>
+    <category term="pwndrop"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:f7d7814a6a43be9e0c5931c9ebdc7e4175460cff</id>
+    <title>pydio-cells: Rebasing to Alpine 3.24.</title>
+    <updated>2026-07-17T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-pydio-cells#versions"/>
+    <category term="pydio-cells"/>
+    <content type="text">Rebasing to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:d938f83a82862dacc06572b8e198a54153a82bdc</id>
+    <title>duckdns: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-15T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-duckdns#versions"/>
+    <category term="duckdns"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:2a2b89e0be32f7342a7ef7038fd085a1945c8b00</id>
+    <title>synclounge: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-15T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-synclounge#versions"/>
+    <category term="synclounge"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:d469e7ab3e9231dbf97faa690574848feaaea525</id>
+    <title>dokuwiki: Rebase to Alpine 3.24, add php-tokenizer.</title>
+    <updated>2026-07-14T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-dokuwiki#versions"/>
+    <category term="dokuwiki"/>
+    <content type="text">Rebase to Alpine 3.24, add php-tokenizer.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:5ee19d667218f19fc2d8dbc11eabfa2e4f0993eb</id>
+    <title>emby: Rebase to Ubuntu Resolute.</title>
+    <updated>2026-07-14T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-emby#versions"/>
+    <category term="emby"/>
+    <content type="text">Rebase to Ubuntu Resolute.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:d30afbeed5b0e8ed9bd09b984dda8f8629b1bf58</id>
+    <title>heimdall: Rebase to Alpine 3.24</title>
+    <updated>2026-07-14T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-heimdall#versions"/>
+    <category term="heimdall"/>
+    <content type="text">Rebase to Alpine 3.24</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:40f0dd21d93a52ecc8f038befc54f1f44e95933b</id>
+    <title>jackett: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-14T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-jackett#versions"/>
+    <category term="jackett"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:47fe6fe27178979aead52886a1257b94a22eece1</id>
+    <title>jellyfin: Rebase to Ubuntu Resolute.</title>
+    <updated>2026-07-14T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-jellyfin#versions"/>
+    <category term="jellyfin"/>
+    <content type="text">Rebase to Ubuntu Resolute.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:ccba1052d6b30b34a4c61d2cd33d768c8e011605</id>
+    <title>piper: Rebase to Ubuntu Resolute.</title>
+    <updated>2026-07-14T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-piper#versions"/>
+    <category term="piper"/>
+    <content type="text">Rebase to Ubuntu Resolute.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:e77894b57c7fa18105b20d97be063740357ecf09</id>
+    <title>unifi-network-application: Rebase to Ubuntu Resolute.</title>
+    <updated>2026-07-14T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-unifi-network-application#versions"/>
+    <category term="unifi-network-application"/>
+    <content type="text">Rebase to Ubuntu Resolute.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:876869279bdbc08c16e9bd0cee982894d0e08d96</id>
+    <title>swag: Add support for Let&#39;s Encrypt cert profiles. Run certbot twice daily with a random delay.</title>
+    <updated>2026-07-10T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-swag#versions"/>
+    <category term="swag"/>
+    <content type="text">Add support for Let&#39;s Encrypt cert profiles. Run certbot twice daily with a random delay.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:210dc366eb79b0f6e67a944f7e9ed8c8f628ef95</id>
+    <title>sonarr: Workaround malformed ncurses database.</title>
+    <updated>2026-07-09T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-sonarr#versions"/>
+    <category term="sonarr"/>
+    <content type="text">Workaround malformed ncurses database.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:e6a106423ebb57fcfbe2d31863561912ba2ed313</id>
+    <title>mstream: Rebase to Alpine 3.24. Use the distro onnxruntime so the discovery/recommendation features work on musl.</title>
+    <updated>2026-07-08T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-mstream#versions"/>
+    <category term="mstream"/>
+    <content type="text">Rebase to Alpine 3.24. Use the distro onnxruntime so the discovery/recommendation features work on musl.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:f396d62359f28637e4d9a1189db161a0b7153b25</id>
+    <title>plex: Rebase to Ubuntu Resolute.</title>
+    <updated>2026-07-06T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-plex#versions"/>
+    <category term="plex"/>
+    <content type="text">Rebase to Ubuntu Resolute.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:63c9b8e0e998ae04f3e5fd88e0ef9d8ac0089fc8</id>
+    <title>adguardhome-sync: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-adguardhome-sync#versions"/>
+    <category term="adguardhome-sync"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:8174ecc478d281159a6d5240c7bf9a52783e3e8f</id>
+    <title>bookstack: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-bookstack#versions"/>
+    <category term="bookstack"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:3f1a68e7abb0c0f52f638613eb0f3438caabdcc9</id>
+    <title>healthchecks: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-healthchecks#versions"/>
+    <category term="healthchecks"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:d4ff1537f9692b0445fcffde420994f353c48c8e</id>
+    <title>hishtory-server: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-hishtory-server#versions"/>
+    <category term="hishtory-server"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:549909ad8c8bd1776bed6633347e0b972bb8e9cd</id>
+    <title>kometa: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-kometa#versions"/>
+    <category term="kometa"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:bf0c9a6b6015d40bb49ca82767fb070d04264a83</id>
+    <title>lychee: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-lychee#versions"/>
+    <category term="lychee"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:4665bd9341a30b63a1d324e8714601ea3acf9e66</id>
+    <title>manyfold: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-manyfold#versions"/>
+    <category term="manyfold"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:bef0bfb2ba2a88158fcdfc35c3e3a001b8340eac</id>
+    <title>mariadb: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-mariadb#versions"/>
+    <category term="mariadb"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:43a50c10e68a19048414b97b5e0dd51fcd539964</id>
+    <title>mastodon: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-mastodon#versions"/>
+    <category term="mastodon"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:bb44d012c44a6adf8292df730e51a100bf23ae35</id>
+    <title>nginx: Rebase to Alpine 3.24 with PHP 8.5.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-nginx#versions"/>
+    <category term="nginx"/>
+    <content type="text">Rebase to Alpine 3.24 with PHP 8.5.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:ae91b4c428d75b623c0acd6049104e8b7f54184e</id>
+    <title>nzbget: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-nzbget#versions"/>
+    <category term="nzbget"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:1797955d042bd1366ed1d920461b1cbc1a4b85ab</id>
+    <title>openssh-server: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-openssh-server#versions"/>
+    <category term="openssh-server"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:5070c741c6f72e962687d624c6daa60c38a1dbb5</id>
+    <title>phpmyadmin: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-phpmyadmin#versions"/>
+    <category term="phpmyadmin"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:c1dfd67678db2f45cca8064b2593144345753c58</id>
+    <title>planka: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-planka#versions"/>
+    <category term="planka"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:0df47885cd4fa32199e46bbfdcccfbdf7fa1c90e</id>
+    <title>qbittorrent: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-qbittorrent#versions"/>
+    <category term="qbittorrent"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:a4897b766581c698fc448687f5c4b43228c9b37a</id>
+    <title>speedtest-tracker: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-speedtest-tracker#versions"/>
+    <category term="speedtest-tracker"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:2dfa156779dfb6b56b22952181e255be280bde5c</id>
+    <title>syslog-ng: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-syslog-ng#versions"/>
+    <category term="syslog-ng"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:1aa80ba93d49cae4227d0c67ca4ac3a415ed9489</id>
+    <title>tautulli: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-tautulli#versions"/>
+    <category term="tautulli"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:a7f54cfc6b729e8c7d3a29acaf4599ceeb796c28</id>
+    <title>wireguard: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-wireguard#versions"/>
+    <category term="wireguard"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:d6cdaa967c93c4ec4159cc9971e1625b5c8f9659</id>
+    <title>xbackbone: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-xbackbone#versions"/>
+    <category term="xbackbone"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:845555b9c8dac861fad7c481c8fb755b8283d8db</id>
+    <title>chromium: Deprecate Kasm branch.</title>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-chromium#versions"/>
+    <category term="chromium"/>
+    <content type="text">Deprecate Kasm branch.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:5f76434a272317a7e4b492d0f72f5b7547e1edfa</id>
+    <title>firefox: Deprecate Kasm branch.</title>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-firefox#versions"/>
+    <category term="firefox"/>
+    <content type="text">Deprecate Kasm branch.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:33c0585d1651df3cee27019dc67b74458beb8748</id>
+    <title>lidarr: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-lidarr#versions"/>
+    <category term="lidarr"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:ba328cda368550a2163401df4d463052c887f31e</id>
+    <title>prowlarr: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-prowlarr#versions"/>
+    <category term="prowlarr"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:e89a25f2f7438a58ecb00f686d95d5e87e4d59b1</id>
+    <title>radarr: Rebase to Alpine 3.24.</title>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-radarr#versions"/>
+    <category term="radarr"/>
+    <content type="text">Rebase to Alpine 3.24.</content>
+  </entry>
+  <entry>
+    <id>urn:sha1:43f95be938d86d71edfb2495180a15b4c1b8a7aa</id>
+    <title>sabnzbd: Rebase to Alpine 3.24</title>
+    <updated>2026-07-04T00:00:00Z</updated>
+    <link rel="alternate" href="https://github.com/linuxserver-playground/docker-sabnzbd#versions"/>
+    <category term="sabnzbd"/>
+    <content type="text">Rebase to Alpine 3.24</content>
+  </entry>
+</feed>

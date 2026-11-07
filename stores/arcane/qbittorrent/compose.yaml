@@ -1,0 +1,22 @@
+x-arcane:
+  icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/qbittorrent-icon.png
+  urls:
+  - https://www.qbittorrent.org/
+  - https://github.com/linuxserver-playground/docker-qbittorrent
+services:
+  qbittorrent:
+    image: ghcr.io/linuxserver-playground/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      WEBUI_PORT: ${WEBUI_PORT:-8080}
+      TORRENTING_PORT: ${TORRENTING_PORT:-6881}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8080:-8080}:8080
+    - ${PORT_6881:-6881}:6881
+    - ${PORT_6881_UDP:-6881}:6881/udp
+    restart: unless-stopped

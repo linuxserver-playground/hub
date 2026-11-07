@@ -1,0 +1,55 @@
+name: thelounge
+services:
+  thelounge:
+    image: ghcr.io/linuxserver-playground/thelounge:latest
+    container_name: thelounge
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/thelounge/config:/config
+    ports:
+    - 9000:9000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '9000'
+        description:
+          en_us: Application WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: thelounge
+  author: LinuxServer.io
+  developer: Thelounge
+  category: IRC
+  description:
+    en_us: Thelounge (a fork of shoutIRC) is a web IRC client that you host on your own server.
+  tagline:
+    en_us: Thelounge (a fork of shoutIRC) is a web IRC client that you host on your own server
+  title:
+    en_us: Thelounge
+  icon: https://raw.githubusercontent.com/thelounge/thelounge/master/client/img/logo-vertical-transparent-bg.svg?sanitize=true
+  thumbnail: https://raw.githubusercontent.com/thelounge/thelounge/master/client/img/logo-vertical-transparent-bg.svg?sanitize=true
+  store_app_id: thelounge
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-thelounge/builds/v4.5.2-ls4/amd64/screenshot.png
+  port_map: '9000'

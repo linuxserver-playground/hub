@@ -1,0 +1,63 @@
+name: mame
+services:
+  mame:
+    image: ghcr.io/linuxserver-playground/mame:latest
+    container_name: mame
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/mame/config:/config
+    - /DATA/AppData/mame/mame:ro:/mame:ro
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP MAME desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS MAME desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+      - container: /mame:ro
+        description:
+          en_us: MAME directory containing artwork, roms, and assets.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: mame
+  author: LinuxServer.io
+  developer: Mame
+  category: Games
+  description:
+    en_us: MAME is a free and open-source emulator designed to emulate the hardware of arcade games, video game consoles, old computers and other systems in software on modern personal computers.
+  tagline:
+    en_us: MAME is a free and open-source emulator designed to emulate the hardware of arcade games, video game consoles, old computers and other systems in software on modern personal computers
+  title:
+    en_us: Mame
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mame-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mame-logo.png
+  store_app_id: mame
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-mame/builds/0.289dfsg1-0-ls7/amd64/screenshot.png
+  port_map: '3000'

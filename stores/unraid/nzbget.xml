@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-nzbget/blob/master/image.yml -->
+<Container version="2">
+    <Name>nzbget</Name>
+    <Repository>ghcr.io/linuxserver-playground/nzbget</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/nzbget</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-nzbget/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-nzbget#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-nzbget#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable nzbget releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>testing</Tag>
+        <TagDescription>nzbget pre-releases</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-nzbget/tree/testing#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-nzbget/tree/testing#application-setup</GitHub>
+    </Branch>
+    <Project>http://nzbget.com/</Project>
+    <Overview>Nzbget(http://nzbget.com/) is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.</Overview>
+    <WebUI>http://[IP]:[PORT:6789]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/nzbget.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nzbget-banner.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-nzbget/builds/v26.3-ls7/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-05</Date>
+    <Changes>
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2026-06-05
+- Rebase to Alpine 3.23.
+
+### 2025-09-01
+- Add new dependency for boost filesystem.
+
+### 2025-07-05
+- Rebase to Alpine 3.22.
+
+### 2024-12-24
+- Rebase to Alpine 3.21. Move MainDir to /config, leave default DestDir/InterDir as /downloads.
+
+### 2024-05-31
+- Rebase to Alpine 3.20.
+
+### 2024-05-09
+- Revive image based on the fork from https://github.com/nzbgetcom/nzbget.
+
+    </Changes>
+    <Config Name="WebUI" Target="6789" Default="6789" Mode="tcp" Description="WebUI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /downloads" Target="/downloads" Default="" Mode="rw" Description="Location of downloads on disk." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="NZBGET_USER" Target="NZBGET_USER" Default="nzbget" Description="Specify the user for web authentication." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="NZBGET_PASS" Target="NZBGET_PASS" Default="tegbzn6789" Description="Specify the password for web authentication." Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

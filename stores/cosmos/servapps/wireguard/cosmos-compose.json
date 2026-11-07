@@ -1,0 +1,111 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "SERVERURL",
+        "label": "External IP or domain name for docker host. Used in server mode. If set to auto, the container will try to determine and set the external IP automatically",
+        "initialValue": "wireguard.domain.com",
+        "type": "text"
+      },
+      {
+        "name": "SERVERPORT",
+        "label": "External port for docker host. Used in server mode.",
+        "initialValue": "51820",
+        "type": "text"
+      },
+      {
+        "name": "PEERS",
+        "label": "Number of peers to create confs for. Required for server mode. Can also be a list of names: myPC,myPhone,myTablet (alphanumeric only)",
+        "initialValue": "1",
+        "type": "text"
+      },
+      {
+        "name": "PEERDNS",
+        "label": "DNS server set in peer/client configs (can be set as 8.8.8.8). Used in server mode. Defaults to auto, which uses wireguard docker host's DNS via included CoreDNS forward.",
+        "initialValue": "auto",
+        "type": "text"
+      },
+      {
+        "name": "INTERNAL_SUBNET",
+        "label": "Internal subnet for the wireguard and server and peers (only change if it clashes). Used in server mode.",
+        "initialValue": "10.13.13.0",
+        "type": "text"
+      },
+      {
+        "name": "ALLOWEDIPS",
+        "label": "The IPs/Ranges that the peers will be able to reach using the VPN connection. If not specified the default value is: '0.0.0.0/0, ::0/0' This will cause ALL traffic to route through the VPN, if you want split tunneling, set this to only the IPs you would like to use the tunnel AND the ip of the server's WG ip, such as 10.13.13.1.",
+        "initialValue": "0.0.0.0/0",
+        "type": "text"
+      },
+      {
+        "name": "PERSISTENTKEEPALIVE_PEERS",
+        "label": "Set to all or a list of comma separated peers (ie. 1,4,laptop) for the wireguard server to send keepalive packets to listed peers every 25 seconds. Useful if server is accessed via domain name and has dynamic IP. Used only in server mode.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "LOG_CONFS",
+        "label": "Generated QR codes will be displayed in the docker log. Set to false to skip log output.",
+        "initialValue": "true",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/wireguard:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "SERVERURL={Context.SERVERURL}",
+        "SERVERPORT={Context.SERVERPORT}",
+        "PEERS={Context.PEERS}",
+        "PEERDNS={Context.PEERDNS}",
+        "INTERNAL_SUBNET={Context.INTERNAL_SUBNET}",
+        "ALLOWEDIPS={Context.ALLOWEDIPS}",
+        "PERSISTENTKEEPALIVE_PEERS={Context.PERSISTENTKEEPALIVE_PEERS}",
+        "LOG_CONFS={Context.LOG_CONFS}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://www.wireguard.com/img/wireguard.svg",
+        "cosmos.stack": "{ServiceName}-wireguard"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-lib-modules",
+          "target": "/lib/modules",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "cap_add": [
+        "NET_ADMIN"
+      ],
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:51820",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

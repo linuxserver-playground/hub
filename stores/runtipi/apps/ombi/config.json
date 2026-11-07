@@ -1,0 +1,33 @@
+{
+  "name": "Ombi",
+  "available": true,
+  "exposable": true,
+  "port": 3579,
+  "id": "ombi",
+  "tipi_version": 1,
+  "version": "v4.53.10",
+  "categories": [
+    "media"
+  ],
+  "description": "Ombi allows you to host your own Plex Request and user management system. If you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface! Manage all your requests for Movies and TV with ease, leave notes for the user and get notification when a user requests something. Allow your users to post issues against their requests so you know there is a problem with the audio etc. Even automatically send them weekly newsletters of new content that has been added to your Plex server!",
+  "short_desc": "Ombi allows you to host your own Plex Request and user management system",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-ombi",
+  "website": "https://ombi.io",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ombi.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "BASE_URL",
+      "hint": "Subfolder can optionally be defined as an env variable for reverse proxies. Keep in mind that once this value is defined, the gui setting for base url no longer works. To use the gui setting, remove this env variable.",
+      "required": false,
+      "env_variable": "OMBI_BASE_URL",
+      "default": "/"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

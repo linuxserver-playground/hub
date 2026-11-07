@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-modmanager/blob/main/image.yml -->
+<Container version="2">
+    <Name>modmanager</Name>
+    <Repository>ghcr.io/linuxserver-playground/modmanager</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/modmanager</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-modmanager/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-modmanager</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-modmanager#readme</ReadMe>
+    <Project>https://github.com/linuxserver-playground/docker-modmanager</Project>
+    <Overview>Modmanager is a centralised tool for downloading and updating docker mods for all your other Linuxserver containers.</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/modmanager.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-logo.png</Icon>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

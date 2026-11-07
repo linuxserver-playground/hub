@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server-banner.png
+  urls:
+  - https://coder.com
+  - https://github.com/linuxserver-playground/docker-code-server
+services:
+  code-server:
+    image: ghcr.io/linuxserver-playground/code-server:latest
+    container_name: code-server
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8443:-8443}:8443
+    restart: unless-stopped

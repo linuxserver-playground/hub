@@ -1,0 +1,63 @@
+name: qdirstat
+services:
+  qdirstat:
+    image: ghcr.io/linuxserver-playground/qdirstat:latest
+    container_name: qdirstat
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/qdirstat/config:/config
+    - /DATA/AppData/qdirstat/data:/data
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: QdirStat desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: QdirStat desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores qdirstat settings and scans.
+      - container: /data
+        description:
+          en_us: Data you want to analyze disk usage information of.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: qdirstat
+  author: LinuxServer.io
+  developer: Qdirstat
+  category: Storage
+  description:
+    en_us: 'QDirStat Qt-based directory statistics: KDirStat without any KDE -- from the author of the original KDirStat.'
+  tagline:
+    en_us: 'QDirStat Qt-based directory statistics: KDirStat without any KDE -- from the author of the original KDirStat'
+  title:
+    en_us: Qdirstat
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/qdirstat-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/qdirstat-logo.png
+  store_app_id: qdirstat
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-qdirstat/builds/2.0-ls5/amd64/screenshot.png
+  port_map: '3000'

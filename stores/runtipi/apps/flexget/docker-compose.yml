@@ -1,0 +1,19 @@
+services:
+  flexget:
+    image: ghcr.io/linuxserver-playground/flexget:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      FG_LOG_LEVEL: ${FLEXGET_FG_LOG_LEVEL}
+      FG_LOG_FILE: ${FLEXGET_FG_LOG_FILE}
+      FG_CONFIG_FILE: ${FLEXGET_FG_CONFIG_FILE}
+      FG_WEBUI_PASSWORD: ${FLEXGET_FG_WEBUI_PASSWORD}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data:/data
+    x-runtipi:
+      is_main: true
+      internal_port: 5050
+x-runtipi:
+  schema_version: 2

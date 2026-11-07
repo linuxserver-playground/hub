@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-mstream/blob/master/image.yml -->
+<Container version="2">
+    <Name>mstream</Name>
+    <Repository>ghcr.io/linuxserver-playground/mstream</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/mstream</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-mstream/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-mstream#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-mstream#readme</ReadMe>
+    <Project>https://mstream.io/</Project>
+    <Overview>mstream(https://mstream.io/) is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone.</Overview>
+    <WebUI>http://[IP]:[PORT:3000]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/mstream.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mstream-icon.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-mstream/builds/v6.32.3-ls6/amd64/screenshot.png</Screenshot>
+    <Date>2026-08-31</Date>
+    <Changes>
+### 2026-08-31
+- Bake the p2p discovery sidecar into the image at build time (manifest-pinned, sha256-verified) so discovery works without runtime egress to GitHub.
+
+### 2026-07-08
+- Rebase to Alpine 3.24. Use the distro onnxruntime so the discovery/recommendation features work on musl.
+
+### 2026-04-24
+- Make waveform data persistent.
+
+### 2026-04-20
+- Fix perms on rust binaries.
+
+### 2026-04-07
+- Add ffmpeg and yt-dlp.
+
+### 2026-04-06
+- Rebase to Alpine 3.23.
+
+### 2024-06-27
+- Rebase to Alpine 3.20.
+
+### 2023-12-12
+- Rebase to Alpine 3.19, move binaries to /app.
+
+### 2023-07-05
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-02-13
+- Rebase to Alpine 3.17, migrate to s6v3.
+
+### 2022-04-05
+- Move `sync` folder to `/config`.
+
+### 2022-04-02
+- Rebase to alpine 3.15. Fix ffmpeg download.
+
+### 2021-05-17
+- Deprecating the env vars `USER`, `PASSWORD` and `USE_JSON` as mStream v5 requires the use of `config.json`.
+
+### 2021-01-23
+- Rebasing to alpine 3.13.
+
+### 2020-06-01
+- Rebasing to alpine 3.12.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-05-18
+- Inital Release
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="The port for the mStream web interface" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="mStream config" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /music" Target="/music" Default="" Mode="rw" Description="Music location" Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

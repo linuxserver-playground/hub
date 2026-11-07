@@ -1,0 +1,15 @@
+---
+services:
+  dokuwiki:
+    image: ghcr.io/linuxserver-playground/dokuwiki:latest
+    container_name: dokuwiki
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/dokuwiki/config:/config
+    ports:
+      - 80:80
+      - 443:443 #optional
+    restart: unless-stopped

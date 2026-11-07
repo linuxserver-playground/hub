@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-hishtory-server_server_1
+      APP_PORT: 8080
+  server:
+    image: ghcr.io/linuxserver-playground/hishtory-server:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      HISHTORY_POSTGRES_DB: postgresql://${HISHTORY_DB_USER}:${HISHTORY_DB_PASS}@hishtory-db:5432/hishtory?sslmode=disable
+      HISHTORY_SQLITE_DB: /config/hishtory.db
+    volumes: []

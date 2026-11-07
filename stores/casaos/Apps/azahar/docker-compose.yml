@@ -1,0 +1,58 @@
+name: azahar
+services:
+  azahar:
+    image: ghcr.io/linuxserver-playground/azahar:latest
+    container_name: azahar
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/azahar/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Azahar desktop gui HTTP must be proxied.
+      - container: '3001'
+        description:
+          en_us: Azahar desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: azahar
+  author: LinuxServer.io
+  developer: Azahar
+  category: Games
+  description:
+    en_us: Azahar is an open-source 3DS emulator based on Citra.
+  tagline:
+    en_us: Azahar is an open-source 3DS emulator based on Citra
+  title:
+    en_us: Azahar
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/azahar-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/azahar-logo.png
+  store_app_id: azahar
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-azahar/builds/12126.2-1-ls7/amd64/screenshot.png
+  port_map: '3000'

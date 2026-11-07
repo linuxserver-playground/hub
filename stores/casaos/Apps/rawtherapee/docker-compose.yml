@@ -1,0 +1,59 @@
+name: rawtherapee
+services:
+  rawtherapee:
+    image: ghcr.io/linuxserver-playground/rawtherapee:latest
+    container_name: rawtherapee
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/rawtherapee/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: RawTherapee desktop gui (only for reverse proxy access).
+      - container: '3001'
+        description:
+          en_us: RawTherapee desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: User's home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: rawtherapee
+  author: LinuxServer.io
+  developer: Rawtherapee
+  category: Image Editor
+  description:
+    en_us: RawTherapee is a free, cross-platform raw image processing program!
+  tagline:
+    en_us: RawTherapee is a free, cross-platform raw image processing program!
+  title:
+    en_us: Rawtherapee
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rawtherapee-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rawtherapee-logo.png
+  store_app_id: rawtherapee
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-rawtherapee/builds/5.13-ls5/amd64/screenshot.png
+  port_map: '3000'

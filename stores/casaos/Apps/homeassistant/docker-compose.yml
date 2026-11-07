@@ -1,0 +1,54 @@
+name: homeassistant
+services:
+  homeassistant:
+    image: ghcr.io/linuxserver-playground/homeassistant:latest
+    container_name: homeassistant
+    restart: unless-stopped
+    network_mode: host
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/homeassistant/config:/config
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8123'
+        description:
+          en_us: Application WebUI, only use this if you are not using host mode.
+      volumes:
+      - container: /config
+        description:
+          en_us: Home Assistant config storage path.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: homeassistant
+  author: LinuxServer.io
+  developer: Homeassistant
+  category: Home Automation
+  description:
+    en_us: Home Assistant Core - Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server
+  tagline:
+    en_us: Home Assistant Core - Open source home automation that puts local control and privacy first
+  title:
+    en_us: Homeassistant
+  icon: https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192-full.png
+  thumbnail: https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192-full.png
+  store_app_id: homeassistant
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-homeassistant/builds/2026.11.0-ls5/amd64/screenshot.png
+  port_map: '8123'

@@ -1,0 +1,49 @@
+{
+  "name": "Smokeping",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "smokeping",
+  "tipi_version": 1,
+  "version": "2.9.0-r0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Smokeping keeps track of your network latency. For a full example of what this application is capable of visit UCDavis.",
+  "short_desc": "Smokeping keeps track of your network latency",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-smokeping",
+  "website": "https://oss.oetiker.ch/smokeping/",
+  "logo_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/smokeping-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "MASTER_URL",
+      "hint": "Specify the master url to connect to. Used when in slave mode.",
+      "required": false,
+      "env_variable": "SMOKEPING_MASTER_URL",
+      "default": "http://<master-host-ip>:80/smokeping/"
+    },
+    {
+      "type": "text",
+      "label": "SHARED_SECRET",
+      "hint": "Specify the master shared secret for this host. Used when in slave mode.",
+      "required": false,
+      "env_variable": "SMOKEPING_SHARED_SECRET",
+      "default": "password"
+    },
+    {
+      "type": "text",
+      "label": "CACHE_DIR",
+      "hint": "Specify the cache directory for this host. Used when in slave mode.",
+      "required": false,
+      "env_variable": "SMOKEPING_CACHE_DIR",
+      "default": "/tmp"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

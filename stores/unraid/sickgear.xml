@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-sickgear/blob/master/image.yml -->
+<Container version="2">
+    <Name>sickgear</Name>
+    <Repository>ghcr.io/linuxserver-playground/sickgear</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/sickgear</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-sickgear/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-sickgear#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-sickgear#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable SickGear releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>develop</Tag>
+        <TagDescription>SickGear develop branch commits</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-sickgear/tree/develop#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-sickgear/tree/develop#application-setup</GitHub>
+    </Branch>
+    <Project>https://github.com/sickgear/sickgear</Project>
+    <Overview>SickGear(https://github.com/sickgear/sickgear) provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more..</Overview>
+    <WebUI>http://[IP]:[PORT:8081]/home/view-changes</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/sickgear.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-sickgear/builds/release_3.36.8-ls6/amd64/screenshot.png</Screenshot>
+    <Date>2025-07-09</Date>
+    <Changes>
+### 2025-07-09
+- Rebase to Alpine 3.22.
+
+### 2024-06-25
+- Rebase to Alpine 3.20.
+
+### 2024-03-20
+- Rebase to Alpine 3.19.
+
+### 2023-10-08
+- Install unrar from linuxserver repo(https://github.com/linuxserver/docker-unrar).
+
+### 2023-08-10
+- Bump unrar to 6.2.10.
+
+### 2023-05-27
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-03-05
+- Rebase to Alpine 3.17.
+
+### 2022-11-18
+- Update service file from legacy SickBeard.py to sickgear.py.
+
+### 2022-10-10
+- Rebase to Alpine 3.16, migrate to s6v3.
+
+### 2022-09-19
+- Rebase to alpine 3.15. Build unrar from source.
+
+### 2021-01-31
+- Add unrar.
+
+### 2021-01-29
+- Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information.
+
+### 2021-01-23
+- Rebasing to alpine 3.13.
+
+### 2020-06-03
+- Rebasing to alpine 3.12, switch to python3.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-02-22
+- Rebasing to alpine 3.9.
+
+### 2018-11-07
+- Pipeline prep
+
+### 2018-07-07
+- Initial draft release
+
+    </Changes>
+    <Config Name="WebUI" Target="8081" Default="8081" Mode="tcp" Description="will map the container&#x27;s port 8081 to port 8081 on the host" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent configuration files." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /tv" Target="/tv" Default="" Mode="rw" Description="where you store your tv shows" Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="Path: /downloads" Target="/downloads" Default="" Mode="rw" Description="your downloads folder for post processing (must not be download in progress)" Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

@@ -1,0 +1,213 @@
+name: mastodon
+services:
+  mastodon:
+    image: ghcr.io/linuxserver-playground/mastodon:latest
+    container_name: mastodon
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - LOCAL_DOMAIN=example.com
+    - REDIS_HOST=redis
+    - REDIS_PORT=6379
+    - DB_HOST=db
+    - DB_USER=mastodon
+    - DB_NAME=mastodon
+    - DB_PASS=mastodon
+    - DB_PORT=5432
+    - ES_ENABLED=false
+    - ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY=
+    - ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY=
+    - ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT=
+    - SECRET_KEY_BASE=
+    - OTP_SECRET=
+    - VAPID_PRIVATE_KEY=
+    - VAPID_PUBLIC_KEY=
+    - SMTP_SERVER=mail.example.com
+    - SMTP_PORT=25
+    - SMTP_LOGIN=
+    - SMTP_PASSWORD=
+    - SMTP_FROM_ADDRESS=notifications@example.com
+    - S3_ENABLED=false
+    - WEB_DOMAIN=mastodon.example.com
+    - ES_HOST=es
+    - ES_PORT=9200
+    - ES_USER=elastic
+    - ES_PASS=elastic
+    - S3_BUCKET=
+    - AWS_ACCESS_KEY_ID=
+    - AWS_SECRET_ACCESS_KEY=
+    - S3_ALIAS_HOST=
+    - SIDEKIQ_ONLY=false
+    - SIDEKIQ_QUEUE=
+    - SIDEKIQ_DEFAULT=false
+    - SIDEKIQ_THREADS=5
+    - DB_POOL=5
+    - NO_CHOWN=
+    - MASTODON_PROMETHEUS_EXPORTER_ENABLED=
+    volumes:
+    - /DATA/AppData/mastodon/config:/config
+    ports:
+    - 80:80
+    - 443:443
+    - 9394:9394
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: LOCAL_DOMAIN
+        description:
+          en_us: This is the unique identifier of your server in the network. It cannot be safely changed later.
+      - container: REDIS_HOST
+        description:
+          en_us: Redis server hostname
+      - container: REDIS_PORT
+        description:
+          en_us: Redis port
+      - container: DB_HOST
+        description:
+          en_us: Postgres database hostname
+      - container: DB_USER
+        description:
+          en_us: Postgres username
+      - container: DB_NAME
+        description:
+          en_us: Postgres db name
+      - container: DB_PASS
+        description:
+          en_us: Postgres password
+      - container: DB_PORT
+        description:
+          en_us: Postgres port
+      - container: ES_ENABLED
+        description:
+          en_us: Enable or disable Elasticsearch (requires a separate ES instance)
+      - container: ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY
+        description:
+          en_us: Primary key for Active Record Encryption.
+      - container: ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY
+        description:
+          en_us: Deterministic key for Active Record Encryption.
+      - container: ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT
+        description:
+          en_us: Derivation salt for Active Record Encryption.
+      - container: SECRET_KEY_BASE
+        description:
+          en_us: Browser session secret. Changing it will break all active browser sessions.
+      - container: OTP_SECRET
+        description:
+          en_us: MFA secret. Changing it after initial setup will break two-factor authentication.
+      - container: VAPID_PRIVATE_KEY
+        description:
+          en_us: Push notification private key. Changing it after initial setup will break push notifications.
+      - container: VAPID_PUBLIC_KEY
+        description:
+          en_us: Push notification public key. Changing it after initial setup will break push notifications.
+      - container: SMTP_SERVER
+        description:
+          en_us: SMTP server for email notifications
+      - container: SMTP_PORT
+        description:
+          en_us: SMTP server port
+      - container: SMTP_LOGIN
+        description:
+          en_us: SMTP username
+      - container: SMTP_PASSWORD
+        description:
+          en_us: SMTP password
+      - container: SMTP_FROM_ADDRESS
+        description:
+          en_us: From address for emails send from Mastodon
+      - container: S3_ENABLED
+        description:
+          en_us: Enable or disable S3 storage of uploaded files
+      - container: WEB_DOMAIN
+        description:
+          en_us: This can be set if you want your server identifier to be different to the subdomain hosting Mastodon. See https://docs.joinmastodon.org/admin/config/#basic
+      - container: ES_HOST
+        description:
+          en_us: Elasticsearch server hostname
+      - container: ES_PORT
+        description:
+          en_us: Elasticsearch port
+      - container: ES_USER
+        description:
+          en_us: Elasticsearch username
+      - container: ES_PASS
+        description:
+          en_us: Elasticsearch password
+      - container: S3_BUCKET
+        description:
+          en_us: S3 bucket hostname
+      - container: AWS_ACCESS_KEY_ID
+        description:
+          en_us: S3 bucket access key ID
+      - container: AWS_SECRET_ACCESS_KEY
+        description:
+          en_us: S3 bucket secret access key
+      - container: S3_ALIAS_HOST
+        description:
+          en_us: Alternate hostname for object fetching if you are front the S3 connections.
+      - container: SIDEKIQ_ONLY
+        description:
+          en_us: Only run the sidekiq service in this container instance. For large scale instances that need better queue handling.
+      - container: SIDEKIQ_QUEUE
+        description:
+          en_us: The name of the sidekiq queue to run in this container. See notes.
+      - container: SIDEKIQ_DEFAULT
+        description:
+          en_us: Set to true on the main container if you're running additional sidekiq instances. It will run the default queue.
+      - container: SIDEKIQ_THREADS
+        description:
+          en_us: The number of threads for sidekiq to use. See notes.
+      - container: DB_POOL
+        description:
+          en_us: The size of the DB connection pool, must be at least the same as SIDEKIQTHREADS. See notes.
+      - container: NO_CHOWN
+        description:
+          en_us: Set to true to skip chown of /config on init. READ THE APPLICATION NOTES BEFORE SETTING THIS.
+      - container: MASTODON_PROMETHEUS_EXPORTER_ENABLED
+        description:
+          en_us: If set to true, Mastodon’s Ruby processes (web & Sidekiq) will enable the Prometheus instrumentation.
+      ports:
+      - container: '80'
+        description:
+          en_us: Port for web frontend
+      - container: '443'
+        description:
+          en_us: Port for web frontend
+      - container: '9394'
+        description:
+          en_us: Port for Prometheus metrics
+      volumes:
+      - container: /config
+        description:
+          en_us: Contains all relevant configuration files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: mastodon
+  author: LinuxServer.io
+  developer: Mastodon
+  category: Social
+  description:
+    en_us: Mastodon is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones..
+  tagline:
+    en_us: Mastodon is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones
+  title:
+    en_us: Mastodon
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png
+  store_app_id: mastodon
+  index: /
+  scheme: http
+  port_map: '80'

@@ -1,0 +1,32 @@
+---
+services:
+  swag:
+    image: ghcr.io/linuxserver-playground/swag:latest
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - URL=example.com
+      - VALIDATION=http
+      - SUBDOMAINS=www, #optional
+      - CERTPROVIDER= #optional
+      - CERT_PROFILE= #optional
+      - DNSPLUGIN=cloudflare #optional
+      - PROPAGATION= #optional
+      - EMAIL= #optional
+      - ONLY_SUBDOMAINS=false #optional
+      - EXTRA_DOMAINS= #optional
+      - STAGING=false #optional
+      - DISABLE_F2B= #optional
+      - SWAG_AUTORELOAD= #optional
+      - SWAG_AUTORELOAD_WATCHLIST= #optional
+    volumes:
+      - /path/to/swag/config:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+      - 443:443/udp #optional
+    restart: unless-stopped

@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-kometa_server_1
+      APP_PORT: 80
+  server:
+    image: ghcr.io/linuxserver-playground/kometa:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      KOMETA_CONFIG: /config/config.yml
+      KOMETA_TIMES: 03:00
+      KOMETA_RUN: 'False'
+      KOMETA_TESTS: 'False'
+      KOMETA_NO_MISSING: 'False'
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config

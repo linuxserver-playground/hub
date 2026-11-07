@@ -1,0 +1,33 @@
+{
+  "name": "Babybuddy",
+  "available": true,
+  "exposable": true,
+  "port": 8000,
+  "id": "babybuddy",
+  "tipi_version": 1,
+  "version": "v2.11.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Babybuddy is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.",
+  "short_desc": "Babybuddy is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn ab",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-babybuddy",
+  "website": "https://github.com/babybuddy/babybuddy",
+  "logo_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/babybuddy-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "CSRF_TRUSTED_ORIGINS",
+      "hint": "Add any address you'd like to access babybuddy at (comma separated, no spaces)",
+      "required": true,
+      "env_variable": "BABYBUDDY_CSRF_TRUSTED_ORIGINS",
+      "default": "http://127.0.0.1:8000,https://babybuddy.domain.com"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

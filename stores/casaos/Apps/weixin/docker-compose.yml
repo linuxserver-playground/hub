@@ -1,0 +1,59 @@
+name: weixin
+services:
+  weixin:
+    image: ghcr.io/linuxserver-playground/weixin:latest
+    container_name: weixin
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/weixin/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Weixin desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Weixin desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: weixin
+  author: LinuxServer.io
+  developer: Weixin
+  category: Chat
+  description:
+    en_us: Weixin (WeChat) is an instant messaging, social media, and mobile payment app developed by Tencent.
+  tagline:
+    en_us: Weixin (WeChat) is an instant messaging, social media, and mobile payment app developed by Tencent
+  title:
+    en_us: Weixin
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/weixin-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/weixin-logo.png
+  store_app_id: weixin
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-weixin/builds/7efc22ba-ls5/amd64/screenshot.png
+  port_map: '3000'

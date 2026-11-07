@@ -1,0 +1,10 @@
+---
+services:
+  baseimage-debian:
+    image: ghcr.io/linuxserver-playground/baseimage-debian:bookworm
+    container_name: baseimage-debian
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

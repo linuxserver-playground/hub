@@ -1,0 +1,32 @@
+{
+  "name": "Msedge",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "msedge",
+  "tipi_version": 1,
+  "version": "157.0.4341.42-1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Microsoft Edge is a cross-platform web browser developed by Microsoft and based on Chromium.",
+  "short_desc": "Microsoft Edge is a cross-platform web browser developed by Microsoft and based on Chromium",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-msedge",
+  "website": "https://www.microsoft.com/edge",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/edge-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "EDGE_CLI",
+      "hint": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.",
+      "required": false,
+      "env_variable": "MSEDGE_EDGE_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ],
+  "supported_architectures": [
+    "amd64"
+  ],
+  "dynamic_config": false
+}

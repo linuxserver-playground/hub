@@ -1,0 +1,32 @@
+{
+  "name": "Opera",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "opera",
+  "tipi_version": 1,
+  "version": "139.0.6053.38",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Opera is a multi-platform web browser developed by its namesake company Opera. The browser is based on Chromium, but distinguishes itself from other Chromium-based browsers (Chrome, Edge, etc.) through its user interface and other features.",
+  "short_desc": "Opera is a multi-platform web browser developed by its namesake company Opera",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-opera",
+  "website": "https://www.opera.com/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/opera-icon.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "OPERA_CLI",
+      "hint": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.",
+      "required": false,
+      "env_variable": "OPERA_OPERA_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ],
+  "supported_architectures": [
+    "amd64"
+  ],
+  "dynamic_config": false
+}

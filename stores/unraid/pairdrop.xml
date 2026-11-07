@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-pairdrop/blob/main/image.yml -->
+<Container version="2">
+    <Name>pairdrop</Name>
+    <Repository>ghcr.io/linuxserver-playground/pairdrop</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/pairdrop</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-pairdrop/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-pairdrop#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-pairdrop#readme</ReadMe>
+    <Project>https://github.com/schlagmichdoch/PairDrop</Project>
+    <Overview>PairDrop(https://github.com/schlagmichdoch/PairDrop) is a sublime alternative to AirDrop that works on all platforms. Send images, documents or text via peer to peer connection to devices in the same local network/Wi-Fi or to paired devices.</Overview>
+    <WebUI>http://[IP]:[PORT:3000]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/pairdrop.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-pairdrop/builds/v1.11.2-ls5/amd64/screenshot.png</Screenshot>
+    <Date>2025-07-05</Date>
+    <Changes>
+### 2025-07-05
+- Rebase to Alpine 3.22.
+
+### 2024-12-21
+- Rebase to Alpine 3.21.
+
+### 2024-05-31
+- Rebase to Alpine 3.20.
+
+### 2024-01-31
+- Rebase to Alpine 3.19.
+
+### 2023-05-30
+- Rebase to Alpine 3.18.
+
+### 2023-03-06
+- Run npm install as non-root user.
+
+### 2023-02-20
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="http gui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="RATE_LIMIT" Target="RATE_LIMIT" Default="false" Description="Set to `true` to limit clients to 100 requests per 5 min" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="WS_FALLBACK" Target="WS_FALLBACK" Default="false" Description="Set to `true` to enable websocket fallback if the peer to peer WebRTC connection is not available to the client (see App Setup notes)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="RTC_CONFIG" Target="RTC_CONFIG" Default="" Description="Path to a json file containing custom STUN/TURN config (see App Setup notes)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DEBUG_MODE" Target="DEBUG_MODE" Default="false" Description="Set to `true` to debug the http server configuration by logging clients IP addresses used by PairDrop to STDOUT. See here for more info(https://github.com/schlagmichdoch/PairDrop/blob/master/docs/host-your-own.md#debug-mode). Do not use in production!" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

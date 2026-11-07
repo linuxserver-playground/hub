@@ -1,0 +1,95 @@
+name: lychee
+services:
+  lychee:
+    image: ghcr.io/linuxserver-playground/lychee:latest
+    container_name: lychee
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - DB_CONNECTION=
+    - DB_HOST=
+    - DB_PORT=
+    - DB_USERNAME=
+    - DB_PASSWORD=
+    - DB_DATABASE=
+    - APP_NAME=Lychee
+    - APP_URL=
+    - TRUSTED_PROXIES=
+    volumes:
+    - /DATA/AppData/lychee/config:/config
+    - /DATA/AppData/lychee/pictures:/pictures
+    ports:
+    - 80:80
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: DB_CONNECTION
+        description:
+          en_us: DB type, from sqlite, mysql, pqsql.
+      - container: DB_HOST
+        description:
+          en_us: DB server hostname. For mysql and pgsql only.
+      - container: DB_PORT
+        description:
+          en_us: DB server port. For mysql and pgsql only.
+      - container: DB_USERNAME
+        description:
+          en_us: DB user. For mysql and pgsql only.
+      - container: DB_PASSWORD
+        description:
+          en_us: DB password. For mysql and pgsql only.
+      - container: DB_DATABASE
+        description:
+          en_us: Path to DB file for sqlite. DB name for mysql and pgsql.
+      - container: APP_NAME
+        description:
+          en_us: The gallery name.
+      - container: APP_URL
+        description:
+          en_us: The URL you will use to access Lychee including protocol, and port where appropriate.
+      - container: TRUSTED_PROXIES
+        description:
+          en_us: Set to the IP or netmask covering your reverse proxy, if running behind one. Set to to trust all IPs (do not use if exposed to the internet).
+      ports:
+      - container: '80'
+        description:
+          en_us: http gui
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files.
+      - container: /pictures
+        description:
+          en_us: Where lychee will store uploaded images.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: lychee
+  author: LinuxServer.io
+  developer: Lychee
+  category: Photos
+  description:
+    en_us: Lychee is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.
+  tagline:
+    en_us: Lychee is a free photo-management tool, which runs on your server or web-space
+  title:
+    en_us: Lychee
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png
+  store_app_id: lychee
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-lychee/builds/v7.12.2-ls8/amd64/screenshot.png
+  port_map: '80'

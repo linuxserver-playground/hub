@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-syncthing_server_1
+      APP_PORT: 8384
+  server:
+    image: ghcr.io/linuxserver-playground/syncthing:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data1:/data1
+    - ${APP_DATA_DIR}/data/data2:/data2
+    ports:
+    - 22000:22000/tcp
+    - 22000:22000/udp
+    - 21027:21027/udp

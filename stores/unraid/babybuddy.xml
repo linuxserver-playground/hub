@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-babybuddy/blob/main/image.yml -->
+<Container version="2">
+    <Name>babybuddy</Name>
+    <Repository>ghcr.io/linuxserver-playground/babybuddy</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/babybuddy</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-babybuddy/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-babybuddy#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-babybuddy#readme</ReadMe>
+    <Project>https://github.com/babybuddy/babybuddy</Project>
+    <Overview>Babybuddy(https://github.com/babybuddy/babybuddy) is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby&#x27;s needs without (as much) guess work.</Overview>
+    <WebUI>http://[IP]:[PORT:8000]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/babybuddy.xml</TemplateURL>
+    <Icon>https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/babybuddy-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-babybuddy/builds/v2.11.0-ls5/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-21</Date>
+    <Changes>
+### 2026-07-21
+- Rebase to Alpine 3.24.
+
+### 2025-07-27
+- Rebase to Alpine 3.22.
+
+### 2024-06-30
+- Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2023-12-23
+- Rebase to Alpine 3.19 with php 8.3.
+
+### 2023-07-05
+- Add standard HTTP/HTTPS listen ports 80 and 443, keeping 8000 for backwards compatibility.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-01-16
+- Rebase to Alpine 3.17.
+
+### 2022-11-23
+- Rebase to Alpine 3.16, migrate to s6v3. Restructure nginx configs (see changes announcement(https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
+
+### 2022-05-28
+- Add missing PUID/PGID vars to readme.
+
+### 2022-04-03
+- Rebase to alpine-nginx baseimage. Add `CSRF_TRUSTED_ORIGINS` env var.
+
+### 2021-12-11
+- Add py3-mysqlclient for mysql/mariadb.
+
+### 2021-11-14
+- Add lxml dependencies (temp fix for amd64 by force compiling lxml).
+
+### 2021-07-25
+- Add libpq for postgresql.
+
+### 2021-07-08
+- Fix pip install issue.
+
+### 2021-07-05
+- Update Gunicorn parameters to prevent `WORKER_TIMEOUT` issue.
+
+### 2021-06-22
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8000" Default="8000" Mode="tcp" Description="the port for the web ui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="CSRF_TRUSTED_ORIGINS" Target="CSRF_TRUSTED_ORIGINS" Default="http://127.0.0.1:8000,https://babybuddy.domain.com" Description="Add any address you&#x27;d like to access babybuddy at (comma separated, no spaces)" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

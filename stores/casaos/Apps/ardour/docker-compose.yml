@@ -1,0 +1,59 @@
+name: ardour
+services:
+  ardour:
+    image: ghcr.io/linuxserver-playground/ardour:latest
+    container_name: ardour
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/ardour/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Ardour desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Ardour desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores data and application config files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: ardour
+  author: LinuxServer.io
+  developer: Ardour
+  category: Audio Processing
+  description:
+    en_us: Ardour is an open source, collaborative effort of a worldwide team including musicians, programmers, and professional recording engineers.
+  tagline:
+    en_us: Ardour is an open source, collaborative effort of a worldwide team including musicians, programmers, and professional recording engineers
+  title:
+    en_us: Ardour
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ardour-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ardour-logo.png
+  store_app_id: ardour
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-ardour/builds/2026-11-06-ls7/amd64/screenshot.png
+  port_map: '3000'

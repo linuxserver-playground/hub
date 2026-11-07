@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-nzbhydra2/blob/master/image.yml -->
+<Container version="2">
+    <Name>nzbhydra2</Name>
+    <Repository>ghcr.io/linuxserver-playground/nzbhydra2</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/nzbhydra2</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-nzbhydra2/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-nzbhydra2#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-nzbhydra2#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>dev</Tag>
+        <TagDescription>Prereleases from their GitHub</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-nzbhydra2/tree/dev#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-nzbhydra2/tree/dev#application-setup</GitHub>
+    </Branch>
+    <Project>https://github.com/theotherp/nzbhydra2</Project>
+    <Overview>Nzbhydra2(https://github.com/theotherp/nzbhydra2) is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application NZBHydra(https://github.com/theotherp/nzbhydra).</Overview>
+    <WebUI>http://[IP]:[PORT:5076]/system/about</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/nzbhydra2.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-nzbhydra2/builds/v9.2.0-ls5/amd64/screenshot.png</Screenshot>
+    <Date>2024-07-18</Date>
+    <Changes>
+### 2024-07-18
+- Rebase to Ubuntu Noble. Remove standalone JRE (#46(https://github.com/linuxserver/docker-nzbhydra2/pull/46)).
+
+### 2023-07-04
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-01-22
+- Update release URL for arch-specific packages.
+
+### 2023-01-20
+- Update dependencies for v5.
+
+### 2022-12-10
+- Bump master JRE to v17. Default mapIpToHost to false.
+
+### 2022-09-11
+- Migrate to s6v3.
+
+### 2022-05-03
+- Rebase to Jammy.
+
+### 2022-04-18
+- Rebase to Alpine 3.15.
+
+### 2020-05-01
+- Reorganize container, Relocate app to /app/nzbhydra2/bin, Create /app/nzbhydra2/package_info, Use nzbhydra2wrapperPy3.py from zip.
+
+### 2020-04-14
+- Correct Name, Hydra2 - NZBHydra2.
+
+### 2020-01-08
+- Switch to python3.
+
+### 2020-01-05
+- Add dev tag for prereleases.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-02-11
+- Add pipeline logic and multi arch.
+
+### 2018-08-18
+- Bump java version to 10, (bionic currently refers to it as version 11).
+
+### 2018-08-10
+- Rebase to ubuntu bionic.
+
+### 2018-04-15
+- Change to port 5076 in the Dockerfile.
+
+### 2018-01-11
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="5076" Default="5076" Mode="tcp" Description="WebUI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Where nzbhydra2 should store config data." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /downloads" Target="/downloads" Default="" Mode="rw" Description="NZB download folder." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

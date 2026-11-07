@@ -1,0 +1,148 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "URL",
+        "label": "Top url you have control over (e.g. example.com if you own it, or customsubdomain.example.com if dynamic dns).",
+        "initialValue": "example.com",
+        "type": "text"
+      },
+      {
+        "name": "VALIDATION",
+        "label": "Certbot validation method to use, options are http or dns (dns method also requires DNSPLUGIN variable set).",
+        "initialValue": "http",
+        "type": "text"
+      },
+      {
+        "name": "SUBDOMAINS",
+        "label": "Subdomains you'd like the cert to cover (comma separated, no spaces) ie. www,ftp,cloud. For a wildcard cert, set this exactly to wildcard (wildcard cert is available via dns validation only)",
+        "initialValue": "www,",
+        "type": "text"
+      },
+      {
+        "name": "CERTPROVIDER",
+        "label": "Optionally define the cert provider. Set to zerossl for ZeroSSL certs (requires existing ZeroSSL account and the e-mail address entered in EMAIL env var). Otherwise defaults to Let's Encrypt.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "CERT_PROFILE",
+        "label": "Optionally define a cert profile to use for cert generation. This is useful if you want to use a custom cert profile instead of the default one. Currently only supported for Let's Encrypt. See https://letsencrypt.org/docs/profiles/",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DNSPLUGIN",
+        "label": "Required if VALIDATION is set to dns. Options are acmedns, aliyun, azure, bunny, cloudflare, cpanel, desec, digitalocean, directadmin, dnsimple, dnsmadeeasy, dnspod, do, domeneshop, dreamhost, duckdns, dynu, freedns, gandi, gehirn, glesys, godaddy, google, he, hetzner, hetzner-cloud, infomaniak, inwx, ionos, linode, loopia, luadns, mijn-host, namecheap, netcup, njalla, nsone, ovh, porkbun, rfc2136, route53, sakuracloud, standalone, transip, and vultr. Also need to enter the credentials into the corresponding ini (or json for some plugins) file under /config/dns-conf.",
+        "initialValue": "cloudflare",
+        "type": "text"
+      },
+      {
+        "name": "PROPAGATION",
+        "label": "Optionally override (in seconds) the default propagation time for the dns plugins.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "EMAIL",
+        "label": "Optional e-mail address used for cert expiration notifications (Required for ZeroSSL).",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "ONLY_SUBDOMAINS",
+        "label": "If you wish to get certs only for certain subdomains, but not the main domain (main domain may be hosted on another machine and cannot be validated), set this to true",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "EXTRA_DOMAINS",
+        "label": "Additional fully qualified domain names (comma separated, no spaces) ie. example.net,subdomain.example.net,.example.org",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "STAGING",
+        "label": "Set to true to retrieve certs in staging mode. Rate limits will be much higher, but the resulting cert will not pass the browser's security test. Only to be used for testing purposes.",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "DISABLE_F2B",
+        "label": "Set to true to disable the Fail2ban service in the container, if you're already running it elsewhere or using a different IPS.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SWAG_AUTORELOAD",
+        "label": "Set to true to enable automatic reloading of confs on change without stopping/restarting nginx. Your filesystem must support inotify. This functionality was previously offered via mod.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SWAG_AUTORELOAD_WATCHLIST",
+        "label": "A pipe-separated list of additional folders for auto reload to watch in addition to /config/nginx",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/swag:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "URL={Context.URL}",
+        "VALIDATION={Context.VALIDATION}",
+        "SUBDOMAINS={Context.SUBDOMAINS}",
+        "CERTPROVIDER={Context.CERTPROVIDER}",
+        "CERT_PROFILE={Context.CERT_PROFILE}",
+        "DNSPLUGIN={Context.DNSPLUGIN}",
+        "PROPAGATION={Context.PROPAGATION}",
+        "EMAIL={Context.EMAIL}",
+        "ONLY_SUBDOMAINS={Context.ONLY_SUBDOMAINS}",
+        "EXTRA_DOMAINS={Context.EXTRA_DOMAINS}",
+        "STAGING={Context.STAGING}",
+        "DISABLE_F2B={Context.DISABLE_F2B}",
+        "SWAG_AUTORELOAD={Context.SWAG_AUTORELOAD}",
+        "SWAG_AUTORELOAD_WATCHLIST={Context.SWAG_AUTORELOAD_WATCHLIST}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/swag.gif",
+        "cosmos.stack": "{ServiceName}-swag"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "cap_add": [
+        "NET_ADMIN"
+      ],
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:443",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,69 @@
+name: minisatip
+services:
+  minisatip:
+    image: ghcr.io/linuxserver-playground/minisatip:latest
+    container_name: minisatip
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - RUN_OPTS=
+    volumes:
+    - /DATA/AppData/minisatip/config:/config
+    ports:
+    - 8875:8875
+    - 554:554
+    - 1900:1900/udp
+    devices:
+    - /dev/dvb:/dev/dvb
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: RUN_OPTS
+        description:
+          en_us: Specify specific run params for minisatip
+      ports:
+      - container: '8875'
+        description:
+          en_us: Status Page WebUI
+      - container: '554'
+        description:
+          en_us: RTSP Port
+      - container: '1900'
+        description:
+          en_us: App Discovery
+      volumes:
+      - container: /config
+        description:
+          en_us: Configuration files and minisatip data
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: minisatip
+  author: LinuxServer.io
+  developer: Minisatip
+  category: Media Tools
+  description:
+    en_us: Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards.
+  tagline:
+    en_us: Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards
+  title:
+    en_us: Minisatip
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minisatip-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minisatip-icon.png
+  store_app_id: minisatip
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-minisatip/builds/v2.0.189-ls5/amd64/screenshot.png
+  port_map: '8875'

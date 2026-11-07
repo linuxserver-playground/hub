@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-diskover/blob/master/image.yml -->
+<Container version="2">
+    <Name>diskover</Name>
+    <Repository>ghcr.io/linuxserver-playground/diskover</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/diskover</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-diskover/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-diskover#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-diskover#readme</ReadMe>
+    <Project>https://github.com/diskoverdata/diskover-community</Project>
+    <Overview>diskover(https://github.com/diskoverdata/diskover-community) is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.</Overview>
+    <WebUI>http://[IP]:[PORT:80]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/diskover.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/diskoverdata/diskover-community/master/diskover-web/public/images/diskover.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-diskover/builds/v2.3.5-ls3/amd64/screenshot.png</Screenshot>
+    <Date>2024-09-06</Date>
+    <Changes>
+### 2024-09-06
+- Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2024-03-06
+- Existing users should update: site-confs/default.conf - Cleanup default site conf.
+
+### 2024-03-06
+- Rebase to Alpine 3.19 with php 8.3.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-04-13
+- Move ssl.conf include to default.conf.
+
+### 2023-03-02
+- Set permissions on crontabs during init.
+
+### 2022-08-20
+- Rebasing to alpine 3.17 with php8.1. Restructure nginx configs (see changes announcement(https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
+
+### 2022-02-25
+- Add php7-sqlite3 to support rc4 release.
+
+### 2021-11-03
+- Added more support for potential config files.
+
+### 2021-10-31
+- Added xpack.security variable to ElasticSearch; added instructions to edit Constants.php in diskover; corrected command needed to manually generate an index in diskover
+
+### 2021-10-11
+- Updated to diskover-community v2.
+
+### 2020-11-19
+- Fix pip packages.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-04-12
+- Rebase to Alpine 3.9.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2018-11-01
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="diskover Web UI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /data" Target="/data" Default="" Mode="rw" Description="Default mount point to crawl" Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="ES_HOST" Target="ES_HOST" Default="elasticsearch" Description="ElasticSearch host (optional)" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="ES_PORT" Target="ES_PORT" Default="9200" Description="ElasticSearch port (optional)" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

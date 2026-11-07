@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minetest-icon.png
+  urls:
+  - https://www.luanti.org/
+  - https://github.com/linuxserver-playground/docker-luanti
+services:
+  luanti:
+    image: ghcr.io/linuxserver-playground/luanti:latest
+    container_name: luanti
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_MINETEST_PATH:-./config/.minetest}:/config/.minetest
+    ports:
+    - ${PORT_30000_UDP:-30000}:30000/udp
+    restart: unless-stopped

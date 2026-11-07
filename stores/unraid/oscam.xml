@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-oscam/blob/master/image.yml -->
+<Container version="2">
+    <Name>oscam</Name>
+    <Repository>ghcr.io/linuxserver-playground/oscam</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/oscam</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-oscam/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-oscam#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-oscam#readme</ReadMe>
+    <Project>https://git.streamboard.tv/common/oscam</Project>
+    <Overview>Oscam(https://git.streamboard.tv/common/oscam) is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It&#x27;s both a server and a client.</Overview>
+    <WebUI>http://[IP]:[PORT:8888]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/oscam.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-oscam/builds/11968-ls2/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-17</Date>
+    <Changes>
+### 2026-07-17
+- Rebase to Alpine 3.24.
+
+### 2026-04-28
+- Disable binary signing to prevent compile errors.
+
+### 2026-01-15
+- Rebase to Alpine 3.23, add support for wiki submodule.
+
+### 2024-06-27
+- Rebase to Alpine 3.20.
+
+### 2024-04-19
+- Retrieve Oscam from the new git repo.
+
+### 2024-03-04
+- Rebase to Alpine 3.19. Add libdvbcsa.
+
+### 2023-08-27
+- Rebase to Alpine 3.18. Pull PCSC driver from Linuxserver S3 due to Cloudflare blocking curl download of original file.
+
+### 2023-07-07
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-03-13
+- Rebase to Alpine 3.17.
+
+### 2022-11-03
+- Rebasing to alpine 3.16 and s6v3. Update pcsd driver link.
+
+### 2022-02-13
+- Rebasing to alpine 3.15.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-04-29
+- Add revision check, so pipeline can build new revisions.
+
+### 2019-04-28
+- Switch back to streamboard svn to fix version not showing in UI.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-02-19
+- Add pipeline logic and multi arch, rebase to Alpine 3.8.
+
+### 2018-01-03
+- Deprecate cpu_core routine lack of scaling.
+
+### 2017-12-13
+- Rebase to alpine 3.7.
+
+### 2017-10-19
+- Add ccid package for usb card readers.
+
+### 2017-10-17
+- Switch to using bzr for source code, streamboard awol.
+
+### 2017-05-28
+- Rebase to alpine 3.6.
+
+### 2017-02-09
+- Rebase to alpine 3.5.
+
+### 2016-10-14
+- Add version layer information.
+
+### 2016-10-02
+- Add info on passing through devices to README.
+
+### 2016-09-25
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8888" Default="8888" Mode="tcp" Description="WebUI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Where oscam should store config files and logs." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="/dev/ttyUSB0" Default="/dev/ttyUSB0" Description="For passing through smart card readers." Type="Device" Display="always" Required="true" Mask="false"/>
+</Container>

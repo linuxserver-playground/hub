@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://static.requarks.io/logo/wikijs-full.svg
+  urls:
+  - https://github.com/Requarks/wiki
+  - https://github.com/linuxserver-playground/docker-wikijs
+services:
+  wikijs:
+    image: ghcr.io/linuxserver-playground/wikijs:latest
+    container_name: wikijs
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DATA_PATH:-./data}:/data
+    ports:
+    - ${PORT_3000:-3000}:3000
+    restart: unless-stopped

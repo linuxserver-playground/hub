@@ -1,0 +1,33 @@
+{
+  "name": "Helium",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "helium",
+  "tipi_version": 1,
+  "version": "0.21.1.1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Helium is a Chromium-based web browser made for people, with love. Privacy-first with unbiased ad-blocking.",
+  "short_desc": "Helium is a Chromium-based web browser made for people, with love",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-helium",
+  "website": "https://helium.computer/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/helium-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "HELIUM_CLI",
+      "hint": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.",
+      "required": false,
+      "env_variable": "HELIUM_HELIUM_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

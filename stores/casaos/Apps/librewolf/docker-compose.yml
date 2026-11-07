@@ -1,0 +1,63 @@
+name: librewolf
+services:
+  librewolf:
+    image: ghcr.io/linuxserver-playground/librewolf:latest
+    container_name: librewolf
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - LIBREWOLF_CLI=https://www.linuxserver.io/
+    volumes:
+    - /DATA/AppData/librewolf/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: LIBREWOLF_CLI
+        description:
+          en_us: Specify one or multiple LibreWolf CLI flags, this string will be passed to the application in full.
+      ports:
+      - container: '3000'
+        description:
+          en_us: LibreWolf desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: LibreWolf desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: librewolf
+  author: LinuxServer.io
+  developer: Librewolf
+  category: Web Browser
+  description:
+    en_us: LibreWolf is a custom and independent version of Firefox, with the primary goals of privacy, security and user freedom. LibreWolf also aims to remove all the telemetry, data collection and annoyances, as well as disabling anti-freedom features like DRM.
+  tagline:
+    en_us: LibreWolf is a custom and independent version of Firefox, with the primary goals of privacy, security and user freedom
+  title:
+    en_us: Librewolf
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/librewolf-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/librewolf-logo.png
+  store_app_id: librewolf
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-librewolf/builds/159.0.1-1-ls3/amd64/screenshot.png
+  port_map: '3000'

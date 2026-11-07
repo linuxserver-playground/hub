@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-shotcut/blob/main/image.yml -->
+<Container version="2">
+    <Name>shotcut</Name>
+    <Repository>ghcr.io/linuxserver-playground/shotcut</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/shotcut</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-shotcut/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-shotcut#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-shotcut#readme</ReadMe>
+    <Project>https://www.shotcut.org/</Project>
+    <Overview>Shotcut(https://www.shotcut.org/) is a free, open source, cross-platform video editor.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/shotcut.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/shotcut-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-shotcut/builds/v26.9.27-ls8/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-shotcut#security for more information.
+    </Requires>
+    <Date>2026-03-30</Date>
+    <Changes>
+### 2026-03-30
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2026-02-05
+- Disable gamepad interposer.
+
+### 2025-12-28
+- Add Wayland init logic.
+
+### 2025-09-22
+- Rebase to Debian Trixie.
+
+### 2025-07-12
+- Rebase to Selkies, HTTPS IS NOW REQUIRED.
+
+### 2024-01-31
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Shotcut desktop gui HTTP, must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="Shotcut desktop gui HTTPS." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Where Shotcut should store its config." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

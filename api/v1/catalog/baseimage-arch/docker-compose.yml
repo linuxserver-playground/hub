@@ -1,0 +1,10 @@
+---
+services:
+  baseimage-arch:
+    image: ghcr.io/linuxserver-playground/baseimage-arch:latest
+    container_name: baseimage-arch
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piwigo-banner.png
+  urls:
+  - http://piwigo.org/
+  - https://github.com/linuxserver-playground/docker-piwigo
+services:
+  piwigo:
+    image: ghcr.io/linuxserver-playground/piwigo:latest
+    container_name: piwigo
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${GALLERY_PATH:-./gallery}:/gallery
+    ports:
+    - ${PORT_80:-80}:80
+    restart: unless-stopped

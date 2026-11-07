@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png
+  urls:
+  - https://sonarr.tv/
+  - https://github.com/linuxserver-playground/docker-sonarr
+services:
+  sonarr:
+    image: ghcr.io/linuxserver-playground/sonarr:latest
+    container_name: sonarr
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8989:-8989}:8989
+    restart: unless-stopped

@@ -1,0 +1,63 @@
+{
+  "name": "Faster-whisper",
+  "available": true,
+  "exposable": true,
+  "port": 10300,
+  "id": "faster-whisper",
+  "tipi_version": 1,
+  "version": "v3.8.1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Faster-whisper is a reimplementation of OpenAI's Whisper model using CTranslate2, which is a fast inference engine for Transformer models. This container provides a Wyoming protocol server for faster-whisper.",
+  "short_desc": "Faster-whisper is a reimplementation of OpenAI's Whisper model using CTranslate2, which is a fast inference engine for T",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-faster-whisper",
+  "website": "https://github.com/SYSTRAN/faster-whisper",
+  "logo_url": "",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "DEBUG",
+      "hint": "If set to true, or any other value, the container will output debug logs.",
+      "required": false,
+      "env_variable": "FASTER_WHISPER_DEBUG"
+    },
+    {
+      "type": "text",
+      "label": "LOCAL_ONLY",
+      "hint": "If set to true, or any other value, the container will not attempt to download models from HuggingFace and will only use locally-provided models.",
+      "required": false,
+      "env_variable": "FASTER_WHISPER_LOCAL_ONLY"
+    },
+    {
+      "type": "text",
+      "label": "WHISPER_BEAM",
+      "hint": "Number of candidates to consider simultaneously during transcription.",
+      "required": false,
+      "env_variable": "FASTER_WHISPER_WHISPER_BEAM",
+      "default": "1"
+    },
+    {
+      "type": "text",
+      "label": "WHISPER_LANG",
+      "hint": "Two character code for the language that you will speak to the add-on.",
+      "required": false,
+      "env_variable": "FASTER_WHISPER_WHISPER_LANG",
+      "default": "auto"
+    },
+    {
+      "type": "text",
+      "label": "WHISPER_MODEL",
+      "hint": "Whisper model that will be used for transcription. From here.",
+      "required": false,
+      "env_variable": "FASTER_WHISPER_WHISPER_MODEL",
+      "default": "auto"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

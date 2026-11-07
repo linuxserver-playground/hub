@@ -1,0 +1,5023 @@
+openapi: 3.1.0
+info:
+  title: LinuxServer Hub API
+  summary: Metadata, builds and generated artefacts for every LinuxServer.io container image.
+  description: '
+
+    Versions, tags, architectures, changelogs and container parameters for every LinuxServer.io image, every
+
+    build with its packages, layers and changes, the mods index, the PRoot Apps index, and compose, Kubernetes,
+
+    quadlet and reverse proxy snippets.
+
+
+    Every endpoint is a plain `GET` with no authentication. Fields that have no value are omitted rather than
+
+    `null`. Query parameters are not supported: `include_config` and `include_deprecated` are separate files
+
+    under Compatibility.
+
+    '
+  contact:
+    name: LinuxServer.io
+    url: https://linuxserver-playground.github.io/site/support/
+  license:
+    name: GPL-3.0
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+  version: '2.0'
+servers:
+- url: https://linuxserver-playground.github.io/hub
+paths:
+  /api/v1/catalog/{name}.json:
+    get:
+      tags:
+      - Images
+      summary: Get one image
+      description: 'Everything about one image, deprecated images included: the full changelog, container configuration,
+
+        setup instructions, the newest build of every live branch and generated `docker run` and compose snippets.'
+      operationId: getImage
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/docker-compose.yml:
+    get:
+      tags:
+      - Images
+      summary: Get a compose file for one image
+      description: A Docker Compose file with the image's recommended settings, optional ones marked `#optional`.
+      operationId: getImageCompose
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/yaml:
+              schema:
+                type: string
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/proxy.json:
+    get:
+      tags:
+      - Images
+      summary: Get the SWAG proxy confs
+      description: The `<name>.subdomain.conf.sample` and `.subfolder.conf.sample` texts from the manifest's `proxy` block.
+      operationId: getImageProxy
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProxyResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/docs.json:
+    get:
+      tags:
+      - Images
+      summary: Get the full documentation
+      description: 'The README builder renders from the manifest, split at its `##` headings: setup, usage, parameters,
+
+        environment variables from files, user and group identifiers, support, updating, building locally.'
+      operationId: getImageDocs
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocsResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/kubernetes.yaml:
+    get:
+      tags:
+      - Images
+      summary: Get a Kubernetes manifest
+      description: ConfigMap, PersistentVolumeClaims, a Deployment or StatefulSet and a Service; security notes as comments.
+      operationId: getImageKubernetes
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/yaml:
+              schema:
+                type: string
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/quadlet.container:
+    get:
+      tags:
+      - Images
+      summary: Get a Podman quadlet unit
+      description: A `.container` unit for Podman's systemd integration, optional parameters commented out.
+      operationId: getImageQuadlet
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            text/plain:
+              schema:
+                type: string
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/mods.json:
+    get:
+      tags:
+      - Mods
+      summary: Get the mods for one image
+      description: Mods targeting this image, then the universal ones.
+      operationId: getImageMods
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageModsResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog.json:
+    get:
+      tags:
+      - Images
+      summary: Get every image in full
+      description: Every image, deprecated ones included, with the same detail as `/api/v1/catalog/{name}.json`.
+      operationId: getCatalog
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogResponse'
+  /api/v1/catalog/{name}/builds.json:
+    get:
+      tags:
+      - Builds
+      summary: List the builds of an image
+      description: 'Every build held by the hub (the newest five per branch), newest first, with links to its files on the image
+
+        repository''s Pages, and the release history per branch. `vulnerabilities` are the counts of the scan the build
+
+        made of itself when it was released, never rescanned; the findings are `links.vulns`, the build''s `vulns.json`
+
+        on its repository''s Pages (the hub serves no copy).'
+      operationId: getBuilds
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildsResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/builds/{tag}.json:
+    get:
+      tags:
+      - Builds
+      summary: Get one build record
+      description: The `build.json` attached to the GitHub Release, as received (validated against the bundle contract).
+      operationId: getBuild
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      - name: tag
+        in: path
+        required: true
+        schema:
+          type: string
+          description: A release tag, `<upstream>-ls<N>`.
+          examples:
+          - 4.0.20.3014-ls1
+          title: Tag
+        description: A release tag, `<upstream>-ls<N>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/builds/{tag}/diff.json:
+    get:
+      tags:
+      - Builds
+      summary: Get what changed in a build
+      description: Packages, config, base, size and Dockerfile changes against the previous build of the same branch.
+      operationId: getBuildDiff
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      - name: tag
+        in: path
+        required: true
+        schema:
+          type: string
+          description: A release tag, `<upstream>-ls<N>`.
+          examples:
+          - 4.0.20.3014-ls1
+          title: Tag
+        description: A release tag, `<upstream>-ls<N>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiffResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/builds/{tag}/packages.{arch}.json:
+    get:
+      tags:
+      - Builds
+      summary: Get the packages of a build
+      description: 'The normalised package table (name, version, type, purl, licenses) from the syft SBOM. Held for the newest
+
+        build of each branch; for the others, `links.sbom` is the syft document on the repository''s Pages.'
+      operationId: getBuildPackages
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      - name: tag
+        in: path
+        required: true
+        schema:
+          type: string
+          description: A release tag, `<upstream>-ls<N>`.
+          examples:
+          - 4.0.20.3014-ls1
+          title: Tag
+        description: A release tag, `<upstream>-ls<N>`.
+      - name: arch
+        in: path
+        required: true
+        schema:
+          type: string
+          description: '`amd64` or `arm64`.'
+          examples:
+          - amd64
+          title: Arch
+        description: '`amd64` or `arm64`.'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PackagesResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/builds/{tag}/layers.{arch}.json:
+    get:
+      tags:
+      - Builds
+      summary: Get the layers of a build
+      description: '`layers.<arch>.json` from the Release: every layer with its digest, size and Dockerfile instruction, plus
+
+        `from_base` (from the base image''s manifest on GHCR) and `dockerfile_lines` (matched against the Dockerfile).'
+      operationId: getBuildLayers
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      - name: tag
+        in: path
+        required: true
+        schema:
+          type: string
+          description: A release tag, `<upstream>-ls<N>`.
+          examples:
+          - 4.0.20.3014-ls1
+          title: Tag
+        description: A release tag, `<upstream>-ls<N>`.
+      - name: arch
+        in: path
+        required: true
+        schema:
+          type: string
+          description: '`amd64` or `arm64`.'
+          examples:
+          - amd64
+          title: Arch
+        description: '`amd64` or `arm64`.'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LayersResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/builds/{tag}/tests.json:
+    get:
+      tags:
+      - Builds
+      summary: Get the test reports of a build
+      description: 'The ci harness''s `test.<arch>.json` per architecture as received, with a summary per architecture (result,
+
+        startup time, listening ports, failed tests, the report''s files on the repository''s Pages) and the build''s
+
+        page on the website. Only for builds that have a report.'
+      operationId: getBuildTests
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      - name: tag
+        in: path
+        required: true
+        schema:
+          type: string
+          description: A release tag, `<upstream>-ls<N>`.
+          examples:
+          - 4.0.20.3014-ls1
+          title: Tag
+        description: A release tag, `<upstream>-ls<N>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildTestsResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/catalog/{name}/builds/{tag}/report.json:
+    get:
+      tags:
+      - Builds
+      summary: Get the build page aggregate
+      description: 'Everything a build page shows in one document: the record''s facts, platforms, the test summary per
+
+        architecture, the diff summary (without the package lists) and every link.'
+      operationId: getBuildReport
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+          description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+          examples:
+          - sonarr
+          title: Name
+        description: The image name, as in `ghcr.io/linuxserver-playground/<name>`.
+      - name: tag
+        in: path
+        required: true
+        schema:
+          type: string
+          description: A release tag, `<upstream>-ls<N>`.
+          examples:
+          - 4.0.20.3014-ls1
+          title: Tag
+        description: A release tag, `<upstream>-ls<N>`.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BuildReportResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/mods.json:
+    get:
+      tags:
+      - Mods
+      summary: Get every mod
+      description: The mods index from the mod.yml on every branch of docker-mods.
+      operationId: getMods
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModsResponse'
+  /api/v1/proot-apps.json:
+    get:
+      tags:
+      - PRoot Apps
+      summary: Get every PRoot app
+      description: 'The desktop apps `proot-apps` installs, from metadata.yml in the proot-apps repository, without the
+
+        disabled ones, and the CLI release the install command downloads.'
+      operationId: getProotApps
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProotAppsResponse'
+  /api/v1/packages.json:
+    get:
+      tags:
+      - Packages
+      summary: List every package
+      description: Every package name the newest builds ship, with the slug of its `/api/v1/packages/{package}.json` file.
+      operationId: getPackages
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PackageIndexResponse'
+  /api/v1/packages/{package}.json:
+    get:
+      tags:
+      - Packages
+      summary: Get who ships a package
+      description: Which images ship the package, in which versions, per branch and architecture.
+      operationId: getPackage
+      parameters:
+      - name: package
+        in: path
+        required: true
+        schema:
+          type: string
+          description: A package name as listed in `/api/v1/packages.json` (`slug`).
+          examples:
+          - curl
+          title: Package
+        description: A package name as listed in `/api/v1/packages.json` (`slug`).
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PackageResponse'
+        '404':
+          description: There is no such image, build or document.
+  /api/v1/categories.json:
+    get:
+      tags:
+      - Fleet
+      summary: Get image categories
+      description: Categories of the current (not deprecated) images, most populated first.
+      operationId: getCategories
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriesResponse'
+  /api/v1/stats.json:
+    get:
+      tags:
+      - Fleet
+      summary: Get fleet statistics
+      description: Headline numbers across the current (not deprecated) images.
+      operationId: getStats
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsResponse'
+  /api/v1/changelog.json:
+    get:
+      tags:
+      - Fleet
+      summary: Get recent changelog entries
+      description: The 100 most recent changelog entries across the current images, newest first.
+      operationId: getChangelog
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChangelogResponse'
+  /api/v1/changelog.xml:
+    get:
+      tags:
+      - Fleet
+      summary: Subscribe to changelog entries
+      description: The same entries as `/api/v1/changelog.json`, as an Atom feed.
+      operationId: getChangelogFeed
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/atom+xml:
+              schema:
+                type: string
+  /api/v1/fleet/bases.json:
+    get:
+      tags:
+      - Fleet
+      summary: Get base image usage
+      description: Every base image reference the fleet builds from, which images use it, and the digests seen over time.
+      operationId: getBases
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasesResponse'
+  /api/v1/fleet/staleness.json:
+    get:
+      tags:
+      - Fleet
+      summary: Get images built on an old base
+      description: Images whose newest build predates a newer build of their base (a newer digest seen in another build).
+      operationId: getStaleness
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StalenessResponse'
+  /api/v1/status.json:
+    get:
+      tags:
+      - Service
+      summary: Get data freshness
+      description: The outcome of the last refresh of each data source and the releases whose bundle was rejected.
+      operationId: getStatus
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /api/v1/stores/index.json:
+    get:
+      tags:
+      - Service
+      summary: Get every store URL
+      description: Where each generated store lives and how to import it.
+      operationId: getStores
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoresResponse'
+  /health:
+    get:
+      tags:
+      - Compatibility
+      summary: Get the health status
+      description: '`"Success"` when the last manifest refresh worked, `"Failed"` when it did not (old data still served).'
+      operationId: health_health_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: string
+                enum:
+                - Success
+                - Failed
+                title: Response Health Health Get
+  /health.json:
+    get:
+      tags:
+      - Compatibility
+      summary: Get the health status (JSON)
+      description: The same as `/health`, served as `application/json`.
+      operationId: getHealthJson
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: string
+                enum:
+                - Success
+                - Failed
+                title: Response Gethealthjson
+  /api/v1/images:
+    get:
+      tags:
+      - Compatibility
+      summary: Get a list of images
+      description: 'Current images without their configuration: the original endpoint with its default parameters.
+
+
+        | Original | File |
+
+        | --- | --- |
+
+        | `/api/v1/images` | `/api/v1/images.json` |
+
+        | `?include_config=true` | `/api/v1/images.config.json` |
+
+        | `?include_deprecated=true` | `/api/v1/images.deprecated.json` |
+
+        | `?include_config=true&include_deprecated=true` | `/api/v1/images.config.deprecated.json` |'
+      operationId: images_api_v1_images_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImagesResponse'
+  /api/v1/images.json:
+    get:
+      tags:
+      - Compatibility
+      summary: List current images
+      description: Current images without their configuration. The same as `/api/v1/images`.
+      operationId: listImages
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImagesResponse'
+  /api/v1/images.config.json:
+    get:
+      tags:
+      - Compatibility
+      summary: List current images with configuration
+      description: The original `/api/v1/images?include_config=true`.
+      operationId: listImagesWithConfig
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImagesResponse'
+  /api/v1/images.deprecated.json:
+    get:
+      tags:
+      - Compatibility
+      summary: List all images, deprecated included
+      description: The original `/api/v1/images?include_deprecated=true`.
+      operationId: listImagesWithDeprecated
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImagesResponse'
+  /api/v1/images.config.deprecated.json:
+    get:
+      tags:
+      - Compatibility
+      summary: List all images with configuration
+      description: The original `/api/v1/images?include_config=true&include_deprecated=true`.
+      operationId: listImagesWithConfigAndDeprecated
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImagesResponse'
+components:
+  schemas:
+    Architecture:
+      properties:
+        arch:
+          type: string
+          title: Arch
+          examples:
+          - x86_64
+          - arm64
+        tag:
+          type: string
+          title: Tag
+          description: The architecture-specific tag.
+          examples:
+          - amd64-latest
+      type: object
+      required:
+      - arch
+      - tag
+      title: Architecture
+    BaseChange:
+      properties:
+        from:
+          anyOf:
+          - $ref: '#/components/schemas/BuildBase'
+          - type: 'null'
+        to:
+          $ref: '#/components/schemas/BuildBase'
+        changed:
+          type: boolean
+          title: Changed
+      type: object
+      required:
+      - to
+      - changed
+      title: BaseChange
+    BaseDigest:
+      properties:
+        digest:
+          type: string
+          title: Digest
+        first_seen:
+          type: string
+          title: First Seen
+        last_seen:
+          type: string
+          title: Last Seen
+        images:
+          items:
+            type: string
+          type: array
+          title: Images
+      type: object
+      required:
+      - digest
+      - first_seen
+      - last_seen
+      - images
+      title: BaseDigest
+    BaseUsage:
+      properties:
+        image:
+          type: string
+          title: Image
+          description: The FROM reference.
+          examples:
+          - ghcr.io/linuxserver/baseimage-alpine:3.24
+        family:
+          type: string
+          title: Family
+        images:
+          items:
+            type: string
+          type: array
+          title: Images
+          description: Images whose newest build uses this base.
+        newest_digest:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Newest Digest
+          description: The most recently built-against digest.
+        newest_seen:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Newest Seen
+          description: When a build first used `newest_digest`.
+        digests:
+          items:
+            $ref: '#/components/schemas/BaseDigest'
+          type: array
+          title: Digests
+      type: object
+      required:
+      - image
+      - family
+      - images
+      - digests
+      title: BaseUsage
+    BasesData:
+      properties:
+        bases:
+          items:
+            $ref: '#/components/schemas/BaseUsage'
+          type: array
+          title: Bases
+      type: object
+      required:
+      - bases
+      title: BasesData
+    BasesResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/BasesData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: BasesResponse
+    BuildAsset:
+      properties:
+        name:
+          type: string
+          title: Name
+        size:
+          type: integer
+          title: Size
+        sha256:
+          type: string
+          title: Sha256
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+      additionalProperties: true
+      type: object
+      required:
+      - name
+      - size
+      - sha256
+      title: BuildAsset
+    BuildBase:
+      properties:
+        family:
+          type: string
+          title: Family
+        image:
+          type: string
+          title: Image
+          description: FROM reference as written.
+        digest:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Digest
+          description: Resolved base digest at build time (amd64).
+        build_version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Build Version
+          description: The base image's build_version label.
+      additionalProperties: true
+      type: object
+      required:
+      - family
+      - image
+      title: BuildBase
+    BuildConfig:
+      properties:
+        env:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Env
+        exposed_ports:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Exposed Ports
+        volumes:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Volumes
+        entrypoint:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Entrypoint
+        cmd:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Cmd
+        user:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User
+        working_dir:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Working Dir
+      additionalProperties: true
+      type: object
+      title: BuildConfig
+    BuildData:
+      properties:
+        build:
+          $ref: '#/components/schemas/Bundle'
+      type: object
+      required:
+      - build
+      title: BuildData
+    BuildLinks:
+      properties:
+        build:
+          type: string
+          title: Build
+        diff:
+          type: string
+          title: Diff
+        layers:
+          additionalProperties:
+            type: string
+          type: object
+          title: Layers
+          description: Per architecture.
+        packages:
+          additionalProperties:
+            type: string
+          type: object
+          title: Packages
+          description: The hub's package table per architecture; only the newest build of each branch has one. For the others, `sbom` is the build's syft document.
+        release:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release
+        pages:
+          type: string
+          title: Pages
+          description: 'The build''s folder on its image repository''s GitHub Pages (`https://<owner>.github.io/<repo>/builds/<tag>/`), with a trailing slash: `files.<arch>.json.gz`, `packages.<arch>.json.gz`, `vulns.json` and each architecture''s unpacked test report under `<arch>/` (see `tests.json`). Served with `access-control-allow-origin: *` for the newest 5 builds of each live branch, the builds the hub holds.'
+        files:
+          additionalProperties:
+            type: string
+          type: object
+          title: Files
+          description: '`files.<arch>.json.gz` per architecture on the repository''s Pages (under `pages`): gzip served as `application/gzip`, without `Content-Encoding`.'
+        sbom:
+          additionalProperties:
+            type: string
+          type: object
+          title: Sbom
+          description: '`packages.<arch>.json.gz`, the build''s syft document, per architecture on the repository''s Pages (under `pages`), served like `files`.'
+        run_json:
+          type: string
+          title: Run Json
+          description: '`run.json` on the Release: the control plane''s record of the workflow run. A download link (Release assets send no CORS headers); 404 for releases made before control attached it.'
+        logs_zip:
+          type: string
+          title: Logs Zip
+          description: '`logs.zip` on the Release: the run''s masked log archive. A download link; 404 for releases made before control attached it.'
+        test_report:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Test Report
+          description: The build's CI results page on the website, `<site>/images/<image>/builds/<tag>/` (the hub's own `/builds/<image>/<tag>/` only redirects there).
+        tests:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tests
+          description: '`tests.json`: the harness reports per architecture, when any exist.'
+        report:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Report
+          description: '`report.json`: the build page aggregate.'
+        vulns:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Vulns
+          description: '`vulns.json` on the repository''s Pages (under `pages`), for builds that scanned themselves: the scan made when the image was built, never rescanned. `{image, tag, summary, by_arch, matches, db_date, grype_version, scanned_at, caveats}` (CONVENTIONS §6, "Repo Pages"); `summary` is `vulnerabilities`, and `caveats` say how to read the counts. The hub serves no copy.'
+      type: object
+      required:
+      - build
+      - diff
+      - layers
+      - packages
+      - pages
+      - files
+      - run_json
+      - logs_zip
+      title: BuildLinks
+    BuildNotes:
+      properties:
+        linuxserver:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Linuxserver
+        upstream:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Upstream
+        upstream_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Upstream Url
+      additionalProperties: true
+      type: object
+      title: BuildNotes
+    BuildPrevious:
+      properties:
+        tag:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tag
+        release_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release Url
+      additionalProperties: true
+      type: object
+      title: BuildPrevious
+    BuildReport:
+      properties:
+        image:
+          type: string
+          title: Image
+        repository:
+          type: string
+          title: Repository
+        tag:
+          type: string
+          title: Tag
+        branch:
+          type: string
+          title: Branch
+        release_tag:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release Tag
+        upstream_version:
+          type: string
+          title: Upstream Version
+        upstream_clean:
+          type: string
+          title: Upstream Clean
+        semver:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Semver
+        ls_build:
+          type: integer
+          title: Ls Build
+        created:
+          type: string
+          title: Created
+        reason:
+          type: string
+          title: Reason
+        commit:
+          type: string
+          title: Commit
+        tags:
+          items:
+            type: string
+          type: array
+          title: Tags
+          description: Every tag pushed, unprefixed and arch-prefixed.
+        base:
+          $ref: '#/components/schemas/BuildBase'
+        platforms:
+          items:
+            $ref: '#/components/schemas/PlatformBuild'
+          type: array
+          title: Platforms
+        index_digest:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Index Digest
+        result:
+          type: string
+          enum:
+          - success
+          - failure
+          - partial
+          title: Result
+          description: '`success` when every platform built and tests passed (or were disabled); `failure` when none built or tests failed; `partial` otherwise.'
+        test_enabled:
+          type: boolean
+          title: Test Enabled
+        test_success:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Test Success
+        tests:
+          additionalProperties:
+            $ref: '#/components/schemas/TestArchSummary'
+          type: object
+          title: Tests
+          description: Per architecture, when the harness report exists.
+        classification:
+          anyOf:
+          - type: string
+            enum:
+            - upstream
+            - packages
+            - linuxserver
+            - base
+            - mixed
+            - none
+            - initial
+          - type: 'null'
+          title: Classification
+        diff:
+          anyOf:
+          - $ref: '#/components/schemas/DiffSummary'
+          - type: 'null'
+        packages:
+          anyOf:
+          - additionalProperties:
+              $ref: '#/components/schemas/PackageSummary'
+            type: object
+          - type: 'null'
+          title: Packages
+          description: Package counts per architecture.
+        notes:
+          anyOf:
+          - $ref: '#/components/schemas/BuildNotes'
+          - type: 'null'
+        config:
+          $ref: '#/components/schemas/BuildConfig'
+        is_newest:
+          type: boolean
+          title: Is Newest
+          description: Whether this is the newest build of its branch the hub holds.
+        links:
+          $ref: '#/components/schemas/ReportLinks'
+      type: object
+      required:
+      - image
+      - repository
+      - tag
+      - branch
+      - upstream_version
+      - upstream_clean
+      - ls_build
+      - created
+      - reason
+      - commit
+      - tags
+      - base
+      - platforms
+      - result
+      - test_enabled
+      - tests
+      - config
+      - is_newest
+      - links
+      title: BuildReport
+      description: 'What a build page shows: the record''s facts, platforms, test and diff summaries and every link.'
+    BuildReportData:
+      properties:
+        report:
+          $ref: '#/components/schemas/BuildReport'
+      type: object
+      required:
+      - report
+      title: BuildReportData
+    BuildReportResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/BuildReportData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: BuildReportResponse
+    BuildResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/BuildData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: BuildResponse
+    BuildSummary:
+      properties:
+        tag:
+          type: string
+          title: Tag
+        branch:
+          type: string
+          title: Branch
+        release_tag:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release Tag
+        upstream_version:
+          type: string
+          title: Upstream Version
+        semver:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Semver
+        ls_build:
+          type: integer
+          title: Ls Build
+        created:
+          type: string
+          title: Created
+        reason:
+          type: string
+          title: Reason
+        commit:
+          type: string
+          title: Commit
+        test_success:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Test Success
+        base:
+          $ref: '#/components/schemas/BuildBase'
+        platforms:
+          items:
+            $ref: '#/components/schemas/PlatformBuild'
+          type: array
+          title: Platforms
+        index_digest:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Index Digest
+          description: 'The digest of the build''s multi-arch index: what an image built on this one records as `base.digest`, so a base image''s build can be found from the images that use it.'
+        tags:
+          items:
+            type: string
+          type: array
+          title: Tags
+          description: 'Every tag the build published, unprefixed then arch-prefixed: `published.tags` of its build.json (`version.tags` for releases made before that field). Floating tags (`latest`, `develop`) have moved on to the newest build of the branch since.'
+        classification:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Classification
+          description: From the diff against the previous build of the branch.
+        vulnerabilities:
+          anyOf:
+          - $ref: '#/components/schemas/VulnerabilitySummary'
+          - type: 'null'
+          description: Counts of the scan the build made of itself when it was built, for builds that have one (see `links.vulns` and its caveats). Not updated after the release.
+        links:
+          $ref: '#/components/schemas/BuildLinks'
+      type: object
+      required:
+      - tag
+      - branch
+      - upstream_version
+      - ls_build
+      - created
+      - reason
+      - commit
+      - base
+      - platforms
+      - links
+      title: BuildSummary
+    BuildTest:
+      properties:
+        enabled:
+          type: boolean
+          title: Enabled
+        success:
+          type: boolean
+          title: Success
+        per_arch:
+          anyOf:
+          - additionalProperties:
+              type: boolean
+            type: object
+          - type: 'null'
+          title: Per Arch
+        report_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Report Url
+      additionalProperties: true
+      type: object
+      required:
+      - enabled
+      - success
+      title: BuildTest
+    BuildTestsData:
+      properties:
+        image:
+          type: string
+          title: Image
+        tag:
+          type: string
+          title: Tag
+        enabled:
+          type: boolean
+          title: Enabled
+          description: '`test.enabled` of the build.'
+        success:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Success
+          description: '`test.success` of the build; None when tests were disabled.'
+        report_url:
+          type: string
+          title: Report Url
+          description: The build's CI results page on the website (`links.test_report`).
+        summary:
+          additionalProperties:
+            $ref: '#/components/schemas/TestArchSummary'
+          type: object
+          title: Summary
+          description: Per architecture.
+        reports:
+          additionalProperties:
+            $ref: '#/components/schemas/TestReport'
+          type: object
+          title: Reports
+          description: The harness reports per architecture, as received.
+      type: object
+      required:
+      - image
+      - tag
+      - enabled
+      - report_url
+      - summary
+      - reports
+      title: BuildTestsData
+    BuildTestsResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/BuildTestsData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: BuildTestsResponse
+    BuildVersion:
+      properties:
+        upstream:
+          type: string
+          title: Upstream
+          description: As resolved, before sanitising.
+        upstream_clean:
+          type: string
+          title: Upstream Clean
+        semver:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Semver
+        ls_build:
+          type: integer
+          title: Ls Build
+          description: N in -lsN.
+        tag:
+          type: string
+          title: Tag
+          description: The primary tag, `<T-><upstream>-ls<N>`.
+        release_tag:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release Tag
+          description: The branch's release tag (latest, develop...).
+        tags:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Tags
+          description: Every tag pushed, unprefixed and arch-prefixed.
+        source:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source
+          description: '`upstream.version.type` from the manifest.'
+        source_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source Url
+      additionalProperties: true
+      type: object
+      required:
+      - upstream
+      - upstream_clean
+      - ls_build
+      - tag
+      title: BuildVersion
+    BuildWorkflow:
+      properties:
+        run_id:
+          type: integer
+          title: Run Id
+        run_url:
+          type: string
+          title: Run Url
+        workflows_ref:
+          type: string
+          title: Workflows Ref
+        ci_version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Ci Version
+      additionalProperties: true
+      type: object
+      required:
+      - run_id
+      - run_url
+      - workflows_ref
+      title: BuildWorkflow
+    BuildsData:
+      properties:
+        image:
+          type: string
+          title: Image
+        builds:
+          items:
+            $ref: '#/components/schemas/BuildSummary'
+          type: array
+          title: Builds
+          description: Builds held in data/, newest first.
+        history:
+          additionalProperties:
+            items:
+              $ref: '#/components/schemas/HistoryEntry'
+            type: array
+          type: object
+          title: History
+          description: Every release seen per branch, newest first.
+      type: object
+      required:
+      - image
+      - builds
+      - history
+      title: BuildsData
+    BuildsResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/BuildsData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: BuildsResponse
+    Bundle:
+      properties:
+        schema:
+          type: integer
+          title: Schema
+          description: Contract major version.
+        image:
+          type: string
+          title: Image
+        repository:
+          type: string
+          title: Repository
+        branch:
+          type: string
+          title: Branch
+        mode:
+          type: string
+          enum:
+          - live
+          - dev
+          - pr
+          title: Mode
+        pull_request:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Pull Request
+        version:
+          $ref: '#/components/schemas/BuildVersion'
+        commit:
+          type: string
+          title: Commit
+        created:
+          type: string
+          title: Created
+        reason:
+          type: string
+          title: Reason
+        previous:
+          anyOf:
+          - $ref: '#/components/schemas/BuildPrevious'
+          - type: 'null'
+        base:
+          $ref: '#/components/schemas/BuildBase'
+        platforms:
+          items:
+            $ref: '#/components/schemas/PlatformBuild'
+          type: array
+          title: Platforms
+        index_digest:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Index Digest
+        labels:
+          additionalProperties:
+            type: string
+          type: object
+          title: Labels
+        config:
+          $ref: '#/components/schemas/BuildConfig'
+        dockerfile:
+          additionalProperties:
+            type: string
+          type: object
+          title: Dockerfile
+        init_graph:
+          anyOf:
+          - $ref: '#/components/schemas/InitGraph'
+          - type: 'null'
+        packages:
+          anyOf:
+          - additionalProperties:
+              $ref: '#/components/schemas/PackageSummary'
+            type: object
+          - type: 'null'
+          title: Packages
+        test:
+          $ref: '#/components/schemas/BuildTest'
+        notes:
+          anyOf:
+          - $ref: '#/components/schemas/BuildNotes'
+          - type: 'null'
+        assets:
+          items:
+            $ref: '#/components/schemas/BuildAsset'
+          type: array
+          title: Assets
+        workflow:
+          $ref: '#/components/schemas/BuildWorkflow'
+      additionalProperties: true
+      type: object
+      required:
+      - schema
+      - image
+      - repository
+      - branch
+      - mode
+      - version
+      - commit
+      - created
+      - reason
+      - base
+      - platforms
+      - labels
+      - config
+      - dockerfile
+      - test
+      - assets
+      - workflow
+      title: Bundle
+      description: '`build.json` as attached to the GitHub Release, validated against the contract on ingest.'
+    Cap:
+      properties:
+        cap_add:
+          type: string
+          title: Cap Add
+          examples:
+          - NET_ADMIN
+        desc:
+          type: string
+          title: Desc
+        optional:
+          type: boolean
+          title: Optional
+      type: object
+      required:
+      - cap_add
+      - desc
+      - optional
+      title: Cap
+    CatalogData:
+      properties:
+        images:
+          items:
+            $ref: '#/components/schemas/ImageDetail'
+          type: array
+          title: Images
+      type: object
+      required:
+      - images
+      title: CatalogData
+    CatalogResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/CatalogData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: CatalogResponse
+    CategoriesData:
+      properties:
+        categories:
+          items:
+            $ref: '#/components/schemas/Category'
+          type: array
+          title: Categories
+      type: object
+      required:
+      - categories
+      title: CategoriesData
+    CategoriesResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/CategoriesData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: CategoriesResponse
+    Category:
+      properties:
+        name:
+          type: string
+          title: Name
+          examples:
+          - Media Servers
+        slug:
+          type: string
+          title: Slug
+          examples:
+          - media-servers
+        count:
+          type: integer
+          title: Count
+        images:
+          items:
+            type: string
+          type: array
+          title: Images
+          description: Image names, alphabetical.
+      type: object
+      required:
+      - name
+      - slug
+      - count
+      - images
+      title: Category
+    Changelog:
+      properties:
+        date:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+          title: Date
+          description: YYYY-MM-DD
+        desc:
+          type: string
+          title: Desc
+      type: object
+      required:
+      - date
+      - desc
+      title: Changelog
+    ChangelogData:
+      properties:
+        changelog:
+          items:
+            $ref: '#/components/schemas/ChangelogEntry'
+          type: array
+          maxItems: 100
+          title: Changelog
+      type: object
+      required:
+      - changelog
+      title: ChangelogData
+    ChangelogEntry:
+      properties:
+        image:
+          type: string
+          title: Image
+        date:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2}$
+          title: Date
+          description: YYYY-MM-DD
+        desc:
+          type: string
+          title: Desc
+      type: object
+      required:
+      - image
+      - date
+      - desc
+      title: ChangelogEntry
+    ChangelogResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/ChangelogData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: ChangelogResponse
+    CommitAreas:
+      properties:
+        manifest:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Manifest
+          description: image.yml
+        dockerfile:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Dockerfile
+          description: Dockerfile, Dockerfile.aarch64
+        root:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Root
+          description: root/, copied into the image
+        generated:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Generated
+          description: 'What builder render writes: README, AGENTS.md, the workflows'
+        packages:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Packages
+          description: package_versions.txt, the table the build commits
+        other:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Other
+      type: object
+      title: CommitAreas
+      description: 'Files changed in the range per area of the repository; only areas with changes. The first three can change
+
+        the image, the rest never do.'
+    CommitAuthor:
+      properties:
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+        login:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Login
+      type: object
+      title: CommitAuthor
+    CommitChange:
+      properties:
+        from:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: From
+        to:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: To
+        changed:
+          type: boolean
+          title: Changed
+        compare_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Compare Url
+          description: GitHub's compare page between the two, when they differ.
+        commits:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/CommitEntry'
+            type: array
+          - type: 'null'
+          title: Commits
+          description: Oldest first, as GitHub lists them (at most 250).
+        count:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Count
+          description: GitHub's total for the range; above the commits listed past 250.
+        truncated:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Truncated
+          description: GitHub listed only part of the commits or files.
+        areas:
+          anyOf:
+          - $ref: '#/components/schemas/CommitAreas'
+          - type: 'null'
+      type: object
+      required:
+      - changed
+      title: CommitChange
+      description: 'The repository commit of the previous release and this one (absent in records made before contracts 1.14),
+
+        and from contracts 1.15 the commits between them and what they touched, when the build fetched the compare.'
+    CommitEntry:
+      properties:
+        sha:
+          type: string
+          title: Sha
+        subject:
+          type: string
+          title: Subject
+        author:
+          anyOf:
+          - $ref: '#/components/schemas/CommitAuthor'
+          - type: 'null'
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+        bot:
+          type: boolean
+          title: Bot
+          description: 'The pipeline''s own commit: a [bot] account, or one of the two subjects the shared workflow writes (Update package versions, Update generated files).'
+      type: object
+      required:
+      - sha
+      - subject
+      - bot
+      title: CommitEntry
+      description: One commit between the two builds, as GitHub's compare lists it.
+    Config:
+      properties:
+        application_setup:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Application Setup
+          description: Link to the Application Setup section of the README.
+        readonly_supported:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Readonly Supported
+          description: Runs with a read-only root filesystem.
+        nonroot_supported:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Nonroot Supported
+          description: Runs as a non-root user.
+        privileged:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Privileged
+        networking:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Networking
+          description: Network mode, e.g. `host`.
+        hostname:
+          anyOf:
+          - $ref: '#/components/schemas/Hostname'
+          - type: 'null'
+        mac_address:
+          anyOf:
+          - $ref: '#/components/schemas/MacAddress'
+          - type: 'null'
+        env_vars:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/EnvVar'
+            type: array
+          - type: 'null'
+          title: Env Vars
+        volumes:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Volume'
+            type: array
+          - type: 'null'
+          title: Volumes
+        ports:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Port'
+            type: array
+          - type: 'null'
+          title: Ports
+        custom:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Custom'
+            type: array
+          - type: 'null'
+          title: Custom
+        security_opt:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/SecurityOpt'
+            type: array
+          - type: 'null'
+          title: Security Opt
+        devices:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Device'
+            type: array
+          - type: 'null'
+          title: Devices
+        caps:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Cap'
+            type: array
+          - type: 'null'
+          title: Caps
+      type: object
+      title: Config
+      description: How to run the container. Each list holds required entries first, then optional ones.
+    ConfigDiff:
+      properties:
+        env:
+          $ref: '#/components/schemas/EnvDiff'
+        exposed_ports:
+          $ref: '#/components/schemas/ListDiff'
+        volumes:
+          $ref: '#/components/schemas/ListDiff'
+      type: object
+      required:
+      - env
+      - exposed_ports
+      - volumes
+      title: ConfigDiff
+    Custom:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: The `docker run` flag without the leading `--`.
+          examples:
+          - shm-size
+        name_compose:
+          type: string
+          title: Name Compose
+          description: The compose key.
+          examples:
+          - shm_size
+        value:
+          anyOf:
+          - type: string
+          - items:
+              type: string
+            type: array
+          title: Value
+        desc:
+          type: string
+          title: Desc
+        optional:
+          type: boolean
+          title: Optional
+      type: object
+      required:
+      - name
+      - name_compose
+      - value
+      - desc
+      - optional
+      title: Custom
+      description: Any other `docker run` flag, with its compose equivalent.
+    Device:
+      properties:
+        path:
+          type: string
+          title: Path
+        host_path:
+          type: string
+          title: Host Path
+        desc:
+          type: string
+          title: Desc
+        optional:
+          type: boolean
+          title: Optional
+      type: object
+      required:
+      - path
+      - host_path
+      - desc
+      - optional
+      title: Device
+    Diff:
+      properties:
+        image:
+          type: string
+          title: Image
+        branch:
+          type: string
+          title: Branch
+        tag:
+          type: string
+          title: Tag
+        previous_tag:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Previous Tag
+          description: None for the first build of a branch the hub has seen.
+        classification:
+          type: string
+          enum:
+          - upstream
+          - packages
+          - linuxserver
+          - base
+          - mixed
+          - none
+          - initial
+          title: Classification
+          description: '`upstream`: the upstream version changed. `packages`: only packages changed. `linuxserver`: the Dockerfile (or a push with no other change) changed with the same upstream. `base`: the base image digest changed. `mixed`: more than one of those. `none`: an identical rebuild. `initial`: no previous build.'
+        reasons:
+          items:
+            type: string
+          type: array
+          title: Reasons
+          description: The signals behind `classification`, for humans.
+        upstream:
+          $ref: '#/components/schemas/ValueChange'
+        commit:
+          anyOf:
+          - $ref: '#/components/schemas/CommitChange'
+          - type: 'null'
+          description: The repository commits compared, with the compare page.
+        trigger:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trigger
+          description: 'build.json''s `reason`: why this build ran.'
+        base:
+          $ref: '#/components/schemas/BaseChange'
+        size:
+          additionalProperties:
+            $ref: '#/components/schemas/SizeChange'
+          type: object
+          title: Size
+          description: Compressed size per architecture.
+        config:
+          $ref: '#/components/schemas/ConfigDiff'
+        dockerfile:
+          additionalProperties:
+            type: string
+          type: object
+          title: Dockerfile
+          description: Unified diff per architecture; empty when unchanged.
+        packages:
+          anyOf:
+          - additionalProperties:
+              additionalProperties:
+                $ref: '#/components/schemas/EcosystemDiff'
+              type: object
+            type: object
+          - type: 'null'
+          title: Packages
+          description: Per architecture, per ecosystem. None when the previous package table was not available.
+        totals:
+          $ref: '#/components/schemas/PackageTotals'
+      type: object
+      required:
+      - image
+      - branch
+      - tag
+      - classification
+      - reasons
+      - upstream
+      - base
+      - size
+      - config
+      - dockerfile
+      - totals
+      title: Diff
+      description: What changed between a build and the previous build of the same branch.
+    DiffData:
+      properties:
+        diff:
+          $ref: '#/components/schemas/Diff'
+      type: object
+      required:
+      - diff
+      title: DiffData
+    DiffResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/DiffData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: DiffResponse
+    DiffSummary:
+      properties:
+        previous_tag:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Previous Tag
+        classification:
+          type: string
+          enum:
+          - upstream
+          - packages
+          - linuxserver
+          - base
+          - mixed
+          - none
+          - initial
+          title: Classification
+        reasons:
+          items:
+            type: string
+          type: array
+          title: Reasons
+        upstream:
+          $ref: '#/components/schemas/ValueChange'
+        base_changed:
+          type: boolean
+          title: Base Changed
+        base_from:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Base From
+          description: The previous build's base digest, when it changed.
+        size:
+          additionalProperties:
+            $ref: '#/components/schemas/SizeChange'
+          type: object
+          title: Size
+        totals:
+          $ref: '#/components/schemas/PackageTotals'
+        config_changes:
+          type: integer
+          title: Config Changes
+          description: Env, port and volume entries added, removed or changed.
+        dockerfile_changed:
+          items:
+            type: string
+          type: array
+          title: Dockerfile Changed
+          description: Architectures whose Dockerfile differs from the previous build.
+      type: object
+      required:
+      - classification
+      - reasons
+      - upstream
+      - base_changed
+      - size
+      - totals
+      - config_changes
+      - dockerfile_changed
+      title: DiffSummary
+      description: '`diff.json` without the package lists: enough for a build page''s change strip.'
+    DocSection:
+      properties:
+        id:
+          type: string
+          title: Id
+          description: 'Slug of the title, stable across images: `application-setup`, `support-info`.'
+        title:
+          type: string
+          title: Title
+          description: The `##` heading as written.
+        markdown:
+          type: string
+          title: Markdown
+          description: The section body in GitHub-flavoured Markdown, without its heading.
+      type: object
+      required:
+      - id
+      - title
+      - markdown
+      title: DocSection
+    DocsData:
+      properties:
+        image:
+          type: string
+          title: Image
+        sections:
+          items:
+            $ref: '#/components/schemas/DocSection'
+          type: array
+          title: Sections
+      type: object
+      required:
+      - image
+      - sections
+      title: DocsData
+      description: 'The image''s full documentation, split at its `##` headings: the README builder renders from `image.yml`.'
+    DocsResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/DocsData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: DocsResponse
+    EcosystemDiff:
+      properties:
+        added:
+          items:
+            $ref: '#/components/schemas/PackageChange'
+          type: array
+          title: Added
+        removed:
+          items:
+            $ref: '#/components/schemas/PackageChange'
+          type: array
+          title: Removed
+        upgraded:
+          items:
+            $ref: '#/components/schemas/PackageChange'
+          type: array
+          title: Upgraded
+        downgraded:
+          items:
+            $ref: '#/components/schemas/PackageChange'
+          type: array
+          title: Downgraded
+      type: object
+      required:
+      - added
+      - removed
+      - upgraded
+      - downgraded
+      title: EcosystemDiff
+    EnvChange:
+      properties:
+        name:
+          type: string
+          title: Name
+        from:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: From
+        to:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: To
+      type: object
+      required:
+      - name
+      title: EnvChange
+    EnvDiff:
+      properties:
+        added:
+          items:
+            type: string
+          type: array
+          title: Added
+        removed:
+          items:
+            type: string
+          type: array
+          title: Removed
+        changed:
+          items:
+            $ref: '#/components/schemas/EnvChange'
+          type: array
+          title: Changed
+      type: object
+      required:
+      - added
+      - removed
+      - changed
+      title: EnvDiff
+    EnvVar:
+      properties:
+        name:
+          type: string
+          title: Name
+        value:
+          type: string
+          title: Value
+          description: Example or default value.
+        desc:
+          type: string
+          title: Desc
+        optional:
+          type: boolean
+          title: Optional
+      type: object
+      required:
+      - name
+      - value
+      - desc
+      - optional
+      title: EnvVar
+    HistoryEntry:
+      properties:
+        tag:
+          type: string
+          title: Tag
+        created:
+          type: string
+          title: Created
+        release_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release Url
+        run_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Run Url
+          description: The workflow run that built it; absent for releases the hub rotated out before recording it.
+        run_json:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Run Json
+          description: '`run.json` on the Release (a download link): the control plane''s record of the run. 404 for releases made before control attached it.'
+        logs_zip:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Logs Zip
+          description: '`logs.zip` on the Release (a download link): the run''s masked logs. 404 like `run_json`.'
+      type: object
+      required:
+      - tag
+      - created
+      title: HistoryEntry
+    Hostname:
+      properties:
+        hostname:
+          type: string
+          title: Hostname
+        desc:
+          type: string
+          title: Desc
+        optional:
+          type: boolean
+          title: Optional
+      type: object
+      required:
+      - hostname
+      - desc
+      - optional
+      title: Hostname
+    Image:
+      properties:
+        name:
+          type: string
+          title: Name
+          examples:
+          - sonarr
+        initial_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Initial Date
+          description: Date of the image's first changelog entry.
+        github_url:
+          type: string
+          title: Github Url
+        project_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Project Url
+          description: The upstream project's website.
+        project_logo:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Project Logo
+          description: URL of the logo (`docs.logo` in the manifest).
+        description:
+          type: string
+          title: Description
+          description: Markdown; may contain links.
+        version:
+          type: string
+          title: Version
+          description: The release tag of the newest build of the `latest` branch (`<upstream>-ls<N>`), or `latest` when no build has been ingested yet.
+        version_timestamp:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Version Timestamp
+          description: UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        category:
+          type: string
+          title: Category
+          description: Comma-separated categories from `docs.categories`.
+          examples:
+          - Network,DNS
+        stable:
+          type: boolean
+          title: Stable
+          description: Whether the image publishes a `latest` tag.
+        deprecated:
+          type: boolean
+          title: Deprecated
+        stars:
+          type: integer
+          minimum: 0.0
+          title: Stars
+          description: GitHub stars of the image repository.
+        monthly_pulls:
+          anyOf:
+          - type: integer
+            minimum: 0.0
+          - type: 'null'
+          title: Monthly Pulls
+          description: 'Always absent: pull statistics are not collected.'
+        tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+          title: Tags
+        architectures:
+          items:
+            $ref: '#/components/schemas/Architecture'
+          type: array
+          title: Architectures
+        changelog:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Changelog'
+            type: array
+          - type: 'null'
+          title: Changelog
+          description: The most recent entries; 3 in list responses, all in `ImageDetail`.
+        config:
+          anyOf:
+          - $ref: '#/components/schemas/Config'
+          - type: 'null'
+      type: object
+      required:
+      - name
+      - github_url
+      - description
+      - version
+      - version_timestamp
+      - category
+      - stable
+      - deprecated
+      - stars
+      - tags
+      - architectures
+      title: Image
+    ImageData:
+      properties:
+        image:
+          $ref: '#/components/schemas/ImageDetail'
+      type: object
+      required:
+      - image
+      title: ImageData
+    ImageDetail:
+      properties:
+        name:
+          type: string
+          title: Name
+          examples:
+          - sonarr
+        initial_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Initial Date
+          description: Date of the image's first changelog entry.
+        github_url:
+          type: string
+          title: Github Url
+        project_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Project Url
+          description: The upstream project's website.
+        project_logo:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Project Logo
+          description: URL of the logo (`docs.logo` in the manifest).
+        description:
+          type: string
+          title: Description
+          description: Markdown; may contain links.
+        version:
+          type: string
+          title: Version
+          description: The release tag of the newest build of the `latest` branch (`<upstream>-ls<N>`), or `latest` when no build has been ingested yet.
+        version_timestamp:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Version Timestamp
+          description: UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        category:
+          type: string
+          title: Category
+          description: Comma-separated categories from `docs.categories`.
+          examples:
+          - Network,DNS
+        stable:
+          type: boolean
+          title: Stable
+          description: Whether the image publishes a `latest` tag.
+        deprecated:
+          type: boolean
+          title: Deprecated
+        stars:
+          type: integer
+          minimum: 0.0
+          title: Stars
+          description: GitHub stars of the image repository.
+        monthly_pulls:
+          anyOf:
+          - type: integer
+            minimum: 0.0
+          - type: 'null'
+          title: Monthly Pulls
+          description: 'Always absent: pull statistics are not collected.'
+        tags:
+          items:
+            $ref: '#/components/schemas/Tag'
+          type: array
+          title: Tags
+        architectures:
+          items:
+            $ref: '#/components/schemas/Architecture'
+          type: array
+          title: Architectures
+        changelog:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/Changelog'
+            type: array
+          - type: 'null'
+          title: Changelog
+          description: The most recent entries; 3 in list responses, all in `ImageDetail`.
+        config:
+          $ref: '#/components/schemas/Config'
+        title:
+          type: string
+          title: Title
+        sponsor:
+          items:
+            $ref: '#/components/schemas/Sponsor'
+          type: array
+          title: Sponsor
+          description: The upstream project's donation pages, as the manifest lists them (up to 3); empty when the project has none. The site shows them on the image page, the repo's FUNDING.yml and the container log carry the same list.
+        maintainers:
+          items:
+            type: string
+          type: array
+          title: Maintainers
+          description: 'GitHub logins of the people who maintain the image (`maintainers` in the manifest): credit and who gets mentioned, never access. Empty when the manifest names none; LinuxServer Labs images always name them.'
+          examples:
+          - - thelamer
+        kind:
+          type: string
+          enum:
+          - app
+          - base
+          - tool
+          title: Kind
+          description: '`app` for a long-running application; `base` for a base image, `tool` for a run-once or helper image. Only apps are in the v1 image list, the categories, the stores and the install artefacts.'
+          default: app
+        categories:
+          items:
+            type: string
+          type: array
+          title: Categories
+          description: '`category`, split and trimmed.'
+        deprecation_message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Deprecation Message
+          description: Why the image is deprecated, when it is.
+        setup_instructions:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Setup Instructions
+          description: The Application Setup section, as Markdown.
+        archived:
+          type: boolean
+          title: Archived
+          description: Whether the GitHub repository is archived.
+        release_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release Url
+          description: The GitHub release for `version`.
+        upstream_version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Upstream Version
+          description: The bare upstream version of `version`.
+        base:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Base
+          description: Base image family from the manifest.
+        releases:
+          items:
+            $ref: '#/components/schemas/ReleaseInfo'
+          type: array
+          title: Releases
+          description: One entry per live branch.
+        docs_url:
+          type: string
+          title: Docs Url
+        registries:
+          $ref: '#/components/schemas/Registries'
+        snippets:
+          $ref: '#/components/schemas/Snippets'
+        links:
+          $ref: '#/components/schemas/ImageLinks'
+      type: object
+      required:
+      - name
+      - github_url
+      - description
+      - version
+      - version_timestamp
+      - category
+      - stable
+      - deprecated
+      - stars
+      - tags
+      - architectures
+      - config
+      - title
+      - categories
+      - archived
+      - releases
+      - docs_url
+      - registries
+      - snippets
+      - links
+      title: ImageDetail
+      description: An image with everything this API knows about it.
+    ImageLinks:
+      properties:
+        builds:
+          type: string
+          title: Builds
+        docs:
+          type: string
+          title: Docs
+        documentation:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Documentation
+          description: '`docs.json`: the full documentation, section by section.'
+        proxy:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Proxy
+        kubernetes:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Kubernetes
+        quadlet:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Quadlet
+        mods:
+          type: string
+          title: Mods
+      type: object
+      required:
+      - builds
+      - docs
+      - mods
+      title: ImageLinks
+    ImageModsData:
+      properties:
+        image:
+          type: string
+          title: Image
+        mods:
+          items:
+            $ref: '#/components/schemas/Mod'
+          type: array
+          title: Mods
+          description: Mods targeting this image, then universal mods.
+      type: object
+      required:
+      - image
+      - mods
+      title: ImageModsData
+    ImageModsResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/ImageModsData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: ImageModsResponse
+    ImageResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/ImageData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: ImageResponse
+    ImagesData:
+      properties:
+        repositories:
+          $ref: '#/components/schemas/Repository'
+      type: object
+      required:
+      - repositories
+      title: ImagesData
+    ImagesResponse:
+      properties:
+        status:
+          type: string
+          title: Status
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/ImagesData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: ImagesResponse
+    InitGraph:
+      properties:
+        d2:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: D2
+        units:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/InitUnit'
+            type: array
+          - type: 'null'
+          title: Units
+      additionalProperties: true
+      type: object
+      title: InitGraph
+    InitUnit:
+      properties:
+        name:
+          type: string
+          title: Name
+        type:
+          type: string
+          title: Type
+        depends_on:
+          items:
+            type: string
+          type: array
+          title: Depends On
+        source:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Source
+        script:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Script
+      additionalProperties: true
+      type: object
+      required:
+      - name
+      - type
+      - depends_on
+      title: InitUnit
+    Layer:
+      properties:
+        index:
+          type: integer
+          title: Index
+        digest:
+          type: string
+          title: Digest
+        diff_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Diff Id
+        size:
+          type: integer
+          title: Size
+          description: Compressed bytes.
+        uncompressed_size:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Uncompressed Size
+        created_by:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Created By
+          description: The instruction as BuildKit recorded it.
+        dockerfile_lines:
+          anyOf:
+          - items:
+              type: integer
+            type: array
+          - type: 'null'
+          title: Dockerfile Lines
+          description: '`[start, end]` lines in the Dockerfile (1-based).'
+        from_base:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: From Base
+          description: The layer comes from the base image.
+        empty:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Empty
+      additionalProperties: true
+      type: object
+      required:
+      - index
+      - digest
+      - size
+      title: Layer
+    LayersData:
+      properties:
+        image:
+          type: string
+          title: Image
+        tag:
+          type: string
+          title: Tag
+        arch:
+          type: string
+          enum:
+          - amd64
+          - arm64
+          title: Arch
+        base_layers:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Base Layers
+          description: How many leading layers belong to the base image, when known.
+        from_base_source:
+          anyOf:
+          - type: string
+            enum:
+            - registry
+            - count
+            - harness
+          - type: 'null'
+          title: From Base Source
+          description: 'How `from_base` was decided: `registry` (the base''s layer digests from GHCR), `count` (the base''s layer count, digests known for another architecture only), `harness` (the ci harness''s own flags). Absent when the hub has nothing to go on.'
+        layers:
+          items:
+            $ref: '#/components/schemas/Layer'
+          type: array
+          title: Layers
+          description: '`from_base` marks the base image''s layers; `dockerfile_lines` is the `[start, end]` line range of the instruction that made each of the others, where `created_by` matches the Dockerfile in `build.json`.'
+      type: object
+      required:
+      - image
+      - tag
+      - arch
+      - layers
+      title: LayersData
+    LayersResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/LayersData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: LayersResponse
+    ListDiff:
+      properties:
+        added:
+          items:
+            type: string
+          type: array
+          title: Added
+        removed:
+          items:
+            type: string
+          type: array
+          title: Removed
+      type: object
+      required:
+      - added
+      - removed
+      title: ListDiff
+    MacAddress:
+      properties:
+        mac_address:
+          type: string
+          title: Mac Address
+        desc:
+          type: string
+          title: Desc
+        optional:
+          type: boolean
+          title: Optional
+      type: object
+      required:
+      - mac_address
+      - desc
+      - optional
+      title: MacAddress
+    Mod:
+      properties:
+        name:
+          type: string
+          title: Name
+          examples:
+          - python3
+        target:
+          type: string
+          title: Target
+          description: The image the mod applies to, or `universal`.
+        title:
+          type: string
+          title: Title
+        summary:
+          type: string
+          title: Summary
+        branch:
+          type: string
+          title: Branch
+          description: The docker-mods branch.
+        url:
+          type: string
+          title: Url
+        image:
+          type: string
+          title: Image
+          description: The `DOCKER_MODS` value.
+          examples:
+          - ghcr.io/linuxserver-playground/mods:universal-git
+        maintainers:
+          items:
+            type: string
+          type: array
+          title: Maintainers
+        platforms:
+          items:
+            type: string
+          type: array
+          title: Platforms
+        bases:
+          items:
+            type: string
+          type: array
+          title: Bases
+        env:
+          items:
+            $ref: '#/components/schemas/ModEnv'
+          type: array
+          title: Env
+        deprecated:
+          type: boolean
+          title: Deprecated
+        deprecation_message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Deprecation Message
+        applies_to:
+          items:
+            type: string
+          type: array
+          title: Applies To
+          description: 'The images the mod is for: its target, then the images its `mod.yml` lists under `images`.'
+        docs:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Docs
+        upstream:
+          anyOf:
+          - $ref: '#/components/schemas/ModUpstream'
+          - type: 'null'
+          description: Where the tool version the mod pins comes from. The control plane checks it hourly and builds the mod when a new version has no `<branch>-<version>` tag yet.
+        builds:
+          items:
+            $ref: '#/components/schemas/ModBuild'
+          type: array
+          title: Builds
+          description: What `ghcr.io/linuxserver-playground/mods` holds for the mod, one entry per version line, the default line first; empty until it is published. Read hourly from the registry.
+        source:
+          type: string
+          const: playground
+          title: Source
+          description: A `mod.yml` branch of linuxserver-playground/docker-mods, published at `ghcr.io/linuxserver-playground/mods`.
+      type: object
+      required:
+      - name
+      - target
+      - title
+      - summary
+      - branch
+      - url
+      - image
+      - maintainers
+      - platforms
+      - bases
+      - env
+      - deprecated
+      - applies_to
+      - source
+      title: Mod
+    ModBuild:
+      properties:
+        line:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Line
+          description: The version line (`mod.yml` `upstream.lines` name); null for the default line, the one the floating `:<branch>` tag follows.
+        version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Version
+          description: The upstream version built (the image's version label); null for a mod without one.
+        built_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Built At
+          description: When the newest build of the line was made (the image config).
+        pin:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Pin
+          description: 'The exact tag of that build, to pin it: `<branch>-<version>`, or `<branch>-<sha7>` for a mod without a version.'
+          examples:
+          - ghcr.io/linuxserver-playground/mods:code-server-golang-1.27.3
+        tags:
+          items:
+            type: string
+          type: array
+          title: Tags
+          description: 'The floating tags that follow the line: `:<branch>` for the default line, then the line''s major and minor tags.'
+        digest:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Digest
+          description: The image's digest.
+        revision:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Revision
+          description: The docker-mods commit it was built from.
+      type: object
+      title: ModBuild
+    ModEnv:
+      properties:
+        name:
+          type: string
+          title: Name
+        description:
+          type: string
+          title: Description
+        default:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Default
+        required:
+          type: boolean
+          title: Required
+          default: false
+      type: object
+      required:
+      - name
+      - description
+      title: ModEnv
+    ModUpstream:
+      properties:
+        url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Url
+          description: The project's website (`mod.yml` `upstream.url`).
+        type:
+          type: string
+          title: Type
+          description: '`upstream.version.type`, e.g. `github_release` or `combined`.'
+        source:
+          type: string
+          title: Source
+          description: The version source in short.
+          examples:
+          - github_release cloudflare/cloudflared
+      type: object
+      required:
+      - type
+      - source
+      title: ModUpstream
+    ModsData:
+      properties:
+        source:
+          type: string
+          title: Source
+          description: 'Where the index came from: `mod.yml` on each branch of linuxserver-playground/docker-mods.'
+        mods:
+          items:
+            $ref: '#/components/schemas/Mod'
+          type: array
+          title: Mods
+      type: object
+      required:
+      - source
+      - mods
+      title: ModsData
+    ModsResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/ModsData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: ModsResponse
+    Package:
+      properties:
+        name:
+          type: string
+          title: Name
+        version:
+          type: string
+          title: Version
+        type:
+          type: string
+          title: Type
+          description: 'syft package type: apk, deb, python, npm, binary...'
+          examples:
+          - apk
+        purl:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Purl
+        licenses:
+          items:
+            type: string
+          type: array
+          title: Licenses
+      type: object
+      required:
+      - name
+      - version
+      - type
+      - licenses
+      title: Package
+    PackageChange:
+      properties:
+        name:
+          type: string
+          title: Name
+        version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Version
+          description: For added and removed packages.
+        from:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: From
+          description: For upgrades and downgrades.
+        to:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: To
+        purl:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Purl
+      type: object
+      required:
+      - name
+      title: PackageChange
+    PackageData:
+      properties:
+        name:
+          type: string
+          title: Name
+        slug:
+          type: string
+          title: Slug
+        types:
+          items:
+            type: string
+          type: array
+          title: Types
+        versions:
+          items:
+            type: string
+          type: array
+          title: Versions
+          description: Distinct versions shipped, newest-first by sort order.
+        images:
+          items:
+            type: string
+          type: array
+          title: Images
+        holders:
+          items:
+            $ref: '#/components/schemas/PackageHolder'
+          type: array
+          title: Holders
+      type: object
+      required:
+      - name
+      - slug
+      - types
+      - versions
+      - images
+      - holders
+      title: PackageData
+    PackageHolder:
+      properties:
+        image:
+          type: string
+          title: Image
+        tag:
+          type: string
+          title: Tag
+        branch:
+          type: string
+          title: Branch
+        arch:
+          type: string
+          enum:
+          - amd64
+          - arm64
+          title: Arch
+        version:
+          type: string
+          title: Version
+        type:
+          type: string
+          title: Type
+        purl:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Purl
+      type: object
+      required:
+      - image
+      - tag
+      - branch
+      - arch
+      - version
+      - type
+      title: PackageHolder
+    PackageIndexData:
+      properties:
+        packages:
+          items:
+            $ref: '#/components/schemas/PackageIndexEntry'
+          type: array
+          title: Packages
+      type: object
+      required:
+      - packages
+      title: PackageIndexData
+    PackageIndexEntry:
+      properties:
+        name:
+          type: string
+          title: Name
+        slug:
+          type: string
+          title: Slug
+        types:
+          items:
+            type: string
+          type: array
+          title: Types
+        images:
+          type: integer
+          title: Images
+      type: object
+      required:
+      - name
+      - slug
+      - types
+      - images
+      title: PackageIndexEntry
+    PackageIndexResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/PackageIndexData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: PackageIndexResponse
+    PackageResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/PackageData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: PackageResponse
+    PackageSummary:
+      properties:
+        count:
+          type: integer
+          title: Count
+        distro:
+          type: string
+          title: Distro
+        hash:
+          type: string
+          title: Hash
+        by_type:
+          anyOf:
+          - additionalProperties:
+              type: integer
+            type: object
+          - type: 'null'
+          title: By Type
+      additionalProperties: true
+      type: object
+      required:
+      - count
+      - distro
+      - hash
+      title: PackageSummary
+    PackageTotals:
+      properties:
+        added:
+          type: integer
+          title: Added
+        removed:
+          type: integer
+          title: Removed
+        upgraded:
+          type: integer
+          title: Upgraded
+        downgraded:
+          type: integer
+          title: Downgraded
+      type: object
+      required:
+      - added
+      - removed
+      - upgraded
+      - downgraded
+      title: PackageTotals
+    PackagesData:
+      properties:
+        image:
+          type: string
+          title: Image
+        tag:
+          type: string
+          title: Tag
+        arch:
+          type: string
+          enum:
+          - amd64
+          - arm64
+          title: Arch
+        count:
+          type: integer
+          title: Count
+        packages:
+          items:
+            $ref: '#/components/schemas/Package'
+          type: array
+          title: Packages
+      type: object
+      required:
+      - image
+      - tag
+      - arch
+      - count
+      - packages
+      title: PackagesData
+    PackagesResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/PackagesData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: PackagesResponse
+    PlatformBuild:
+      properties:
+        arch:
+          type: string
+          enum:
+          - amd64
+          - arm64
+          title: Arch
+        result:
+          type: string
+          enum:
+          - success
+          - failure
+          - cancelled
+          - skipped
+          title: Result
+        digest:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Digest
+        size:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Size
+          description: Sum of compressed layer sizes in bytes.
+        uncompressed_size:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Uncompressed Size
+        layers:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Layers
+        runner:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Runner
+        build_seconds:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Build Seconds
+      additionalProperties: true
+      type: object
+      required:
+      - arch
+      - result
+      title: PlatformBuild
+    Port:
+      properties:
+        external:
+          type: string
+          title: External
+        internal:
+          type: string
+          title: Internal
+          description: Container port, with `/udp` when it is UDP.
+        desc:
+          type: string
+          title: Desc
+        optional:
+          type: boolean
+          title: Optional
+      type: object
+      required:
+      - external
+      - internal
+      - desc
+      - optional
+      title: Port
+    ProotApp:
+      properties:
+        name:
+          type: string
+          title: Name
+          description: What `proot-apps install` takes.
+          examples:
+          - firefox
+        title:
+          type: string
+          title: Title
+          description: '`full_name` in metadata.yml.'
+          examples:
+          - Firefox
+        category:
+          type: string
+          title: Category
+          examples:
+          - Network
+        description:
+          type: string
+          title: Description
+        platforms:
+          items:
+            type: string
+          type: array
+          title: Platforms
+          examples:
+          - - amd64
+            - arm64
+        icon:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Icon
+          description: The app's icon in the proot-apps repository.
+        image:
+          type: string
+          title: Image
+          examples:
+          - ghcr.io/linuxserver-playground/proot-apps:firefox
+        url:
+          type: string
+          title: Url
+          description: The app's folder in the proot-apps repository.
+      type: object
+      required:
+      - name
+      - title
+      - category
+      - description
+      - platforms
+      - image
+      - url
+      title: ProotApp
+    ProotAppsData:
+      properties:
+        source:
+          type: string
+          title: Source
+          description: 'Where the index came from: `metadata/metadata.yml` of linuxserver-playground/proot-apps.'
+        cli:
+          anyOf:
+          - $ref: '#/components/schemas/ProotCli'
+          - type: 'null'
+          description: The CLI release the install command downloads; null until one exists.
+        apps:
+          items:
+            $ref: '#/components/schemas/ProotApp'
+          type: array
+          title: Apps
+          description: Every app that is not disabled, by title.
+      type: object
+      required:
+      - source
+      - apps
+      title: ProotAppsData
+    ProotAppsResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/ProotAppsData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: ProotAppsResponse
+    ProotCli:
+      properties:
+        version:
+          type: string
+          title: Version
+          description: The newest release of the `proot-apps` CLI.
+          examples:
+          - 0.5.5
+        url:
+          type: string
+          title: Url
+        published_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Published At
+      type: object
+      required:
+      - version
+      - url
+      title: ProotCli
+    ProxyData:
+      properties:
+        image:
+          type: string
+          title: Image
+        port:
+          type: integer
+          title: Port
+        scheme:
+          type: string
+          title: Scheme
+        subdomain:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Subdomain
+          description: The `<name>.subdomain.conf.sample` text.
+        subfolder:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Subfolder
+          description: The `<name>.subfolder.conf.sample` text, when supported.
+        caddy:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Caddy
+          description: A reference Caddyfile site block with the same upstream and open API paths.
+        traefik:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Traefik
+          description: Reference Traefik labels for the image's compose service.
+        base_url_note:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Base Url Note
+        config:
+          additionalProperties: true
+          type: object
+          title: Config
+          description: The manifest's `proxy` block.
+      type: object
+      required:
+      - image
+      - port
+      - scheme
+      - config
+      title: ProxyData
+    ProxyResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/ProxyData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: ProxyResponse
+    Registries:
+      properties:
+        ghcr:
+          type: string
+          title: Ghcr
+          examples:
+          - ghcr.io/linuxserver-playground/sonarr
+        packages_url:
+          type: string
+          title: Packages Url
+          description: The GitHub Packages page.
+      type: object
+      required:
+      - ghcr
+      - packages_url
+      title: Registries
+      description: Where the image is published.
+    RejectedRelease:
+      properties:
+        checked_at:
+          type: string
+          title: Checked At
+        release_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release Url
+        error:
+          type: string
+          title: Error
+      type: object
+      required:
+      - checked_at
+      - error
+      title: RejectedRelease
+    ReleaseInfo:
+      properties:
+        branch:
+          type: string
+          title: Branch
+          examples:
+          - master
+        release_tag:
+          type: string
+          title: Release Tag
+          description: The tag the branch publishes.
+          examples:
+          - latest
+          - develop
+        channel:
+          type: string
+          title: Channel
+          examples:
+          - stable
+          - prerelease
+        tag:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tag
+          description: The newest release tag, `<upstream>-ls<N>`.
+        upstream_version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Upstream Version
+        created:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Created
+          description: When the newest build ran (ISO 8601).
+        release_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release Url
+        test_success:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Test Success
+        base:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Base
+          description: The base image reference the newest build used.
+        platforms:
+          items:
+            type: string
+          type: array
+          title: Platforms
+          description: Architectures that built successfully.
+      type: object
+      required:
+      - branch
+      - release_tag
+      - channel
+      title: ReleaseInfo
+      description: The newest build of one live branch.
+    ReportLinks:
+      properties:
+        build:
+          type: string
+          title: Build
+        diff:
+          type: string
+          title: Diff
+        layers:
+          additionalProperties:
+            type: string
+          type: object
+          title: Layers
+          description: Per architecture.
+        packages:
+          additionalProperties:
+            type: string
+          type: object
+          title: Packages
+          description: The hub's package table per architecture; only the newest build of each branch has one. For the others, `sbom` is the build's syft document.
+        release:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Release
+        pages:
+          type: string
+          title: Pages
+          description: 'The build''s folder on its image repository''s GitHub Pages (`https://<owner>.github.io/<repo>/builds/<tag>/`), with a trailing slash: `files.<arch>.json.gz`, `packages.<arch>.json.gz`, `vulns.json` and each architecture''s unpacked test report under `<arch>/` (see `tests.json`). Served with `access-control-allow-origin: *` for the newest 5 builds of each live branch, the builds the hub holds.'
+        files:
+          additionalProperties:
+            type: string
+          type: object
+          title: Files
+          description: '`files.<arch>.json.gz` per architecture on the repository''s Pages (under `pages`): gzip served as `application/gzip`, without `Content-Encoding`.'
+        sbom:
+          additionalProperties:
+            type: string
+          type: object
+          title: Sbom
+          description: '`packages.<arch>.json.gz`, the build''s syft document, per architecture on the repository''s Pages (under `pages`), served like `files`.'
+        run_json:
+          type: string
+          title: Run Json
+          description: '`run.json` on the Release: the control plane''s record of the workflow run. A download link (Release assets send no CORS headers); 404 for releases made before control attached it.'
+        logs_zip:
+          type: string
+          title: Logs Zip
+          description: '`logs.zip` on the Release: the run''s masked log archive. A download link; 404 for releases made before control attached it.'
+        test_report:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Test Report
+          description: The build's CI results page on the website, `<site>/images/<image>/builds/<tag>/` (the hub's own `/builds/<image>/<tag>/` only redirects there).
+        tests:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tests
+          description: '`tests.json`: the harness reports per architecture, when any exist.'
+        report:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Report
+          description: '`report.json`: the build page aggregate.'
+        vulns:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Vulns
+          description: '`vulns.json` on the repository''s Pages (under `pages`), for builds that scanned themselves: the scan made when the image was built, never rescanned. `{image, tag, summary, by_arch, matches, db_date, grype_version, scanned_at, caveats}` (CONVENTIONS §6, "Repo Pages"); `summary` is `vulnerabilities`, and `caveats` say how to read the counts. The hub serves no copy.'
+        run:
+          type: string
+          title: Run
+          description: The workflow run.
+        commit:
+          type: string
+          title: Commit
+        repository:
+          type: string
+          title: Repository
+        registry:
+          type: string
+          title: Registry
+          description: The image reference with this build's tag.
+        history:
+          type: string
+          title: History
+          description: The image's build list on the website, `<site>/images/<image>/#builds`.
+      type: object
+      required:
+      - build
+      - diff
+      - layers
+      - packages
+      - pages
+      - files
+      - run_json
+      - logs_zip
+      - run
+      - commit
+      - repository
+      - registry
+      - history
+      title: ReportLinks
+    Repository:
+      properties:
+        linuxserver:
+          items:
+            $ref: '#/components/schemas/Image'
+          type: array
+          title: Linuxserver
+      type: object
+      required:
+      - linuxserver
+      title: Repository
+    SecurityOpt:
+      properties:
+        run_var:
+          type: string
+          title: Run Var
+          examples:
+          - seccomp=unconfined
+        compose_var:
+          type: string
+          title: Compose Var
+          examples:
+          - seccomp:unconfined
+        desc:
+          type: string
+          title: Desc
+        optional:
+          type: boolean
+          title: Optional
+      type: object
+      required:
+      - run_var
+      - compose_var
+      - desc
+      - optional
+      title: SecurityOpt
+    SizeChange:
+      properties:
+        from:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: From
+        to:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: To
+        delta:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Delta
+      type: object
+      title: SizeChange
+    Snippets:
+      properties:
+        docker_compose:
+          type: string
+          title: Docker Compose
+        docker_run:
+          type: string
+          title: Docker Run
+      type: object
+      required:
+      - docker_compose
+      - docker_run
+      title: Snippets
+      description: Ready-to-use commands with every parameter, optional ones marked (from `builder.snippets`).
+    SourceStatus:
+      properties:
+        ok:
+          type: boolean
+          title: Ok
+        checked_at:
+          type: string
+          title: Checked At
+          description: When the last refresh tried this source (ISO 8601).
+        fetched_at:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Fetched At
+          description: When this source last returned data (ISO 8601).
+        error:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Error
+          description: Why the last attempt failed, or what it could not fetch.
+      type: object
+      required:
+      - ok
+      - checked_at
+      title: SourceStatus
+    Sponsor:
+      properties:
+        name:
+          type: string
+          title: Name
+          examples:
+          - Sonarr
+        url:
+          type: string
+          title: Url
+          examples:
+          - https://sonarr.tv/donate
+      type: object
+      required:
+      - name
+      - url
+      title: Sponsor
+      description: One of the upstream project's donation pages (`upstream.sponsor` in the manifest).
+    StaleImage:
+      properties:
+        image:
+          type: string
+          title: Image
+        branch:
+          type: string
+          title: Branch
+        tag:
+          type: string
+          title: Tag
+        built:
+          type: string
+          title: Built
+        base:
+          type: string
+          title: Base
+        base_digest:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Base Digest
+        newest_base_digest:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Newest Base Digest
+        newest_base_built:
+          type: string
+          title: Newest Base Built
+          description: When the newer base was first seen in a build (or released).
+        reason:
+          type: string
+          title: Reason
+      type: object
+      required:
+      - image
+      - branch
+      - tag
+      - built
+      - base
+      - newest_base_built
+      - reason
+      title: StaleImage
+    StalenessData:
+      properties:
+        stale:
+          items:
+            $ref: '#/components/schemas/StaleImage'
+          type: array
+          title: Stale
+        checked:
+          type: integer
+          title: Checked
+          description: Builds considered.
+      type: object
+      required:
+      - stale
+      - checked
+      title: StalenessData
+    StalenessResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/StalenessData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: StalenessResponse
+    Stats:
+      properties:
+        images:
+          type: integer
+          title: Images
+          description: 'Current applications: base images and tools are counted apart.'
+        base_images:
+          type: integer
+          title: Base Images
+          description: 'Current base images (`kind: base`).'
+          default: 0
+        tools:
+          type: integer
+          title: Tools
+          description: 'Current tools (`kind: tool`).'
+          default: 0
+        deprecated:
+          type: integer
+          title: Deprecated
+          description: Deprecated images (not counted anywhere else).
+        stars:
+          type: integer
+          title: Stars
+        builds:
+          type: integer
+          title: Builds
+          description: Build records held in data/ across all images.
+        architectures:
+          additionalProperties:
+            type: integer
+          type: object
+          title: Architectures
+          description: Images available for each architecture.
+        readonly_supported:
+          type: integer
+          title: Readonly Supported
+        nonroot_supported:
+          type: integer
+          title: Nonroot Supported
+        updated_last_7_days:
+          type: integer
+          title: Updated Last 7 Days
+          description: Images with a build in the 7 days before `last_updated`.
+        categories:
+          type: integer
+          title: Categories
+        first_release:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: First Release
+          description: The oldest `initial_date`.
+      type: object
+      required:
+      - images
+      - deprecated
+      - stars
+      - builds
+      - architectures
+      - readonly_supported
+      - nonroot_supported
+      - updated_last_7_days
+      - categories
+      title: Stats
+    StatsData:
+      properties:
+        stats:
+          $ref: '#/components/schemas/Stats'
+      type: object
+      required:
+      - stats
+      title: StatsData
+    StatsResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/StatsData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: StatsResponse
+    Status:
+      properties:
+        health:
+          type: string
+          enum:
+          - Success
+          - Failed
+          title: Health
+        images:
+          type: integer
+          title: Images
+        deprecated:
+          type: integer
+          title: Deprecated
+        sources:
+          additionalProperties:
+            $ref: '#/components/schemas/SourceStatus'
+          type: object
+          title: Sources
+          description: '`manifests` (image.yml per branch), `releases` (build bundles), `observed` (stars, GHCR tags; its `fetched_at` is `observed.json`''s), `mods` (the mods index), `proot-apps` (the PRoot Apps index).'
+        rejected:
+          additionalProperties:
+            $ref: '#/components/schemas/RejectedRelease'
+          type: object
+          title: Rejected
+          description: Releases whose bundle failed validation, keyed `<image>@<tag>`; they are skipped until fixed.
+      type: object
+      required:
+      - health
+      - images
+      - deprecated
+      - sources
+      - rejected
+      title: Status
+    StatusData:
+      properties:
+        status:
+          $ref: '#/components/schemas/Status'
+      type: object
+      required:
+      - status
+      title: StatusData
+    StatusResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/StatusData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: StatusResponse
+    StoreEntry:
+      properties:
+        platform:
+          type: string
+          title: Platform
+        name:
+          type: string
+          title: Name
+        url:
+          type: string
+          title: Url
+        how_to:
+          type: string
+          title: How To
+      type: object
+      required:
+      - platform
+      - name
+      - url
+      - how_to
+      title: StoreEntry
+    StoresData:
+      properties:
+        stores:
+          items:
+            $ref: '#/components/schemas/StoreEntry'
+          type: array
+          title: Stores
+      type: object
+      required:
+      - stores
+      title: StoresData
+    StoresResponse:
+      properties:
+        status:
+          type: string
+          const: OK
+          title: Status
+          default: OK
+        last_updated:
+          type: string
+          pattern: ^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\+00:00$
+          title: Last Updated
+          description: When the data was last refreshed, UTC, as `YYYY-MM-DD HH:MM:SS+00:00`.
+        data:
+          $ref: '#/components/schemas/StoresData'
+      type: object
+      required:
+      - status
+      - last_updated
+      - data
+      title: StoresResponse
+    Tag:
+      properties:
+        tag:
+          type: string
+          title: Tag
+          examples:
+          - latest
+        desc:
+          type: string
+          title: Desc
+      type: object
+      required:
+      - tag
+      - desc
+      title: Tag
+    TestArchSummary:
+      properties:
+        success:
+          type: boolean
+          title: Success
+        passed:
+          type: integer
+          title: Passed
+        failed:
+          type: integer
+          title: Failed
+        total:
+          type: integer
+          title: Total
+        failed_tests:
+          items:
+            type: string
+          type: array
+          title: Failed Tests
+          description: Names of the tests that did not pass.
+        startup_seconds:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Startup Seconds
+        listening_ports:
+          items:
+            type: string
+          type: array
+          title: Listening Ports
+          description: '`<port>/tcp` and `<port>/udp` the container listened on.'
+        warnings:
+          type: integer
+          title: Warnings
+          description: How many checks warned.
+        rss_bytes:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Rss Bytes
+        pids:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Pids
+        tarball:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tarball
+          description: '`test.<arch>.tar.gz` on the Release (a download link).'
+        files:
+          additionalProperties:
+            type: string
+          type: object
+          title: Files
+          description: The report's files unpacked on the repository's Pages, by the kind `files` names in the report (`screenshot`, `container_log`, `browser_log`, `sysinfo`, `shellcheck`). `package_diff.txt` sits next to them when the harness wrote one.
+      type: object
+      required:
+      - success
+      - passed
+      - failed
+      - total
+      - failed_tests
+      - listening_ports
+      - warnings
+      title: TestArchSummary
+    TestCase:
+      properties:
+        name:
+          type: string
+          title: Name
+        status:
+          type: string
+          title: Status
+          examples:
+          - PASS
+          - FAIL
+          - SKIP
+        message:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Message
+        seconds:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Seconds
+      additionalProperties: true
+      type: object
+      required:
+      - name
+      - status
+      title: TestCase
+    TestReport:
+      properties:
+        schema:
+          type: integer
+          title: Schema
+        image:
+          type: string
+          title: Image
+        tag:
+          type: string
+          title: Tag
+        arch:
+          type: string
+          enum:
+          - amd64
+          - arm64
+          title: Arch
+        started:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Started
+        finished:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Finished
+        success:
+          type: boolean
+          title: Success
+        runner:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Runner
+        ci_version:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Ci Version
+        engine:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Engine
+        startup_seconds:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Startup Seconds
+        tests:
+          items:
+            $ref: '#/components/schemas/TestCase'
+          type: array
+          title: Tests
+        warnings:
+          anyOf:
+          - additionalProperties:
+              type: string
+            type: object
+          - type: 'null'
+          title: Warnings
+        files:
+          anyOf:
+          - additionalProperties:
+              type: string
+            type: object
+          - type: 'null'
+          title: Files
+          description: Files in `test.<arch>.tar.gz`, by kind.
+        runtime:
+          anyOf:
+          - $ref: '#/components/schemas/TestRuntime'
+          - type: 'null'
+      additionalProperties: true
+      type: object
+      required:
+      - schema
+      - image
+      - tag
+      - arch
+      - success
+      title: TestReport
+      description: '`test.<arch>.json` as the ci harness attached it to the Release, validated against the contract on ingest.'
+    TestRuntime:
+      properties:
+        rss_bytes:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Rss Bytes
+        pids:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Pids
+        listening_tcp:
+          anyOf:
+          - items:
+              type: integer
+            type: array
+          - type: 'null'
+          title: Listening Tcp
+        listening_udp:
+          anyOf:
+          - items:
+              type: integer
+            type: array
+          - type: 'null'
+          title: Listening Udp
+        s6_services:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: S6 Services
+        changed_paths:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Changed Paths
+      additionalProperties: true
+      type: object
+      title: TestRuntime
+    ValueChange:
+      properties:
+        from:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: From
+        to:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: To
+        changed:
+          type: boolean
+          title: Changed
+      type: object
+      required:
+      - changed
+      title: ValueChange
+    Volume:
+      properties:
+        path:
+          type: string
+          title: Path
+          description: Path inside the container.
+        host_path:
+          type: string
+          title: Host Path
+          description: Example path on the host.
+        desc:
+          type: string
+          title: Desc
+        optional:
+          type: boolean
+          title: Optional
+      type: object
+      required:
+      - path
+      - host_path
+      - desc
+      - optional
+      title: Volume
+    VulnerabilitySummary:
+      properties:
+        critical:
+          type: integer
+          minimum: 0.0
+          title: Critical
+        high:
+          type: integer
+          minimum: 0.0
+          title: High
+        medium:
+          type: integer
+          minimum: 0.0
+          title: Medium
+        low:
+          type: integer
+          minimum: 0.0
+          title: Low
+        negligible:
+          type: integer
+          minimum: 0.0
+          title: Negligible
+        unknown:
+          type: integer
+          minimum: 0.0
+          title: Unknown
+        fixed:
+          type: integer
+          minimum: 0.0
+          title: Fixed
+          description: The distribution or upstream ships a fixed version.
+        unfixed:
+          type: integer
+          minimum: 0.0
+          title: Unfixed
+          description: 'No fix is known: `not-fixed` and `unknown` fix states.'
+        wont_fix:
+          type: integer
+          minimum: 0.0
+          title: Wont Fix
+          description: The distribution has decided not to fix it for this release.
+      type: object
+      required:
+      - critical
+      - high
+      - medium
+      - low
+      - negligible
+      - unknown
+      - fixed
+      - unfixed
+      - wont_fix
+      title: VulnerabilitySummary
+      description: 'Counts of a build''s own vulnerability scan, made when it was built (grype against each architecture''s syft SBOM,
+
+        with that day''s database) and never rescanned: over distinct findings, one per vulnerability id and package across
+
+        the architectures. The findings are the build''s `vulns.json` on its repository''s Pages (`links.vulns`).'
+tags:
+- name: Images
+  description: Every image, or one image in full.
+- name: Builds
+  description: 'Every build of an image: the build record, packages, layers and the diff.'
+- name: Mods
+  description: Docker mods, fleet-wide and per image.
+- name: PRoot Apps
+  description: Desktop apps installed without privileges by the proot-apps CLI.
+- name: Packages
+  description: Which images ship a package, and in which versions.
+- name: Fleet
+  description: Numbers, categories, base images and changes across all images.
+- name: Service
+  description: Whether the data is fresh, and where the store output is.
+- name: Compatibility
+  description: 'The api.linuxserver.io endpoints, with the same paths and response shapes. Prefer the `.json` paths: they are identical and served as `application/json`.'

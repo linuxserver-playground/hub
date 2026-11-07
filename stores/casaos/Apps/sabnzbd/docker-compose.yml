@@ -1,0 +1,63 @@
+name: sabnzbd
+services:
+  sabnzbd:
+    image: ghcr.io/linuxserver-playground/sabnzbd:latest
+    container_name: sabnzbd
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/sabnzbd/config:/config
+    - /DATA/AppData/sabnzbd/incomplete-downloads:/incomplete-downloads
+    - /DATA/AppData/sabnzbd/downloads:/downloads
+    ports:
+    - 8080:8080
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8080'
+        description:
+          en_us: HTTP port for the WebUI.
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /incomplete-downloads
+        description:
+          en_us: Local path for incomplete-downloads.
+      - container: /downloads
+        description:
+          en_us: Local path for finished downloads.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: sabnzbd
+  author: LinuxServer.io
+  developer: Sabnzbd
+  category: Downloaders
+  description:
+    en_us: Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.
+  tagline:
+    en_us: Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can
+  title:
+    en_us: Sabnzbd
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sabnzbd-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sabnzbd-banner.png
+  store_app_id: sabnzbd
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-sabnzbd/builds/5.1.3-ls9/amd64/screenshot.png
+  port_map: '8080'

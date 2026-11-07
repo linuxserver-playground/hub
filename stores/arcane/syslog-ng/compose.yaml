@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syslog-ng-logo.png
+  urls:
+  - https://www.syslog-ng.com/products/open-source-log-management/
+  - https://github.com/linuxserver-playground/docker-syslog-ng
+services:
+  syslog-ng:
+    image: ghcr.io/linuxserver-playground/syslog-ng:latest
+    container_name: syslog-ng
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_5514_UDP:-514}:5514/udp
+    - ${PORT_6601_TCP:-601}:6601/tcp
+    - ${PORT_6514_TCP:-6514}:6514/tcp
+    restart: unless-stopped

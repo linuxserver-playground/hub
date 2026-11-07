@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-altus/blob/master/image.yml -->
+<Container version="2">
+    <Name>altus</Name>
+    <Repository>ghcr.io/linuxserver-playground/altus</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/altus</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-altus/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-altus#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-altus#readme</ReadMe>
+    <Project>https://github.com/amanharwara/altus</Project>
+    <Overview>Altus(https://github.com/amanharwara/altus) is an Electron-based WhatsApp client with themes and multiple account support.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/altus.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/altus-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-altus/builds/5.8.1-ls7/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-altus#security for more information.
+    </Requires>
+    <Date>2026-04-03</Date>
+    <Changes>
+### 2026-04-03
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2026-03-21
+- Use Wayland ozone platform fixes scaling and acceleration.
+
+### 2025-12-28
+- Add Wayland init logic.
+
+### 2025-09-22
+- Rebase to Debian Trixie.
+
+### 2025-07-12
+- Rebase to Selkies, HTTPS IS NOW REQUIRED.
+
+### 2024-10-19
+- Switch to multi-arch.
+
+### 2024-01-29
+- Structural changes for v5.
+
+### 2023-12-07
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Altus desktop gui HTTP, must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="Altus desktop gui HTTPS." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores program settings and files." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

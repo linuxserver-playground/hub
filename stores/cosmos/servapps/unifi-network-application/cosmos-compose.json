@@ -1,0 +1,110 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "MONGO_USER",
+        "label": "Mongodb Username. Only evaluated on first run. Special characters must be url encoded.",
+        "initialValue": "unifi",
+        "type": "text"
+      },
+      {
+        "name": "MONGO_PASS",
+        "label": "Mongodb Password. Only evaluated on first run. Special characters must be url encoded.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "MONGO_HOST",
+        "label": "Mongodb Hostname. Only evaluated on first run.",
+        "initialValue": "unifi-db",
+        "type": "text"
+      },
+      {
+        "name": "MONGO_PORT",
+        "label": "Mongodb Port. Only evaluated on first run.",
+        "initialValue": "27017",
+        "type": "text"
+      },
+      {
+        "name": "MONGO_DBNAME",
+        "label": "Mongodb Database Name (stats DB is automatically suffixed with stat). Only evaluated on first run.",
+        "initialValue": "unifi",
+        "type": "text"
+      },
+      {
+        "name": "MONGO_AUTHSOURCE",
+        "label": "Mongodb authSource. For Atlas set to admin. Only evaluated on first run.",
+        "initialValue": "admin",
+        "type": "text"
+      },
+      {
+        "name": "MEM_LIMIT",
+        "label": "Optionally change the Java memory limit (in Megabytes). Set to default to reset to default",
+        "initialValue": "1024",
+        "type": "text"
+      },
+      {
+        "name": "MEM_STARTUP",
+        "label": "Optionally change the Java initial/minimum memory (in Megabytes). Set to default to reset to default",
+        "initialValue": "1024",
+        "type": "text"
+      },
+      {
+        "name": "MONGO_TLS",
+        "label": "Mongodb enable TLS. Only evaluated on first run.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/unifi-network-application:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "MONGO_USER={Context.MONGO_USER}",
+        "MONGO_PASS={Context.MONGO_PASS}",
+        "MONGO_HOST={Context.MONGO_HOST}",
+        "MONGO_PORT={Context.MONGO_PORT}",
+        "MONGO_DBNAME={Context.MONGO_DBNAME}",
+        "MONGO_AUTHSOURCE={Context.MONGO_AUTHSOURCE}",
+        "MEM_LIMIT={Context.MEM_LIMIT}",
+        "MEM_STARTUP={Context.MEM_STARTUP}",
+        "MONGO_TLS={Context.MONGO_TLS}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/unifi-banner.png",
+        "cosmos.stack": "{ServiceName}-unifi-network-application"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8443",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

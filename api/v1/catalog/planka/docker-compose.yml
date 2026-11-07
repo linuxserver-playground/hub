@@ -1,0 +1,23 @@
+---
+services:
+  planka:
+    image: ghcr.io/linuxserver-playground/planka:latest
+    container_name: planka
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - BASE_URL=https://planka.example.com
+      - DATABASE_URL=postgresql://user:password@planka-db:5432/planka
+      - DEFAULT_ADMIN_EMAIL=demo@demo.demo
+      - DEFAULT_ADMIN_USERNAME=demo
+      - DEFAULT_ADMIN_PASSWORD=demo
+      - "DEFAULT_ADMIN_NAME=Demo User"
+      - SECRET_KEY=notasecretkey
+      - TRUST_PROXY=false
+      - DEFAULT_LANGUAGE=en-US #optional
+    volumes:
+      - /path/to/planka/data:/config
+    ports:
+      - 1337:1337
+    restart: unless-stopped

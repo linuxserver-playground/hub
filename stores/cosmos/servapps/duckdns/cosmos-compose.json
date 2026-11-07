@@ -1,0 +1,60 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "SUBDOMAINS",
+        "label": "multiple subdomains allowed, comma separated, no spaces, if your domain is user.duckdns.org you put user, not a sub-subdomain",
+        "initialValue": "subdomain1,subdomain2",
+        "type": "text"
+      },
+      {
+        "name": "TOKEN",
+        "label": "DuckDNS token",
+        "initialValue": "token",
+        "type": "password"
+      },
+      {
+        "name": "UPDATE_IP",
+        "label": "Set to ipv6 or ipv4 to update only your public IPv4/6 address. Set to both to update IPv6 and IPv4 address. This variable makes use of a third-party service. Omitting this variable uses DuckDNS for detection and only supports IPv4. both and ipv6 modes needs host networking.",
+        "initialValue": "ipv4",
+        "type": "text"
+      },
+      {
+        "name": "LOG_FILE",
+        "label": "Set to true to log to file (also need to map /config).",
+        "initialValue": "false",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/duckdns:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "SUBDOMAINS={Context.SUBDOMAINS}",
+        "TOKEN={Context.TOKEN}",
+        "UPDATE_IP={Context.UPDATE_IP}",
+        "LOG_FILE={Context.LOG_FILE}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png",
+        "cosmos.stack": "{ServiceName}-duckdns"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped"
+    }
+  }
+}

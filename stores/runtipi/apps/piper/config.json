@@ -1,0 +1,79 @@
+{
+  "name": "Piper",
+  "available": true,
+  "exposable": true,
+  "port": 10200,
+  "id": "piper",
+  "tipi_version": 1,
+  "version": "2.5.2",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Piper is a fast, local neural text to speech system that sounds great and is optimized for the Raspberry Pi 4. This container provides a Wyoming protocol server for Piper.",
+  "short_desc": "Piper is a fast, local neural text to speech system that sounds great and is optimized for the Raspberry Pi 4",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-piper",
+  "website": "https://github.com/rhasspy/wyoming-piper",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piper-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "PIPER_VOICE",
+      "hint": "The Piper voice to use, in the format <language>-<name>-<quality>",
+      "required": true,
+      "env_variable": "PIPER_PIPER_VOICE",
+      "default": "en_US-lessac-medium"
+    },
+    {
+      "type": "text",
+      "label": "LOCAL_ONLY",
+      "hint": "If set to true, or any other value, the container will not attempt to download models from HuggingFace and will only use locally-provided models.",
+      "required": false,
+      "env_variable": "PIPER_LOCAL_ONLY"
+    },
+    {
+      "type": "text",
+      "label": "PIPER_LENGTH",
+      "hint": "Voice speaking rate, 1.0 is default with < 1.0 being faster and > 1.0 being slower.",
+      "required": false,
+      "env_variable": "PIPER_PIPER_LENGTH",
+      "default": "1.0"
+    },
+    {
+      "type": "text",
+      "label": "PIPER_NOISE",
+      "hint": "Controls the variability of the voice by adding noise. Values above 1 will start to degrade audio.",
+      "required": false,
+      "env_variable": "PIPER_PIPER_NOISE",
+      "default": "0.667"
+    },
+    {
+      "type": "text",
+      "label": "PIPER_NOISEW",
+      "hint": "Controls the variability of speaking cadence. Values above 1 produce extreme stutters and pauses.",
+      "required": false,
+      "env_variable": "PIPER_PIPER_NOISEW",
+      "default": "0.333"
+    },
+    {
+      "type": "text",
+      "label": "PIPER_SPEAKER",
+      "hint": "Speaker number to use if the voice supports multiple speakers.",
+      "required": false,
+      "env_variable": "PIPER_PIPER_SPEAKER",
+      "default": "0"
+    },
+    {
+      "type": "text",
+      "label": "NO_STREAMING",
+      "hint": "Setting to true, or any other value, will disable support for streaming audio on sentence boundaries.",
+      "required": false,
+      "env_variable": "PIPER_NO_STREAMING"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

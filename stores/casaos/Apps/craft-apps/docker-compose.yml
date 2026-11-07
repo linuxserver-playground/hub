@@ -1,0 +1,59 @@
+name: craft-apps
+services:
+  craft-apps:
+    image: ghcr.io/linuxserver-playground/craft-apps:latest
+    container_name: craft-apps
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/craft-apps/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Craft Apps desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Craft Apps desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: craft-apps
+  author: LinuxServer.io
+  developer: Craft-apps
+  category: Image Editor
+  description:
+    en_us: ArtCraft is a suite of open source creative applications written in Rust. This image bundles PhotoCraft (image editor), VectorCraft (vector illustration), FilmCraft (video editor), LightCraft (photo library and raw developer), PdfCraft (PDF workbench), EffectCraft (motion graphics and VFX compositor), DesignCraft (page layout and publishing) and FigCraft (interface design and prototyping) in a single desktop.
+  tagline:
+    en_us: ArtCraft is a suite of open source creative applications written in Rust
+  title:
+    en_us: Craft-apps
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/artcraft-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/artcraft-logo.png
+  store_app_id: craft-apps
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-craft-apps/builds/v0.21.0-ls7/amd64/screenshot.png
+  port_map: '3000'

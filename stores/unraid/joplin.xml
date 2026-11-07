@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-joplin/blob/master/image.yml -->
+<Container version="2">
+    <Name>joplin</Name>
+    <Repository>ghcr.io/linuxserver-playground/joplin</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/joplin</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-joplin/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-joplin#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-joplin#readme</ReadMe>
+    <Project>https://joplinapp.org/</Project>
+    <Overview>Joplin(https://joplinapp.org/) is a free, open source note taking and to-do application, which can handle a large number of notes organised into notebooks.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/joplin.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/joplin-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-joplin/builds/v3.7.22-ls8/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-joplin#security for more information.
+    </Requires>
+    <Date>2026-04-03</Date>
+    <Changes>
+### 2026-04-03
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2026-03-21
+- Use Wayland ozone platform fixes scaling and acceleration.
+
+### 2025-12-28
+- Add Wayland init logic.
+
+### 2025-08-19
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Joplin desktop gui HTTP, must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="Joplin desktop gui HTTPS." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores program settings and files." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

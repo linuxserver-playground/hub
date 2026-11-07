@@ -1,0 +1,58 @@
+name: pcsx2
+services:
+  pcsx2:
+    image: ghcr.io/linuxserver-playground/pcsx2:latest
+    container_name: pcsx2
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/pcsx2/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP PCSX2 desktop gui must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS PCSX2 desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: pcsx2
+  author: LinuxServer.io
+  developer: Pcsx2
+  category: Games
+  description:
+    en_us: PCSX2 is an open source PS2 Emulator.
+  tagline:
+    en_us: PCSX2 is an open source PS2 Emulator
+  title:
+    en_us: Pcsx2
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pcsx2-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pcsx2-logo.png
+  store_app_id: pcsx2
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-pcsx2/builds/2.8.2-ls7/amd64/screenshot.png
+  port_map: '3000'

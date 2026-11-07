@@ -1,0 +1,75 @@
+name: sealskin
+services:
+  sealskin:
+    image: ghcr.io/linuxserver-playground/sealskin:latest
+    container_name: sealskin
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - HOST_URL=IP or subdomain.domain.com
+    volumes:
+    - /DATA/AppData/sealskin/config:/config
+    - /DATA/AppData/sealskin/storage:/storage
+    - /DATA/AppData/sealskin/var/run/docker.sock:/var/run/docker.sock
+    ports:
+    - 8443:8443
+    - 8000:8000
+    - 8444:8444
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: HOST_URL
+        description:
+          en_us: On initial setup this will be used to fill in the default admin configuration file in the /config directory, if unset the string HOSTURL will need to be replaced.
+      ports:
+      - container: '8443'
+        description:
+          en_us: HTTPS Sessions and API communication port.
+      - container: '8000'
+        description:
+          en_us: HTTP fallback API port, only needed by the Chrome extension with a self-signed certificate.
+      - container: '8444'
+        description:
+          en_us: Peer listener, only needed to join several servers into a cluster.
+      volumes:
+      - container: /config
+        description:
+          en_us: All configuration files and metadata for the application.
+      - container: /storage
+        description:
+          en_us: All file storage for home directories and ephemeral mounts.
+      - container: /var/run/docker.sock
+        description:
+          en_us: Docker socket, required to spin up application containers.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: sealskin
+  author: LinuxServer.io
+  developer: Sealskin
+  category: Remote Desktop
+  description:
+    en_us: Sealskin is a self-hosted browser isolation and remote application streaming platform. It runs desktop applications in isolated containers on a server you control and streams them to any browser or phone. Clients include a browser extension, mobile apps, and a web app served by the server itself. Each turns links, files, downloads, and text selections into something you open remotely instead of locally, so nothing from the web runs on the device in front of you.
+  tagline:
+    en_us: Sealskin is a self-hosted browser isolation and remote application streaming platform
+  title:
+    en_us: Sealskin
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sealskin-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sealskin-logo.png
+  store_app_id: sealskin
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-sealskin/builds/0.4.2-ls8/amd64/screenshot.png
+  port_map: '8443'

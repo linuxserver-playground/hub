@@ -1,0 +1,15 @@
+---
+services:
+  davos:
+    image: ghcr.io/linuxserver-playground/davos:latest
+    container_name: davos
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/davos/data:/config
+      - /path/to/downloads/folder:/download
+    ports:
+      - 8080:8080
+    restart: unless-stopped

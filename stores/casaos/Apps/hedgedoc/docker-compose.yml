@@ -1,0 +1,99 @@
+name: hedgedoc
+services:
+  hedgedoc:
+    image: ghcr.io/linuxserver-playground/hedgedoc:latest
+    container_name: hedgedoc
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - DB_HOST=<hostname or ip>
+    - DB_PORT=3306
+    - DB_USER=hedgedoc
+    - DB_PASS=<secret password>
+    - DB_NAME=hedgedoc
+    - CMD_DOMAIN=localhost
+    - CMD_URL_ADDPORT=false
+    - CMD_PROTOCOL_USESSL=false
+    - CMD_PORT=3000
+    - CMD_ALLOW_ORIGIN=['localhost']
+    - CMD_DB_DIALECT=
+    volumes:
+    - /DATA/AppData/hedgedoc/config:/config
+    ports:
+    - 3000:3000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: DB_HOST
+        description:
+          en_us: Host address of mariadb database
+      - container: DB_PORT
+        description:
+          en_us: Port to access mariadb database default is 3306
+      - container: DB_USER
+        description:
+          en_us: Database user
+      - container: DB_PASS
+        description:
+          en_us: Database password
+      - container: DB_NAME
+        description:
+          en_us: Database name
+      - container: CMD_DOMAIN
+        description:
+          en_us: The address the gui will be accessed at (ie. 192.168.1.1 or hedgedoc.domain.com).
+      - container: CMD_URL_ADDPORT
+        description:
+          en_us: Set to true if using a port other than 80 or 443.
+      - container: CMD_PROTOCOL_USESSL
+        description:
+          en_us: Set to true if accessing over https via reverse proxy.
+      - container: CMD_PORT
+        description:
+          en_us: If you wish to access hedgedoc at a port different than 80, 443 or 3000, you need to set this to that port (ie. CMDPORT=5000) and change the port mapping accordingly (5000:5000).
+      - container: CMD_ALLOW_ORIGIN
+        description:
+          en_us: Comma-separated list of allowed hostnames
+      - container: CMD_DB_DIALECT
+        description:
+          en_us: 'This variable allows selecting a database engine (if DBHOST not set up). Available options are: mariadb, mysql, postgres, sqlite.'
+      ports:
+      - container: '3000'
+        description:
+          en_us: Web gui port (internal port also needs to be changed if accessing at port other than 80, 443 and 3000).
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: hedgedoc
+  author: LinuxServer.io
+  developer: Hedgedoc
+  category: Content Management
+  description:
+    en_us: HedgeDoc gives you access to all your files wherever you are.
+  tagline:
+    en_us: HedgeDoc gives you access to all your files wherever you are
+  title:
+    en_us: Hedgedoc
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png
+  store_app_id: hedgedoc
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-hedgedoc/builds/1.12.0-ls8/amd64/screenshot.png
+  port_map: '3000'

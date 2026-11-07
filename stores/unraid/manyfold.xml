@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-manyfold/blob/main/image.yml -->
+<Container version="2">
+    <Name>manyfold</Name>
+    <Repository>ghcr.io/linuxserver-playground/manyfold</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/manyfold</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-manyfold/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-manyfold#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-manyfold#readme</ReadMe>
+    <Project>https://github.com/manyfold3d/manyfold/</Project>
+    <Overview>Manyfold(https://github.com/manyfold3d/manyfold/) is an open source, self-hosted web application for managing a collection of 3D models, particularly focused on 3D printing.</Overview>
+    <WebUI>http://[IP]:[PORT:3214]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/manyfold.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/manyfold-logo.png</Icon>
+    <Date>2026-07-05</Date>
+    <Changes>
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2026-01-13
+- Rebase to Alpine 3.23.
+
+### 2025-10-08
+- Change key init to auto generate and persist.
+
+### 2025-07-27
+- Rebase to Alpine 3.22.
+
+### 2025-01-12
+- Rebase to Alpine 3.21.
+
+### 2024-07-23
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3214" Default="3214" Mode="tcp" Description="Port for web frontend" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent storage for application configuration data." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /libraries" Target="/libraries" Default="" Mode="rw" Description="Location of your 3D model libraries." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="DATABASE_URL" Target="DATABASE_URL" Default="" Description="Database connection URL. For sqlite use `sqlite3:/config/manyfold.sqlite3`. For postgres or mariadb use `scheme://username:password@hostname:port/db name` where `scheme` is `postgresql` or `mysql2`. Special characters in username/password must be URL encoded(https://en.wikipedia.org/wiki/Percent-encoding)." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="REDIS_URL" Target="REDIS_URL" Default="" Description="Redis/Valkey database URL in `redis://hostname:port/db number` format." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="SECRET_KEY_BASE" Target="SECRET_KEY_BASE" Default="" Description="Browser session and database encryption key. If unset a random one will be generated on init, the database is locked to this key." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

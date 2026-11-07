@@ -1,0 +1,63 @@
+name: cops
+services:
+  cops:
+    image: ghcr.io/linuxserver-playground/cops:latest
+    container_name: cops
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/cops/config:/config
+    - /DATA/AppData/cops/books:/books
+    ports:
+    - 80:80
+    - 443:443
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '80'
+        description:
+          en_us: HTTP WebUI
+      - container: '443'
+        description:
+          en_us: HTTPS WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: COPS Application Data.
+      - container: /books
+        description:
+          en_us: Calibre metadata.db location.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: cops
+  author: LinuxServer.io
+  developer: Cops
+  category: Books
+  description:
+    en_us: Cops by Sébastien Lucas, now maintained by MikesPub, stands for Calibre OPDS (and HTML) Php Server.
+  tagline:
+    en_us: Cops by Sébastien Lucas, now maintained by MikesPub, stands for Calibre OPDS (and HTML) Php Server
+  title:
+    en_us: Cops
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cops-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cops-icon.png
+  store_app_id: cops
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-cops/builds/4.6.1-ls6/amd64/screenshot.png
+  port_map: '80'

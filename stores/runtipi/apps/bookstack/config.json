@@ -1,0 +1,82 @@
+{
+  "name": "Bookstack",
+  "available": true,
+  "exposable": true,
+  "port": 6875,
+  "id": "bookstack",
+  "tipi_version": 1,
+  "version": "v26.09.2",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Bookstack is a free and open source Wiki designed for creating beautiful documentation. Featuring a simple, but powerful WYSIWYG editor it allows for teams to create detailed and useful documentation with ease.",
+  "short_desc": "Bookstack is a free and open source Wiki designed for creating beautiful documentation",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-bookstack",
+  "website": "https://codeberg.org/bookstack/bookstack",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bookstack-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "APP_URL",
+      "hint": "The protocol, IP/URL, and port that your application will be accessed on (ie. http://192.168.1.1:6875 or https://bookstack.mydomain.com",
+      "required": true,
+      "env_variable": "BOOKSTACK_APP_URL"
+    },
+    {
+      "type": "password",
+      "label": "APP_KEY",
+      "hint": "Session encryption key. You will need to generate this with docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey",
+      "required": true,
+      "env_variable": "BOOKSTACK_APP_KEY"
+    },
+    {
+      "type": "text",
+      "label": "DB_HOST",
+      "hint": "The database instance hostname",
+      "required": true,
+      "env_variable": "BOOKSTACK_DB_HOST"
+    },
+    {
+      "type": "text",
+      "label": "DB_PORT",
+      "hint": "Database port",
+      "required": true,
+      "env_variable": "BOOKSTACK_DB_PORT",
+      "default": "3306"
+    },
+    {
+      "type": "text",
+      "label": "DB_USERNAME",
+      "hint": "Database user",
+      "required": true,
+      "env_variable": "BOOKSTACK_DB_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "DB_PASSWORD",
+      "hint": "Database password (minimum 4 characters & non-alphanumeric passwords must be properly escaped.)",
+      "required": true,
+      "env_variable": "BOOKSTACK_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "DB_DATABASE",
+      "hint": "Database name",
+      "required": true,
+      "env_variable": "BOOKSTACK_DB_DATABASE"
+    },
+    {
+      "type": "text",
+      "label": "QUEUE_CONNECTION",
+      "hint": "Set to database to enable async actions like sending email or triggering webhooks. See documentation.",
+      "required": false,
+      "env_variable": "BOOKSTACK_QUEUE_CONNECTION"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

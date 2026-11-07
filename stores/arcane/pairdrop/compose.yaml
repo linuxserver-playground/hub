@@ -1,0 +1,16 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png
+  urls:
+  - https://github.com/schlagmichdoch/PairDrop
+  - https://github.com/linuxserver-playground/docker-pairdrop
+services:
+  pairdrop:
+    image: ghcr.io/linuxserver-playground/pairdrop:latest
+    container_name: pairdrop
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    ports:
+    - ${PORT_3000:-3000}:3000
+    restart: unless-stopped

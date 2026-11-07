@@ -1,0 +1,63 @@
+name: firefox
+services:
+  firefox:
+    image: ghcr.io/linuxserver-playground/firefox:latest
+    container_name: firefox
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - FIREFOX_CLI=https://www.linuxserver.io/
+    volumes:
+    - /DATA/AppData/firefox/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: FIREFOX_CLI
+        description:
+          en_us: Specify one or multiple Firefox CLI flags, this string will be passed to the application in full.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Firefox desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Firefox desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: firefox
+  author: LinuxServer.io
+  developer: Firefox
+  category: Web Browser
+  description:
+    en_us: Firefox Browser, also known as Mozilla Firefox or simply Firefox, is a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation. Firefox uses the Gecko layout engine to render web pages, which implements current and anticipated web standards.
+  tagline:
+    en_us: Firefox Browser, also known as Mozilla Firefox or simply Firefox, is a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation
+  title:
+    en_us: Firefox
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/firefox-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/firefox-logo.png
+  store_app_id: firefox
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-firefox/builds/1159.0build1-1xtradeb1.2404.1-ls6/amd64/screenshot.png
+  port_map: '3000'

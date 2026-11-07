@@ -1,0 +1,55 @@
+name: grav
+services:
+  grav:
+    image: ghcr.io/linuxserver-playground/grav:latest
+    container_name: grav
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/grav/config:/config
+    ports:
+    - 80:80
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '80'
+        description:
+          en_us: Port for web frontend
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: grav
+  author: LinuxServer.io
+  developer: Grav
+  category: Content Management
+  description:
+    en_us: Grav is a Fast, Simple, and Flexible, file-based Web-platform.
+  tagline:
+    en_us: Grav is a Fast, Simple, and Flexible, file-based Web-platform
+  title:
+    en_us: Grav
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grav-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grav-logo.png
+  store_app_id: grav
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-grav/builds/2.2.27-ls9/amd64/screenshot.png
+  port_map: '80'

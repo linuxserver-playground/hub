@@ -1,0 +1,67 @@
+name: jackett
+services:
+  jackett:
+    image: ghcr.io/linuxserver-playground/jackett:latest
+    container_name: jackett
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - AUTO_UPDATE=true
+    - RUN_OPTS=
+    volumes:
+    - /DATA/AppData/jackett/config:/config
+    - /DATA/AppData/jackett/downloads:/downloads
+    ports:
+    - 9117:9117
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: AUTO_UPDATE
+        description:
+          en_us: Allow Jackett to update inside of the container.
+      - container: RUN_OPTS
+        description:
+          en_us: Optionally specify additional arguments to be passed.
+      ports:
+      - container: '9117'
+        description:
+          en_us: WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Where Jackett should store its config file.
+      - container: /downloads
+        description:
+          en_us: Path to torrent blackhole.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: jackett
+  author: LinuxServer.io
+  developer: Jackett
+  category: Indexers
+  description:
+    en_us: 'Jackett works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.'
+  tagline:
+    en_us: 'Jackett works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software'
+  title:
+    en_us: Jackett
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jackett-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jackett-banner.png
+  store_app_id: jackett
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-jackett/builds/v0.24.3025-ls8/amd64/screenshot.png
+  port_map: '9117'

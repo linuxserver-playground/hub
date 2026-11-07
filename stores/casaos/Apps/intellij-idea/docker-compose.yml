@@ -1,0 +1,58 @@
+name: intellij-idea
+services:
+  intellij-idea:
+    image: ghcr.io/linuxserver-playground/intellij-idea:latest
+    container_name: intellij-idea
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/intellij-idea/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: IntelliJ IDEA desktop gui HTTP must be proxied.
+      - container: '3001'
+        description:
+          en_us: IntelliJ IDEA desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: intellij-idea
+  author: LinuxServer.io
+  developer: Intellij-idea
+  category: Programming
+  description:
+    en_us: IntelliJ IDEA helps you write code faster with tools that eliminate tedious tasks and let you focus on what matters – building great software.
+  tagline:
+    en_us: IntelliJ IDEA helps you write code faster with tools that eliminate tedious tasks and let you focus on what matters – building great software
+  title:
+    en_us: Intellij-idea
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/intellij-idea-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/intellij-idea-logo.png
+  store_app_id: intellij-idea
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-intellij-idea/builds/2026.2.3-ls5/amd64/screenshot.png
+  port_map: '3000'

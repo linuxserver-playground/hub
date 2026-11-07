@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-sealskin_server_1
+      APP_PORT: 8443
+  server:
+    image: ghcr.io/linuxserver-playground/sealskin:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      HOST_URL: IP or subdomain.domain.com
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/storage:/storage
+    - ${APP_DATA_DIR}/data/var/run/docker.sock:/var/run/docker.sock

@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lmstudio-logo.png
+  urls:
+  - https://lmstudio.ai/
+  - https://github.com/linuxserver-playground/docker-lm-studio
+services:
+  lm-studio:
+    image: ghcr.io/linuxserver-playground/lm-studio:latest
+    container_name: lm-studio
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_3000:-3000}:3000
+    - ${PORT_3001:-3001}:3001
+    restart: unless-stopped

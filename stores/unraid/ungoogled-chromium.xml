@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-ungoogled-chromium/blob/master/image.yml -->
+<Container version="2">
+    <Name>ungoogled-chromium</Name>
+    <Repository>ghcr.io/linuxserver-playground/ungoogled-chromium</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/ungoogled-chromium</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-ungoogled-chromium/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-ungoogled-chromium#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-ungoogled-chromium#readme</ReadMe>
+    <Project>https://github.com/ungoogled-software/ungoogled-chromium</Project>
+    <Overview>Ungoogled Chromium(https://github.com/ungoogled-software/ungoogled-chromium) is Google Chromium, sans dependency on Google web services.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/ungoogled-chromium.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ungoogled-chromium-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-ungoogled-chromium/builds/156.0.8078.79-1-ls7/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-ungoogled-chromium#security for more information.
+    </Requires>
+    <Date>2026-03-31</Date>
+    <Changes>
+### 2026-03-31
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2025-12-20
+- Add Wayland init logic.
+
+### 2025-09-27
+- Multi arch arm64 support added.
+
+### 2025-09-22
+- Rebase to Debian Trixie.
+
+### 2025-07-12
+- Rebase to Selkies, HTTPS IS NOW REQUIRED.
+
+### 2025-04-03
+- Update chromium launch options to improve performance.
+
+### 2024-07-25
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="HTTP Ungoogled Chromium desktop gui, must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="HTTPS Ungoogled Chromium desktop gui." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores local files and settings" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="CHROME_CLI" Target="CHROME_CLI" Default="https://www.linuxserver.io/" Description="Specify one or multiple Chromium CLI flags, this string will be passed to the application in full." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

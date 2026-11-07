@@ -1,0 +1,46 @@
+{
+  "name": "Manyfold",
+  "available": true,
+  "exposable": true,
+  "port": 3214,
+  "id": "manyfold",
+  "tipi_version": 1,
+  "version": "latest",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Manyfold is an open source, self-hosted web application for managing a collection of 3D models, particularly focused on 3D printing.",
+  "short_desc": "Manyfold is an open source, self-hosted web application for managing a collection of 3D models, particularly focused on ",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-manyfold",
+  "website": "https://github.com/manyfold3d/manyfold/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/manyfold-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "DATABASE_URL",
+      "hint": "Database connection URL. For sqlite use sqlite3:/config/manyfold.sqlite3. For postgres or mariadb use <scheme>://<username>:<password>@<hostname>:<port>/<db name> where <scheme> is postgresql or mysql2. Special characters in username/password must be URL encoded.",
+      "required": true,
+      "env_variable": "MANYFOLD_DATABASE_URL"
+    },
+    {
+      "type": "text",
+      "label": "REDIS_URL",
+      "hint": "Redis/Valkey database URL in redis://<hostname>:<port>/<db number> format.",
+      "required": true,
+      "env_variable": "MANYFOLD_REDIS_URL"
+    },
+    {
+      "type": "password",
+      "label": "SECRET_KEY_BASE",
+      "hint": "Browser session and database encryption key. If unset a random one will be generated on init, the database is locked to this key.",
+      "required": true,
+      "env_variable": "MANYFOLD_SECRET_KEY_BASE"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

@@ -1,0 +1,59 @@
+name: orcaslicer
+services:
+  orcaslicer:
+    image: ghcr.io/linuxserver-playground/orcaslicer:latest
+    container_name: orcaslicer
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/orcaslicer/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Orca Slicer desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Orca Slicer desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: orcaslicer
+  author: LinuxServer.io
+  developer: Orcaslicer
+  category: 3D Printing
+  description:
+    en_us: Orca Slicer is an open source slicer for FDM printers. OrcaSlicer is fork of Bambu Studio, it was previously known as BambuStudio-SoftFever, Bambu Studio is forked from PrusaSlicer by Prusa Research, which is from Slic3r by Alessandro Ranellucci and the RepRap community
+  tagline:
+    en_us: Orca Slicer is an open source slicer for FDM printers
+  title:
+    en_us: Orcaslicer
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/orcaslicer-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/orcaslicer-logo.png
+  store_app_id: orcaslicer
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-orcaslicer/builds/v2.5.0-ls7/amd64/screenshot.png
+  port_map: '3000'

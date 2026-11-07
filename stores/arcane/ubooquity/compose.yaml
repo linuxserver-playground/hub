@@ -1,0 +1,22 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ubooquity-banner.png
+  urls:
+  - https://vaemendis.net/ubooquity/
+  - https://github.com/linuxserver-playground/docker-ubooquity
+services:
+  ubooquity:
+    image: ghcr.io/linuxserver-playground/ubooquity:latest
+    container_name: ubooquity
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${BOOKS_PATH:-./books}:/books
+    - ${COMICS_PATH:-./comics}:/comics
+    - ${FILES_PATH:-./files}:/files
+    ports:
+    - ${PORT_2202:-2202}:2202
+    - ${PORT_2203:-2203}:2203
+    restart: unless-stopped

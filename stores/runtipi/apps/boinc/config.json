@@ -1,0 +1,32 @@
+{
+  "name": "Boinc",
+  "available": true,
+  "exposable": true,
+  "port": 8080,
+  "id": "boinc",
+  "tipi_version": 1,
+  "version": "8.2.8dfsg202512070716ubuntu24.04.1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized, parallel, and GPU-based applications.",
+  "short_desc": "BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers)",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-boinc",
+  "website": "https://boinc.berkeley.edu/",
+  "logo_url": "https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "PASSWORD",
+      "hint": "Optionally set a password for the gui.",
+      "required": false,
+      "env_variable": "BOINC_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

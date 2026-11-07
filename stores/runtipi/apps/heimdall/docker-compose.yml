@@ -1,0 +1,17 @@
+services:
+  heimdall:
+    image: ghcr.io/linuxserver-playground/heimdall:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      ALLOW_INTERNAL_REQUESTS: ${HEIMDALL_ALLOW_INTERNAL_REQUESTS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 443:443
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

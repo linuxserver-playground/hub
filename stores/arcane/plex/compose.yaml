@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-logo.png
+  urls:
+  - https://plex.tv
+  - https://github.com/linuxserver-playground/docker-plex
+services:
+  plex:
+    image: ghcr.io/linuxserver-playground/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      VERSION: ${VERSION:-docker}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${TV_PATH:-./tv}:/tv
+    - ${MOVIES_PATH:-./movies}:/movies
+    restart: unless-stopped

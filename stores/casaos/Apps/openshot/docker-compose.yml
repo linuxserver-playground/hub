@@ -1,0 +1,58 @@
+name: openshot
+services:
+  openshot:
+    image: ghcr.io/linuxserver-playground/openshot:latest
+    container_name: openshot
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/openshot/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: OpenShot desktop gui (for reverse proxy only).
+      - container: '3001'
+        description:
+          en_us: OpenShot desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: User's home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  main: openshot
+  author: LinuxServer.io
+  developer: Openshot
+  category: Video Editor
+  description:
+    en_us: OpenShot Video Editor is an award-winning free and open-source video editor for Linux, Mac, and Windows, and is dedicated to delivering high quality video editing and animation solutions to the world.
+  tagline:
+    en_us: OpenShot Video Editor is an award-winning free and open-source video editor for Linux, Mac, and Windows, and is dedicated to delivering high quality video editing and animation solutions to the world
+  title:
+    en_us: Openshot
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openshot-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openshot-logo.png
+  store_app_id: openshot
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-openshot/builds/4.1.1dfsg21883202611021623ubuntu26.04.1-ls6/amd64/screenshot.png
+  port_map: '3000'

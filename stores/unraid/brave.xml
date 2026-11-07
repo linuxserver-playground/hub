@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-brave/blob/master/image.yml -->
+<Container version="2">
+    <Name>brave</Name>
+    <Repository>ghcr.io/linuxserver-playground/brave</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/brave</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-brave/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-brave#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-brave#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable Brave releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>origin</Tag>
+        <TagDescription>Brave Origin nightly releases</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-brave/tree/origin#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-brave/tree/origin#application-setup</GitHub>
+    </Branch>
+    <Project>https://brave.com/</Project>
+    <Overview>The Brave browser(https://brave.com/) is a fast, private and secure web browser for PC, Mac and mobile.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/brave.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/brave-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-brave/builds/1.99.55-ls5/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-brave#security for more information.
+    </Requires>
+    <Date>2026-04-20</Date>
+    <Changes>
+### 2026-04-20
+- Added Brave Origin as origin tag.
+
+### 2026-03-31
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2025-12-20
+- Add Wayland init logic.
+
+### 2025-09-22
+- Rebase to Debian Trixie.
+
+### 2025-06-06
+- Initial Version.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Brave desktop gui HTTP must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="Brave desktop gui HTTPS." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores local files and settings" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

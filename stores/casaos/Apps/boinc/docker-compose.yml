@@ -1,0 +1,63 @@
+name: boinc
+services:
+  boinc:
+    image: ghcr.io/linuxserver-playground/boinc:latest
+    container_name: boinc
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - PASSWORD=
+    volumes:
+    - /DATA/AppData/boinc/config:/config
+    ports:
+    - 8080:8080
+    - 8181:8181
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: PASSWORD
+        description:
+          en_us: Optionally set a password for the gui.
+      ports:
+      - container: '8080'
+        description:
+          en_us: Boinc desktop gui HTTP (only to be used by reverse proxies and not direct access).
+      - container: '8181'
+        description:
+          en_us: Boinc desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Where BOINC should store its database and config.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: boinc
+  author: LinuxServer.io
+  developer: Boinc
+  category: Science
+  description:
+    en_us: BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized, parallel, and GPU-based applications.
+  tagline:
+    en_us: BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers)
+  title:
+    en_us: Boinc
+  icon: https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg
+  thumbnail: https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg
+  store_app_id: boinc
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-boinc/builds/8.2.8dfsg202512070716ubuntu24.04.1-ls8/amd64/screenshot.png
+  port_map: '8080'

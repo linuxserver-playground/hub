@@ -1,0 +1,81 @@
+name: piper
+services:
+  piper:
+    image: ghcr.io/linuxserver-playground/piper:latest
+    container_name: piper
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - PIPER_VOICE=en_US-lessac-medium
+    - LOCAL_ONLY=
+    - PIPER_LENGTH=1.0
+    - PIPER_NOISE=0.667
+    - PIPER_NOISEW=0.333
+    - PIPER_SPEAKER=0
+    - NO_STREAMING=
+    volumes:
+    - /DATA/AppData/piper/config:/config
+    ports:
+    - 10200:10200
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: PIPER_VOICE
+        description:
+          en_us: The Piper voice to use, in the format <language>-<name>-<quality>
+      - container: LOCAL_ONLY
+        description:
+          en_us: If set to true, or any other value, the container will not attempt to download models from HuggingFace and will only use locally-provided models.
+      - container: PIPER_LENGTH
+        description:
+          en_us: Voice speaking rate, 1.0 is default with < 1.0 being faster and > 1.0 being slower.
+      - container: PIPER_NOISE
+        description:
+          en_us: Controls the variability of the voice by adding noise. Values above 1 will start to degrade audio.
+      - container: PIPER_NOISEW
+        description:
+          en_us: Controls the variability of speaking cadence. Values above 1 produce extreme stutters and pauses.
+      - container: PIPER_SPEAKER
+        description:
+          en_us: Speaker number to use if the voice supports multiple speakers.
+      - container: NO_STREAMING
+        description:
+          en_us: Setting to true, or any other value, will disable support for streaming audio on sentence boundaries.
+      ports:
+      - container: '10200'
+        description:
+          en_us: Wyoming connection port.
+      volumes:
+      - container: /config
+        description:
+          en_us: Local path for piper config files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: piper
+  author: LinuxServer.io
+  developer: Piper
+  category: Machine Learning
+  description:
+    en_us: Piper is a fast, local neural text to speech system that sounds great and is optimized for the Raspberry Pi 4. This container provides a Wyoming protocol server for Piper.
+  tagline:
+    en_us: Piper is a fast, local neural text to speech system that sounds great and is optimized for the Raspberry Pi 4
+  title:
+    en_us: Piper
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piper-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piper-logo.png
+  store_app_id: piper
+  index: /
+  scheme: http
+  port_map: '10200'

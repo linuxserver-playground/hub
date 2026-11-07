@@ -1,0 +1,16 @@
+services:
+  lidarr:
+    image: ghcr.io/linuxserver-playground/lidarr:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/music:/music
+    - ${APP_DATA_DIR}/data/downloads:/downloads
+    x-runtipi:
+      is_main: true
+      internal_port: 8686
+x-runtipi:
+  schema_version: 2

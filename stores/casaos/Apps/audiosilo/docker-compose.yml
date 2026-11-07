@@ -1,0 +1,59 @@
+name: audiosilo
+services:
+  audiosilo:
+    image: ghcr.io/linuxserver-playground/audiosilo:latest
+    container_name: audiosilo
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/audiosilo/config:/config
+    - /DATA/AppData/audiosilo/audiobooks:ro:/audiobooks:ro
+    ports:
+    - 8080:8080
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8080'
+        description:
+          en_us: Web player, admin console and the API the apps connect to.
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files, database, backups and TLS certificates.
+      - container: /audiobooks:ro
+        description:
+          en_us: Audiobooks location, read-only (the server never writes to your books). Add it as a library in the admin console.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: audiosilo
+  author: LinuxServer.io
+  developer: Audiosilo
+  category: Audiobooks
+  description:
+    en_us: AudioSilo is a self-hosted audiobook server. Point it at your audiobook folders and listen from the built-in web player or the AudioSilo apps for iOS and Android, with listening progress synced across devices.
+  tagline:
+    en_us: AudioSilo is a self-hosted audiobook server
+  title:
+    en_us: Audiosilo
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/audiosilo-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/audiosilo-logo.png
+  store_app_id: audiosilo
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-audiosilo/builds/v2.5.1-ls7/amd64/screenshot.png
+  port_map: '8080'

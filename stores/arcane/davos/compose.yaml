@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/davos/master/docs/list.PNG
+  urls:
+  - https://github.com/linuxserver/davos
+  - https://github.com/linuxserver-playground/docker-davos
+services:
+  davos:
+    image: ghcr.io/linuxserver-playground/davos:latest
+    container_name: davos
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DOWNLOAD_PATH:-./download}:/download
+    ports:
+    - ${PORT_8080:-8080}:8080
+    restart: unless-stopped

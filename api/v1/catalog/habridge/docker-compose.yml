@@ -1,0 +1,16 @@
+---
+services:
+  habridge:
+    image: ghcr.io/linuxserver-playground/habridge:latest
+    container_name: habridge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SEC_KEY=
+    volumes:
+      - /path/to/habridge/config:/config
+    ports:
+      - 8080:8080
+      - 50000:50000
+    restart: unless-stopped

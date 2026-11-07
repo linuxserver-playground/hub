@@ -1,0 +1,75 @@
+name: qbittorrent
+services:
+  qbittorrent:
+    image: ghcr.io/linuxserver-playground/qbittorrent:latest
+    container_name: qbittorrent
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - WEBUI_PORT=8080
+    - TORRENTING_PORT=6881
+    volumes:
+    - /DATA/AppData/qbittorrent/config:/config
+    - /DATA/AppData/qbittorrent/downloads:/downloads
+    ports:
+    - 8080:8080
+    - 6881:6881
+    - 6881:6881/udp
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: WEBUI_PORT
+        description:
+          en_us: for changing the port of the web UI, see below for explanation
+      - container: TORRENTING_PORT
+        description:
+          en_us: for changing the port of tcp/udp connection, see below for explanation
+      ports:
+      - container: '8080'
+        description:
+          en_us: WebUI
+      - container: '6881'
+        description:
+          en_us: tcp connection port
+      - container: '6881'
+        description:
+          en_us: udp connection port
+      volumes:
+      - container: /config
+        description:
+          en_us: Contains all relevant configuration files.
+      - container: /downloads
+        description:
+          en_us: Location of downloads on disk.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: qbittorrent
+  author: LinuxServer.io
+  developer: Qbittorrent
+  category: Downloaders
+  description:
+    en_us: The Qbittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg.
+  tagline:
+    en_us: The Qbittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg
+  title:
+    en_us: Qbittorrent
+  icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/qbittorrent-icon.png
+  thumbnail: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/qbittorrent-icon.png
+  store_app_id: qbittorrent
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-qbittorrent/builds/5.3.0_v2.1.2-ls9/amd64/screenshot.png
+  port_map: '8080'

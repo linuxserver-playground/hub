@@ -1,0 +1,59 @@
+name: nzbhydra2
+services:
+  nzbhydra2:
+    image: ghcr.io/linuxserver-playground/nzbhydra2:latest
+    container_name: nzbhydra2
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/nzbhydra2/config:/config
+    - /DATA/AppData/nzbhydra2/downloads:/downloads
+    ports:
+    - 5076:5076
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '5076'
+        description:
+          en_us: WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Where nzbhydra2 should store config data.
+      - container: /downloads
+        description:
+          en_us: NZB download folder.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: nzbhydra2
+  author: LinuxServer.io
+  developer: Nzbhydra2
+  category: Indexers
+  description:
+    en_us: Nzbhydra2 is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application NZBHydra.
+  tagline:
+    en_us: Nzbhydra2 is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application NZBHydra
+  title:
+    en_us: Nzbhydra2
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png
+  store_app_id: nzbhydra2
+  index: /system/about
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-nzbhydra2/builds/v9.2.0-ls5/amd64/screenshot.png
+  port_map: '5076'

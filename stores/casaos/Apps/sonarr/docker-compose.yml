@@ -1,0 +1,63 @@
+name: sonarr
+services:
+  sonarr:
+    image: ghcr.io/linuxserver-playground/sonarr:latest
+    container_name: sonarr
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/sonarr/config:/config
+    - /DATA/AppData/sonarr/tv:/tv
+    - /DATA/AppData/sonarr/downloads:/downloads
+    ports:
+    - 8989:8989
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8989'
+        description:
+          en_us: The port for the Sonarr web interface
+      volumes:
+      - container: /config
+        description:
+          en_us: Database and sonarr configs
+      - container: /tv
+        description:
+          en_us: Location of TV library on disk (See note in Application setup)
+      - container: /downloads
+        description:
+          en_us: Location of download managers output directory (See note in Application setup)
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: sonarr
+  author: LinuxServer.io
+  developer: Sonarr
+  category: Media Management
+  description:
+    en_us: Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
+  tagline:
+    en_us: Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users
+  title:
+    en_us: Sonarr
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png
+  store_app_id: sonarr
+  index: /system/status
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-sonarr/builds/4.0.20.3014-ls5/amd64/screenshot.png
+  port_map: '8989'

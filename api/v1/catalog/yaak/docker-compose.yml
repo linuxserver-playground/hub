@@ -1,0 +1,16 @@
+---
+services:
+  yaak:
+    image: ghcr.io/linuxserver-playground/yaak:latest
+    container_name: yaak
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/yaak/config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb"
+    restart: unless-stopped

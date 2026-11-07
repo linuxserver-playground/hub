@@ -1,0 +1,16 @@
+---
+services:
+  phpmyadmin:
+    image: ghcr.io/linuxserver-playground/phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PMA_ARBITRARY=1 #optional
+      - PMA_ABSOLUTE_URI=https://phpmyadmin.example.com #optional
+    volumes:
+      - /path/to/phpmyadmin/config:/config
+    ports:
+      - 80:80
+    restart: unless-stopped

@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-swag_server_1
+      APP_PORT: 443
+  server:
+    image: ghcr.io/linuxserver-playground/swag:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      URL: example.com
+      VALIDATION: http
+      SUBDOMAINS: www,
+      CERTPROVIDER: ''
+      CERT_PROFILE: ''
+      DNSPLUGIN: cloudflare
+      PROPAGATION: ''
+      EMAIL: ''
+      ONLY_SUBDOMAINS: 'false'
+      EXTRA_DOMAINS: ''
+      STAGING: 'false'
+      DISABLE_F2B: ''
+      SWAG_AUTORELOAD: ''
+      SWAG_AUTORELOAD_WATCHLIST: ''
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    cap_add:
+    - NET_ADMIN

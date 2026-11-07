@@ -1,0 +1,63 @@
+name: helium
+services:
+  helium:
+    image: ghcr.io/linuxserver-playground/helium:latest
+    container_name: helium
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - HELIUM_CLI=https://www.linuxserver.io/
+    volumes:
+    - /DATA/AppData/helium/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: HELIUM_CLI
+        description:
+          en_us: Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Helium desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Helium desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: helium
+  author: LinuxServer.io
+  developer: Helium
+  category: Web Browser
+  description:
+    en_us: Helium is a Chromium-based web browser made for people, with love. Privacy-first with unbiased ad-blocking.
+  tagline:
+    en_us: Helium is a Chromium-based web browser made for people, with love
+  title:
+    en_us: Helium
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/helium-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/helium-logo.png
+  store_app_id: helium
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-helium/builds/0.21.1.1-ls6/amd64/screenshot.png
+  port_map: '3000'

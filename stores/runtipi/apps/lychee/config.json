@@ -1,0 +1,90 @@
+{
+  "name": "Lychee",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "lychee",
+  "tipi_version": 1,
+  "version": "v7.12.2",
+  "categories": [
+    "media",
+    "photography"
+  ],
+  "description": "Lychee is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
+  "short_desc": "Lychee is a free photo-management tool, which runs on your server or web-space",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-lychee",
+  "website": "https://lycheeorg.github.io/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "DB_CONNECTION",
+      "hint": "DB type, from sqlite, mysql, pqsql.",
+      "required": true,
+      "env_variable": "LYCHEE_DB_CONNECTION"
+    },
+    {
+      "type": "text",
+      "label": "DB_HOST",
+      "hint": "DB server hostname. For mysql and pgsql only.",
+      "required": true,
+      "env_variable": "LYCHEE_DB_HOST"
+    },
+    {
+      "type": "text",
+      "label": "DB_PORT",
+      "hint": "DB server port. For mysql and pgsql only.",
+      "required": true,
+      "env_variable": "LYCHEE_DB_PORT"
+    },
+    {
+      "type": "text",
+      "label": "DB_USERNAME",
+      "hint": "DB user. For mysql and pgsql only.",
+      "required": true,
+      "env_variable": "LYCHEE_DB_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "DB_PASSWORD",
+      "hint": "DB password. For mysql and pgsql only.",
+      "required": true,
+      "env_variable": "LYCHEE_DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "DB_DATABASE",
+      "hint": "Path to DB file for sqlite. DB name for mysql and pgsql.",
+      "required": true,
+      "env_variable": "LYCHEE_DB_DATABASE"
+    },
+    {
+      "type": "text",
+      "label": "APP_NAME",
+      "hint": "The gallery name.",
+      "required": false,
+      "env_variable": "LYCHEE_APP_NAME",
+      "default": "Lychee"
+    },
+    {
+      "type": "text",
+      "label": "APP_URL",
+      "hint": "The URL you will use to access Lychee including protocol, and port where appropriate.",
+      "required": false,
+      "env_variable": "LYCHEE_APP_URL"
+    },
+    {
+      "type": "text",
+      "label": "TRUSTED_PROXIES",
+      "hint": "Set to the IP or netmask covering your reverse proxy, if running behind one. Set to to trust all IPs (do not use if exposed to the internet).",
+      "required": false,
+      "env_variable": "LYCHEE_TRUSTED_PROXIES"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

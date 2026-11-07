@@ -1,0 +1,17 @@
+---
+services:
+  diskover:
+    image: ghcr.io/linuxserver-playground/diskover:latest
+    container_name: diskover
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - ES_HOST=elasticsearch
+      - ES_PORT=9200
+    volumes:
+      - /path/to/diskover/config:/config
+      - /path/to/diskover/data:/data
+    ports:
+      - 80:80
+    restart: unless-stopped

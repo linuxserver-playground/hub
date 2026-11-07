@@ -1,0 +1,63 @@
+name: chrome
+services:
+  chrome:
+    image: ghcr.io/linuxserver-playground/chrome:latest
+    container_name: chrome
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - CHROME_CLI=https://www.linuxserver.io/
+    volumes:
+    - /DATA/AppData/chrome/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: CHROME_CLI
+        description:
+          en_us: Specify one or multiple Chrome CLI flags, this string will be passed to the application in full.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Chrome desktop gui must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Chrome desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: chrome
+  author: LinuxServer.io
+  developer: Chrome
+  category: Web Browser
+  description:
+    en_us: Chrome is the official web browser from Google, built to be fast, secure, and customizable.
+  tagline:
+    en_us: Chrome is the official web browser from Google, built to be fast, secure, and customizable
+  title:
+    en_us: Chrome
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png
+  store_app_id: chrome
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-chrome/builds/157.0.8103.38-1-ls4/amd64/screenshot.png
+  port_map: '3000'
