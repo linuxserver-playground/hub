@@ -1,0 +1,147 @@
+{
+ "image": "vscode",
+ "branch": "master",
+ "tag": "1.144.1-ls7",
+ "previous_tag": "1.144.1-ls6",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (4f22747 → 4b46427): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.144.1",
+  "to": "1.144.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "4f227472c77f9e12452b0cbc2a5d1d2919136edd",
+  "to": "4b464279c35225d9eb152be1753f02256fb3bcd6",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-vscode/compare/4f227472c77f9e12452b0cbc2a5d1d2919136edd...4b464279c35225d9eb152be1753f02256fb3bcd6",
+  "commits": [
+   {
+    "sha": "4b464279c35225d9eb152be1753f02256fb3bcd6",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T22:05:12Z",
+    "url": "https://github.com/linuxserver-playground/docker-vscode/commit/4b464279c35225d9eb152be1753f02256fb3bcd6",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:98982a274f5092704f89e8c3b6027733ed6e724528bd7faf850a571036cb1671"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:98982a274f5092704f89e8c3b6027733ed6e724528bd7faf850a571036cb1671"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1522291413,
+   "to": 1522305313,
+   "delta": 13900
+  },
+  "arm64": {
+   "from": 1457855207,
+   "to": 1457870668,
+   "delta": 15461
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.79-1~deb13u1?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.79-1~deb13u1?arch=amd64&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.79-1~deb13u1?arch=all&distro=debian-13.7&upstream=chromium"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.79-1~deb13u1?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.79-1~deb13u1?arch=arm64&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.79-1~deb13u1?arch=all&distro=debian-13.7&upstream=chromium"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

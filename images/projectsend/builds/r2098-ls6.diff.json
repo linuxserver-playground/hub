@@ -1,0 +1,136 @@
+{
+ "image": "projectsend",
+ "branch": "master",
+ "tag": "r2098-ls6",
+ "previous_tag": "r2098-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (f368827 → 01ca982): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "r2098",
+  "to": "r2098",
+  "changed": false
+ },
+ "commit": {
+  "from": "f3688273e1d4cb82e412d6127ba47f4f92eff7a6",
+  "to": "01ca982212ec4abcf8deebbdef33ff9a93e0b82c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-projectsend/compare/f3688273e1d4cb82e412d6127ba47f4f92eff7a6...01ca982212ec4abcf8deebbdef33ff9a93e0b82c",
+  "commits": [
+   {
+    "sha": "d89f319a9cf9898ff2a54b4ad0479bf43ea2525f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T16:28:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-projectsend/commit/d89f319a9cf9898ff2a54b4ad0479bf43ea2525f",
+    "bot": true
+   },
+   {
+    "sha": "01ca982212ec4abcf8deebbdef33ff9a93e0b82c",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T20:23:50Z",
+    "url": "https://github.com/linuxserver-playground/docker-projectsend/commit/01ca982212ec4abcf8deebbdef33ff9a93e0b82c",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.22",
+   "digest": "sha256:18daf697a5c8bd9b9db02dd95816b97de72297b8373698ad13c0c5a697a16c12"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.22",
+   "digest": "sha256:2830561015da952ef368b6704275e4cf95dc8b72ae857935a5cb28eed29c90aa"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 55413200,
+   "to": 55413318,
+   "delta": 118
+  },
+  "arm64": {
+   "from": 56631511,
+   "to": 56631893,
+   "delta": 382
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.22.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.22.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

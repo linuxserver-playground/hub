@@ -1,0 +1,99 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "ubunturesolute",
+ "tag": "ubunturesolute-4eb74d68-ls3",
+ "previous_tag": "ubunturesolute-4eb74d68-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "4eb74d68",
+  "to": "4eb74d68",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:resolute",
+   "digest": "sha256:17f8127f438b5203c47149a87769ec8c82849d93c08cf8521c18949fd6ae8ee9"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:aafa382d46194ad0c760e484189bcc497c68d304e2cae1d2390cdb606a27bcc1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 948379673,
+   "to": 947087511,
+   "delta": -1292162
+  },
+  "arm64": {
+   "from": 912431593,
+   "to": 911127864,
+   "delta": -1303729
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,5 +1,5 @@\n # syntax=docker/dockerfile:1\n-FROM ghcr.io/linuxserver/baseimage-alpine:3.24 AS frontend\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:3.24 AS frontend\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -38,7 +38,7 @@\n     cp -ar dist/* /buildout/$DASH/; \\\n   done\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute AS interposers\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute AS interposers\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -94,7 +94,7 @@\n     /buildout/opt/lib/libudev.so.1.0.0-fake_32\n \n # Runtime stage\n-FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute\n \n # set version label\n ARG BUILD_DATE\n@@ -376,9 +376,9 @@\n COPY /root /\n COPY --from=frontend /buildout /usr/share/selkies\n COPY --from=interposers /buildout /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-ubunturesolute-xvfb / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-ubunturesolute-wtype / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:amd64-ubunturesolute-labwc / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-ubunturesolute-xvfb / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-ubunturesolute-wtype / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:amd64-ubunturesolute-labwc / /\n \n # ports and volumes\n EXPOSE 3000 3001\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,5 +1,5 @@\n # syntax=docker/dockerfile:1\n-FROM ghcr.io/linuxserver/baseimage-alpine:arm64v8-3.24 AS frontend\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:arm64v8-3.24 AS frontend\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -38,7 +38,7 @@\n     cp -ar dist/* /buildout/$DASH/; \\\n   done\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-resolute AS interposers\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-resolute AS interposers\n \n ARG SELKIES_RELEASE=2.1.0\n \n@@ -79,7 +79,7 @@\n     /buildout/opt/lib/libudev.so.1.0.0-fake\n \n # Runtime stage\n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-resolute\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-resolute\n \n # set version label\n ARG BUILD_DATE\n@@ -350,9 +350,9 @@\n COPY /root /\n COPY --from=frontend /buildout /usr/share/selkies\n COPY --from=interposers /buildout /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-ubunturesolute-xvfb / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-ubunturesolute-wtype / /\n-COPY --from=ghcr.io/linuxserver/selkies-layers:arm64v8-ubunturesolute-labwc / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-ubunturesolute-xvfb / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-ubunturesolute-wtype / /\n+COPY --from=ghcr.io/linuxserver-playground/selkies-layers:arm64v8-ubunturesolute-labwc / /\n \n # ports and volumes\n EXPOSE 3000 3001\n"
+ },
+ "packages": {
+  "amd64": {
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054015-16d571fb31ca",
+      "to": "v1.33.3-0.20261021134118-f036f355de35",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134118-f036f355de35"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054016-2cbd1b20d20a",
+      "to": "v1.33.3-0.20261021134116-aa4f38dbfabd",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134116-aa4f38dbfabd"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

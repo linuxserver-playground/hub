@@ -1,0 +1,367 @@
+{
+ "image": "beets",
+ "branch": "master",
+ "tag": "2.14.1-ls5",
+ "previous_tag": "2.14.1-ls4",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "2 commits (d30915e → 70c94f8): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "2.14.1",
+  "to": "2.14.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "d30915ed7d61178472ec4f219b64f6a0757e2c4c",
+  "to": "70c94f8a416cbf0f448775d057a148729afe15ed",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-beets/compare/d30915ed7d61178472ec4f219b64f6a0757e2c4c...70c94f8a416cbf0f448775d057a148729afe15ed",
+  "commits": [
+   {
+    "sha": "20e364bd88be0fe4cccd8fb31fc7c34567c4a0d4",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T17:12:17Z",
+    "url": "https://github.com/linuxserver-playground/docker-beets/commit/20e364bd88be0fe4cccd8fb31fc7c34567c4a0d4",
+    "bot": true
+   },
+   {
+    "sha": "70c94f8a416cbf0f448775d057a148729afe15ed",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T21:03:45Z",
+    "url": "https://github.com/linuxserver-playground/docker-beets/commit/70c94f8a416cbf0f448775d057a148729afe15ed",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:720a8b962c7cb6c8bcbc747ca074ee519c7e602ce4e217aa789087b602e4b29b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:720a8b962c7cb6c8bcbc747ca074ee519c7e602ce4e217aa789087b602e4b29b"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 237472763,
+   "to": 237700859,
+   "delta": 228096
+  },
+  "arm64": {
+   "from": 228719913,
+   "to": 228949769,
+   "delta": 229856
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "expat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/expat@2.10.0-r0?arch=x86_64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "imagemagick",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick@7.1.2.35-r0?arch=x86_64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "imagemagick-jp2",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jp2@7.1.2.35-r0?arch=x86_64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jpeg",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jpeg@7.1.2.35-r0?arch=x86_64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jxl",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jxl@7.1.2.35-r0?arch=x86_64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-libs",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-libs@7.1.2.35-r0?arch=x86_64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-pango",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-pango@7.1.2.35-r0?arch=x86_64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-tiff",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-tiff@7.1.2.35-r0?arch=x86_64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-webp",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-webp@7.1.2.35-r0?arch=x86_64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.23.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "lap",
+      "from": "0.5.13",
+      "to": "0.5.14",
+      "purl": "pkg:pypi/lap@0.5.14"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.4",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/soupsieve@4.0.1"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.4.0",
+      "purl": "pkg:pypi/tomli@2.4.0"
+     }
+    ]
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "expat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/expat@2.10.0-r0?arch=aarch64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "imagemagick",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick@7.1.2.35-r0?arch=aarch64&distro=alpine-3.23.7"
+     },
+     {
+      "name": "imagemagick-jp2",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jp2@7.1.2.35-r0?arch=aarch64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jpeg",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jpeg@7.1.2.35-r0?arch=aarch64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jxl",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jxl@7.1.2.35-r0?arch=aarch64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-libs",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-libs@7.1.2.35-r0?arch=aarch64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-pango",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-pango@7.1.2.35-r0?arch=aarch64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-tiff",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-tiff@7.1.2.35-r0?arch=aarch64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-webp",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-webp@7.1.2.35-r0?arch=aarch64&distro=alpine-3.23.7&upstream=imagemagick"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.23.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "lap",
+      "from": "0.5.13",
+      "to": "0.5.14",
+      "purl": "pkg:pypi/lap@0.5.14"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.4",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/soupsieve@4.0.1"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.4.0",
+      "purl": "pkg:pypi/tomli@2.4.0"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 36,
+  "downgraded": 2
+ }
+}

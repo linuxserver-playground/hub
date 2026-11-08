@@ -1,0 +1,106 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "fedora44",
+ "tag": "fedora44-9525bf6e-ls5",
+ "previous_tag": "fedora44-a5bdf27d-ls4",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "repository at a newer commit (505d508 → f4457fb)"
+ ],
+ "upstream": {
+  "from": "a5bdf27d",
+  "to": "9525bf6e",
+  "changed": true
+ },
+ "commit": {
+  "from": "505d508346858907760d6e4a8673da5810d709d2",
+  "to": "f4457fbf77c319c67917692e22028de625017676",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/505d508346858907760d6e4a8673da5810d709d2...f4457fbf77c319c67917692e22028de625017676"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:6a1bc42c933c2ac038440f9cfa19383764a586170e2a0beb82781304aa2210e8"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:6a1bc42c933c2ac038440f9cfa19383764a586170e2a0beb82781304aa2210e8"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 882560181,
+   "to": 882597472,
+   "delta": 37291
+  },
+  "arm64": {
+   "from": 789379085,
+   "to": 789399437,
+   "delta": 20352
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pipewire-libs",
+      "from": "1.6.10-1.fc44",
+      "to": "1.6.11-1.fc44",
+      "purl": "pkg:rpm/fedora/pipewire-libs@1.6.11-1.fc44?arch=x86_64&distro=fedora-44&upstream=pipewire-1.6.11-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pipewire-libs",
+      "from": "1.6.10-1.fc44",
+      "to": "1.6.11-1.fc44",
+      "purl": "pkg:rpm/fedora/pipewire-libs@1.6.11-1.fc44?arch=aarch64&distro=fedora-44&upstream=pipewire-1.6.11-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

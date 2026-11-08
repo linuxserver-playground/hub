@@ -1,0 +1,177 @@
+{
+ "schema": 1,
+ "name": "mylar3",
+ "summary": "[Mylar3](https://github.com/MylarComics/mylar3) is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python. It supports SABnzbd, NZBGET, and many torrent clients in addition to DDL.",
+ "upstream": {
+  "url": "https://github.com/MylarComics/mylar3",
+  "version": {
+   "type": "github_commit",
+   "repo": "MylarComics/mylar3",
+   "branch": "nightly"
+  },
+  "notes": {
+   "type": "github_commit",
+   "repo": "MylarComics/mylar3",
+   "branch": "nightly"
+  }
+ },
+ "release": {
+  "branch": "nightly",
+  "tag": "nightly",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable releases"
+   },
+   {
+    "tag": "nightly",
+    "description": "Commits to nightly branch"
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "MYLAR3_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "Etc/UTC"
+  },
+  "web": {
+   "port": 8090,
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8090",
+    "description": "WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/mylar3/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/comics",
+    "host_path": "/path/to/comics",
+    "description": "Map to your comics folder."
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/downloads",
+    "description": "Map to your downloads folder."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Books",
+   "Media Management"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mylar-icon.png",
+  "setup": "The web ui for settings etc, is on `http://SERVERIP:8090`\nFor more detailed setup options, refer to [Mylar3](https://github.com/MylarComics/mylar3).\n"
+ },
+ "proxy": {
+  "port": 8090,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-17",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-04-06",
+   "text": "Switch upstream to maintained fork at https://github.com/MylarComics/mylar3. Drop `unstable` tag. Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2026-02-19",
+   "text": "Rebase `nightly` tag to build commits from upstream `1000papercuts` branch."
+  },
+  {
+   "date": "2026-02-05",
+   "text": "Release `unstable` tag based on commits to upstream `1000papercuts` branch."
+  },
+  {
+   "date": "2025-11-10",
+   "text": "Rebase to Ubuntu Jammy."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-08-15",
+   "text": "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."
+  },
+  {
+   "date": "2023-08-10",
+   "text": "Bump unrar to 6.2.10."
+  },
+  {
+   "date": "2023-07-11",
+   "text": "Rebase to Alpine 3.18"
+  },
+  {
+   "date": "2023-07-07",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-03-05",
+   "text": "Rebase nightly to Alpine 3.17."
+  },
+  {
+   "date": "2022-10-13",
+   "text": "Move unrar to /usr/bin for backwards compatibility."
+  },
+  {
+   "date": "2022-10-11",
+   "text": "Rebase to alpine 3.16 and upgrade to s6v3."
+  },
+  {
+   "date": "2022-02-01",
+   "text": "Rebase to alpine 3.15."
+  },
+  {
+   "date": "2021-11-02",
+   "text": "Rebase to alpine 3.14."
+  },
+  {
+   "date": "2021-05-25",
+   "text": "Add `libwebp` support."
+  },
+  {
+   "date": "2021-05-17",
+   "text": "Add linuxserver wheel index."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2021-01-03",
+   "text": "Output mylar log to docker log."
+  },
+  {
+   "date": "2020-12-21",
+   "text": "Release `nightly` tag based on commits to upstream `python3-dev` branch."
+  },
+  {
+   "date": "2020-09-28",
+   "text": "Initial release."
+  }
+ ]
+}
