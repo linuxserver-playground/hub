@@ -1,0 +1,253 @@
+{
+ "schema": 1,
+ "name": "netbox",
+ "summary": "[Netbox](https://github.com/netbox-community/netbox) is an IP address management (IPAM) and data center infrastructure management (DCIM) tool. Initially conceived by the network engineering team at DigitalOcean, NetBox was developed specifically to address the needs of network and infrastructure engineers. It is intended to function as a domain-specific source of truth for network operations.",
+ "upstream": {
+  "url": "https://github.com/netbox-community/netbox",
+  "version": {
+   "type": "github_release",
+   "repo": "netbox-community/netbox"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "netbox-community/netbox"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "NETBOX_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "enabled": false,
+  "startup_timeout": 120
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8000",
+    "description": "will map the container's port 8000 to port 8000 on the host"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/netbox/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "env": [
+   {
+    "name": "SUPERUSER_EMAIL",
+    "value": "",
+    "description": "Email address for `admin` account"
+   },
+   {
+    "name": "SUPERUSER_PASSWORD",
+    "value": "",
+    "description": "Password for `admin` account"
+   },
+   {
+    "name": "ALLOWED_HOST",
+    "value": "",
+    "description": "The hostname you will use to access the app (e.g., netbox.example.com)"
+   },
+   {
+    "name": "DB_NAME",
+    "value": "",
+    "description": "Database name (default: netbox)"
+   },
+   {
+    "name": "DB_USER",
+    "value": "",
+    "description": "Database user"
+   },
+   {
+    "name": "DB_PASSWORD",
+    "value": "",
+    "description": "Database password"
+   },
+   {
+    "name": "DB_HOST",
+    "value": "",
+    "description": "Database host (default: postgres)"
+   },
+   {
+    "name": "DB_PORT",
+    "value": "",
+    "description": "Database port (default: 5432)"
+   },
+   {
+    "name": "REDIS_HOST",
+    "value": "",
+    "description": "Redis host (default: redis)"
+   },
+   {
+    "name": "REDIS_PORT",
+    "value": "",
+    "description": "Redis port number (default: 6379)"
+   },
+   {
+    "name": "REDIS_USERNAME",
+    "value": "",
+    "description": "Redis username (default: none)"
+   },
+   {
+    "name": "REDIS_PASSWORD",
+    "value": "",
+    "description": "Redis password (default: none)"
+   },
+   {
+    "name": "REDIS_DB_TASK",
+    "value": "",
+    "description": "Redis database ID for tasks (default: 0)"
+   },
+   {
+    "name": "REDIS_DB_CACHE",
+    "value": "",
+    "description": "Redis database ID for caching (default: 1)"
+   },
+   {
+    "name": "BASE_PATH",
+    "value": "",
+    "description": "The path you will use to access the app (i.e., /netbox, default: none)",
+    "optional": true
+   },
+   {
+    "name": "CSRF_TRUSTED_ORIGINS",
+    "value": "",
+    "description": "List of comma-separated, single quoted, trusted origins. Must include protocol, and port if applicable (default: [])",
+    "optional": true
+   },
+   {
+    "name": "REMOTE_AUTH_ENABLED",
+    "value": "",
+    "description": "Enable remote authentication (default: False)",
+    "optional": true
+   },
+   {
+    "name": "REMOTE_AUTH_BACKEND",
+    "value": "",
+    "description": "Python path to the custom Django authentication backend to use for external user authentication (default: netbox.authentication.RemoteUserBackend)",
+    "optional": true
+   },
+   {
+    "name": "REMOTE_AUTH_HEADER",
+    "value": "",
+    "description": "Name of the HTTP header which informs NetBox of the currently authenticated user. (default: HTTP_REMOTE_USER)",
+    "optional": true
+   },
+   {
+    "name": "REMOTE_AUTH_AUTO_CREATE_USER",
+    "value": "",
+    "description": "If true, NetBox will automatically create local accounts for users authenticated via a remote service (default: False)",
+    "optional": true
+   },
+   {
+    "name": "REMOTE_AUTH_DEFAULT_GROUPS",
+    "value": "",
+    "description": "The list of groups to assign a new user account when created using remote authentication (default: [])",
+    "optional": true
+   },
+   {
+    "name": "REMOTE_AUTH_DEFAULT_PERMISSIONS",
+    "value": "",
+    "description": "A mapping of permissions to assign a new user account when created using remote authentication (default: {})",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Administration",
+   "Business"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/netbox-logo.png",
+  "setup": "Netbox requires a postgres database and a redis instance.\n\nAccess the WebUI at <your-ip>:8000. For more information, check out [NetBox](https://github.com/netbox-community/netbox).\n"
+ },
+ "proxy": {
+  "port": 8000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-01-05",
+   "text": "Rebase to Alpine 3.23. Add CSRF_TRUSTED_ORIGINS env settings. Drop support for environments with explicitly disabled IPv6."
+  },
+  {
+   "date": "2024-08-26",
+   "text": "Restructure init to allow for plugins as mods."
+  },
+  {
+   "date": "2024-07-16",
+   "text": "Add required packages for LDAP support."
+  },
+  {
+   "date": "2024-06-01",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-06-11",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2023-05-14",
+   "text": "Build local docs on first run."
+  },
+  {
+   "date": "2023-03-05",
+   "text": "Rebase to Alpine 3.17."
+  },
+  {
+   "date": "2022-11-02",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-08-01",
+   "text": "Remove py3-pillow, add tiff to fix deps."
+  },
+  {
+   "date": "2022-07-26",
+   "text": "Add py3-pillow package back on arm to fix build issue."
+  },
+  {
+   "date": "2021-12-10",
+   "text": "Remove py3-pillow package to fix dependency issue with 3.2.0."
+  },
+  {
+   "date": "2021-12-10",
+   "text": "Rebase to Alpine 3.15."
+  },
+  {
+   "date": "2021-04-26",
+   "text": "Added Redis database environment variables."
+  },
+  {
+   "date": "2021-02-03",
+   "text": "Added remote authentication environment variables."
+  },
+  {
+   "date": "2021-01-02",
+   "text": "Added BASE_PATH environment variable."
+  },
+  {
+   "date": "2020-08-23",
+   "text": "Initial Release."
+  }
+ ]
+}

@@ -1,0 +1,485 @@
+{
+ "image": "tautulli",
+ "branch": "develop",
+ "tag": "develop-617750cd-ls9",
+ "previous_tag": "develop-30f7c4f4-ls1",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed",
+  "8 commits (acde978 → 5417307): changed the Dockerfiles, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "30f7c4f4",
+  "to": "617750cd",
+  "changed": true
+ },
+ "commit": {
+  "from": "acde9789ec11b54b55b20a8dfb2b4f0d35f2c4f7",
+  "to": "54173076c5bc964e1b44258a8fca52453fee7bde",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-tautulli/compare/acde9789ec11b54b55b20a8dfb2b4f0d35f2c4f7...54173076c5bc964e1b44258a8fca52453fee7bde",
+  "commits": [
+   {
+    "sha": "7a0ae4c0f951b3c77ab0d3657cf46bddd13b033f",
+    "subject": "Build on the playground base images",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-26T19:32:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-tautulli/commit/7a0ae4c0f951b3c77ab0d3657cf46bddd13b033f",
+    "bot": false
+   },
+   {
+    "sha": "7e7cc94f55f5afd10e6b71b65d963ad8fe7f9518",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:52:26Z",
+    "url": "https://github.com/linuxserver-playground/docker-tautulli/commit/7e7cc94f55f5afd10e6b71b65d963ad8fe7f9518",
+    "bot": true
+   },
+   {
+    "sha": "3b496e4f1c5dbebbc03d8f58978cdd13e82378b4",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T18:01:09Z",
+    "url": "https://github.com/linuxserver-playground/docker-tautulli/commit/3b496e4f1c5dbebbc03d8f58978cdd13e82378b4",
+    "bot": true
+   },
+   {
+    "sha": "e09108affde8c87b85cd0832d4480882482765b0",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T18:05:06Z",
+    "url": "https://github.com/linuxserver-playground/docker-tautulli/commit/e09108affde8c87b85cd0832d4480882482765b0",
+    "bot": true
+   },
+   {
+    "sha": "fd5e1019a34591a825f5a9e5219029ac4223364a",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T20:00:46Z",
+    "url": "https://github.com/linuxserver-playground/docker-tautulli/commit/fd5e1019a34591a825f5a9e5219029ac4223364a",
+    "bot": true
+   },
+   {
+    "sha": "db2bd772e37e6bc8917644f398cca0d65f82ecf6",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T20:08:04Z",
+    "url": "https://github.com/linuxserver-playground/docker-tautulli/commit/db2bd772e37e6bc8917644f398cca0d65f82ecf6",
+    "bot": true
+   },
+   {
+    "sha": "5b52be750360e3f9e3f314a130b1681e247bc7d8",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T22:07:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-tautulli/commit/5b52be750360e3f9e3f314a130b1681e247bc7d8",
+    "bot": true
+   },
+   {
+    "sha": "54173076c5bc964e1b44258a8fca52453fee7bde",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T18:06:49Z",
+    "url": "https://github.com/linuxserver-playground/docker-tautulli/commit/54173076c5bc964e1b44258a8fca52453fee7bde",
+    "bot": true
+   }
+  ],
+  "count": 8,
+  "truncated": false,
+  "areas": {
+   "dockerfile": 2,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.24",
+   "digest": "sha256:52106d187a66ccb92e3289cb6dd25c549cb0b6b7bfec38a51994434c96db2d35"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 58678599,
+   "to": 58955962,
+   "delta": 277363
+  },
+  "arm64": {
+   "from": 59558985,
+   "to": 59845912,
+   "delta": 286927
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-alpine:3.24\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:3.24\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-alpine:arm64v8-3.24\n+FROM ghcr.io/linuxserver-playground/baseimage-alpine:arm64v8-3.24\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=curl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r1?arch=x86_64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r1?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r1?arch=x86_64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r1?arch=x86_64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.19",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "idna",
+      "from": "3.18",
+      "to": "3.20",
+      "purl": "pkg:pypi/idna@3.20"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "urllib3",
+      "from": "2.7.0",
+      "to": "2.8.0",
+      "purl": "pkg:pypi/urllib3@2.8.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.4.0",
+      "purl": "pkg:pypi/tomli@2.4.0"
+     }
+    ]
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=curl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r1?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r1?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r1?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r1?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.19",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "idna",
+      "from": "3.18",
+      "to": "3.20",
+      "purl": "pkg:pypi/idna@3.20"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "urllib3",
+      "from": "2.7.0",
+      "to": "2.8.0",
+      "purl": "pkg:pypi/urllib3@2.8.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.4.0",
+      "purl": "pkg:pypi/tomli@2.4.0"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 44,
+  "downgraded": 2
+ }
+}

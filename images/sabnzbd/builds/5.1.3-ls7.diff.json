@@ -1,0 +1,77 @@
+{
+ "image": "sabnzbd",
+ "branch": "master",
+ "tag": "5.1.3-ls7",
+ "previous_tag": "5.1.3-ls6",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "repository at a newer commit (a25a156 → af33a4c)"
+ ],
+ "upstream": {
+  "from": "5.1.3",
+  "to": "5.1.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "a25a156ce2bcb23f3bf70e2ec714e26a8c9a5c41",
+  "to": "af33a4cbb41e9500402e711b1bddb13b831e4186",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-sabnzbd/compare/a25a156ce2bcb23f3bf70e2ec714e26a8c9a5c41...af33a4cbb41e9500402e711b1bddb13b831e4186"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 69365835,
+   "to": 69365851,
+   "delta": 16
+  },
+  "arm64": {
+   "from": 68942160,
+   "to": 68942324,
+   "delta": 164
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

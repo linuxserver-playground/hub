@@ -1,0 +1,151 @@
+{
+ "image": "mstream",
+ "branch": "master",
+ "tag": "v6.32.2-ls5",
+ "previous_tag": "v6.32.1-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (0c40270 → e7887f1): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v6.32.1",
+  "to": "v6.32.2",
+  "changed": true
+ },
+ "commit": {
+  "from": "0c40270b92ffad5a88958896dd12849773e3e855",
+  "to": "e7887f17dd5f240b02d4383e7ec62bdfd473bdd0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mstream/compare/0c40270b92ffad5a88958896dd12849773e3e855...e7887f17dd5f240b02d4383e7ec62bdfd473bdd0",
+  "commits": [
+   {
+    "sha": "e7887f17dd5f240b02d4383e7ec62bdfd473bdd0",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T05:18:57Z",
+    "url": "https://github.com/linuxserver-playground/docker-mstream/commit/e7887f17dd5f240b02d4383e7ec62bdfd473bdd0",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 401695680,
+   "to": 401920457,
+   "delta": 224777
+  },
+  "arm64": {
+   "from": 403192652,
+   "to": 403400682,
+   "delta": 208030
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mStream",
+      "from": "6.32.1.0",
+      "to": "6.32.2.0",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mstream",
+      "from": "6.32.1",
+      "to": "6.32.2",
+      "purl": "pkg:npm/mstream@6.32.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mStream",
+      "from": "6.32.1.0",
+      "to": "6.32.2.0",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mstream",
+      "from": "6.32.1",
+      "to": "6.32.2",
+      "purl": "pkg:npm/mstream@6.32.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

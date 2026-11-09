@@ -1,0 +1,153 @@
+{
+ "schema": 1,
+ "name": "airsonic-advanced",
+ "summary": "[Airsonic-advanced](https://github.com/kagemomiji/airsonic-advanced) is a free, web-based media streamer, providing ubiquitious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
+ "upstream": {
+  "url": "https://github.com/kagemomiji/airsonic-advanced",
+  "version": {
+   "type": "github_release",
+   "repo": "kagemomiji/airsonic-advanced",
+   "require_assets": [
+    {
+     "asset": "^airsonic\\.war$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "kagemomiji/airsonic-advanced"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "AIRSONIC_ADVANCED_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 300,
+  "web": {
+   "port": 4040,
+   "path": "/login"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "4040",
+    "description": "WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/airsonic-advanced/config",
+    "description": "Configuration file location."
+   },
+   {
+    "path": "/music",
+    "host_path": "/path/to/music",
+    "description": "Location of music."
+   },
+   {
+    "path": "/playlists",
+    "host_path": "/path/to/playlists",
+    "description": "Location for playlists to be saved to."
+   },
+   {
+    "path": "/podcasts",
+    "host_path": "/path/to/podcasts",
+    "description": "Location of podcasts."
+   },
+   {
+    "path": "/media",
+    "host_path": "/path/to/other media",
+    "description": "Location of other media.",
+    "optional": true
+   }
+  ],
+  "env": [
+   {
+    "name": "CONTEXT_PATH",
+    "value": "",
+    "description": "For setting url-base in reverse proxy setups.",
+    "optional": true
+   },
+   {
+    "name": "JAVA_OPTS",
+    "value": "",
+    "description": "For passing additional java options.",
+    "optional": true
+   }
+  ],
+  "devices": [
+   {
+    "path": "/dev/snd",
+    "description": "Only needed to pass your host sound device to Airsonic's Java jukebox player.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Media Servers",
+   "Music"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-banner.png",
+  "setup": "We don't formally support upgrading from Airsonic to Airsonic Advanced, it may or may not work for you and we'd recommend making backups before attempting this. Following the upgrade you may experience a forced rescan of your library so take this into account if you have a lot of files.\n\nPlease see notes about upgrading from v10 to v11 [here](https://github.com/kagemomiji/airsonic-advanced#usage)\n\nAccess WebUI at `<your-ip>:4040`.\n\nDefault user/pass is admin/admin\n\nExtra java options can be passed with the JAVA_OPTS environment variable, eg `-e JAVA_OPTS=\"-Xmx256m -Xms256m\"`. For some reverse proxies, you may need to pass `JAVA_OPTS=-Dserver.use-forward-headers=true` for airsonic to generate the proper URL schemes.\n\nNote that if you want to use [Airsonic's Java jukebox player](https://airsonic.github.io/docs/jukebox/), then `PGID` will need to match the group of your sound device (e.g. `/dev/snd`).\n"
+ },
+ "proxy": {
+  "port": 4040,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2024-12-21",
+   "text": "Rebase to Alpine 3.21. Switch upstream to track https://github.com/kagemomiji/airsonic-advanced."
+  },
+  {
+   "date": "2024-05-24",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-20",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-05-30",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-02-11",
+   "text": "Rebase to Alpine 3.17."
+  },
+  {
+   "date": "2022-10-23",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-07-25",
+   "text": "Add vorbis-tools."
+  },
+  {
+   "date": "2022-01-02",
+   "text": "Initial Release."
+  }
+ ]
+}

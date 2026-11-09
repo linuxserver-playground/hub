@@ -1,0 +1,186 @@
+{
+ "image": "wireshark",
+ "branch": "master",
+ "tag": "4.6.6-r0-ls6",
+ "previous_tag": "4.6.6-r0-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (151384e → 4e9cffb): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "4.6.6-r0",
+  "to": "4.6.6-r0",
+  "changed": false
+ },
+ "commit": {
+  "from": "151384e8b062ab4bd0024d7f3e3b026ee998f1c7",
+  "to": "4e9cffb4a44d7f9f17de2cc77a8d9be451fd626d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-wireshark/compare/151384e8b062ab4bd0024d7f3e3b026ee998f1c7...4e9cffb4a44d7f9f17de2cc77a8d9be451fd626d",
+  "commits": [
+   {
+    "sha": "1279bdc0abf4362ad233660e16f254cfceac7b7e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T05:49:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-wireshark/commit/1279bdc0abf4362ad233660e16f254cfceac7b7e",
+    "bot": true
+   },
+   {
+    "sha": "4e9cffb4a44d7f9f17de2cc77a8d9be451fd626d",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T01:42:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-wireshark/commit/4e9cffb4a44d7f9f17de2cc77a8d9be451fd626d",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:38f1825aace74959f082c07699d154dfe6521ab2d03ae8624e27bc97d3f63c99"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:91d001f4e12a5c83e9bd14f32dfe2bf3809ece6ece0898a9a24a239e9a5b3808"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 679079560,
+   "to": 679133076,
+   "delta": 53516
+  },
+  "arm64": {
+   "from": 632193192,
+   "to": 632255195,
+   "delta": 62003
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

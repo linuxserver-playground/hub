@@ -1,0 +1,121 @@
+{
+ "image": "bazarr",
+ "branch": "development",
+ "tag": "development-v1.6.3-beta.24-ls6",
+ "previous_tag": "development-v1.6.3-beta.23-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "3 commits (357c8ca → 5ae2ddb): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "v1.6.3-beta.23",
+  "to": "v1.6.3-beta.24",
+  "changed": true
+ },
+ "commit": {
+  "from": "357c8caf464b49552bb80ae08d98a98a1e6e3320",
+  "to": "5ae2ddbfa0126c8718fb85afa2777ef131314a61",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-bazarr/compare/357c8caf464b49552bb80ae08d98a98a1e6e3320...5ae2ddbfa0126c8718fb85afa2777ef131314a61",
+  "commits": [
+   {
+    "sha": "405f282f1534122e6c924963c000d91aa837a927",
+    "subject": "Wait for the upstream release assets before building",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T16:03:12Z",
+    "url": "https://github.com/linuxserver-playground/docker-bazarr/commit/405f282f1534122e6c924963c000d91aa837a927",
+    "bot": false
+   },
+   {
+    "sha": "a47a262e70d65a9e4678c4ee032beac526ce4f3a",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T18:10:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-bazarr/commit/a47a262e70d65a9e4678c4ee032beac526ce4f3a",
+    "bot": true
+   },
+   {
+    "sha": "5ae2ddbfa0126c8718fb85afa2777ef131314a61",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T18:14:49Z",
+    "url": "https://github.com/linuxserver-playground/docker-bazarr/commit/5ae2ddbfa0126c8718fb85afa2777ef131314a61",
+    "bot": true
+   }
+  ],
+  "count": 3,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 2,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:42ae9a62cb679a532b9ab4ef3f0a70c54d5f00431d453f524f31f7e9e34ee189"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:720a8b962c7cb6c8bcbc747ca074ee519c7e602ce4e217aa789087b602e4b29b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 157957291,
+   "to": 157962114,
+   "delta": 4823
+  },
+  "arm64": {
+   "from": 153196781,
+   "to": 153183881,
+   "delta": -12900
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "image": "medusa",
+ "branch": "master",
+ "tag": "v1.0.27-ls4",
+ "previous_tag": "v1.0.27-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "v1.0.27",
+  "to": "v1.0.27",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:0b30fe6f4732e291add225156c29d5ffb7315aea6fb1aa86a0c9bc478f823494"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:2407abb0b4203bf43b927c1004200b3a54815aa39e7544ec48079df3f0154cc5"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 141185765,
+   "to": 141184835,
+   "delta": -930
+  },
+  "arm64": {
+   "from": 138956563,
+   "to": 138953989,
+   "delta": -2574
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

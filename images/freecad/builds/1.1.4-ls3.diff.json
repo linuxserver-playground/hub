@@ -1,0 +1,99 @@
+{
+ "image": "freecad",
+ "branch": "master",
+ "tag": "1.1.4-ls3",
+ "previous_tag": "1.1.4-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1.1.4",
+  "to": "1.1.4",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:731016ff9660aac7a2328ef09c7818ac30a240fd6452035eb2750a4d4657b61b"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1917698237,
+   "to": 1917283721,
+   "delta": -414516
+  },
+  "arm64": {
+   "from": 1802024898,
+   "to": 1801629276,
+   "delta": -395622
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -22,7 +22,11 @@\n     /usr/share/selkies/www/icon.png \\\n     https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/freecad-logo.png && \\\n   echo \"**** install packages ****\" && \\\n-  DOWNLOAD_URL=$(curl -sX GET \"https://api.github.com/repos/FreeCAD/FreeCAD/releases/latest\" \\\n+  if [ -z ${FREECAD_VERSION+x} ]; then \\\n+    FREECAD_VERSION=$(curl -sX GET \"https://api.github.com/repos/FreeCAD/FreeCAD/releases/latest\" \\\n+      | jq -r '.tag_name'); \\\n+  fi && \\\n+  DOWNLOAD_URL=$(curl -sX GET \"https://api.github.com/repos/FreeCAD/FreeCAD/releases/tags/${FREECAD_VERSION}\" \\\n     | jq -r 'first(.assets[].browser_download_url | select(test(\"Linux-x86_64-py311.AppImage\")))') && \\\n   curl -o \\\n     /tmp/freecad.app -L \\\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -20,7 +20,11 @@\n     /usr/share/selkies/www/icon.png \\\n     https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/freecad-logo.png && \\\n   echo \"**** install packages ****\" && \\\n-  DOWNLOAD_URL=$(curl -sX GET \"https://api.github.com/repos/FreeCAD/FreeCAD/releases/latest\" \\\n+  if [ -z ${FREECAD_VERSION+x} ]; then \\\n+    FREECAD_VERSION=$(curl -sX GET \"https://api.github.com/repos/FreeCAD/FreeCAD/releases/latest\" \\\n+      | jq -r '.tag_name'); \\\n+  fi && \\\n+  DOWNLOAD_URL=$(curl -sX GET \"https://api.github.com/repos/FreeCAD/FreeCAD/releases/tags/${FREECAD_VERSION}\" \\\n     | jq -r 'first(.assets[].browser_download_url | select(test(\"Linux-aarch64-py311.AppImage\")))') && \\\n   curl -o \\\n     /tmp/freecad.app -L \\\n"
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

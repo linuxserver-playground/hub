@@ -1,0 +1,150 @@
+{
+ "image": "baseimage-ubuntu",
+ "branch": "jammy",
+ "tag": "jammy-50edd965-ls6",
+ "previous_tag": "jammy-50edd965-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "50edd965",
+  "to": "50edd965",
+  "changed": false
+ },
+ "commit": {
+  "from": "31f1a8282a55dc0aad7126fa39656100b2ac6e07",
+  "to": "31f1a8282a55dc0aad7126fa39656100b2ac6e07",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 72113837,
+   "to": 72832678,
+   "delta": 718841
+  },
+  "arm64": {
+   "from": 70235597,
+   "to": 70940453,
+   "delta": 704856
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.4.14",
+      "to": "2.4.15ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.4.15ubuntu0.1?arch=amd64&distro=ubuntu-22.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.4.14",
+      "to": "2.4.15ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.4.15ubuntu0.1?arch=amd64&distro=ubuntu-22.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.22.04.1",
+      "to": "20260816ubuntu0.22.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.22.04.2?arch=all&distro=ubuntu-22.04"
+     },
+     {
+      "name": "libapt-pkg6.0",
+      "from": "2.4.14",
+      "to": "2.4.15ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0@2.4.15ubuntu0.1?arch=amd64&distro=ubuntu-22.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.39-3ubuntu0.1",
+      "to": "10.39-3ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.39-3ubuntu0.2?arch=amd64&distro=ubuntu-22.04&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.4.14",
+      "to": "2.4.15ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.4.15ubuntu0.1?arch=arm64&distro=ubuntu-22.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.4.14",
+      "to": "2.4.15ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.4.15ubuntu0.1?arch=arm64&distro=ubuntu-22.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.22.04.1",
+      "to": "20260816ubuntu0.22.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.22.04.2?arch=all&distro=ubuntu-22.04"
+     },
+     {
+      "name": "libapt-pkg6.0",
+      "from": "2.4.14",
+      "to": "2.4.15ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0@2.4.15ubuntu0.1?arch=arm64&distro=ubuntu-22.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.39-3ubuntu0.1",
+      "to": "10.39-3ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.39-3ubuntu0.2?arch=arm64&distro=ubuntu-22.04&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

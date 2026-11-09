@@ -1,0 +1,148 @@
+{
+ "schema": 1,
+ "name": "faster-whisper",
+ "summary": "[Faster-whisper](https://github.com/SYSTRAN/faster-whisper) is a reimplementation of OpenAI's Whisper model using CTranslate2, which is a fast inference engine for Transformer models. This container provides a Wyoming protocol server for faster-whisper.",
+ "upstream": {
+  "url": "https://github.com/SYSTRAN/faster-whisper",
+  "version": {
+   "type": "github_release",
+   "repo": "OHF-Voice/wyoming-faster-whisper"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "OHF-Voice/wyoming-faster-whisper"
+  }
+ },
+ "release": {
+  "branch": "gpu",
+  "tag": "gpu",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable releases"
+   },
+   {
+    "tag": "gpu",
+    "description": "Releases with Nvidia GPU support (amd64 only)"
+   },
+   {
+    "tag": "gpu-legacy",
+    "description": "Legacy releases with Nvidia GPU support for pre-Turing cards (amd64 only)"
+   }
+  ]
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "WHISPER_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "enabled": false,
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "Europe/London",
+   "WHISPER_MODEL": "tiny-int8"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "10300",
+    "description": "Wyoming connection port."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/faster-whisper/data",
+    "description": "Local path for Whisper config files."
+   }
+  ],
+  "env": [
+   {
+    "name": "DEBUG",
+    "value": "",
+    "description": "If set to `true`, or any other value, the container will output debug logs.",
+    "optional": true
+   },
+   {
+    "name": "LOCAL_ONLY",
+    "value": "",
+    "description": "If set to `true`, or any other value, the container will not attempt to download models from HuggingFace and will only use locally-provided models.",
+    "optional": true
+   },
+   {
+    "name": "WHISPER_BEAM",
+    "value": "1",
+    "description": "Number of candidates to consider simultaneously during transcription.",
+    "optional": true
+   },
+   {
+    "name": "WHISPER_LANG",
+    "value": "auto",
+    "description": "Two character code for the language that you will speak to the add-on.",
+    "optional": true
+   },
+   {
+    "name": "WHISPER_MODEL",
+    "value": "auto",
+    "description": "Whisper model that will be used for transcription. From [here](https://github.com/SYSTRAN/faster-whisper/blob/master/faster_whisper/utils.py#L11-L31).",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Machine Learning"
+  ],
+  "setup": "For use with Home Assistant [Assist](https://www.home-assistant.io/voice_control/voice_remote_local_assistant/), add the Wyoming integration and supply the hostname/IP and port that Whisper is running add-on.\"\n\nWhen using the `gpu` tag with Nvidia GPUs, make sure you set the container to use the `nvidia` runtime and that you have the [Nvidia Container Toolkit](https://github.com/NVIDIA/nvidia-container-toolkit) installed on the host and that you run the container with the correct GPU(s) exposed. See the [Nvidia Container Toolkit docs](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/sample-workload.html) for more details.\n\nFor more information see the [faster-whisper docs](https://github.com/SYSTRAN/faster-whisper),\n"
+ },
+ "changelog": [
+  {
+   "date": "2026-10-05",
+   "text": "Pin `av` to 18.x."
+  },
+  {
+   "date": "2026-08-16",
+   "text": "Rebase to Ubuntu Resolute."
+  },
+  {
+   "date": "2026-01-26",
+   "text": "Default to `auto` for model and language if not set."
+  },
+  {
+   "date": "2025-08-20",
+   "text": "Add gpu-legacy branch for pre-Turing cards."
+  },
+  {
+   "date": "2025-08-10",
+   "text": "Add support for local-only mode."
+  },
+  {
+   "date": "2024-12-05",
+   "text": "Build from Github releases rather than Pypi."
+  },
+  {
+   "date": "2024-07-18",
+   "text": "Rebase to Ubuntu Noble."
+  },
+  {
+   "date": "2024-05-19",
+   "text": "Bump CUDA to 12 on GPU branch."
+  },
+  {
+   "date": "2024-01-08",
+   "text": "Add GPU branch."
+  },
+  {
+   "date": "2023-11-25",
+   "text": "Initial Release."
+  }
+ ]
+}

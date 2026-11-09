@@ -1,0 +1,121 @@
+{
+ "schema": 1,
+ "name": "flycast",
+ "summary": "[Flycast](https://github.com/flyinghead/flycast) is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator derived from reicast.",
+ "upstream": {
+  "url": "https://github.com/flyinghead/flycast",
+  "version": {
+   "type": "github_release",
+   "repo": "flyinghead/flycast",
+   "require_assets": [
+    {
+     "asset": "\\.AppImage$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "flyinghead/flycast"
+  },
+  "sponsor": [
+   {
+    "name": "Flycast",
+    "url": "https://www.paypal.com/paypalme/FlycastEmu"
+   },
+   {
+    "name": "Flycast (Buy Me a Coffee)",
+    "url": "https://www.buymeacoffee.com/hhwtpernwq"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "FLYCAST_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP Flycast desktop gui must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Flycast desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for Flycast to function."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flycast-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-05",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-06-19",
+   "text": "Initial release."
+  }
+ ]
+}
