@@ -1,0 +1,183 @@
+{
+ "image": "craft-apps",
+ "branch": "master",
+ "tag": "v0.20.1-ls6",
+ "previous_tag": "v0.20.1-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (6d223c4 → 31719fb): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.20.1",
+  "to": "v0.20.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "6d223c4855b779425bf8f8e52a5104cc5ad6bc82",
+  "to": "31719fb826c791e0bc6c33bce1081ca26168f23d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-craft-apps/compare/6d223c4855b779425bf8f8e52a5104cc5ad6bc82...31719fb826c791e0bc6c33bce1081ca26168f23d",
+  "commits": [
+   {
+    "sha": "31719fb826c791e0bc6c33bce1081ca26168f23d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T02:19:34Z",
+    "url": "https://github.com/linuxserver-playground/docker-craft-apps/commit/31719fb826c791e0bc6c33bce1081ca26168f23d",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:a8e26da62ec31fd5f3b5b03f9ee53ccb1fcd939247714807414f9ade6ac82081"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:a8e26da62ec31fd5f3b5b03f9ee53ccb1fcd939247714807414f9ade6ac82081"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 2032834369,
+   "to": 2035635707,
+   "delta": 2801338
+  },
+  "arm64": {
+   "from": 1973884687,
+   "to": 1976564667,
+   "delta": 2679980
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "designcraft",
+      "from": "0.17.0-1",
+      "to": "0.17.1-1",
+      "purl": "pkg:deb/ubuntu/designcraft@0.17.1-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "gvfs",
+      "from": "1.60.0-1ubuntu0.1",
+      "to": "1.60.0-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gvfs@1.60.0-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "gvfs-common",
+      "from": "1.60.0-1ubuntu0.1",
+      "to": "1.60.0-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gvfs-common@1.60.0-1ubuntu0.2?arch=all&distro=ubuntu-26.04&upstream=gvfs"
+     },
+     {
+      "name": "gvfs-daemons",
+      "from": "1.60.0-1ubuntu0.1",
+      "to": "1.60.0-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gvfs-daemons@1.60.0-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gvfs"
+     },
+     {
+      "name": "gvfs-libs",
+      "from": "1.60.0-1ubuntu0.1",
+      "to": "1.60.0-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gvfs-libs@1.60.0-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gvfs"
+     },
+     {
+      "name": "pdfcraft",
+      "from": "0.18.0-1",
+      "to": "0.18.1-1",
+      "purl": "pkg:deb/ubuntu/pdfcraft@0.18.1-1?arch=amd64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "designcraft",
+      "from": "0.17.0-1",
+      "to": "0.17.1-1",
+      "purl": "pkg:deb/ubuntu/designcraft@0.17.1-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "gvfs",
+      "from": "1.60.0-1ubuntu0.1",
+      "to": "1.60.0-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gvfs@1.60.0-1ubuntu0.2?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "gvfs-common",
+      "from": "1.60.0-1ubuntu0.1",
+      "to": "1.60.0-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gvfs-common@1.60.0-1ubuntu0.2?arch=all&distro=ubuntu-26.04&upstream=gvfs"
+     },
+     {
+      "name": "gvfs-daemons",
+      "from": "1.60.0-1ubuntu0.1",
+      "to": "1.60.0-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gvfs-daemons@1.60.0-1ubuntu0.2?arch=arm64&distro=ubuntu-26.04&upstream=gvfs"
+     },
+     {
+      "name": "gvfs-libs",
+      "from": "1.60.0-1ubuntu0.1",
+      "to": "1.60.0-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gvfs-libs@1.60.0-1ubuntu0.2?arch=arm64&distro=ubuntu-26.04&upstream=gvfs"
+     },
+     {
+      "name": "pdfcraft",
+      "from": "0.18.0-1",
+      "to": "0.18.1-1",
+      "purl": "pkg:deb/ubuntu/pdfcraft@0.18.1-1?arch=arm64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,607 @@
+{
+ "image": "lazylibrarian",
+ "branch": "master",
+ "tag": "8b6ba443-ls9",
+ "previous_tag": "8a5e1c7b-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "8 commits (394d597 → 0a1545b): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "8a5e1c7b",
+  "to": "8b6ba443",
+  "changed": true
+ },
+ "commit": {
+  "from": "394d597ad9d902b14179decd8456eec1c30b098c",
+  "to": "0a1545b9641dfe254769dfef5428fc65d59dd7fc",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lazylibrarian/compare/394d597ad9d902b14179decd8456eec1c30b098c...0a1545b9641dfe254769dfef5428fc65d59dd7fc",
+  "commits": [
+   {
+    "sha": "539814c4cbe2339550dbd8218a6c610106fcd3da",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T11:32:30Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/539814c4cbe2339550dbd8218a6c610106fcd3da",
+    "bot": true
+   },
+   {
+    "sha": "6bce65fa4935eb9c65892c0caa67eb8f7ec5ae3e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T09:33:56Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/6bce65fa4935eb9c65892c0caa67eb8f7ec5ae3e",
+    "bot": true
+   },
+   {
+    "sha": "683dc1c1a88eea8b2150ef6238a41a9e1857224f",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T17:27:46Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/683dc1c1a88eea8b2150ef6238a41a9e1857224f",
+    "bot": true
+   },
+   {
+    "sha": "f1e564e4feb4e25eb862a0a8372726ed364e2d62",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T17:34:57Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/f1e564e4feb4e25eb862a0a8372726ed364e2d62",
+    "bot": true
+   },
+   {
+    "sha": "a1ed2dc908517a8ba4a7ff574ab6d7014a9de147",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T15:34:45Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/a1ed2dc908517a8ba4a7ff574ab6d7014a9de147",
+    "bot": true
+   },
+   {
+    "sha": "6b3974f3d7e3c436d7d22085f959586540599399",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T02:34:32Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/6b3974f3d7e3c436d7d22085f959586540599399",
+    "bot": true
+   },
+   {
+    "sha": "100bf98d3fbbd78efa05a1ea8a13c731e7a6e5ae",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T13:35:46Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/100bf98d3fbbd78efa05a1ea8a13c731e7a6e5ae",
+    "bot": true
+   },
+   {
+    "sha": "0a1545b9641dfe254769dfef5428fc65d59dd7fc",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T19:35:32Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/0a1545b9641dfe254769dfef5428fc65d59dd7fc",
+    "bot": true
+   }
+  ],
+  "count": 8,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8dc1e22b6c3e42c8931a49af4a34f8d9f4fad73853523230315724840f8dc85f"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 187295757,
+   "to": 187737193,
+   "delta": 441436
+  },
+  "arm64": {
+   "from": 183055349,
+   "to": 183401499,
+   "delta": 346150
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "binary": {
+    "added": [],
+    "removed": [
+     {
+      "name": "cli",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "cli-32",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "cli-64",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "cli-arm64",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "gui",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "gui-32",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "gui-64",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "gui-arm64",
+      "version": "UNKNOWN",
+      "purl": null
+     }
+    ],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=amd64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=amd64&distro=ubuntu-24.04&upstream=sqlite3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [
+     {
+      "name": "autocommand",
+      "version": "2.2.2",
+      "purl": "pkg:pypi/autocommand@2.2.2"
+     },
+     {
+      "name": "backports-tarfile",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/backports-tarfile@1.2.0"
+     },
+     {
+      "name": "importlib-metadata",
+      "version": "8.7.1",
+      "purl": "pkg:pypi/importlib-metadata@8.7.1"
+     },
+     {
+      "name": "zipp",
+      "version": "3.23.0",
+      "purl": "pkg:pypi/zipp@3.23.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11.2",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.4.0",
+      "to": "4.12.4",
+      "purl": "pkg:pypi/platformdirs@4.12.4"
+     },
+     {
+      "name": "pypdf",
+      "from": "6.21.4",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/pypdf@7.0.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "3.0.0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.4",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/soupsieve@4.0.1"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "typer",
+      "from": "0.27.3",
+      "to": "0.28.0",
+      "purl": "pkg:pypi/typer@0.28.0"
+     },
+     {
+      "name": "zc-lockfile",
+      "from": "4.0",
+      "to": "4.1",
+      "purl": "pkg:pypi/zc-lockfile@4.1"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "setuptools",
+      "from": "84.2.1",
+      "to": "70.3.0",
+      "purl": "pkg:pypi/setuptools@70.3.0"
+     },
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.3.2",
+      "purl": "pkg:pypi/tomli@2.3.2"
+     }
+    ]
+   }
+  },
+  "arm64": {
+   "binary": {
+    "added": [],
+    "removed": [
+     {
+      "name": "cli",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "cli-32",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "cli-64",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "cli-arm64",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "gui",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "gui-32",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "gui-64",
+      "version": "UNKNOWN",
+      "purl": null
+     },
+     {
+      "name": "gui-arm64",
+      "version": "UNKNOWN",
+      "purl": null
+     }
+    ],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=arm64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=arm64&distro=ubuntu-24.04&upstream=sqlite3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [
+     {
+      "name": "autocommand",
+      "version": "2.2.2",
+      "purl": "pkg:pypi/autocommand@2.2.2"
+     },
+     {
+      "name": "backports-tarfile",
+      "version": "1.2.0",
+      "purl": "pkg:pypi/backports-tarfile@1.2.0"
+     },
+     {
+      "name": "importlib-metadata",
+      "version": "8.7.1",
+      "purl": "pkg:pypi/importlib-metadata@8.7.1"
+     },
+     {
+      "name": "zipp",
+      "version": "3.23.0",
+      "purl": "pkg:pypi/zipp@3.23.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11.2",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.4.0",
+      "to": "4.12.4",
+      "purl": "pkg:pypi/platformdirs@4.12.4"
+     },
+     {
+      "name": "pypdf",
+      "from": "6.21.4",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/pypdf@7.0.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "3.0.0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.4",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/soupsieve@4.0.1"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "typer",
+      "from": "0.27.3",
+      "to": "0.28.0",
+      "purl": "pkg:pypi/typer@0.28.0"
+     },
+     {
+      "name": "zc-lockfile",
+      "from": "4.0",
+      "to": "4.1",
+      "purl": "pkg:pypi/zc-lockfile@4.1"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "setuptools",
+      "from": "84.2.1",
+      "to": "70.3.0",
+      "purl": "pkg:pypi/setuptools@70.3.0"
+     },
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.3.2",
+      "purl": "pkg:pypi/tomli@2.3.2"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 24,
+  "upgraded": 40,
+  "downgraded": 4
+ }
+}

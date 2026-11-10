@@ -1,0 +1,279 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-10-30-ls7",
+ "previous_tag": "2026-10-30-ls6",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2026-10-30",
+  "to": "2026-10-30",
+  "changed": false
+ },
+ "commit": {
+  "from": "754793e5f34cfd89c122019bbabcca62dd81d001",
+  "to": "754793e5f34cfd89c122019bbabcca62dd81d001",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:455bc16ef1ea84666cc6c974b4f9ab1f78164891b03d5302afe16be6c3bc6bfd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b8c03e9b9565c0f91d326af3bddd794cf8bc4f9f6f0d843eb488edb80f4e5b4c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 9423937994,
+   "to": 9424764837,
+   "delta": 826843
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "CMake",
+      "from": "4.4.4",
+      "to": "4.4.5",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "aom",
+      "from": "3.15.2-1",
+      "to": "3.15.3-1",
+      "purl": "pkg:alpm/arch/aom@3.15.3-1?arch=x86_64&distro=arch-rolling&upstream=aom"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": "pkg:alpm/arch/gnupg@2.4.9-4?arch=x86_64&distro=arch-rolling&upstream=gnupg"
+     },
+     {
+      "name": "hunspell",
+      "from": "1.7.5-1",
+      "to": "1.7.6-1",
+      "purl": "pkg:alpm/arch/hunspell@1.7.6-1?arch=x86_64&distro=arch-rolling&upstream=hunspell"
+     },
+     {
+      "name": "libjpeg-turbo",
+      "from": "3.2.0-2",
+      "to": "3.2.1-1",
+      "purl": "pkg:alpm/arch/libjpeg-turbo@3.2.1-1?arch=x86_64&distro=arch-rolling&upstream=libjpeg-turbo"
+     },
+     {
+      "name": "nano",
+      "from": "9.2-1",
+      "to": "9.3-1",
+      "purl": "pkg:alpm/arch/nano@9.3-1?arch=x86_64&distro=arch-rolling&upstream=nano"
+     },
+     {
+      "name": "onetbb",
+      "from": "2023.1.0-1",
+      "to": "2023.2.0-1",
+      "purl": "pkg:alpm/arch/onetbb@2023.2.0-1?arch=x86_64&distro=arch-rolling&upstream=onetbb"
+     },
+     {
+      "name": "openexr",
+      "from": "3.5.2-1",
+      "to": "3.5.3-3",
+      "purl": "pkg:alpm/arch/openexr@3.5.3-3?arch=x86_64&distro=arch-rolling&upstream=openexr"
+     },
+     {
+      "name": "openjph",
+      "from": "0.32.0-1",
+      "to": "0.33.0-1",
+      "purl": "pkg:alpm/arch/openjph@0.33.0-1?arch=x86_64&distro=arch-rolling&upstream=openjph"
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-3",
+      "to": "6.12.0-4",
+      "purl": "pkg:alpm/arch/qt6-declarative@6.12.0-4?arch=x86_64&distro=arch-rolling&upstream=qt6-declarative"
+     },
+     {
+      "name": "simdutf",
+      "from": "9.2.1-2",
+      "to": "9.2.2-1",
+      "purl": "pkg:alpm/arch/simdutf@9.2.2-1?arch=x86_64&distro=arch-rolling&upstream=simdutf"
+     },
+     {
+      "name": "wayland-protocols",
+      "from": "1.49-1",
+      "to": "1.50-1",
+      "purl": "pkg:alpm/arch/wayland-protocols@1.50-1?arch=any&distro=arch-rolling&upstream=wayland-protocols"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@ai-sdk/amazon-bedrock",
+      "from": "5.0.129",
+      "to": "5.0.130",
+      "purl": "pkg:npm/%40ai-sdk/amazon-bedrock@5.0.130"
+     },
+     {
+      "name": "@ai-sdk/anthropic",
+      "from": "4.0.93",
+      "to": "4.0.94",
+      "purl": "pkg:npm/%40ai-sdk/anthropic@4.0.94"
+     },
+     {
+      "name": "@ai-sdk/google-vertex",
+      "from": "5.0.128",
+      "to": "5.0.129",
+      "purl": "pkg:npm/%40ai-sdk/google-vertex@5.0.129"
+     },
+     {
+      "name": "@ai-sdk/mistral",
+      "from": "4.0.76",
+      "to": "4.0.77",
+      "purl": "pkg:npm/%40ai-sdk/mistral@4.0.77"
+     },
+     {
+      "name": "@babel/types",
+      "from": "8.0.10",
+      "to": "8.1.0",
+      "purl": "pkg:npm/%40babel/types@8.1.0"
+     },
+     {
+      "name": "@hono/node-server",
+      "from": "2.1.5",
+      "to": "2.1.6",
+      "purl": "pkg:npm/%40hono/node-server@2.1.6"
+     },
+     {
+      "name": "@msgpackr-extract/msgpackr-extract-linux-x64",
+      "from": "3.0.4",
+      "to": "3.0.6",
+      "purl": "pkg:npm/%40msgpackr-extract/msgpackr-extract-linux-x64@3.0.6"
+     },
+     {
+      "name": "@smithy/core",
+      "from": "3.38.0",
+      "to": "3.38.1",
+      "purl": "pkg:npm/%40smithy/core@3.38.1"
+     },
+     {
+      "name": "@smithy/node-http-handler",
+      "from": "4.14.0",
+      "to": "4.14.1",
+      "purl": "pkg:npm/%40smithy/node-http-handler@4.14.1"
+     },
+     {
+      "name": "hono",
+      "from": "4.13.14",
+      "to": "4.13.16",
+      "purl": "pkg:npm/hono@4.13.16"
+     },
+     {
+      "name": "jose",
+      "from": "6.2.14",
+      "to": "6.2.15",
+      "purl": "pkg:npm/jose@6.2.15"
+     },
+     {
+      "name": "lm-studio",
+      "from": "0.4.27+2",
+      "to": "0.4.28+2",
+      "purl": "pkg:npm/lm-studio@0.4.28%2B2"
+     },
+     {
+      "name": "msgpackr",
+      "from": "2.1.3",
+      "to": "2.1.4",
+      "purl": "pkg:npm/msgpackr@2.1.4"
+     },
+     {
+      "name": "msgpackr-extract",
+      "from": "3.0.4",
+      "to": "3.0.6",
+      "purl": "pkg:npm/msgpackr-extract@3.0.6"
+     },
+     {
+      "name": "strtok3",
+      "from": "10.6.3",
+      "to": "10.7.0",
+      "purl": "pkg:npm/strtok3@10.7.0"
+     },
+     {
+      "name": "token-types",
+      "from": "6.1.2",
+      "to": "6.2.0",
+      "purl": "pkg:npm/token-types@6.2.0"
+     },
+     {
+      "name": "ws",
+      "from": "8.22.0",
+      "to": "8.22.1",
+      "purl": "pkg:npm/ws@8.22.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tbb",
+      "from": "2023.1.0",
+      "to": "2023.2.0",
+      "purl": "pkg:pypi/tbb@2023.2.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 30,
+  "downgraded": 0
+ }
+}

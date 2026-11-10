@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "name": "d2-builder",
+ "kind": "tool",
+ "summary": "d2-builder container image.",
+ "upstream": {
+  "version": {
+   "type": "github_release",
+   "repo": "d2lang/d2",
+   "require_assets": [
+    {
+     "asset": "^d2\\-.*\\-linux\\-amd64\\.tar\\.gz$"
+    },
+    {
+     "asset": "^d2\\-.*\\-linux\\-arm64\\.tar\\.gz$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "d2lang/d2"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "D2_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "enabled": false,
+  "startup_timeout": 60
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Internal"
+  ],
+  "custom_readme": "# linuxserver/d2-builder\n\nExpects to run as part of the LSIO CI process. Not for public consumption.\n\n## Running against local project\n\nIf you need to test functionality just run:\n\n```bash\ndocker pull lscr.io/linuxserver/d2-builder:latest && \\\ndocker run -d --rm -v /tmp/d2:/output -e PUID=1000 -e PGID=1000 lscr.io/linuxserver/d2-builder:latest mastodon:latest\n```\n\nGenerated svg files will be created in `/output`.\n\n## Versions\n\nThe following line is only in this repo for loop testing:\n\n- { date: \"01.01.50:\", desc: \"I am the release message for this internal repo.\" }\n"
+ },
+ "publish": {
+  "stores": {
+   "unraid": false
+  }
+ }
+}

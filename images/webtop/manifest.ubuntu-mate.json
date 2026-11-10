@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "name": "webtop",
+ "summary": "[Webtop](https://github.com/linuxserver/docker-webtop) - Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser.",
+ "upstream": {
+  "url": "https://github.com/linuxserver/docker-webtop",
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "ubuntu-mate",
+  "tag": "ubuntu-mate",
+  "channel": "prerelease"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "OS_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Remote Desktop"
+  ],
+  "custom_readme": "Up to date documentation is available [here](https://github.com/linuxserver/docker-webtop/blob/master/README.md).\n"
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ }
+}

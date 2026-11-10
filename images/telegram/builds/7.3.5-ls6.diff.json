@@ -1,0 +1,123 @@
+{
+ "image": "telegram",
+ "branch": "master",
+ "tag": "7.3.5-ls6",
+ "previous_tag": "7.3.5-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (0c74ef0 → 03ab677): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "7.3.5",
+  "to": "7.3.5",
+  "changed": false
+ },
+ "commit": {
+  "from": "0c74ef01e7d9e7c7097b706f7cd33d18b57ea468",
+  "to": "03ab677b0f6e582348db076c618d68afb7e6c43d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-telegram/compare/0c74ef01e7d9e7c7097b706f7cd33d18b57ea468...03ab677b0f6e582348db076c618d68afb7e6c43d",
+  "commits": [
+   {
+    "sha": "03ab677b0f6e582348db076c618d68afb7e6c43d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T17:52:52Z",
+    "url": "https://github.com/linuxserver-playground/docker-telegram/commit/03ab677b0f6e582348db076c618d68afb7e6c43d",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:52fa07df164b16b16aef191b51e80acf9911a6dd98d836f3e41cee05b1c07f37"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:52fa07df164b16b16aef191b51e80acf9911a6dd98d836f3e41cee05b1c07f37"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1686424694,
+   "to": 1686423719,
+   "delta": -975
+  },
+  "arm64": {
+   "from": 1751398879,
+   "to": 1751398296,
+   "delta": -583
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "harfbuzz-icu",
+      "from": "15.0.0-1",
+      "to": "15.1.0-1",
+      "purl": "pkg:alpm/arch/harfbuzz-icu@15.1.0-1?arch=x86_64&distro=arch-rolling&upstream=harfbuzz"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "harfbuzz-icu",
+      "from": "15.0.0-1",
+      "to": "15.1.0-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

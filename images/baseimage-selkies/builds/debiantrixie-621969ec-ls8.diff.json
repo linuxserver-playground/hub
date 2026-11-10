@@ -1,0 +1,78 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "master",
+ "tag": "debiantrixie-621969ec-ls8",
+ "previous_tag": "debiantrixie-612493d5-ls7",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "repository at a newer commit (3e20df8 → f8eef26)"
+ ],
+ "upstream": {
+  "from": "612493d5",
+  "to": "621969ec",
+  "changed": true
+ },
+ "commit": {
+  "from": "3e20df8c029c941ea27fa0c189dde783810a2965",
+  "to": "f8eef2626f90ce153239699d1b2a61029b886c44",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/3e20df8c029c941ea27fa0c189dde783810a2965...f8eef2626f90ce153239699d1b2a61029b886c44"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:trixie",
+   "digest": "sha256:fe68da9cb5b6f5157f8e2b8cc5cf13a836ed43a8553701670d60856c6b42a9c0"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:trixie",
+   "digest": "sha256:2c3f91978292606be132103c6d2e58f0a08b40aa269a018a23f10523017c74ed"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 971942262,
+   "to": 971943888,
+   "delta": 1626
+  },
+  "arm64": {
+   "from": 927500275,
+   "to": 927492106,
+   "delta": -8169
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

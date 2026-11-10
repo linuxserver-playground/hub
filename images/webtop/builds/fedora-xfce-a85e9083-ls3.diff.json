@@ -1,0 +1,149 @@
+{
+ "image": "webtop",
+ "branch": "fedora-xfce",
+ "tag": "fedora-xfce-a85e9083-ls3",
+ "previous_tag": "fedora-xfce-e75fff07-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "e75fff07",
+  "to": "a85e9083",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:76d6b88cf87960bf5c546679c81631391939c87e26e210cde181ba5e11db558f"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:56bcd84fe21cbd7e40ab26ba021d3c34658802cfce31bdd02cc4d5f5c501b38b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1202199358,
+   "to": 1198809951,
+   "delta": -3389407
+  },
+  "arm64": {
+   "from": 1103019860,
+   "to": 1099677881,
+   "delta": -3341979
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "expat",
+      "from": "2.8.5-1.fc44",
+      "to": "2.9.0-1.fc44",
+      "purl": "pkg:rpm/fedora/expat@2.9.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=expat-2.9.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "librabbitmq",
+      "from": "0.18.0-1.fc44",
+      "to": "0.18.1-1.fc44",
+      "purl": "pkg:rpm/fedora/librabbitmq@0.18.1-1.fc44?arch=x86_64&distro=fedora-44&upstream=librabbitmq-0.18.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "259.9-1.fc44",
+      "to": "259.10-1.fc44",
+      "purl": "pkg:rpm/fedora/systemd-standalone-sysusers@259.10-1.fc44?arch=x86_64&distro=fedora-44&upstream=systemd-259.10-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "expat",
+      "from": "2.8.5-1.fc44",
+      "to": "2.9.0-1.fc44",
+      "purl": "pkg:rpm/fedora/expat@2.9.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=expat-2.9.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "librabbitmq",
+      "from": "0.18.0-1.fc44",
+      "to": "0.18.1-1.fc44",
+      "purl": "pkg:rpm/fedora/librabbitmq@0.18.1-1.fc44?arch=aarch64&distro=fedora-44&upstream=librabbitmq-0.18.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "259.9-1.fc44",
+      "to": "259.10-1.fc44",
+      "purl": "pkg:rpm/fedora/systemd-standalone-sysusers@259.10-1.fc44?arch=aarch64&distro=fedora-44&upstream=systemd-259.10-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

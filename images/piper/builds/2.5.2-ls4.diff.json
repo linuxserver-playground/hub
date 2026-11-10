@@ -1,0 +1,98 @@
+{
+ "image": "piper",
+ "branch": "main",
+ "tag": "2.5.2-ls4",
+ "previous_tag": "2.5.2-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "2.5.2",
+  "to": "2.5.2",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:5260b5c74c8d3ce0acc4e5302059301507511a064df3bbfdc7967526d6ce14f3"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:c2398fa94f700f68208462f0b6278794968d3d7436ccba605cacb7f32e2dc120"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 165631424,
+   "to": 165633592,
+   "delta": 2168
+  },
+  "arm64": {
+   "from": 162380750,
+   "to": 162390446,
+   "delta": 9696
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "sentence-stream",
+      "from": "1.3.0",
+      "to": "1.4.0",
+      "purl": "pkg:pypi/sentence-stream@1.4.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "sentence-stream",
+      "from": "1.3.0",
+      "to": "1.4.0",
+      "purl": "pkg:pypi/sentence-stream@1.4.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

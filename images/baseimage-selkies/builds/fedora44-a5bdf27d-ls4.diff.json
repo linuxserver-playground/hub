@@ -1,0 +1,706 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "fedora44",
+ "tag": "fedora44-a5bdf27d-ls4",
+ "previous_tag": "fedora44-a5bdf27d-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "a5bdf27d",
+  "to": "a5bdf27d",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:4c79f83c001fc169c5f00a595e1c7d31e043b0e4e981bd877494ab216db09c68"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:6a1bc42c933c2ac038440f9cfa19383764a586170e2a0beb82781304aa2210e8"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 880624612,
+   "to": 882560181,
+   "delta": 1935569
+  },
+  "arm64": {
+   "from": 787474243,
+   "to": 789379085,
+   "delta": 1904842
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "go-module": {
+    "added": [
+     {
+      "name": "github.com/urfave/cli/v3",
+      "version": "v3.11.0",
+      "purl": "pkg:golang/github.com/urfave/cli/v3@v3.11.0"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.2-0.20180830191138-d8f796af33cc",
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc"
+     },
+     {
+      "name": "github.com/opencontainers/runtime-tools",
+      "version": "v0.9.1-0.20251114084447-edf4cb3d2116",
+      "purl": "pkg:golang/github.com/opencontainers/runtime-tools@v0.9.1-0.20251114084447-edf4cb3d2116"
+     },
+     {
+      "name": "github.com/urfave/cli/v2",
+      "version": "v2.27.7",
+      "purl": "pkg:golang/github.com/urfave/cli/v2@v2.27.7"
+     },
+     {
+      "name": "github.com/xrash/smetrics",
+      "version": "v0.0.0-20240521201337-686a1a2994c1",
+      "purl": "pkg:golang/github.com/xrash/smetrics@v0.0.0-20240521201337-686a1a2994c1"
+     },
+     {
+      "name": "golang.org/x/exp",
+      "version": "v0.0.0-20241108190413-2d47ceb2692f",
+      "purl": "pkg:golang/golang.org/x/exp@v0.0.0-20241108190413-2d47ceb2692f"
+     },
+     {
+      "name": "gopkg.in/yaml.v3",
+      "version": "v3.0.1",
+      "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.1"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/checkpoint-restore/checkpointctl",
+      "from": "v1.5.0",
+      "to": "v1.6.0",
+      "purl": "pkg:golang/github.com/checkpoint-restore/checkpointctl@v1.6.0"
+     },
+     {
+      "name": "github.com/containerd/containerd/api",
+      "from": "v1.11.1",
+      "to": "v1.12.0",
+      "purl": "pkg:golang/github.com/containerd/containerd/api@v1.12.0"
+     },
+     {
+      "name": "github.com/containerd/containerd/v2",
+      "from": "v2.3.6",
+      "to": "v2.4.2",
+      "purl": "pkg:golang/github.com/containerd/containerd/v2@v2.4.2"
+     },
+     {
+      "name": "github.com/containerd/go-cni",
+      "from": "v1.1.13",
+      "to": "v1.1.14",
+      "purl": "pkg:golang/github.com/containerd/go-cni@v1.1.14"
+     },
+     {
+      "name": "github.com/containerd/imgcrypt/v2",
+      "from": "v2.0.2",
+      "to": "v2.0.3",
+      "purl": "pkg:golang/github.com/containerd/imgcrypt/v2@v2.0.3"
+     },
+     {
+      "name": "github.com/containernetworking/cni",
+      "from": "v1.3.0",
+      "to": "v1.3.1",
+      "purl": "pkg:golang/github.com/containernetworking/cni@v1.3.1"
+     },
+     {
+      "name": "github.com/containers/ocicrypt",
+      "from": "v1.2.1",
+      "to": "v1.3.2",
+      "purl": "pkg:golang/github.com/containers/ocicrypt@v1.3.2"
+     },
+     {
+      "name": "github.com/erofs/go-erofs",
+      "from": "v0.3.0",
+      "to": "v0.3.1",
+      "purl": "pkg:golang/github.com/erofs/go-erofs@v0.3.1"
+     },
+     {
+      "name": "github.com/fsnotify/fsnotify",
+      "from": "v1.9.0",
+      "to": "v1.10.1",
+      "purl": "pkg:golang/github.com/fsnotify/fsnotify@v1.10.1"
+     },
+     {
+      "name": "github.com/fxamacker/cbor/v2",
+      "from": "v2.9.0",
+      "to": "v2.9.4",
+      "purl": "pkg:golang/github.com/fxamacker/cbor/v2@v2.9.4"
+     },
+     {
+      "name": "github.com/intel/goresctrl",
+      "from": "v0.12.0",
+      "to": "v0.13.0",
+      "purl": "pkg:golang/github.com/intel/goresctrl@v0.13.0"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.19.2",
+      "to": "v1.20.0",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.0"
+     },
+     {
+      "name": "github.com/miekg/pkcs11",
+      "from": "v1.1.1",
+      "to": "v1.1.2",
+      "purl": "pkg:golang/github.com/miekg/pkcs11@v1.1.2"
+     },
+     {
+      "name": "github.com/smallstep/pkcs7",
+      "from": "v0.1.1",
+      "to": "v0.2.1",
+      "purl": "pkg:golang/github.com/smallstep/pkcs7@v0.2.1"
+     },
+     {
+      "name": "k8s.io/apimachinery",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/apimachinery@v0.37.0"
+     },
+     {
+      "name": "k8s.io/client-go",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/client-go@v0.37.0"
+     },
+     {
+      "name": "k8s.io/component-base",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/component-base@v0.37.0"
+     },
+     {
+      "name": "k8s.io/cri-api",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/cri-api@v0.37.0"
+     },
+     {
+      "name": "k8s.io/cri-client",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/cri-client@v0.37.0"
+     },
+     {
+      "name": "k8s.io/cri-streaming",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/cri-streaming@v0.37.0"
+     },
+     {
+      "name": "k8s.io/streaming",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/streaming@v0.37.0"
+     },
+     {
+      "name": "k8s.io/utils",
+      "from": "v0.0.0-20260319190234-28399d86e0b5",
+      "to": "v0.0.0-20260626114624-be93311217bd",
+      "purl": "pkg:golang/k8s.io/utils@v0.0.0-20260626114624-be93311217bd"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.26.8-X:nodwarf5",
+      "to": "go1.26.9-X:nodwarf5",
+      "purl": "pkg:golang/stdlib@1.26.9-X%3Anodwarf5"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "google.golang.org/protobuf",
+      "from": "v1.36.12-0.20260120151049-f2248ac996af",
+      "to": "v1.36.12",
+      "purl": "pkg:golang/google.golang.org/protobuf@v1.36.12"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "brotli",
+      "from": "1.2.0-3.fc44",
+      "to": "1.2.1-1.fc44",
+      "purl": "pkg:rpm/fedora/brotli@1.2.1-1.fc44?arch=x86_64&distro=fedora-44&upstream=brotli-1.2.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "brotli-devel",
+      "from": "1.2.0-3.fc44",
+      "to": "1.2.1-1.fc44",
+      "purl": "pkg:rpm/fedora/brotli-devel@1.2.1-1.fc44?arch=x86_64&distro=fedora-44&upstream=brotli-1.2.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "containerd",
+      "from": "2.3.5-1.fc44",
+      "to": "2.4.2-1.fc44",
+      "purl": "pkg:rpm/fedora/containerd@2.4.2-1.fc44?arch=x86_64&distro=fedora-44&upstream=containerd-2.4.2-1.fc44.src.rpm"
+     },
+     {
+      "name": "libblkid",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libblkid@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libblkid-devel",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libblkid-devel@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libbrotli",
+      "from": "1.2.0-3.fc44",
+      "to": "1.2.1-1.fc44",
+      "purl": "pkg:rpm/fedora/libbrotli@1.2.1-1.fc44?arch=x86_64&distro=fedora-44&upstream=brotli-1.2.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "libfdisk",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libfdisk@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "liblastlog2",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/liblastlog2@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libmount",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libmount@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libmount-devel",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libmount-devel@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libsmartcols",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libsmartcols@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libuuid",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libuuid@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "util-linux",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/util-linux@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "util-linux-core",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/util-linux-core@2.41.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "go-module": {
+    "added": [
+     {
+      "name": "github.com/urfave/cli/v3",
+      "version": "v3.11.0",
+      "purl": "pkg:golang/github.com/urfave/cli/v3@v3.11.0"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/davecgh/go-spew",
+      "version": "v1.1.2-0.20180830191138-d8f796af33cc",
+      "purl": "pkg:golang/github.com/davecgh/go-spew@v1.1.2-0.20180830191138-d8f796af33cc"
+     },
+     {
+      "name": "github.com/opencontainers/runtime-tools",
+      "version": "v0.9.1-0.20251114084447-edf4cb3d2116",
+      "purl": "pkg:golang/github.com/opencontainers/runtime-tools@v0.9.1-0.20251114084447-edf4cb3d2116"
+     },
+     {
+      "name": "github.com/urfave/cli/v2",
+      "version": "v2.27.7",
+      "purl": "pkg:golang/github.com/urfave/cli/v2@v2.27.7"
+     },
+     {
+      "name": "github.com/xrash/smetrics",
+      "version": "v0.0.0-20240521201337-686a1a2994c1",
+      "purl": "pkg:golang/github.com/xrash/smetrics@v0.0.0-20240521201337-686a1a2994c1"
+     },
+     {
+      "name": "golang.org/x/exp",
+      "version": "v0.0.0-20241108190413-2d47ceb2692f",
+      "purl": "pkg:golang/golang.org/x/exp@v0.0.0-20241108190413-2d47ceb2692f"
+     },
+     {
+      "name": "gopkg.in/yaml.v3",
+      "version": "v3.0.1",
+      "purl": "pkg:golang/gopkg.in/yaml.v3@v3.0.1"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/checkpoint-restore/checkpointctl",
+      "from": "v1.5.0",
+      "to": "v1.6.0",
+      "purl": "pkg:golang/github.com/checkpoint-restore/checkpointctl@v1.6.0"
+     },
+     {
+      "name": "github.com/containerd/containerd/api",
+      "from": "v1.11.1",
+      "to": "v1.12.0",
+      "purl": "pkg:golang/github.com/containerd/containerd/api@v1.12.0"
+     },
+     {
+      "name": "github.com/containerd/containerd/v2",
+      "from": "v2.3.6",
+      "to": "v2.4.2",
+      "purl": "pkg:golang/github.com/containerd/containerd/v2@v2.4.2"
+     },
+     {
+      "name": "github.com/containerd/go-cni",
+      "from": "v1.1.13",
+      "to": "v1.1.14",
+      "purl": "pkg:golang/github.com/containerd/go-cni@v1.1.14"
+     },
+     {
+      "name": "github.com/containerd/imgcrypt/v2",
+      "from": "v2.0.2",
+      "to": "v2.0.3",
+      "purl": "pkg:golang/github.com/containerd/imgcrypt/v2@v2.0.3"
+     },
+     {
+      "name": "github.com/containernetworking/cni",
+      "from": "v1.3.0",
+      "to": "v1.3.1",
+      "purl": "pkg:golang/github.com/containernetworking/cni@v1.3.1"
+     },
+     {
+      "name": "github.com/containers/ocicrypt",
+      "from": "v1.2.1",
+      "to": "v1.3.2",
+      "purl": "pkg:golang/github.com/containers/ocicrypt@v1.3.2"
+     },
+     {
+      "name": "github.com/erofs/go-erofs",
+      "from": "v0.3.0",
+      "to": "v0.3.1",
+      "purl": "pkg:golang/github.com/erofs/go-erofs@v0.3.1"
+     },
+     {
+      "name": "github.com/fsnotify/fsnotify",
+      "from": "v1.9.0",
+      "to": "v1.10.1",
+      "purl": "pkg:golang/github.com/fsnotify/fsnotify@v1.10.1"
+     },
+     {
+      "name": "github.com/fxamacker/cbor/v2",
+      "from": "v2.9.0",
+      "to": "v2.9.4",
+      "purl": "pkg:golang/github.com/fxamacker/cbor/v2@v2.9.4"
+     },
+     {
+      "name": "github.com/intel/goresctrl",
+      "from": "v0.12.0",
+      "to": "v0.13.0",
+      "purl": "pkg:golang/github.com/intel/goresctrl@v0.13.0"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.19.2",
+      "to": "v1.20.0",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.0"
+     },
+     {
+      "name": "github.com/miekg/pkcs11",
+      "from": "v1.1.1",
+      "to": "v1.1.2",
+      "purl": "pkg:golang/github.com/miekg/pkcs11@v1.1.2"
+     },
+     {
+      "name": "github.com/smallstep/pkcs7",
+      "from": "v0.1.1",
+      "to": "v0.2.1",
+      "purl": "pkg:golang/github.com/smallstep/pkcs7@v0.2.1"
+     },
+     {
+      "name": "k8s.io/apimachinery",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/apimachinery@v0.37.0"
+     },
+     {
+      "name": "k8s.io/client-go",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/client-go@v0.37.0"
+     },
+     {
+      "name": "k8s.io/component-base",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/component-base@v0.37.0"
+     },
+     {
+      "name": "k8s.io/cri-api",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/cri-api@v0.37.0"
+     },
+     {
+      "name": "k8s.io/cri-client",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/cri-client@v0.37.0"
+     },
+     {
+      "name": "k8s.io/cri-streaming",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/cri-streaming@v0.37.0"
+     },
+     {
+      "name": "k8s.io/streaming",
+      "from": "v0.36.3",
+      "to": "v0.37.0",
+      "purl": "pkg:golang/k8s.io/streaming@v0.37.0"
+     },
+     {
+      "name": "k8s.io/utils",
+      "from": "v0.0.0-20260319190234-28399d86e0b5",
+      "to": "v0.0.0-20260626114624-be93311217bd",
+      "purl": "pkg:golang/k8s.io/utils@v0.0.0-20260626114624-be93311217bd"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.26.8-X:nodwarf5",
+      "to": "go1.26.9-X:nodwarf5",
+      "purl": "pkg:golang/stdlib@1.26.9-X%3Anodwarf5"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "google.golang.org/protobuf",
+      "from": "v1.36.12-0.20260120151049-f2248ac996af",
+      "to": "v1.36.12",
+      "purl": "pkg:golang/google.golang.org/protobuf@v1.36.12"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "brotli",
+      "from": "1.2.0-3.fc44",
+      "to": "1.2.1-1.fc44",
+      "purl": "pkg:rpm/fedora/brotli@1.2.1-1.fc44?arch=aarch64&distro=fedora-44&upstream=brotli-1.2.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "brotli-devel",
+      "from": "1.2.0-3.fc44",
+      "to": "1.2.1-1.fc44",
+      "purl": "pkg:rpm/fedora/brotli-devel@1.2.1-1.fc44?arch=aarch64&distro=fedora-44&upstream=brotli-1.2.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "containerd",
+      "from": "2.3.5-1.fc44",
+      "to": "2.4.2-1.fc44",
+      "purl": "pkg:rpm/fedora/containerd@2.4.2-1.fc44?arch=aarch64&distro=fedora-44&upstream=containerd-2.4.2-1.fc44.src.rpm"
+     },
+     {
+      "name": "libblkid",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libblkid@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libblkid-devel",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libblkid-devel@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libbrotli",
+      "from": "1.2.0-3.fc44",
+      "to": "1.2.1-1.fc44",
+      "purl": "pkg:rpm/fedora/libbrotli@1.2.1-1.fc44?arch=aarch64&distro=fedora-44&upstream=brotli-1.2.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "libfdisk",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libfdisk@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "liblastlog2",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/liblastlog2@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libmount",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libmount@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libmount-devel",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libmount-devel@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libsmartcols",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libsmartcols@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "libuuid",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/libuuid@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "util-linux",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/util-linux@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "util-linux-core",
+      "from": "2.41.5-1.fc44",
+      "to": "2.41.6-1.fc44",
+      "purl": "pkg:rpm/fedora/util-linux-core@2.41.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=util-linux-2.41.6-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 12,
+  "upgraded": 84,
+  "downgraded": 2
+ }
+}

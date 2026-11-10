@@ -1,0 +1,62 @@
+{
+ "image": "calibre",
+ "branch": "v4",
+ "tag": "v4-4.23.0-ls2",
+ "previous_tag": "v4-4.23.0-ls1",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "4.23.0",
+  "to": "4.23.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubuntunoble",
+   "digest": "sha256:7cab02f9222937ad1e704cd904534d69a2300b2406af466241817be0ce1d0493"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubuntunoble",
+   "digest": "sha256:7cab02f9222937ad1e704cd904534d69a2300b2406af466241817be0ce1d0493"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1157825771,
+   "to": 1157825645,
+   "delta": -126
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}
