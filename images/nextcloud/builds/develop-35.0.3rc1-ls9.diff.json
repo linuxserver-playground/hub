@@ -1,0 +1,123 @@
+{
+ "image": "nextcloud",
+ "branch": "develop",
+ "tag": "develop-35.0.3rc1-ls9",
+ "previous_tag": "develop-35.0.3rc1-ls8",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (9c10937 → 15cc043): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "35.0.3rc1",
+  "to": "35.0.3rc1",
+  "changed": false
+ },
+ "commit": {
+  "from": "9c10937387741eca241808d2ec6b63b44f4db6d1",
+  "to": "15cc043dadeca477303faa1acf719c406067f59c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-nextcloud/compare/9c10937387741eca241808d2ec6b63b44f4db6d1...15cc043dadeca477303faa1acf719c406067f59c",
+  "commits": [
+   {
+    "sha": "15cc043dadeca477303faa1acf719c406067f59c",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T15:56:59Z",
+    "url": "https://github.com/linuxserver-playground/docker-nextcloud/commit/15cc043dadeca477303faa1acf719c406067f59c",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a5464bb0b85935854231e0dfa14bd55963c132d4acdfc3f5997de04f2e2bfa52"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a5464bb0b85935854231e0dfa14bd55963c132d4acdfc3f5997de04f2e2bfa52"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 379239653,
+   "to": 379254169,
+   "delta": 14516
+  },
+  "arm64": {
+   "from": 376340397,
+   "to": 376357725,
+   "delta": 17328
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "rsync",
+      "from": "3.5.0-r0",
+      "to": "3.5.2-r1",
+      "purl": "pkg:apk/alpine/rsync@3.5.2-r1?arch=x86_64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "rsync",
+      "from": "3.5.0-r0",
+      "to": "3.5.2-r1",
+      "purl": "pkg:apk/alpine/rsync@3.5.2-r1?arch=aarch64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

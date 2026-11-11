@@ -1,0 +1,171 @@
+{
+ "image": "emby",
+ "branch": "beta",
+ "tag": "beta-4.11.0.12-ls4",
+ "previous_tag": "beta-4.11.0.11-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "4.11.0.11",
+  "to": "4.11.0.12",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:aafa382d46194ad0c760e484189bcc497c68d304e2cae1d2390cdb606a27bcc1"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:c2398fa94f700f68208462f0b6278794968d3d7436ccba605cacb7f32e2dc120"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 443743767,
+   "to": 443686901,
+   "delta": -56866
+  },
+  "arm64": {
+   "from": 208474475,
+   "to": 208413116,
+   "delta": -61359
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "Emby.Ffmpeg.Base.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Base.Reference@4.11.0.12"
+     },
+     {
+      "name": "Emby.Ffmpeg.Lib.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Lib.Reference@4.11.0.12"
+     },
+     {
+      "name": "Emby.Ffmpeg.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Reference@4.11.0.12"
+     },
+     {
+      "name": "Emby.XmlTV",
+      "from": "1.2.4.0",
+      "to": "1.2.5.0",
+      "purl": "pkg:nuget/Emby.XmlTV@1.2.5.0"
+     },
+     {
+      "name": "EmbyServer",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/EmbyServer@4.11.0.12"
+     },
+     {
+      "name": "MediaBrowser.Controller",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/MediaBrowser.Controller@4.11.0.12"
+     },
+     {
+      "name": "SQLitePCLRawEx.core.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/SQLitePCLRawEx.core.Reference@4.11.0.12"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "Emby.Ffmpeg.Base.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Base.Reference@4.11.0.12"
+     },
+     {
+      "name": "Emby.Ffmpeg.Lib.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Lib.Reference@4.11.0.12"
+     },
+     {
+      "name": "Emby.Ffmpeg.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Reference@4.11.0.12"
+     },
+     {
+      "name": "Emby.XmlTV",
+      "from": "1.2.4.0",
+      "to": "1.2.5.0",
+      "purl": "pkg:nuget/Emby.XmlTV@1.2.5.0"
+     },
+     {
+      "name": "EmbyServer",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/EmbyServer@4.11.0.12"
+     },
+     {
+      "name": "MediaBrowser.Controller",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/MediaBrowser.Controller@4.11.0.12"
+     },
+     {
+      "name": "SQLitePCLRawEx.core.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.12",
+      "purl": "pkg:nuget/SQLitePCLRawEx.core.Reference@4.11.0.12"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

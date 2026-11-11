@@ -1,0 +1,405 @@
+{
+ "image": "jellyfin",
+ "branch": "master",
+ "tag": "12.4ubu2604-ls3",
+ "previous_tag": "12.3ubu2604-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "12.3+ubu2604",
+  "to": "12.4+ubu2604",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver/baseimage-ubuntu:resolute",
+   "digest": "sha256:17f8127f438b5203c47149a87769ec8c82849d93c08cf8521c18949fd6ae8ee9"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:e4c5ed98eea47c7cd2cbfbfd9a7f19bb19618b827f4ed28ecb5893f43284d96d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 342392090,
+   "to": 341561457,
+   "delta": -830633
+  },
+  "arm64": {
+   "from": 305857912,
+   "to": 305012163,
+   "delta": -845749
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:resolute\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute\n \n ENV LSIO_FIRST_PARTY=true\n \n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -1,6 +1,6 @@\n # syntax=docker/dockerfile:1\n \n-FROM ghcr.io/linuxserver/baseimage-ubuntu:arm64v8-resolute\n+FROM ghcr.io/linuxserver-playground/baseimage-ubuntu:arm64v8-resolute\n \n ENV LSIO_FIRST_PARTY=true\n \n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jellyfin",
+      "from": "12.3+ubu2604",
+      "to": "12.4+ubu2604",
+      "purl": "pkg:deb/ubuntu/jellyfin@12.4%2Bubu2604?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "jellyfin-server",
+      "from": "12.3+ubu2604",
+      "to": "12.4+ubu2604",
+      "purl": "pkg:deb/ubuntu/jellyfin-server@12.4%2Bubu2604?arch=amd64&distro=ubuntu-26.04&upstream=jellyfin"
+     },
+     {
+      "name": "jellyfin-web",
+      "from": "12.3+ubu2604",
+      "to": "12.4+ubu2604",
+      "purl": "pkg:deb/ubuntu/jellyfin-web@12.4%2Bubu2604?arch=all&distro=ubuntu-26.04&upstream=jellyfin"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.1-1ubuntu3.1",
+      "to": "1:1.3.dfsg+really1.3.1-1ubuntu3.2",
+      "purl": "pkg:deb/ubuntu/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1ubuntu3.2?arch=amd64&distro=ubuntu-26.04&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "Emby.Naming",
+      "from": "12.3.0.0",
+      "to": "12.4.0.0",
+      "purl": "pkg:nuget/Emby.Naming@12.4.0.0"
+     },
+     {
+      "name": "MediaBrowser.Common",
+      "from": "12.3.0.0",
+      "to": "12.4.0.0",
+      "purl": "pkg:nuget/MediaBrowser.Common@12.4.0.0"
+     },
+     {
+      "name": "MediaBrowser.Controller",
+      "from": "12.3.0.0",
+      "to": "12.4.0.0",
+      "purl": "pkg:nuget/MediaBrowser.Controller@12.4.0.0"
+     },
+     {
+      "name": "MediaBrowser.Model",
+      "from": "12.3.0.0",
+      "to": "12.4.0.0",
+      "purl": "pkg:nuget/MediaBrowser.Model@12.4.0.0"
+     },
+     {
+      "name": "Microsoft.Data.Sqlite.Core",
+      "from": "10.0.12",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Data.Sqlite.Core@10.0.14"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore",
+      "from": "10.0.12",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore@10.0.14"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore.Abstractions",
+      "from": "10.0.12",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore.Abstractions@10.0.14"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore.Relational",
+      "from": "10.0.12",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore.Relational@10.0.14"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore.Sqlite",
+      "from": "10.0.12",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore.Sqlite@10.0.14"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore.Sqlite.Core",
+      "from": "10.0.12",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore.Sqlite.Core@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyModel",
+      "from": "10.0.12",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyModel@10.0.14"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore",
+      "from": "10.0.12",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore@10.0.14"
+     },
+     {
+      "name": "SQLitePCLRaw.bundle_e_sqlite3",
+      "from": "2.1.12",
+      "to": "2.1.13",
+      "purl": "pkg:nuget/SQLitePCLRaw.bundle_e_sqlite3@2.1.13"
+     },
+     {
+      "name": "SQLitePCLRaw.core",
+      "from": "2.1.12",
+      "to": "2.1.13",
+      "purl": "pkg:nuget/SQLitePCLRaw.core@2.1.13"
+     },
+     {
+      "name": "SQLitePCLRaw.lib.e_sqlite3",
+      "from": "2.1.12",
+      "to": "2.1.13",
+      "purl": "pkg:nuget/SQLitePCLRaw.lib.e_sqlite3@2.1.13"
+     },
+     {
+      "name": "SQLitePCLRaw.provider.e_sqlite3",
+      "from": "2.1.12",
+      "to": "2.1.13",
+      "purl": "pkg:nuget/SQLitePCLRaw.provider.e_sqlite3@2.1.13"
+     },
+     {
+      "name": "runtimepack.Microsoft.AspNetCore.App.Runtime.linux-x64",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/runtimepack.Microsoft.AspNetCore.App.Runtime.linux-x64@10.0.14"
+     },
+     {
+      "name": "runtimepack.Microsoft.NETCore.App.Runtime.linux-x64",
+      "from": "10.0.13",
+      "to": "10.0.14",
+      "purl": "pkg:nuget/runtimepack.Microsoft.NETCore.App.Runtime.linux-x64@10.0.14"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054015-16d571fb31ca",
+      "to": "v1.33.3-0.20261021134118-f036f355de35",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134118-f036f355de35"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.45.0",
+      "to": "v0.46.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.46.0"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.1",
+      "to": "go1.27.3",
+      "purl": "pkg:golang/stdlib@1.27.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jellyfin",
+      "from": "12.3+ubu2604",
+      "to": "12.4+ubu2604",
+      "purl": "pkg:deb/ubuntu/jellyfin@12.4%2Bubu2604?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "jellyfin-web",
+      "from": "12.3+ubu2604",
+      "to": "12.4+ubu2604",
+      "purl": "pkg:deb/ubuntu/jellyfin-web@12.4%2Bubu2604?arch=all&distro=ubuntu-26.04&upstream=jellyfin"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.1-1ubuntu3.1",
+      "to": "1:1.3.dfsg+really1.3.1-1ubuntu3.2",
+      "purl": "pkg:deb/ubuntu/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1ubuntu3.2?arch=arm64&distro=ubuntu-26.04&upstream=zlib"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "jellyfin-server",
+      "from": "12.3+ubu2604",
+      "to": "12.2+ubu2604",
+      "purl": "pkg:deb/ubuntu/jellyfin-server@12.2%2Bubu2604?arch=arm64&distro=ubuntu-26.04&upstream=jellyfin"
+     }
+    ]
+   },
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [],
+    "downgraded": [
+     {
+      "name": "Emby.Naming",
+      "from": "12.3.0.0",
+      "to": "12.2.0.0",
+      "purl": "pkg:nuget/Emby.Naming@12.2.0.0"
+     },
+     {
+      "name": "MediaBrowser.Common",
+      "from": "12.3.0.0",
+      "to": "12.2.0.0",
+      "purl": "pkg:nuget/MediaBrowser.Common@12.2.0.0"
+     },
+     {
+      "name": "MediaBrowser.Controller",
+      "from": "12.3.0.0",
+      "to": "12.2.0.0",
+      "purl": "pkg:nuget/MediaBrowser.Controller@12.2.0.0"
+     },
+     {
+      "name": "MediaBrowser.Model",
+      "from": "12.3.0.0",
+      "to": "12.2.0.0",
+      "purl": "pkg:nuget/MediaBrowser.Model@12.2.0.0"
+     },
+     {
+      "name": "Microsoft.Data.Sqlite.Core",
+      "from": "10.0.12",
+      "to": "10.0.11",
+      "purl": "pkg:nuget/Microsoft.Data.Sqlite.Core@10.0.11"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore",
+      "from": "10.0.12",
+      "to": "10.0.11",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore@10.0.11"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore.Abstractions",
+      "from": "10.0.12",
+      "to": "10.0.11",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore.Abstractions@10.0.11"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore.Relational",
+      "from": "10.0.12",
+      "to": "10.0.11",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore.Relational@10.0.11"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore.Sqlite",
+      "from": "10.0.12",
+      "to": "10.0.11",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore.Sqlite@10.0.11"
+     },
+     {
+      "name": "Microsoft.EntityFrameworkCore.Sqlite.Core",
+      "from": "10.0.12",
+      "to": "10.0.11",
+      "purl": "pkg:nuget/Microsoft.EntityFrameworkCore.Sqlite.Core@10.0.11"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyModel",
+      "from": "10.0.12",
+      "to": "10.0.11",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyModel@10.0.11"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore",
+      "from": "10.0.12",
+      "to": "10.0.11",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore@10.0.11"
+     },
+     {
+      "name": "runtimepack.Microsoft.AspNetCore.App.Runtime.linux-arm64",
+      "from": "10.0.13",
+      "to": "10.0.12",
+      "purl": "pkg:nuget/runtimepack.Microsoft.AspNetCore.App.Runtime.linux-arm64@10.0.12"
+     },
+     {
+      "name": "runtimepack.Microsoft.NETCore.App.Runtime.linux-arm64",
+      "from": "10.0.13",
+      "to": "10.0.12",
+      "purl": "pkg:nuget/runtimepack.Microsoft.NETCore.App.Runtime.linux-arm64@10.0.12"
+     }
+    ]
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/canonical/pebble",
+      "from": "v1.33.1-0.20260928054016-2cbd1b20d20a",
+      "to": "v1.33.3-0.20261021134116-aa4f38dbfabd",
+      "purl": "pkg:golang/github.com/canonical/pebble@v1.33.3-0.20261021134116-aa4f38dbfabd"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.45.0",
+      "to": "v0.46.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.46.0"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.1",
+      "to": "go1.27.3",
+      "purl": "pkg:golang/stdlib@1.27.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 33,
+  "downgraded": 15
+ }
+}

@@ -1,0 +1,192 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "arch",
+ "tag": "arch-2026-11-06-ls9",
+ "previous_tag": "arch-2026-11-06-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (d553a63 → 53c2a4e): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-06",
+  "to": "2026-11-06",
+  "changed": false
+ },
+ "commit": {
+  "from": "d553a635e14e6ad9dacee79e56e684e2c32dfdcd",
+  "to": "53c2a4effb73b50668cddcce394bd8e63a951898",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/d553a635e14e6ad9dacee79e56e684e2c32dfdcd...53c2a4effb73b50668cddcce394bd8e63a951898",
+  "commits": [
+   {
+    "sha": "53c2a4effb73b50668cddcce394bd8e63a951898",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T02:12:07Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/53c2a4effb73b50668cddcce394bd8e63a951898",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-arch:latest",
+   "digest": "sha256:8b62606d1694f6dcbca5fea9ae8f913d05d9b7854667dc67df444bc6dda54376"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-arch:latest",
+   "digest": "sha256:b8665f662d34dd3f976ff8f93738b214c4d61ccf36f3b45d24efdbb2df7d6bfd"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1206118412,
+   "to": 1206111176,
+   "delta": -7236
+  },
+  "arm64": {
+   "from": 1254875062,
+   "to": 1254831933,
+   "delta": -43129
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "desktop-file-utils",
+      "from": "0.28-1",
+      "to": "0.29-1",
+      "purl": "pkg:alpm/arch/desktop-file-utils@0.29-1?arch=x86_64&distro=arch-rolling&upstream=desktop-file-utils"
+     },
+     {
+      "name": "fakeroot",
+      "from": "1:2.1.4-1",
+      "to": "2:1.37.2-1",
+      "purl": "pkg:alpm/arch/fakeroot@2%3A1.37.2-1?arch=x86_64&distro=arch-rolling&upstream=fakeroot"
+     },
+     {
+      "name": "intel-gmmlib",
+      "from": "22.10.0-1",
+      "to": "22.10.2-1",
+      "purl": "pkg:alpm/arch/intel-gmmlib@22.10.2-1?arch=x86_64&distro=arch-rolling&upstream=intel-gmmlib"
+     },
+     {
+      "name": "libstemmer",
+      "from": "3.1.1-1",
+      "to": "3.2.0-1",
+      "purl": "pkg:alpm/arch/libstemmer@3.2.0-1?arch=x86_64&distro=arch-rolling&upstream=snowball"
+     },
+     {
+      "name": "xsettingsd",
+      "from": "1.0.4-1",
+      "to": "1.0.4-2",
+      "purl": "pkg:alpm/arch/xsettingsd@1.0.4-2?arch=x86_64&distro=arch-rolling&upstream=xsettingsd"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "desktop-file-utils",
+      "from": "0.28-1",
+      "to": "0.29-1",
+      "purl": null
+     },
+     {
+      "name": "fakeroot",
+      "from": "1:2.1.4-1",
+      "to": "2:1.37.2-1",
+      "purl": null
+     },
+     {
+      "name": "libstemmer",
+      "from": "3.1.1-1",
+      "to": "3.2.0-1",
+      "purl": null
+     },
+     {
+      "name": "xsettingsd",
+      "from": "1.0.4-1",
+      "to": "1.0.4-2",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 11,
+  "downgraded": 0
+ }
+}

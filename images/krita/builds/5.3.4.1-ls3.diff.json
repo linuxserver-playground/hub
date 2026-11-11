@@ -1,0 +1,77 @@
+{
+ "image": "krita",
+ "branch": "master",
+ "tag": "5.3.4.1-ls3",
+ "previous_tag": "5.3.4.1-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "5.3.4.1",
+  "to": "5.3.4.1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:2dee84b18c6bcbfd15703b870bfeeb434cafeea10d73931e9a08e50c261334fd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1401559123,
+   "to": 1401154813,
+   "delta": -404310
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 1,
+  "downgraded": 0
+ }
+}

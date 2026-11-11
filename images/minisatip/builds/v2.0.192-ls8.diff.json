@@ -1,0 +1,209 @@
+{
+ "image": "minisatip",
+ "branch": "master",
+ "tag": "v2.0.192-ls8",
+ "previous_tag": "v2.0.183-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "4 commits (8c54e34 → e412617): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "v2.0.183",
+  "to": "v2.0.192",
+  "changed": true
+ },
+ "commit": {
+  "from": "8c54e340be841bfe39071d1b3e6204ac69349aa7",
+  "to": "e412617c7b2c773c1e6c97554e2e94480a7f9a25",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-minisatip/compare/8c54e340be841bfe39071d1b3e6204ac69349aa7...e412617c7b2c773c1e6c97554e2e94480a7f9a25",
+  "commits": [
+   {
+    "sha": "cdf42c3361675d3084963f098ceb8b095155e176",
+    "subject": "Add the upstream donation links",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T19:37:29Z",
+    "url": "https://github.com/linuxserver-playground/docker-minisatip/commit/cdf42c3361675d3084963f098ceb8b095155e176",
+    "bot": false
+   },
+   {
+    "sha": "afec0025b2283fd1d6768381cd5d5bef7fb089c3",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T19:43:36Z",
+    "url": "https://github.com/linuxserver-playground/docker-minisatip/commit/afec0025b2283fd1d6768381cd5d5bef7fb089c3",
+    "bot": true
+   },
+   {
+    "sha": "5eb13df9511b5392d98d936c804044ccfae6dc85",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T15:37:45Z",
+    "url": "https://github.com/linuxserver-playground/docker-minisatip/commit/5eb13df9511b5392d98d936c804044ccfae6dc85",
+    "bot": true
+   },
+   {
+    "sha": "e412617c7b2c773c1e6c97554e2e94480a7f9a25",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T23:40:58Z",
+    "url": "https://github.com/linuxserver-playground/docker-minisatip/commit/e412617c7b2c773c1e6c97554e2e94480a7f9a25",
+    "bot": true
+   }
+  ],
+  "count": 4,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 51297724,
+   "to": 53509627,
+   "delta": 2211903
+  },
+  "arm64": {
+   "from": 51082008,
+   "to": 53159857,
+   "delta": 2077849
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=amd64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=amd64&distro=ubuntu-24.04&upstream=sqlite3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=arm64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=arm64&distro=ubuntu-24.04&upstream=sqlite3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,124 @@
+{
+ "image": "cops",
+ "branch": "master",
+ "tag": "4.6.1-ls5",
+ "previous_tag": "4.6.1-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (7993e55 → 5b7e7ba): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "4.6.1",
+  "to": "4.6.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "7993e5506b8de79f0961871cc745462ad2f1b6ef",
+  "to": "5b7e7ba938b5c3c4cb3093dcff05db2f4f2594f0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-cops/compare/7993e5506b8de79f0961871cc745462ad2f1b6ef...5b7e7ba938b5c3c4cb3093dcff05db2f4f2594f0",
+  "commits": [
+   {
+    "sha": "5b7e7ba938b5c3c4cb3093dcff05db2f4f2594f0",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T09:12:14Z",
+    "url": "https://github.com/linuxserver-playground/docker-cops/commit/5b7e7ba938b5c3c4cb3093dcff05db2f4f2594f0",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 2
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:df6a63d8627d7f06e292f4e4cff695743d92f8735617ff755470962e58fd75f5"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a55ef6f5b72baa4997d79d545cdd81d262c2a719afbaddf2984d93f9250db2a0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 67049656,
+   "to": 67054975,
+   "delta": 5319
+  },
+  "arm64": {
+   "from": 67539285,
+   "to": 67539644,
+   "delta": 359
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

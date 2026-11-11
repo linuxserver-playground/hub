@@ -1,0 +1,140 @@
+{
+ "image": "mysql-workbench",
+ "branch": "master",
+ "tag": "8.0.47-ls8",
+ "previous_tag": "8.0.47-ls7",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (88fa251 → 75d08ae): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "8.0.47",
+  "to": "8.0.47",
+  "changed": false
+ },
+ "commit": {
+  "from": "88fa2510772e94ca1dd99b282bbc6e98921cd866",
+  "to": "75d08ae7fea84d20d74546df140f7c352be19d64",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mysql-workbench/compare/88fa2510772e94ca1dd99b282bbc6e98921cd866...75d08ae7fea84d20d74546df140f7c352be19d64",
+  "commits": [
+   {
+    "sha": "75d08ae7fea84d20d74546df140f7c352be19d64",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T02:57:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-mysql-workbench/commit/75d08ae7fea84d20d74546df140f7c352be19d64",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:86a816311537c9c907cb07a0a0efd9415ad339708ba972c83e8a008284f4b947"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:3d2bc0fcee9cabb19ef40e04faed82bf733b5a24b7dd6b379615814ec6779bea"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1279316578,
+   "to": 1279312157,
+   "delta": -4421
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "desktop-file-utils",
+      "from": "0.28-1",
+      "to": "0.29-1",
+      "purl": "pkg:alpm/arch/desktop-file-utils@0.29-1?arch=x86_64&distro=arch-rolling&upstream=desktop-file-utils"
+     },
+     {
+      "name": "fakeroot",
+      "from": "1:2.1.4-1",
+      "to": "2:1.37.2-1",
+      "purl": "pkg:alpm/arch/fakeroot@2%3A1.37.2-1?arch=x86_64&distro=arch-rolling&upstream=fakeroot"
+     },
+     {
+      "name": "intel-gmmlib",
+      "from": "22.10.0-1",
+      "to": "22.10.2-1",
+      "purl": "pkg:alpm/arch/intel-gmmlib@22.10.2-1?arch=x86_64&distro=arch-rolling&upstream=intel-gmmlib"
+     },
+     {
+      "name": "libstemmer",
+      "from": "3.1.1-1",
+      "to": "3.2.0-1",
+      "purl": "pkg:alpm/arch/libstemmer@3.2.0-1?arch=x86_64&distro=arch-rolling&upstream=snowball"
+     },
+     {
+      "name": "xsettingsd",
+      "from": "1.0.4-1",
+      "to": "1.0.4-2",
+      "purl": "pkg:alpm/arch/xsettingsd@1.0.4-2?arch=x86_64&distro=arch-rolling&upstream=xsettingsd"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

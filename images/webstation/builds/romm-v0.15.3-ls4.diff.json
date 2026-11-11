@@ -1,0 +1,146 @@
+{
+ "image": "webstation",
+ "branch": "romm",
+ "tag": "romm-v0.15.3-ls4",
+ "previous_tag": "romm-v0.15.3-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (5e63179 → 6adae88): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.15.3",
+  "to": "v0.15.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "5e63179ccd333fa3ba5756892d9f495ab271d7a2",
+  "to": "6adae88091e2483dc0bf59577ff84a70e2c5fc50",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webstation/compare/5e63179ccd333fa3ba5756892d9f495ab271d7a2...6adae88091e2483dc0bf59577ff84a70e2c5fc50",
+  "commits": [
+   {
+    "sha": "6adae88091e2483dc0bf59577ff84a70e2c5fc50",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T16:25:07Z",
+    "url": "https://github.com/linuxserver-playground/docker-webstation/commit/6adae88091e2483dc0bf59577ff84a70e2c5fc50",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:cdb423bb9c9a41c1224cbee81784615ac4d469460f9e80881b23baf62ac2c1c3"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:b1bb00f7eb2f4df3ad87f621aa046379777cd5a5aa6c26ba7bca4f8a49094f2a"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 2720700701,
+   "to": 2722206380,
+   "delta": 1505679
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-42.42",
+      "to": "7.0.0-43.43",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-43.43?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.2",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.2",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 7,
+  "downgraded": 0
+ }
+}

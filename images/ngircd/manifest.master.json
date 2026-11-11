@@ -1,0 +1,108 @@
+{
+ "schema": 1,
+ "name": "ngircd",
+ "summary": "[Ngircd](https://ngircd.barton.de/) is a free, portable and lightweight Internet Relay Chat server for small or private networks, developed under the GNU General Public License (GPL). It is easy to configure, can cope with dynamic IP addresses, and supports IPv6, SSL-protected connections as well as PAM for authentication. It is written from scratch and not based on the original IRCd.",
+ "upstream": {
+  "url": "https://ngircd.barton.de/",
+  "version": {
+   "type": "alpine_apk",
+   "repo_url": "http://dl-cdn.alpinelinux.org/alpine/v3.22/main/",
+   "package": "ngircd"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "ngircd/ngircd",
+   "tag": "rel-${VERSION}",
+   "transform": [
+    {
+     "regex": "-r\\d+$",
+     "replace": ""
+    }
+   ]
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "NGIRCD_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "6667",
+    "description": "ngircd port"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/ngircd/config",
+    "description": "Where `ngircd.conf` is stored"
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "IRC"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ngircd-logo.png",
+  "setup": "* To setup ngircd you will need to edit `/config/ngircd.conf` which is created the first time the container is run, edit the file and restart the container to implement any config changes.\n* For information see the ngircd site [here.](https://github.com/ngircd/ngircd/blob/master/doc/sample-ngircd.conf.tmpl)\n"
+ },
+ "changelog": [
+  {
+   "date": "2024-10-14",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-06-27",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-20",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-07-12",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-07-01",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-03-05",
+   "text": "Rebase to Alpine 3.17."
+  },
+  {
+   "date": "2022-10-11",
+   "text": "Rebasing to alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2021-01-23",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-07-04",
+   "text": "Initial release."
+  }
+ ]
+}
