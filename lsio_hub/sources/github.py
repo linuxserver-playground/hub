@@ -43,7 +43,7 @@ query ($org: String!, $cursor: String, $releases: Int!) {
         name
         releases(first: $releases, orderBy: { field: CREATED_AT, direction: DESC }) {
           nodes {
-            tagName createdAt url isDraft
+            tagName createdAt publishedAt url isDraft
             releaseAssets(first: 1, name: "build.json") { nodes { createdAt } }
           }
         }
@@ -124,8 +124,8 @@ class GitHub:
     def org_releases(self, org: str, *, per_repo: int = 30) -> dict[str, list[Json]]:
         """
         The newest `per_repo` published releases of every repository, by repository name, in the shape the REST
-        listing has (tag_name, created_at, html_url; no assets) plus `bundle_at`, when the build.json asset was
-        uploaded (a rebuild of a released head replaces it under the same tag): one GraphQL request per 100
+        listing has (tag_name, created_at, published_at, html_url; no assets) plus `bundle_at`, when the build.json
+        asset was uploaded (a rebuild of a released head replaces it under the same tag): one GraphQL request per 100
         repositories instead of one REST request per repository. Used to find what is pending; assets come from
         REST per release.
         """
@@ -141,6 +141,7 @@ class GitHub:
                     {
                         "tag_name": r["tagName"],
                         "created_at": r["createdAt"],
+                        "published_at": r.get("publishedAt"),
                         "html_url": r["url"],
                         "draft": False,
                         "bundle_at": next(

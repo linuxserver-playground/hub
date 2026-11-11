@@ -92,6 +92,21 @@ def test_pending_releases_are_oldest_first_and_capped() -> None:
     assert [r["tag_name"] for r in pending] == ["4.0.20.3014-ls2", "develop-5.0.1.1234-ls1"]
 
 
+def test_releases_that_tag_one_head_are_ordered_by_publication() -> None:
+    """Releases that tag the same commit share its date as `created_at`; the newest are the last published."""
+    store = build_store()
+    sonarr = store.images["sonarr"]
+    sonarr.builds.clear()
+    base = next(r for r in RELEASES["docker-sonarr"] if r["tag_name"].startswith("develop-"))
+    head = "2026-10-20T10:00:00Z"
+    releases = [
+        {**base, "tag_name": f"develop-5.0.1.{n}-ls{n}", "created_at": head, "published_at": f"2026-10-2{n}T10:00:00Z"}
+        for n in (1, 6, 2, 5, 3, 4)
+    ]
+    pending = pending_releases(sonarr, releases, keep=3)
+    assert [r["tag_name"] for r in pending] == ["develop-5.0.1.4-ls4", "develop-5.0.1.5-ls5", "develop-5.0.1.6-ls6"]
+
+
 def test_a_rebuilt_head_republished_under_its_tag_is_pending_again() -> None:
     """A manual rebuild of a released head replaces the Release's build.json under the same tag; the upload time
     of that asset, well after the held record was built, or the dispatch's hint, puts the tag back on the list."""

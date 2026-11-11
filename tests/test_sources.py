@@ -242,6 +242,7 @@ def test_org_releases_reads_every_page_and_drops_drafts() -> None:
                             {
                                 "tagName": "1-ls1",
                                 "createdAt": "2026-10-25T13:00:00Z",
+                                "publishedAt": "2026-10-25T13:19:00Z",
                                 "url": "u1",
                                 "isDraft": False,
                                 "releaseAssets": {"nodes": [{"createdAt": "2026-10-25T13:20:00Z"}]},
@@ -267,6 +268,7 @@ def test_org_releases_reads_every_page_and_drops_drafts() -> None:
             {
                 "tag_name": "1-ls1",
                 "created_at": "2026-10-25T13:00:00Z",
+                "published_at": "2026-10-25T13:19:00Z",
                 "html_url": "u1",
                 "draft": False,
                 "bundle_at": "2026-10-25T13:20:00Z",

@@ -541,6 +541,12 @@ def replaced(build: Json, release: Json) -> bool:
     return uploaded is not None and _age_seconds(build["created"], uploaded) > REPLACED_MARGIN_SECONDS
 
 
+def published_at(release: Json) -> str:
+    """When the release was published, the order releases of a branch are newest in. `created_at` is the tagged
+    commit's date, so every release that tags the same head (a build per upstream commit, say) shares one."""
+    return str(release.get("published_at") or bundle_uploaded_at(release) or release.get("created_at") or "")
+
+
 def pending_releases(
     record: ImageRecord, releases: list[Json], keep: int = KEEP_BUILDS, force: frozenset[str] = frozenset()
 ) -> list[Json]:
@@ -553,12 +559,12 @@ def pending_releases(
             by_branch.setdefault(branch, []).append(release)
     pending: list[Json] = []
     for branch_releases in by_branch.values():
-        newest = sorted(branch_releases, key=lambda r: r.get("created_at", ""), reverse=True)[:keep]
+        newest = sorted(branch_releases, key=published_at, reverse=True)[:keep]
         for r in newest:
             held = record.builds.get(r["tag_name"])
             if held is None or r["tag_name"] in force or replaced(held, r):
                 pending.append(r)
-    return sorted(pending, key=lambda r: r.get("created_at", ""))
+    return sorted(pending, key=published_at)
 
 
 def ingest_repo(
