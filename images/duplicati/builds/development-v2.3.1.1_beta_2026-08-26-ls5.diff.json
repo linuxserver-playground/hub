@@ -1,0 +1,209 @@
+{
+ "image": "duplicati",
+ "branch": "development",
+ "tag": "development-v2.3.1.1_beta_2026-08-26-ls5",
+ "previous_tag": "development-v2.3.1.1_beta_2026-08-26-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (273db4e → 40ed53c): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v2.3.1.1_beta_2026-08-26",
+  "to": "v2.3.1.1_beta_2026-08-26",
+  "changed": false
+ },
+ "commit": {
+  "from": "273db4ef23e32fae17a6f507758e2ea0d09fe450",
+  "to": "40ed53ce3392de5b381bd6cf70b24685aef40a40",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-duplicati/compare/273db4ef23e32fae17a6f507758e2ea0d09fe450...40ed53ce3392de5b381bd6cf70b24685aef40a40",
+  "commits": [
+   {
+    "sha": "40ed53ce3392de5b381bd6cf70b24685aef40a40",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T11:49:34Z",
+    "url": "https://github.com/linuxserver-playground/docker-duplicati/commit/40ed53ce3392de5b381bd6cf70b24685aef40a40",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 187252956,
+   "to": 189175762,
+   "delta": 1922806
+  },
+  "arm64": {
+   "from": 183555237,
+   "to": 185368818,
+   "delta": 1813581
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "distro-info",
+      "from": "1.7build1",
+      "to": "1.7ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/distro-info@1.7ubuntu0.1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libmspack0t64",
+      "from": "0.11-1.1build1",
+      "to": "0.11-1.1ubuntu0.24.04.1",
+      "purl": "pkg:deb/ubuntu/libmspack0t64@0.11-1.1ubuntu0.24.04.1?arch=amd64&distro=ubuntu-24.04&upstream=libmspack"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=amd64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=amd64&distro=ubuntu-24.04&upstream=sqlite3"
+     },
+     {
+      "name": "python3-distro-info",
+      "from": "1.7build1",
+      "to": "1.7ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/python3-distro-info@1.7ubuntu0.1?arch=all&distro=ubuntu-24.04&upstream=distro-info"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "distro-info",
+      "from": "1.7+build1",
+      "to": "1.7+ubuntu0.1",
+      "purl": "pkg:pypi/distro-info@1.7%2Bubuntu0.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libmspack0t64",
+      "from": "0.11-1.1build1",
+      "to": "0.11-1.1ubuntu0.24.04.1",
+      "purl": "pkg:deb/ubuntu/libmspack0t64@0.11-1.1ubuntu0.24.04.1?arch=arm64&distro=ubuntu-24.04&upstream=libmspack"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=arm64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=arm64&distro=ubuntu-24.04&upstream=sqlite3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 15,
+  "downgraded": 0
+ }
+}

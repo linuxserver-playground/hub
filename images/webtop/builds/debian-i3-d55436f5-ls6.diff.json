@@ -1,0 +1,151 @@
+{
+ "image": "webtop",
+ "branch": "debian-i3",
+ "tag": "debian-i3-d55436f5-ls6",
+ "previous_tag": "debian-i3-5826de91-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (8a862a7 → 707e8fb): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "5826de91",
+  "to": "d55436f5",
+  "changed": true
+ },
+ "commit": {
+  "from": "8a862a7022baed9abb02447a770fc29b09c284ea",
+  "to": "707e8fb33b7e97d2b6c70944c7a6a4d0aacdd384",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/8a862a7022baed9abb02447a770fc29b09c284ea...707e8fb33b7e97d2b6c70944c7a6a4d0aacdd384",
+  "commits": [
+   {
+    "sha": "707e8fb33b7e97d2b6c70944c7a6a4d0aacdd384",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T13:54:55Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/707e8fb33b7e97d2b6c70944c7a6a4d0aacdd384",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:26048c0565d1c17e8b1f4efc0388e475971432229839e64dc059f8282c291a99"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:6d8031254fcdbcfa840ee42adb617b752a5876a013b438c80b61806ab278dc46"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1118096782,
+   "to": 1118146205,
+   "delta": 49423
+  },
+  "arm64": {
+   "from": 1078111106,
+   "to": 1078096006,
+   "delta": -15100
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.115-2",
+      "to": "6.12.116-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.116-1?arch=all&distro=debian-13.7&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.115-2",
+      "to": "6.12.116-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.116-1?arch=all&distro=debian-13.7&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,124 @@
+{
+ "image": "webtop",
+ "branch": "arch-i3",
+ "tag": "arch-i3-2026-11-06-ls7",
+ "previous_tag": "arch-i3-2026-11-06-ls6",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (b9b344b → 6b8203f): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-06",
+  "to": "2026-11-06",
+  "changed": false
+ },
+ "commit": {
+  "from": "b9b344b4b114fc2a83137ed43ffbc66c28f3a16c",
+  "to": "6b8203fba354d48be07f63e30fb7d9fc20e0b397",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/b9b344b4b114fc2a83137ed43ffbc66c28f3a16c...6b8203fba354d48be07f63e30fb7d9fc20e0b397",
+  "commits": [
+   {
+    "sha": "6b8203fba354d48be07f63e30fb7d9fc20e0b397",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T17:50:36Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/6b8203fba354d48be07f63e30fb7d9fc20e0b397",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:56fe6be93c625f9549d4589b4dd663ce99e9efe02149c826bcd5f3aeab0c4e46"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:86a816311537c9c907cb07a0a0efd9415ad339708ba972c83e8a008284f4b947"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1418620913,
+   "to": 1418624278,
+   "delta": 3365
+  },
+  "arm64": {
+   "from": 1464585384,
+   "to": 1464570577,
+   "delta": -14807
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

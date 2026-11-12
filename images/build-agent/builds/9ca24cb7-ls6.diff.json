@@ -1,0 +1,426 @@
+{
+ "image": "build-agent",
+ "branch": "main",
+ "tag": "9ca24cb7-ls6",
+ "previous_tag": "68a6d2b4-ls5",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (f115e09 → 75357da): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "68a6d2b4",
+  "to": "9ca24cb7",
+  "changed": true
+ },
+ "commit": {
+  "from": "f115e091444ae53470411dc64893b80ee7436cd7",
+  "to": "75357da16048b2645e8ef5c4edbc9a1cbaafa911",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-build-agent/compare/f115e091444ae53470411dc64893b80ee7436cd7...75357da16048b2645e8ef5c4edbc9a1cbaafa911",
+  "commits": [
+   {
+    "sha": "75357da16048b2645e8ef5c4edbc9a1cbaafa911",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T16:30:08Z",
+    "url": "https://github.com/linuxserver-playground/docker-build-agent/commit/75357da16048b2645e8ef5c4edbc9a1cbaafa911",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:1fcf6a32e2cb65ea49fbcfec43c3609993cf0ad8fe345f128d018f1e4ec9db09"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:1fcf6a32e2cb65ea49fbcfec43c3609993cf0ad8fe345f128d018f1e4ec9db09"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 267864695,
+   "to": 268192852,
+   "delta": 328157
+  },
+  "arm64": {
+   "from": 260409127,
+   "to": 260724135,
+   "delta": 315008
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-cli-buildx",
+      "from": "0.38.1-r1",
+      "to": "0.38.2-r1",
+      "purl": "pkg:apk/alpine/docker-cli-buildx@0.38.2-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "docker-cli-compose",
+      "from": "5.6.1-r1",
+      "to": "5.7.0-r0",
+      "purl": "pkg:apk/alpine/docker-cli-compose@5.7.0-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=expat"
+     },
+     {
+      "name": "libpathrs",
+      "from": "0.2.5-r1",
+      "to": "0.2.6-r0",
+      "purl": "pkg:apk/alpine/libpathrs@0.2.6-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "openjdk25-jre",
+      "from": "25.0.4_p7-r1",
+      "to": "25.0.5.0.3_p1-r1",
+      "purl": "pkg:apk/alpine/openjdk25-jre@25.0.5.0.3_p1-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=openjdk25"
+     },
+     {
+      "name": "openjdk25-jre-headless",
+      "from": "25.0.4_p7-r1",
+      "to": "25.0.5.0.3_p1-r1",
+      "purl": "pkg:apk/alpine/openjdk25-jre-headless@25.0.5.0.3_p1-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=openjdk25"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.2"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.0",
+      "to": "v0.34.2",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.34.2"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20260819142231-83cac42c1c52",
+      "to": "v0.0.0-20261103091533-a72de9dcf763",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103091533-a72de9dcf763"
+     },
+     {
+      "name": "go.yaml.in/yaml/v3",
+      "from": "v3.0.5",
+      "to": "v3.0.6",
+      "purl": "pkg:golang/go.yaml.in/yaml/v3@v3.0.6"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.0",
+      "to": "v0.49.1-0.20261022125458-f5cb0306ac0e",
+      "purl": "pkg:golang/golang.org/x/sys@v0.49.1-0.20261022125458-f5cb0306ac0e"
+     }
+    ],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jrt-fs",
+      "from": "25.0.4",
+      "to": "25.0.5.0.3",
+      "purl": "pkg:maven/jrt-fs/jrt-fs@25.0.5.0.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "rust-crate": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "memchr",
+      "from": "2.8.2",
+      "to": "2.8.3",
+      "purl": "pkg:cargo/memchr@2.8.3"
+     },
+     {
+      "name": "pathrs",
+      "from": "0.2.5",
+      "to": "0.2.6",
+      "purl": "pkg:cargo/pathrs@0.2.6"
+     },
+     {
+      "name": "rustversion",
+      "from": "1.0.22",
+      "to": "1.0.23",
+      "purl": "pkg:cargo/rustversion@1.0.23"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-cli-buildx",
+      "from": "0.38.1-r1",
+      "to": "0.38.2-r1",
+      "purl": "pkg:apk/alpine/docker-cli-buildx@0.38.2-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "docker-cli-compose",
+      "from": "5.6.1-r1",
+      "to": "5.7.0-r0",
+      "purl": "pkg:apk/alpine/docker-cli-compose@5.7.0-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=expat"
+     },
+     {
+      "name": "libpathrs",
+      "from": "0.2.5-r1",
+      "to": "0.2.6-r0",
+      "purl": "pkg:apk/alpine/libpathrs@0.2.6-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "openjdk25-jre",
+      "from": "25.0.4_p7-r1",
+      "to": "25.0.5.0.3_p1-r1",
+      "purl": "pkg:apk/alpine/openjdk25-jre@25.0.5.0.3_p1-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=openjdk25"
+     },
+     {
+      "name": "openjdk25-jre-headless",
+      "from": "25.0.4_p7-r1",
+      "to": "25.0.5.0.3_p1-r1",
+      "purl": "pkg:apk/alpine/openjdk25-jre-headless@25.0.5.0.3_p1-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=openjdk25"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.2"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.0",
+      "to": "v0.34.2",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.34.2"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20260819142231-83cac42c1c52",
+      "to": "v0.0.0-20261103091533-a72de9dcf763",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103091533-a72de9dcf763"
+     },
+     {
+      "name": "go.yaml.in/yaml/v3",
+      "from": "v3.0.5",
+      "to": "v3.0.6",
+      "purl": "pkg:golang/go.yaml.in/yaml/v3@v3.0.6"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.0",
+      "to": "v0.49.1-0.20261022125458-f5cb0306ac0e",
+      "purl": "pkg:golang/golang.org/x/sys@v0.49.1-0.20261022125458-f5cb0306ac0e"
+     }
+    ],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jrt-fs",
+      "from": "25.0.4",
+      "to": "25.0.5.0.3",
+      "purl": "pkg:maven/jrt-fs/jrt-fs@25.0.5.0.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "rust-crate": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "memchr",
+      "from": "2.8.2",
+      "to": "2.8.3",
+      "purl": "pkg:cargo/memchr@2.8.3"
+     },
+     {
+      "name": "pathrs",
+      "from": "0.2.5",
+      "to": "0.2.6",
+      "purl": "pkg:cargo/pathrs@0.2.6"
+     },
+     {
+      "name": "rustversion",
+      "from": "1.0.22",
+      "to": "1.0.23",
+      "purl": "pkg:cargo/rustversion@1.0.23"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 6,
+  "removed": 0,
+  "upgraded": 40,
+  "downgraded": 0
+ }
+}

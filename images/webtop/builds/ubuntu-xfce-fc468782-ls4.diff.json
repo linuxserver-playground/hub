@@ -1,0 +1,247 @@
+{
+ "image": "webtop",
+ "branch": "ubuntu-xfce",
+ "tag": "ubuntu-xfce-fc468782-ls4",
+ "previous_tag": "ubuntu-xfce-1dc3a696-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (0cd95fe → e3b4639): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1dc3a696",
+  "to": "fc468782",
+  "changed": true
+ },
+ "commit": {
+  "from": "0cd95fe9e6b203ee78dacc5a791d5d04ad17cc42",
+  "to": "e3b4639a5f7e237e5074a9cc6ddea7e3e9443d33",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/0cd95fe9e6b203ee78dacc5a791d5d04ad17cc42...e3b4639a5f7e237e5074a9cc6ddea7e3e9443d33",
+  "commits": [
+   {
+    "sha": "e3b4639a5f7e237e5074a9cc6ddea7e3e9443d33",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T23:07:36Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/e3b4639a5f7e237e5074a9cc6ddea7e3e9443d33",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:cdb423bb9c9a41c1224cbee81784615ac4d469460f9e80881b23baf62ac2c1c3"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:b1bb00f7eb2f4df3ad87f621aa046379777cd5a5aa6c26ba7bca4f8a49094f2a"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1222522059,
+   "to": 1223951263,
+   "delta": 1429204
+  },
+  "arm64": {
+   "from": 1189797667,
+   "to": 1191130015,
+   "delta": 1332348
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "gstreamer1.0-plugins-base",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-plugins-base@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer-gl1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-gl1.0-0@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-42.42",
+      "to": "7.0.0-43.43",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-43.43?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.2",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.2",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "gstreamer1.0-plugins-base",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-plugins-base@1.28.2-1ubuntu0.2?arch=arm64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer-gl1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-gl1.0-0@1.28.2-1ubuntu0.2?arch=arm64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.2?arch=arm64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-42.42",
+      "to": "7.0.0-43.43",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-43.43?arch=arm64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.2",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.2",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 20,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "image": "yaak",
+ "branch": "main",
+ "tag": "v2026.9.0-ls4",
+ "previous_tag": "v2026.9.0-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v2026.9.0",
+  "to": "v2026.9.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:968acfc9b937061cf1c1143c7c5c4fb636db2fbd020dfc4801a253ea32043dcd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1104815294,
+   "to": 1104953830,
+   "delta": 138536
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 1,
+  "downgraded": 0
+ }
+}

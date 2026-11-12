@@ -1,0 +1,184 @@
+{
+ "image": "foldingathome",
+ "branch": "master",
+ "tag": "8.5.6-ls5",
+ "previous_tag": "8.5.6-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (9094aac → e01984d): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "8.5.6",
+  "to": "8.5.6",
+  "changed": false
+ },
+ "commit": {
+  "from": "9094aac37ce65763ef9228abae3986be282a9e0a",
+  "to": "e01984d21dc5ccac6e65e47b16815202e2bc2fb2",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-foldingathome/compare/9094aac37ce65763ef9228abae3986be282a9e0a...e01984d21dc5ccac6e65e47b16815202e2bc2fb2",
+  "commits": [
+   {
+    "sha": "649a834a6ed6dfd371d7215fb206b2f0ce25a117",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T18:57:09Z",
+    "url": "https://github.com/linuxserver-playground/docker-foldingathome/commit/649a834a6ed6dfd371d7215fb206b2f0ce25a117",
+    "bot": true
+   },
+   {
+    "sha": "e01984d21dc5ccac6e65e47b16815202e2bc2fb2",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T22:53:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-foldingathome/commit/e01984d21dc5ccac6e65e47b16815202e2bc2fb2",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 142888823,
+   "to": 144811887,
+   "delta": 1923064
+  },
+  "arm64": {
+   "from": 52086519,
+   "to": 53900564,
+   "delta": 1814045
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=amd64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=amd64&distro=ubuntu-24.04&upstream=sqlite3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=arm64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=arm64&distro=ubuntu-24.04&upstream=sqlite3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

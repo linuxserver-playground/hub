@@ -1,0 +1,77 @@
+{
+ "image": "pwndrop",
+ "branch": "master",
+ "tag": "1.0.1-ls4",
+ "previous_tag": "1.0.1-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "repository at a newer commit (0bf5c35 → 47d5d2c)"
+ ],
+ "upstream": {
+  "from": "1.0.1",
+  "to": "1.0.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "0bf5c354475fff04658ed60e8a306a6fba04a4e6",
+  "to": "47d5d2c4721d6337e6cdb71ff7ee34f97cc88c6d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pwndrop/compare/0bf5c354475fff04658ed60e8a306a6fba04a4e6...47d5d2c4721d6337e6cdb71ff7ee34f97cc88c6d"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:c70276612a28beebf4ef5864479a106ad24ee8a515e16744f8849eb26bdad174"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 18732784,
+   "to": 18732865,
+   "delta": 81
+  },
+  "arm64": {
+   "from": 19348287,
+   "to": 19348256,
+   "delta": -31
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,759 @@
+{
+ "image": "heimdall",
+ "branch": "development",
+ "tag": "development-efb2fb6a-ls5",
+ "previous_tag": "development-966c3959-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "966c3959",
+  "to": "efb2fb6a",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e0867f6ba6d1ecc1e7b95fa128143b3400748c8de7ccabf498044b009c4ca01a"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:30be75c4c7470207fece77d8399848c405a6e5c14ff3fb7ca82a4cfc37498b7b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 53083577,
+   "to": 53394513,
+   "delta": 310936
+  },
+  "arm64": {
+   "from": 53805016,
+   "to": 54115482,
+   "delta": 310466
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "php-composer": {
+    "added": [
+     {
+      "name": "symfony/polyfill-time",
+      "version": "v1.42.0",
+      "purl": "pkg:composer/symfony/polyfill-time@v1.42.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "brick/math",
+      "from": "0.18.0",
+      "to": "1.0.0",
+      "purl": "pkg:composer/brick/math@1.0.0"
+     },
+     {
+      "name": "carbonphp/carbon-doctrine-types",
+      "from": "3.2.0",
+      "to": "3.2.1",
+      "purl": "pkg:composer/carbonphp/carbon-doctrine-types@3.2.1"
+     },
+     {
+      "name": "doctrine/inflector",
+      "from": "2.1.0",
+      "to": "2.1.1",
+      "purl": "pkg:composer/doctrine/inflector@2.1.1"
+     },
+     {
+      "name": "doctrine/lexer",
+      "from": "3.0.1",
+      "to": "3.0.3",
+      "purl": "pkg:composer/doctrine/lexer@3.0.3"
+     },
+     {
+      "name": "dragonmantank/cron-expression",
+      "from": "v3.6.0",
+      "to": "v3.6.1",
+      "purl": "pkg:composer/dragonmantank/cron-expression@v3.6.1"
+     },
+     {
+      "name": "enshrined/svg-sanitize",
+      "from": "0.22.0",
+      "to": "1.1.1",
+      "purl": "pkg:composer/enshrined/svg-sanitize@1.1.1"
+     },
+     {
+      "name": "graham-campbell/result-type",
+      "from": "v1.1.4",
+      "to": "v1.2.0",
+      "purl": "pkg:composer/graham-campbell/result-type@v1.2.0"
+     },
+     {
+      "name": "guzzlehttp/guzzle",
+      "from": "7.13.3",
+      "to": "7.16.1",
+      "purl": "pkg:composer/guzzlehttp/guzzle@7.16.1"
+     },
+     {
+      "name": "guzzlehttp/promises",
+      "from": "2.5.1",
+      "to": "2.6.0",
+      "purl": "pkg:composer/guzzlehttp/promises@2.6.0"
+     },
+     {
+      "name": "guzzlehttp/psr7",
+      "from": "2.12.4",
+      "to": "2.13.2",
+      "purl": "pkg:composer/guzzlehttp/psr7@2.13.2"
+     },
+     {
+      "name": "guzzlehttp/uri-template",
+      "from": "v1.0.9",
+      "to": "v2.0.1",
+      "purl": "pkg:composer/guzzlehttp/uri-template@v2.0.1"
+     },
+     {
+      "name": "laravel/framework",
+      "from": "v13.19.0",
+      "to": "v13.39.0",
+      "purl": "pkg:composer/laravel/framework@v13.39.0"
+     },
+     {
+      "name": "laravel/prompts",
+      "from": "v0.3.21",
+      "to": "v0.3.26",
+      "purl": "pkg:composer/laravel/prompts@v0.3.26"
+     },
+     {
+      "name": "laravel/serializable-closure",
+      "from": "v2.0.13",
+      "to": "v2.1.0",
+      "purl": "pkg:composer/laravel/serializable-closure@v2.1.0"
+     },
+     {
+      "name": "league/commonmark",
+      "from": "2.8.2",
+      "to": "2.10.4",
+      "purl": "pkg:composer/league/commonmark@2.10.4"
+     },
+     {
+      "name": "league/flysystem",
+      "from": "3.35.2",
+      "to": "3.36.0",
+      "purl": "pkg:composer/league/flysystem@3.36.0"
+     },
+     {
+      "name": "league/flysystem-local",
+      "from": "3.31.0",
+      "to": "3.35.3",
+      "purl": "pkg:composer/league/flysystem-local@3.35.3"
+     },
+     {
+      "name": "league/mime-type-detection",
+      "from": "1.16.0",
+      "to": "1.17.0",
+      "purl": "pkg:composer/league/mime-type-detection@1.17.0"
+     },
+     {
+      "name": "league/uri",
+      "from": "7.8.1",
+      "to": "7.9.1",
+      "purl": "pkg:composer/league/uri@7.9.1"
+     },
+     {
+      "name": "league/uri-interfaces",
+      "from": "7.8.1",
+      "to": "7.9.1",
+      "purl": "pkg:composer/league/uri-interfaces@7.9.1"
+     },
+     {
+      "name": "monolog/monolog",
+      "from": "3.10.0",
+      "to": "3.12.1",
+      "purl": "pkg:composer/monolog/monolog@3.12.1"
+     },
+     {
+      "name": "nesbot/carbon",
+      "from": "3.13.0",
+      "to": "3.15.1",
+      "purl": "pkg:composer/nesbot/carbon@3.15.1"
+     },
+     {
+      "name": "nette/schema",
+      "from": "v1.3.5",
+      "to": "v1.4.0",
+      "purl": "pkg:composer/nette/schema@v1.4.0"
+     },
+     {
+      "name": "nette/utils",
+      "from": "v4.1.4",
+      "to": "v4.1.6",
+      "purl": "pkg:composer/nette/utils@v4.1.6"
+     },
+     {
+      "name": "phpoption/phpoption",
+      "from": "1.9.5",
+      "to": "1.10.0",
+      "purl": "pkg:composer/phpoption/phpoption@1.10.0"
+     },
+     {
+      "name": "ramsey/uuid",
+      "from": "4.9.3",
+      "to": "4.9.4",
+      "purl": "pkg:composer/ramsey/uuid@4.9.4"
+     },
+     {
+      "name": "squizlabs/php_codesniffer",
+      "from": "3.13.5",
+      "to": "3.13.6",
+      "purl": "pkg:composer/squizlabs/php_codesniffer@3.13.6"
+     },
+     {
+      "name": "symfony/clock",
+      "from": "v8.1.0",
+      "to": "v8.1.9",
+      "purl": "pkg:composer/symfony/clock@v8.1.9"
+     },
+     {
+      "name": "symfony/console",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/console@v8.1.10"
+     },
+     {
+      "name": "symfony/css-selector",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/css-selector@v8.1.10"
+     },
+     {
+      "name": "symfony/error-handler",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/error-handler@v8.1.10"
+     },
+     {
+      "name": "symfony/event-dispatcher",
+      "from": "v8.1.1",
+      "to": "v8.1.5",
+      "purl": "pkg:composer/symfony/event-dispatcher@v8.1.5"
+     },
+     {
+      "name": "symfony/finder",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/finder@v8.1.10"
+     },
+     {
+      "name": "symfony/http-foundation",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/http-foundation@v8.1.10"
+     },
+     {
+      "name": "symfony/http-kernel",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/http-kernel@v8.1.10"
+     },
+     {
+      "name": "symfony/mailer",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/mailer@v8.1.10"
+     },
+     {
+      "name": "symfony/mime",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/mime@v8.1.10"
+     },
+     {
+      "name": "symfony/polyfill-intl-grapheme",
+      "from": "v1.38.1",
+      "to": "v1.43.3",
+      "purl": "pkg:composer/symfony/polyfill-intl-grapheme@v1.43.3"
+     },
+     {
+      "name": "symfony/polyfill-intl-idn",
+      "from": "v1.38.1",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-intl-idn@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-intl-normalizer",
+      "from": "v1.38.0",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-intl-normalizer@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-mbstring",
+      "from": "v1.38.2",
+      "to": "v1.43.3",
+      "purl": "pkg:composer/symfony/polyfill-mbstring@v1.43.3"
+     },
+     {
+      "name": "symfony/polyfill-php80",
+      "from": "v1.37.0",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-php80@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-php84",
+      "from": "v1.38.1",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-php84@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-php85",
+      "from": "v1.38.1",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-php85@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-php86",
+      "from": "v1.38.0",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-php86@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-uuid",
+      "from": "v1.37.0",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-uuid@v1.43.0"
+     },
+     {
+      "name": "symfony/process",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/process@v8.1.10"
+     },
+     {
+      "name": "symfony/routing",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/routing@v8.1.10"
+     },
+     {
+      "name": "symfony/service-contracts",
+      "from": "v3.7.1",
+      "to": "v3.7.3",
+      "purl": "pkg:composer/symfony/service-contracts@v3.7.3"
+     },
+     {
+      "name": "symfony/string",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/string@v8.1.10"
+     },
+     {
+      "name": "symfony/translation",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/translation@v8.1.10"
+     },
+     {
+      "name": "symfony/uid",
+      "from": "v8.1.0",
+      "to": "v8.1.9",
+      "purl": "pkg:composer/symfony/uid@v8.1.9"
+     },
+     {
+      "name": "symfony/var-dumper",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/var-dumper@v8.1.10"
+     },
+     {
+      "name": "symfony/yaml",
+      "from": "v7.4.14",
+      "to": "v7.4.22",
+      "purl": "pkg:composer/symfony/yaml@v7.4.22"
+     },
+     {
+      "name": "vlucas/phpdotenv",
+      "from": "v5.6.4",
+      "to": "v5.8.0",
+      "purl": "pkg:composer/vlucas/phpdotenv@v5.8.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "php-composer": {
+    "added": [
+     {
+      "name": "symfony/polyfill-time",
+      "version": "v1.42.0",
+      "purl": "pkg:composer/symfony/polyfill-time@v1.42.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "brick/math",
+      "from": "0.18.0",
+      "to": "1.0.0",
+      "purl": "pkg:composer/brick/math@1.0.0"
+     },
+     {
+      "name": "carbonphp/carbon-doctrine-types",
+      "from": "3.2.0",
+      "to": "3.2.1",
+      "purl": "pkg:composer/carbonphp/carbon-doctrine-types@3.2.1"
+     },
+     {
+      "name": "doctrine/inflector",
+      "from": "2.1.0",
+      "to": "2.1.1",
+      "purl": "pkg:composer/doctrine/inflector@2.1.1"
+     },
+     {
+      "name": "doctrine/lexer",
+      "from": "3.0.1",
+      "to": "3.0.3",
+      "purl": "pkg:composer/doctrine/lexer@3.0.3"
+     },
+     {
+      "name": "dragonmantank/cron-expression",
+      "from": "v3.6.0",
+      "to": "v3.6.1",
+      "purl": "pkg:composer/dragonmantank/cron-expression@v3.6.1"
+     },
+     {
+      "name": "enshrined/svg-sanitize",
+      "from": "0.22.0",
+      "to": "1.1.1",
+      "purl": "pkg:composer/enshrined/svg-sanitize@1.1.1"
+     },
+     {
+      "name": "graham-campbell/result-type",
+      "from": "v1.1.4",
+      "to": "v1.2.0",
+      "purl": "pkg:composer/graham-campbell/result-type@v1.2.0"
+     },
+     {
+      "name": "guzzlehttp/guzzle",
+      "from": "7.13.3",
+      "to": "7.16.1",
+      "purl": "pkg:composer/guzzlehttp/guzzle@7.16.1"
+     },
+     {
+      "name": "guzzlehttp/promises",
+      "from": "2.5.1",
+      "to": "2.6.0",
+      "purl": "pkg:composer/guzzlehttp/promises@2.6.0"
+     },
+     {
+      "name": "guzzlehttp/psr7",
+      "from": "2.12.4",
+      "to": "2.13.2",
+      "purl": "pkg:composer/guzzlehttp/psr7@2.13.2"
+     },
+     {
+      "name": "guzzlehttp/uri-template",
+      "from": "v1.0.9",
+      "to": "v2.0.1",
+      "purl": "pkg:composer/guzzlehttp/uri-template@v2.0.1"
+     },
+     {
+      "name": "laravel/framework",
+      "from": "v13.19.0",
+      "to": "v13.39.0",
+      "purl": "pkg:composer/laravel/framework@v13.39.0"
+     },
+     {
+      "name": "laravel/prompts",
+      "from": "v0.3.21",
+      "to": "v0.3.26",
+      "purl": "pkg:composer/laravel/prompts@v0.3.26"
+     },
+     {
+      "name": "laravel/serializable-closure",
+      "from": "v2.0.13",
+      "to": "v2.1.0",
+      "purl": "pkg:composer/laravel/serializable-closure@v2.1.0"
+     },
+     {
+      "name": "league/commonmark",
+      "from": "2.8.2",
+      "to": "2.10.4",
+      "purl": "pkg:composer/league/commonmark@2.10.4"
+     },
+     {
+      "name": "league/flysystem",
+      "from": "3.35.2",
+      "to": "3.36.0",
+      "purl": "pkg:composer/league/flysystem@3.36.0"
+     },
+     {
+      "name": "league/flysystem-local",
+      "from": "3.31.0",
+      "to": "3.35.3",
+      "purl": "pkg:composer/league/flysystem-local@3.35.3"
+     },
+     {
+      "name": "league/mime-type-detection",
+      "from": "1.16.0",
+      "to": "1.17.0",
+      "purl": "pkg:composer/league/mime-type-detection@1.17.0"
+     },
+     {
+      "name": "league/uri",
+      "from": "7.8.1",
+      "to": "7.9.1",
+      "purl": "pkg:composer/league/uri@7.9.1"
+     },
+     {
+      "name": "league/uri-interfaces",
+      "from": "7.8.1",
+      "to": "7.9.1",
+      "purl": "pkg:composer/league/uri-interfaces@7.9.1"
+     },
+     {
+      "name": "monolog/monolog",
+      "from": "3.10.0",
+      "to": "3.12.1",
+      "purl": "pkg:composer/monolog/monolog@3.12.1"
+     },
+     {
+      "name": "nesbot/carbon",
+      "from": "3.13.0",
+      "to": "3.15.1",
+      "purl": "pkg:composer/nesbot/carbon@3.15.1"
+     },
+     {
+      "name": "nette/schema",
+      "from": "v1.3.5",
+      "to": "v1.4.0",
+      "purl": "pkg:composer/nette/schema@v1.4.0"
+     },
+     {
+      "name": "nette/utils",
+      "from": "v4.1.4",
+      "to": "v4.1.6",
+      "purl": "pkg:composer/nette/utils@v4.1.6"
+     },
+     {
+      "name": "phpoption/phpoption",
+      "from": "1.9.5",
+      "to": "1.10.0",
+      "purl": "pkg:composer/phpoption/phpoption@1.10.0"
+     },
+     {
+      "name": "ramsey/uuid",
+      "from": "4.9.3",
+      "to": "4.9.4",
+      "purl": "pkg:composer/ramsey/uuid@4.9.4"
+     },
+     {
+      "name": "squizlabs/php_codesniffer",
+      "from": "3.13.5",
+      "to": "3.13.6",
+      "purl": "pkg:composer/squizlabs/php_codesniffer@3.13.6"
+     },
+     {
+      "name": "symfony/clock",
+      "from": "v8.1.0",
+      "to": "v8.1.9",
+      "purl": "pkg:composer/symfony/clock@v8.1.9"
+     },
+     {
+      "name": "symfony/console",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/console@v8.1.10"
+     },
+     {
+      "name": "symfony/css-selector",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/css-selector@v8.1.10"
+     },
+     {
+      "name": "symfony/error-handler",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/error-handler@v8.1.10"
+     },
+     {
+      "name": "symfony/event-dispatcher",
+      "from": "v8.1.1",
+      "to": "v8.1.5",
+      "purl": "pkg:composer/symfony/event-dispatcher@v8.1.5"
+     },
+     {
+      "name": "symfony/finder",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/finder@v8.1.10"
+     },
+     {
+      "name": "symfony/http-foundation",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/http-foundation@v8.1.10"
+     },
+     {
+      "name": "symfony/http-kernel",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/http-kernel@v8.1.10"
+     },
+     {
+      "name": "symfony/mailer",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/mailer@v8.1.10"
+     },
+     {
+      "name": "symfony/mime",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/mime@v8.1.10"
+     },
+     {
+      "name": "symfony/polyfill-intl-grapheme",
+      "from": "v1.38.1",
+      "to": "v1.43.3",
+      "purl": "pkg:composer/symfony/polyfill-intl-grapheme@v1.43.3"
+     },
+     {
+      "name": "symfony/polyfill-intl-idn",
+      "from": "v1.38.1",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-intl-idn@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-intl-normalizer",
+      "from": "v1.38.0",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-intl-normalizer@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-mbstring",
+      "from": "v1.38.2",
+      "to": "v1.43.3",
+      "purl": "pkg:composer/symfony/polyfill-mbstring@v1.43.3"
+     },
+     {
+      "name": "symfony/polyfill-php80",
+      "from": "v1.37.0",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-php80@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-php84",
+      "from": "v1.38.1",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-php84@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-php85",
+      "from": "v1.38.1",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-php85@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-php86",
+      "from": "v1.38.0",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-php86@v1.43.0"
+     },
+     {
+      "name": "symfony/polyfill-uuid",
+      "from": "v1.37.0",
+      "to": "v1.43.0",
+      "purl": "pkg:composer/symfony/polyfill-uuid@v1.43.0"
+     },
+     {
+      "name": "symfony/process",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/process@v8.1.10"
+     },
+     {
+      "name": "symfony/routing",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/routing@v8.1.10"
+     },
+     {
+      "name": "symfony/service-contracts",
+      "from": "v3.7.1",
+      "to": "v3.7.3",
+      "purl": "pkg:composer/symfony/service-contracts@v3.7.3"
+     },
+     {
+      "name": "symfony/string",
+      "from": "v8.1.0",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/string@v8.1.10"
+     },
+     {
+      "name": "symfony/translation",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/translation@v8.1.10"
+     },
+     {
+      "name": "symfony/uid",
+      "from": "v8.1.0",
+      "to": "v8.1.9",
+      "purl": "pkg:composer/symfony/uid@v8.1.9"
+     },
+     {
+      "name": "symfony/var-dumper",
+      "from": "v8.1.1",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/var-dumper@v8.1.10"
+     },
+     {
+      "name": "symfony/yaml",
+      "from": "v7.4.14",
+      "to": "v7.4.22",
+      "purl": "pkg:composer/symfony/yaml@v7.4.22"
+     },
+     {
+      "name": "vlucas/phpdotenv",
+      "from": "v5.6.4",
+      "to": "v5.8.0",
+      "purl": "pkg:composer/vlucas/phpdotenv@v5.8.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 0,
+  "upgraded": 110,
+  "downgraded": 0
+ }
+}
