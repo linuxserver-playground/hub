@@ -1,0 +1,67 @@
+{
+ "image": "python",
+ "branch": "alpine324",
+ "tag": "alpine324-3.15.2-ls4",
+ "previous_tag": "alpine324-3.15.2-ls3",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "3.15.2",
+  "to": "3.15.2",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 27792697,
+   "to": 27793357,
+   "delta": 660
+  },
+  "arm64": {
+   "from": 27692651,
+   "to": 27700060,
+   "delta": 7409
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

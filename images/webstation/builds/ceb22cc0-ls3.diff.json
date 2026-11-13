@@ -1,0 +1,62 @@
+{
+ "image": "webstation",
+ "branch": "master",
+ "tag": "ceb22cc0-ls3",
+ "previous_tag": "ceb22cc0-ls2",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "ceb22cc0",
+  "to": "ceb22cc0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:4a3966dadb1092dd0422197fa2b40938bc8f2e924ca64dbf14719cbd23fa3966"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:4a3966dadb1092dd0422197fa2b40938bc8f2e924ca64dbf14719cbd23fa3966"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 2688089870,
+   "to": 2688090561,
+   "delta": 691
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

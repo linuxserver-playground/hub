@@ -1,0 +1,150 @@
+{
+ "image": "webtop",
+ "branch": "arch-kde",
+ "tag": "arch-kde-2026-11-06-ls9",
+ "previous_tag": "arch-kde-2026-11-06-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (bbc0fac → 513cf94): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-06",
+  "to": "2026-11-06",
+  "changed": false
+ },
+ "commit": {
+  "from": "bbc0fac3b6c3dedd499edbd52290faa4a52a2a15",
+  "to": "513cf94b987f2b9e1cf77e8ebde4b1e54ff9c01b",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/bbc0fac3b6c3dedd499edbd52290faa4a52a2a15...513cf94b987f2b9e1cf77e8ebde4b1e54ff9c01b",
+  "commits": [
+   {
+    "sha": "513cf94b987f2b9e1cf77e8ebde4b1e54ff9c01b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T18:08:52Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/513cf94b987f2b9e1cf77e8ebde4b1e54ff9c01b",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:56fe6be93c625f9549d4589b4dd663ce99e9efe02149c826bcd5f3aeab0c4e46"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:86a816311537c9c907cb07a0a0efd9415ad339708ba972c83e8a008284f4b947"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 2202252358,
+   "to": 2202278904,
+   "delta": 26546
+  },
+  "arm64": {
+   "from": 2241687508,
+   "to": 2241708058,
+   "delta": 20550
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "kirigami-addons",
+      "from": "1.16.0-1",
+      "to": "1.16.1-1",
+      "purl": "pkg:alpm/arch/kirigami-addons@1.16.1-1?arch=x86_64&distro=arch-rolling&upstream=kirigami-addons"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "kirigami-addons",
+      "from": "1.16.0-1",
+      "to": "1.16.1-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

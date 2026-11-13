@@ -1,0 +1,69 @@
+{
+ "image": "plex",
+ "branch": "master",
+ "tag": "1.43.5.11079-b3b13e506-ls6",
+ "previous_tag": "1.43.5.11079-b3b13e506-ls5",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "1.43.5.11079-b3b13e506",
+  "to": "1.43.5.11079-b3b13e506",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:c2398fa94f700f68208462f0b6278794968d3d7436ccba605cacb7f32e2dc120"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:c2398fa94f700f68208462f0b6278794968d3d7436ccba605cacb7f32e2dc120"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 178269155,
+   "to": 178268294,
+   "delta": -861
+  },
+  "arm64": {
+   "from": 170556954,
+   "to": 170556568,
+   "delta": -386
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

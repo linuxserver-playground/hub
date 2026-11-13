@@ -1,0 +1,62 @@
+{
+ "image": "yaak",
+ "branch": "main",
+ "tag": "v2026.9.0-ls5",
+ "previous_tag": "v2026.9.0-ls4",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "v2026.9.0",
+  "to": "v2026.9.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1104953830,
+   "to": 1104953768,
+   "delta": -62
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

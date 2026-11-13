@@ -1,0 +1,89 @@
+{
+ "image": "faster-whisper",
+ "branch": "gpu",
+ "tag": "gpu-v3.8.1-ls7",
+ "previous_tag": "gpu-v3.8.1-ls6",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v3.8.1",
+  "to": "v3.8.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "3545f6d24376702c020d371b11ba657a0ad20029",
+  "to": "3545f6d24376702c020d371b11ba657a0ad20029",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1616041723,
+   "to": 1616085088,
+   "delta": 43365
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "nvidia-cudnn-cu12",
+      "from": "9.28.0.42",
+      "to": "9.28.1.4",
+      "purl": "pkg:pypi/nvidia-cudnn-cu12@9.28.1.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

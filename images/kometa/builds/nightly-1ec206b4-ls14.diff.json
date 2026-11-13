@@ -1,0 +1,542 @@
+{
+ "image": "kometa",
+ "branch": "nightly",
+ "tag": "nightly-1ec206b4-ls14",
+ "previous_tag": "nightly-eedd765c-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "9 commits (3236614 → 297f06f): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "eedd765c",
+  "to": "1ec206b4",
+  "changed": true
+ },
+ "commit": {
+  "from": "3236614a7eb471ec03f67cce5848cb749d158896",
+  "to": "297f06f81c4a3abb1f980bfcb99cd64ccca7933a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kometa/compare/3236614a7eb471ec03f67cce5848cb749d158896...297f06f81c4a3abb1f980bfcb99cd64ccca7933a",
+  "commits": [
+   {
+    "sha": "2414d69fdf2c15e0c6c48a66a9dedef236f846db",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-29T08:37:43Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/2414d69fdf2c15e0c6c48a66a9dedef236f846db",
+    "bot": true
+   },
+   {
+    "sha": "2ec00931568765adf2c8cd0d2fdc2039afafee53",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T14:33:27Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/2ec00931568765adf2c8cd0d2fdc2039afafee53",
+    "bot": true
+   },
+   {
+    "sha": "465419832295b28d13f4580d8cfc232a43c00de2",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T14:40:18Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/465419832295b28d13f4580d8cfc232a43c00de2",
+    "bot": true
+   },
+   {
+    "sha": "7a2b952d34faf96c7eaf234c321628b2de5fdf5f",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T13:36:07Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/7a2b952d34faf96c7eaf234c321628b2de5fdf5f",
+    "bot": true
+   },
+   {
+    "sha": "25d6cd25ee3c05937e83ff583113159dcc7dbea0",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T13:43:51Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/25d6cd25ee3c05937e83ff583113159dcc7dbea0",
+    "bot": true
+   },
+   {
+    "sha": "461667d5bb59d57c8f9af9a61959d98fde10657e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T17:41:01Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/461667d5bb59d57c8f9af9a61959d98fde10657e",
+    "bot": true
+   },
+   {
+    "sha": "54478042eb2fb9c6eb85e069ff37a96a78ee77e5",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T09:42:39Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/54478042eb2fb9c6eb85e069ff37a96a78ee77e5",
+    "bot": true
+   },
+   {
+    "sha": "33259582c607ccc043ac40f8274b95ba0793271a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T12:41:55Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/33259582c607ccc043ac40f8274b95ba0793271a",
+    "bot": true
+   },
+   {
+    "sha": "297f06f81c4a3abb1f980bfcb99cd64ccca7933a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T19:50:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/297f06f81c4a3abb1f980bfcb99cd64ccca7933a",
+    "bot": true
+   }
+  ],
+  "count": 9,
+  "truncated": false,
+  "areas": {
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 317854603,
+   "to": 318384199,
+   "delta": 529596
+  },
+  "arm64": {
+   "from": 317267118,
+   "to": 317788390,
+   "delta": 521272
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [
+     {
+      "name": "six",
+      "version": "1.17.0",
+      "purl": "pkg:pypi/six@1.17.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "apprise",
+      "from": "2.1.0",
+      "to": "2.2.0",
+      "purl": "pkg:pypi/apprise@2.2.0"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "letterboxdpy",
+      "from": "6.6.1",
+      "to": "6.7.0",
+      "purl": "pkg:pypi/letterboxdpy@6.7.0"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11.2",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "3.0.0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.4",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.4.0",
+      "purl": "pkg:pypi/tomli@2.4.0"
+     }
+    ]
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [
+     {
+      "name": "six",
+      "version": "1.17.0",
+      "purl": "pkg:pypi/six@1.17.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "apprise",
+      "from": "2.1.0",
+      "to": "2.2.0",
+      "purl": "pkg:pypi/apprise@2.2.0"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "letterboxdpy",
+      "from": "6.6.1",
+      "to": "6.7.0",
+      "purl": "pkg:pypi/letterboxdpy@6.7.0"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11.2",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "3.0.0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.4",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.4.0",
+      "purl": "pkg:pypi/tomli@2.4.0"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 2,
+  "upgraded": 50,
+  "downgraded": 2
+ }
+}

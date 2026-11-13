@@ -1,0 +1,98 @@
+{
+ "image": "emby",
+ "branch": "master",
+ "tag": "4.10.2.0-ls3",
+ "previous_tag": "4.10.2.0-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "4.10.2.0",
+  "to": "4.10.2.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:af31dd6a7384f37b9936e8fa93c72fc8182603a5e4e1d749563f46d3d21e0993"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:7b09d581d5901bdaf672a7419b3a59384a9aa6adc4fa8357f20264afd425178e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 435374815,
+   "to": 435375236,
+   "delta": 421
+  },
+  "arm64": {
+   "from": 204590159,
+   "to": 204590450,
+   "delta": 291
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-3build1",
+      "to": "1.2.0-3ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.2.0-3ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.2.0-3build1",
+      "to": "1.2.0-3ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.2.0-3ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

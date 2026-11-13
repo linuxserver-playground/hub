@@ -1,0 +1,210 @@
+{
+ "image": "unifi-network-application",
+ "branch": "main",
+ "tag": "10.6.109-ls5",
+ "previous_tag": "10.6.109-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (8b013c1 → 03a07eb): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "10.6.109",
+  "to": "10.6.109",
+  "changed": false
+ },
+ "commit": {
+  "from": "8b013c12dc74e83de4c42908dc3a086529eef167",
+  "to": "03a07ebcf0f9bbb15492fdff07526df2d185366a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-unifi-network-application/compare/8b013c12dc74e83de4c42908dc3a086529eef167...03a07ebcf0f9bbb15492fdff07526df2d185366a",
+  "commits": [
+   {
+    "sha": "03a07ebcf0f9bbb15492fdff07526df2d185366a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T04:20:30Z",
+    "url": "https://github.com/linuxserver-playground/docker-unifi-network-application/commit/03a07ebcf0f9bbb15492fdff07526df2d185366a",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:9dae1619587960de00fd076cd6b26821982f4853b63ef9e0617b95b5ab8e9364"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:5c85b2babfb9f4f3dfa0c4b9e3bf5879f933a18ea06e78cb88ec6838730e98ee"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 309776956,
+   "to": 309569110,
+   "delta": -207846
+  },
+  "arm64": {
+   "from": 308293908,
+   "to": 308115847,
+   "delta": -178061
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "ca-certificates-java",
+      "from": "20260311",
+      "to": "20260311ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/ca-certificates-java@20260311ubuntu0.26.04.1?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg7.0@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "openjdk-25-jre-headless",
+      "from": "25.0.4.1+1-1~26.04.4",
+      "to": "25.0.5.0.3+1-1~26.04.1",
+      "purl": "pkg:deb/ubuntu/openjdk-25-jre-headless@25.0.5.0.3%2B1-1~26.04.1?arch=amd64&distro=ubuntu-26.04&upstream=openjdk-25"
+     }
+    ],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jrt-fs",
+      "from": "25.0.4.1",
+      "to": "25.0.5.0.3",
+      "purl": "pkg:maven/jrt-fs/jrt-fs@25.0.5.0.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "ca-certificates-java",
+      "from": "20260311",
+      "to": "20260311ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/ca-certificates-java@20260311ubuntu0.26.04.1?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg7.0@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "openjdk-25-jre-headless",
+      "from": "25.0.4.1+1-1~26.04.4",
+      "to": "25.0.5.0.3+1-1~26.04.1",
+      "purl": "pkg:deb/ubuntu/openjdk-25-jre-headless@25.0.5.0.3%2B1-1~26.04.1?arch=arm64&distro=ubuntu-26.04&upstream=openjdk-25"
+     }
+    ],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jrt-fs",
+      "from": "25.0.4.1",
+      "to": "25.0.5.0.3",
+      "purl": "pkg:maven/jrt-fs/jrt-fs@25.0.5.0.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

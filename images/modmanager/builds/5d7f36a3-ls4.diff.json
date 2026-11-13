@@ -1,0 +1,124 @@
+{
+ "image": "modmanager",
+ "branch": "main",
+ "tag": "5d7f36a3-ls4",
+ "previous_tag": "9c4ddecb-ls3",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (d1c7c48 → 4bcf106): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "9c4ddecb",
+  "to": "5d7f36a3",
+  "changed": true
+ },
+ "commit": {
+  "from": "d1c7c48a2c19832d052637c5118e7e9c9b094b71",
+  "to": "4bcf106ea3a92b3cbc47ac873bb750f72f8323c7",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-modmanager/compare/d1c7c48a2c19832d052637c5118e7e9c9b094b71...4bcf106ea3a92b3cbc47ac873bb750f72f8323c7",
+  "commits": [
+   {
+    "sha": "4bcf106ea3a92b3cbc47ac873bb750f72f8323c7",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T08:04:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-modmanager/commit/4bcf106ea3a92b3cbc47ac873bb750f72f8323c7",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 23563023,
+   "to": 23563020,
+   "delta": -3
+  },
+  "arm64": {
+   "from": 23577632,
+   "to": 23577641,
+   "delta": 9
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-cli",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-cli@29.9.3-r1?arch=x86_64&distro=alpine-3.24.4&upstream=docker"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-cli",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-cli@29.9.3-r1?arch=aarch64&distro=alpine-3.24.4&upstream=docker"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "image": "lsio-api",
+ "branch": "main",
+ "tag": "e85e5184-ls8",
+ "previous_tag": "6ddc36f4-ls7",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (f45f4ca → 9b4ffe7): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "6ddc36f4",
+  "to": "e85e5184",
+  "changed": true
+ },
+ "commit": {
+  "from": "f45f4ca4ac4ceb9f6b1590ebe9171992cd7a6a37",
+  "to": "9b4ffe7ffcfecc8c80d660e0e7111d5e2d9acbe1",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lsio-api/compare/f45f4ca4ac4ceb9f6b1590ebe9171992cd7a6a37...9b4ffe7ffcfecc8c80d660e0e7111d5e2d9acbe1",
+  "commits": [
+   {
+    "sha": "9b4ffe7ffcfecc8c80d660e0e7111d5e2d9acbe1",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T10:12:04Z",
+    "url": "https://github.com/linuxserver-playground/docker-lsio-api/commit/9b4ffe7ffcfecc8c80d660e0e7111d5e2d9acbe1",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:7d708408cd3327e6e3d154d36abfa7595ef611fe021fa3adc4860169c893c817"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:7d708408cd3327e6e3d154d36abfa7595ef611fe021fa3adc4860169c893c817"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 64050519,
+   "to": 64048590,
+   "delta": -1929
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi-cloud-cli",
+      "from": "0.26.0",
+      "to": "0.27.1",
+      "purl": "pkg:pypi/fastapi-cloud-cli@0.27.1"
+     },
+     {
+      "name": "typer",
+      "from": "0.28.0",
+      "to": "0.29.0",
+      "purl": "pkg:pypi/typer@0.29.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,172 @@
+{
+ "image": "radarr",
+ "branch": "master",
+ "tag": "6.4.4.10685-ls5",
+ "previous_tag": "6.4.4.10685-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (b033a32 → ac518d3): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "6.4.4.10685",
+  "to": "6.4.4.10685",
+  "changed": false
+ },
+ "commit": {
+  "from": "b033a32eb7045b112294b3ca4e3efb4aa959b76b",
+  "to": "ac518d3c9dc3a396a63c4c373099be3753004680",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-radarr/compare/b033a32eb7045b112294b3ca4e3efb4aa959b76b...ac518d3c9dc3a396a63c4c373099be3753004680",
+  "commits": [
+   {
+    "sha": "ac518d3c9dc3a396a63c4c373099be3753004680",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T06:52:01Z",
+    "url": "https://github.com/linuxserver-playground/docker-radarr/commit/ac518d3c9dc3a396a63c4c373099be3753004680",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 3
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 90950906,
+   "to": 90952425,
+   "delta": 1519
+  },
+  "arm64": {
+   "from": 89392955,
+   "to": 89394912,
+   "delta": 1957
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

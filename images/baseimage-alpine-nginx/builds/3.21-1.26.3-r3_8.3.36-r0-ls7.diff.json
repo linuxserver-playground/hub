@@ -1,0 +1,186 @@
+{
+ "image": "baseimage-alpine-nginx",
+ "branch": "3.21",
+ "tag": "3.21-1.26.3-r3_8.3.36-r0-ls7",
+ "previous_tag": "3.21-1.26.3-r3_8.3.36-r0-ls6",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (d2c36fb → b03c3ff): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.26.3-r3_8.3.36-r0",
+  "to": "1.26.3-r3_8.3.36-r0",
+  "changed": false
+ },
+ "commit": {
+  "from": "d2c36fb0505e3a6eda4f978c9d70347717e1e667",
+  "to": "b03c3ff42a9c465e92bc65b81eb143055f374a79",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/compare/d2c36fb0505e3a6eda4f978c9d70347717e1e667...b03c3ff42a9c465e92bc65b81eb143055f374a79",
+  "commits": [
+   {
+    "sha": "b03c3ff42a9c465e92bc65b81eb143055f374a79",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T16:32:23Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/b03c3ff42a9c465e92bc65b81eb143055f374a79",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.21",
+   "digest": "sha256:1bec2d57ba13498c29b37227358e37782b12c358f5760c9a98fd4483827b58a8"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.21",
+   "digest": "sha256:d7f028d491d17a4d3ae675750baa90830d8e1a62e26b6877874ace53e29f5bca"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 24655657,
+   "to": 24663481,
+   "delta": 7824
+  },
+  "arm64": {
+   "from": 25650593,
+   "to": 25659234,
+   "delta": 8641
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.21.9-r0",
+      "to": "3.21.10-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.21.10-r0?arch=x86_64&distro=alpine-3.21.10&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "2.14.6-r3",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/apk-tools@2.14.13-r0?arch=x86_64&distro=alpine-3.21.10"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.21.10"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.21.10"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.1",
+      "to": "2.11.2",
+      "purl": "pkg:generic/composer@2.11.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.21.9-r0",
+      "to": "3.21.10-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.21.10-r0?arch=aarch64&distro=alpine-3.21.10&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "2.14.6-r3",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/apk-tools@2.14.13-r0?arch=aarch64&distro=alpine-3.21.10"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.21.10"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.21.10"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.1",
+      "to": "2.11.2",
+      "purl": "pkg:generic/composer@2.11.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}
