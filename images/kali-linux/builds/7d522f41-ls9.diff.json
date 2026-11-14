@@ -1,0 +1,1191 @@
+{
+ "image": "kali-linux",
+ "branch": "master",
+ "tag": "7d522f41-ls9",
+ "previous_tag": "dbda94e2-ls8",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (212f5bf → fd97de2): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "dbda94e2",
+  "to": "7d522f41",
+  "changed": true
+ },
+ "commit": {
+  "from": "212f5bf0a97110ed16a03e997025e5201b219249",
+  "to": "fd97de2dfda8321e98b0aeaff985fc96821b0d12",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kali-linux/compare/212f5bf0a97110ed16a03e997025e5201b219249...fd97de2dfda8321e98b0aeaff985fc96821b0d12",
+  "commits": [
+   {
+    "sha": "fd97de2dfda8321e98b0aeaff985fc96821b0d12",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T14:28:25Z",
+    "url": "https://github.com/linuxserver-playground/docker-kali-linux/commit/fd97de2dfda8321e98b0aeaff985fc96821b0d12",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:136ce815b0a09d35237e0166d9a48859bcdc8932512b8e775bf7395185508e86"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:c5c6ea6f3329f008682f07f8c04d349da50ddcfb4122ff2dab00068189fbfc9b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 4760157356,
+   "to": 4760442558,
+   "delta": 285202
+  },
+  "arm64": {
+   "from": 3974816056,
+   "to": 3977219158,
+   "delta": 2403102
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [
+     {
+      "name": "kate-addons",
+      "version": "4:26.08.2+dfsg-2",
+      "purl": "pkg:deb/kali/kate-addons@4%3A26.08.2%2Bdfsg-2?arch=amd64&distro=kali-2026.3&upstream=kate"
+     },
+     {
+      "name": "kate-libs",
+      "version": "4:26.08.2+dfsg-2",
+      "purl": "pkg:deb/kali/kate-libs@4%3A26.08.2%2Bdfsg-2?arch=amd64&distro=kali-2026.3&upstream=kate"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-private",
+      "version": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-private@1.16.0-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ark",
+      "from": "4:26.08.2-2",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/ark@4%3A26.08.3-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "bash",
+      "from": "5.3-4",
+      "to": "5.3-4+b1",
+      "purl": "pkg:deb/kali/bash@5.3-4%2Bb1?arch=amd64&distro=kali-2026.3&upstream=bash%405.3-4"
+     },
+     {
+      "name": "binwalk3",
+      "from": "3.1.0-0kali4",
+      "to": "3.1.0-0kali5",
+      "purl": "pkg:deb/kali/binwalk3@3.1.0-0kali5?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "catatonit",
+      "from": "0.2.1-2+b31",
+      "to": "0.2.1-2+b32",
+      "purl": "pkg:deb/kali/catatonit@0.2.1-2%2Bb32?arch=amd64&distro=kali-2026.3&upstream=catatonit%400.2.1-2"
+     },
+     {
+      "name": "cpp-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/cpp-16@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "cpp-16-x86-64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/cpp-16-x86-64-linux-gnu@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.0-1~debian.12~bookworm",
+      "to": "5.7.1-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-compose-plugin@5.7.1-1~debian.12~bookworm?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "dragonplayer",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/dragonplayer@4%3A26.08.3-1?arch=amd64&distro=kali-2026.3&upstream=dragon"
+     },
+     {
+      "name": "firmware-amd-graphics",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-amd-graphics@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "firmware-linux-nonfree",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-linux-nonfree@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "firmware-misc-nonfree",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-misc-nonfree@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "g++-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/g%2B%2B-16@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "g++-16-x86-64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/g%2B%2B-16-x86-64-linux-gnu@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "gcc-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16@16.2.0-4?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "gcc-16-base",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-base@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "gcc-16-x86-64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-x86-64-linux-gnu@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "imagemagick",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/imagemagick@8%3A7.1.2.34%2Bdfsg1-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "imagemagick-7-common",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/imagemagick-7-common@8%3A7.1.2.34%2Bdfsg1-1?arch=all&distro=kali-2026.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-7.q16",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/imagemagick-7.q16@8%3A7.1.2.34%2Bdfsg1-1?arch=amd64&distro=kali-2026.3&upstream=imagemagick"
+     },
+     {
+      "name": "kio-extras",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/kio-extras@4%3A26.08.3-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "kio-extras-data",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/kio-extras-data@4%3A26.08.3-1?arch=all&distro=kali-2026.3&upstream=kio-extras"
+     },
+     {
+      "name": "kirigami-addons-data",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/kirigami-addons-data@1.16.0-2?arch=all&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "libasan8",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libasan8@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libatomic1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libatomic1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libcc1-0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libcc1-0@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libdbusmenu-qt5-2",
+      "from": "0.9.3+16.04.20160218-5",
+      "to": "0.9.3+16.04.20160218-6",
+      "purl": "pkg:deb/kali/libdbusmenu-qt5-2@0.9.3%2B16.04.20160218-6?arch=amd64&distro=kali-2026.3&upstream=libdbusmenu-qt"
+     },
+     {
+      "name": "libdnnl3.6",
+      "from": "3.12.1+ds-3",
+      "to": "3.14+ds-1",
+      "purl": "pkg:deb/kali/libdnnl3.6@3.14%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=onednn"
+     },
+     {
+      "name": "libgcc-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-16-dev@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgcc-s1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-s1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgfortran5",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgfortran5@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgomp1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgomp1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libhwasan0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libhwasan0@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libipc-shareable-perl",
+      "from": "1.13-1",
+      "to": "1.19-2",
+      "purl": "pkg:deb/kali/libipc-shareable-perl@1.19-2?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "libitm1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libitm1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libkirigamiaddonscomponents6",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/libkirigamiaddonscomponents6@1.16.0-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "liblsan0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/liblsan0@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "liblwp-mediatypes-perl",
+      "from": "6.04-2",
+      "to": "6.05-1",
+      "purl": "pkg:deb/kali/liblwp-mediatypes-perl@6.05-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "liblwp-protocol-https-perl",
+      "from": "6.15-1",
+      "to": "6.17-1",
+      "purl": "pkg:deb/kali/liblwp-protocol-https-perl@6.17-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "libmagickcore-7.q16-10",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/libmagickcore-7.q16-10@8%3A7.1.2.34%2Bdfsg1-1?arch=amd64&distro=kali-2026.3&upstream=imagemagick"
+     },
+     {
+      "name": "libmagickwand-7.q16-10",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/libmagickwand-7.q16-10@8%3A7.1.2.34%2Bdfsg1-1?arch=amd64&distro=kali-2026.3&upstream=imagemagick"
+     },
+     {
+      "name": "libmariadb3",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/libmariadb3@1%3A11.8.9%2Bds-4?arch=amd64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "libobjc-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libobjc-16-dev@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libobjc4",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libobjc4@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libquadmath0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libquadmath0@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libseat1",
+      "from": "0.9.3-1",
+      "to": "0.9.3-2",
+      "purl": "pkg:deb/kali/libseat1@0.9.3-2?arch=amd64&distro=kali-2026.3&upstream=seatd"
+     },
+     {
+      "name": "libsnappy1v5",
+      "from": "1.3.1-3",
+      "to": "1.3.1-4",
+      "purl": "pkg:deb/kali/libsnappy1v5@1.3.1-4?arch=amd64&distro=kali-2026.3&upstream=snappy"
+     },
+     {
+      "name": "libstdc++-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B-16-dev@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libstdc++6",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B6@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libtcl9.1",
+      "from": "9.1.0+dfsg-2",
+      "to": "9.1.0+dfsg-3",
+      "purl": "pkg:deb/kali/libtcl9.1@9.1.0%2Bdfsg-3?arch=amd64&distro=kali-2026.3&upstream=tcl9.1"
+     },
+     {
+      "name": "libtsan2",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libtsan2@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libubsan1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libubsan1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libvlc5",
+      "from": "3.0.24-4",
+      "to": "3.0.24-4+b1",
+      "purl": "pkg:deb/kali/libvlc5@3.0.24-4%2Bb1?arch=amd64&distro=kali-2026.3&upstream=vlc%403.0.24-4"
+     },
+     {
+      "name": "libvlccore9",
+      "from": "3.0.24-4",
+      "to": "3.0.24-4+b1",
+      "purl": "pkg:deb/kali/libvlccore9@3.0.24-4%2Bb1?arch=amd64&distro=kali-2026.3&upstream=vlc%403.0.24-4"
+     },
+     {
+      "name": "mariadb-client",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-client@1%3A11.8.9%2Bds-4?arch=amd64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-client-core",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-client-core@1%3A11.8.9%2Bds-4?arch=amd64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-common",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-common@1%3A11.8.9%2Bds-4?arch=all&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-server",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-server@1%3A11.8.9%2Bds-4?arch=amd64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-server-compat",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-server-compat@1%3A11.8.9%2Bds-4?arch=all&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-server-core",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-server-core@1%3A11.8.9%2Bds-4?arch=amd64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "python3-billiard",
+      "from": "4.3.1-1",
+      "to": "4.3.2-1",
+      "purl": "pkg:deb/kali/python3-billiard@4.3.2-1?arch=all&distro=kali-2026.3&upstream=billiard"
+     },
+     {
+      "name": "python3-cli-helpers",
+      "from": "2.15.2-1",
+      "to": "2.15.3-1",
+      "purl": "pkg:deb/kali/python3-cli-helpers@2.15.3-1?arch=all&distro=kali-2026.3&upstream=cli-helpers"
+     },
+     {
+      "name": "python3-greenlet",
+      "from": "3.3.2-4+b1",
+      "to": "3.3.2-5",
+      "purl": "pkg:deb/kali/python3-greenlet@3.3.2-5?arch=amd64&distro=kali-2026.3&upstream=python-greenlet"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-components",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-components@1.16.0-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-datetime",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-datetime@1.16.0-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-delegates",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-delegates@1.16.0-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-formcard",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-formcard@1.16.0-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-treeview",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-treeview@1.16.0-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "ruby-httpclient",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/ruby-httpclient@2.10.0-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "seatd",
+      "from": "0.9.3-1",
+      "to": "0.9.3-2",
+      "purl": "pkg:deb/kali/seatd@0.9.3-2?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "tcl9.1",
+      "from": "9.1.0+dfsg-2",
+      "to": "9.1.0+dfsg-3",
+      "purl": "pkg:deb/kali/tcl9.1@9.1.0%2Bdfsg-3?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": "pkg:deb/kali/tzdata@2026f-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "tzdata-legacy",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": "pkg:deb/kali/tzdata-legacy@2026f-1?arch=all&distro=kali-2026.3&upstream=tzdata"
+     },
+     {
+      "name": "vlc-plugin-base",
+      "from": "3.0.24-4",
+      "to": "3.0.24-4+b1",
+      "purl": "pkg:deb/kali/vlc-plugin-base@3.0.24-4%2Bb1?arch=amd64&distro=kali-2026.3&upstream=vlc%403.0.24-4"
+     },
+     {
+      "name": "vlc-plugin-video-output",
+      "from": "3.0.24-4",
+      "to": "3.0.24-4+b1",
+      "purl": "pkg:deb/kali/vlc-plugin-video-output@3.0.24-4%2Bb1?arch=amd64&distro=kali-2026.3&upstream=vlc%403.0.24-4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "kate",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.2+dfsg-2",
+      "purl": "pkg:deb/kali/kate@4%3A26.08.2%2Bdfsg-2?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "kate-data",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.2+dfsg-2",
+      "purl": "pkg:deb/kali/kate-data@4%3A26.08.2%2Bdfsg-2?arch=all&distro=kali-2026.3&upstream=kate"
+     }
+    ]
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.0",
+      "to": "v5.7.1",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.1"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "billiard",
+      "from": "4.3.1",
+      "to": "4.3.2",
+      "purl": "pkg:pypi/billiard@4.3.2"
+     },
+     {
+      "name": "cli-helpers",
+      "from": "2.15.2",
+      "to": "2.15.3",
+      "purl": "pkg:pypi/cli-helpers@2.15.3"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.2",
+      "to": "0.162.5",
+      "purl": "pkg:pypi/fastapi@0.162.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [
+     {
+      "name": "kate-addons",
+      "version": "4:26.08.2+dfsg-2",
+      "purl": "pkg:deb/kali/kate-addons@4%3A26.08.2%2Bdfsg-2?arch=arm64&distro=kali-2026.3&upstream=kate"
+     },
+     {
+      "name": "kate-libs",
+      "version": "4:26.08.2+dfsg-2",
+      "purl": "pkg:deb/kali/kate-libs@4%3A26.08.2%2Bdfsg-2?arch=arm64&distro=kali-2026.3&upstream=kate"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-private",
+      "version": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-private@1.16.0-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ark",
+      "from": "4:26.08.2-2",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/ark@4%3A26.08.3-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "bash",
+      "from": "5.3-4",
+      "to": "5.3-4+b1",
+      "purl": "pkg:deb/kali/bash@5.3-4%2Bb1?arch=arm64&distro=kali-2026.3&upstream=bash%405.3-4"
+     },
+     {
+      "name": "binwalk3",
+      "from": "3.1.0-0kali4",
+      "to": "3.1.0-0kali5",
+      "purl": "pkg:deb/kali/binwalk3@3.1.0-0kali5?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "catatonit",
+      "from": "0.2.1-2+b31",
+      "to": "0.2.1-2+b32",
+      "purl": "pkg:deb/kali/catatonit@0.2.1-2%2Bb32?arch=arm64&distro=kali-2026.3&upstream=catatonit%400.2.1-2"
+     },
+     {
+      "name": "cpp-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/cpp-16@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "cpp-16-aarch64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/cpp-16-aarch64-linux-gnu@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.0-1~debian.12~bookworm",
+      "to": "5.7.1-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-compose-plugin@5.7.1-1~debian.12~bookworm?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "dragonplayer",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/dragonplayer@4%3A26.08.3-1?arch=arm64&distro=kali-2026.3&upstream=dragon"
+     },
+     {
+      "name": "firmware-amd-graphics",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-amd-graphics@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "firmware-linux-nonfree",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-linux-nonfree@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "firmware-misc-nonfree",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-misc-nonfree@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "g++-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/g%2B%2B-16@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "g++-16-aarch64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/g%2B%2B-16-aarch64-linux-gnu@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "gcc-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16@16.2.0-4?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "gcc-16-aarch64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-aarch64-linux-gnu@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "gcc-16-base",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-base@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "imagemagick",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/imagemagick@8%3A7.1.2.34%2Bdfsg1-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "imagemagick-7-common",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/imagemagick-7-common@8%3A7.1.2.34%2Bdfsg1-1?arch=all&distro=kali-2026.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-7.q16",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/imagemagick-7.q16@8%3A7.1.2.34%2Bdfsg1-1?arch=arm64&distro=kali-2026.3&upstream=imagemagick"
+     },
+     {
+      "name": "kio-extras",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/kio-extras@4%3A26.08.3-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "kio-extras-data",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/kio-extras-data@4%3A26.08.3-1?arch=all&distro=kali-2026.3&upstream=kio-extras"
+     },
+     {
+      "name": "kirigami-addons-data",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/kirigami-addons-data@1.16.0-2?arch=all&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "libasan8",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libasan8@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libatomic1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libatomic1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libcc1-0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libcc1-0@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libdbusmenu-qt5-2",
+      "from": "0.9.3+16.04.20160218-5",
+      "to": "0.9.3+16.04.20160218-6",
+      "purl": "pkg:deb/kali/libdbusmenu-qt5-2@0.9.3%2B16.04.20160218-6?arch=arm64&distro=kali-2026.3&upstream=libdbusmenu-qt"
+     },
+     {
+      "name": "libdnnl3.6",
+      "from": "3.12.1+ds-3",
+      "to": "3.14+ds-1",
+      "purl": "pkg:deb/kali/libdnnl3.6@3.14%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=onednn"
+     },
+     {
+      "name": "libgcc-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-16-dev@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgcc-s1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-s1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgfortran5",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgfortran5@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgomp1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgomp1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libhwasan0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libhwasan0@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libipc-shareable-perl",
+      "from": "1.13-1",
+      "to": "1.19-2",
+      "purl": "pkg:deb/kali/libipc-shareable-perl@1.19-2?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "libitm1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libitm1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libkirigamiaddonscomponents6",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/libkirigamiaddonscomponents6@1.16.0-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "liblsan0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/liblsan0@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "liblwp-mediatypes-perl",
+      "from": "6.04-2",
+      "to": "6.05-1",
+      "purl": "pkg:deb/kali/liblwp-mediatypes-perl@6.05-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "liblwp-protocol-https-perl",
+      "from": "6.15-1",
+      "to": "6.17-1",
+      "purl": "pkg:deb/kali/liblwp-protocol-https-perl@6.17-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "libmagickcore-7.q16-10",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/libmagickcore-7.q16-10@8%3A7.1.2.34%2Bdfsg1-1?arch=arm64&distro=kali-2026.3&upstream=imagemagick"
+     },
+     {
+      "name": "libmagickwand-7.q16-10",
+      "from": "8:7.1.2.31+dfsg1-1",
+      "to": "8:7.1.2.34+dfsg1-1",
+      "purl": "pkg:deb/kali/libmagickwand-7.q16-10@8%3A7.1.2.34%2Bdfsg1-1?arch=arm64&distro=kali-2026.3&upstream=imagemagick"
+     },
+     {
+      "name": "libmariadb3",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/libmariadb3@1%3A11.8.9%2Bds-4?arch=arm64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "libobjc-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libobjc-16-dev@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libobjc4",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libobjc4@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libseat1",
+      "from": "0.9.3-1",
+      "to": "0.9.3-2",
+      "purl": "pkg:deb/kali/libseat1@0.9.3-2?arch=arm64&distro=kali-2026.3&upstream=seatd"
+     },
+     {
+      "name": "libsnappy1v5",
+      "from": "1.3.1-3",
+      "to": "1.3.1-4",
+      "purl": "pkg:deb/kali/libsnappy1v5@1.3.1-4?arch=arm64&distro=kali-2026.3&upstream=snappy"
+     },
+     {
+      "name": "libstdc++-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B-16-dev@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libstdc++6",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B6@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libtcl9.1",
+      "from": "9.1.0+dfsg-2",
+      "to": "9.1.0+dfsg-3",
+      "purl": "pkg:deb/kali/libtcl9.1@9.1.0%2Bdfsg-3?arch=arm64&distro=kali-2026.3&upstream=tcl9.1"
+     },
+     {
+      "name": "libtsan2",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libtsan2@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libubsan1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libubsan1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libvlc5",
+      "from": "3.0.24-4",
+      "to": "3.0.24-4+b1",
+      "purl": "pkg:deb/kali/libvlc5@3.0.24-4%2Bb1?arch=arm64&distro=kali-2026.3&upstream=vlc%403.0.24-4"
+     },
+     {
+      "name": "libvlccore9",
+      "from": "3.0.24-4",
+      "to": "3.0.24-4+b1",
+      "purl": "pkg:deb/kali/libvlccore9@3.0.24-4%2Bb1?arch=arm64&distro=kali-2026.3&upstream=vlc%403.0.24-4"
+     },
+     {
+      "name": "mariadb-client",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-client@1%3A11.8.9%2Bds-4?arch=arm64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-client-core",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-client-core@1%3A11.8.9%2Bds-4?arch=arm64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-common",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-common@1%3A11.8.9%2Bds-4?arch=all&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-server",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-server@1%3A11.8.9%2Bds-4?arch=arm64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-server-compat",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-server-compat@1%3A11.8.9%2Bds-4?arch=all&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "mariadb-server-core",
+      "from": "1:11.8.9+ds-2",
+      "to": "1:11.8.9+ds-4",
+      "purl": "pkg:deb/kali/mariadb-server-core@1%3A11.8.9%2Bds-4?arch=arm64&distro=kali-2026.3&upstream=mariadb"
+     },
+     {
+      "name": "python3-billiard",
+      "from": "4.3.1-1",
+      "to": "4.3.2-1",
+      "purl": "pkg:deb/kali/python3-billiard@4.3.2-1?arch=all&distro=kali-2026.3&upstream=billiard"
+     },
+     {
+      "name": "python3-cli-helpers",
+      "from": "2.15.2-1",
+      "to": "2.15.3-1",
+      "purl": "pkg:deb/kali/python3-cli-helpers@2.15.3-1?arch=all&distro=kali-2026.3&upstream=cli-helpers"
+     },
+     {
+      "name": "python3-greenlet",
+      "from": "3.3.2-4+b1",
+      "to": "3.3.2-5",
+      "purl": "pkg:deb/kali/python3-greenlet@3.3.2-5?arch=arm64&distro=kali-2026.3&upstream=python-greenlet"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-components",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-components@1.16.0-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-datetime",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-datetime@1.16.0-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-delegates",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-delegates@1.16.0-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-formcard",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-formcard@1.16.0-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-treeview",
+      "from": "1.15.0-1",
+      "to": "1.16.0-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-treeview@1.16.0-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "ruby-httpclient",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/ruby-httpclient@2.10.0-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "seatd",
+      "from": "0.9.3-1",
+      "to": "0.9.3-2",
+      "purl": "pkg:deb/kali/seatd@0.9.3-2?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "tcl9.1",
+      "from": "9.1.0+dfsg-2",
+      "to": "9.1.0+dfsg-3",
+      "purl": "pkg:deb/kali/tcl9.1@9.1.0%2Bdfsg-3?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": "pkg:deb/kali/tzdata@2026f-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "tzdata-legacy",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": "pkg:deb/kali/tzdata-legacy@2026f-1?arch=all&distro=kali-2026.3&upstream=tzdata"
+     },
+     {
+      "name": "vlc-plugin-base",
+      "from": "3.0.24-4",
+      "to": "3.0.24-4+b1",
+      "purl": "pkg:deb/kali/vlc-plugin-base@3.0.24-4%2Bb1?arch=arm64&distro=kali-2026.3&upstream=vlc%403.0.24-4"
+     },
+     {
+      "name": "vlc-plugin-video-output",
+      "from": "3.0.24-4",
+      "to": "3.0.24-4+b1",
+      "purl": "pkg:deb/kali/vlc-plugin-video-output@3.0.24-4%2Bb1?arch=arm64&distro=kali-2026.3&upstream=vlc%403.0.24-4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "kate",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.2+dfsg-2",
+      "purl": "pkg:deb/kali/kate@4%3A26.08.2%2Bdfsg-2?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "kate-data",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.2+dfsg-2",
+      "purl": "pkg:deb/kali/kate-data@4%3A26.08.2%2Bdfsg-2?arch=all&distro=kali-2026.3&upstream=kate"
+     }
+    ]
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.0",
+      "to": "v5.7.1",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.1"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "billiard",
+      "from": "4.3.1",
+      "to": "4.3.2",
+      "purl": "pkg:pypi/billiard@4.3.2"
+     },
+     {
+      "name": "cli-helpers",
+      "from": "2.15.2",
+      "to": "2.15.3",
+      "purl": "pkg:pypi/cli-helpers@2.15.3"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.2",
+      "to": "0.162.5",
+      "purl": "pkg:pypi/fastapi@0.162.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 6,
+  "removed": 0,
+  "upgraded": 163,
+  "downgraded": 6
+ }
+}

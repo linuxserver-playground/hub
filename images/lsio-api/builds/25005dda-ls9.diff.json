@@ -1,0 +1,177 @@
+{
+ "image": "lsio-api",
+ "branch": "main",
+ "tag": "25005dda-ls9",
+ "previous_tag": "e85e5184-ls8",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (9b4ffe7 → 5c3e62f): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "e85e5184",
+  "to": "25005dda",
+  "changed": true
+ },
+ "commit": {
+  "from": "9b4ffe7ffcfecc8c80d660e0e7111d5e2d9acbe1",
+  "to": "5c3e62f1aacc7383dc271a27167c8e4c9bb7983e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lsio-api/compare/9b4ffe7ffcfecc8c80d660e0e7111d5e2d9acbe1...5c3e62f1aacc7383dc271a27167c8e4c9bb7983e",
+  "commits": [
+   {
+    "sha": "5c3e62f1aacc7383dc271a27167c8e4c9bb7983e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T05:11:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-lsio-api/commit/5c3e62f1aacc7383dc271a27167c8e4c9bb7983e",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:7d708408cd3327e6e3d154d36abfa7595ef611fe021fa3adc4860169c893c817"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:72b22c6f25cbc24ab3cbd09b4d1c0f8a87ff94bb8f14a2951b6d587f0912c928"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 64048590,
+   "to": 64064835,
+   "delta": 16245
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "coreutils",
+      "from": "9.11-r2",
+      "to": "9.11-r3",
+      "purl": "pkg:apk/busybox/coreutils@9.11-r3?arch=x86_64&distro=busybox-1.38.0"
+     },
+     {
+      "name": "coreutils-env",
+      "from": "9.11-r2",
+      "to": "9.11-r3",
+      "purl": "pkg:apk/busybox/coreutils-env@9.11-r3?arch=x86_64&distro=busybox-1.38.0&upstream=coreutils"
+     },
+     {
+      "name": "coreutils-fmt",
+      "from": "9.11-r2",
+      "to": "9.11-r3",
+      "purl": "pkg:apk/busybox/coreutils-fmt@9.11-r3?arch=x86_64&distro=busybox-1.38.0&upstream=coreutils"
+     },
+     {
+      "name": "coreutils-sha512sum",
+      "from": "9.11-r2",
+      "to": "9.11-r3",
+      "purl": "pkg:apk/busybox/coreutils-sha512sum@9.11-r3?arch=x86_64&distro=busybox-1.38.0&upstream=coreutils"
+     },
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/busybox/libcrypto3@3.5.9-r1?arch=x86_64&distro=busybox-1.38.0&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/busybox/libssl3@3.5.9-r1?arch=x86_64&distro=busybox-1.38.0&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi-cli",
+      "from": "0.0.32",
+      "to": "0.0.34",
+      "purl": "pkg:pypi/fastapi-cli@0.0.34"
+     },
+     {
+      "name": "fastapi-cloud-cli",
+      "from": "0.27.1",
+      "to": "0.28.0",
+      "purl": "pkg:pypi/fastapi-cloud-cli@0.28.0"
+     },
+     {
+      "name": "markdown-it-py",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/markdown-it-py@4.3.0"
+     },
+     {
+      "name": "sentry-sdk",
+      "from": "2.74.0",
+      "to": "2.75.0",
+      "purl": "pkg:pypi/sentry-sdk@2.75.0"
+     },
+     {
+      "name": "typer",
+      "from": "0.29.0",
+      "to": "0.29.1",
+      "purl": "pkg:pypi/typer@0.29.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

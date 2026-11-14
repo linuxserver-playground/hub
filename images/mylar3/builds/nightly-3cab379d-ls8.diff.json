@@ -1,0 +1,213 @@
+{
+ "image": "mylar3",
+ "branch": "nightly",
+ "tag": "nightly-3cab379d-ls8",
+ "previous_tag": "nightly-3cab379d-ls7",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (bad08fa → 553fdec): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "3cab379d",
+  "to": "3cab379d",
+  "changed": false
+ },
+ "commit": {
+  "from": "bad08fa0c9f8965815605d8729f80c0b6b64bee2",
+  "to": "553fdec3738c9e996ecca443d672ba0c721e5dd3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mylar3/compare/bad08fa0c9f8965815605d8729f80c0b6b64bee2...553fdec3738c9e996ecca443d672ba0c721e5dd3",
+  "commits": [
+   {
+    "sha": "553fdec3738c9e996ecca443d672ba0c721e5dd3",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T18:14:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-mylar3/commit/553fdec3738c9e996ecca443d672ba0c721e5dd3",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 90045830,
+   "to": 93997560,
+   "delta": 3951730
+  },
+  "arm64": {
+   "from": 88699757,
+   "to": 92483211,
+   "delta": 3783454
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [
+     {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "purl": "pkg:pypi/annotated-types@0.8.0"
+     },
+     {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "version": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "markdown-it-py",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/markdown-it-py@4.3.0"
+     },
+     {
+      "name": "simplejson",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/simplejson@4.3.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.0.1",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     },
+     {
+      "name": "typer",
+      "from": "0.28.0",
+      "to": "0.29.1",
+      "purl": "pkg:pypi/typer@0.29.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [
+     {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "purl": "pkg:pypi/annotated-types@0.8.0"
+     },
+     {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "version": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "markdown-it-py",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/markdown-it-py@4.3.0"
+     },
+     {
+      "name": "simplejson",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/simplejson@4.3.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.0.1",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     },
+     {
+      "name": "typer",
+      "from": "0.28.0",
+      "to": "0.29.1",
+      "purl": "pkg:pypi/typer@0.29.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 8,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

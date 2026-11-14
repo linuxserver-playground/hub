@@ -1,0 +1,134 @@
+{
+ "image": "baseimage-ubuntu",
+ "branch": "noble",
+ "tag": "noble-3f2caae9-ls7",
+ "previous_tag": "noble-4df45e38-ls6",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (80caa3f → a7e0876): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "4df45e38",
+  "to": "3f2caae9",
+  "changed": true
+ },
+ "commit": {
+  "from": "80caa3fd1e281f3a9a2934b7462d40f0d753f7af",
+  "to": "a7e087613d584f8a75916e64fee2c8814f7b76d0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-ubuntu/compare/80caa3fd1e281f3a9a2934b7462d40f0d753f7af...a7e087613d584f8a75916e64fee2c8814f7b76d0",
+  "commits": [
+   {
+    "sha": "a7e087613d584f8a75916e64fee2c8814f7b76d0",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T23:18:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-ubuntu/commit/a7e087613d584f8a75916e64fee2c8814f7b76d0",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 49718571,
+   "to": 47840907,
+   "delta": -1877664
+  },
+  "arm64": {
+   "from": 49434954,
+   "to": 47663034,
+   "delta": -1771920
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

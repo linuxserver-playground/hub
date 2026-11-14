@@ -1,0 +1,123 @@
+{
+ "image": "raneto",
+ "branch": "master",
+ "tag": "0.18.1-ls6",
+ "previous_tag": "0.18.1-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (8d551fa → 7bc7a2f): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "0.18.1",
+  "to": "0.18.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "8d551fae07b454898961ed86b0b621f7828179d9",
+  "to": "7bc7a2faff328fb4e1ad174e3dec44e4c6a26e09",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-raneto/compare/8d551fae07b454898961ed86b0b621f7828179d9...7bc7a2faff328fb4e1ad174e3dec44e4c6a26e09",
+  "commits": [
+   {
+    "sha": "7bc7a2faff328fb4e1ad174e3dec44e4c6a26e09",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T12:55:16Z",
+    "url": "https://github.com/linuxserver-playground/docker-raneto/commit/7bc7a2faff328fb4e1ad174e3dec44e4c6a26e09",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 47448340,
+   "to": 47448941,
+   "delta": 601
+  },
+  "arm64": {
+   "from": 47677355,
+   "to": 47678528,
+   "delta": 1173
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "22.23.4-r0",
+      "to": "22.23.5-r0",
+      "purl": "pkg:apk/alpine/nodejs@22.23.5-r0?arch=x86_64&distro=alpine-3.22.8"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "22.23.4-r0",
+      "to": "22.23.5-r0",
+      "purl": "pkg:apk/alpine/nodejs@22.23.5-r0?arch=aarch64&distro=alpine-3.22.8"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

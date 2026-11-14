@@ -1,0 +1,124 @@
+{
+ "image": "ffmpeg",
+ "branch": "master",
+ "tag": "9.0.2-cli-ls8",
+ "previous_tag": "9.0.2-cli-ls7",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (98d96b9 → 2ad640e): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "9.0.2-cli",
+  "to": "9.0.2-cli",
+  "changed": false
+ },
+ "commit": {
+  "from": "98d96b9241e446d8863cc7c5f12567fd26566ba1",
+  "to": "2ad640e5b0ec44f6c4b9e93313d87e42b39762cb",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-ffmpeg/compare/98d96b9241e446d8863cc7c5f12567fd26566ba1...2ad640e5b0ec44f6c4b9e93313d87e42b39762cb",
+  "commits": [
+   {
+    "sha": "2ad640e5b0ec44f6c4b9e93313d87e42b39762cb",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T03:50:56Z",
+    "url": "https://github.com/linuxserver-playground/docker-ffmpeg/commit/2ad640e5b0ec44f6c4b9e93313d87e42b39762cb",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:5c85b2babfb9f4f3dfa0c4b9e3bf5879f933a18ea06e78cb88ec6838730e98ee"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:711a6a1365285c3fd8ea267bd102e6477b49f47d521cf64185dc02b3e38c200e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 261771469,
+   "to": 264213428,
+   "delta": 2441959
+  },
+  "arm64": {
+   "from": 171491617,
+   "to": 173912419,
+   "delta": 2420802
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

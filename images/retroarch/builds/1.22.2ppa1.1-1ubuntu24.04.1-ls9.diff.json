@@ -1,0 +1,1102 @@
+{
+ "image": "retroarch",
+ "branch": "master",
+ "tag": "1.22.2ppa1.1-1ubuntu24.04.1-ls9",
+ "previous_tag": "1.22.2ppa1.1-1ubuntu24.04.1-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (01ca255 → c5a86e0): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.22.2ppa1.1-1ubuntu24.04.1",
+  "to": "1.22.2ppa1.1-1ubuntu24.04.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "01ca255b927680b8e0c4b4b716ce1f7a45895f59",
+  "to": "c5a86e0af3040c5742180fe839a2bf24bba54da8",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-retroarch/compare/01ca255b927680b8e0c4b4b716ce1f7a45895f59...c5a86e0af3040c5742180fe839a2bf24bba54da8",
+  "commits": [
+   {
+    "sha": "c5a86e0af3040c5742180fe839a2bf24bba54da8",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T08:14:44Z",
+    "url": "https://github.com/linuxserver-playground/docker-retroarch/commit/c5a86e0af3040c5742180fe839a2bf24bba54da8",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:f384c9412c8e6795e58de752f62453a36dc0b3a0876d556f1b61b5a4d4d38513"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:68e4d60f26e237857c52b47113d8135055e5840b247227da77f264bf97588f56"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1043265001,
+   "to": 1046074354,
+   "delta": 2809353
+  },
+  "arm64": {
+   "from": 1001552638,
+   "to": 1004245454,
+   "delta": 2692816
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "containerd.io",
+      "from": "2.4.2-3~ubuntu.26.04~resolute",
+      "to": "2.4.2-4~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/containerd.io@2.4.2-4~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-buildx-plugin",
+      "from": "0.38.1-1~ubuntu.26.04~resolute",
+      "to": "0.39.0-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-buildx-plugin@0.39.0-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.0-1~ubuntu.26.04~resolute",
+      "to": "5.7.1-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-compose-plugin@5.7.1-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libperl5.40",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/libperl5.40@5.40.1-7ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=perl"
+     },
+     {
+      "name": "perl",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl@5.40.1-7ubuntu0.4?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=perl"
+     },
+     {
+      "name": "perl-modules-5.40",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-modules-5.40@5.40.1-7ubuntu0.4?arch=all&distro=ubuntu-26.04&upstream=perl"
+     },
+     {
+      "name": "python3-software-properties",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/python3-software-properties@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     },
+     {
+      "name": "software-properties-common",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/software-properties-common@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/serialx/hashring",
+      "version": "v0.0.0-20200727003509-22c0c7ab6b1b",
+      "purl": "pkg:golang/github.com/serialx/hashring@v0.0.0-20200727003509-22c0c7ab6b1b"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/aws/aws-sdk-go-v2",
+      "from": "v1.47.0",
+      "to": "v1.47.5",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.47.5"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/feature/ec2/imds",
+      "from": "v1.20.0",
+      "to": "v1.20.5",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.20.5"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/internal/configsources",
+      "from": "v1.5.3",
+      "to": "v1.5.8",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.5.8"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/internal/endpoints/v2",
+      "from": "v2.8.3",
+      "to": "v2.8.8",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.8.8"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/internal/v4a",
+      "from": "v1.5.3",
+      "to": "v1.5.8",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/v4a@v1.5.8"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding",
+      "from": "v1.13.19",
+      "to": "v1.13.23",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.13.23"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/internal/presigned-url",
+      "from": "v1.14.3",
+      "to": "v1.14.8",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.14.8"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/signin",
+      "from": "v1.10.0",
+      "to": "v1.12.1",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/signin@v1.12.1"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/sso",
+      "from": "v1.38.0",
+      "to": "v1.39.1",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.39.1"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/ssooidc",
+      "from": "v1.43.0",
+      "to": "v1.44.1",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.44.1"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/sts",
+      "from": "v1.50.0",
+      "to": "v1.51.6",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.51.6"
+     },
+     {
+      "name": "github.com/aws/smithy-go",
+      "from": "v1.28.2",
+      "to": "v1.28.8",
+      "purl": "pkg:golang/github.com/aws/smithy-go@v1.28.8"
+     },
+     {
+      "name": "github.com/docker/buildx",
+      "from": "v0.38.1",
+      "to": "v0.39.0",
+      "purl": "pkg:golang/github.com/docker/buildx@v0.39.0"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.0",
+      "to": "v5.7.1",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.1"
+     },
+     {
+      "name": "github.com/go-openapi/analysis",
+      "from": "v0.25.5",
+      "to": "v1.0.0",
+      "purl": "pkg:golang/github.com/go-openapi/analysis@v1.0.0"
+     },
+     {
+      "name": "github.com/go-openapi/errors",
+      "from": "v0.22.8",
+      "to": "v0.22.9",
+      "purl": "pkg:golang/github.com/go-openapi/errors@v0.22.9"
+     },
+     {
+      "name": "github.com/go-openapi/jsonpointer",
+      "from": "v1.0.0",
+      "to": "v1.0.1",
+      "purl": "pkg:golang/github.com/go-openapi/jsonpointer@v1.0.1"
+     },
+     {
+      "name": "github.com/go-openapi/jsonreference",
+      "from": "v1.0.0",
+      "to": "v1.0.1",
+      "purl": "pkg:golang/github.com/go-openapi/jsonreference@v1.0.1"
+     },
+     {
+      "name": "github.com/go-openapi/loads",
+      "from": "v0.25.0",
+      "to": "v0.25.2",
+      "purl": "pkg:golang/github.com/go-openapi/loads@v0.25.2"
+     },
+     {
+      "name": "github.com/go-openapi/runtime",
+      "from": "v0.33.0",
+      "to": "v0.33.2",
+      "purl": "pkg:golang/github.com/go-openapi/runtime@v0.33.2"
+     },
+     {
+      "name": "github.com/go-openapi/runtime/server-middleware",
+      "from": "v0.30.0",
+      "to": "v0.33.2",
+      "purl": "pkg:golang/github.com/go-openapi/runtime/server-middleware@v0.33.2"
+     },
+     {
+      "name": "github.com/go-openapi/spec",
+      "from": "v0.22.9",
+      "to": "v1.0.0",
+      "purl": "pkg:golang/github.com/go-openapi/spec@v1.0.0"
+     },
+     {
+      "name": "github.com/go-openapi/strfmt",
+      "from": "v0.27.0",
+      "to": "v0.27.2",
+      "purl": "pkg:golang/github.com/go-openapi/strfmt@v0.27.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/cmdutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/cmdutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/conv",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/conv@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/fileutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/fileutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/jsonutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/jsonutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/loading",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/loading@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/mangling",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/mangling@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/netutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/netutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/pools",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/pools@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/stringutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/stringutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/typeutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/typeutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/yamlutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/yamlutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/validate",
+      "from": "v0.26.1",
+      "to": "v1.0.0",
+      "purl": "pkg:golang/github.com/go-openapi/validate@v1.0.0"
+     },
+     {
+      "name": "github.com/google/go-containerregistry",
+      "from": "v0.21.7",
+      "to": "v0.22.0",
+      "purl": "pkg:golang/github.com/google/go-containerregistry@v0.22.0"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/grpc-gateway/v2",
+      "from": "v2.30.0",
+      "to": "v2.31.0",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/grpc-gateway/v2@v2.31.0"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.2",
+      "to": "v0.35.0",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.35.0"
+     },
+     {
+      "name": "github.com/moby/policy-helpers",
+      "from": "v0.0.0-20261006174519-bd98f4747414",
+      "to": "v0.0.0-20261111163703-6acab594b423",
+      "purl": "pkg:golang/github.com/moby/policy-helpers@v0.0.0-20261111163703-6acab594b423"
+     },
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     },
+     {
+      "name": "github.com/moby/sys/mountinfo",
+      "from": "v0.7.2",
+      "to": "v0.7.3",
+      "purl": "pkg:golang/github.com/moby/sys/mountinfo@v0.7.3"
+     },
+     {
+      "name": "github.com/oklog/ulid/v2",
+      "from": "v2.1.1",
+      "to": "v2.1.2",
+      "purl": "pkg:golang/github.com/oklog/ulid/v2@v2.1.2"
+     },
+     {
+      "name": "github.com/opencontainers/runc",
+      "from": "v1.5.2",
+      "to": "v1.5.3",
+      "purl": "pkg:golang/github.com/opencontainers/runc@v1.5.3"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20261103091533-a72de9dcf763",
+      "to": "v0.0.0-20261103125000-e075fd9305eb",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103125000-e075fd9305eb"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.72.0"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace@v0.72.0"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.72.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlptrace",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/log",
+      "from": "v0.22.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/log@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/metric",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/metric@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/sdk",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/sdk/metric",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk/metric@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/trace",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/trace@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/proto/otlp",
+      "from": "v1.11.0",
+      "to": "v1.11.1",
+      "purl": "pkg:golang/go.opentelemetry.io/proto/otlp@v1.11.1"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.0",
+      "to": "v0.50.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.50.0"
+     },
+     {
+      "name": "google.golang.org/genproto/googleapis/api",
+      "from": "v0.0.0-20260825221802-da73d73af1c5",
+      "to": "v0.0.0-20261012220534-4341edf3f941",
+      "purl": "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20261012220534-4341edf3f941"
+     },
+     {
+      "name": "google.golang.org/genproto/googleapis/rpc",
+      "from": "v0.0.0-20260825221802-da73d73af1c5",
+      "to": "v0.0.0-20261012220534-4341edf3f941",
+      "purl": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20261012220534-4341edf3f941"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.2",
+      "to": "0.162.5",
+      "purl": "pkg:pypi/fastapi@0.162.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "containerd.io",
+      "from": "2.4.2-3~ubuntu.26.04~resolute",
+      "to": "2.4.2-4~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/containerd.io@2.4.2-4~ubuntu.26.04~resolute?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-buildx-plugin",
+      "from": "0.38.1-1~ubuntu.26.04~resolute",
+      "to": "0.39.0-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-buildx-plugin@0.39.0-1~ubuntu.26.04~resolute?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.0-1~ubuntu.26.04~resolute",
+      "to": "5.7.1-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-compose-plugin@5.7.1-1~ubuntu.26.04~resolute?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.2?arch=arm64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libperl5.40",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/libperl5.40@5.40.1-7ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=perl"
+     },
+     {
+      "name": "perl",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl@5.40.1-7ubuntu0.4?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=perl"
+     },
+     {
+      "name": "perl-modules-5.40",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-modules-5.40@5.40.1-7ubuntu0.4?arch=all&distro=ubuntu-26.04&upstream=perl"
+     },
+     {
+      "name": "python3-software-properties",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/python3-software-properties@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     },
+     {
+      "name": "software-properties-common",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/software-properties-common@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/serialx/hashring",
+      "version": "v0.0.0-20200727003509-22c0c7ab6b1b",
+      "purl": "pkg:golang/github.com/serialx/hashring@v0.0.0-20200727003509-22c0c7ab6b1b"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/aws/aws-sdk-go-v2",
+      "from": "v1.47.0",
+      "to": "v1.47.5",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2@v1.47.5"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/feature/ec2/imds",
+      "from": "v1.20.0",
+      "to": "v1.20.5",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/feature/ec2/imds@v1.20.5"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/internal/configsources",
+      "from": "v1.5.3",
+      "to": "v1.5.8",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/configsources@v1.5.8"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/internal/endpoints/v2",
+      "from": "v2.8.3",
+      "to": "v2.8.8",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2@v2.8.8"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/internal/v4a",
+      "from": "v1.5.3",
+      "to": "v1.5.8",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/internal/v4a@v1.5.8"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding",
+      "from": "v1.13.19",
+      "to": "v1.13.23",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding@v1.13.23"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/internal/presigned-url",
+      "from": "v1.14.3",
+      "to": "v1.14.8",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url@v1.14.8"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/signin",
+      "from": "v1.10.0",
+      "to": "v1.12.1",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/signin@v1.12.1"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/sso",
+      "from": "v1.38.0",
+      "to": "v1.39.1",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sso@v1.39.1"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/ssooidc",
+      "from": "v1.43.0",
+      "to": "v1.44.1",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/ssooidc@v1.44.1"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/sts",
+      "from": "v1.50.0",
+      "to": "v1.51.6",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/sts@v1.51.6"
+     },
+     {
+      "name": "github.com/aws/smithy-go",
+      "from": "v1.28.2",
+      "to": "v1.28.8",
+      "purl": "pkg:golang/github.com/aws/smithy-go@v1.28.8"
+     },
+     {
+      "name": "github.com/docker/buildx",
+      "from": "v0.38.1",
+      "to": "v0.39.0",
+      "purl": "pkg:golang/github.com/docker/buildx@v0.39.0"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.0",
+      "to": "v5.7.1",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.1"
+     },
+     {
+      "name": "github.com/go-openapi/analysis",
+      "from": "v0.25.5",
+      "to": "v1.0.0",
+      "purl": "pkg:golang/github.com/go-openapi/analysis@v1.0.0"
+     },
+     {
+      "name": "github.com/go-openapi/errors",
+      "from": "v0.22.8",
+      "to": "v0.22.9",
+      "purl": "pkg:golang/github.com/go-openapi/errors@v0.22.9"
+     },
+     {
+      "name": "github.com/go-openapi/jsonpointer",
+      "from": "v1.0.0",
+      "to": "v1.0.1",
+      "purl": "pkg:golang/github.com/go-openapi/jsonpointer@v1.0.1"
+     },
+     {
+      "name": "github.com/go-openapi/jsonreference",
+      "from": "v1.0.0",
+      "to": "v1.0.1",
+      "purl": "pkg:golang/github.com/go-openapi/jsonreference@v1.0.1"
+     },
+     {
+      "name": "github.com/go-openapi/loads",
+      "from": "v0.25.0",
+      "to": "v0.25.2",
+      "purl": "pkg:golang/github.com/go-openapi/loads@v0.25.2"
+     },
+     {
+      "name": "github.com/go-openapi/runtime",
+      "from": "v0.33.0",
+      "to": "v0.33.2",
+      "purl": "pkg:golang/github.com/go-openapi/runtime@v0.33.2"
+     },
+     {
+      "name": "github.com/go-openapi/runtime/server-middleware",
+      "from": "v0.30.0",
+      "to": "v0.33.2",
+      "purl": "pkg:golang/github.com/go-openapi/runtime/server-middleware@v0.33.2"
+     },
+     {
+      "name": "github.com/go-openapi/spec",
+      "from": "v0.22.9",
+      "to": "v1.0.0",
+      "purl": "pkg:golang/github.com/go-openapi/spec@v1.0.0"
+     },
+     {
+      "name": "github.com/go-openapi/strfmt",
+      "from": "v0.27.0",
+      "to": "v0.27.2",
+      "purl": "pkg:golang/github.com/go-openapi/strfmt@v0.27.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/cmdutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/cmdutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/conv",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/conv@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/fileutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/fileutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/jsonutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/jsonutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/loading",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/loading@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/mangling",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/mangling@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/netutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/netutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/pools",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/pools@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/stringutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/stringutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/typeutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/typeutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/swag/yamlutils",
+      "from": "v0.28.0",
+      "to": "v0.29.2",
+      "purl": "pkg:golang/github.com/go-openapi/swag/yamlutils@v0.29.2"
+     },
+     {
+      "name": "github.com/go-openapi/validate",
+      "from": "v0.26.1",
+      "to": "v1.0.0",
+      "purl": "pkg:golang/github.com/go-openapi/validate@v1.0.0"
+     },
+     {
+      "name": "github.com/google/go-containerregistry",
+      "from": "v0.21.7",
+      "to": "v0.22.0",
+      "purl": "pkg:golang/github.com/google/go-containerregistry@v0.22.0"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/grpc-gateway/v2",
+      "from": "v2.30.0",
+      "to": "v2.31.0",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/grpc-gateway/v2@v2.31.0"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.2",
+      "to": "v0.35.0",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.35.0"
+     },
+     {
+      "name": "github.com/moby/policy-helpers",
+      "from": "v0.0.0-20261006174519-bd98f4747414",
+      "to": "v0.0.0-20261111163703-6acab594b423",
+      "purl": "pkg:golang/github.com/moby/policy-helpers@v0.0.0-20261111163703-6acab594b423"
+     },
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     },
+     {
+      "name": "github.com/moby/sys/mountinfo",
+      "from": "v0.7.2",
+      "to": "v0.7.3",
+      "purl": "pkg:golang/github.com/moby/sys/mountinfo@v0.7.3"
+     },
+     {
+      "name": "github.com/oklog/ulid/v2",
+      "from": "v2.1.1",
+      "to": "v2.1.2",
+      "purl": "pkg:golang/github.com/oklog/ulid/v2@v2.1.2"
+     },
+     {
+      "name": "github.com/opencontainers/runc",
+      "from": "v1.5.2",
+      "to": "v1.5.3",
+      "purl": "pkg:golang/github.com/opencontainers/runc@v1.5.3"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20261103091533-a72de9dcf763",
+      "to": "v0.0.0-20261103125000-e075fd9305eb",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103125000-e075fd9305eb"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.72.0"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace@v0.72.0"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.72.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlptrace",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/log",
+      "from": "v0.22.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/log@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/metric",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/metric@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/sdk",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/sdk/metric",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk/metric@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/trace",
+      "from": "v1.46.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/trace@v1.47.0"
+     },
+     {
+      "name": "go.opentelemetry.io/proto/otlp",
+      "from": "v1.11.0",
+      "to": "v1.11.1",
+      "purl": "pkg:golang/go.opentelemetry.io/proto/otlp@v1.11.1"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.0",
+      "to": "v0.50.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.50.0"
+     },
+     {
+      "name": "google.golang.org/genproto/googleapis/api",
+      "from": "v0.0.0-20260825221802-da73d73af1c5",
+      "to": "v0.0.0-20261012220534-4341edf3f941",
+      "purl": "pkg:golang/google.golang.org/genproto/googleapis/api@v0.0.0-20261012220534-4341edf3f941"
+     },
+     {
+      "name": "google.golang.org/genproto/googleapis/rpc",
+      "from": "v0.0.0-20260825221802-da73d73af1c5",
+      "to": "v0.0.0-20261012220534-4341edf3f941",
+      "purl": "pkg:golang/google.golang.org/genproto/googleapis/rpc@v0.0.0-20261012220534-4341edf3f941"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.2",
+      "to": "0.162.5",
+      "purl": "pkg:pypi/fastapi@0.162.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 2,
+  "upgraded": 156,
+  "downgraded": 2
+ }
+}

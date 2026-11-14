@@ -1,0 +1,535 @@
+{
+ "image": "baseimage-arch",
+ "branch": "master",
+ "tag": "2026-11-13-ls15",
+ "previous_tag": "2026-10-26-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed",
+  "packages changed",
+  "11 commits (e7c20f1 → e520587): changed the Dockerfiles, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "2026-10-26",
+  "to": "2026-11-13",
+  "changed": true
+ },
+ "commit": {
+  "from": "e7c20f18ec442189749bde4e074d450db20154fd",
+  "to": "e520587c9052f5b6a939a2ccbd1782e089b95a38",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-arch/compare/e7c20f18ec442189749bde4e074d450db20154fd...e520587c9052f5b6a939a2ccbd1782e089b95a38",
+  "commits": [
+   {
+    "sha": "7eeec159248eb14ca17ccde557a652dfa054a90d",
+    "subject": "Fetch the mod scripts from the playground",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-27T17:05:14Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/7eeec159248eb14ca17ccde557a652dfa054a90d",
+    "bot": false
+   },
+   {
+    "sha": "852f1094b148275d4159151a53e4de220f699fa0",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:41:08Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/852f1094b148275d4159151a53e4de220f699fa0",
+    "bot": true
+   },
+   {
+    "sha": "14af8dfcddb7c860453fc4999cbc5b8ef79efa93",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T23:25:30Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/14af8dfcddb7c860453fc4999cbc5b8ef79efa93",
+    "bot": true
+   },
+   {
+    "sha": "0acc88453cda3d891eff7ad3a3c70781a7a31389",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T18:54:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/0acc88453cda3d891eff7ad3a3c70781a7a31389",
+    "bot": true
+   },
+   {
+    "sha": "e815b196817474df72d90d4755e8f68b492a0830",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T03:52:40Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/e815b196817474df72d90d4755e8f68b492a0830",
+    "bot": true
+   },
+   {
+    "sha": "e6223b4b5cff3b4a8b9d45f586bab640fe64f616",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T00:52:16Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/e6223b4b5cff3b4a8b9d45f586bab640fe64f616",
+    "bot": true
+   },
+   {
+    "sha": "0fce984d0e339ded248daa25b5a23a2e602dd314",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T00:53:05Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/0fce984d0e339ded248daa25b5a23a2e602dd314",
+    "bot": true
+   },
+   {
+    "sha": "95d1f060ea82b542722f26df7b0531b17072ecc9",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T00:54:21Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/95d1f060ea82b542722f26df7b0531b17072ecc9",
+    "bot": true
+   },
+   {
+    "sha": "5b76e694d7d2409d73797dad0158f00e5ea87637",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T22:54:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/5b76e694d7d2409d73797dad0158f00e5ea87637",
+    "bot": true
+   },
+   {
+    "sha": "1f066175daf834b998cd3053b82ce8ca6848d35a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T00:53:23Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/1f066175daf834b998cd3053b82ce8ca6848d35a",
+    "bot": true
+   },
+   {
+    "sha": "e520587c9052f5b6a939a2ccbd1782e089b95a38",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T00:57:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-arch/commit/e520587c9052f5b6a939a2ccbd1782e089b95a38",
+    "bot": true
+   }
+  ],
+  "count": 11,
+  "truncated": false,
+  "areas": {
+   "dockerfile": 2,
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "arch",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "arch",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 133090677,
+   "to": 133288602,
+   "delta": 197925
+  },
+  "arm64": {
+   "from": 196814766,
+   "to": 197041189,
+   "delta": 226423
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -65,10 +65,10 @@\n LABEL build_version=\"Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}\"\n LABEL maintainer=\"TheLamer\"\n \n-ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/docker-mods.${MODS_VERSION}\" \"/docker-mods\"\n-ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/package-install.${PKG_INST_VERSION}\" \"/etc/s6-overlay/s6-rc.d/init-mods-package-install/run\"\n-ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/lsiown.${LSIOWN_VERSION}\" \"/usr/bin/lsiown\"\n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/with-contenv.${WITHCONTENV_VERSION}\" \"/usr/bin/with-contenv\"\n+ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/docker-mods.${MODS_VERSION}\" \"/docker-mods\"\n+ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/package-install.${PKG_INST_VERSION}\" \"/etc/s6-overlay/s6-rc.d/init-mods-package-install/run\"\n+ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/lsiown.${LSIOWN_VERSION}\" \"/usr/bin/lsiown\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/with-contenv.${WITHCONTENV_VERSION}\" \"/usr/bin/with-contenv\"\n \n # environment variables\n ENV PS1=\"$(whoami)@$(hostname):$(pwd)\\\\$ \" \\\n",
+  "arm64": "--- a/Dockerfile.aarch64\n+++ b/Dockerfile.aarch64\n@@ -92,10 +92,10 @@\n LABEL build_version=\"Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}\"\n LABEL maintainer=\"TheLamer\"\n \n-ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/docker-mods.${MODS_VERSION}\" \"/docker-mods\"\n-ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/package-install.${PKG_INST_VERSION}\" \"/etc/s6-overlay/s6-rc.d/init-mods-package-install/run\"\n-ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/lsiown.${LSIOWN_VERSION}\" \"/usr/bin/lsiown\"\n-ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver/docker-mods/mod-scripts/with-contenv.${WITHCONTENV_VERSION}\" \"/usr/bin/with-contenv\"\n+ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/docker-mods.${MODS_VERSION}\" \"/docker-mods\"\n+ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/package-install.${PKG_INST_VERSION}\" \"/etc/s6-overlay/s6-rc.d/init-mods-package-install/run\"\n+ADD --chmod=744 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/lsiown.${LSIOWN_VERSION}\" \"/usr/bin/lsiown\"\n+ADD --chmod=755 \"https://raw.githubusercontent.com/linuxserver-playground/docker-mods/mod-scripts/with-contenv.${WITHCONTENV_VERSION}\" \"/usr/bin/with-contenv\"\n \n # environment variables\n ENV PS1=\"$(whoami)@$(hostname):$(pwd)\\\\$ \" \\\n"
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates-mozilla",
+      "from": "3.132-1",
+      "to": "3.133-1",
+      "purl": "pkg:alpm/arch/ca-certificates-mozilla@3.133-1?arch=x86_64&distro=arch-rolling&upstream=nss"
+     },
+     {
+      "name": "coreutils",
+      "from": "9.12-2",
+      "to": "9.12-3",
+      "purl": "pkg:alpm/arch/coreutils@9.12-3?arch=x86_64&distro=arch-rolling&upstream=coreutils"
+     },
+     {
+      "name": "cryptsetup",
+      "from": "2.8.8-1",
+      "to": "2.8.8-2",
+      "purl": "pkg:alpm/arch/cryptsetup@2.8.8-2?arch=x86_64&distro=arch-rolling&upstream=cryptsetup"
+     },
+     {
+      "name": "curl",
+      "from": "8.23.0-1",
+      "to": "8.23.0-2",
+      "purl": "pkg:alpm/arch/curl@8.23.0-2?arch=x86_64&distro=arch-rolling&upstream=curl"
+     },
+     {
+      "name": "device-mapper",
+      "from": "2.03.43-2",
+      "to": "2.03.44-1",
+      "purl": "pkg:alpm/arch/device-mapper@2.03.44-1?arch=x86_64&distro=arch-rolling&upstream=lvm2"
+     },
+     {
+      "name": "expat",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:alpm/arch/expat@2.10.0-1?arch=x86_64&distro=arch-rolling&upstream=expat"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": "pkg:alpm/arch/gnupg@2.4.9-4?arch=x86_64&distro=arch-rolling&upstream=gnupg"
+     },
+     {
+      "name": "kmod",
+      "from": "34.2-1",
+      "to": "34.3-2",
+      "purl": "pkg:alpm/arch/kmod@34.3-2?arch=x86_64&distro=arch-rolling&upstream=kmod"
+     },
+     {
+      "name": "krb5",
+      "from": "1.22.2-1",
+      "to": "1.22.2-2",
+      "purl": "pkg:alpm/arch/krb5@1.22.2-2?arch=x86_64&distro=arch-rolling&upstream=krb5"
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.10-1",
+      "to": "3.8.11-2",
+      "purl": "pkg:alpm/arch/libarchive@3.8.11-2?arch=x86_64&distro=arch-rolling&upstream=libarchive"
+     },
+     {
+      "name": "libevent",
+      "from": "2.1.13-2",
+      "to": "2.1.13-3",
+      "purl": "pkg:alpm/arch/libevent@2.1.13-3?arch=x86_64&distro=arch-rolling&upstream=libevent"
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.2-2",
+      "to": "2.7.2-3",
+      "purl": "pkg:alpm/arch/libldap@2.7.2-3?arch=x86_64&distro=arch-rolling&upstream=openldap"
+     },
+     {
+      "name": "libnghttp2",
+      "from": "1.70.0-1",
+      "to": "1.71.0-1",
+      "purl": "pkg:alpm/arch/libnghttp2@1.71.0-1?arch=x86_64&distro=arch-rolling&upstream=libnghttp2"
+     },
+     {
+      "name": "libnghttp3",
+      "from": "1.18.0-1",
+      "to": "1.19.0-1",
+      "purl": "pkg:alpm/arch/libnghttp3@1.19.0-1?arch=x86_64&distro=arch-rolling&upstream=libnghttp3"
+     },
+     {
+      "name": "libngtcp2",
+      "from": "1.25.0-1",
+      "to": "1.26.0-2",
+      "purl": "pkg:alpm/arch/libngtcp2@1.26.0-2?arch=x86_64&distro=arch-rolling&upstream=libngtcp2"
+     },
+     {
+      "name": "libsasl",
+      "from": "2.1.28-5",
+      "to": "2.1.28-6",
+      "purl": "pkg:alpm/arch/libsasl@2.1.28-6?arch=x86_64&distro=arch-rolling&upstream=libsasl"
+     },
+     {
+      "name": "libssh2",
+      "from": "1.11.1-7",
+      "to": "1.11.1-8",
+      "purl": "pkg:alpm/arch/libssh2@1.11.1-8?arch=x86_64&distro=arch-rolling&upstream=libssh2"
+     },
+     {
+      "name": "lz4",
+      "from": "1:1.10.0-2",
+      "to": "1:1.11.1-1",
+      "purl": "pkg:alpm/arch/lz4@1%3A1.11.1-1?arch=x86_64&distro=arch-rolling&upstream=lz4"
+     },
+     {
+      "name": "openssl",
+      "from": "3.6.5-1",
+      "to": "4.1.0-1",
+      "purl": "pkg:alpm/arch/openssl@4.1.0-1?arch=x86_64&distro=arch-rolling&upstream=openssl"
+     },
+     {
+      "name": "pacman",
+      "from": "7.1.0.r9.g54d9411-3",
+      "to": "7.1.0.r9.g54d9411-4",
+      "purl": "pkg:alpm/arch/pacman@7.1.0.r9.g54d9411-4?arch=x86_64&distro=arch-rolling&upstream=pacman"
+     },
+     {
+      "name": "sqlite",
+      "from": "3.54.0-1",
+      "to": "3.54.1-1",
+      "purl": "pkg:alpm/arch/sqlite@3.54.1-1?arch=x86_64&distro=arch-rolling&upstream=sqlite"
+     },
+     {
+      "name": "systemd",
+      "from": "262.1-1",
+      "to": "262.2-1",
+      "purl": "pkg:alpm/arch/systemd@262.2-1?arch=x86_64&distro=arch-rolling&upstream=systemd"
+     },
+     {
+      "name": "systemd-libs",
+      "from": "262.1-1",
+      "to": "262.2-1",
+      "purl": "pkg:alpm/arch/systemd-libs@262.2-1?arch=x86_64&distro=arch-rolling&upstream=systemd"
+     },
+     {
+      "name": "tpm2-tss",
+      "from": "4.2.0-2",
+      "to": "4.2.1-2",
+      "purl": "pkg:alpm/arch/tpm2-tss@4.2.1-2?arch=x86_64&distro=arch-rolling&upstream=tpm2-tss"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": "pkg:alpm/arch/tzdata@2026f-1?arch=x86_64&distro=arch-rolling&upstream=tzdata"
+     },
+     {
+      "name": "zlib",
+      "from": "1:1.3.2-4",
+      "to": "1:1.4-1",
+      "purl": "pkg:alpm/arch/zlib@1%3A1.4-1?arch=x86_64&distro=arch-rolling&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates-mozilla",
+      "from": "3.132-1",
+      "to": "3.133-1",
+      "purl": null
+     },
+     {
+      "name": "coreutils",
+      "from": "9.12-2",
+      "to": "9.12-3",
+      "purl": null
+     },
+     {
+      "name": "cryptsetup",
+      "from": "2.8.8-1",
+      "to": "2.8.8-2",
+      "purl": null
+     },
+     {
+      "name": "curl",
+      "from": "8.23.0-1",
+      "to": "8.23.0-2",
+      "purl": null
+     },
+     {
+      "name": "device-mapper",
+      "from": "2.03.43-2",
+      "to": "2.03.44-1",
+      "purl": null
+     },
+     {
+      "name": "expat",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": null
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": null
+     },
+     {
+      "name": "kmod",
+      "from": "34.2-1",
+      "to": "34.3-2",
+      "purl": null
+     },
+     {
+      "name": "krb5",
+      "from": "1.22.2-1",
+      "to": "1.22.2-2",
+      "purl": null
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.10-1",
+      "to": "3.8.11-2",
+      "purl": null
+     },
+     {
+      "name": "libevent",
+      "from": "2.1.13-2",
+      "to": "2.1.13-3",
+      "purl": null
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.2-2",
+      "to": "2.7.2-3",
+      "purl": null
+     },
+     {
+      "name": "libnghttp2",
+      "from": "1.70.0-1",
+      "to": "1.71.0-1",
+      "purl": null
+     },
+     {
+      "name": "libnghttp3",
+      "from": "1.18.0-1",
+      "to": "1.19.0-1",
+      "purl": null
+     },
+     {
+      "name": "libngtcp2",
+      "from": "1.25.0-1",
+      "to": "1.26.0-2",
+      "purl": null
+     },
+     {
+      "name": "libsasl",
+      "from": "2.1.28-5",
+      "to": "2.1.28-6",
+      "purl": null
+     },
+     {
+      "name": "libssh2",
+      "from": "1.11.1-7",
+      "to": "1.11.1-8",
+      "purl": null
+     },
+     {
+      "name": "lz4",
+      "from": "1:1.10.0-2",
+      "to": "1:1.11.1-1",
+      "purl": null
+     },
+     {
+      "name": "openssl",
+      "from": "3.6.5-1",
+      "to": "4.1.0-1",
+      "purl": null
+     },
+     {
+      "name": "pacman",
+      "from": "7.1.0.r9.g54d9411-3",
+      "to": "7.1.0.r9.g54d9411-4",
+      "purl": null
+     },
+     {
+      "name": "sqlite",
+      "from": "3.54.0-1",
+      "to": "3.54.1-1",
+      "purl": null
+     },
+     {
+      "name": "systemd",
+      "from": "262.1-1",
+      "to": "262.2-1",
+      "purl": null
+     },
+     {
+      "name": "systemd-libs",
+      "from": "262.1-1",
+      "to": "262.2-1",
+      "purl": null
+     },
+     {
+      "name": "tpm2-tss",
+      "from": "4.2.0-2",
+      "to": "4.2.1-2",
+      "purl": null
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": null
+     },
+     {
+      "name": "zlib",
+      "from": "1:1.3.2-4",
+      "to": "1:1.4-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 52,
+  "downgraded": 0
+ }
+}

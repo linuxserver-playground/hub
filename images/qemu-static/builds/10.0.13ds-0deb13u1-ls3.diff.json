@@ -1,0 +1,69 @@
+{
+ "image": "qemu-static",
+ "branch": "master",
+ "tag": "10.0.13ds-0deb13u1-ls3",
+ "previous_tag": "10.0.13ds-0deb13u1-ls2",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "10.0.13+ds-0+deb13u1",
+  "to": "10.0.13+ds-0+deb13u1",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "alpine:latest",
+   "digest": "sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "alpine:latest",
+   "digest": "sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 130917160,
+   "to": 130917154,
+   "delta": -6
+  },
+  "arm64": {
+   "from": 127074664,
+   "to": 127074307,
+   "delta": -357
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

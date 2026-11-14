@@ -1,0 +1,124 @@
+{
+ "image": "kavita",
+ "branch": "main",
+ "tag": "v0.9.1.4-ls7",
+ "previous_tag": "v0.9.1.4-ls6",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (381837c → 2b112e0): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.9.1.4",
+  "to": "v0.9.1.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "381837c54c117e77a4416c50f82572e0609f2ef0",
+  "to": "2b112e038681808abcf88111eeff75f5fdeac60d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kavita/compare/381837c54c117e77a4416c50f82572e0609f2ef0...2b112e038681808abcf88111eeff75f5fdeac60d",
+  "commits": [
+   {
+    "sha": "2b112e038681808abcf88111eeff75f5fdeac60d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T02:08:47Z",
+    "url": "https://github.com/linuxserver-playground/docker-kavita/commit/2b112e038681808abcf88111eeff75f5fdeac60d",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:5c85b2babfb9f4f3dfa0c4b9e3bf5879f933a18ea06e78cb88ec6838730e98ee"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:711a6a1365285c3fd8ea267bd102e6477b49f47d521cf64185dc02b3e38c200e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 197098915,
+   "to": 199544020,
+   "delta": 2445105
+  },
+  "arm64": {
+   "from": 194317080,
+   "to": 196725481,
+   "delta": 2408401
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

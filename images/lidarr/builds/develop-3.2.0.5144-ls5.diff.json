@@ -1,0 +1,77 @@
+{
+ "image": "lidarr",
+ "branch": "develop",
+ "tag": "develop-3.2.0.5144-ls5",
+ "previous_tag": "develop-3.2.0.5144-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "repository at a newer commit (93b48aa → 6867865)"
+ ],
+ "upstream": {
+  "from": "3.2.0.5144",
+  "to": "3.2.0.5144",
+  "changed": false
+ },
+ "commit": {
+  "from": "93b48aa0b5e028442184ff2264a96ca0f7786bff",
+  "to": "68678655beb0664a5b51b2c745cecfa6b7198246",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lidarr/compare/93b48aa0b5e028442184ff2264a96ca0f7786bff...68678655beb0664a5b51b2c745cecfa6b7198246"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:eb47a870474f80cd21a201d51986484bc09dfba5b8b099a252de947527a0c24c"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:27ca3829089cce6a456e61a19eafafd0911b194a555a4db153fece6547c52416"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 121291060,
+   "to": 121291330,
+   "delta": 270
+  },
+  "arm64": {
+   "from": 116978451,
+   "to": 116978564,
+   "delta": 113
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

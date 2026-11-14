@@ -1,0 +1,147 @@
+{
+ "image": "libreoffice",
+ "branch": "master",
+ "tag": "25.8.7.3-r0-ls7",
+ "previous_tag": "25.8.7.3-r0-ls6",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (27a8ea6 → 5a7be6c): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "25.8.7.3-r0",
+  "to": "25.8.7.3-r0",
+  "changed": false
+ },
+ "commit": {
+  "from": "27a8ea60ba61d6387a683c6cbeb7b779863587dd",
+  "to": "5a7be6ca3e23372074c9d0632960e0efa8c52032",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-libreoffice/compare/27a8ea60ba61d6387a683c6cbeb7b779863587dd...5a7be6ca3e23372074c9d0632960e0efa8c52032",
+  "commits": [
+   {
+    "sha": "5a7be6ca3e23372074c9d0632960e0efa8c52032",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T05:18:58Z",
+    "url": "https://github.com/linuxserver-playground/docker-libreoffice/commit/5a7be6ca3e23372074c9d0632960e0efa8c52032",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:f12175c70fa492c4ba11911338b88e059e648fb3e61b6401c6394449d3bd3622"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:f12175c70fa492c4ba11911338b88e059e648fb3e61b6401c6394449d3bd3622"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1005152449,
+   "to": 1005148048,
+   "delta": -4401
+  },
+  "arm64": {
+   "from": 951683284,
+   "to": 951687134,
+   "delta": 3850
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-libs",
+      "from": "1.22.2-r1",
+      "to": "1.22.3-r0",
+      "purl": "pkg:apk/alpine/krb5-libs@1.22.3-r0?arch=x86_64&distro=alpine-3.24.4&upstream=krb5"
+     },
+     {
+      "name": "libpq",
+      "from": "18.6-r0",
+      "to": "18.7-r0",
+      "purl": "pkg:apk/alpine/libpq@18.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=postgresql18"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-libs",
+      "from": "1.22.2-r1",
+      "to": "1.22.3-r0",
+      "purl": "pkg:apk/alpine/krb5-libs@1.22.3-r0?arch=aarch64&distro=alpine-3.24.4&upstream=krb5"
+     },
+     {
+      "name": "libpq",
+      "from": "18.6-r0",
+      "to": "18.7-r0",
+      "purl": "pkg:apk/alpine/libpq@18.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=postgresql18"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

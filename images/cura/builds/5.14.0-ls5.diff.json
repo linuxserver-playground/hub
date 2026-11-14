@@ -1,0 +1,102 @@
+{
+ "image": "cura",
+ "branch": "main",
+ "tag": "5.14.0-ls5",
+ "previous_tag": "5.14.0-ls4",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (b9b50fe → 59d6309): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "5.14.0",
+  "to": "5.14.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "b9b50fe4d611408fe16f2760530272aaaad27b78",
+  "to": "59d63091ccc02228bee2a50d19b22af1126b04e3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-cura/compare/b9b50fe4d611408fe16f2760530272aaaad27b78...59d63091ccc02228bee2a50d19b22af1126b04e3",
+  "commits": [
+   {
+    "sha": "59d63091ccc02228bee2a50d19b22af1126b04e3",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T14:59:11Z",
+    "url": "https://github.com/linuxserver-playground/docker-cura/commit/59d63091ccc02228bee2a50d19b22af1126b04e3",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:a8e26da62ec31fd5f3b5b03f9ee53ccb1fcd939247714807414f9ade6ac82081"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:a8e26da62ec31fd5f3b5b03f9ee53ccb1fcd939247714807414f9ade6ac82081"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1397498226,
+   "to": 1397537332,
+   "delta": 39106
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "firefox",
+      "from": "1:159.0+build1-1xtradeb1.2604.1",
+      "to": "1:159.0.1+build1-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/firefox@1%3A159.0.1%2Bbuild1-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 1,
+  "downgraded": 0
+ }
+}

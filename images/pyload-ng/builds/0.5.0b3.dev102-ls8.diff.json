@@ -1,0 +1,135 @@
+{
+ "image": "pyload-ng",
+ "branch": "main",
+ "tag": "0.5.0b3.dev102-ls8",
+ "previous_tag": "0.5.0b3.dev102-ls7",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (48cc748 → bc9714c): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "0.5.0b3.dev102",
+  "to": "0.5.0b3.dev102",
+  "changed": false
+ },
+ "commit": {
+  "from": "48cc748ad7d9cb0bf35cf84a139a1d17f8748d01",
+  "to": "bc9714c02781745142ffbd9176ddf3d554ca875c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pyload-ng/compare/48cc748ad7d9cb0bf35cf84a139a1d17f8748d01...bc9714c02781745142ffbd9176ddf3d554ca875c",
+  "commits": [
+   {
+    "sha": "bc9714c02781745142ffbd9176ddf3d554ca875c",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T14:57:53Z",
+    "url": "https://github.com/linuxserver-playground/docker-pyload-ng/commit/bc9714c02781745142ffbd9176ddf3d554ca875c",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 157410839,
+   "to": 157415879,
+   "delta": 5040
+  },
+  "arm64": {
+   "from": 155479595,
+   "to": 155476791,
+   "delta": -2804
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "google-auth",
+      "from": "2.62.1",
+      "to": "2.62.2",
+      "purl": "pkg:pypi/google-auth@2.62.2"
+     },
+     {
+      "name": "send2trash",
+      "from": "2.1.0",
+      "to": "2.2.0",
+      "purl": "pkg:pypi/send2trash@2.2.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "google-auth",
+      "from": "2.62.1",
+      "to": "2.62.2",
+      "purl": "pkg:pypi/google-auth@2.62.2"
+     },
+     {
+      "name": "send2trash",
+      "from": "2.1.0",
+      "to": "2.2.0",
+      "purl": "pkg:pypi/send2trash@2.2.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

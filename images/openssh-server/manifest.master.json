@@ -1,0 +1,240 @@
+{
+ "schema": 1,
+ "name": "openssh-server",
+ "summary": "[Openssh-server](https://www.openssh.com/) is a sandboxed environment that allows ssh access without giving keys to the entire server.\nGiving ssh access via private key often means giving full access to the server. This container creates a limited and sandboxed environment that others can ssh into.\nThe users only have access to the folders mapped and the processes running inside this container.",
+ "upstream": {
+  "url": "https://www.openssh.com/",
+  "version": {
+   "type": "alpine_apk",
+   "repo_url": "http://dl-cdn.alpinelinux.org/alpine/v3.24/main/",
+   "package": "openssh-server-pam"
+  },
+  "sponsor": [
+   {
+    "name": "OpenSSH donations",
+    "url": "https://www.openssh.org/donations.html"
+   },
+   {
+    "name": "OpenBSD Foundation donations",
+    "url": "https://www.openbsdfoundation.org/donations.html"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "OPENSSH_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 60
+ },
+ "runtime": {
+  "hostname": {
+   "value": "openssh-server",
+   "description": "Optionally the hostname can be defined.",
+   "optional": true
+  },
+  "ports": [
+   {
+    "internal": "2222",
+    "description": "ssh port"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/openssh-server/config",
+    "description": "Contains all relevant configuration files."
+   }
+  ],
+  "env": [
+   {
+    "name": "PUBLIC_KEY",
+    "value": "yourpublickey",
+    "description": "Optional ssh public key, which will automatically be added to authorized_keys.",
+    "optional": true
+   },
+   {
+    "name": "PUBLIC_KEY_FILE",
+    "value": "/path/to/file",
+    "description": "Optionally specify a file containing the public key (works with docker secrets).",
+    "optional": true
+   },
+   {
+    "name": "PUBLIC_KEY_DIR",
+    "value": "/path/to/directory/containing/_only_/pubkeys",
+    "description": "Optionally specify a directory containing the public keys (works with docker secrets).",
+    "optional": true
+   },
+   {
+    "name": "PUBLIC_KEY_URL",
+    "value": "https://github.com/username.keys",
+    "description": "Optionally specify a URL containing the public key.",
+    "optional": true
+   },
+   {
+    "name": "SUDO_ACCESS",
+    "value": "false",
+    "description": "Set to `true` to allow `linuxserver.io`, the ssh user, sudo access. Without `USER_PASSWORD` set, this will allow passwordless sudo access.",
+    "optional": true
+   },
+   {
+    "name": "PASSWORD_ACCESS",
+    "value": "false",
+    "description": "Set to `true` to allow user/password ssh access. You will want to set `USER_PASSWORD` or `USER_PASSWORD_FILE` as well.",
+    "optional": true
+   },
+   {
+    "name": "USER_PASSWORD",
+    "value": "password",
+    "description": "Optionally set a sudo password for `linuxserver.io`, the ssh user. If this or `USER_PASSWORD_FILE` are not set but `SUDO_ACCESS` is set to true, the user will have passwordless sudo access.",
+    "optional": true
+   },
+   {
+    "name": "USER_PASSWORD_FILE",
+    "value": "/path/to/file",
+    "description": "Optionally specify a file that contains the password. This setting supersedes the `USER_PASSWORD` option (works with docker secrets).",
+    "optional": true
+   },
+   {
+    "name": "USER_NAME",
+    "value": "linuxserver.io",
+    "description": "Optionally specify a user name (Default:`linuxserver.io`)",
+    "optional": true
+   },
+   {
+    "name": "LOG_STDOUT",
+    "value": "",
+    "description": "Set to `true` to log to stdout instead of file.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": false
+  },
+  "nonroot": {
+   "supported": false
+  }
+ },
+ "docs": {
+  "categories": [
+   "Administration"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openssh-server-logo.png",
+  "setup": "If `PUBLIC_KEY` or `PUBLIC_KEY_FILE`, or `PUBLIC_KEY_DIR` variables are set, the specified keys will automatically be added to `authorized_keys`. If not, the keys can manually be added to `/config/.ssh/authorized_keys` and the container should be restarted.\nRemoving `PUBLIC_KEY` or `PUBLIC_KEY_FILE` variables from docker run environment variables will not remove the keys from `authorized_keys`. `PUBLIC_KEY_FILE` and `PUBLIC_KEY_DIR` can be used with docker secrets.\n\nWe provide the ability to set and allow password based access via the `PASSWORD_ACCESS` and `USER_PASSWORD` variables, though we as an organization discourage using password auth for public facing ssh endpoints.\n\nConnect to server via `ssh -i /path/to/private/key -p PORT USER_NAME@SERVERIP`\n\nSetting `SUDO_ACCESS` to `true` by itself will allow passwordless sudo. `USER_PASSWORD` and `USER_PASSWORD_FILE` allow setting an optional sudo password.\n\nThe users only have access to the folders mapped and the processes running inside this container.\nAdd any volume mappings you like for the users to have access to.\nTo install packages or services for users to access, use the LinuxServer container customization methods described [in this blog article](https://blog.linuxserver.io/2019/09/14/customizing-our-containers/).\n\nSample use case is when a server admin would like to have automated incoming backups from a remote server to the local server, but they might not want all the other admins of the remote server to have full access to the local server.\nThis container can be set up with a mounted folder for incoming backups, and rsync installed via LinuxServer container customization described above, so that the incoming backups can proceed, but remote server and its admins' access would be limited to the backup folder.\n\nIt is also possible to run multiple copies of this container with different ports mapped, different folders mounted and access to different private keys for compartmentalized access.\n\n#### TIPS\nYou can volume map your own text file to `/etc/motd` to override the message displayed upon connection.\nYou can optionally set the docker argument `hostname`\n\n## Key Generation\n\nThis container has a helper script to generate an ssh private/public key. In order to generate a key please run:\n```\ndocker run --rm -it --entrypoint /keygen.sh linuxserver/openssh-server\n```\n\nThen simply follow the prompts.\nThe keys generated by this script are only displayed on your console output, so make sure to save them somewhere after generation.\n"
+ },
+ "changelog": [
+  {
+   "date": "2026-07-05",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-07-05",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-02-10",
+   "text": "Add support for sshd_config.d"
+  },
+  {
+   "date": "2025-01-12",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-11-24",
+   "text": "Move sshd_config to /config/sshd/sshd_config."
+  },
+  {
+   "date": "2024-05-31",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-05-04",
+   "text": "Display the SSH host public keys every time the container starts."
+  },
+  {
+   "date": "2024-03-09",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-06-12",
+   "text": "Rebase to Alpine 3.18, deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-03-05",
+   "text": "Rebase to Alpine 3.17."
+  },
+  {
+   "date": "2022-10-18",
+   "text": "Fix wrong behavior of password/passwordless sudo"
+  },
+  {
+   "date": "2022-10-11",
+   "text": "Rebase to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-09-15",
+   "text": "add netcat-openbsd with support for proxies."
+  },
+  {
+   "date": "2022-07-18",
+   "text": "Fix service perms to comply with upgrade to s6 v3."
+  },
+  {
+   "date": "2022-04-16",
+   "text": "Rebase to alpine 3.15."
+  },
+  {
+   "date": "2021-11-16",
+   "text": "Add PUBLIC_KEY_URL option"
+  },
+  {
+   "date": "2021-06-28",
+   "text": "Rebasing to alpine 3.14. Add support for PAM."
+  },
+  {
+   "date": "2021-02-10",
+   "text": "Rebasing to alpine 3.13. Add openssh-client for scp."
+  },
+  {
+   "date": "2020-10-21",
+   "text": "Implement s6-log for openssh, which adds local timestamps to logs and can be used with a log parser like fail2ban."
+  },
+  {
+   "date": "2020-10-20",
+   "text": "Set umask for sftp."
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2020-01-18",
+   "text": "Add key generation script."
+  },
+  {
+   "date": "2020-01-13",
+   "text": "Add openssh-sftp-server."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-10-17",
+   "text": "Initial Release."
+  }
+ ]
+}

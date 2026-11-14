@@ -1,0 +1,123 @@
+{
+ "image": "nzbget",
+ "branch": "master",
+ "tag": "v26.3-ls8",
+ "previous_tag": "v26.3-ls7",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (bd19002 → edb1d84): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v26.3",
+  "to": "v26.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "bd190024ae0194892dcd6b4b3f6ff4eb3d1a538d",
+  "to": "edb1d8467236d63e6a0de1adc622bbfa9d82e3ed",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-nzbget/compare/bd190024ae0194892dcd6b4b3f6ff4eb3d1a538d...edb1d8467236d63e6a0de1adc622bbfa9d82e3ed",
+  "commits": [
+   {
+    "sha": "edb1d8467236d63e6a0de1adc622bbfa9d82e3ed",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T02:49:48Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbget/commit/edb1d8467236d63e6a0de1adc622bbfa9d82e3ed",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 53549211,
+   "to": 53758283,
+   "delta": 209072
+  },
+  "arm64": {
+   "from": 54144970,
+   "to": 54347370,
+   "delta": 202400
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apprise",
+      "from": "2.1.0",
+      "to": "2.2.0",
+      "purl": "pkg:pypi/apprise@2.2.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apprise",
+      "from": "2.1.0",
+      "to": "2.2.0",
+      "purl": "pkg:pypi/apprise@2.2.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}
