@@ -1,0 +1,159 @@
+{
+ "image": "jellyfin",
+ "branch": "master",
+ "tag": "12.4ubu2604-ls5",
+ "previous_tag": "12.4ubu2604-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (9fe3399 → f979266): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "12.4+ubu2604",
+  "to": "12.4+ubu2604",
+  "changed": false
+ },
+ "commit": {
+  "from": "9fe33998a62b38e6a2c1042d35b0e2422af7b1a4",
+  "to": "f979266696f478662e3c08287bf326a7cbebca2e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-jellyfin/compare/9fe33998a62b38e6a2c1042d35b0e2422af7b1a4...f979266696f478662e3c08287bf326a7cbebca2e",
+  "commits": [
+   {
+    "sha": "64b89c0377329b80debfcbd5c4a6b90f80efe116",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T02:07:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-jellyfin/commit/64b89c0377329b80debfcbd5c4a6b90f80efe116",
+    "bot": true
+   },
+   {
+    "sha": "f979266696f478662e3c08287bf326a7cbebca2e",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T22:06:52Z",
+    "url": "https://github.com/linuxserver-playground/docker-jellyfin/commit/f979266696f478662e3c08287bf326a7cbebca2e",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 3
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:c2398fa94f700f68208462f0b6278794968d3d7436ccba605cacb7f32e2dc120"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:9dae1619587960de00fd076cd6b26821982f4853b63ef9e0617b95b5ab8e9364"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 341562347,
+   "to": 342051055,
+   "delta": 488708
+  },
+  "arm64": {
+   "from": 305039514,
+   "to": 305302252,
+   "delta": 262738
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "base-files",
+      "from": "14ubuntu6.2",
+      "to": "14ubuntu6.3",
+      "purl": "pkg:deb/ubuntu/base-files@14ubuntu6.3?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "jellyfin-ffmpeg8",
+      "from": "8.1.3-1-resolute",
+      "to": "8.1.3-2-resolute",
+      "purl": "pkg:deb/ubuntu/jellyfin-ffmpeg8@8.1.3-2-resolute?arch=amd64&distro=ubuntu-26.04&upstream=jellyfin-ffmpeg%408.1.3-2"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.46-1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "base-files",
+      "from": "14ubuntu6.2",
+      "to": "14ubuntu6.3",
+      "purl": "pkg:deb/ubuntu/base-files@14ubuntu6.3?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "jellyfin-ffmpeg8",
+      "from": "8.1.3-1-resolute",
+      "to": "8.1.3-2-resolute",
+      "purl": "pkg:deb/ubuntu/jellyfin-ffmpeg8@8.1.3-2-resolute?arch=arm64&distro=ubuntu-26.04&upstream=jellyfin-ffmpeg%408.1.3-2"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.46-1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

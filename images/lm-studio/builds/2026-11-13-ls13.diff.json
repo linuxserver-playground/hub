@@ -1,0 +1,102 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-11-13-ls13",
+ "previous_tag": "2026-11-13-ls12",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (1f1c993 → 7536a72): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-13",
+  "to": "2026-11-13",
+  "changed": false
+ },
+ "commit": {
+  "from": "1f1c993c93715e1f4a20902be2c2f688a29cc8d0",
+  "to": "7536a72977030a3d3cd4b4a50b820912ab3950d9",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lm-studio/compare/1f1c993c93715e1f4a20902be2c2f688a29cc8d0...7536a72977030a3d3cd4b4a50b820912ab3950d9",
+  "commits": [
+   {
+    "sha": "7536a72977030a3d3cd4b4a50b820912ab3950d9",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T18:01:09Z",
+    "url": "https://github.com/linuxserver-playground/docker-lm-studio/commit/7536a72977030a3d3cd4b4a50b820912ab3950d9",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:df1a425de853d1446ce76e49279cc6126eb339f81a51be446cade12022a6221c"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:df1a425de853d1446ce76e49279cc6126eb339f81a51be446cade12022a6221c"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 9495487156,
+   "to": 9495456178,
+   "delta": -30978
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@aws-sdk/credential-providers",
+      "from": "3.1168.0",
+      "to": "3.1169.0",
+      "purl": "pkg:npm/%40aws-sdk/credential-providers@3.1169.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 1,
+  "downgraded": 0
+ }
+}

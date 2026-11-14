@@ -1,0 +1,222 @@
+{
+ "image": "calibre-web",
+ "branch": "master",
+ "tag": "0.6.27-ls9",
+ "previous_tag": "0.6.27-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (e9dbe2d → b3d6472): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "0.6.27",
+  "to": "0.6.27",
+  "changed": false
+ },
+ "commit": {
+  "from": "e9dbe2d46764c7922c64acc7646756918801abbb",
+  "to": "b3d6472aa774c8aea115c303d43ed68ffe665445",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-calibre-web/compare/e9dbe2d46764c7922c64acc7646756918801abbb...b3d6472aa774c8aea115c303d43ed68ffe665445",
+  "commits": [
+   {
+    "sha": "b3d6472aa774c8aea115c303d43ed68ffe665445",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T16:38:21Z",
+    "url": "https://github.com/linuxserver-playground/docker-calibre-web/commit/b3d6472aa774c8aea115c303d43ed68ffe665445",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:f3184f0873fff9a934155ac787603c2d43c1b7fc45bffc9357136ad77d3dc8e3"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 264592835,
+   "to": 274900000,
+   "delta": 10307165
+  },
+  "arm64": {
+   "from": 259812400,
+   "to": 269994149,
+   "delta": 10181749
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.39-0ubuntu8.12?arch=amd64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc6@2.39-0ubuntu8.12?arch=amd64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "locales",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/locales@2.39-0ubuntu8.12?arch=all&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "google-auth",
+      "from": "2.62.1",
+      "to": "2.62.2",
+      "purl": "pkg:pypi/google-auth@2.62.2"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.0.1",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     },
+     {
+      "name": "texttable",
+      "from": "1.7.2",
+      "to": "1.7.3",
+      "purl": "pkg:pypi/texttable@1.7.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.39-0ubuntu8.12?arch=arm64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc6@2.39-0ubuntu8.12?arch=arm64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "locales",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/locales@2.39-0ubuntu8.12?arch=all&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "google-auth",
+      "from": "2.62.1",
+      "to": "2.62.2",
+      "purl": "pkg:pypi/google-auth@2.62.2"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.0.1",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     },
+     {
+      "name": "texttable",
+      "from": "1.7.2",
+      "to": "1.7.3",
+      "purl": "pkg:pypi/texttable@1.7.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 16,
+  "downgraded": 0
+ }
+}

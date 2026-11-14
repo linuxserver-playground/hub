@@ -1,0 +1,36 @@
+{
+ "schema": 1,
+ "name": "lsio-api",
+ "kind": "tool",
+ "summary": "lsio-api container image.",
+ "upstream": {
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "OS",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 30,
+  "env": {
+   "CI": "1"
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Internal"
+  ],
+  "custom_readme": "[linuxserverurl]: https://linuxserver.io\n[forumurl]: https://discourse.linuxserver.io\n[huburl]: https://hub.docker.com/r/linuxserver/lsio-api/\n[pipelineurl]: https://github.com/linuxserver/pipeline-triggers\n\n[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png?v=4&s=4000)][linuxserverurl]\n\n\n## Contact information:-\n\n| Type | Address/Details |\n| :---: | --- |\n| Discord | [Discord](https://discord.gg/linuxserver) |\n| Forum | [Linuserver.io forum][forumurl] |\n\n# [linuxserver/lsio-api][huburl]\n\n**This container is not meant for public consumption as it is hard coded to LinuxServer repos**\n\nThe purpose of this container expose an API for LinuxServer.\n\n## Usage\n\nThe container can be run locally:\n\n```\ndocker run -d \\\n--name=lsioapi \\\n-e PUID=1000 \\\n-e PGID=1000 \\\n-e TZ=Etc/UTC \\\n-e CI=0 `#optional` \\\n-e DB_FILE=/config/api.db `#optional` \\\n-e INVALIDATE_HOURS=24 `#optional` \\\n-e PAT=token `#optional` \\\n-e SCARF_TOKEN=token `#optional` \\\n-e URL=http://localhost:8000 `#optional` \\\n-p 8000:8000 \\\n-v /path/to/lsio-api/config:/config \\\n--restart unless-stopped \\\nlscr.io/linuxserver/lsio-api:latest\n```\n\nThe following line is only in this repo for loop testing:\n\n- { date: \"01.01.50:\", desc: \"I am the release message for this internal repo.\" }\n"
+ }
+}

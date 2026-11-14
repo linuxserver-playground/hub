@@ -1,0 +1,102 @@
+{
+ "image": "bambustudio",
+ "branch": "master",
+ "tag": "v02.09.01.70-ls7",
+ "previous_tag": "v02.09.01.70-ls6",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (df141cb → b9a836e): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v02.09.01.70",
+  "to": "v02.09.01.70",
+  "changed": false
+ },
+ "commit": {
+  "from": "df141cb29939b7cbf261212018993675bf72cadb",
+  "to": "b9a836e6d28f693c2b437d8f254b417076e17a99",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-bambustudio/compare/df141cb29939b7cbf261212018993675bf72cadb...b9a836e6d28f693c2b437d8f254b417076e17a99",
+  "commits": [
+   {
+    "sha": "b9a836e6d28f693c2b437d8f254b417076e17a99",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T22:32:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-bambustudio/commit/b9a836e6d28f693c2b437d8f254b417076e17a99",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:a8e26da62ec31fd5f3b5b03f9ee53ccb1fcd939247714807414f9ade6ac82081"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:a8e26da62ec31fd5f3b5b03f9ee53ccb1fcd939247714807414f9ade6ac82081"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1497941661,
+   "to": 1497992329,
+   "delta": 50668
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "firefox",
+      "from": "1:159.0+build1-1xtradeb1.2604.1",
+      "to": "1:159.0.1+build1-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/firefox@1%3A159.0.1%2Bbuild1-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 1,
+  "downgraded": 0
+ }
+}

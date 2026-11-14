@@ -1,0 +1,123 @@
+{
+ "image": "apprise-api",
+ "branch": "main",
+ "tag": "v2.1.0-ls8",
+ "previous_tag": "v2.1.0-ls7",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (f2b345c → 79966e0): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v2.1.0",
+  "to": "v2.1.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "f2b345cc6a06122ad9737b517416508db693ecfe",
+  "to": "79966e0a14e85e62a99f088f4858291fb795febf",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-apprise-api/compare/f2b345cc6a06122ad9737b517416508db693ecfe...79966e0a14e85e62a99f088f4858291fb795febf",
+  "commits": [
+   {
+    "sha": "79966e0a14e85e62a99f088f4858291fb795febf",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T04:56:45Z",
+    "url": "https://github.com/linuxserver-playground/docker-apprise-api/commit/79966e0a14e85e62a99f088f4858291fb795febf",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 66874049,
+   "to": 66967205,
+   "delta": 93156
+  },
+  "arm64": {
+   "from": 67326809,
+   "to": 67416181,
+   "delta": 89372
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gunicorn",
+      "from": "26.2.0",
+      "to": "27.0.0",
+      "purl": "pkg:pypi/gunicorn@27.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gunicorn",
+      "from": "26.2.0",
+      "to": "27.0.0",
+      "purl": "pkg:pypi/gunicorn@27.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

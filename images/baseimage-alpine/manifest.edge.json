@@ -1,0 +1,38 @@
+{
+ "schema": 1,
+ "name": "baseimage-alpine",
+ "kind": "base",
+ "summary": "baseimage-alpine container image.",
+ "upstream": {
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "edge",
+  "tag": "edge",
+  "channel": "prerelease"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "OS",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ],
+  "first_party": false
+ },
+ "test": {
+  "startup_timeout": 30,
+  "env": {
+   "LSIO_FIRST_PARTY": "true"
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Uncategorized"
+  ],
+  "custom_readme": "[linuxserverurl]: https://linuxserver.io\n[forumurl]: https://forum.linuxserver.io\n[ircurl]: https://mibbit.com/?server=irc.libera.chat&channel=%23linuxserver.io\n[appurl]: https://alpinelinux.org\n\n[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png?v=4&s=4000)][linuxserverurl]\n\n## Contact information:-\n\n| Type | Address/Details |\n| :---: | --- |\n| Discord | [Discord](https://discord.gg/YWrKVTn) |\n| IRC | libera at `#linuxserver.io` more information at:- [IRC][ircurl]\n| Forum | [LinuxServer.io forum][forumurl] |\n\n&nbsp;\n&nbsp;\n\n[![](https://images.microbadger.com/badges/image/lsiobase/alpine.svg)](https://microbadger.com/images/lsiobase/alpine \"Get your own image badge on microbadger.com\")\n\n[![](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/Dockerfile-Link-green.png)](https://github.com/linuxserver/docker-baseimage-alpine/blob/master/Dockerfile)\n\nA custom base image built with [Alpine linux][appurl] and [S6 overlay](https://github.com/just-containers/s6-overlay)..\n\nThe following line is only in this repo for loop testing:\n\n- { date: \"01.01.50:\", desc: \"I am the release message for this internal repo.\" }\n"
+ }
+}

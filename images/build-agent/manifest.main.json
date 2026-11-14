@@ -1,0 +1,43 @@
+{
+ "schema": 1,
+ "name": "build-agent",
+ "kind": "tool",
+ "summary": "build-agent container image.",
+ "upstream": {
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "BUILD_AGENT_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "enabled": false,
+  "startup_timeout": 60,
+  "env": {
+   "TZ": "US/Pacific"
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Internal"
+  ],
+  "custom_readme": "# linuxserver/build-agent\n\nUsed as part of the LSIO build process. Not for public consumption.\n\n## Running\n\n```yml\nservices:\n  build-agent:\n    image: lscr.io/linuxserver/build-agent:latest\n    privileged: true\n    container_name: build-agent\n    environment:\n      - TZ=London/Europe\n      - 'PUBLIC_KEY=<jenkins public key>'\n      - PUID=1000\n      - PGID=1000\n    volumes:\n      - ./docker-data:/config\n    ports:\n      - 2222:2222\n    restart: unless-stopped\n```\n\nFor x86_64 machines, run `docker run --rm --privileged ghcr.io/linuxserver/qemu-static --reset -p yes` on the host to enable qemu before bringing any build agent containers up.\n\n- { date: \"21.10.26:\", desc: \"Add xmlstarlet and pandoc.\" }\n- { date: \"07.10.26:\", desc: \"Update JRE to 25.\" }\n- { date: \"09.05.25:\", desc: \"Push riscv64 tag.\" }\n- { date: \"02.04.25:\", desc: \"Update JRE to 21.\" }\n- { date: \"01.07.24:\", desc: \"Update JRE to 17.\" }\n- { date: \"16.01.24:\", desc: \"Add yq.\" }\n- { date: \"30.04.23:\", desc: \"Initial Release.\" }\n"
+ },
+ "publish": {
+  "stores": {
+   "unraid": false
+  }
+ }
+}
