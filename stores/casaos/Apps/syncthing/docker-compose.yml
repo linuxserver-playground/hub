@@ -1,0 +1,75 @@
+name: syncthing
+services:
+  syncthing:
+    image: ghcr.io/linuxserver-playground/syncthing:latest
+    container_name: syncthing
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/syncthing/config:/config
+    - /DATA/AppData/syncthing/data1:/data1
+    - /DATA/AppData/syncthing/data2:/data2
+    ports:
+    - 8384:8384
+    - 22000:22000/tcp
+    - 22000:22000/udp
+    - 21027:21027/udp
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8384'
+        description:
+          en_us: Application WebUI
+      - container: '22000'
+        description:
+          en_us: Listening port (TCP)
+      - container: '22000'
+        description:
+          en_us: Listening port (UDP)
+      - container: '21027'
+        description:
+          en_us: Protocol discovery
+      volumes:
+      - container: /config
+        description:
+          en_us: Configuration files.
+      - container: /data1
+        description:
+          en_us: Data1
+      - container: /data2
+        description:
+          en_us: Data2
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: syncthing
+  author: LinuxServer.io
+  developer: Syncthing
+  category: Backup
+  description:
+    en_us: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+  tagline:
+    en_us: Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized
+  title:
+    en_us: Syncthing
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syncthing-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syncthing-banner.png
+  store_app_id: syncthing
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-syncthing/builds/v2.1.7-ls5/amd64/screenshot.png
+  port_map: '8384'

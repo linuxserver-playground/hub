@@ -1,0 +1,19 @@
+services:
+  kometa:
+    image: ghcr.io/linuxserver-playground/kometa:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      KOMETA_CONFIG: ${KOMETA_KOMETA_CONFIG}
+      KOMETA_TIMES: ${KOMETA_KOMETA_TIMES}
+      KOMETA_RUN: ${KOMETA_KOMETA_RUN}
+      KOMETA_TESTS: ${KOMETA_KOMETA_TESTS}
+      KOMETA_NO_MISSING: ${KOMETA_KOMETA_NO_MISSING}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

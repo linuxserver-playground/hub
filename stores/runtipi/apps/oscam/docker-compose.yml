@@ -1,0 +1,14 @@
+services:
+  oscam:
+    image: ghcr.io/linuxserver-playground/oscam:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 8888
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,21 @@
+services:
+  wikijs:
+    image: ghcr.io/linuxserver-playground/wikijs:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      DB_TYPE: ${WIKIJS_DB_TYPE}
+      DB_HOST: ${WIKIJS_DB_HOST}
+      DB_PORT: ${WIKIJS_DB_PORT}
+      DB_NAME: ${WIKIJS_DB_NAME}
+      DB_USER: ${WIKIJS_DB_USER}
+      DB_PASS: ${WIKIJS_DB_PASS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data:/data
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+x-runtipi:
+  schema_version: 2

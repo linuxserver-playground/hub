@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-prowlarr/blob/main/image.yml -->
+<Container version="2">
+    <Name>prowlarr</Name>
+    <Repository>ghcr.io/linuxserver-playground/prowlarr</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/prowlarr</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-prowlarr/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-prowlarr#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-prowlarr#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Prowlarr stable releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>develop</Tag>
+        <TagDescription>Prowlarr releases from their develop branch</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-prowlarr/tree/develop#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-prowlarr/tree/develop#application-setup</GitHub>
+    </Branch>
+    <Branch>
+        <Tag>nightly</Tag>
+        <TagDescription>Prowlarr releases from their nightly branch</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-prowlarr/tree/nightly#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-prowlarr/tree/nightly#application-setup</GitHub>
+    </Branch>
+    <Project>https://github.com/Prowlarr/Prowlarr</Project>
+    <Overview>Prowlarr(https://github.com/Prowlarr/Prowlarr) is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr offering complete management of your indexers with no per app Indexer setup required (we do it all).</Overview>
+    <WebUI>http://[IP]:[PORT:9696]/system/status</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/prowlarr.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-prowlarr/builds/2.7.0.5723-ls5/amd64/screenshot.png</Screenshot>
+    <Date>2026-10-19</Date>
+    <Changes>
+### 2026-10-19
+- Add krb5-libs for better postgresql support.
+
+### 2026-07-04
+- Rebase to Alpine 3.24.
+
+### 2026-01-15
+- Rebase to Alpine 3.23.
+
+### 2025-07-05
+- Rebase Alpine 3.22.
+
+### 2024-12-23
+- Rebase Alpine 3.21.
+
+### 2024-05-31
+- Rebase Alpine 3.20.
+
+### 2024-03-20
+- Rebase to Alpine 3.19.
+
+### 2023-06-06
+- Rebase master to Alpine 3.18, deprecate armhf as per https://www.linuxserver.io/armhf(https://www.linuxserver.io/armhf).
+
+### 2023-01-03
+- Publish stable release.
+
+### 2022-02-20
+- Rebase develop branch to Alpine.
+
+### 2021-06-06
+- Initial realease.
+
+    </Changes>
+    <Config Name="WebUI" Target="9696" Default="9696" Mode="tcp" Description="The port for the Prowlarr web UI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Database and Prowlarr configs" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

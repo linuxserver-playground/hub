@@ -1,0 +1,59 @@
+name: filezilla
+services:
+  filezilla:
+    image: ghcr.io/linuxserver-playground/filezilla:latest
+    container_name: filezilla
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/filezilla/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: FileZilla desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: FileZilla desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: filezilla
+  author: LinuxServer.io
+  developer: Filezilla
+  category: FTP
+  description:
+    en_us: FIleZilla Client is a fast and reliable cross-platform FTP, FTPS and SFTP client with lots of useful features and an intuitive graphical user interface.
+  tagline:
+    en_us: FIleZilla Client is a fast and reliable cross-platform FTP, FTPS and SFTP client with lots of useful features and an intuitive graphical user interface
+  title:
+    en_us: Filezilla
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/filezilla-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/filezilla-logo.png
+  store_app_id: filezilla
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-filezilla/builds/3.69.6-1-ls9/amd64/screenshot.png
+  port_map: '3000'

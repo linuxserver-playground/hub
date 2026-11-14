@@ -1,0 +1,63 @@
+name: apprise-api
+services:
+  apprise-api:
+    image: ghcr.io/linuxserver-playground/apprise-api:latest
+    container_name: apprise-api
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - APPRISE_ATTACH_SIZE=0
+    volumes:
+    - /DATA/AppData/apprise-api/config:/config
+    - /DATA/AppData/apprise-api/attachments:/attachments
+    ports:
+    - 8000:8000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: APPRISE_ATTACH_SIZE
+        description:
+          en_us: Max attachment size in Mb. 0 disables attachments. Must have /attachments mounted to set to a positive value.
+      ports:
+      - container: '8000'
+        description:
+          en_us: Port for apprise's interface and API.
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /attachments
+        description:
+          en_us: Temporary storage for attachments when sent with notifications.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: apprise-api
+  author: LinuxServer.io
+  developer: Apprise-api
+  category: Monitoring
+  description:
+    en_us: Apprise-api Takes advantage of Apprise through your network with a user-friendly API.
+  tagline:
+    en_us: Apprise-api Takes advantage of Apprise through your network with a user-friendly API
+  title:
+    en_us: Apprise-api
+  icon: https://raw.githubusercontent.com/caronc/apprise-api/master/apprise_api/static/logo.png
+  thumbnail: https://raw.githubusercontent.com/caronc/apprise-api/master/apprise_api/static/logo.png
+  store_app_id: apprise-api
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-apprise-api/builds/v2.1.0-ls8/amd64/screenshot.png
+  port_map: '8000'

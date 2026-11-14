@@ -1,0 +1,10 @@
+---
+services:
+  build-agent:
+    image: ghcr.io/linuxserver-playground/build-agent:latest
+    container_name: build-agent
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

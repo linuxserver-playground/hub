@@ -1,0 +1,33 @@
+{
+  "name": "Chrome",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "chrome",
+  "tipi_version": 1,
+  "version": "157.0.8103.78-1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Chrome is the official web browser from Google, built to be fast, secure, and customizable.",
+  "short_desc": "Chrome is the official web browser from Google, built to be fast, secure, and customizable",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-chrome",
+  "website": "https://www.google.com/chrome/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "CHROME_CLI",
+      "hint": "Specify one or multiple Chrome CLI flags, this string will be passed to the application in full.",
+      "required": false,
+      "env_variable": "CHROME_CHROME_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

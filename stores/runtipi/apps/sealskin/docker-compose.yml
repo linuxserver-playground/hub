@@ -1,0 +1,17 @@
+services:
+  sealskin:
+    image: ghcr.io/linuxserver-playground/sealskin:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      HOST_URL: ${SEALSKIN_HOST_URL}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/storage:/storage
+    - ${APP_DATA_DIR}/data/var/run/docker.sock:/var/run/docker.sock
+    x-runtipi:
+      is_main: true
+      internal_port: 8443
+x-runtipi:
+  schema_version: 2

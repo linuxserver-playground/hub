@@ -1,0 +1,58 @@
+name: wps-office
+services:
+  wps-office:
+    image: ghcr.io/linuxserver-playground/wps-office:latest
+    container_name: wps-office
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/wps-office/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: WPS Office desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: WPS Office desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and documents
+x-casaos:
+  architectures:
+  - amd64
+  main: wps-office
+  author: LinuxServer.io
+  developer: Wps-office
+  category: Documents
+  description:
+    en_us: WPS Office is a lightweight, feature-rich comprehensive office suite with high compatibility. As a handy and professional office software, WPS Office allows you to edit files in Writer, Presentation, Spreadsheet, and PDF to improve your work efficiency.
+  tagline:
+    en_us: WPS Office is a lightweight, feature-rich comprehensive office suite with high compatibility
+  title:
+    en_us: Wps-office
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/wps-office-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/wps-office-icon.png
+  store_app_id: wps-office
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-wps-office/builds/12.1.2.29183-1-ls9/amd64/screenshot.png
+  port_map: '3000'

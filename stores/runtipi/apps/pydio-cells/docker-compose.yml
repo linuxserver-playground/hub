@@ -1,0 +1,16 @@
+services:
+  pydio-cells:
+    image: ghcr.io/linuxserver-playground/pydio-cells:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      EXTERNALURL: ${PYDIO_CELLS_EXTERNALURL}
+      SERVER_IP: ${PYDIO_CELLS_SERVER_IP}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 8080
+x-runtipi:
+  schema_version: 2

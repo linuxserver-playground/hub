@@ -1,0 +1,74 @@
+name: kasm
+services:
+  kasm:
+    image: ghcr.io/linuxserver-playground/kasm:latest
+    container_name: kasm
+    restart: unless-stopped
+    privileged: true
+    environment:
+    - KASM_PORT=443
+    - DOCKER_HUB_USERNAME=USER
+    - DOCKER_HUB_PASSWORD=PASS
+    - DOCKER_MTU=1500
+    volumes:
+    - /DATA/AppData/kasm/opt:/opt
+    - /DATA/AppData/kasm/profiles:/profiles
+    - /DATA/AppData/kasm/dev/input:/dev/input
+    - /DATA/AppData/kasm/run/udev/data:/run/udev/data
+    ports:
+    - 3000:3000
+    - 443:443
+    x-casaos:
+      envs:
+      - container: KASM_PORT
+        description:
+          en_us: Specify the port you bind to the outside for Kasm Workspaces.
+      - container: DOCKER_HUB_USERNAME
+        description:
+          en_us: Optionally specify a DockerHub Username to pull private images.
+      - container: DOCKER_HUB_PASSWORD
+        description:
+          en_us: Optionally specify a DockerHub password to pull private images.
+      - container: DOCKER_MTU
+        description:
+          en_us: Optionally specify the mtu options passed to dockerd.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Kasm Installation wizard. (https)
+      - container: '443'
+        description:
+          en_us: Kasm Workspaces interface. (https)
+      volumes:
+      - container: /opt
+        description:
+          en_us: Docker and installation storage.
+      - container: /profiles
+        description:
+          en_us: Optionally specify a path for persistent profile storage.
+      - container: /dev/input
+        description:
+          en_us: Optional for gamepad support.
+      - container: /run/udev/data
+        description:
+          en_us: Optional for gamepad support.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: kasm
+  author: LinuxServer.io
+  developer: Kasm
+  category: Remote Desktop
+  description:
+    en_us: Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections.
+  tagline:
+    en_us: Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services
+  title:
+    en_us: Kasm
+  icon: https://kasm-ci.s3.amazonaws.com/kasm_wide.png
+  thumbnail: https://kasm-ci.s3.amazonaws.com/kasm_wide.png
+  store_app_id: kasm
+  index: /
+  scheme: http
+  port_map: '3000'

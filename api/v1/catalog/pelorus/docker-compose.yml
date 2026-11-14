@@ -1,0 +1,15 @@
+---
+services:
+  pelorus:
+    image: ghcr.io/linuxserver-playground/pelorus:latest
+    container_name: pelorus
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/pelorus/config:/config
+    ports:
+      - 3001:3001
+    shm_size: "1gb"
+    restart: unless-stopped

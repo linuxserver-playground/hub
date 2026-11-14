@@ -1,0 +1,112 @@
+{
+  "name": "Hedgedoc",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "hedgedoc",
+  "tipi_version": 1,
+  "version": "1.12.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "HedgeDoc gives you access to all your files wherever you are.",
+  "short_desc": "HedgeDoc gives you access to all your files wherever you are",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-hedgedoc",
+  "website": "https://hedgedoc.org/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "DB_HOST",
+      "hint": "Host address of mariadb database",
+      "required": true,
+      "env_variable": "HEDGEDOC_DB_HOST",
+      "default": "<hostname or ip>"
+    },
+    {
+      "type": "text",
+      "label": "DB_PORT",
+      "hint": "Port to access mariadb database default is 3306",
+      "required": true,
+      "env_variable": "HEDGEDOC_DB_PORT",
+      "default": "3306"
+    },
+    {
+      "type": "text",
+      "label": "DB_USER",
+      "hint": "Database user",
+      "required": true,
+      "env_variable": "HEDGEDOC_DB_USER",
+      "default": "hedgedoc"
+    },
+    {
+      "type": "password",
+      "label": "DB_PASS",
+      "hint": "Database password",
+      "required": true,
+      "env_variable": "HEDGEDOC_DB_PASS",
+      "default": "<secret password>"
+    },
+    {
+      "type": "text",
+      "label": "DB_NAME",
+      "hint": "Database name",
+      "required": true,
+      "env_variable": "HEDGEDOC_DB_NAME",
+      "default": "hedgedoc"
+    },
+    {
+      "type": "text",
+      "label": "CMD_DOMAIN",
+      "hint": "The address the gui will be accessed at (ie. 192.168.1.1 or hedgedoc.domain.com).",
+      "required": true,
+      "env_variable": "HEDGEDOC_CMD_DOMAIN",
+      "default": "localhost"
+    },
+    {
+      "type": "text",
+      "label": "CMD_URL_ADDPORT",
+      "hint": "Set to true if using a port other than 80 or 443.",
+      "required": false,
+      "env_variable": "HEDGEDOC_CMD_URL_ADDPORT",
+      "default": "false"
+    },
+    {
+      "type": "text",
+      "label": "CMD_PROTOCOL_USESSL",
+      "hint": "Set to true if accessing over https via reverse proxy.",
+      "required": false,
+      "env_variable": "HEDGEDOC_CMD_PROTOCOL_USESSL",
+      "default": "false"
+    },
+    {
+      "type": "text",
+      "label": "CMD_PORT",
+      "hint": "If you wish to access hedgedoc at a port different than 80, 443 or 3000, you need to set this to that port (ie. CMDPORT=5000) and change the port mapping accordingly (5000:5000).",
+      "required": false,
+      "env_variable": "HEDGEDOC_CMD_PORT",
+      "default": "3000"
+    },
+    {
+      "type": "text",
+      "label": "CMD_ALLOW_ORIGIN",
+      "hint": "Comma-separated list of allowed hostnames",
+      "required": false,
+      "env_variable": "HEDGEDOC_CMD_ALLOW_ORIGIN",
+      "default": "['localhost']"
+    },
+    {
+      "type": "text",
+      "label": "CMD_DB_DIALECT",
+      "hint": "This variable allows selecting a database engine (if DBHOST not set up). Available options are: mariadb, mysql, postgres, sqlite.",
+      "required": false,
+      "env_variable": "HEDGEDOC_CMD_DB_DIALECT"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

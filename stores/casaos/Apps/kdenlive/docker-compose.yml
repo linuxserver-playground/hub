@@ -1,0 +1,59 @@
+name: kdenlive
+services:
+  kdenlive:
+    image: ghcr.io/linuxserver-playground/kdenlive:latest
+    container_name: kdenlive
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/kdenlive/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Kdenlive desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Kdenlive desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: kdenlive
+  author: LinuxServer.io
+  developer: Kdenlive
+  category: Video Editor
+  description:
+    en_us: Kdenlive is a powerful free and open source cross-platform video editing program made by the KDE community. Feature rich and production ready.
+  tagline:
+    en_us: Kdenlive is a powerful free and open source cross-platform video editing program made by the KDE community
+  title:
+    en_us: Kdenlive
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kdenlive-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kdenlive-logo.png
+  store_app_id: kdenlive
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-kdenlive/builds/26.08.3-1-ls9/amd64/screenshot.png
+  port_map: '3000'

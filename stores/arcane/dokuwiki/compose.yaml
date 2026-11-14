@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dokuwiki-icon.png
+  urls:
+  - https://www.dokuwiki.org/dokuwiki/
+  - https://github.com/linuxserver-playground/docker-dokuwiki
+services:
+  dokuwiki:
+    image: ghcr.io/linuxserver-playground/dokuwiki:latest
+    container_name: dokuwiki
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_80:-80}:80
+    restart: unless-stopped

@@ -1,0 +1,59 @@
+name: xbackbone
+services:
+  xbackbone:
+    image: ghcr.io/linuxserver-playground/xbackbone:latest
+    container_name: xbackbone
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/xbackbone/config:/config
+    ports:
+    - 80:80
+    - 443:443
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '80'
+        description:
+          en_us: http gui
+      - container: '443'
+        description:
+          en_us: https gui
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: xbackbone
+  author: LinuxServer.io
+  developer: Xbackbone
+  category: File Sharing
+  description:
+    en_us: Xbackbone is a simple, self-hosted, lightweight PHP file manager that support the instant sharing tool ShareX and NIX systems. It supports uploading and displaying images, GIF, video, code, formatted text, and file downloading and uploading. Also have a web UI with multi user management, past uploads history and search support.
+  tagline:
+    en_us: Xbackbone is a simple, self-hosted, lightweight PHP file manager that support the instant sharing tool ShareX and NIX systems
+  title:
+    en_us: Xbackbone
+  icon: https://raw.githubusercontent.com/SergiX44/XBackBone/master/docs/img/xbackbone.png
+  thumbnail: https://raw.githubusercontent.com/SergiX44/XBackBone/master/docs/img/xbackbone.png
+  store_app_id: xbackbone
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-xbackbone/builds/3.8.2-ls8/amd64/screenshot.png
+  port_map: '80'

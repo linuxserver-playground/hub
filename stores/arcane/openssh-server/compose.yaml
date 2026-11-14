@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openssh-server-logo.png
+  urls:
+  - https://www.openssh.com/
+  - https://github.com/linuxserver-playground/docker-openssh-server
+services:
+  openssh-server:
+    image: ghcr.io/linuxserver-playground/openssh-server:latest
+    container_name: openssh-server
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_2222:-2222}:2222
+    restart: unless-stopped

@@ -1,0 +1,67 @@
+name: nzbget
+services:
+  nzbget:
+    image: ghcr.io/linuxserver-playground/nzbget:latest
+    container_name: nzbget
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - NZBGET_USER=nzbget
+    - NZBGET_PASS=tegbzn6789
+    volumes:
+    - /DATA/AppData/nzbget/config:/config
+    - /DATA/AppData/nzbget/downloads:/downloads
+    ports:
+    - 6789:6789
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: NZBGET_USER
+        description:
+          en_us: Specify the user for web authentication.
+      - container: NZBGET_PASS
+        description:
+          en_us: Specify the password for web authentication.
+      ports:
+      - container: '6789'
+        description:
+          en_us: WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config
+      - container: /downloads
+        description:
+          en_us: Location of downloads on disk.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: nzbget
+  author: LinuxServer.io
+  developer: Nzbget
+  category: Downloaders
+  description:
+    en_us: Nzbget is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.
+  tagline:
+    en_us: Nzbget is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources
+  title:
+    en_us: Nzbget
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nzbget-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nzbget-banner.png
+  store_app_id: nzbget
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-nzbget/builds/v26.3-ls9/amd64/screenshot.png
+  port_map: '6789'

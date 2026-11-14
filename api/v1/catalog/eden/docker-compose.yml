@@ -1,0 +1,16 @@
+---
+services:
+  eden:
+    image: ghcr.io/linuxserver-playground/eden:latest
+    container_name: eden
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb"
+    restart: unless-stopped

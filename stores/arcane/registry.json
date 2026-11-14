@@ -1,0 +1,3213 @@
+{
+  "$schema": "https://registry.getarcane.app/schema.json",
+  "name": "LinuxServer.io",
+  "description": "Every LinuxServer.io image as an Arcane template, generated from its manifest.",
+  "version": "1.0.0",
+  "author": "linuxserver.io",
+  "url": "https://linuxserver-playground.github.io/site/stores/",
+  "templates": [
+    {
+      "id": "adguardhome-sync",
+      "name": "Adguardhome-sync",
+      "description": "Adguardhome-sync is a tool to synchronize AdGuardHome config to replica instances.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/adguardhome-sync/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/adguardhome-sync/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/adguardhome-sync/",
+      "content_hash": "47c2f2731b279b80db4a746830b4117add2644cf4524ad2281e1235762d085b5",
+      "tags": [
+        "linuxserver",
+        "network",
+        "dns"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/adguardhomesync-icon.png"
+    },
+    {
+      "id": "airsonic-advanced",
+      "name": "Airsonic-advanced",
+      "description": "Airsonic-advanced is a free, web-based media streamer, providing ubiquitious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/airsonic-advanced/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/airsonic-advanced/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/airsonic-advanced/",
+      "content_hash": "d282b6bc6c3d2e31f9d5bd593d3f04b01e2f527b6f3ffecc0273688c2571ca33",
+      "tags": [
+        "linuxserver",
+        "media-servers",
+        "music"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-banner.png"
+    },
+    {
+      "id": "altus",
+      "name": "Altus",
+      "description": "Altus is an Electron-based WhatsApp client with themes and multiple account support.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/altus/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/altus/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/altus/",
+      "content_hash": "95f075f628d96f4304276e278c21cd03a0e920d2d8fa135ab9f6d3f90f449de2",
+      "tags": [
+        "linuxserver",
+        "chat"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/altus-logo.png"
+    },
+    {
+      "id": "apprise-api",
+      "name": "Apprise-api",
+      "description": "Apprise-api Takes advantage of Apprise through your network with a user-friendly API.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/apprise-api/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/apprise-api/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/apprise-api/",
+      "content_hash": "7405a855d122accc56fad7a9018aceca37b661301aebf054b13f07f7d317bd0b",
+      "tags": [
+        "linuxserver",
+        "monitoring"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/caronc/apprise-api/master/apprise_api/static/logo.png"
+    },
+    {
+      "id": "ardour",
+      "name": "Ardour",
+      "description": "Ardour is an open source, collaborative effort of a worldwide team including musicians, programmers, and professional recording engineers.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ardour/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ardour/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/ardour/",
+      "content_hash": "69be4c8f1cbb2c7a0f6a2880682e83b7024e6ff20de81266f07312c659a90b42",
+      "tags": [
+        "linuxserver",
+        "audio-processing"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ardour-logo.png"
+    },
+    {
+      "id": "audacity",
+      "name": "Audacity",
+      "description": "Audacity is an easy-to-use, multi-track audio editor and recorder. Developed by a group of volunteers as open source.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/audacity/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/audacity/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/audacity/",
+      "content_hash": "a545fcf81ae2760a5d17fcb199409361580c1b708561d0c08392141a7ac76bd9",
+      "tags": [
+        "linuxserver",
+        "audio-processing"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/audacity-logo.png"
+    },
+    {
+      "id": "audiosilo",
+      "name": "Audiosilo",
+      "description": "AudioSilo is a self-hosted audiobook server. Point it at your audiobook folders and listen from the built-in web player or the AudioSilo apps for iOS and Android, with listening progress synced across devices.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/audiosilo/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/audiosilo/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/audiosilo/",
+      "content_hash": "3c5aadcd34a2f4b259b5d68cfc167f9a81979defda78be60502f136f308c751c",
+      "tags": [
+        "linuxserver",
+        "audiobooks",
+        "media-servers"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/audiosilo-logo.png"
+    },
+    {
+      "id": "azahar",
+      "name": "Azahar",
+      "description": "Azahar is an open-source 3DS emulator based on Citra.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/azahar/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/azahar/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/azahar/",
+      "content_hash": "29579c45c2d61ca68c673de6efa50d5c1eba19f49bd4584f8094d227ab423158",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/azahar-logo.png"
+    },
+    {
+      "id": "babybuddy",
+      "name": "Babybuddy",
+      "description": "Babybuddy is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/babybuddy/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/babybuddy/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/babybuddy/",
+      "content_hash": "4e96fd85f9d4296bf00c89a603395d8689d74f21b2239e1c8b5c8912ccd55b10",
+      "tags": [
+        "linuxserver",
+        "family"
+      ],
+      "icon_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/babybuddy-logo.png"
+    },
+    {
+      "id": "bambustudio",
+      "name": "Bambustudio",
+      "description": "Bambu Studio is an open-source, cutting-edge, feature-rich slicing software. It contains project-based workflows, systematically optimized slicing algorithms, and an easy-to-use graphical interface, bringing users an incredibly smooth printing experience.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/bambustudio/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/bambustudio/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/bambustudio/",
+      "content_hash": "a23b6a4d312c90a2bffa685f39fc9fd9ef5aef1313d1a3eb4587b7d3f30f40b2",
+      "tags": [
+        "linuxserver",
+        "3d-printing"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bambustudio-logo.png"
+    },
+    {
+      "id": "bazarr",
+      "name": "Bazarr",
+      "description": "Bazarr is a companion application to Sonarr and Radarr. It can manage and download subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/bazarr/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/bazarr/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/bazarr/",
+      "content_hash": "2c6b0b087c6078c8640b32ec59c69b911c2f3b8b543406a20a72ed5335540826",
+      "tags": [
+        "linuxserver",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png"
+    },
+    {
+      "id": "beets",
+      "name": "Beets",
+      "description": "Beets is a music library manager and not, for the most part, a music player. It does include a simple player plugin and an experimental Web-based player, but it generally leaves actual sound-reproduction to specialized tools.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/beets/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/beets/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/beets/",
+      "content_hash": "28a41d6a2b611f69bc5f2dad5ed03e34b0b18bb6ef183c6d48a1092a9b6f10b6",
+      "tags": [
+        "linuxserver",
+        "music"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/beets-icon.png"
+    },
+    {
+      "id": "bitcoin-knots",
+      "name": "Bitcoin-knots",
+      "description": "Bitcoin Knots can be used as a desktop client for regular payments or as a full node server utility for merchants and other payment services.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/bitcoin-knots/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/bitcoin-knots/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/bitcoin-knots/",
+      "content_hash": "25afc44245c89c04dc9483b37e92fdcc21f627b3dbf3f1f62262e3120b9c0a25",
+      "tags": [
+        "linuxserver",
+        "finance"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bitcoin-knots-logo.png"
+    },
+    {
+      "id": "blade-of-agony",
+      "name": "Blade-of-agony",
+      "description": "Wolfenstein: Blade of Agony is a story-driven WWII shooter inspired by Wolfenstein and Doom.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/blade-of-agony/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/blade-of-agony/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/blade-of-agony/",
+      "content_hash": "d9f3fddd4a278725fb275650e2085ab7c8b6ba3b6c131e8110a4a2ca0644d09b",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/boa-logo.png"
+    },
+    {
+      "id": "blender",
+      "name": "Blender",
+      "description": "Blender is a free and open-source 3D computer graphics software toolset used for creating animated films, visual effects, art, 3D printed models, motion graphics, interactive 3D applications, virtual reality, and computer games. This image does not support GPU rendering out of the box only accelerated workspace experience",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/blender/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/blender/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/blender/",
+      "content_hash": "7c556e31fdeee1008f5ce2d9e4aa741eccc7070d8eb59a576c4fa5394ac1647b",
+      "tags": [
+        "linuxserver",
+        "3d-modeling"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/blender-logo.png"
+    },
+    {
+      "id": "boinc",
+      "name": "Boinc",
+      "description": "BOINC is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized, parallel, and GPU-based applications.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/boinc/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/boinc/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/boinc/",
+      "content_hash": "91dc61a03745eb3d1f5e663f3ac051517eab93490c2613abedcf5338dffca72a",
+      "tags": [
+        "linuxserver",
+        "science"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg"
+    },
+    {
+      "id": "bookstack",
+      "name": "Bookstack",
+      "description": "Bookstack is a free and open source Wiki designed for creating beautiful documentation. Featuring a simple, but powerful WYSIWYG editor it allows for teams to create detailed and useful documentation with ease.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/bookstack/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/bookstack/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/bookstack/",
+      "content_hash": "38eac045bcbcbea5abd490435b393eb17e58a985c7c065e963a783eb20c265b8",
+      "tags": [
+        "linuxserver",
+        "content-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bookstack-logo.png"
+    },
+    {
+      "id": "brave",
+      "name": "Brave",
+      "description": "The Brave browser is a fast, private and secure web browser for PC, Mac and mobile.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/brave/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/brave/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/brave/",
+      "content_hash": "c4a8693225188ac2595dfe74769a68cd36f9810cd245e173c8bfd23802755b2b",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/brave-logo.png"
+    },
+    {
+      "id": "calibre",
+      "name": "Calibre",
+      "description": "Calibre is a powerful and easy to use e-book manager. Users say it's outstanding and a must-have. It'll allow you to do nearly everything and it takes things a step beyond normal e-book software. It's also completely free and open source and great for both casual users and computer experts.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/calibre/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/calibre/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/calibre/",
+      "content_hash": "6f1229ad7ef18d5ca19f7dd997e16f1dd8fbcf1226fe165451b57d1e91aa2b06",
+      "tags": [
+        "linuxserver",
+        "books"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-logo.png"
+    },
+    {
+      "id": "calibre-web",
+      "name": "Calibre-web",
+      "description": "Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre library through the app itself.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/calibre-web/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/calibre-web/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/calibre-web/",
+      "content_hash": "b8f339854272e3a6971d81171457ff69dafdbd925d0e4c6973c02729c0d47334",
+      "tags": [
+        "linuxserver",
+        "books"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png"
+    },
+    {
+      "id": "calligra",
+      "name": "Calligra",
+      "description": "Calligra is an office and graphic art suite by KDE. It is available for desktop PCs, tablet computers, and smartphones. It contains applications for word processing, spreadsheets, presentation, vector graphics, and editing databases.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/calligra/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/calligra/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/calligra/",
+      "content_hash": "491bfa24f3cb16d074605c8c361c36068f286a248e0a36f995a32e090c5e7cf5",
+      "tags": [
+        "linuxserver",
+        "documents"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calligra-logo.png"
+    },
+    {
+      "id": "chrome",
+      "name": "Chrome",
+      "description": "Chrome is the official web browser from Google, built to be fast, secure, and customizable.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/chrome/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/chrome/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/chrome/",
+      "content_hash": "8c0e4fee85106da3d168f533b409d4642b2dde7b5360301431af0e8efad024a4",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png"
+    },
+    {
+      "id": "chromium",
+      "name": "Chromium",
+      "description": "Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/chromium/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/chromium/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/chromium/",
+      "content_hash": "77e12c5e7af8ebabf67ec09237c7eaa12e0f373d40c8b81d7bffa0114e3fe287",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chromium-logo.png"
+    },
+    {
+      "id": "code-server",
+      "name": "Code-server",
+      "description": "Code-server is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/code-server/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/code-server/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/code-server/",
+      "content_hash": "ce21e0302d9bd32496fcad5f36a7359d196d93d734d7233003e8c1aea70243ea",
+      "tags": [
+        "linuxserver",
+        "programming"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server-banner.png"
+    },
+    {
+      "id": "cops",
+      "name": "Cops",
+      "description": "Cops by Sébastien Lucas, now maintained by MikesPub, stands for Calibre OPDS (and HTML) Php Server.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/cops/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/cops/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/cops/",
+      "content_hash": "9aa0bafbecba862845bdff317f3967aa167e6f0255c2823528cb711b03b35ead",
+      "tags": [
+        "linuxserver",
+        "books"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cops-icon.png"
+    },
+    {
+      "id": "craft-apps",
+      "name": "Craft-apps",
+      "description": "ArtCraft is a suite of open source creative applications written in Rust. This image bundles PhotoCraft (image editor), VectorCraft (vector illustration), FilmCraft (video editor), LightCraft (photo library and raw developer), PdfCraft (PDF workbench), EffectCraft (motion graphics and VFX compositor), DesignCraft (page layout and publishing) and FigCraft (interface design and prototyping) in a single desktop.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/craft-apps/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/craft-apps/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/craft-apps/",
+      "content_hash": "59ebb7c66daf4dace7b3905e9f40867b9524563bd2ef13df902da4f7491bbed0",
+      "tags": [
+        "linuxserver",
+        "image-editor",
+        "video-editor",
+        "media-tools"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/artcraft-logo.png"
+    },
+    {
+      "id": "cura",
+      "name": "Cura",
+      "description": "UltiMaker Cura is free, easy-to-use 3D printing software trusted by millions of users. Fine-tune your 3D model with 400+ settings for the best slicing and printing results.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/cura/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/cura/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/cura/",
+      "content_hash": "824566b43b42e1bacafa64d9feec93e5d4e0bd30f1769d1444140f47bfa54433",
+      "tags": [
+        "linuxserver",
+        "3d-printing"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cura-logo.png"
+    },
+    {
+      "id": "darktable",
+      "name": "Darktable",
+      "description": "darktable is an open source photography workflow application and raw developer. A virtual lighttable and darkroom for photographers. It manages your digital negatives in a database, lets you view them through a zoomable lighttable and enables you to develop raw images and enhance them.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/darktable/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/darktable/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/darktable/",
+      "content_hash": "d4019699a13a43e7f88ddef899c09cee1e554ac71785cf69d613a0dfc05cb81b",
+      "tags": [
+        "linuxserver",
+        "photos"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/darktable-logo.png"
+    },
+    {
+      "id": "davos",
+      "name": "Davos",
+      "description": "Davos is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/davos/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/davos/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/davos/",
+      "content_hash": "550d88b63d13e48f7b6fd8044f5e1407aa206ff06bea0b3c6de4713378ee25dc",
+      "tags": [
+        "linuxserver",
+        "ftp"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/davos/master/docs/list.PNG"
+    },
+    {
+      "id": "ddclient",
+      "name": "Ddclient",
+      "description": "Ddclient is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider. It was originally written by Paul Burry and is now mostly by wimpunk. It has the capability to update more than just dyndns and it can fetch your WAN-ipaddress in a few different ways.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ddclient/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ddclient/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/ddclient/",
+      "content_hash": "40de663c10a2777f32e41ee463bfc3bae86db75da1dbedaa7e60964eae777247",
+      "tags": [
+        "linuxserver",
+        "network",
+        "dns"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ddclient-logo.png"
+    },
+    {
+      "id": "deluge",
+      "name": "Deluge",
+      "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/deluge/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/deluge/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/deluge/",
+      "content_hash": "127b5392ba6eb696af23441a1a2318123008b13e2f256cabf609d9b5e1d391f4",
+      "tags": [
+        "linuxserver",
+        "downloaders"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/deluge-logo.png"
+    },
+    {
+      "id": "digikam",
+      "name": "Digikam",
+      "description": "digiKam: Professional Photo Management with the Power of Open Source",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/digikam/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/digikam/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/digikam/",
+      "content_hash": "8470e5864ad757e78a26be749d58ade41489e0e0052a84f9a587c34054788ef3",
+      "tags": [
+        "linuxserver",
+        "photos"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/digikam.png"
+    },
+    {
+      "id": "diskover",
+      "name": "Diskover",
+      "description": "diskover is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/diskover/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/diskover/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/diskover/",
+      "content_hash": "d95f1883b15fb983d54cc745010d520802f731a0bda10372f68e553d1375636d",
+      "tags": [
+        "linuxserver",
+        "storage",
+        "monitoring"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/diskoverdata/diskover-community/master/diskover-web/public/images/diskover.png"
+    },
+    {
+      "id": "dogwalk",
+      "name": "Dogwalk",
+      "description": "DOGWALK is Blender Studio's long awaited second game project, focused on creating a bite-sized interactive storytelling playground. Play as a big adorable dog and explore the winter woods with a little kid.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/dogwalk/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/dogwalk/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/dogwalk/",
+      "content_hash": "62a1870fd54593fd4fed6b1efc8c401ab1eaaf731122ec685fda1a67c2eb12d0",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dogwalk-logo.png"
+    },
+    {
+      "id": "dokuwiki",
+      "name": "Dokuwiki",
+      "description": "Dokuwiki is a simple to use and highly versatile Open Source wiki software that doesn't require a database. It is loved by users for its clean and readable syntax. The ease of maintenance, backup and integration makes it an administrator's favorite. Built in access controls and authentication connectors make DokuWiki especially useful in the enterprise context and the large number of plugins contributed by its vibrant community allow for a broad range of use cases beyond a traditional wiki.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/dokuwiki/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/dokuwiki/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/dokuwiki/",
+      "content_hash": "b2d05b30a9cdea8630ea89e7879809f595c689d188a80c35d7a47ab23798d60a",
+      "tags": [
+        "linuxserver",
+        "content-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dokuwiki-icon.png"
+    },
+    {
+      "id": "dolphin",
+      "name": "Dolphin",
+      "description": "Dolphin Emulator lets you play GameCube and Wii games with various graphical enhancements and other features are available to improve your game experience.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/dolphin/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/dolphin/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/dolphin/",
+      "content_hash": "e5078175ed04eb212d1d07e30d25f6a07ff3beec00676a077a56a15ca90713c4",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dolphin-logo.png"
+    },
+    {
+      "id": "dosbox-staging",
+      "name": "Dosbox-staging",
+      "description": "DOSBox Staging is a modern continuation of DOSBox a free and open-source emulator that enables the execution of MS-DOS software, especially video games.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/dosbox-staging/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/dosbox-staging/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/dosbox-staging/",
+      "content_hash": "d94fb53e267d4454a87d249010354a729b990cdfda1c9f5c282a0af3ad7ea947",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dosbox-logo.png"
+    },
+    {
+      "id": "doublecommander",
+      "name": "Doublecommander",
+      "description": "Double Commander is a free cross platform open source file manager with two panels side by side. It is inspired by Total Commander and features some new ideas.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/doublecommander/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/doublecommander/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/doublecommander/",
+      "content_hash": "7696b40e975d87e4d6bbb93dfa6d4e1d35f3f306ea2265dadd4bcd158d2a90ec",
+      "tags": [
+        "linuxserver",
+        "administration",
+        "storage"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/doublecommander-icon.png"
+    },
+    {
+      "id": "duckdns",
+      "name": "Duckdns",
+      "description": "Duckdns is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/duckdns/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/duckdns/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/duckdns/",
+      "content_hash": "49649d909e7081474f4621f46d3cedfa4fa69712d7642975a8a787c1ca3daa35",
+      "tags": [
+        "linuxserver",
+        "network",
+        "dns"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png"
+    },
+    {
+      "id": "duckstation",
+      "name": "Duckstation",
+      "description": "DuckStation is a PS1 Emulator aiming for the best accuracy and game support.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/duckstation/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/duckstation/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/duckstation/",
+      "content_hash": "4a2d37b0671656da1887cfbcbae3d9306d307a23000a8766b0ccb00e2617a280",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckstation-logo.png"
+    },
+    {
+      "id": "duplicati",
+      "name": "Duplicati",
+      "description": "Duplicati is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers. It works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon S3, Google Drive, box.com, Mega, B2, and many others.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/duplicati/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/duplicati/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/duplicati/",
+      "content_hash": "e92336fbf620138b7a0deeefdb880738bb479912638ff8077c0adccb45212055",
+      "tags": [
+        "linuxserver",
+        "backup"
+      ],
+      "icon_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/duplicati-icon.png"
+    },
+    {
+      "id": "eden",
+      "name": "Eden",
+      "description": "Eden is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/eden/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/eden/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/eden/",
+      "content_hash": "63bf5be22579fc84522e76b4c8dbb2992456912cbb5f467e2eb3699e418d8dfe",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/eden-logo.png"
+    },
+    {
+      "id": "emby",
+      "name": "Emby",
+      "description": "Emby organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/emby/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/emby/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/emby/",
+      "content_hash": "24cfd4eb5cdf764adb64b84b02f5f2a2277576ed85a85803ec25961c2b88e366",
+      "tags": [
+        "linuxserver",
+        "media-servers",
+        "music",
+        "audiobooks"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/emby-logo.png"
+    },
+    {
+      "id": "fail2ban",
+      "name": "Fail2ban",
+      "description": "Fail2ban is a daemon to ban hosts that cause multiple authentication errors.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/fail2ban/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/fail2ban/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/fail2ban/",
+      "content_hash": "05705f91c4eb1d1e6922eaae6eb30661266233ef213d268dfbbed3da9ff427b1",
+      "tags": [
+        "linuxserver",
+        "network",
+        "security"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png"
+    },
+    {
+      "id": "faster-whisper",
+      "name": "Faster-whisper",
+      "description": "Faster-whisper is a reimplementation of OpenAI's Whisper model using CTranslate2, which is a fast inference engine for Transformer models. This container provides a Wyoming protocol server for faster-whisper.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/faster-whisper/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/faster-whisper/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/faster-whisper/",
+      "content_hash": "bbc3912b10973060bc01396b59174ebf6ac893edef5ec57d7e09e16d78211d20",
+      "tags": [
+        "linuxserver",
+        "machine-learning"
+      ]
+    },
+    {
+      "id": "ferdium",
+      "name": "Ferdium",
+      "description": "Ferdium is a desktop app that helps you organize how you use your favourite apps by combining them into one application.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ferdium/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ferdium/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/ferdium/",
+      "content_hash": "c021a1ac3d877cb3ce976542417da207c2176216ae773be14c6e8073b6b3bdc8",
+      "tags": [
+        "linuxserver",
+        "chat",
+        "social"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ferdium-logo.png"
+    },
+    {
+      "id": "filezilla",
+      "name": "Filezilla",
+      "description": "FIleZilla Client is a fast and reliable cross-platform FTP, FTPS and SFTP client with lots of useful features and an intuitive graphical user interface.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/filezilla/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/filezilla/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/filezilla/",
+      "content_hash": "8feb7420f484f40debfc28e495ae69d8ed9793f8e5e57915420bbbee4d99b641",
+      "tags": [
+        "linuxserver",
+        "ftp"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/filezilla-logo.png"
+    },
+    {
+      "id": "firefox",
+      "name": "Firefox",
+      "description": "Firefox Browser, also known as Mozilla Firefox or simply Firefox, is a free and open-source web browser developed by the Mozilla Foundation and its subsidiary, the Mozilla Corporation. Firefox uses the Gecko layout engine to render web pages, which implements current and anticipated web standards.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/firefox/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/firefox/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/firefox/",
+      "content_hash": "88c599fe61927321e538553150d0644b19d29606e87db8a6299575cc8605202f",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/firefox-logo.png"
+    },
+    {
+      "id": "flexget",
+      "name": "Flexget",
+      "description": "Flexget is a multipurpose automation tool for all of your media.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/flexget/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/flexget/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/flexget/",
+      "content_hash": "f1eee818adab8cf29c9dd863bbf87b020af6a4c6a3e9f49e358b455f5400b33b",
+      "tags": [
+        "linuxserver",
+        "downloaders"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flexget-banner.png"
+    },
+    {
+      "id": "flycast",
+      "name": "Flycast",
+      "description": "Flycast is a multi-platform Sega Dreamcast, Naomi, Naomi 2, and Atomiswave emulator derived from reicast.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/flycast/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/flycast/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/flycast/",
+      "content_hash": "93be4d8ffbcfe3c755e2df469e8fb335a0b590dad109c651eaac3f57d5d0e0bb",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flycast-logo.png"
+    },
+    {
+      "id": "foldingathome",
+      "name": "Foldingathome",
+      "description": "Folding@home is a distributed computing project for simulating protein dynamics, including the process of protein folding and the movements of proteins implicated in a variety of diseases. It brings together citizen scientists who volunteer to run simulations of protein dynamics on their personal computers. Insights from this data are helping scientists to better understand biology, and providing new opportunities for developing therapeutics.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/foldingathome/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/foldingathome/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/foldingathome/",
+      "content_hash": "ccb9356edb4487f26093f021e68a87b01c9216b24c69aad28519ddd320bee542",
+      "tags": [
+        "linuxserver",
+        "science"
+      ],
+      "icon_url": "https://foldingathome.org/wp-content/uploads/2016/09/folding-at-home-logo.png"
+    },
+    {
+      "id": "freecad",
+      "name": "Freecad",
+      "description": "FreeCAD is a general-purpose parametric 3D computer-aided design (CAD) modeler and a building information modeling (BIM) software application with finite element method (FEM) support.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/freecad/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/freecad/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/freecad/",
+      "content_hash": "d59e96d0f57c4b9b78e1a9777c544ac43d30fcd5bc19a902d8ca239d2e2f4793",
+      "tags": [
+        "linuxserver",
+        "3d-modeling"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/freecad-logo.png"
+    },
+    {
+      "id": "freshrss",
+      "name": "Freshrss",
+      "description": "Freshrss is a free, self-hostable aggregator for rss feeds.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/freshrss/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/freshrss/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/freshrss/",
+      "content_hash": "836fe55476e2152367624d6a07d2efdfca954a97b53573b9ba2c3f4e5a11b758",
+      "tags": [
+        "linuxserver",
+        "rss"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/freshrss-banner.png"
+    },
+    {
+      "id": "gimp",
+      "name": "Gimp",
+      "description": "GIMP is a free and open-source raster graphics editor used for image manipulation (retouching) and image editing, free-form drawing, transcoding between different image file formats, and more specialized tasks. It is extensible by means of plugins, and scriptable.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/gimp/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/gimp/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/gimp/",
+      "content_hash": "5e4329cb3933c3d5834f9577ed4b6a5730d1b7604d90a28e181adb2c773b2295",
+      "tags": [
+        "linuxserver",
+        "image-editor"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gimp-logo.png"
+    },
+    {
+      "id": "github-desktop",
+      "name": "Github-desktop",
+      "description": "Github Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/github-desktop/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/github-desktop/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/github-desktop/",
+      "content_hash": "39e5ec20aecb2be353f0721a796c7bcaacbfdba0707da0cca57c6d8c7e8a3a44",
+      "tags": [
+        "linuxserver",
+        "programming"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png"
+    },
+    {
+      "id": "gitqlient",
+      "name": "Gitqlient",
+      "description": "GitQlient is a multi-platform Git client originally forked from QGit. Nowadays it goes beyond of just a fork and adds a lot of new functionality.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/gitqlient/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/gitqlient/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/gitqlient/",
+      "content_hash": "dd3f0199ece2721ec61b3eb4b3395ced960a538118b485aa1ed25b730aeac830",
+      "tags": [
+        "linuxserver",
+        "programming"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gitqlient-icon.png"
+    },
+    {
+      "id": "grav",
+      "name": "Grav",
+      "description": "Grav is a Fast, Simple, and Flexible, file-based Web-platform.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/grav/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/grav/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/grav/",
+      "content_hash": "e609b99d27ac0b27250d2e5ef9d21ec94cd2f02c8811774bb2835cb5404ee122",
+      "tags": [
+        "linuxserver",
+        "content-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grav-logo.png"
+    },
+    {
+      "id": "grocy",
+      "name": "Grocy",
+      "description": "Grocy is an ERP system for your kitchen! Cut down on food waste, and manage your chores with this brilliant utility.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/grocy/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/grocy/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/grocy/",
+      "content_hash": "a62e052666bd034132ce5bed5bced1579b7f233dad3dc5c0fcc43826ac995a64",
+      "tags": [
+        "linuxserver",
+        "recipes"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/grocy-logo.png"
+    },
+    {
+      "id": "gzdoom",
+      "name": "Gzdoom",
+      "description": "GZDoom is a feature centric port for all Doom engine games, based on ZDoom, adding an OpenGL renderer and powerful scripting capabilities.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/gzdoom/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/gzdoom/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/gzdoom/",
+      "content_hash": "ef22f857253deae754394f05ac0bdee2286c1b63626ab266fd83bbcdd81aa978",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/gzdoom-logo.png"
+    },
+    {
+      "id": "habridge",
+      "name": "Habridge",
+      "description": "Habridge emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot Gen 1 (gen 2 has issues discovering ha-bridge) or other systems that support Philips Hue. The Bridge handles basic commands such as On, Off and brightness commands of the hue protocol. This bridge can control most devices that have a distinct API.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/habridge/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/habridge/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/habridge/",
+      "content_hash": "be389e0d8edcfb02d8593706bb62be053fefbc4ad2e0d1d7c6a989972c57efdd",
+      "tags": [
+        "linuxserver",
+        "home-automation"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/habridge-logo.png"
+    },
+    {
+      "id": "handbrake",
+      "name": "Handbrake",
+      "description": "HandBrake is an open-source tool, built by volunteers, for converting video from nearly any format to a selection of modern, widely supported codecs.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/handbrake/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/handbrake/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/handbrake/",
+      "content_hash": "80ff1911d134ba7094f694a1d1db63759293ff57bcc19d2aa2aae670d0df25f1",
+      "tags": [
+        "linuxserver",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/handbrake-logo.png"
+    },
+    {
+      "id": "healthchecks",
+      "name": "Healthchecks",
+      "description": "Healthchecks is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/healthchecks/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/healthchecks/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/healthchecks/",
+      "content_hash": "8558a39e664453f8071b06ccc352e0f256d612fab6c9ca9ee1a8a69398a3d83d",
+      "tags": [
+        "linuxserver",
+        "monitoring"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/healthchecks-logo.png"
+    },
+    {
+      "id": "hedgedoc",
+      "name": "Hedgedoc",
+      "description": "HedgeDoc gives you access to all your files wherever you are.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/hedgedoc/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/hedgedoc/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/hedgedoc/",
+      "content_hash": "bac9a5822ebd6de673f2586f109f7e13236b6facdcf1cd5668b8b65fd36d078c",
+      "tags": [
+        "linuxserver",
+        "content-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png"
+    },
+    {
+      "id": "heimdall",
+      "name": "Heimdall",
+      "description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/heimdall/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/heimdall/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/heimdall/",
+      "content_hash": "68a3a0de99915682f979d65ca5aa8cf6cd203ee47614410fff270f3bca8742b7",
+      "tags": [
+        "linuxserver",
+        "dashboard"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png"
+    },
+    {
+      "id": "helium",
+      "name": "Helium",
+      "description": "Helium is a Chromium-based web browser made for people, with love. Privacy-first with unbiased ad-blocking.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/helium/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/helium/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/helium/",
+      "content_hash": "7060934aae96e1807289e92ecd131dff6e950c556cc74eabdb4585548835f588",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/helium-logo.png"
+    },
+    {
+      "id": "hishtory-server",
+      "name": "Hishtory-server",
+      "description": "hiSHtory is a better shell history. It stores your shell history in context (what directory you ran the command in, whether it succeeded or failed, how long it took, etc). This is all stored locally and end-to-end encrypted for syncing to to all your other computers.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/hishtory-server/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/hishtory-server/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/hishtory-server/",
+      "content_hash": "97829c7e3ab7df2943f3ead171fe83f88b2dcfe5ed34432f8eba736818235b74",
+      "tags": [
+        "linuxserver",
+        "administration"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hishtory-server-icon.png"
+    },
+    {
+      "id": "homeassistant",
+      "name": "Homeassistant",
+      "description": "Home Assistant Core - Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/homeassistant/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/homeassistant/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/homeassistant/",
+      "content_hash": "6628e77e7bf7aa0408c3ca9b9adf4f5709cd8b4d5d905a208a832b6ba3211aa4",
+      "tags": [
+        "linuxserver",
+        "home-automation"
+      ],
+      "icon_url": "https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192-full.png"
+    },
+    {
+      "id": "htpcmanager",
+      "name": "Htpcmanager",
+      "description": "Htpcmanager is a front end for many htpc related applications.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/htpcmanager/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/htpcmanager/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/htpcmanager/",
+      "content_hash": "c36c74ab911895d7fe2e0d576b8f5c725609bd5c708e3c48d0fe0ffbbae6d93b",
+      "tags": [
+        "linuxserver",
+        "media-tools"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/htpcmanager-icon.png"
+    },
+    {
+      "id": "inkscape",
+      "name": "Inkscape",
+      "description": "Inkscape is professional quality vector graphics software which runs on Linux, Mac OS X and Windows desktop computers.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/inkscape/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/inkscape/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/inkscape/",
+      "content_hash": "559d6b8a8d5211ac72e03542842270ae7dc1dade5f4df5cb89ed321dca0d1ae5",
+      "tags": [
+        "linuxserver",
+        "3d-modeling"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/inkscape-logo.png"
+    },
+    {
+      "id": "intellij-idea",
+      "name": "Intellij-idea",
+      "description": "IntelliJ IDEA helps you write code faster with tools that eliminate tedious tasks and let you focus on what matters – building great software.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/intellij-idea/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/intellij-idea/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/intellij-idea/",
+      "content_hash": "0326eb5df9291223b3dcf9114b8e808c89294c04e3c1ea1e66f385cf51015a3e",
+      "tags": [
+        "linuxserver",
+        "programming"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/intellij-idea-logo.png"
+    },
+    {
+      "id": "jackett",
+      "name": "Jackett",
+      "description": "Jackett works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/jackett/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/jackett/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/jackett/",
+      "content_hash": "b43c450b6ef698a85e57b25805000894d3abe8cfc00eb99d5a188b633c59d42a",
+      "tags": [
+        "linuxserver",
+        "indexers"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jackett-banner.png"
+    },
+    {
+      "id": "jellyfin",
+      "name": "Jellyfin",
+      "description": "Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/jellyfin/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/jellyfin/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/jellyfin/",
+      "content_hash": "f74ef38849d6cc770a6e97a0c89b0a6ae3bbcfa01d25ba34f577a3d7cfbe99cc",
+      "tags": [
+        "linuxserver",
+        "media-servers",
+        "music",
+        "audiobooks"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jellyfin-logo.png"
+    },
+    {
+      "id": "joplin",
+      "name": "Joplin",
+      "description": "Joplin is a free, open source note taking and to-do application, which can handle a large number of notes organised into notebooks.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/joplin/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/joplin/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/joplin/",
+      "content_hash": "787f90156b8e857162ba7fdd98c0cd9c1506f6bffb6f1842c10035ee8aff07f4",
+      "tags": [
+        "linuxserver",
+        "content-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/joplin-logo.png"
+    },
+    {
+      "id": "kali-linux",
+      "name": "Kali-linux",
+      "description": "Kali-linux - is an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments. KALI LINUX ™ is a trademark of OffSec.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kali-linux/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kali-linux/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/kali-linux/",
+      "content_hash": "c63eb4c57cec3fbeb0ad0674186939155b88ab8e9a372a4a895b3aef7d40953f",
+      "tags": [
+        "linuxserver",
+        "remote-desktop",
+        "security"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kali-logo.png"
+    },
+    {
+      "id": "kasm",
+      "name": "Kasm",
+      "description": "Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kasm/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kasm/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/kasm/",
+      "content_hash": "9d85332fc04a8b274c0a97bb1fc2f43f5631d9253a4afe5bab51d2e499c3013b",
+      "tags": [
+        "linuxserver",
+        "remote-desktop",
+        "business"
+      ],
+      "icon_url": "https://kasm-ci.s3.amazonaws.com/kasm_wide.png"
+    },
+    {
+      "id": "kavita",
+      "name": "Kavita",
+      "description": "Kavita is a fast, feature rich, cross platform reading server. Built with a focus for being a full solution for all your reading needs. Setup your own server and share your reading collection with your friends and family!",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kavita/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kavita/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/kavita/",
+      "content_hash": "521e47e9a04ed5ba28f9308aa6479bfe1cf92bd21a517bb9713cd0534e1546c8",
+      "tags": [
+        "linuxserver",
+        "books"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kavita-logo.png"
+    },
+    {
+      "id": "kdenlive",
+      "name": "Kdenlive",
+      "description": "Kdenlive is a powerful free and open source cross-platform video editing program made by the KDE community. Feature rich and production ready.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kdenlive/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kdenlive/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/kdenlive/",
+      "content_hash": "9bc831bbed87f285b831438856c937302348ad9e77a04f7a90052d14f5b8fac6",
+      "tags": [
+        "linuxserver",
+        "video-editor"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kdenlive-logo.png"
+    },
+    {
+      "id": "keepassxc",
+      "name": "Keepassxc",
+      "description": "KeePassXC is a free and open-source password manager. It started as a community fork of KeePassX (itself a cross-platform port of KeePass).",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/keepassxc/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/keepassxc/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/keepassxc/",
+      "content_hash": "a50455ead6249795483f223f1e2268ef6b48694e411a1e365be6fd762201bea2",
+      "tags": [
+        "linuxserver",
+        "password-manager"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/keepassxc-logo.png"
+    },
+    {
+      "id": "kicad",
+      "name": "Kicad",
+      "description": "KiCad - A Cross Platform and Open Source Electronics Design Automation Suite.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kicad/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kicad/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/kicad/",
+      "content_hash": "87ed42661479724b73aa3741ce3e6767038cfcf7ee98e80959b46f82a775494f",
+      "tags": [
+        "linuxserver",
+        "3d-modeling"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kicad-logo.png"
+    },
+    {
+      "id": "kimai",
+      "name": "Kimai",
+      "description": "Kimai is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users. Kimai was build to track your project times and ships with many advanced features, including but not limited to:",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kimai/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kimai/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/kimai/",
+      "content_hash": "867fe62b4b386166c5f0087d743d310aa89037394133432d50dfab84bad1b60d",
+      "tags": [
+        "linuxserver",
+        "finance",
+        "business"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kimai-logo.png"
+    },
+    {
+      "id": "kometa",
+      "name": "Kometa",
+      "description": "Kometa is a powerful tool designed to give you complete control over your media libraries. With Kometa, you can take your customization to the next level, with granular control over metadata, collections, overlays, and much more.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kometa/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/kometa/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/kometa/",
+      "content_hash": "c38414c34c06f7f09443e65c456f34ebd16f8a2369ebd46c7e5f136c05584606",
+      "tags": [
+        "linuxserver",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kometa-banner.png"
+    },
+    {
+      "id": "krita",
+      "name": "Krita",
+      "description": "Krita is a professional FREE and open source painting program. It is made by artists that want to see affordable art tools for everyone.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/krita/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/krita/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/krita/",
+      "content_hash": "605ddd0135dbd3bfd36fcbc84708b026692757f0bb8adfe1ead29f5a9e88a912",
+      "tags": [
+        "linuxserver",
+        "image-editor"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/krita-logo.png"
+    },
+    {
+      "id": "lazylibrarian",
+      "name": "Lazylibrarian",
+      "description": "Lazylibrarian is a program to follow authors and grab metadata for all your digital reading needs. It uses a combination of Goodreads Librarything and optionally GoogleBooks as sources for author info and book info. This container is based on the DobyTang fork.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lazylibrarian/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lazylibrarian/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/lazylibrarian/",
+      "content_hash": "34d647e3a6ff43a73754eb334bcd4b02b2c4a6553890818afdf198c4a596394b",
+      "tags": [
+        "linuxserver",
+        "books"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lazylibrarian-icon.png"
+    },
+    {
+      "id": "ldap-auth",
+      "name": "Ldap-auth",
+      "description": "Ldap-auth software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ldap-auth/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ldap-auth/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/ldap-auth/",
+      "content_hash": "f8afd6fd3d786bf2aaae1f1c297a2d35b7ce16b0026fc00e68029725b410990c",
+      "tags": [
+        "linuxserver",
+        "administration",
+        "security"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ldap-auth-logo.png"
+    },
+    {
+      "id": "libreoffice",
+      "name": "Libreoffice",
+      "description": "LibreOffice is a free and powerful office suite, and a successor to OpenOffice.org (commonly known as OpenOffice). Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/libreoffice/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/libreoffice/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/libreoffice/",
+      "content_hash": "8317802ea56890284707436e98d5df25895f3aedea550dad35f0d355fabd645a",
+      "tags": [
+        "linuxserver",
+        "documents"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/libreoffice-logo.png"
+    },
+    {
+      "id": "librespeed",
+      "name": "Librespeed",
+      "description": "Librespeed is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/librespeed/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/librespeed/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/librespeed/",
+      "content_hash": "d7344e3a158d396319d724cff15954b0e6e486ccf75a00b4c650c8e41d2eb45f",
+      "tags": [
+        "linuxserver",
+        "monitoring"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/librespeed/speedtest/master/.logo/logo3.png"
+    },
+    {
+      "id": "librewolf",
+      "name": "Librewolf",
+      "description": "LibreWolf is a custom and independent version of Firefox, with the primary goals of privacy, security and user freedom. LibreWolf also aims to remove all the telemetry, data collection and annoyances, as well as disabling anti-freedom features like DRM.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/librewolf/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/librewolf/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/librewolf/",
+      "content_hash": "76a969a76b4a40cf7d413eceab28530fd07f41177be924095178656f1a621d8f",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/librewolf-logo.png"
+    },
+    {
+      "id": "lidarr",
+      "name": "Lidarr",
+      "description": "Lidarr is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lidarr/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lidarr/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/lidarr/",
+      "content_hash": "c7967994a61c172505be21dd5c98711893e7abb327afe93b90099562910606b6",
+      "tags": [
+        "linuxserver",
+        "media-management",
+        "music"
+      ],
+      "icon_url": "https://github.com/lidarr/Lidarr/raw/develop/Logo/400.png"
+    },
+    {
+      "id": "limnoria",
+      "name": "Limnoria",
+      "description": "Limnoria A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins. Successor of the well-known Supybot.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/limnoria/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/limnoria/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/limnoria/",
+      "content_hash": "3f1989dcbc7715c4fd945f92ab5f67273c6ac59ae30602253c20df0bf2d1c590",
+      "tags": [
+        "linuxserver",
+        "irc"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/limnoria-icon.png"
+    },
+    {
+      "id": "lm-studio",
+      "name": "Lm-studio",
+      "description": "LM Studio can run local AI models like gpt-oss, Llama, Gemma, Qwen, and DeepSeek privately on your computer.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lm-studio/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lm-studio/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/lm-studio/",
+      "content_hash": "b6149a602e88b0b41080f71affd916e497c03c817abcd63c5f5acd4216125cbc",
+      "tags": [
+        "linuxserver",
+        "remote-desktop",
+        "ai"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lmstudio-logo.png"
+    },
+    {
+      "id": "lollypop",
+      "name": "Lollypop",
+      "description": "Lollypop is a lightweight modern music player designed to work excellently on the GNOME desktop environment.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lollypop/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lollypop/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/lollypop/",
+      "content_hash": "fd46c46defdcf7e3959e69b59f36d9f2ae762e576c19f7b1da834ec74b8af1a3",
+      "tags": [
+        "linuxserver",
+        "music"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lollypop-icon.png"
+    },
+    {
+      "id": "luanti",
+      "name": "Luanti",
+      "description": "Luanti (formerly Minetest) is an open source voxel game-creation platform with easy modding and game creation",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/luanti/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/luanti/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/luanti/",
+      "content_hash": "a9aff591da74ea516ca11d234f45ab005c95c5b9a776cef7d7d8365a5fe78834",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minetest-icon.png"
+    },
+    {
+      "id": "lychee",
+      "name": "Lychee",
+      "description": "Lychee is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lychee/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/lychee/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/lychee/",
+      "content_hash": "e8c7840626297af740f42db02bb932539b7e9a4f7dec2c35c6047b154592beda",
+      "tags": [
+        "linuxserver",
+        "photos"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png"
+    },
+    {
+      "id": "mame",
+      "name": "Mame",
+      "description": "MAME is a free and open-source emulator designed to emulate the hardware of arcade games, video game consoles, old computers and other systems in software on modern personal computers.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mame/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mame/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/mame/",
+      "content_hash": "fc32c8186291c910eb91a0efbd4c5463618f7def358d6ae986be68a847b83275",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mame-logo.png"
+    },
+    {
+      "id": "manyfold",
+      "name": "Manyfold",
+      "description": "Manyfold is an open source, self-hosted web application for managing a collection of 3D models, particularly focused on 3D printing.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/manyfold/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/manyfold/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/manyfold/",
+      "content_hash": "aeba7dbdfbfe6a05afa7d373b442b12345584225e17b6500294127e6c2649218",
+      "tags": [
+        "linuxserver",
+        "3d-printing"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/manyfold-logo.png"
+    },
+    {
+      "id": "mariadb",
+      "name": "Mariadb",
+      "description": "Mariadb is one of the most popular database servers. Made by the original developers of MySQL.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mariadb/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mariadb/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/mariadb/",
+      "content_hash": "3df5a0648d42b6f77f9c67247b50c1a821525008bd123f4f0e41d268616924ce",
+      "tags": [
+        "linuxserver",
+        "databases"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-git.png"
+    },
+    {
+      "id": "mastodon",
+      "name": "Mastodon",
+      "description": "Mastodon is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones..",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mastodon/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mastodon/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/mastodon/",
+      "content_hash": "89e30ea7dba96650a8d98e30d7e895282650312dc46320098521a58bc8380187",
+      "tags": [
+        "linuxserver",
+        "social"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png"
+    },
+    {
+      "id": "mediaelch",
+      "name": "Mediaelch",
+      "description": "MediaElch is a MediaManager for Kodi. Information about Movies, TV Shows, Concerts and Music are stored as nfo files. Fanarts are downloaded automatically from fanart.tv. Using the nfo generator, MediaElch can be used with other MediaCenters as well.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mediaelch/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mediaelch/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/mediaelch/",
+      "content_hash": "83edd59feb2f2784eba3a5749e562a1c697f48ffcef3165da73afc255fd625bd",
+      "tags": [
+        "linuxserver",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mediaelch-logo.png"
+    },
+    {
+      "id": "medusa",
+      "name": "Medusa",
+      "description": "Medusa is an automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/medusa/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/medusa/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/medusa/",
+      "content_hash": "335df1492f0cacd8e6db0e11bd510d1d88b84196a043153a457f73b988af39dd",
+      "tags": [
+        "linuxserver",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/medusa-icon.png"
+    },
+    {
+      "id": "melonds",
+      "name": "Melonds",
+      "description": "melonDS aims at providing fast and accurate Nintendo DS emulation.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/melonds/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/melonds/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/melonds/",
+      "content_hash": "67411effc739d6dc5711caff225618e78b7436c4cd1fb3c90f2114c3a1de4557",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/melonds-logo.png"
+    },
+    {
+      "id": "minisatip",
+      "name": "Minisatip",
+      "description": "Minisatip is a multi-threaded satip server version 1.2 that runs under Linux and it was tested with DVB-S, DVB-S2, DVB-T, DVB-T2, DVB-C, DVB-C2, ATSC and ISDB-T cards.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/minisatip/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/minisatip/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/minisatip/",
+      "content_hash": "48fcdbbcd6e4af6686a2d32703106da11e3a1b6f928c2bd4bf85ba7cf9900bc6",
+      "tags": [
+        "linuxserver",
+        "media-tools"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minisatip-icon.png"
+    },
+    {
+      "id": "modmanager",
+      "name": "Modmanager",
+      "description": "Modmanager is a centralised tool for downloading and updating docker mods for all your other Linuxserver containers.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/modmanager/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/modmanager/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/modmanager/",
+      "content_hash": "ccbbb90ae7827d2b1ac3d0666a208529ca5203db3874754777f0a4cfaa47ee3d",
+      "tags": [
+        "linuxserver",
+        "docker"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-logo.png"
+    },
+    {
+      "id": "modrinth",
+      "name": "Modrinth",
+      "description": "Modrinth App is a unique, open source launcher that allows you to play your favorite mods, and keep them up to date, all in one neat little package.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/modrinth/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/modrinth/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/modrinth/",
+      "content_hash": "8291ba8710b9a3ec8546e244a9f1904eb4e742bf3e0f810f80336e6cd648bb62",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/modrinth-logo.png"
+    },
+    {
+      "id": "msedge",
+      "name": "Msedge",
+      "description": "Microsoft Edge is a cross-platform web browser developed by Microsoft and based on Chromium.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/msedge/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/msedge/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/msedge/",
+      "content_hash": "690cb9add05ba8033834ec9c855f66a1166957aadca2caa0aaa598525589b1d7",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/edge-logo.png"
+    },
+    {
+      "id": "mstream",
+      "name": "Mstream",
+      "description": "mstream is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mstream/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mstream/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/mstream/",
+      "content_hash": "227f78f8f1d778a69b1eddc2e10659eab7824dec19719184ce8aff01d7818a81",
+      "tags": [
+        "linuxserver",
+        "media-servers",
+        "music"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mstream-icon.png"
+    },
+    {
+      "id": "mullvad-browser",
+      "name": "Mullvad-browser",
+      "description": "The Mullvad Browser is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project. It’s designed to minimize tracking and fingerprinting. You could say it’s a Tor Browser to use without the Tor Network. Instead, you can use it with a trustworthy VPN.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mullvad-browser/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mullvad-browser/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/mullvad-browser/",
+      "content_hash": "5f9d312ef43990cc11d0cdb529cfc0015b341ffd06b942c7e5cf2e23803aa8f2",
+      "tags": [
+        "linuxserver",
+        "web-browser",
+        "vpn"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mullvad-browser-logo.png"
+    },
+    {
+      "id": "mylar3",
+      "name": "Mylar3",
+      "description": "Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python. It supports SABnzbd, NZBGET, and many torrent clients in addition to DDL.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mylar3/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mylar3/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/mylar3/",
+      "content_hash": "86870777571978ee0bc2d359f1bf3c4518b7ae3cf038251d251905d88e7d1686",
+      "tags": [
+        "linuxserver",
+        "books",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mylar-icon.png"
+    },
+    {
+      "id": "mysql-workbench",
+      "name": "Mysql-workbench",
+      "description": "MySQL Workbench is a unified visual tool for database architects, developers, and DBAs. MySQL Workbench provides data modeling, SQL development, and comprehensive administration tools for server configuration, user administration, backup, and much more.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mysql-workbench/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/mysql-workbench/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/mysql-workbench/",
+      "content_hash": "597f62c7fd95a65b9e205dde9170fece3855a61d75cbbdcf9db4dc50ac2dfff1",
+      "tags": [
+        "linuxserver",
+        "databases"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mysql-workbench-icon.png"
+    },
+    {
+      "id": "netbox",
+      "name": "Netbox",
+      "description": "Netbox is an IP address management (IPAM) and data center infrastructure management (DCIM) tool. Initially conceived by the network engineering team at DigitalOcean, NetBox was developed specifically to address the needs of network and infrastructure engineers. It is intended to function as a domain-specific source of truth for network operations.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/netbox/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/netbox/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/netbox/",
+      "content_hash": "7aeeb6b1fb42a315beff0337cd26523e04c189831905aa97cce941fb6fb67797",
+      "tags": [
+        "linuxserver",
+        "administration",
+        "business"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/netbox-logo.png"
+    },
+    {
+      "id": "nextcloud",
+      "name": "Nextcloud",
+      "description": "Nextcloud gives you access to all your files wherever you are.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nextcloud/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nextcloud/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/nextcloud/",
+      "content_hash": "6860a79e1a46036aee4b6b2a619cbd6727fef62f90e145354ed10d3214d3c98d",
+      "tags": [
+        "linuxserver",
+        "cloud",
+        "documents"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-icon.png"
+    },
+    {
+      "id": "nginx",
+      "name": "Nginx",
+      "description": "Nginx is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nginx/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nginx/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/nginx/",
+      "content_hash": "b7288e651fb32b71fc85bf15c652424c591380e0f3e3484c0e577e1b1b7c9fa3",
+      "tags": [
+        "linuxserver",
+        "reverse-proxy"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png"
+    },
+    {
+      "id": "ngircd",
+      "name": "Ngircd",
+      "description": "Ngircd is a free, portable and lightweight Internet Relay Chat server for small or private networks, developed under the GNU General Public License (GPL). It is easy to configure, can cope with dynamic IP addresses, and supports IPv6, SSL-protected connections as well as PAM for authentication. It is written from scratch and not based on the original IRCd.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ngircd/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ngircd/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/ngircd/",
+      "content_hash": "cf46e79366ee5bc556170fdb2ec54702047c1a79d76643daedfb823f57cae3a8",
+      "tags": [
+        "linuxserver",
+        "irc"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ngircd-logo.png"
+    },
+    {
+      "id": "nomacs",
+      "name": "Nomacs",
+      "description": "Nomacs is a free, open source image viewer, which supports multiple platforms. You can use it for viewing all common image formats including RAW and psd images.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nomacs/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nomacs/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/nomacs/",
+      "content_hash": "aa9b0d2af2fb01c4f478c714ad6e325c3cf7b21b452c657e9855b93263b36edc",
+      "tags": [
+        "linuxserver",
+        "image-editor"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nomacs-logo.png"
+    },
+    {
+      "id": "nzbget",
+      "name": "Nzbget",
+      "description": "Nzbget is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nzbget/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nzbget/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/nzbget/",
+      "content_hash": "cb71af7701fe9777da7b1003c4baa49d42dc21290a833e23e19fbcb797653018",
+      "tags": [
+        "linuxserver",
+        "downloaders"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nzbget-banner.png"
+    },
+    {
+      "id": "nzbhydra2",
+      "name": "Nzbhydra2",
+      "description": "Nzbhydra2 is a meta search application for NZB indexers, the spiritual successor to NZBmegasearcH, and an evolution of the original application NZBHydra.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nzbhydra2/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/nzbhydra2/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/nzbhydra2/",
+      "content_hash": "c26d6b6eb2530736b3c881b0b790ba9716cd056f1d2bf0481b700d3b346b5341",
+      "tags": [
+        "linuxserver",
+        "indexers"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png"
+    },
+    {
+      "id": "obsidian",
+      "name": "Obsidian",
+      "description": "Obsidian is a note-taking app that lets you create, link, and organize your notes on your device, with hundreds of plugins and themes to customize your workflow. You can also publish your notes online, access them offline, and sync them securely with end-to-end encryption.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/obsidian/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/obsidian/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/obsidian/",
+      "content_hash": "08d26d2f274094b6d5369465cd04c31bb351681f8f7f45c481e042280a186230",
+      "tags": [
+        "linuxserver",
+        "content-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/obsidian-logo.png"
+    },
+    {
+      "id": "ombi",
+      "name": "Ombi",
+      "description": "Ombi allows you to host your own Plex Request and user management system. If you are sharing your Plex server with other users, allow them to request new content using an easy to manage interface! Manage all your requests for Movies and TV with ease, leave notes for the user and get notification when a user requests something. Allow your users to post issues against their requests so you know there is a problem with the audio etc. Even automatically send them weekly newsletters of new content that has been added to your Plex server!",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ombi/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ombi/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/ombi/",
+      "content_hash": "0d25d9f686f71134159e56f6291d1d17d86725f0e6747a2fd13726e4df037769",
+      "tags": [
+        "linuxserver",
+        "media-requesters"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ombi.png"
+    },
+    {
+      "id": "onlyoffice",
+      "name": "Onlyoffice",
+      "description": "ONLYOFFICE provides a full range of tools to create, edit and collaborate on text documents, spreadsheets, presentations, PDF forms and regular PDF files on web, desktop and mobile platforms.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/onlyoffice/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/onlyoffice/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/onlyoffice/",
+      "content_hash": "fcdb029abdbd46fe7661f637afe97bf66d803eaedce206b1878acbe444871521",
+      "tags": [
+        "linuxserver",
+        "documents"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/onlyoffice-logo.png"
+    },
+    {
+      "id": "openshot",
+      "name": "Openshot",
+      "description": "OpenShot Video Editor is an award-winning free and open-source video editor for Linux, Mac, and Windows, and is dedicated to delivering high quality video editing and animation solutions to the world.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/openshot/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/openshot/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/openshot/",
+      "content_hash": "4bda0ea156e7c215d2c720e7cfb76dc1c68fd3e782edec0373734bcb655121cf",
+      "tags": [
+        "linuxserver",
+        "video-editor"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openshot-logo.png"
+    },
+    {
+      "id": "openssh-server",
+      "name": "Openssh-server",
+      "description": "Openssh-server is a sandboxed environment that allows ssh access without giving keys to the entire server. Giving ssh access via private key often means giving full access to the server. This container creates a limited and sandboxed environment that others can ssh into. The users only have access to the folders mapped and the processes running inside this container.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/openssh-server/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/openssh-server/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/openssh-server/",
+      "content_hash": "f06c9af07878f28536ecb9568c955ce18c2d749c59504b14ee90fd73c9dd7210",
+      "tags": [
+        "linuxserver",
+        "administration"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openssh-server-logo.png"
+    },
+    {
+      "id": "opera",
+      "name": "Opera",
+      "description": "Opera is a multi-platform web browser developed by its namesake company Opera. The browser is based on Chromium, but distinguishes itself from other Chromium-based browsers (Chrome, Edge, etc.) through its user interface and other features.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/opera/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/opera/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/opera/",
+      "content_hash": "81ba039a205c20b85b80bb2945bade8a050f8fe9757ab56c19181076665dbd43",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/opera-icon.png"
+    },
+    {
+      "id": "orcaslicer",
+      "name": "Orcaslicer",
+      "description": "Orca Slicer is an open source slicer for FDM printers. OrcaSlicer is fork of Bambu Studio, it was previously known as BambuStudio-SoftFever, Bambu Studio is forked from PrusaSlicer by Prusa Research, which is from Slic3r by Alessandro Ranellucci and the RepRap community",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/orcaslicer/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/orcaslicer/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/orcaslicer/",
+      "content_hash": "fd24f9a32942befdea997424b56bc7356f1ed0bcff38516aeb239c417f5191cf",
+      "tags": [
+        "linuxserver",
+        "3d-printing"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/orcaslicer-logo.png"
+    },
+    {
+      "id": "oscam",
+      "name": "Oscam",
+      "description": "Oscam is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/oscam/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/oscam/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/oscam/",
+      "content_hash": "e7b72a1f2e7f31d0611aabc32cfb626d1663a5b356b29dc435fcadecdc396530",
+      "tags": [
+        "linuxserver",
+        "media-tools"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png"
+    },
+    {
+      "id": "pairdrop",
+      "name": "Pairdrop",
+      "description": "PairDrop is a sublime alternative to AirDrop that works on all platforms. Send images, documents or text via peer to peer connection to devices in the same local network/Wi-Fi or to paired devices.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pairdrop/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pairdrop/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/pairdrop/",
+      "content_hash": "e0e337558b5b4c45eee498307e0a5d329d664e6f9b2e67b85c4b8eac12dbf858",
+      "tags": [
+        "linuxserver",
+        "file-sharing"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png"
+    },
+    {
+      "id": "pcsx2",
+      "name": "Pcsx2",
+      "description": "PCSX2 is an open source PS2 Emulator.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pcsx2/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pcsx2/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/pcsx2/",
+      "content_hash": "6b9ee24e50d09e67814acc287934595b2e36c1504da4d58728680e66af157593",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pcsx2-logo.png"
+    },
+    {
+      "id": "pelorus",
+      "name": "Pelorus",
+      "description": "Pelorus is an AI navigator for Selkies-powered Linux desktops. Pelorus runs a FastAPI server that gives an LLM agent (Ollama, OpenAI-compatible, or Gemini) control over mouse, keyboard, screenshot, and window management via the Pixelflux computer-use backend, a Linux accessibility tree (AT-SPI), and optional KWin D-Bus integration.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pelorus/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pelorus/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/pelorus/",
+      "content_hash": "4ef4f5716adaa3b27b7ed2a83cf0c458c4035e5a2e7fab95279518adb0c5b29e",
+      "tags": [
+        "linuxserver",
+        "remote-desktop",
+        "ai"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pelorus-logo.png"
+    },
+    {
+      "id": "phpmyadmin",
+      "name": "Phpmyadmin",
+      "description": "Phpmyadmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/phpmyadmin/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/phpmyadmin/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/phpmyadmin/",
+      "content_hash": "0ec38855c2b60fc12b7057f7c4dfcd3097a2642ca3c5496435b6db6cc2bd401d",
+      "tags": [
+        "linuxserver",
+        "databases"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/phpmyadmin-logo.png"
+    },
+    {
+      "id": "pidgin",
+      "name": "Pidgin",
+      "description": "Pidgin is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pidgin/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pidgin/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/pidgin/",
+      "content_hash": "58beb6f4ebaad87f1dd2d2b9b6a1792f028cedee40236c3396c234c1d469d90a",
+      "tags": [
+        "linuxserver",
+        "irc",
+        "chat"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pidgin-logo.png"
+    },
+    {
+      "id": "piper",
+      "name": "Piper",
+      "description": "Piper is a fast, local neural text to speech system that sounds great and is optimized for the Raspberry Pi 4. This container provides a Wyoming protocol server for Piper.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/piper/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/piper/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/piper/",
+      "content_hash": "136dfa0e632c486f55edfd9ad832cc36e1360bd1408a2c5f598c90ae752c6f80",
+      "tags": [
+        "linuxserver",
+        "machine-learning"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piper-logo.png"
+    },
+    {
+      "id": "piwigo",
+      "name": "Piwigo",
+      "description": "Piwigo is a photo gallery software for the web that comes with powerful features to publish and manage your collection of pictures.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/piwigo/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/piwigo/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/piwigo/",
+      "content_hash": "733e3c38f96c9eae349d724d91b4344dd52ef1ff47377fd766f4bf2911995b45",
+      "tags": [
+        "linuxserver",
+        "photos"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piwigo-banner.png"
+    },
+    {
+      "id": "planka",
+      "name": "Planka",
+      "description": "Planka is an elegant open source project tracking tool.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/planka/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/planka/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/planka/",
+      "content_hash": "74593f4de905886bcf98df665d98b89499c9b90b161da7759c3d2a9d028cea75",
+      "tags": [
+        "linuxserver",
+        "content-management",
+        "business"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/planka-logo.png"
+    },
+    {
+      "id": "plex",
+      "name": "Plex",
+      "description": "Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/plex/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/plex/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/plex/",
+      "content_hash": "185d5ffa5705ad36743f2d84fd146bb35ff09ca13f11aa256453ed4cde9007a5",
+      "tags": [
+        "linuxserver",
+        "media-servers",
+        "music",
+        "audiobooks"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-logo.png"
+    },
+    {
+      "id": "ppsspp",
+      "name": "Ppsspp",
+      "description": "PPSSPP is a free and open-source PSP emulator for Windows, macOS, Linux, iOS, Android, Nintendo Wii U, Nintendo Switch, BlackBerry 10, MeeGo, Pandora, Xbox Series and Symbian with a focus on speed and portability.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ppsspp/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ppsspp/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/ppsspp/",
+      "content_hash": "2c6609a40d5eeb2f36a4ea4371622c576368389962c66229e8fce3531710b100",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ppsspp-logo.png"
+    },
+    {
+      "id": "projectsend",
+      "name": "Projectsend",
+      "description": "Projectsend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself. Secure, private and easy. No more depending on external services or e-mail to send those files.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/projectsend/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/projectsend/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/projectsend/",
+      "content_hash": "1959b6ce5ac55febe1492ef0e32d58c1a1d86ea48f85b4afc6d8f6a83720598d",
+      "tags": [
+        "linuxserver",
+        "file-sharing"
+      ],
+      "icon_url": "http://www.projectsend.org/wp-content/themes/projectsend/img/screenshots.png"
+    },
+    {
+      "id": "prowlarr",
+      "name": "Prowlarr",
+      "description": "Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr offering complete management of your indexers with no per app Indexer setup required (we do it all).",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/prowlarr/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/prowlarr/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/prowlarr/",
+      "content_hash": "3d9a0a20af3a5a0d0ce5f4a736ddfc31ab16907b90c734ac3e9301bf601c2092",
+      "tags": [
+        "linuxserver",
+        "indexers"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png"
+    },
+    {
+      "id": "pwndrop",
+      "name": "Pwndrop",
+      "description": "Pwndrop is a self-deployable file hosting service for sending out red teaming payloads or securely sharing your private files over HTTP and WebDAV.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pwndrop/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pwndrop/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/pwndrop/",
+      "content_hash": "d532feb8d68e2e01fdf8f3203e27186468f800cba27b2dd50047dcb413ac03ae",
+      "tags": [
+        "linuxserver",
+        "file-sharing",
+        "security"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/kgretzky/pwndrop/master/media/pwndrop-logo-512.png"
+    },
+    {
+      "id": "pycharm",
+      "name": "Pycharm",
+      "description": "PyCharm offers out-of-the-box support for Python, databases, Jupyter, Git, Conda, PyTorch, TensorFlow, Hugging Face, Django, Flask, FastAPI, and more.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pycharm/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pycharm/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/pycharm/",
+      "content_hash": "779e246ee7612a2d96372d30702afe83e6fc51e07224d00fa4ff87b03b40dc64",
+      "tags": [
+        "linuxserver",
+        "programming"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pycharm-logo.png"
+    },
+    {
+      "id": "pydio-cells",
+      "name": "Pydio-cells",
+      "description": "Pydio-cells is the nextgen file sharing platform for organizations. It is a full rewrite of the Pydio project using the Go language following a micro-service architecture.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pydio-cells/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pydio-cells/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/pydio-cells/",
+      "content_hash": "94b151f356b3af9ece0cb86bc5c4ee6ed44bb95ab727c314429a024569f1e18d",
+      "tags": [
+        "linuxserver",
+        "file-sharing"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pydio-cells-icon.png"
+    },
+    {
+      "id": "pyload-ng",
+      "name": "Pyload-ng",
+      "description": "pyLoad is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pyload-ng/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/pyload-ng/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/pyload-ng/",
+      "content_hash": "a761584df8a2875a005f048ecd7b38c4f5878ae581644ad980f3b9bc7a45e5fb",
+      "tags": [
+        "linuxserver",
+        "downloaders"
+      ],
+      "icon_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/pyload-logo.png"
+    },
+    {
+      "id": "qbittorrent",
+      "name": "Qbittorrent",
+      "description": "The Qbittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/qbittorrent/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/qbittorrent/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/qbittorrent/",
+      "content_hash": "d42cd7dc9eab0af8f0a1b1ec96a7ca61e3be4a93e2d5aae7c49469bb94b86e5e",
+      "tags": [
+        "linuxserver",
+        "downloaders"
+      ],
+      "icon_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/qbittorrent-icon.png"
+    },
+    {
+      "id": "qdirstat",
+      "name": "Qdirstat",
+      "description": "QDirStat Qt-based directory statistics: KDirStat without any KDE -- from the author of the original KDirStat.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/qdirstat/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/qdirstat/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/qdirstat/",
+      "content_hash": "6de223436b82ac29f091afa29d414c95162d4f7e8347f75a354e4c80ed403f51",
+      "tags": [
+        "linuxserver",
+        "storage"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/qdirstat-logo.png"
+    },
+    {
+      "id": "radarr",
+      "name": "Radarr",
+      "description": "Radarr - A fork of Sonarr to work with movies à la Couchpotato.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/radarr/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/radarr/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/radarr/",
+      "content_hash": "918e940221f29a50c78b3648c198ab97c1793642657bfffe8f3fc6bbc6b16ca5",
+      "tags": [
+        "linuxserver",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/radarr.png"
+    },
+    {
+      "id": "raneto",
+      "name": "Raneto",
+      "description": "Raneto - is an open source Knowledgebase platform that uses static Markdown files to power your Knowledgebase.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/raneto/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/raneto/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/raneto/",
+      "content_hash": "01d2adb1372a76a77caba2975a61412d3c0afeeba48d9bca6fe01418580025ad",
+      "tags": [
+        "linuxserver",
+        "content-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/raneto-logo.png"
+    },
+    {
+      "id": "rawtherapee",
+      "name": "Rawtherapee",
+      "description": "RawTherapee is a free, cross-platform raw image processing program!",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/rawtherapee/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/rawtherapee/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/rawtherapee/",
+      "content_hash": "c2707c671af49d5d868d5a3c632214a4d30ab5f95a28534ba98f492b8fcccf45",
+      "tags": [
+        "linuxserver",
+        "image-editor"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rawtherapee-logo.png"
+    },
+    {
+      "id": "remmina",
+      "name": "Remmina",
+      "description": "Remmina is a remote desktop client written in GTK, aiming to be useful for system administrators and travellers, who need to work with lots of remote computers in front of either large or tiny screens. Remmina supports multiple network protocols, in an integrated and consistent user interface. Currently RDP, VNC, SPICE, SSH and EXEC are supported.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/remmina/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/remmina/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/remmina/",
+      "content_hash": "260a1baed2abb54526dee721cab9a3a7ec3fa6106f39a681f83712b24383b3ac",
+      "tags": [
+        "linuxserver",
+        "remote-desktop"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/remmina-icon.png"
+    },
+    {
+      "id": "resilio-sync",
+      "name": "Resilio-sync",
+      "description": "Resilio-sync (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both. There is an official sync image but we created this one as it supports user mapping to simplify permissions for volumes.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/resilio-sync/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/resilio-sync/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/resilio-sync/",
+      "content_hash": "cf857fa9d06f542008154a0a62ca24f874ca0600293bb4bf2ae38fb01eb49d1f",
+      "tags": [
+        "linuxserver",
+        "backup"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/resilio-sync-logo.png"
+    },
+    {
+      "id": "retroarch",
+      "name": "Retroarch",
+      "description": "RetroArch is a frontend for emulators, game engines and media players. It enables you to run classic games on a wide range of computers and consoles through its slick graphical interface.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/retroarch/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/retroarch/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/retroarch/",
+      "content_hash": "6bcda2f5577505060437e9cbfdf648a94638fe2148b78a5fa1051654c1bd6ae5",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/retroarch-logo.png"
+    },
+    {
+      "id": "rpcs3",
+      "name": "Rpcs3",
+      "description": "RPCS3 is a multi-platform open-source Sony PlayStation 3 emulator and debugger written in C++ for Windows, Linux, macOS and FreeBSD.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/rpcs3/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/rpcs3/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/rpcs3/",
+      "content_hash": "4f144ede6f8d80ab9b089458ac218a5608785801bdba34e957adb03fa3ce0779",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rpcs3-logo.png"
+    },
+    {
+      "id": "rsnapshot",
+      "name": "Rsnapshot",
+      "description": "Rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines, and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/rsnapshot/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/rsnapshot/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/rsnapshot/",
+      "content_hash": "850f6e8e2fc86d5cb8dab33c0c396364eeeffbcb75ab18967095e5b2d7ea8e4f",
+      "tags": [
+        "linuxserver",
+        "backup"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rsnapshot.png"
+    },
+    {
+      "id": "rustdesk",
+      "name": "Rustdesk",
+      "description": "RustDesk is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/rustdesk/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/rustdesk/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/rustdesk/",
+      "content_hash": "464fd121718acececf936758ed08b2fe12e5488f827df2dada28f5ed2141df81",
+      "tags": [
+        "linuxserver",
+        "remote-desktop"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rustdesk-logo.png"
+    },
+    {
+      "id": "sabnzbd",
+      "name": "Sabnzbd",
+      "description": "Sabnzbd makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sabnzbd/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sabnzbd/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/sabnzbd/",
+      "content_hash": "7c6b2d8b7968f5ed3e64cae576b8aa2a088757c086518294633e93235b98d131",
+      "tags": [
+        "linuxserver",
+        "downloaders"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sabnzbd-banner.png"
+    },
+    {
+      "id": "scummvm",
+      "name": "Scummvm",
+      "description": "ScummVM is a program which allows you to run certain classic graphical adventure and role-playing games, provided you already have their data files. The clever part about this: ScummVM just replaces the executables shipped with the games, allowing you to play them on systems for which they were never designed! ScummVM is a complete rewrite of these games' executables and is not an emulator.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/scummvm/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/scummvm/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/scummvm/",
+      "content_hash": "b847796e9b45db88ed563e31c3759471048f2e39484c3c77b8d4c5527bdafa9f",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/scummvm-logo.png"
+    },
+    {
+      "id": "sealskin",
+      "name": "Sealskin",
+      "description": "Sealskin is a self-hosted browser isolation and remote application streaming platform. It runs desktop applications in isolated containers on a server you control and streams them to any browser or phone. Clients include a browser extension, mobile apps, and a web app served by the server itself. Each turns links, files, downloads, and text selections into something you open remotely instead of locally, so nothing from the web runs on the device in front of you.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sealskin/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sealskin/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/sealskin/",
+      "content_hash": "a4833a746469333c4efe5143191b0e086d5d70c61d6923994ab39fe484a74c9a",
+      "tags": [
+        "linuxserver",
+        "remote-desktop",
+        "business"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sealskin-logo.png"
+    },
+    {
+      "id": "shadps4",
+      "name": "Shadps4",
+      "description": "shadPS4 is an early PlayStation 4 emulator for Windows, Linux and macOS written in C++.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/shadps4/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/shadps4/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/shadps4/",
+      "content_hash": "1b335d0e36b6e823f568a3573c98e29ef3208dfc4cf20b33f866667ce71e140f",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/shadps4-logo.png"
+    },
+    {
+      "id": "shotcut",
+      "name": "Shotcut",
+      "description": "Shotcut is a free, open source, cross-platform video editor.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/shotcut/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/shotcut/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/shotcut/",
+      "content_hash": "25f88a5338bb706e7b9ff46be3ee788641986c4e3ac49c5b8024b97da2969ac9",
+      "tags": [
+        "linuxserver",
+        "video-editor"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/shotcut-logo.png"
+    },
+    {
+      "id": "sickgear",
+      "name": "Sickgear",
+      "description": "SickGear provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more..",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sickgear/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sickgear/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/sickgear/",
+      "content_hash": "3d157e2d74efdddddeca3aa07e8f01ac4915c85bca8995336697966e2f04e317",
+      "tags": [
+        "linuxserver",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png"
+    },
+    {
+      "id": "signal",
+      "name": "Signal",
+      "description": "Signal is a messaging app with privacy at its core. It is free and easy to use, with strong end-to-end encryption that keeps your communication completely private.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/signal/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/signal/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/signal/",
+      "content_hash": "c14b0fde37e9e3ef23c95fdb497e55933a5a1eea89bbb56485f15ea3b78ae55f",
+      "tags": [
+        "linuxserver",
+        "chat"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/signal-logo.png"
+    },
+    {
+      "id": "smokeping",
+      "name": "Smokeping",
+      "description": "Smokeping keeps track of your network latency. For a full example of what this application is capable of visit UCDavis.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/smokeping/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/smokeping/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/smokeping/",
+      "content_hash": "af8897edaa6643af9b739156dd14e0406cd7f2878d919a3baddd6810438389cf",
+      "tags": [
+        "linuxserver",
+        "monitoring"
+      ],
+      "icon_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/smokeping-logo.png"
+    },
+    {
+      "id": "socket-proxy",
+      "name": "Socket-proxy",
+      "description": "The Socket Proxy is a security-enhanced proxy which allows you to apply access rules to the Docker socket, limiting the attack surface for containers such as watchtower or Traefik that need to use it.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/socket-proxy/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/socket-proxy/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/socket-proxy/",
+      "content_hash": "7537eca4dec827834674d1c648d472d545ef922597ed0e6e8fbdd816c124535f",
+      "tags": [
+        "linuxserver",
+        "docker"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/docker-logo.png"
+    },
+    {
+      "id": "sonarr",
+      "name": "Sonarr",
+      "description": "Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sonarr/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sonarr/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/sonarr/",
+      "content_hash": "c85a4c68c07eafd18fca3dee36a37c7aedc6e21efcbdb61e32d5021836e66cf6",
+      "tags": [
+        "linuxserver",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png"
+    },
+    {
+      "id": "speedtest-tracker",
+      "name": "Speedtest-tracker",
+      "description": "Speedtest-tracker is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/speedtest-tracker/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/speedtest-tracker/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/speedtest-tracker/",
+      "content_hash": "2236e71122ece46af03188ca7369356dbc99e8a17ad6d969074737ae3e215758",
+      "tags": [
+        "linuxserver",
+        "monitoring"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/speedtest-tracker-logo.png"
+    },
+    {
+      "id": "spotube",
+      "name": "Spotube",
+      "description": "Spotube is an open source, cross-platform Spotify client compatible across multiple platforms utilizing Spotify's data API and YouTube, Piped.video or JioSaavn as an audio source, eliminating the need for Spotify Premium",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/spotube/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/spotube/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/spotube/",
+      "content_hash": "9984c1af77449f32ff356fe9b42ed1f36c57567553bff5fbd249273e4a0ee423",
+      "tags": [
+        "linuxserver",
+        "music"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/spotube-logo.png"
+    },
+    {
+      "id": "sqlitebrowser",
+      "name": "Sqlitebrowser",
+      "description": "DB Browser for SQLite is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sqlitebrowser/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/sqlitebrowser/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/sqlitebrowser/",
+      "content_hash": "d5d8f6e9f2d02913b2bd977d2c748567029262375d60b41771f7d69d2e583fc2",
+      "tags": [
+        "linuxserver",
+        "databases"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sqlitebrowser-banner.png"
+    },
+    {
+      "id": "steam",
+      "name": "Steam",
+      "description": "Steam is the ultimate destination for playing, discussing, and creating games.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/steam/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/steam/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/steam/",
+      "content_hash": "1cd268e284598175bdf8954ae4544f66b128b71395d1d41380f18f8b47acfa8d",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/steam-logo.png"
+    },
+    {
+      "id": "swag",
+      "name": "Swag",
+      "description": "SWAG - Secure Web Application Gateway (formerly known as letsencrypt, no relation to Let's Encrypt™) sets up an Nginx webserver and reverse proxy with php support and a built-in certbot client that automates free SSL server certificate generation and renewal processes (Let's Encrypt and ZeroSSL). It also contains fail2ban for intrusion prevention.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/swag/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/swag/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/swag/",
+      "content_hash": "b19906c41d0ff0a607307a513affa0d3dbe1cea0b616f286f98c4f52f345b51d",
+      "tags": [
+        "linuxserver",
+        "reverse-proxy"
+      ],
+      "icon_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/swag.gif"
+    },
+    {
+      "id": "synclounge",
+      "name": "Synclounge",
+      "description": "Synclounge is a third party tool that allows you to watch Plex in sync with your friends/family, wherever you are.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/synclounge/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/synclounge/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/synclounge/",
+      "content_hash": "d2dbebc544cbd418dd9e5557c7bf65546a21e5d4125b5c9bb51c8d92a4ec523f",
+      "tags": [
+        "linuxserver",
+        "media-tools"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/synclounge-banner.png"
+    },
+    {
+      "id": "syncthing",
+      "name": "Syncthing",
+      "description": "Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/syncthing/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/syncthing/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/syncthing/",
+      "content_hash": "561eb40af27763d8654ecac9b1cf57adaa542c2a0bbbb769f2be289270aacafa",
+      "tags": [
+        "linuxserver",
+        "backup"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syncthing-banner.png"
+    },
+    {
+      "id": "syslog-ng",
+      "name": "Syslog-ng",
+      "description": "syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure and store or route them to log analysis tools.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/syslog-ng/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/syslog-ng/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/syslog-ng/",
+      "content_hash": "13852d117ff275dfbfc59dfc7893cbc6b1606e97a94331824628fa335b42dfd4",
+      "tags": [
+        "linuxserver",
+        "monitoring"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syslog-ng-logo.png"
+    },
+    {
+      "id": "tautulli",
+      "name": "Tautulli",
+      "description": "Tautulli is a python based web application for monitoring, analytics and notifications for Plex Media Server.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/tautulli/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/tautulli/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/tautulli/",
+      "content_hash": "dc2c592fad3580f71093c5c7025605dc65387459747b704ef6734558d62515dc",
+      "tags": [
+        "linuxserver",
+        "media-tools"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tautulli-icon.png"
+    },
+    {
+      "id": "telegram",
+      "name": "Telegram",
+      "description": "Telegram is a cloud-based mobile and desktop messaging app.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/telegram/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/telegram/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/telegram/",
+      "content_hash": "a066cb8471b6788b5c82ff83603aca8475fd1cee793f69dc6f79ffbc3592c162",
+      "tags": [
+        "linuxserver",
+        "chat"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/telegram-logo.png"
+    },
+    {
+      "id": "thelounge",
+      "name": "Thelounge",
+      "description": "Thelounge (a fork of shoutIRC) is a web IRC client that you host on your own server.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/thelounge/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/thelounge/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/thelounge/",
+      "content_hash": "998707038a61122da9fe36bbe2aa779cab621a663202f21bb0046364a388f83d",
+      "tags": [
+        "linuxserver",
+        "irc",
+        "chat"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/thelounge/thelounge/master/client/img/logo-vertical-transparent-bg.svg?sanitize=true"
+    },
+    {
+      "id": "thunderbird",
+      "name": "Thunderbird",
+      "description": "Thunderbird is a free and open-source personal information manager primarily used as an e-mail client with a calendar and contactbook, as well as an RSS feed reader, chat client, and news client.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/thunderbird/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/thunderbird/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/thunderbird/",
+      "content_hash": "91a93fdb3c9c78b173cc8af2feb0881de73ed6713b5105558b89329b9995d19b",
+      "tags": [
+        "linuxserver",
+        "email"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/thunderbird-logo.png"
+    },
+    {
+      "id": "transmission",
+      "name": "Transmission",
+      "description": "Transmission is designed for easy, powerful use. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch directories, tracker editing, global and per-torrent speed limits, and more.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/transmission/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/transmission/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/transmission/",
+      "content_hash": "6c070fabcc0b8db16b5644b1486ad9582dc6a10e887268ec90bb1bf355a162b6",
+      "tags": [
+        "linuxserver",
+        "downloaders"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/transmission.png"
+    },
+    {
+      "id": "tvheadend",
+      "name": "Tvheadend",
+      "description": "Tvheadend works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources. Tvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT>IP streaming. Multiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/tvheadend/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/tvheadend/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/tvheadend/",
+      "content_hash": "8cdefbeead4804f691687a3f8b36609bcaa07ae760cee7aae3af2c58a27f5bbc",
+      "tags": [
+        "linuxserver",
+        "media-tools"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tvheadend-big.png"
+    },
+    {
+      "id": "ubooquity",
+      "name": "Ubooquity",
+      "description": "Ubooquity is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ubooquity/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ubooquity/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/ubooquity/",
+      "content_hash": "885b814be6f23d7b3f37f1c636405e1a4796b30ebadb750757e2abc515a67715",
+      "tags": [
+        "linuxserver",
+        "books"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ubooquity-banner.png"
+    },
+    {
+      "id": "ungoogled-chromium",
+      "name": "Ungoogled-chromium",
+      "description": "Ungoogled Chromium is Google Chromium, sans dependency on Google web services.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ungoogled-chromium/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/ungoogled-chromium/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/ungoogled-chromium/",
+      "content_hash": "aefd20dea6aa825cbb6e7836ca3dfefbfc47fca61bf90a3f8cbb247a6223f112",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ungoogled-chromium-logo.png"
+    },
+    {
+      "id": "unifi-network-application",
+      "name": "Unifi-network-application",
+      "description": "The Unifi-network-application software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/unifi-network-application/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/unifi-network-application/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/unifi-network-application/",
+      "content_hash": "5dd2e519e185d0433276af4ed07cd1ce296f6de471b941933492ef815699bc4e",
+      "tags": [
+        "linuxserver",
+        "network"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/unifi-banner.png"
+    },
+    {
+      "id": "vivaldi",
+      "name": "Vivaldi",
+      "description": "Vivaldi is a Norwegian freeware, cross-platform web browser with a built-in email client developed by Vivaldi Technologies.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vivaldi/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vivaldi/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/vivaldi/",
+      "content_hash": "10aacc58ec0c6e5431beaf532d2327036a6bb5fd011697bc4c093033d8370c2f",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vivaldi-logo.png"
+    },
+    {
+      "id": "vlc",
+      "name": "Vlc",
+      "description": "VLC Media Player is a free and open source cross-platform multimedia player and framework that delivers dependable performance across multiple devices.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vlc/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vlc/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/vlc/",
+      "content_hash": "779a9f3de3e2b3ea386bea5dfd090822e1ba8cfdcab17f036c201c55d611f5ca",
+      "tags": [
+        "linuxserver",
+        "media-management"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vlc-logo.png"
+    },
+    {
+      "id": "vscode",
+      "name": "Vscode",
+      "description": "VS Code is an integrated development environment developed by Microsoft. This container runs the full desktop application, for a web native version see Code Server.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vscode/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vscode/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/vscode/",
+      "content_hash": "2a9ef27318bc10707a849eedb9fb700e1d6e1b455fa2694ef33d4c2edcbab0c6",
+      "tags": [
+        "linuxserver",
+        "programming"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscode-logo.png"
+    },
+    {
+      "id": "vscodium",
+      "name": "Vscodium",
+      "description": "VSCodium is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vscodium/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vscodium/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/vscodium/",
+      "content_hash": "75faadad34d9ac1575521e0abd3147210f7c9352c542215566e9df3e4369e77f",
+      "tags": [
+        "linuxserver",
+        "programming"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png"
+    },
+    {
+      "id": "vscodium-web",
+      "name": "Vscodium-web",
+      "description": "Vscodium-web is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vscodium-web/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/vscodium-web/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/vscodium-web/",
+      "content_hash": "f14b8a1557a5d06436a3d6cab50fe8f5283577f4d042fd4430e6c743370a8434",
+      "tags": [
+        "linuxserver",
+        "programming"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png"
+    },
+    {
+      "id": "webcord",
+      "name": "Webcord",
+      "description": "WebCord can be summarized as a pack of security and privacy hardenings, Discord features reimplementations, Electron / Chromium / Discord bugs workarounds, stylesheets, internal pages and wrapped https://discord.com page, designed to conform with ToS as much as it is possible (or hide the changes that might violate it from Discord's eyes).",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/webcord/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/webcord/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/webcord/",
+      "content_hash": "bbbd2f2937ecbeb62d1598c48fa85bb6d8af50b4b5546d733d9c3baee27cfdab",
+      "tags": [
+        "linuxserver",
+        "chat"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webcord-icon.png"
+    },
+    {
+      "id": "webgrabplus",
+      "name": "Webgrabplus",
+      "description": "Webgrabplus is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/webgrabplus/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/webgrabplus/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/webgrabplus/",
+      "content_hash": "28cd1e5b69779f876b943811dafdbff64f6afb6653efbbc8aac64c1c54c07580",
+      "tags": [
+        "linuxserver",
+        "media-tools"
+      ],
+      "icon_url": "https://www.webgrabplus.com/sites/default/themes/WgTheme/images/slideshows/EPG_fading.jpg"
+    },
+    {
+      "id": "webstation",
+      "name": "Webstation",
+      "description": "Webstation is a web native emulation focused LXQt desktop based on Ubuntu.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/webstation/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/webstation/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/webstation/",
+      "content_hash": "bf20a42191377bbaee79b1986f7a01de07d148f2f5a6c71201bc6d4570385226",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webstation-logo.png"
+    },
+    {
+      "id": "webtop",
+      "name": "Webtop",
+      "description": "Webtop - Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/webtop/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/webtop/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/webtop/",
+      "content_hash": "7c37dcb362070ded1d57eef1acb86af0f38335bf4080950a24019e31ebbc4084",
+      "tags": [
+        "linuxserver",
+        "remote-desktop"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png"
+    },
+    {
+      "id": "weixin",
+      "name": "Weixin",
+      "description": "Weixin (WeChat) is an instant messaging, social media, and mobile payment app developed by Tencent.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/weixin/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/weixin/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/weixin/",
+      "content_hash": "6b7c7fde0c91a500e8386fe19a65154d91af9af211681dd08b5a6848268802db",
+      "tags": [
+        "linuxserver",
+        "chat"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/weixin-logo.png"
+    },
+    {
+      "id": "wikijs",
+      "name": "Wikijs",
+      "description": "Wikijs A modern, lightweight and powerful wiki app built on NodeJS.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/wikijs/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/wikijs/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/wikijs/",
+      "content_hash": "1264e9e9acab006485be137d3ece0ca24fd09b4c3d9644a05a5791b11cfcf586",
+      "tags": [
+        "linuxserver",
+        "content-management"
+      ],
+      "icon_url": "https://static.requarks.io/logo/wikijs-full.svg"
+    },
+    {
+      "id": "winegui",
+      "name": "Winegui",
+      "description": "WineGUI is a user-interface friendly Wine manager that provides a graphical frontend for creating and managing Wine bottles.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/winegui/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/winegui/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/winegui/",
+      "content_hash": "399d29b1391c11059c4ccfdd74f1386de46d3bb00041cff111eec60e7611c516",
+      "tags": [
+        "linuxserver",
+        "games",
+        "business"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/winegui-logo.png"
+    },
+    {
+      "id": "wireguard",
+      "name": "Wireguard",
+      "description": "WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/wireguard/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/wireguard/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/wireguard/",
+      "content_hash": "0b2907c34128db46ccd55dd1c2d701c4249281f787015fed4711f41b0e03be83",
+      "tags": [
+        "linuxserver",
+        "network",
+        "vpn"
+      ],
+      "icon_url": "https://www.wireguard.com/img/wireguard.svg"
+    },
+    {
+      "id": "wireshark",
+      "name": "Wireshark",
+      "description": "Wireshark is the world’s foremost and widely-used network protocol analyzer. It lets you see what’s happening on your network at a microscopic level and is the de facto (and often de jure) standard across many commercial and non-profit enterprises, government agencies, and educational institutions. Wireshark development thrives thanks to the volunteer contributions of networking experts around the globe and is the continuation of a project started by Gerald Combs in 1998.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/wireshark/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/wireshark/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/wireshark/",
+      "content_hash": "dddc49a5373028c7625ee208044140ed07ae200bacd19a1e0b41aebe2071f66a",
+      "tags": [
+        "linuxserver",
+        "network"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/wireshark-icon.png"
+    },
+    {
+      "id": "wps-office",
+      "name": "Wps-office",
+      "description": "WPS Office is a lightweight, feature-rich comprehensive office suite with high compatibility. As a handy and professional office software, WPS Office allows you to edit files in Writer, Presentation, Spreadsheet, and PDF to improve your work efficiency.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/wps-office/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/wps-office/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/wps-office/",
+      "content_hash": "da590632dd12549f43be3e3a3330c709269564fbc3ef8e9ca7c8d781949d4c29",
+      "tags": [
+        "linuxserver",
+        "documents"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/wps-office-icon.png"
+    },
+    {
+      "id": "xbackbone",
+      "name": "Xbackbone",
+      "description": "Xbackbone is a simple, self-hosted, lightweight PHP file manager that support the instant sharing tool ShareX and NIX systems. It supports uploading and displaying images, GIF, video, code, formatted text, and file downloading and uploading. Also have a web UI with multi user management, past uploads history and search support.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/xbackbone/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/xbackbone/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/xbackbone/",
+      "content_hash": "ed79b2fe502d3f4a36329f8672d5d608242b2e49b99de9d074a51be70903bb33",
+      "tags": [
+        "linuxserver",
+        "file-sharing"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/SergiX44/XBackBone/master/docs/img/xbackbone.png"
+    },
+    {
+      "id": "xemu",
+      "name": "Xemu",
+      "description": "xemu is a free and open-source application that emulates the original Microsoft Xbox game console, enabling people to play their original Xbox games on Windows, macOS, and Linux systems.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/xemu/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/xemu/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/xemu/",
+      "content_hash": "e43029ee5978a7a24a762a971696525fb40c693b12e6bdff25c018cfd9795b75",
+      "tags": [
+        "linuxserver",
+        "games"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/xemu-logo.png"
+    },
+    {
+      "id": "yaak",
+      "name": "Yaak",
+      "description": "Yaak is a desktop API client for organizing and executing REST, GraphQL, and gRPC requests. It's built using Tauri, Rust, and ReactJS.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/yaak/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/yaak/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/yaak/",
+      "content_hash": "c9146aad144f07a146cd65627ac45e182ce270fffb8e142ed6abe1d7a25578fb",
+      "tags": [
+        "linuxserver",
+        "programming"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/yaak-logo.png"
+    },
+    {
+      "id": "zen",
+      "name": "Zen",
+      "description": "Zen Browser is a free and open-source fork of Mozilla Firefox with a focus on privacy, customizability and design.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/zen/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/zen/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/zen/",
+      "content_hash": "627a39d79fd49baa20d28fc96001ac6f9f9b86bf48c9789b626cace7e8581014",
+      "tags": [
+        "linuxserver",
+        "web-browser"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/zen-logo.png"
+    },
+    {
+      "id": "znc",
+      "name": "Znc",
+      "description": "Znc is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/znc/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/znc/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/znc/",
+      "content_hash": "ef49d70d79ec3bb6997aaac655cb32b149dd3194dbdf2766c1ed0a12fd57259e",
+      "tags": [
+        "linuxserver",
+        "irc"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/znc-logo.png"
+    },
+    {
+      "id": "zotero",
+      "name": "Zotero",
+      "description": "Zotero is a free, easy-to-use tool to help you collect, organize, annotate, cite, and share research.",
+      "version": "1.0.0",
+      "author": "linuxserver.io",
+      "compose_url": "https://linuxserver-playground.github.io/hub/stores/arcane/zotero/compose.yaml",
+      "env_url": "https://linuxserver-playground.github.io/hub/stores/arcane/zotero/env.example",
+      "documentation_url": "https://linuxserver-playground.github.io/site/images/zotero/",
+      "content_hash": "0d238a4c4ab33af3203a4ded2e89af565d705b7f6c23d37270f950603807baf0",
+      "tags": [
+        "linuxserver",
+        "documents"
+      ],
+      "icon_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/zotero-icon.png"
+    }
+  ]
+}

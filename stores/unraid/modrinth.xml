@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-modrinth/blob/master/image.yml -->
+<Container version="2">
+    <Name>modrinth</Name>
+    <Repository>ghcr.io/linuxserver-playground/modrinth</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/modrinth</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-modrinth/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-modrinth#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-modrinth#readme</ReadMe>
+    <Project>https://modrinth.com/</Project>
+    <Overview>Modrinth App(https://modrinth.com/) is a unique, open source launcher that allows you to play your favorite mods, and keep them up to date, all in one neat little package.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/modrinth.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/modrinth-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-modrinth/builds/v0.23.3-ls9/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-modrinth#security for more information.
+    </Requires>
+    <Date>2026-05-31</Date>
+    <Changes>
+### 2026-05-31
+- Rebase to resolute.
+
+### 2026-03-05
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2025-12-28
+- Add Wayland init logic.
+
+### 2025-12-01
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Modrinth desktop gui HTTP, must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="Modrinth desktop gui HTTPS." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores program settings and files." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

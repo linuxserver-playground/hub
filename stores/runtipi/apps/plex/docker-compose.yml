@@ -1,0 +1,18 @@
+services:
+  plex:
+    image: ghcr.io/linuxserver-playground/plex:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      VERSION: ${PLEX_VERSION}
+      PLEX_CLAIM: ${PLEX_PLEX_CLAIM}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/tv:/tv
+    - ${APP_DATA_DIR}/data/movies:/movies
+    x-runtipi:
+      is_main: true
+      internal_port: 32400
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,59 @@
+name: melonds
+services:
+  melonds:
+    image: ghcr.io/linuxserver-playground/melonds:latest
+    container_name: melonds
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/melonds/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: melonDS desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: melonDS desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: melonds
+  author: LinuxServer.io
+  developer: Melonds
+  category: Games
+  description:
+    en_us: melonDS aims at providing fast and accurate Nintendo DS emulation.
+  tagline:
+    en_us: melonDS aims at providing fast and accurate Nintendo DS emulation
+  title:
+    en_us: Melonds
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/melonds-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/melonds-logo.png
+  store_app_id: melonds
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-melonds/builds/1.1-ls9/amd64/screenshot.png
+  port_map: '3000'

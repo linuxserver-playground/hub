@@ -1,0 +1,33 @@
+{
+  "name": "Adguardhome-sync",
+  "available": true,
+  "exposable": true,
+  "port": 8080,
+  "id": "adguardhome-sync",
+  "tipi_version": 1,
+  "version": "v0.9.6",
+  "categories": [
+    "network"
+  ],
+  "description": "Adguardhome-sync is a tool to synchronize AdGuardHome config to replica instances.",
+  "short_desc": "Adguardhome-sync is a tool to synchronize AdGuardHome config to replica instances",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-adguardhome-sync",
+  "website": "https://github.com/bakito/adguardhome-sync/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/adguardhomesync-icon.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "CONFIGFILE",
+      "hint": "Set a custom config file.",
+      "required": false,
+      "env_variable": "ADGUARDHOME_SYNC_CONFIGFILE",
+      "default": "/config/adguardhome-sync.yaml"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

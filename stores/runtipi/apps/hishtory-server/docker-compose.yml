@@ -1,0 +1,15 @@
+services:
+  hishtory-server:
+    image: ghcr.io/linuxserver-playground/hishtory-server:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      HISHTORY_POSTGRES_DB: ${HISHTORY_SERVER_HISHTORY_POSTGRES_DB}
+      HISHTORY_SQLITE_DB: ${HISHTORY_SERVER_HISHTORY_SQLITE_DB}
+    volumes: []
+    x-runtipi:
+      is_main: true
+      internal_port: 8080
+x-runtipi:
+  schema_version: 2

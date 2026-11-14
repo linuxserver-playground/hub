@@ -1,0 +1,25 @@
+services:
+  transmission:
+    image: ghcr.io/linuxserver-playground/transmission:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      TRANSMISSION_WEB_HOME: ${TRANSMISSION_TRANSMISSION_WEB_HOME}
+      USER: ${TRANSMISSION_USER}
+      PASS: ${TRANSMISSION_PASS}
+      WHITELIST: ${TRANSMISSION_WHITELIST}
+      PEERPORT: ${TRANSMISSION_PEERPORT}
+      HOST_WHITELIST: ${TRANSMISSION_HOST_WHITELIST}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/downloads:/downloads
+    - ${APP_DATA_DIR}/data/watch:/watch
+    ports:
+    - 51413:51413
+    - 51413:51413/udp
+    x-runtipi:
+      is_main: true
+      internal_port: 9091
+x-runtipi:
+  schema_version: 2

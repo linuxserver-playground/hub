@@ -1,0 +1,85 @@
+{
+  "name": "Duckdns",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "duckdns",
+  "tipi_version": 1,
+  "version": "db74a9e2",
+  "categories": [
+    "network"
+  ],
+  "description": "Duckdns is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
+  "short_desc": "Duckdns is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-duckdns",
+  "website": "https://duckdns.org/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "SUBDOMAINS",
+      "hint": "multiple subdomains allowed, comma separated, no spaces, if your domain is user.duckdns.org you put user, not a sub-subdomain",
+      "required": true,
+      "env_variable": "DUCKDNS_SUBDOMAINS",
+      "default": "subdomain1,subdomain2"
+    },
+    {
+      "type": "password",
+      "label": "TOKEN",
+      "hint": "DuckDNS token",
+      "required": true,
+      "env_variable": "DUCKDNS_TOKEN",
+      "default": "token"
+    },
+    {
+      "type": "text",
+      "label": "UPDATE_IP",
+      "hint": "Set to ipv6 or ipv4 to update only your public IPv4/6 address. Set to both to update IPv6 and IPv4 address. This variable makes use of a third-party service. Omitting this variable uses DuckDNS for detection and only supports IPv4. both and ipv6 modes needs host networking.",
+      "required": false,
+      "env_variable": "DUCKDNS_UPDATE_IP",
+      "default": "ipv4",
+      "options": [
+        {
+          "label": "",
+          "value": ""
+        },
+        {
+          "label": "ipv4",
+          "value": "ipv4"
+        },
+        {
+          "label": "ipv6",
+          "value": "ipv6"
+        },
+        {
+          "label": "both",
+          "value": "both"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "LOG_FILE",
+      "hint": "Set to true to log to file (also need to map /config).",
+      "required": false,
+      "env_variable": "DUCKDNS_LOG_FILE",
+      "default": "false",
+      "options": [
+        {
+          "label": "false",
+          "value": "false"
+        },
+        {
+          "label": "true",
+          "value": "true"
+        }
+      ]
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

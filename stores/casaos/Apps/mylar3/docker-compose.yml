@@ -1,0 +1,63 @@
+name: mylar3
+services:
+  mylar3:
+    image: ghcr.io/linuxserver-playground/mylar3:latest
+    container_name: mylar3
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/mylar3/config:/config
+    - /DATA/AppData/mylar3/comics:/comics
+    - /DATA/AppData/mylar3/downloads:/downloads
+    ports:
+    - 8090:8090
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8090'
+        description:
+          en_us: WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /comics
+        description:
+          en_us: Map to your comics folder.
+      - container: /downloads
+        description:
+          en_us: Map to your downloads folder.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: mylar3
+  author: LinuxServer.io
+  developer: Mylar3
+  category: Books
+  description:
+    en_us: Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python. It supports SABnzbd, NZBGET, and many torrent clients in addition to DDL.
+  tagline:
+    en_us: Mylar3 is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python
+  title:
+    en_us: Mylar3
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mylar-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mylar-icon.png
+  store_app_id: mylar3
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-mylar3/builds/v0.11.0-ls8/amd64/screenshot.png
+  port_map: '8090'

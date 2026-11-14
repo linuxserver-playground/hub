@@ -1,0 +1,75 @@
+name: flexget
+services:
+  flexget:
+    image: ghcr.io/linuxserver-playground/flexget:latest
+    container_name: flexget
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - FG_LOG_LEVEL=info
+    - FG_LOG_FILE=/config/flexget.log
+    - FG_CONFIG_FILE=/config/.flexget/config.yml
+    - FG_WEBUI_PASSWORD=info
+    volumes:
+    - /DATA/AppData/flexget/config:/config
+    - /DATA/AppData/flexget/data:/data
+    ports:
+    - 5050:5050
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: FG_LOG_LEVEL
+        description:
+          en_us: Set the FlexGet logging level.
+      - container: FG_LOG_FILE
+        description:
+          en_us: Set the FlexGet log file location.
+      - container: FG_CONFIG_FILE
+        description:
+          en_us: Set the FlexGet config file location.
+      - container: FG_WEBUI_PASSWORD
+        description:
+          en_us: Set the FlexGet webui password. Pay attention to Bash/YAML reserved characters.
+      ports:
+      - container: '5050'
+        description:
+          en_us: HTTP port for the WebUI.
+      volumes:
+      - container: /config
+        description:
+          en_us: Local path for FlexGet config files.
+      - container: /data
+        description:
+          en_us: Default path for downloads.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: flexget
+  author: LinuxServer.io
+  developer: Flexget
+  category: Downloaders
+  description:
+    en_us: Flexget is a multipurpose automation tool for all of your media.
+  tagline:
+    en_us: Flexget is a multipurpose automation tool for all of your media
+  title:
+    en_us: Flexget
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flexget-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flexget-banner.png
+  store_app_id: flexget
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-flexget/builds/v3.22.12-ls7/amd64/screenshot.png
+  port_map: '5050'

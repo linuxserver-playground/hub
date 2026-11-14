@@ -1,0 +1,59 @@
+name: spotube
+services:
+  spotube:
+    image: ghcr.io/linuxserver-playground/spotube:latest
+    container_name: spotube
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/spotube/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Spotube desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Spotube desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: spotube
+  author: LinuxServer.io
+  developer: Spotube
+  category: Music
+  description:
+    en_us: Spotube is an open source, cross-platform Spotify client compatible across multiple platforms utilizing Spotify's data API and YouTube, Piped.video or JioSaavn as an audio source, eliminating the need for Spotify Premium
+  tagline:
+    en_us: Spotube is an open source, cross-platform Spotify client compatible across multiple platforms utilizing Spotify's data API and YouTube, Piped.video or JioSaavn as an audio source, eliminating the need for Spotify Premium
+  title:
+    en_us: Spotube
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/spotube-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/spotube-logo.png
+  store_app_id: spotube
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-spotube/builds/v6.0.0-ls10/amd64/screenshot.png
+  port_map: '3000'

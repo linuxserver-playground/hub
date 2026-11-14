@@ -1,0 +1,11 @@
+services:
+  synclounge:
+    image: ghcr.io/linuxserver-playground/synclounge:latest
+    environment:
+      AUTH_LIST: ${SYNCLOUNGE_AUTH_LIST}
+    volumes: []
+    x-runtipi:
+      is_main: true
+      internal_port: 8088
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,24 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png
+  urls:
+  - https://hedgedoc.org/
+  - https://github.com/linuxserver-playground/docker-hedgedoc
+services:
+  hedgedoc:
+    image: ghcr.io/linuxserver-playground/hedgedoc:latest
+    container_name: hedgedoc
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      DB_HOST: ${DB_HOST:-<hostname or ip>}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_USER: ${DB_USER:-hedgedoc}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME:-hedgedoc}
+      CMD_DOMAIN: ${CMD_DOMAIN:-localhost}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_3000:-3000}:3000
+    restart: unless-stopped

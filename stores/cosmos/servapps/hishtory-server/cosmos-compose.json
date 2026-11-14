@@ -1,0 +1,55 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "HISHTORY_POSTGRES_DB",
+        "label": "Postgres DB Connection URI. Special characters must be URL encoded.",
+        "initialValue": "postgresql://${HISHTORY_DB_USER}:${HISHTORY_DB_PASS}@hishtory-db:5432/hishtory?sslmode=disable",
+        "type": "text"
+      },
+      {
+        "name": "HISHTORY_SQLITE_DB",
+        "label": "SQLite database path. Needs to be a mounted volume for persistence. Don't set at the same time as HISHTORYPOSTGRESDB.",
+        "initialValue": "/config/hishtory.db",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/hishtory-server:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "HISHTORY_POSTGRES_DB={Context.HISHTORY_POSTGRES_DB}",
+        "HISHTORY_SQLITE_DB={Context.HISHTORY_SQLITE_DB}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hishtory-server-icon.png",
+        "cosmos.stack": "{ServiceName}-hishtory-server"
+      },
+      "volumes": [],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8080",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

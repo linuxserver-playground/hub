@@ -1,0 +1,62 @@
+name: msedge
+services:
+  msedge:
+    image: ghcr.io/linuxserver-playground/msedge:latest
+    container_name: msedge
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - EDGE_CLI=https://www.linuxserver.io/
+    volumes:
+    - /DATA/AppData/msedge/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: EDGE_CLI
+        description:
+          en_us: Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Edge desktop gui, needs to be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Edge desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: msedge
+  author: LinuxServer.io
+  developer: Msedge
+  category: Web Browser
+  description:
+    en_us: Microsoft Edge is a cross-platform web browser developed by Microsoft and based on Chromium.
+  tagline:
+    en_us: Microsoft Edge is a cross-platform web browser developed by Microsoft and based on Chromium
+  title:
+    en_us: Msedge
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/edge-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/edge-logo.png
+  store_app_id: msedge
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-msedge/builds/157.0.4341.60-1-ls11/amd64/screenshot.png
+  port_map: '3000'

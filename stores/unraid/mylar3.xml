@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-mylar3/blob/master/image.yml -->
+<Container version="2">
+    <Name>mylar3</Name>
+    <Repository>ghcr.io/linuxserver-playground/mylar3</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/mylar3</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-mylar3/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-mylar3#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-mylar3#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>nightly</Tag>
+        <TagDescription>Commits to nightly branch</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-mylar3/tree/nightly#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-mylar3/tree/nightly#application-setup</GitHub>
+    </Branch>
+    <Project>https://github.com/MylarComics/mylar3</Project>
+    <Overview>Mylar3(https://github.com/MylarComics/mylar3) is an automated Comic Book downloader (cbr/cbz) for use with NZB and torrents written in python. It supports SABnzbd, NZBGET, and many torrent clients in addition to DDL.</Overview>
+    <WebUI>http://[IP]:[PORT:8090]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/mylar3.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mylar-icon.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-mylar3/builds/v0.11.0-ls8/amd64/screenshot.png</Screenshot>
+    <Date>2026-04-06</Date>
+    <Changes>
+### 2026-04-06
+- Switch upstream to maintained fork at https://github.com/MylarComics/mylar3. Drop `unstable` tag.
+
+### 2026-02-19
+- Rebase `latest` tag based on commits to upstream `python3-dev` branch. `nightly` will build commits to upstream `1000papercuts` branch. `unstable` tag will also build commits to upstream `1000papercuts` branch, but on alpine 3.23 with python 3.12.
+
+### 2026-02-05
+- Release `unstable` tag based on commits to upstream `1000papercuts` branch.
+
+### 2025-11-21
+- Rebase to Ubuntu Jammy.
+
+### 2023-12-23
+- Rebase to Alpine 3.19.
+
+### 2023-08-16
+- Install unrar from linuxserver repo(https://github.com/linuxserver/docker-unrar).
+
+### 2023-08-10
+- Bump unrar to 6.2.10.
+
+### 2023-07-11
+- Rebase to Alpine 3.18
+
+### 2023-07-07
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-03-05
+- Rebase to Alpine 3.17.
+
+### 2022-10-12
+- Rebase to alpine 3.16 and upgrade to s6v3.
+
+### 2022-02-01
+- Rebase to alpine 3.15.
+
+### 2021-11-02
+- Rebase to alpine 3.14. Remove `pathlib.py`.
+
+### 2021-05-25
+- Add `libwebp` support.
+
+### 2021-05-17
+- Add linuxserver wheel index.
+
+### 2021-01-23
+- Rebasing to alpine 3.13.
+
+### 2021-01-03
+- Output mylar log to docker log.
+
+### 2020-12-21
+- Release `nightly` tag based on commits to upstream `python3-dev` branch.
+
+### 2020-09-28
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8090" Default="8090" Mode="tcp" Description="WebUI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /comics" Target="/comics" Default="" Mode="rw" Description="Map to your comics folder." Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="Path: /downloads" Target="/downloads" Default="" Mode="rw" Description="Map to your downloads folder." Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

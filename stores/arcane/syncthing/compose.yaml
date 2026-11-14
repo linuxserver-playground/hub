@@ -1,0 +1,23 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syncthing-banner.png
+  urls:
+  - https://syncthing.net
+  - https://github.com/linuxserver-playground/docker-syncthing
+services:
+  syncthing:
+    image: ghcr.io/linuxserver-playground/syncthing:latest
+    container_name: syncthing
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DATA1_PATH:-./data1}:/data1
+    - ${DATA2_PATH:-./data2}:/data2
+    ports:
+    - ${PORT_8384:-8384}:8384
+    - ${PORT_22000_TCP:-22000}:22000/tcp
+    - ${PORT_22000_UDP:-22000}:22000/udp
+    - ${PORT_21027_UDP:-21027}:21027/udp
+    restart: unless-stopped

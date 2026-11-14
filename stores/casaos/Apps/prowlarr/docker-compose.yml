@@ -1,0 +1,55 @@
+name: prowlarr
+services:
+  prowlarr:
+    image: ghcr.io/linuxserver-playground/prowlarr:latest
+    container_name: prowlarr
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/prowlarr/config:/config
+    ports:
+    - 9696:9696
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '9696'
+        description:
+          en_us: The port for the Prowlarr web UI
+      volumes:
+      - container: /config
+        description:
+          en_us: Database and Prowlarr configs
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: prowlarr
+  author: LinuxServer.io
+  developer: Prowlarr
+  category: Indexers
+  description:
+    en_us: Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr offering complete management of your indexers with no per app Indexer setup required (we do it all).
+  tagline:
+    en_us: Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps
+  title:
+    en_us: Prowlarr
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png
+  store_app_id: prowlarr
+  index: /system/status
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-prowlarr/builds/2.7.0.5723-ls5/amd64/screenshot.png
+  port_map: '9696'

@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-beets/blob/master/image.yml -->
+<Container version="2">
+    <Name>beets</Name>
+    <Repository>ghcr.io/linuxserver-playground/beets</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/beets</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-beets/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-beets#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-beets#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable Beets Releases</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>nightly</Tag>
+        <TagDescription>Built against head of Beets git, generally considered unstable but a likely choice for power users of the application.</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-beets/tree/nightly#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-beets/tree/nightly#application-setup</GitHub>
+    </Branch>
+    <Project>http://beets.io/</Project>
+    <Overview>Beets(http://beets.io/) is a music library manager and not, for the most part, a music player. It does include a simple player plugin and an experimental Web-based player, but it generally leaves actual sound-reproduction to specialized tools.</Overview>
+    <WebUI>http://[IP]:[PORT:8337]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/beets.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/beets-icon.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-beets/builds/2.14.1-ls7/amd64/screenshot.png</Screenshot>
+    <Date>2026-02-01</Date>
+    <Changes>
+### 2026-02-01
+- Rebase to Alpine 3.23.
+
+### 2025-01-27
+- Rebase to Alpine 3.21.
+
+### 2024-10-01
+- Add packages required for Discogs plugin.
+
+### 2024-08-28
+- Rebase to Alpine 3.20, switch from Pillow to Imagemagick.
+
+### 2023-12-23
+- Rebase to Alpine 3.19.
+
+### 2023-08-25
+- Rebase to Alpine 3.18, pin Pillow to 9.5.0.
+
+### 2023-07-07
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-03-25
+- Add requests_oauthlib required for beatport plugin(https://beets.readthedocs.io/en/stable/plugins/beatport.html).
+
+### 2023-02-24
+- Rebase to Alpine 3.17, migrate to s6v3, install chromaprint from Alpine repos, add beetcamp plugin.
+
+### 2022-01-15
+- Rebasing to alpine 3.15.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-05-12
+- Add flac and mp3val binaries required for badfiles plugin.
+
+### 2019-04-12
+- Rebase to Alpine 3.9.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-03-11
+- Swap copyartifacts for extrafiles, update endpoints with nightly tag.
+
+### 2019-03-01
+- Switch to python3.
+
+### 2019-02-07
+- Add fftw-dev build dependency for chromaprint.
+
+### 2019-01-28
+- Add pipeline logic and multi arch.
+
+### 2018-08-15
+- Rebase to alpine 3.8, use alpine repo version of pylast.
+
+### 2018-08-12
+- Add requests pip package.
+
+### 2018-03-04
+- Upgrade mp3gain to 1.6.1.
+
+### 2018-01-02
+- Deprecate cpu_core routine lack of scaling.
+
+### 2017-12-27
+- Add beautifulsoup4 pip package.
+
+### 2017-12-06
+- Rebase to alpine linux 3.7.
+
+### 2017-05-25
+- Rebase to alpine linux 3.6.
+
+### 2017-02-06
+- Rebase to alpine linux 3.5.
+
+### 2017-01-16
+- Add packages required for replaygain.
+
+### 2016-12-24
+- Add beets-copyartifacts(https://github.com/sbarakat/beets-copyartifacts) plugin.
+
+### 2016-12-07
+- Edit cmake options for chromaprint, should now build and install fpcalc, add gstreamer lib
+
+### 2016-10-14
+- Add version layer information.
+
+### 2016-10-01
+- Add nano and editor variable to allow editing of the config from the container command line.
+
+### 2016-09-30
+- Fix umask.
+
+### 2016-09-24
+- Rebase to alpine linux.
+
+### 2016-09-10
+- Add layer badges to README.
+
+### 2016-01-05
+- Change ffpmeg repository, other version crashes container
+
+### 2015-11-29
+- Take out term setting, causing issues with key entry for some users
+
+### 2015-11-06
+- Initial Release
+
+    </Changes>
+    <Config Name="WebUI" Target="8337" Default="8337" Mode="tcp" Description="Application WebUI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /music" Target="/music" Default="" Mode="rw" Description="Music library" Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="Path: /downloads" Target="/downloads" Default="" Mode="rw" Description="Non processed music" Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

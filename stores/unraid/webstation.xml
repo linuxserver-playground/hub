@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-webstation/blob/master/image.yml -->
+<Container version="2">
+    <Name>webstation</Name>
+    <Repository>ghcr.io/linuxserver-playground/webstation</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/webstation</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-webstation/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-webstation#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-webstation#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable Webstation releases.</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>romm</Tag>
+        <TagDescription>romm-broker, the sidecar for collaborative streaming from the ROMM web interface.</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-webstation/tree/romm#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-webstation/tree/romm#application-setup</GitHub>
+    </Branch>
+    <Project>https://github.com/linuxserver/docker-webstation</Project>
+    <Overview>Webstation(https://github.com/linuxserver/docker-webstation) is a web native emulation focused LXQt desktop based on Ubuntu.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/webstation.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webstation-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-webstation/builds/7a1556f5-ls7/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-webstation#security for more information.
+    </Requires>
+    <Date>2026-09-23</Date>
+    <Changes>
+### 2026-09-23
+- Updates for selkies v2, add X11 support.
+
+### 2026-08-21
+- Add Xenia Edge emulator.
+
+### 2026-08-13
+- Add Azahar emulator.
+
+### 2026-08-10
+- Add Cemu emulator.
+
+### 2026-05-05
+- Rebase to resolute.
+
+### 2026-03-28
+- Swap UI to baked in selkies-desktop.
+
+### 2026-03-17
+- Fix eden ingestion to use self hosted git.
+
+### 2026-03-02
+- Fix init to not use session wrapper.
+
+### 2026-02-25
+- Initial Version.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Webstation desktop gui HTTP must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="Webstation desktop gui HTTPS." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores all files and games." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

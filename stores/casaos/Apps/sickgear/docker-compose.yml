@@ -1,0 +1,63 @@
+name: sickgear
+services:
+  sickgear:
+    image: ghcr.io/linuxserver-playground/sickgear:latest
+    container_name: sickgear
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/sickgear/config:/config
+    - /DATA/AppData/sickgear/tv:/tv
+    - /DATA/AppData/sickgear/downloads:/downloads
+    ports:
+    - 8081:8081
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8081'
+        description:
+          en_us: will map the container's port 8081 to port 8081 on the host
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent configuration files.
+      - container: /tv
+        description:
+          en_us: where you store your tv shows
+      - container: /downloads
+        description:
+          en_us: your downloads folder for post processing (must not be download in progress)
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: sickgear
+  author: LinuxServer.io
+  developer: Sickgear
+  category: Media Management
+  description:
+    en_us: SickGear provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more..
+  tagline:
+    en_us: SickGear provides management of TV shows and/or Anime, it detects new episodes, links downloader apps, and more
+  title:
+    en_us: Sickgear
+  icon: https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png
+  thumbnail: https://raw.githubusercontent.com/wiki/SickGear/SickGear.Wiki/images/SickGearLogo.png
+  store_app_id: sickgear
+  index: /home/view-changes
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-sickgear/builds/release_3.36.9-ls7/amd64/screenshot.png
+  port_map: '8081'

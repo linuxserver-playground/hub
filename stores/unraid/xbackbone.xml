@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-xbackbone/blob/main/image.yml -->
+<Container version="2">
+    <Name>xbackbone</Name>
+    <Repository>ghcr.io/linuxserver-playground/xbackbone</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/xbackbone</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-xbackbone/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-xbackbone#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-xbackbone#readme</ReadMe>
+    <Project>https://github.com/SergiX44/XBackBone</Project>
+    <Overview>Xbackbone(https://github.com/SergiX44/XBackBone) is a simple, self-hosted, lightweight PHP file manager that support the instant sharing tool ShareX and *NIX systems. It supports uploading and displaying images, GIF, video, code, formatted text, and file downloading and uploading. Also have a web UI with multi user management, past uploads history and search support.</Overview>
+    <WebUI>http://[IP]:[PORT:80]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/xbackbone.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/SergiX44/XBackBone/master/docs/img/xbackbone.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-xbackbone/builds/3.8.2-ls8/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-05</Date>
+    <Changes>
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2025-07-09
+- Rebase to Alpine 3.22.
+
+### 2024-05-27
+- Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2023-12-28
+- Rebase to Alpine 3.19 with php 8.3.
+
+### 2023-12-25
+- Existing users should update: site-confs/default.conf - Cleanup default site conf.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-04-13
+- Move ssl.conf include to default.conf.
+
+### 2023-01-19
+- Rebase to alpine 3.17 with php8.1.
+
+### 2022-11-04
+- Rebase to Alpine 3.16, migrate to s6v3.
+
+### 2022-11-01
+- Move application install to /app/www/public, add migration notices for existing users. Container updates should now update the application correctly
+
+### 2022-08-20
+- Rebasing to alpine 3.15 with php8. Restructure nginx configs (see changes announcement(https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
+
+### 2022-08-02
+- Added note about updating.
+
+### 2021-06-06
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="http gui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 443" Target="443" Default="443" Mode="tcp" Description="https gui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

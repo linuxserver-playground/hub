@@ -1,0 +1,17 @@
+services:
+  pairdrop:
+    image: ghcr.io/linuxserver-playground/pairdrop:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      RATE_LIMIT: ${PAIRDROP_RATE_LIMIT}
+      WS_FALLBACK: ${PAIRDROP_WS_FALLBACK}
+      RTC_CONFIG: ${PAIRDROP_RTC_CONFIG}
+      DEBUG_MODE: ${PAIRDROP_DEBUG_MODE}
+    volumes: []
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+x-runtipi:
+  schema_version: 2

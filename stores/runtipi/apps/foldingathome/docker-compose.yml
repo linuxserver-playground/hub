@@ -1,0 +1,17 @@
+services:
+  foldingathome:
+    image: ghcr.io/linuxserver-playground/foldingathome:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      ACCOUNT_TOKEN: ${FOLDINGATHOME_ACCOUNT_TOKEN}
+      MACHINE_NAME: ${FOLDINGATHOME_MACHINE_NAME}
+      CLI_ARGS: ${FOLDINGATHOME_CLI_ARGS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 7396
+x-runtipi:
+  schema_version: 2

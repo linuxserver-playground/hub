@@ -1,0 +1,63 @@
+name: heimdall
+services:
+  heimdall:
+    image: ghcr.io/linuxserver-playground/heimdall:latest
+    container_name: heimdall
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - ALLOW_INTERNAL_REQUESTS=false
+    volumes:
+    - /DATA/AppData/heimdall/config:/config
+    ports:
+    - 80:80
+    - 443:443
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: ALLOW_INTERNAL_REQUESTS
+        description:
+          en_us: By default, Heimdall blocks lookup requests to private or reserved IP addresses, if your instance is not exposed to the internet, or is behind some level of authentication, you can set this to true to allow requests to private IP addresses.
+      ports:
+      - container: '80'
+        description:
+          en_us: http gui
+      - container: '443'
+        description:
+          en_us: https gui
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: heimdall
+  author: LinuxServer.io
+  developer: Heimdall
+  category: Dashboard
+  description:
+    en_us: Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.
+  tagline:
+    en_us: Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way
+  title:
+    en_us: Heimdall
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png
+  store_app_id: heimdall
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-heimdall/builds/v2.8.4-ls8/amd64/screenshot.png
+  port_map: '80'

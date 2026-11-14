@@ -1,0 +1,32 @@
+{
+  "name": "Tvheadend",
+  "available": true,
+  "exposable": true,
+  "port": 9981,
+  "id": "tvheadend",
+  "tipi_version": 1,
+  "version": "443f15ba",
+  "categories": [
+    "media"
+  ],
+  "description": "Tvheadend works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources. Tvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT>IP streaming. Multiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).",
+  "short_desc": "Tvheadend works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-tvheadend",
+  "website": "https://www.tvheadend.org/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tvheadend-big.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "RUN_OPTS",
+      "hint": "Optionally specify additional arguments to be passed. See Additional runtime parameters.",
+      "required": false,
+      "env_variable": "TVHEADEND_RUN_OPTS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

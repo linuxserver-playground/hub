@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kavita-logo.png
+  urls:
+  - https://github.com/Kareadita/Kavita
+  - https://github.com/linuxserver-playground/docker-kavita
+services:
+  kavita:
+    image: ghcr.io/linuxserver-playground/kavita:latest
+    container_name: kavita
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_5000:-5000}:5000
+    restart: unless-stopped

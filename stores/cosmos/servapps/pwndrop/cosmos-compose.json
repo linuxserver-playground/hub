@@ -1,0 +1,54 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "SECRET_PATH",
+        "label": "Secret path for admin access. Defaults to /pwndrop. This parameter only takes effect during initial install; it can later be changed in the web gui.",
+        "initialValue": "/pwndrop",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/pwndrop:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "SECRET_PATH={Context.SECRET_PATH}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/kgretzky/pwndrop/master/media/pwndrop-logo-512.png",
+        "cosmos.stack": "{ServiceName}-pwndrop"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8080",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

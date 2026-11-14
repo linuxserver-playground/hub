@@ -1,0 +1,61 @@
+name: github-desktop
+services:
+  github-desktop:
+    image: ghcr.io/linuxserver-playground/github-desktop:latest
+    container_name: github-desktop
+    restart: unless-stopped
+    cap_add:
+    - IPC_LOCK
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/github-desktop/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Github Desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Github Desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: github-desktop
+  author: LinuxServer.io
+  developer: Github-desktop
+  category: Programming
+  description:
+    en_us: Github Desktop is an open source Electron-based GitHub app. It is written in TypeScript and uses React.
+  tagline:
+    en_us: Github Desktop is an open source Electron-based GitHub app
+  title:
+    en_us: Github-desktop
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/github-desktop-icon.png
+  store_app_id: github-desktop
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-github-desktop/builds/release-3.4.13-linux1-ls7/amd64/screenshot.png
+  port_map: '3000'

@@ -1,0 +1,42 @@
+name: modmanager
+services:
+  modmanager:
+    image: ghcr.io/linuxserver-playground/modmanager:latest
+    container_name: modmanager
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports: []
+      volumes: []
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: modmanager
+  author: LinuxServer.io
+  developer: Modmanager
+  category: Docker
+  description:
+    en_us: Modmanager is a centralised tool for downloading and updating docker mods for all your other Linuxserver containers.
+  tagline:
+    en_us: Modmanager is a centralised tool for downloading and updating docker mods for all your other Linuxserver containers
+  title:
+    en_us: Modmanager
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver-ls-logo.png
+  store_app_id: modmanager
+  index: /
+  scheme: http

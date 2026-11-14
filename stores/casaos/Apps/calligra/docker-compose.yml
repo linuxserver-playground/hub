@@ -1,0 +1,59 @@
+name: calligra
+services:
+  calligra:
+    image: ghcr.io/linuxserver-playground/calligra:latest
+    container_name: calligra
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/calligra/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Calligra desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Calligra desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: calligra
+  author: LinuxServer.io
+  developer: Calligra
+  category: Documents
+  description:
+    en_us: Calligra is an office and graphic art suite by KDE. It is available for desktop PCs, tablet computers, and smartphones. It contains applications for word processing, spreadsheets, presentation, vector graphics, and editing databases.
+  tagline:
+    en_us: Calligra is an office and graphic art suite by KDE
+  title:
+    en_us: Calligra
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calligra-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calligra-logo.png
+  store_app_id: calligra
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-calligra/builds/3.2.1-ls9/amd64/screenshot.png
+  port_map: '3000'

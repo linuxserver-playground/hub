@@ -1,0 +1,59 @@
+name: remmina
+services:
+  remmina:
+    image: ghcr.io/linuxserver-playground/remmina:latest
+    container_name: remmina
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/remmina/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Remmina desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Remmina desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: remmina
+  author: LinuxServer.io
+  developer: Remmina
+  category: Remote Desktop
+  description:
+    en_us: Remmina is a remote desktop client written in GTK, aiming to be useful for system administrators and travellers, who need to work with lots of remote computers in front of either large or tiny screens. Remmina supports multiple network protocols, in an integrated and consistent user interface. Currently RDP, VNC, SPICE, SSH and EXEC are supported.
+  tagline:
+    en_us: Remmina is a remote desktop client written in GTK, aiming to be useful for system administrators and travellers, who need to work with lots of remote computers in front of either large or tiny screens
+  title:
+    en_us: Remmina
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/remmina-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/remmina-icon.png
+  store_app_id: remmina
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-remmina/builds/1.4.43dfsg-0ubuntu0.26.04.2-ls8/amd64/screenshot.png
+  port_map: '3000'

@@ -1,0 +1,58 @@
+name: cura
+services:
+  cura:
+    image: ghcr.io/linuxserver-playground/cura:latest
+    container_name: cura
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/cura/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Cura desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Cura desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  main: cura
+  author: LinuxServer.io
+  developer: Cura
+  category: 3D Printing
+  description:
+    en_us: UltiMaker Cura is free, easy-to-use 3D printing software trusted by millions of users. Fine-tune your 3D model with 400+ settings for the best slicing and printing results.
+  tagline:
+    en_us: UltiMaker Cura is free, easy-to-use 3D printing software trusted by millions of users
+  title:
+    en_us: Cura
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cura-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cura-logo.png
+  store_app_id: cura
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-cura/builds/5.14.0-ls6/amd64/screenshot.png
+  port_map: '3000'

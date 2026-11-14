@@ -1,0 +1,15 @@
+services:
+  adguardhome-sync:
+    image: ghcr.io/linuxserver-playground/adguardhome-sync:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      CONFIGFILE: ${ADGUARDHOME_SYNC_CONFIGFILE}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 8080
+x-runtipi:
+  schema_version: 2

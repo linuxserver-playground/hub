@@ -1,0 +1,39 @@
+{
+  "name": "Nginx",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "nginx",
+  "tipi_version": 1,
+  "version": "1.30.6-r0",
+  "categories": [
+    "network"
+  ],
+  "description": "Nginx is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server.",
+  "short_desc": "Nginx is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-nginx",
+  "website": "https://nginx.org/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "NGINX_AUTORELOAD",
+      "hint": "Set to true to enable automatic reloading of confs on change without stopping/restarting nginx. Your filesystem must support inotify. This functionality was previously offered via mod.",
+      "required": false,
+      "env_variable": "NGINX_NGINX_AUTORELOAD"
+    },
+    {
+      "type": "text",
+      "label": "NGINX_AUTORELOAD_WATCHLIST",
+      "hint": "A pipe-separated list of additional folders for auto reload to watch in addition to /config/nginx",
+      "required": false,
+      "env_variable": "NGINX_NGINX_AUTORELOAD_WATCHLIST"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

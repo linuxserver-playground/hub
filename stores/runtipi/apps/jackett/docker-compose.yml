@@ -1,0 +1,17 @@
+services:
+  jackett:
+    image: ghcr.io/linuxserver-playground/jackett:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      AUTO_UPDATE: ${JACKETT_AUTO_UPDATE}
+      RUN_OPTS: ${JACKETT_RUN_OPTS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/downloads:/downloads
+    x-runtipi:
+      is_main: true
+      internal_port: 9117
+x-runtipi:
+  schema_version: 2

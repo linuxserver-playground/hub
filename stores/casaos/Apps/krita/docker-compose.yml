@@ -1,0 +1,58 @@
+name: krita
+services:
+  krita:
+    image: ghcr.io/linuxserver-playground/krita:latest
+    container_name: krita
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/krita/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Krita desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Krita desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: krita
+  author: LinuxServer.io
+  developer: Krita
+  category: Image Editor
+  description:
+    en_us: Krita is a professional FREE and open source painting program. It is made by artists that want to see affordable art tools for everyone.
+  tagline:
+    en_us: Krita is a professional FREE and open source painting program
+  title:
+    en_us: Krita
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/krita-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/krita-logo.png
+  store_app_id: krita
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-krita/builds/5.3.4.1-ls8/amd64/screenshot.png
+  port_map: '3000'

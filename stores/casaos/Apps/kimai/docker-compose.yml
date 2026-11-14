@@ -1,0 +1,73 @@
+name: kimai
+services:
+  kimai:
+    image: ghcr.io/linuxserver-playground/kimai:latest
+    container_name: kimai
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - APP_SECRET=
+    - DATABASE_URL=mysql://your_db_user:your_db_pass@your_db_host:3306/your_db_name?charset=your_db_charset&serverVersion=your_db_version
+    - TRUSTED_HOSTS=kimai.example.com
+    - TRUSTED_PROXIES=127.0.0.1/32
+    volumes:
+    - /DATA/AppData/kimai/config:/config
+    ports:
+    - 80:80
+    - 443:443
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: APP_SECRET
+        description:
+          en_us: Random string used for session encryption. Generate using e.g. openssl rand -hex 32.
+      - container: DATABASE_URL
+        description:
+          en_us: Configure your database connection, see Application Setup instructions.
+      - container: TRUSTED_HOSTS
+        description:
+          en_us: Domain or IP you will be using to access Kimai. Can be a regex like localhost|127.0.0.1|kimai.example.com
+      - container: TRUSTED_PROXIES
+        description:
+          en_us: If behind a reverse proxy set this to its IP or network CIDR so that Kimai trusts its headers.
+      ports:
+      - container: '80'
+        description:
+          en_us: http gui
+      - container: '443'
+        description:
+          en_us: https gui
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: kimai
+  author: LinuxServer.io
+  developer: Kimai
+  category: Finance
+  description:
+    en_us: 'Kimai is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users. Kimai was build to track your project times and ships with many advanced features, including but not limited to:'
+  tagline:
+    en_us: Kimai is a professional grade time-tracking application, free and open-source
+  title:
+    en_us: Kimai
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kimai-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kimai-logo.png
+  store_app_id: kimai
+  index: /
+  scheme: http
+  port_map: '80'

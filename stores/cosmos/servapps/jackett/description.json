@@ -1,0 +1,24 @@
+{
+  "name": "Jackett",
+  "longDescription": "<p>Jackett works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.</p>",
+  "description": "Jackett works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
+  "tags": [
+    "indexers",
+    "jackett",
+    "linuxserver"
+  ],
+  "repository": "https://github.com/linuxserver-playground/docker-jackett",
+  "image": "https://github.com/orgs/linuxserver-playground/packages/container/package/jackett",
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "id": "jackett",
+  "screenshots": [
+    "https://linuxserver-playground.github.io/docker-jackett/builds/v0.24.3065-ls15/amd64/screenshot.png"
+  ],
+  "logo": [],
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jackett-banner.png",
+  "artefacts": {},
+  "compose": "https://linuxserver-playground.github.io/hub/stores/cosmos/servapps/jackett/cosmos-compose.json"
+}

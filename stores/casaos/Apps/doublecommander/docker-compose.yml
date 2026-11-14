@@ -1,0 +1,63 @@
+name: doublecommander
+services:
+  doublecommander:
+    image: ghcr.io/linuxserver-playground/doublecommander:latest
+    container_name: doublecommander
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/doublecommander/config:/config
+    - /DATA/AppData/doublecommander/data:/data
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Double Commander desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Double Commander desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings.
+      - container: /data
+        description:
+          en_us: Host data directories, mount as many as needed.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: doublecommander
+  author: LinuxServer.io
+  developer: Doublecommander
+  category: Administration
+  description:
+    en_us: Double Commander is a free cross platform open source file manager with two panels side by side. It is inspired by Total Commander and features some new ideas.
+  tagline:
+    en_us: Double Commander is a free cross platform open source file manager with two panels side by side
+  title:
+    en_us: Doublecommander
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/doublecommander-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/doublecommander-icon.png
+  store_app_id: doublecommander
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-doublecommander/builds/6721684c-ls8/amd64/screenshot.png
+  port_map: '3000'

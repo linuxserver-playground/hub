@@ -1,0 +1,58 @@
+name: mediaelch
+services:
+  mediaelch:
+    image: ghcr.io/linuxserver-playground/mediaelch:latest
+    container_name: mediaelch
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/mediaelch/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: MediaElch desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: MediaElch desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  main: mediaelch
+  author: LinuxServer.io
+  developer: Mediaelch
+  category: Media Management
+  description:
+    en_us: MediaElch is a MediaManager for Kodi. Information about Movies, TV Shows, Concerts and Music are stored as nfo files. Fanarts are downloaded automatically from fanart.tv. Using the nfo generator, MediaElch can be used with other MediaCenters as well.
+  tagline:
+    en_us: MediaElch is a MediaManager for Kodi
+  title:
+    en_us: Mediaelch
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mediaelch-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mediaelch-logo.png
+  store_app_id: mediaelch
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-mediaelch/builds/v2.12.0-ls8/amd64/screenshot.png
+  port_map: '3000'

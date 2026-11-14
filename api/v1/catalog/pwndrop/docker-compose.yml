@@ -1,0 +1,15 @@
+---
+services:
+  pwndrop:
+    image: ghcr.io/linuxserver-playground/pwndrop:latest
+    container_name: pwndrop
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SECRET_PATH=/pwndrop #optional
+    volumes:
+      - /path/to/pwndrop/appdata:/config
+    ports:
+      - 8080:8080
+    restart: unless-stopped

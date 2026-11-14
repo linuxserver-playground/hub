@@ -1,0 +1,63 @@
+name: phpmyadmin
+services:
+  phpmyadmin:
+    image: ghcr.io/linuxserver-playground/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - PMA_ARBITRARY=1
+    - PMA_ABSOLUTE_URI=https://phpmyadmin.example.com
+    volumes:
+    - /DATA/AppData/phpmyadmin/config:/config
+    ports:
+    - 80:80
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: PMA_ARBITRARY
+        description:
+          en_us: Set to 1 to allow you to connect to any server. Setting to 0 will only allow you to connect to specified hosts (See Application Setup)
+      - container: PMA_ABSOLUTE_URI
+        description:
+          en_us: Set the URL you will use to access the web frontend
+      ports:
+      - container: '80'
+        description:
+          en_us: Port for web frontend
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: phpmyadmin
+  author: LinuxServer.io
+  developer: Phpmyadmin
+  category: Databases
+  description:
+    en_us: Phpmyadmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.
+  tagline:
+    en_us: Phpmyadmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web
+  title:
+    en_us: Phpmyadmin
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/phpmyadmin-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/phpmyadmin-logo.png
+  store_app_id: phpmyadmin
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-phpmyadmin/builds/5.2.3-ls7/amd64/screenshot.png
+  port_map: '80'

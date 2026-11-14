@@ -1,0 +1,71 @@
+name: emby
+services:
+  emby:
+    image: ghcr.io/linuxserver-playground/emby:latest
+    container_name: emby
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/emby/config:/config
+    - /DATA/AppData/emby/data/tvshows:/data/tvshows
+    - /DATA/AppData/emby/data/movies:/data/movies
+    - /DATA/AppData/emby/opt/vc/lib:/opt/vc/lib
+    ports:
+    - 8096:8096
+    - 8920:8920
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8096'
+        description:
+          en_us: Http webUI.
+      - container: '8920'
+        description:
+          en_us: Https webUI (you need to setup your own certificate).
+      volumes:
+      - container: /config
+        description:
+          en_us: Emby data storage location. This can grow very large, 50gb+ is likely for a large collection.
+      - container: /data/tvshows
+        description:
+          en_us: Media goes here. Add as many as needed e.g. /data/movies, /data/tv, etc.
+      - container: /data/movies
+        description:
+          en_us: Media goes here. Add as many as needed e.g. /data/movies, /data/tv, etc.
+      - container: /opt/vc/lib
+        description:
+          en_us: Path for Raspberry Pi OpenMAX libs optional.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: emby
+  author: LinuxServer.io
+  developer: Emby
+  category: Media Servers
+  description:
+    en_us: Emby organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.
+  tagline:
+    en_us: Emby organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices
+  title:
+    en_us: Emby
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/emby-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/emby-logo.png
+  store_app_id: emby
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-emby/builds/4.10.2.0-ls6/amd64/screenshot.png
+  port_map: '8096'

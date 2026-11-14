@@ -1,0 +1,59 @@
+name: obsidian
+services:
+  obsidian:
+    image: ghcr.io/linuxserver-playground/obsidian:latest
+    container_name: obsidian
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/obsidian/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Obsidian desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Obsidian desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: obsidian
+  author: LinuxServer.io
+  developer: Obsidian
+  category: Content Management
+  description:
+    en_us: Obsidian is a note-taking app that lets you create, link, and organize your notes on your device, with hundreds of plugins and themes to customize your workflow. You can also publish your notes online, access them offline, and sync them securely with end-to-end encryption.
+  tagline:
+    en_us: Obsidian is a note-taking app that lets you create, link, and organize your notes on your device, with hundreds of plugins and themes to customize your workflow
+  title:
+    en_us: Obsidian
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/obsidian-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/obsidian-logo.png
+  store_app_id: obsidian
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-obsidian/builds/v1.15.1-ls7/amd64/screenshot.png
+  port_map: '3000'

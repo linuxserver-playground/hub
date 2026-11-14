@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-apprise-api/blob/main/image.yml -->
+<Container version="2">
+    <Name>apprise-api</Name>
+    <Repository>ghcr.io/linuxserver-playground/apprise-api</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/apprise-api</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-apprise-api/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-apprise-api</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-apprise-api#readme</ReadMe>
+    <Project>https://github.com/caronc/apprise-api</Project>
+    <Overview>Apprise-api(https://github.com/caronc/apprise-api) Takes advantage of Apprise(https://github.com/caronc/apprise) through your network with a user-friendly API.</Overview>
+    <WebUI>http://[IP]:[PORT:8000]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/apprise-api.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/caronc/apprise-api/master/apprise_api/static/logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-apprise-api/builds/v2.1.0-ls8/amd64/screenshot.png</Screenshot>
+    <Date>2025-07-05</Date>
+    <Changes>
+### 2025-07-05
+- Rebase to Alpine 3.22.
+
+### 2024-12-24
+- Rebase to Alpine 3.21.
+
+### 2024-06-24
+- Rebase to Alpine 3.20.
+
+### 2023-12-23
+- Rebase to Alpine 3.19.
+
+### 2023-07-10
+- Rebase to Alpine 3.18.
+
+### 2023-07-01
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-02-11
+- Rebase to Alpine 3.17.
+
+### 2022-10-17
+- Rebase to alpine 3.16, migrate to S6V3
+
+### 2022-02-28
+- Rebase to alpine 3.15.
+
+### 2021-11-03
+- Increase uWSGI buffer size to 32kb.
+
+### 2021-05-16
+- Add linuxserver wheel index.
+
+### 2021-02-26
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8000" Default="8000" Mode="tcp" Description="Port for apprise&#x27;s interface and API." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /attachments" Target="/attachments" Default="" Mode="rw" Description="Temporary storage for attachments when sent with notifications." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="APPRISE_ATTACH_SIZE" Target="APPRISE_ATTACH_SIZE" Default="0" Description="Max attachment size in Mb. `0` disables attachments. Must have `/attachments` mounted to set to a positive value." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

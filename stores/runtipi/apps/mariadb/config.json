@@ -1,0 +1,72 @@
+{
+  "name": "Mariadb",
+  "available": true,
+  "exposable": true,
+  "port": 3306,
+  "id": "mariadb",
+  "tipi_version": 1,
+  "version": "11.8.9-r0",
+  "categories": [
+    "data"
+  ],
+  "description": "Mariadb is one of the most popular database servers. Made by the original developers of MySQL.",
+  "short_desc": "Mariadb is one of the most popular database servers",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-mariadb",
+  "website": "https://mariadb.org/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-git.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "MYSQL_ROOT_PASSWORD",
+      "hint": "Set this to root password for installation (minimum 4 characters & non-alphanumeric passwords must be properly escaped). (valid only for first run)",
+      "required": true,
+      "env_variable": "MARIADB_MYSQL_ROOT_PASSWORD",
+      "default": "ROOT_ACCESS_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "MYSQL_DATABASE",
+      "hint": "Specify the name of a database to be created. (valid only for first run)",
+      "required": false,
+      "env_variable": "MARIADB_MYSQL_DATABASE",
+      "default": "USER_DB_NAME"
+    },
+    {
+      "type": "text",
+      "label": "MYSQL_USER",
+      "hint": "This user will have superuser access to the database specified by MYSQLDATABASE (do not use root here). (valid only for first run)",
+      "required": false,
+      "env_variable": "MARIADB_MYSQL_USER",
+      "default": "MYSQL_USER"
+    },
+    {
+      "type": "password",
+      "label": "MYSQL_PASSWORD",
+      "hint": "Set this to the password you want to use for you MYSQLUSER (minimum 4 characters & non-alphanumeric passwords must be properly escaped). (valid only for first run)",
+      "required": false,
+      "env_variable": "MARIADB_MYSQL_PASSWORD",
+      "default": "DATABASE_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "REMOTE_SQL",
+      "hint": "Set this to ingest sql files from an http/https endpoint (comma seperated array).",
+      "required": false,
+      "env_variable": "MARIADB_REMOTE_SQL",
+      "default": "http://URL1/your.sql,https://URL2/your.sql"
+    },
+    {
+      "type": "text",
+      "label": "CLI_OPTS",
+      "hint": "Pass CLI options to mariadbd via mariadbd-safe. Use with caution as mariadbd option precedence is complex.",
+      "required": false,
+      "env_variable": "MARIADB_CLI_OPTS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

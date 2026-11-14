@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-wikijs/blob/master/image.yml -->
+<Container version="2">
+    <Name>wikijs</Name>
+    <Repository>ghcr.io/linuxserver-playground/wikijs</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/wikijs</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-wikijs/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-wikijs#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-wikijs#readme</ReadMe>
+    <Project>https://github.com/Requarks/wiki</Project>
+    <Overview>Wikijs(https://github.com/Requarks/wiki) A modern, lightweight and powerful wiki app built on NodeJS.</Overview>
+    <WebUI>http://[IP]:[PORT:3000]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/wikijs.xml</TemplateURL>
+    <Icon>https://static.requarks.io/logo/wikijs-full.svg</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-wikijs/builds/v2.5.317-ls9/amd64/screenshot.png</Screenshot>
+    <Date>2026-10-10</Date>
+    <Changes>
+### 2026-10-10
+- Rebase to Alpine 3.24, switch upstream repo to v2 maintenance repo.
+
+### 2025-10-14
+- Rebase to Alpine 3.22.
+
+### 2025-01-18
+- Rebase to Alpine 3.21.
+
+### 2024-06-01
+- Rebase to Alpine 3.20.
+
+### 2023-12-23
+- Rebase to Alpine 3.19.
+
+### 2023-08-25
+- Rebase to Alpine 3.18.
+
+### 2023-07-07
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-03-21
+- Restore git and openssh packages for git storage support.
+
+### 2023-03-21
+- Create dummy /etc/os-release to fix System Info page.
+
+### 2022-10-10
+- Rebasing to alpine 3.16, migrate to s6v3.
+
+### 2021-01-23
+- Rebasing to alpine 3.13.
+
+### 2020-06-01
+- Rebasing to alpine 3.12.
+
+### 2020-04-28
+- Added python dependency for some NPM modules as well as git for storage module
+
+### 2019-12-14
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Port for Wiki.js&#x27;s web interface." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /data" Target="/data" Default="" Mode="rw" Description="Where Wiki.js data is stored." Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_TYPE" Target="DB_TYPE" Default="sqlite" Description="Set to sqlite (default) or postgres depending on the database engine you wish to use" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_HOST" Target="DB_HOST" Default="" Description="DB hostname (postgres only)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_PORT" Target="DB_PORT" Default="" Description="DB port (postgres only)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_NAME" Target="DB_NAME" Default="" Description="DB name (postgres only)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_USER" Target="DB_USER" Default="" Description="DB username (postgres only)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_PASS" Target="DB_PASS" Default="" Description="DB password (postgres only)" Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

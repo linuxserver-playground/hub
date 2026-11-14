@@ -1,0 +1,59 @@
+name: piwigo
+services:
+  piwigo:
+    image: ghcr.io/linuxserver-playground/piwigo:latest
+    container_name: piwigo
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/piwigo/config:/config
+    - /DATA/AppData/piwigo/gallery:/gallery
+    ports:
+    - 80:80
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '80'
+        description:
+          en_us: Application WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /gallery
+        description:
+          en_us: Image storage for Piwigo
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: piwigo
+  author: LinuxServer.io
+  developer: Piwigo
+  category: Photos
+  description:
+    en_us: Piwigo is a photo gallery software for the web that comes with powerful features to publish and manage your collection of pictures.
+  tagline:
+    en_us: Piwigo is a photo gallery software for the web that comes with powerful features to publish and manage your collection of pictures
+  title:
+    en_us: Piwigo
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piwigo-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piwigo-banner.png
+  store_app_id: piwigo
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-piwigo/builds/16.5.0-ls8/amd64/screenshot.png
+  port_map: '80'

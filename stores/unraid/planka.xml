@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-planka/blob/main/image.yml -->
+<Container version="2">
+    <Name>planka</Name>
+    <Repository>ghcr.io/linuxserver-playground/planka</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/planka</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-planka/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-planka#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-planka#readme</ReadMe>
+    <Project>https://github.com/plankanban/planka/</Project>
+    <Overview>Planka(https://github.com/plankanban/planka/) is an elegant open source project tracking tool.</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/planka.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/planka-logo.png</Icon>
+    <Date>2026-08-24</Date>
+    <Changes>
+### 2026-08-24
+- Add python dep, apprise.
+
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2026-02-13
+- Rebase to Alpine 3.23. Updates for v2. Users should update `TRUST_PROXY` to use `true`/`false` instead of `1`/`0`.
+
+### 2025-01-12
+- Rebase to Alpine 3.21.
+
+### 2024-09-18
+- Update default user docs.
+
+### 2024-09-12
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="1337" Default="1337" Mode="tcp" Description="Planka web UI." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Local path for planka config files." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="BASE_URL" Target="BASE_URL" Default="https://planka.example.com" Description="The URL you will use to access planka including protocol, and port if not 80/443." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DATABASE_URL" Target="DATABASE_URL" Default="postgresql://user:password@planka-db:5432/planka" Description="Postgres database URL. Special characters must be url encoded(https://en.wikipedia.org/wiki/Percent-encoding)." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DEFAULT_ADMIN_EMAIL" Target="DEFAULT_ADMIN_EMAIL" Default="demo@demo.demo" Description="Email address for default user." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DEFAULT_ADMIN_USERNAME" Target="DEFAULT_ADMIN_USERNAME" Default="demo" Description="Username for default user." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DEFAULT_ADMIN_PASSWORD" Target="DEFAULT_ADMIN_PASSWORD" Default="demo" Description="Password for default user." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="DEFAULT_ADMIN_NAME" Target="DEFAULT_ADMIN_NAME" Default="Demo User" Description="Display name for default user." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="SECRET_KEY" Target="SECRET_KEY" Default="notasecretkey" Description="Session encryption key, recommended 32-64 character alphanumeric." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="TRUST_PROXY" Target="TRUST_PROXY" Default="false" Description="Set to `true` to trust upstream proxies if reverse proxying." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DEFAULT_LANGUAGE" Target="DEFAULT_LANGUAGE" Default="en-US" Description="This sets the default language for sending notifications per user (if a user hasn&#x27;t selected a language) and per board." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

@@ -1,0 +1,17 @@
+services:
+  calibre-web:
+    image: ghcr.io/linuxserver-playground/calibre-web:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      DOCKER_MODS: ${CALIBRE_WEB_DOCKER_MODS}
+      OAUTHLIB_RELAX_TOKEN_SCOPE: ${CALIBRE_WEB_OAUTHLIB_RELAX_TOKEN_SCOPE}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/books:/books
+    x-runtipi:
+      is_main: true
+      internal_port: 8083
+x-runtipi:
+  schema_version: 2

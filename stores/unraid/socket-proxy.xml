@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-socket-proxy/blob/main/image.yml -->
+<Container version="2">
+    <Name>socket-proxy</Name>
+    <Repository>ghcr.io/linuxserver-playground/socket-proxy</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/socket-proxy</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-socket-proxy/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-socket-proxy</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-socket-proxy#readme</ReadMe>
+    <Project>https://github.com/linuxserver-playground/docker-socket-proxy</Project>
+    <Overview>The Socket Proxy is a security-enhanced proxy which allows you to apply access rules to the Docker socket, limiting the attack surface for containers such as watchtower or Traefik that need to use it.</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/socket-proxy.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/docker-logo.png</Icon>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

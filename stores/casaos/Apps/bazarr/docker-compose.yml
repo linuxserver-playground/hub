@@ -1,0 +1,63 @@
+name: bazarr
+services:
+  bazarr:
+    image: ghcr.io/linuxserver-playground/bazarr:latest
+    container_name: bazarr
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/bazarr/config:/config
+    - /DATA/AppData/bazarr/movies:/movies
+    - /DATA/AppData/bazarr/tv:/tv
+    ports:
+    - 6767:6767
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '6767'
+        description:
+          en_us: Allows HTTP access to the internal webserver.
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /movies
+        description:
+          en_us: Location of your movies
+      - container: /tv
+        description:
+          en_us: Location of your TV Shows
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: bazarr
+  author: LinuxServer.io
+  developer: Bazarr
+  category: Media Management
+  description:
+    en_us: Bazarr is a companion application to Sonarr and Radarr. It can manage and download subtitles based on your requirements. You define your preferences by TV show or movie and Bazarr takes care of everything for you.
+  tagline:
+    en_us: Bazarr is a companion application to Sonarr and Radarr
+  title:
+    en_us: Bazarr
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png
+  store_app_id: bazarr
+  index: /system/status
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-bazarr/builds/v1.6.2-ls9/amd64/screenshot.png
+  port_map: '6767'

@@ -1,0 +1,39 @@
+{
+  "name": "Airsonic-advanced",
+  "available": true,
+  "exposable": true,
+  "port": 4040,
+  "id": "airsonic-advanced",
+  "tipi_version": 1,
+  "version": "11.1.4",
+  "categories": [
+    "media"
+  ],
+  "description": "Airsonic-advanced is a free, web-based media streamer, providing ubiquitious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
+  "short_desc": "Airsonic-advanced is a free, web-based media streamer, providing ubiquitious access to your music",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-airsonic-advanced",
+  "website": "https://github.com/kagemomiji/airsonic-advanced",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "CONTEXT_PATH",
+      "hint": "For setting url-base in reverse proxy setups.",
+      "required": false,
+      "env_variable": "AIRSONIC_ADVANCED_CONTEXT_PATH"
+    },
+    {
+      "type": "text",
+      "label": "JAVA_OPTS",
+      "hint": "For passing additional java options.",
+      "required": false,
+      "env_variable": "AIRSONIC_ADVANCED_JAVA_OPTS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

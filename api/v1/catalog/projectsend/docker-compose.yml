@@ -1,0 +1,15 @@
+---
+services:
+  projectsend:
+    image: ghcr.io/linuxserver-playground/projectsend:latest
+    container_name: projectsend
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/projectsend/config:/config
+      - /path/to/data:/data
+    ports:
+      - 80:80
+    restart: unless-stopped

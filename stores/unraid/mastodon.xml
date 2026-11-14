@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-mastodon/blob/main/image.yml -->
+<Container version="2">
+    <Name>mastodon</Name>
+    <Repository>ghcr.io/linuxserver-playground/mastodon</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/mastodon</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-mastodon/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-mastodon#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-mastodon#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable releases.</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>develop</Tag>
+        <TagDescription>Pre-releases *only*.</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-mastodon/tree/develop#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-mastodon/tree/develop#application-setup</GitHub>
+    </Branch>
+    <Branch>
+        <Tag>glitch</Tag>
+        <TagDescription>glitch-soc(https://github.com/glitch-soc/mastodon) fork releases.</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-mastodon/tree/glitch#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-mastodon/tree/glitch#application-setup</GitHub>
+    </Branch>
+    <Project>https://github.com/mastodon/mastodon/</Project>
+    <Overview>Mastodon(https://github.com/mastodon/mastodon/) is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones..</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/mastodon.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png</Icon>
+    <Date>2026-07-05</Date>
+    <Changes>
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2025-10-21
+- Add prometheus exporter support.
+
+### 2025-10-20
+- Add vips-heif.
+
+### 2025-07-08
+- Rebase to Alpine 3.22.
+
+### 2025-06-06
+- Rebase to Alpine 3.21, replace deprecated imagemagick with vips.
+
+### 2024-10-08
+- Rebase to Alpine 3.20, enable Active Record Encryption(https://github.com/mastodon/mastodon/pull/29831/files). Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2023-09-21
+- Rebase to Alpine 3.18, migrate to s6v3.
+
+### 2023-05-25
+- Adjust apk flags.
+
+### 2023-02-09
+- Add Glitch branch.
+
+### 2023-01-09
+- Updated nginx conf to fix bring inline with Mastodon configuration (fixes Elk integration).
+
+### 2022-12-19
+- Support separate sidekiq queue instances.
+
+### 2022-11-05
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="Port for web frontend" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 443" Target="443" Default="443" Mode="tcp" Description="Port for web frontend" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 9394" Target="9394" Default="9394" Mode="tcp" Description="Port for Prometheus metrics" Type="Port" Display="always" Required="false" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Contains all relevant configuration files." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="LOCAL_DOMAIN" Target="LOCAL_DOMAIN" Default="example.com" Description="This is the unique identifier of your server in the network. It cannot be safely changed later." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="REDIS_HOST" Target="REDIS_HOST" Default="redis" Description="Redis server hostname" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="REDIS_PORT" Target="REDIS_PORT" Default="6379" Description="Redis port" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_HOST" Target="DB_HOST" Default="db" Description="Postgres database hostname" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_USER" Target="DB_USER" Default="mastodon" Description="Postgres username" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_NAME" Target="DB_NAME" Default="mastodon" Description="Postgres db name" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_PASS" Target="DB_PASS" Default="mastodon" Description="Postgres password" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="DB_PORT" Target="DB_PORT" Default="5432" Description="Postgres port" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="ES_ENABLED" Target="ES_ENABLED" Default="false" Description="Enable or disable Elasticsearch (requires a separate ES instance)" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY" Target="ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY" Default="" Description="Primary key for Active Record Encryption(https://github.com/mastodon/mastodon/pull/29831/files)." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY" Target="ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY" Default="" Description="Deterministic key for Active Record Encryption(https://github.com/mastodon/mastodon/pull/29831/files)." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT" Target="ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT" Default="" Description="Derivation salt for Active Record Encryption(https://github.com/mastodon/mastodon/pull/29831/files)." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="SECRET_KEY_BASE" Target="SECRET_KEY_BASE" Default="" Description="Browser session secret. Changing it will break all active browser sessions." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="OTP_SECRET" Target="OTP_SECRET" Default="" Description="MFA secret. Changing it after initial setup will break two-factor authentication." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="VAPID_PRIVATE_KEY" Target="VAPID_PRIVATE_KEY" Default="" Description="Push notification private key. Changing it after initial setup will break push notifications." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="VAPID_PUBLIC_KEY" Target="VAPID_PUBLIC_KEY" Default="" Description="Push notification public key. Changing it after initial setup will break push notifications." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="SMTP_SERVER" Target="SMTP_SERVER" Default="mail.example.com" Description="SMTP server for email notifications" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="SMTP_PORT" Target="SMTP_PORT" Default="25" Description="SMTP server port" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="SMTP_LOGIN" Target="SMTP_LOGIN" Default="" Description="SMTP username" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="SMTP_PASSWORD" Target="SMTP_PASSWORD" Default="" Description="SMTP password" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="SMTP_FROM_ADDRESS" Target="SMTP_FROM_ADDRESS" Default="notifications@example.com" Description="From address for emails send from Mastodon" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="S3_ENABLED" Target="S3_ENABLED" Default="false" Description="Enable or disable S3 storage of uploaded files" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="WEB_DOMAIN" Target="WEB_DOMAIN" Default="mastodon.example.com" Description="This can be set if you want your server identifier to be different to the subdomain hosting Mastodon. See https://docs.joinmastodon.org/admin/config/#basic(https://docs.joinmastodon.org/admin/config/#basic)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="ES_HOST" Target="ES_HOST" Default="es" Description="Elasticsearch server hostname" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="ES_PORT" Target="ES_PORT" Default="9200" Description="Elasticsearch port" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="ES_USER" Target="ES_USER" Default="elastic" Description="Elasticsearch username" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="ES_PASS" Target="ES_PASS" Default="elastic" Description="Elasticsearch password" Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="S3_BUCKET" Target="S3_BUCKET" Default="" Description="S3 bucket hostname" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="AWS_ACCESS_KEY_ID" Target="AWS_ACCESS_KEY_ID" Default="" Description="S3 bucket access key ID" Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="AWS_SECRET_ACCESS_KEY" Target="AWS_SECRET_ACCESS_KEY" Default="" Description="S3 bucket secret access key" Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="S3_ALIAS_HOST" Target="S3_ALIAS_HOST" Default="" Description="Alternate hostname for object fetching if you are front the S3 connections." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="SIDEKIQ_ONLY" Target="SIDEKIQ_ONLY" Default="false" Description="Only run the sidekiq service in this container instance. For large scale instances that need better queue handling." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="SIDEKIQ_QUEUE" Target="SIDEKIQ_QUEUE" Default="" Description="The name of the sidekiq queue to run in this container. See notes(https://docs.joinmastodon.org/admin/scaling/#sidekiq-queues)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="SIDEKIQ_DEFAULT" Target="SIDEKIQ_DEFAULT" Default="false" Description="Set to `true` on the main container if you&#x27;re running additional sidekiq instances. It will run the `default` queue." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="SIDEKIQ_THREADS" Target="SIDEKIQ_THREADS" Default="5" Description="The number of threads for sidekiq to use. See notes(https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_POOL" Target="DB_POOL" Default="5" Description="The size of the DB connection pool, must be *at least* the same as `SIDEKIQ_THREADS`. See notes(https://docs.joinmastodon.org/admin/scaling/#sidekiq-threads)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="NO_CHOWN" Target="NO_CHOWN" Default="" Description="Set to `true` to skip chown of /config on init. *READ THE APPLICATION NOTES BEFORE SETTING THIS*." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="MASTODON_PROMETHEUS_EXPORTER_ENABLED" Target="MASTODON_PROMETHEUS_EXPORTER_ENABLED" Default="" Description="If set to `true`, Mastodon’s Ruby processes (web and Sidekiq) will enable the Prometheus instrumentation." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

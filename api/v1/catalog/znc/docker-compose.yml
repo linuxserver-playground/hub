@@ -1,0 +1,14 @@
+---
+services:
+  znc:
+    image: ghcr.io/linuxserver-playground/znc:latest
+    container_name: znc
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/znc/config:/config
+    ports:
+      - 6501:6501
+    restart: unless-stopped

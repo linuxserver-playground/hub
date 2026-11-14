@@ -1,0 +1,40 @@
+{
+  "name": "Jackett",
+  "available": true,
+  "exposable": true,
+  "port": 9117,
+  "id": "jackett",
+  "tipi_version": 1,
+  "version": "v0.24.3065",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Jackett works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
+  "short_desc": "Jackett works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracke",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-jackett",
+  "website": "https://github.com/Jackett/Jackett",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jackett-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "AUTO_UPDATE",
+      "hint": "Allow Jackett to update inside of the container.",
+      "required": false,
+      "env_variable": "JACKETT_AUTO_UPDATE",
+      "default": "true"
+    },
+    {
+      "type": "text",
+      "label": "RUN_OPTS",
+      "hint": "Optionally specify additional arguments to be passed.",
+      "required": false,
+      "env_variable": "JACKETT_RUN_OPTS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Kimai",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "kimai",
+  "tipi_version": 1,
+  "version": "2.72.0",
+  "categories": [
+    "finance"
+  ],
+  "description": "Kimai is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users. Kimai was build to track your project times and ships with many advanced features, including but not limited to:",
+  "short_desc": "Kimai is a professional grade time-tracking application, free and open-source",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-kimai",
+  "website": "https://kimai.org/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kimai-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "APP_SECRET",
+      "hint": "Random string used for session encryption. Generate using e.g. openssl rand -hex 32.",
+      "required": true,
+      "env_variable": "KIMAI_APP_SECRET"
+    },
+    {
+      "type": "text",
+      "label": "DATABASE_URL",
+      "hint": "Configure your database connection, see Application Setup instructions.",
+      "required": true,
+      "env_variable": "KIMAI_DATABASE_URL",
+      "default": "mysql://your_db_user:your_db_pass@your_db_host:3306/your_db_name?charset=your_db_charset&serverVersion=your_db_version"
+    },
+    {
+      "type": "text",
+      "label": "TRUSTED_HOSTS",
+      "hint": "Domain or IP you will be using to access Kimai. Can be a regex like localhost|127.0.0.1|kimai.example.com",
+      "required": true,
+      "env_variable": "KIMAI_TRUSTED_HOSTS",
+      "default": "kimai.example.com"
+    },
+    {
+      "type": "text",
+      "label": "TRUSTED_PROXIES",
+      "hint": "If behind a reverse proxy set this to its IP or network CIDR so that Kimai trusts its headers.",
+      "required": false,
+      "env_variable": "KIMAI_TRUSTED_PROXIES",
+      "default": "127.0.0.1/32"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

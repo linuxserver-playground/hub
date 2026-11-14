@@ -1,0 +1,58 @@
+name: lm-studio
+services:
+  lm-studio:
+    image: ghcr.io/linuxserver-playground/lm-studio:latest
+    container_name: lm-studio
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/lm-studio/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: LM Studio desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: LM Studio desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  main: lm-studio
+  author: LinuxServer.io
+  developer: Lm-studio
+  category: Remote Desktop
+  description:
+    en_us: LM Studio can run local AI models like gpt-oss, Llama, Gemma, Qwen, and DeepSeek privately on your computer.
+  tagline:
+    en_us: LM Studio can run local AI models like gpt-oss, Llama, Gemma, Qwen, and DeepSeek privately on your computer
+  title:
+    en_us: Lm-studio
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lmstudio-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lmstudio-logo.png
+  store_app_id: lm-studio
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-lm-studio/builds/2026-11-13-ls13/amd64/screenshot.png
+  port_map: '3000'

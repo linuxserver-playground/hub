@@ -1,0 +1,58 @@
+name: dogwalk
+services:
+  dogwalk:
+    image: ghcr.io/linuxserver-playground/dogwalk:latest
+    container_name: dogwalk
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/dogwalk/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP DOGWALK desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS DOGWALK desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: dogwalk
+  author: LinuxServer.io
+  developer: Dogwalk
+  category: Games
+  description:
+    en_us: DOGWALK is Blender Studio's long awaited second game project, focused on creating a bite-sized interactive storytelling playground. Play as a big adorable dog and explore the winter woods with a little kid.
+  tagline:
+    en_us: DOGWALK is Blender Studio's long awaited second game project, focused on creating a bite-sized interactive storytelling playground
+  title:
+    en_us: Dogwalk
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dogwalk-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/dogwalk-logo.png
+  store_app_id: dogwalk
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-dogwalk/builds/255efa2b-ls7/amd64/screenshot.png
+  port_map: '3000'

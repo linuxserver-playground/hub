@@ -1,0 +1,17 @@
+services:
+  emby:
+    image: ghcr.io/linuxserver-playground/emby:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data/tvshows:/data/tvshows
+    - ${APP_DATA_DIR}/data/data/movies:/data/movies
+    - ${APP_DATA_DIR}/data/opt/vc/lib:/opt/vc/lib
+    x-runtipi:
+      is_main: true
+      internal_port: 8096
+x-runtipi:
+  schema_version: 2

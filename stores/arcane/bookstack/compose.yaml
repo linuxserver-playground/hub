@@ -1,0 +1,25 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bookstack-logo.png
+  urls:
+  - https://codeberg.org/bookstack/bookstack
+  - https://github.com/linuxserver-playground/docker-bookstack
+services:
+  bookstack:
+    image: ghcr.io/linuxserver-playground/bookstack:latest
+    container_name: bookstack
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      APP_URL: ${APP_URL}
+      APP_KEY: ${APP_KEY}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_80:-6875}:80
+    restart: unless-stopped

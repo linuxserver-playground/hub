@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-librespeed/blob/master/image.yml -->
+<Container version="2">
+    <Name>librespeed</Name>
+    <Repository>ghcr.io/linuxserver-playground/librespeed</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/librespeed</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-librespeed/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-librespeed#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-librespeed#readme</ReadMe>
+    <Project>https://github.com/librespeed/speedtest</Project>
+    <Overview>Librespeed(https://github.com/librespeed/speedtest) is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.</Overview>
+    <WebUI>http://[IP]:[PORT:80]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/librespeed.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/librespeed/speedtest/master/.logo/logo3.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-librespeed/builds/v6.3.1-ls7/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-29</Date>
+    <Changes>
+### 2026-07-29
+- Rebase to Alpine 3.24. Enable new UI with additional settings files available in the config folder.
+
+### 2025-07-27
+- Rebase to Alpine 3.22.
+
+### 2024-06-27
+- Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2023-12-23
+- Rebase to Alpine 3.19 with php 8.3.
+
+### 2023-12-06
+- Replace php mysqli with php pdo_pgsql.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-05-14
+- Added support for ipinfo.io
+
+### 2023-01-20
+- Rebase to alpine 3.17 with php8.1.
+
+### 2022-08-20
+- Rebasing to alpine 3.15 with php8. Restructure nginx configs (see changes announcement(https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
+
+### 2021-03-01
+- Fix up database settings. Make sure `index.html` is recreated.
+
+### 2021-02-28
+- Added php7-ctype.
+
+### 2021-01-23
+- Rebasing to alpine 3.13.
+
+### 2020-06-01
+- Rebasing to alpine 3.12.
+
+### 2020-04-29
+- Add donation links for LibreSpeed to Github sponsor button and container log.
+
+### 2020-01-09
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="web gui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PASSWORD" Target="PASSWORD" Default="PASSWORD" Description="Set the password for the results database." Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="CUSTOM_RESULTS" Target="CUSTOM_RESULTS" Default="false" Description="(optional) set to `true` to enable custom results page in `/config/www/results/index.php`." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_TYPE" Target="DB_TYPE" Default="sqlite" Description="Defaults to `sqlite`, can also be set to `mysql` or `postgresql`." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_NAME" Target="DB_NAME" Default="DB_NAME" Description="Database name. Required for mysql and pgsql." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_HOSTNAME" Target="DB_HOSTNAME" Default="DB_HOSTNAME" Description="Database address. Required for mysql and pgsql." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_USERNAME" Target="DB_USERNAME" Default="DB_USERNAME" Description="Database username. Required for mysql and pgsql." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="DB_PASSWORD" Description="Database password. Required for mysql and pgsql." Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="DB_PORT" Target="DB_PORT" Default="DB_PORT" Description="Database port. Required for mysql." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="IPINFO_APIKEY" Target="IPINFO_APIKEY" Default="ACCESS_TOKEN" Description="Access token from ipinfo.io. Required for detailed IP information." Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

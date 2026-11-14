@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pydio-cells-icon.png
+  urls:
+  - https://pydio.com/
+  - https://github.com/linuxserver-playground/docker-pydio-cells
+services:
+  pydio-cells:
+    image: ghcr.io/linuxserver-playground/pydio-cells:latest
+    container_name: pydio-cells
+    hostname: pydio-cells
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      EXTERNALURL: ${EXTERNALURL:-yourdomain.url}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8080:-8080}:8080
+    restart: unless-stopped

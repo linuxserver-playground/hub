@@ -1,0 +1,59 @@
+name: libreoffice
+services:
+  libreoffice:
+    image: ghcr.io/linuxserver-playground/libreoffice:latest
+    container_name: libreoffice
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/libreoffice/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: LibreOffice desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: LibreOffice desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and documents
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: libreoffice
+  author: LinuxServer.io
+  developer: Libreoffice
+  category: Documents
+  description:
+    en_us: LibreOffice is a free and powerful office suite, and a successor to OpenOffice.org (commonly known as OpenOffice). Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity.
+  tagline:
+    en_us: LibreOffice is a free and powerful office suite, and a successor to OpenOffice.org (commonly known as OpenOffice)
+  title:
+    en_us: Libreoffice
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/libreoffice-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/libreoffice-logo.png
+  store_app_id: libreoffice
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-libreoffice/builds/25.8.7.3-r0-ls7/amd64/screenshot.png
+  port_map: '3000'

@@ -1,0 +1,180 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "SECRET_KEY",
+        "label": "A secret key used for cryptographic signing. Will generate a random value if one is not supplied and save it to /config/localsettings.py.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "SITE_ROOT",
+        "label": "The site's top-level URL and the port it listens to if different than 80 or 443 (e.g., https://healthchecks.example.com:8000).",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SITE_NAME",
+        "label": "The site's name (e.g., \"Example Corp HealthChecks\").",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SUPERUSER_EMAIL",
+        "label": "Superuser email.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SUPERUSER_PASSWORD",
+        "label": "Superuser password.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "ALLOWED_HOSTS",
+        "label": "A comma-separated list of valid hostnames for the server. Default is the domain portion of SITEROOT.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "APPRISE_ENABLED",
+        "label": "Set to True to enable the Apprise integration (https://github.com/caronc/apprise).",
+        "initialValue": "False",
+        "type": "text"
+      },
+      {
+        "name": "CSRF_TRUSTED_ORIGINS",
+        "label": "A list of trusted origins for unsafe requests (e.g. POST). Defaults to the value of SITEROOT.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DEBUG",
+        "label": "Set to False to disable. Debug mode relaxes CSRF protections and increases logging verbosity but should be disabled for production instances as it will impact performance and security.",
+        "initialValue": "True",
+        "type": "text"
+      },
+      {
+        "name": "DEFAULT_FROM_EMAIL",
+        "label": "From email for alerts.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "EMAIL_HOST",
+        "label": "SMTP host.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "EMAIL_PORT",
+        "label": "SMTP port.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "EMAIL_HOST_USER",
+        "label": "SMTP user.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "EMAIL_HOST_PASSWORD",
+        "label": "SMTP password.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "EMAIL_USE_TLS",
+        "label": "Use TLS for SMTP (True or False).",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+        "label": "Defaults to False. Set to True to allow integrations to connect to private IP addresses.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "PING_EMAIL_DOMAIN",
+        "label": "The domain to use for generating ping email addresses. Defaults to localhost.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "RP_ID",
+        "label": "If using webauthn for 2FA set this to match your Healthchecks domain. Webauthn will only work over https.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SITE_LOGO_URL",
+        "label": "Full URL to custom site logo.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/healthchecks:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "SECRET_KEY={Context.SECRET_KEY}",
+        "SITE_ROOT={Context.SITE_ROOT}",
+        "SITE_NAME={Context.SITE_NAME}",
+        "SUPERUSER_EMAIL={Context.SUPERUSER_EMAIL}",
+        "SUPERUSER_PASSWORD={Context.SUPERUSER_PASSWORD}",
+        "ALLOWED_HOSTS={Context.ALLOWED_HOSTS}",
+        "APPRISE_ENABLED={Context.APPRISE_ENABLED}",
+        "CSRF_TRUSTED_ORIGINS={Context.CSRF_TRUSTED_ORIGINS}",
+        "DEBUG={Context.DEBUG}",
+        "DEFAULT_FROM_EMAIL={Context.DEFAULT_FROM_EMAIL}",
+        "EMAIL_HOST={Context.EMAIL_HOST}",
+        "EMAIL_PORT={Context.EMAIL_PORT}",
+        "EMAIL_HOST_USER={Context.EMAIL_HOST_USER}",
+        "EMAIL_HOST_PASSWORD={Context.EMAIL_HOST_PASSWORD}",
+        "EMAIL_USE_TLS={Context.EMAIL_USE_TLS}",
+        "INTEGRATIONS_ALLOW_PRIVATE_IPS={Context.INTEGRATIONS_ALLOW_PRIVATE_IPS}",
+        "PING_EMAIL_DOMAIN={Context.PING_EMAIL_DOMAIN}",
+        "RP_ID={Context.RP_ID}",
+        "SITE_LOGO_URL={Context.SITE_LOGO_URL}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/healthchecks-logo.png",
+        "cosmos.stack": "{ServiceName}-healthchecks"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

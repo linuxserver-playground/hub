@@ -1,0 +1,17 @@
+---
+services:
+  msedge:
+    image: ghcr.io/linuxserver-playground/msedge:latest
+    container_name: msedge
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - EDGE_CLI=https://www.linuxserver.io/ #optional
+    volumes:
+      - /path/to/config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb"
+    restart: unless-stopped

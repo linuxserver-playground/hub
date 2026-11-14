@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-hedgedoc/blob/main/image.yml -->
+<Container version="2">
+    <Name>hedgedoc</Name>
+    <Repository>ghcr.io/linuxserver-playground/hedgedoc</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/hedgedoc</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-hedgedoc/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-hedgedoc#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-hedgedoc#readme</ReadMe>
+    <Project>https://hedgedoc.org/</Project>
+    <Overview>HedgeDoc(https://hedgedoc.org/) gives you access to all your files wherever you are.</Overview>
+    <WebUI>http://[IP]:[PORT:3000]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/hedgedoc.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-hedgedoc/builds/1.12.0-ls9/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-29</Date>
+    <Changes>
+### 2026-07-29
+- Rebase to Alpine 3.24.
+
+### 2025-10-14
+- Rebase to Alpine 3.22.
+
+### 2025-02-24
+- Add missing icu-data-full to fix bug with TextDecoder and image uploads.
+
+### 2024-06-21
+- Allow using `CMD_DB_DIALECT` to set up the `CMD_DB_URL`.
+
+### 2024-06-06
+- Rebase to Alpine 3.20.
+
+### 2023-12-23
+- Rebase to Alpine 3.19.
+
+### 2023-06-18
+- Rebase to Alpine 3.18, deprecate armhf as per https://www.linuxserver.io/armhf(https://www.linuxserver.io/armhf).
+
+### 2022-11-02
+- Rebase to Alpine 3.16, migrate to s6v3.
+
+### 2022-04-10
+- Use python3 to build node sqlite3.
+
+### 2022-02-10
+- Rebase to Alpine 3.15.
+
+### 2022-02-09
+- Add optional var `CMD_PORT` that is needed for accessing at port other than 80, 443 and 3000.
+
+### 2021-12-09
+- Add optional var `CMD_PROTOCOL_USESSL` that is needed for reverse proxy.
+
+### 2021-12-07
+- Rebase to ubuntu focal. Update to node 16. Make sure uploads are persistent.
+
+### 2021-10-15
+- Add required env var `CMD_DOMAIN`.
+
+### 2021-05-05
+- Remove symlinking some folders from config to /opt/hedgedoc/public.
+
+### 2021-05-03
+- Remove deprecated sequalizerc step.
+
+### 2020-12-22
+- Initial release
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Web gui port (internal port also needs to be changed if accessing at port other than 80, 443 and 3000)." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="DB_HOST" Target="DB_HOST" Default="hostname or ip" Description="Host address of mariadb database" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_PORT" Target="DB_PORT" Default="3306" Description="Port to access mariadb database default is 3306" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_USER" Target="DB_USER" Default="hedgedoc" Description="Database user" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_PASS" Target="DB_PASS" Default="secret password" Description="Database password" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="DB_NAME" Target="DB_NAME" Default="hedgedoc" Description="Database name" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="CMD_DOMAIN" Target="CMD_DOMAIN" Default="localhost" Description="The address the gui will be accessed at (ie. `192.168.1.1` or `hedgedoc.domain.com`)." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="CMD_URL_ADDPORT" Target="CMD_URL_ADDPORT" Default="false" Description="Set to `true` if using a port other than `80` or `443`." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="CMD_PROTOCOL_USESSL" Target="CMD_PROTOCOL_USESSL" Default="false" Description="Set to `true` if accessing over https via reverse proxy." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="CMD_PORT" Target="CMD_PORT" Default="3000" Description="If you wish to access hedgedoc at a port different than 80, 443 or 3000, you need to set this to that port (ie. `CMD_PORT=5000`) and change the port mapping accordingly (5000:5000)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="CMD_ALLOW_ORIGIN" Target="CMD_ALLOW_ORIGIN" Default="&#x27;localhost&#x27;" Description="Comma-separated list of allowed hostnames" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="CMD_DB_DIALECT" Target="CMD_DB_DIALECT" Default="" Description="This variable allows selecting a database engine (if DB_HOST not set up). Available options are: `mariadb`, `mysql`, `postgres`, `sqlite`." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

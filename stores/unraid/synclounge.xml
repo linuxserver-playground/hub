@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-synclounge/blob/master/image.yml -->
+<Container version="2">
+    <Name>synclounge</Name>
+    <Repository>ghcr.io/linuxserver-playground/synclounge</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/synclounge</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-synclounge/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-synclounge#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-synclounge#readme</ReadMe>
+    <Project>https://github.com/samcm/synclounge</Project>
+    <Overview>Synclounge(https://github.com/samcm/synclounge) is a third party tool that allows you to watch Plex in sync with your friends/family, wherever you are.</Overview>
+    <WebUI>http://[IP]:[PORT:8088]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/synclounge.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/synclounge-banner.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-synclounge/builds/5.2.35-ls7/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-15</Date>
+    <Changes>
+### 2026-07-15
+- Rebase to Alpine 3.24.
+
+### 2024-12-19
+- Add support for read-only and non-root operation.
+
+### 2024-12-05
+- Rebase to Alpine 3.21.
+
+### 2024-06-04
+- Rebase to Alpine 3.20.
+
+### 2023-08-26
+- Rebase to Alpine 3.19. Remove deprecated `AUTOJOIN_ENABLED` and `AUTOJOIN_ROOM` options.
+
+### 2023-08-26
+- Rebase to Alpine 3.18.
+
+### 2023-07-04
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2022-11-29
+- Rebase to alpine 3.17, upgrade to s6v3.
+
+### 2022-09-19
+- Rebase to alpine 3.15.
+
+### 2021-02-12
+- Fix optional dependency builds in aarch64 image.
+
+### 2021-02-12
+- Rebasing to alpine 3.13.
+
+### 2020-10-28
+- Update to v4. Env vars `EXTERNAL_URL`, `EXTERNAL_SERVER_PORT` and `AUTOJOIN_PASSWORD` are deprecated and no longer have any effect. Env vars `AUTOJOIN_ENABLED` and `AUTOJOIN_ROOM` are still working but will be removed in the future in favor of synclounge&#x27;s built-in var `autojoin__room`. If you are reverse proxying, do not forget to update your proxy settings (here(https://github.com/linuxserver/reverse-proxy-confs/blob/master/synclounge.subdomain.conf.sample) and here(https://github.com/linuxserver/reverse-proxy-confs/blob/master/synclounge.subfolder.conf.sample)) as the server port and addresses are changed.
+
+### 2020-10-11
+- Pin builds to upstream commit `6aecc9bd` while evaluating the breaking changes upstream.
+
+### 2020-09-27
+- Updating the external repo endpoint.
+
+### 2020-06-01
+- Rebasing to alpine 3.12.
+
+### 2020-05-11
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8088" Default="8088" Mode="tcp" Description="Web app and server port" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="AUTH_LIST" Target="AUTH_LIST" Default="plexuser1,plexuser2,email1,machineid1" Description="If set, only the users defined here and the users of the plex servers defined here will be able to access the server. Use e-mails, plex usernames and/or plex server machine ids, comma separated, no spaces." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

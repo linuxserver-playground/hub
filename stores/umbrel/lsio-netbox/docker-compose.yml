@@ -1,0 +1,38 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-netbox_server_1
+      APP_PORT: 8000
+  server:
+    image: ghcr.io/linuxserver-playground/netbox:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      SUPERUSER_EMAIL: ''
+      SUPERUSER_PASSWORD: ''
+      ALLOWED_HOST: ''
+      DB_NAME: ''
+      DB_USER: ''
+      DB_PASSWORD: ''
+      DB_HOST: ''
+      DB_PORT: ''
+      REDIS_HOST: ''
+      REDIS_PORT: ''
+      REDIS_USERNAME: ''
+      REDIS_PASSWORD: ''
+      REDIS_DB_TASK: ''
+      REDIS_DB_CACHE: ''
+      BASE_PATH: ''
+      CSRF_TRUSTED_ORIGINS: ''
+      REMOTE_AUTH_ENABLED: ''
+      REMOTE_AUTH_BACKEND: ''
+      REMOTE_AUTH_HEADER: ''
+      REMOTE_AUTH_AUTO_CREATE_USER: ''
+      REMOTE_AUTH_DEFAULT_GROUPS: ''
+      REMOTE_AUTH_DEFAULT_PERMISSIONS: ''
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config

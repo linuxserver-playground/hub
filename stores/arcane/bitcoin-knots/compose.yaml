@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bitcoin-knots-logo.png
+  urls:
+  - https://bitcoinknots.org/
+  - https://github.com/linuxserver-playground/docker-bitcoin-knots
+services:
+  bitcoin-knots:
+    image: ghcr.io/linuxserver-playground/bitcoin-knots:latest
+    container_name: bitcoin-knots
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_3000:-3000}:3000
+    - ${PORT_3001:-3001}:3001
+    - ${PORT_8333:-8333}:8333
+    restart: unless-stopped

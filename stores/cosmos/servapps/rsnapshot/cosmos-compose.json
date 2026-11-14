@@ -1,0 +1,38 @@
+{
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/rsnapshot:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rsnapshot.png",
+        "cosmos.stack": "{ServiceName}-rsnapshot"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-.snapshots",
+          "target": "/.snapshots",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-data",
+          "target": "/data",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped"
+    }
+  }
+}

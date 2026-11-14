@@ -1,0 +1,63 @@
+name: pyload-ng
+services:
+  pyload-ng:
+    image: ghcr.io/linuxserver-playground/pyload-ng:latest
+    container_name: pyload-ng
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/pyload-ng/config:/config
+    - /DATA/AppData/pyload-ng/downloads:/downloads
+    ports:
+    - 8000:8000
+    - 9666:9666
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8000'
+        description:
+          en_us: Allows HTTP access to the application
+      - container: '9666'
+        description:
+          en_us: Click'n'Load port.
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /downloads
+        description:
+          en_us: Destination of pyLoad downloads
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: pyload-ng
+  author: LinuxServer.io
+  developer: Pyload-ng
+  category: Downloaders
+  description:
+    en_us: pyLoad is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.
+  tagline:
+    en_us: pyLoad is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web
+  title:
+    en_us: Pyload-ng
+  icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/pyload-logo.png
+  thumbnail: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/pyload-logo.png
+  store_app_id: pyload-ng
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-pyload-ng/builds/0.5.0b3.dev102-ls8/amd64/screenshot.png
+  port_map: '8000'

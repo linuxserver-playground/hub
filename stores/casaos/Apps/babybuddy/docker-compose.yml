@@ -1,0 +1,59 @@
+name: babybuddy
+services:
+  babybuddy:
+    image: ghcr.io/linuxserver-playground/babybuddy:latest
+    container_name: babybuddy
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000,https://babybuddy.domain.com
+    volumes:
+    - /DATA/AppData/babybuddy/config:/config
+    ports:
+    - 8000:8000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: CSRF_TRUSTED_ORIGINS
+        description:
+          en_us: Add any address you'd like to access babybuddy at (comma separated, no spaces)
+      ports:
+      - container: '8000'
+        description:
+          en_us: the port for the web ui
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: babybuddy
+  author: LinuxServer.io
+  developer: Babybuddy
+  category: Family
+  description:
+    en_us: Babybuddy is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work.
+  tagline:
+    en_us: Babybuddy is a buddy for babies! Helps caregivers track sleep, feedings, diaper changes, tummy time and more to learn about and predict baby's needs without (as much) guess work
+  title:
+    en_us: Babybuddy
+  icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/babybuddy-logo.png
+  thumbnail: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/babybuddy-logo.png
+  store_app_id: babybuddy
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-babybuddy/builds/v2.11.0-ls7/amd64/screenshot.png
+  port_map: '8000'

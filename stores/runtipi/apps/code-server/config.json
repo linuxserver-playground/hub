@@ -1,0 +1,79 @@
+{
+  "name": "Code-server",
+  "available": true,
+  "exposable": true,
+  "port": 8443,
+  "id": "code-server",
+  "tipi_version": 1,
+  "version": "4.145.2",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Code-server is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
+  "short_desc": "Code-server is VS Code running on a remote server, accessible through the browser",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-code-server",
+  "website": "https://coder.com",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server-banner.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "PASSWORD",
+      "hint": "Optional web gui password, if PASSWORD or HASHEDPASSWORD is not provided, there will be no auth.",
+      "required": false,
+      "env_variable": "CODE_SERVER_PASSWORD",
+      "default": "password"
+    },
+    {
+      "type": "password",
+      "label": "HASHED_PASSWORD",
+      "hint": "Optional web gui password, overrides PASSWORD, instructions on how to create it is below.",
+      "required": false,
+      "env_variable": "CODE_SERVER_HASHED_PASSWORD"
+    },
+    {
+      "type": "password",
+      "label": "SUDO_PASSWORD",
+      "hint": "If this optional variable is set, user will have sudo access in the code-server terminal with the specified password.",
+      "required": false,
+      "env_variable": "CODE_SERVER_SUDO_PASSWORD",
+      "default": "password"
+    },
+    {
+      "type": "password",
+      "label": "SUDO_PASSWORD_HASH",
+      "hint": "Optionally set sudo password via hash (takes priority over SUDOPASSWORD var). Format is $type$salt$hashed.",
+      "required": false,
+      "env_variable": "CODE_SERVER_SUDO_PASSWORD_HASH"
+    },
+    {
+      "type": "text",
+      "label": "PROXY_DOMAIN",
+      "hint": "If this optional variable is set, this domain will be proxied for subdomain proxying. See Documentation",
+      "required": false,
+      "env_variable": "CODE_SERVER_PROXY_DOMAIN",
+      "default": "code-server.my.domain"
+    },
+    {
+      "type": "text",
+      "label": "DEFAULT_WORKSPACE",
+      "hint": "If this optional variable is set, code-server will open this directory by default",
+      "required": false,
+      "env_variable": "CODE_SERVER_DEFAULT_WORKSPACE",
+      "default": "/config/workspace"
+    },
+    {
+      "type": "text",
+      "label": "PWA_APPNAME",
+      "hint": "If this optional variable is set, the PWA app will the specified name.",
+      "required": false,
+      "env_variable": "CODE_SERVER_PWA_APPNAME",
+      "default": "code-server"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

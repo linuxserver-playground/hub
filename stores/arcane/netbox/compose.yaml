@@ -1,0 +1,32 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/netbox-logo.png
+  urls:
+  - https://github.com/netbox-community/netbox
+  - https://github.com/linuxserver-playground/docker-netbox
+services:
+  netbox:
+    image: ghcr.io/linuxserver-playground/netbox:latest
+    container_name: netbox
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      SUPERUSER_EMAIL: ${SUPERUSER_EMAIL}
+      SUPERUSER_PASSWORD: ${SUPERUSER_PASSWORD}
+      ALLOWED_HOST: ${ALLOWED_HOST}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_USERNAME: ${REDIS_USERNAME}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_DB_TASK: ${REDIS_DB_TASK}
+      REDIS_DB_CACHE: ${REDIS_DB_CACHE}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8000:-8000}:8000
+    restart: unless-stopped

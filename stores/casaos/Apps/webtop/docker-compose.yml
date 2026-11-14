@@ -1,0 +1,59 @@
+name: webtop
+services:
+  webtop:
+    image: ghcr.io/linuxserver-playground/webtop:latest
+    container_name: webtop
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/webtop/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Web Desktop GUI HTTP, must be proxied
+      - container: '3001'
+        description:
+          en_us: Web Desktop GUI HTTPS
+      volumes:
+      - container: /config
+        description:
+          en_us: abc users home directory
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: webtop
+  author: LinuxServer.io
+  developer: Webtop
+  category: Remote Desktop
+  description:
+    en_us: Webtop - Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser.
+  tagline:
+    en_us: Webtop - Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser
+  title:
+    en_us: Webtop
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png
+  store_app_id: webtop
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-webtop/builds/0b20faf3-ls7/amd64/screenshot.png
+  port_map: '3000'

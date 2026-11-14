@@ -1,0 +1,62 @@
+name: opera
+services:
+  opera:
+    image: ghcr.io/linuxserver-playground/opera:latest
+    container_name: opera
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - OPERA_CLI=https://www.linuxserver.io/
+    volumes:
+    - /DATA/AppData/opera/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: OPERA_CLI
+        description:
+          en_us: Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Opera desktop gui.
+      - container: '3001'
+        description:
+          en_us: HTTPS Opera desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: opera
+  author: LinuxServer.io
+  developer: Opera
+  category: Web Browser
+  description:
+    en_us: Opera is a multi-platform web browser developed by its namesake company Opera. The browser is based on Chromium, but distinguishes itself from other Chromium-based browsers (Chrome, Edge, etc.) through its user interface and other features.
+  tagline:
+    en_us: Opera is a multi-platform web browser developed by its namesake company Opera
+  title:
+    en_us: Opera
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/opera-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/opera-icon.png
+  store_app_id: opera
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-opera/builds/140.0.6074.18-ls7/amd64/screenshot.png
+  port_map: '3000'

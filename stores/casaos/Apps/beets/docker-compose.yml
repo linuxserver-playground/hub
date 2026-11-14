@@ -1,0 +1,63 @@
+name: beets
+services:
+  beets:
+    image: ghcr.io/linuxserver-playground/beets:latest
+    container_name: beets
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/beets/config:/config
+    - /DATA/AppData/beets/music:/music
+    - /DATA/AppData/beets/downloads:/downloads
+    ports:
+    - 8337:8337
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8337'
+        description:
+          en_us: Application WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /music
+        description:
+          en_us: Music library
+      - container: /downloads
+        description:
+          en_us: Non processed music
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: beets
+  author: LinuxServer.io
+  developer: Beets
+  category: Music
+  description:
+    en_us: Beets is a music library manager and not, for the most part, a music player. It does include a simple player plugin and an experimental Web-based player, but it generally leaves actual sound-reproduction to specialized tools.
+  tagline:
+    en_us: Beets is a music library manager and not, for the most part, a music player
+  title:
+    en_us: Beets
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/beets-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/beets-icon.png
+  store_app_id: beets
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-beets/builds/2.14.1-ls7/amd64/screenshot.png
+  port_map: '8337'

@@ -1,0 +1,18 @@
+services:
+  manyfold:
+    image: ghcr.io/linuxserver-playground/manyfold:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      DATABASE_URL: ${MANYFOLD_DATABASE_URL}
+      REDIS_URL: ${MANYFOLD_REDIS_URL}
+      SECRET_KEY_BASE: ${MANYFOLD_SECRET_KEY_BASE}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/libraries:/libraries
+    x-runtipi:
+      is_main: true
+      internal_port: 3214
+x-runtipi:
+  schema_version: 2

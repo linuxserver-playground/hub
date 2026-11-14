@@ -1,0 +1,57 @@
+name: luanti
+services:
+  luanti:
+    image: ghcr.io/linuxserver-playground/luanti:latest
+    container_name: luanti
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - CLI_ARGS=--gameid devtest
+    volumes:
+    - /DATA/AppData/luanti/config/.minetest:/config/.minetest
+    ports:
+    - 30000:30000/udp
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: CLI_ARGS
+        description:
+          en_us: Optionally specify any CLI variables you want to launch the app with
+      ports:
+      - container: '30000'
+        description:
+          en_us: Port Luanti listens on (UDP).
+      volumes:
+      - container: /config/.minetest
+        description:
+          en_us: Where luanti stores config files and maps etc.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: luanti
+  author: LinuxServer.io
+  developer: Luanti
+  category: Games
+  description:
+    en_us: Luanti (formerly Minetest) is an open source voxel game-creation platform with easy modding and game creation
+  tagline:
+    en_us: Luanti (formerly Minetest) is an open source voxel game-creation platform with easy modding and game creation
+  title:
+    en_us: Luanti
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minetest-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minetest-icon.png
+  store_app_id: luanti
+  index: /
+  scheme: http
+  port_map: '30000'

@@ -1,0 +1,17 @@
+---
+services:
+  homeassistant:
+    image: ghcr.io/linuxserver-playground/homeassistant:latest
+    container_name: homeassistant
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/homeassistant/data:/config
+    ports:
+      - 8123:8123 #optional
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0 #optional
+    restart: unless-stopped

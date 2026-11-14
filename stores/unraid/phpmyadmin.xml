@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-phpmyadmin/blob/main/image.yml -->
+<Container version="2">
+    <Name>phpmyadmin</Name>
+    <Repository>ghcr.io/linuxserver-playground/phpmyadmin</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/phpmyadmin</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-phpmyadmin/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-phpmyadmin#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-phpmyadmin#readme</ReadMe>
+    <Project>https://github.com/phpmyadmin/phpmyadmin/</Project>
+    <Overview>Phpmyadmin(https://github.com/phpmyadmin/phpmyadmin/) is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.</Overview>
+    <WebUI>http://[IP]:[PORT:80]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/phpmyadmin.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/phpmyadmin-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-phpmyadmin/builds/5.2.3-ls7/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-05</Date>
+    <Changes>
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2025-12-28
+- Rebase to Alpine 3.23.
+
+### 2025-08-23
+- Add support for mTLS. Existing users will need to delete their config.inc.php and restart the container.
+
+### 2025-07-05
+- Rebase to Alpine 3.22.
+
+### 2024-12-19
+- Rebase to Alpine 3.21.
+
+### 2024-05-27
+- Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2024-05-24
+- Rebase to Alpine 3.20.
+
+### 2023-12-28
+- Rebase to Alpine 3.19 with php 8.3.
+
+### 2023-12-25
+- Existing users should update: site-confs/default.conf - Cleanup default site conf.
+
+### 2023-09-06
+- Add support for custom themes.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-04-13
+- Move ssl.conf include to default.conf.
+
+### 2023-01-20
+- Rebase to alpine 3.17 with php8.1.
+
+### 2022-11-18
+- Rebasing to Alpine 3.16, migrate to s6v3.
+
+### 2022-08-20
+- Rebasing to Alpine 3.15 with php8. Restructure nginx configs (see changes announcement(https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
+
+### 2022-01-23
+- Pin versions to 5.x.x.
+
+### 2021-06-14
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="Port for web frontend" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PMA_ARBITRARY" Target="PMA_ARBITRARY" Default="1" Description="Set to `1` to allow you to connect to any server. Setting to `0` will only allow you to connect to specified hosts (See Application Setup)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PMA_ABSOLUTE_URI" Target="PMA_ABSOLUTE_URI" Default="https://phpmyadmin.example.com" Description="Set the URL you will use to access the web frontend" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

@@ -1,0 +1,58 @@
+name: winegui
+services:
+  winegui:
+    image: ghcr.io/linuxserver-playground/winegui:latest
+    container_name: winegui
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/winegui/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP WineGUI, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS WineGUI.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  main: winegui
+  author: LinuxServer.io
+  developer: Winegui
+  category: Games
+  description:
+    en_us: WineGUI is a user-interface friendly Wine manager that provides a graphical frontend for creating and managing Wine bottles.
+  tagline:
+    en_us: WineGUI is a user-interface friendly Wine manager that provides a graphical frontend for creating and managing Wine bottles
+  title:
+    en_us: Winegui
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/winegui-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/winegui-logo.png
+  store_app_id: winegui
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-winegui/builds/v4.5.2-ls7/amd64/screenshot.png
+  port_map: '3000'

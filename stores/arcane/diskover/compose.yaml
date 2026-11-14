@@ -1,0 +1,21 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/diskoverdata/diskover-community/master/diskover-web/public/images/diskover.png
+  urls:
+  - https://github.com/diskoverdata/diskover-community
+  - https://github.com/linuxserver-playground/docker-diskover
+services:
+  diskover:
+    image: ghcr.io/linuxserver-playground/diskover:latest
+    container_name: diskover
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      ES_HOST: ${ES_HOST:-elasticsearch}
+      ES_PORT: ${ES_PORT:-9200}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DATA_PATH:-./data}:/data
+    ports:
+    - ${PORT_80:-80}:80
+    restart: unless-stopped

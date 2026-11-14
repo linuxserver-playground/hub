@@ -1,0 +1,83 @@
+name: wikijs
+services:
+  wikijs:
+    image: ghcr.io/linuxserver-playground/wikijs:latest
+    container_name: wikijs
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - DB_TYPE=sqlite
+    - DB_HOST=
+    - DB_PORT=
+    - DB_NAME=
+    - DB_USER=
+    - DB_PASS=
+    volumes:
+    - /DATA/AppData/wikijs/config:/config
+    - /DATA/AppData/wikijs/data:/data
+    ports:
+    - 3000:3000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: DB_TYPE
+        description:
+          en_us: Set to sqlite (default) or postgres depending on the database engine you wish to use
+      - container: DB_HOST
+        description:
+          en_us: DB hostname (postgres only)
+      - container: DB_PORT
+        description:
+          en_us: DB port (postgres only)
+      - container: DB_NAME
+        description:
+          en_us: DB name (postgres only)
+      - container: DB_USER
+        description:
+          en_us: DB username (postgres only)
+      - container: DB_PASS
+        description:
+          en_us: DB password (postgres only)
+      ports:
+      - container: '3000'
+        description:
+          en_us: Port for Wiki.js's web interface.
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /data
+        description:
+          en_us: Where Wiki.js data is stored.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: wikijs
+  author: LinuxServer.io
+  developer: Wikijs
+  category: Content Management
+  description:
+    en_us: Wikijs A modern, lightweight and powerful wiki app built on NodeJS.
+  tagline:
+    en_us: Wikijs A modern, lightweight and powerful wiki app built on NodeJS
+  title:
+    en_us: Wikijs
+  icon: https://static.requarks.io/logo/wikijs-full.svg
+  thumbnail: https://static.requarks.io/logo/wikijs-full.svg
+  store_app_id: wikijs
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-wikijs/builds/v2.5.317-ls9/amd64/screenshot.png
+  port_map: '3000'

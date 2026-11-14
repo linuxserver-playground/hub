@@ -1,0 +1,20 @@
+services:
+  qbittorrent:
+    image: ghcr.io/linuxserver-playground/qbittorrent:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      WEBUI_PORT: ${QBITTORRENT_WEBUI_PORT}
+      TORRENTING_PORT: ${QBITTORRENT_TORRENTING_PORT}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/downloads:/downloads
+    ports:
+    - 6881:6881
+    - 6881:6881/udp
+    x-runtipi:
+      is_main: true
+      internal_port: 8080
+x-runtipi:
+  schema_version: 2

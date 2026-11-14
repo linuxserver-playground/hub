@@ -1,0 +1,79 @@
+name: airsonic-advanced
+services:
+  airsonic-advanced:
+    image: ghcr.io/linuxserver-playground/airsonic-advanced:latest
+    container_name: airsonic-advanced
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - CONTEXT_PATH=
+    - JAVA_OPTS=
+    volumes:
+    - /DATA/AppData/airsonic-advanced/config:/config
+    - /DATA/AppData/airsonic-advanced/music:/music
+    - /DATA/AppData/airsonic-advanced/playlists:/playlists
+    - /DATA/AppData/airsonic-advanced/podcasts:/podcasts
+    - /DATA/AppData/airsonic-advanced/media:/media
+    ports:
+    - 4040:4040
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: CONTEXT_PATH
+        description:
+          en_us: For setting url-base in reverse proxy setups.
+      - container: JAVA_OPTS
+        description:
+          en_us: For passing additional java options.
+      ports:
+      - container: '4040'
+        description:
+          en_us: WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Configuration file location.
+      - container: /music
+        description:
+          en_us: Location of music.
+      - container: /playlists
+        description:
+          en_us: Location for playlists to be saved to.
+      - container: /podcasts
+        description:
+          en_us: Location of podcasts.
+      - container: /media
+        description:
+          en_us: Location of other media.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: airsonic-advanced
+  author: LinuxServer.io
+  developer: Airsonic-advanced
+  category: Media Servers
+  description:
+    en_us: Airsonic-advanced is a free, web-based media streamer, providing ubiquitious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.
+  tagline:
+    en_us: Airsonic-advanced is a free, web-based media streamer, providing ubiquitious access to your music
+  title:
+    en_us: Airsonic-advanced
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-banner.png
+  store_app_id: airsonic-advanced
+  index: /login
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-airsonic-advanced/builds/11.1.4-ls7/amd64/screenshot.png
+  port_map: '4040'

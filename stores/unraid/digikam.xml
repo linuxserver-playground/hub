@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-digikam/blob/master/image.yml -->
+<Container version="2">
+    <Name>digikam</Name>
+    <Repository>ghcr.io/linuxserver-playground/digikam</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/digikam</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-digikam/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-digikam#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-digikam#readme</ReadMe>
+    <Project>https://www.digikam.org/</Project>
+    <Overview>digiKam(https://www.digikam.org/): Professional Photo Management with the Power of Open Source</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/digikam.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/digikam.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-digikam/builds/9.1.0-ls10/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-digikam#security for more information.
+    </Requires>
+    <Date>2026-04-03</Date>
+    <Changes>
+### 2026-04-03
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2026-03-21
+- Use Wayland ozone platform for chromium fixes scaling and acceleration.
+
+### 2025-12-28
+- Add Wayland init logic.
+
+### 2025-09-22
+- Rebase to Debian Trixie.
+
+### 2025-07-28
+- Fix CPU usage bug by disabling fake udev.
+
+### 2025-07-12
+- Rebase to Selkies, HTTPS IS NOW REQUIRED.
+
+### 2025-04-03
+- Update chromium launch options to improve performance.
+
+### 2024-11-25
+- Rebase to Debian using official appimage, drop aarch64 support.
+
+### 2024-02-10
+- Update Readme with new env vars and ingest proper PWA icon.
+
+### 2023-09-05
+- Add openexr dependency.
+
+### 2023-03-18
+- Rebase to KasmVNC base image.
+
+### 2023-01-20
+- Added breeze-icons package for icon support.
+
+### 2022-11-21
+- Trigger upon baseimage updates (arch being a rolling distro has too many dependency breaks otherwise). Release version will be the baseimage build date going forward.
+
+### 2022-10-20
+- Migrate to s6v3.
+
+### 2022-03-07
+- Add Exiftool and firefox for image exports.
+
+### 2022-02-20
+- Add MariaDB, expand documentation.
+
+### 2022-02-15
+- Rebase to Arch.
+
+### 2021-12-27
+- Rebase to focal to resolve dependency issues.
+
+### 2021-03-27
+- Download link fixed.
+
+### 2020-05-20
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Digikam desktop gui HTTP, must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="Digikam desktop gui HTTPS." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores database." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

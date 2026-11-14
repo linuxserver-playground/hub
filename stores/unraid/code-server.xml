@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-code-server/blob/master/image.yml -->
+<Container version="2">
+    <Name>code-server</Name>
+    <Repository>ghcr.io/linuxserver-playground/code-server</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/code-server</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-code-server/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-code-server#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-code-server#readme</ReadMe>
+    <Project>https://coder.com</Project>
+    <Overview>Code-server(https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you&#x27;re on the go. - All intensive computation runs on your server. - You&#x27;re no longer running excess instances of Chrome.</Overview>
+    <WebUI>http://[IP]:[PORT:8443]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/code-server.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server-banner.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-code-server/builds/4.145.2-ls9/amd64/screenshot.png</Screenshot>
+    <Date>2026-09-20</Date>
+    <Changes>
+### 2026-09-20
+- Add fallback for legacy or misconfigured systems without IPv6 support.
+
+### 2026-05-17
+- Fix container only listening on IPv6 when running non-root.
+
+### 2025-08-10
+- Let server listen on both ipv4 and ipv6.
+
+### 2025-06-03
+- Allow setting PWA name using env var `PWA_APPNAME`.
+
+### 2024-10-13
+- Only chown config folder when change to ownership or new install is detected.
+
+### 2024-10-09
+- Manage permissions in /config/.ssh according to file type
+
+### 2024-08-19
+- Rebase to Ubuntu Noble.
+
+### 2023-07-01
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2022-10-05
+- Install recommended deps to maintain parity with the older images.
+
+### 2022-09-29
+- Rebase to jammy, switch to s6v3. Fix chown logic to skip `/config/workspace` contents.
+
+### 2022-02-20
+- Install using the official tarballs.
+
+### 2021-12-29
+- Add `install-extension` as a helper for mods to install extensions.
+
+### 2021-12-06
+- Add `DEFAULT_WORKSPACE` env var.
+
+### 2021-11-29
+- Rebase to Ubuntu focal.
+
+### 2021-09-16
+- Fix slow `chown` on large workspace (contents of workspace folder no longer chowned).
+
+### 2021-07-11
+- Bump node to 14 to fix builds
+
+### 2021-05-08
+- Fix doc link
+
+### 2021-02-04
+- Allow setting gui password via hash using env var `HASHED_PASSWORD`.
+
+### 2020-12-23
+- Allow setting sudo password via hash using env var `SUDO_PASSWORD_HASH`.
+
+### 2020-05-29
+- Add --domain-proxy support.
+
+### 2020-05-21
+- Shrink images, install via yarn, fix arm32v7 build.
+
+### 2020-05-18
+- Switch to multi-arch images, install via npm.
+
+### 2020-04-29
+- Update start arguments.
+
+### 2020-04-01
+- Structural changes required for v3.
+
+### 2020-01-17
+- Fix artifact url retrieval from github.
+
+### 2019-10-24
+- Upgrade to v2 builds.
+
+### 2019-09-28
+- Update project logo.
+
+### 2019-09-21
+- Add development builds/tag.
+
+### 2019-07-09
+- Add optional sudo access.
+
+### 2019-07-01
+- Add nano.
+
+### 2019-06-24
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8443" Default="8443" Mode="tcp" Description="web gui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Contains all relevant configuration files." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PASSWORD" Target="PASSWORD" Default="password" Description="Optional web gui password, if `PASSWORD` or `HASHED_PASSWORD` is not provided, there will be no auth." Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="HASHED_PASSWORD" Target="HASHED_PASSWORD" Default="" Description="Optional web gui password, overrides `PASSWORD`, instructions on how to create it is below." Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="SUDO_PASSWORD" Target="SUDO_PASSWORD" Default="password" Description="If this optional variable is set, user will have sudo access in the code-server terminal with the specified password." Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="SUDO_PASSWORD_HASH" Target="SUDO_PASSWORD_HASH" Default="" Description="Optionally set sudo password via hash (takes priority over `SUDO_PASSWORD` var). Format is `$type$salt$hashed`." Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="PROXY_DOMAIN" Target="PROXY_DOMAIN" Default="code-server.my.domain" Description="If this optional variable is set, this domain will be proxied for subdomain proxying. See Documentation(https://github.com/coder/code-server/blob/main/docs/guide.md#using-a-subdomain)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DEFAULT_WORKSPACE" Target="DEFAULT_WORKSPACE" Default="/config/workspace" Description="If this optional variable is set, code-server will open this directory by default" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PWA_APPNAME" Target="PWA_APPNAME" Default="code-server" Description="If this optional variable is set, the PWA app will the specified name." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

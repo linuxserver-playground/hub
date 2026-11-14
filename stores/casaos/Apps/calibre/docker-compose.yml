@@ -1,0 +1,71 @@
+name: calibre
+services:
+  calibre:
+    image: ghcr.io/linuxserver-playground/calibre:latest
+    container_name: calibre
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - PASSWORD=
+    - CLI_ARGS=
+    volumes:
+    - /DATA/AppData/calibre/config:/config
+    ports:
+    - 8080:8080
+    - 8181:8181
+    - 8081:8081
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: PASSWORD
+        description:
+          en_us: Optionally set a password for the gui.
+      - container: CLI_ARGS
+        description:
+          en_us: Optionally pass cli start arguments to calibre.
+      ports:
+      - container: '8080'
+        description:
+          en_us: Calibre desktop gui (only for reverse proxy access).
+      - container: '8181'
+        description:
+          en_us: Calibre desktop gui HTTPS.
+      - container: '8081'
+        description:
+          en_us: Calibre webserver gui (needs to be enabled in gui settings first).
+      volumes:
+      - container: /config
+        description:
+          en_us: Where calibre should store its database and library.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: calibre
+  author: LinuxServer.io
+  developer: Calibre
+  category: Books
+  description:
+    en_us: Calibre is a powerful and easy to use e-book manager. Users say it's outstanding and a must-have. It'll allow you to do nearly everything and it takes things a step beyond normal e-book software. It's also completely free and open source and great for both casual users and computer experts.
+  tagline:
+    en_us: Calibre is a powerful and easy to use e-book manager
+  title:
+    en_us: Calibre
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-logo.png
+  store_app_id: calibre
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-calibre/builds/v9.18.0-ls9/amd64/screenshot.png
+  port_map: '8080'

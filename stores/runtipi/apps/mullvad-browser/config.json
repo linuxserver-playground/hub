@@ -1,0 +1,32 @@
+{
+  "name": "Mullvad-browser",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "mullvad-browser",
+  "tipi_version": 1,
+  "version": "16.0.1",
+  "categories": [
+    "network"
+  ],
+  "description": "The Mullvad Browser is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project. It’s designed to minimize tracking and fingerprinting. You could say it’s a Tor Browser to use without the Tor Network. Instead, you can use it with a trustworthy VPN.",
+  "short_desc": "The Mullvad Browser is a privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Projec",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-mullvad-browser",
+  "website": "https://mullvad.net/en/browser",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mullvad-browser-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "LOCAL_NET",
+      "hint": "If using a VPN, set this to your local LAN IP range using CIDR notation. Without it you will be unable to access the web interface. If you have multiple ranges or a complex LAN setup you will need to manage this yourself in the wg0.conf, see the App Setup section for details.",
+      "required": false,
+      "env_variable": "MULLVAD_BROWSER_LOCAL_NET",
+      "default": "192.168.0.0/16"
+    }
+  ],
+  "supported_architectures": [
+    "amd64"
+  ],
+  "dynamic_config": false
+}

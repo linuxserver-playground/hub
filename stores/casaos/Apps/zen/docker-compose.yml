@@ -1,0 +1,59 @@
+name: zen
+services:
+  zen:
+    image: ghcr.io/linuxserver-playground/zen:latest
+    container_name: zen
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/zen/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Zen desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Zen desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: zen
+  author: LinuxServer.io
+  developer: Zen
+  category: Web Browser
+  description:
+    en_us: Zen Browser is a free and open-source fork of Mozilla Firefox with a focus on privacy, customizability and design.
+  tagline:
+    en_us: Zen Browser is a free and open-source fork of Mozilla Firefox with a focus on privacy, customizability and design
+  title:
+    en_us: Zen
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/zen-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/zen-logo.png
+  store_app_id: zen
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-zen/builds/1.24.2b-ls11/amd64/screenshot.png
+  port_map: '3000'

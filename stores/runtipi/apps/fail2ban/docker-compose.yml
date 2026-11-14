@@ -1,0 +1,36 @@
+services:
+  fail2ban:
+    image: ghcr.io/linuxserver-playground/fail2ban:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      VERBOSITY: ${FAIL2BAN_VERBOSITY}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/var/log:ro:/var/log:ro
+    - ${APP_DATA_DIR}/data/remotelogs/airsonic:ro:/remotelogs/airsonic:ro
+    - ${APP_DATA_DIR}/data/remotelogs/apache2:ro:/remotelogs/apache2:ro
+    - ${APP_DATA_DIR}/data/remotelogs/authelia:ro:/remotelogs/authelia:ro
+    - ${APP_DATA_DIR}/data/remotelogs/emby:ro:/remotelogs/emby:ro
+    - ${APP_DATA_DIR}/data/remotelogs/filebrowser:ro:/remotelogs/filebrowser:ro
+    - ${APP_DATA_DIR}/data/remotelogs/homeassistant:ro:/remotelogs/homeassistant:ro
+    - ${APP_DATA_DIR}/data/remotelogs/lighttpd:ro:/remotelogs/lighttpd:ro
+    - ${APP_DATA_DIR}/data/remotelogs/nextcloud:ro:/remotelogs/nextcloud:ro
+    - ${APP_DATA_DIR}/data/remotelogs/nginx:ro:/remotelogs/nginx:ro
+    - ${APP_DATA_DIR}/data/remotelogs/nzbget:ro:/remotelogs/nzbget:ro
+    - ${APP_DATA_DIR}/data/remotelogs/overseerr:ro:/remotelogs/overseerr:ro
+    - ${APP_DATA_DIR}/data/remotelogs/prowlarr:ro:/remotelogs/prowlarr:ro
+    - ${APP_DATA_DIR}/data/remotelogs/radarr:ro:/remotelogs/radarr:ro
+    - ${APP_DATA_DIR}/data/remotelogs/sabnzbd:ro:/remotelogs/sabnzbd:ro
+    - ${APP_DATA_DIR}/data/remotelogs/sonarr:ro:/remotelogs/sonarr:ro
+    - ${APP_DATA_DIR}/data/remotelogs/unificontroller:ro:/remotelogs/unificontroller:ro
+    - ${APP_DATA_DIR}/data/remotelogs/vaultwarden:ro:/remotelogs/vaultwarden:ro
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

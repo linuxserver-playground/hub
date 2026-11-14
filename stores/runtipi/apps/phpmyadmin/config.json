@@ -1,0 +1,41 @@
+{
+  "name": "Phpmyadmin",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "phpmyadmin",
+  "tipi_version": 1,
+  "version": "5.2.3",
+  "categories": [
+    "data"
+  ],
+  "description": "Phpmyadmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.",
+  "short_desc": "Phpmyadmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-phpmyadmin",
+  "website": "https://github.com/phpmyadmin/phpmyadmin/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/phpmyadmin-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "PMA_ARBITRARY",
+      "hint": "Set to 1 to allow you to connect to any server. Setting to 0 will only allow you to connect to specified hosts (See Application Setup)",
+      "required": false,
+      "env_variable": "PHPMYADMIN_PMA_ARBITRARY",
+      "default": "1"
+    },
+    {
+      "type": "text",
+      "label": "PMA_ABSOLUTE_URI",
+      "hint": "Set the URL you will use to access the web frontend",
+      "required": false,
+      "env_variable": "PHPMYADMIN_PMA_ABSOLUTE_URI",
+      "default": "https://phpmyadmin.example.com"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

@@ -1,0 +1,59 @@
+name: pidgin
+services:
+  pidgin:
+    image: ghcr.io/linuxserver-playground/pidgin:latest
+    container_name: pidgin
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/pidgin/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Pidgin desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Pidgin desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: pidgin
+  author: LinuxServer.io
+  developer: Pidgin
+  category: IRC
+  description:
+    en_us: Pidgin is a chat program which lets you log into accounts on multiple chat networks simultaneously. This means that you can be chatting with friends on XMPP and sitting in an IRC channel at the same time.
+  tagline:
+    en_us: Pidgin is a chat program which lets you log into accounts on multiple chat networks simultaneously
+  title:
+    en_us: Pidgin
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pidgin-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pidgin-logo.png
+  store_app_id: pidgin
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-pidgin/builds/2.14.14-r0-ls9/amd64/screenshot.png
+  port_map: '3000'

@@ -1,0 +1,12 @@
+---
+services:
+  ddclient:
+    image: ghcr.io/linuxserver-playground/ddclient:latest
+    container_name: ddclient
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/ddclient/config:/config
+    restart: unless-stopped

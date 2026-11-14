@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-firefox_server_1
+      APP_PORT: 3000
+  server:
+    image: ghcr.io/linuxserver-playground/firefox:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      FIREFOX_CLI: https://www.linuxserver.io/
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 3001:3001

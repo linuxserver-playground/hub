@@ -1,0 +1,94 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "DB_TYPE",
+        "label": "Set to sqlite (default) or postgres depending on the database engine you wish to use",
+        "initialValue": "sqlite",
+        "type": "text"
+      },
+      {
+        "name": "DB_HOST",
+        "label": "DB hostname (postgres only)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PORT",
+        "label": "DB port (postgres only)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_NAME",
+        "label": "DB name (postgres only)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_USER",
+        "label": "DB username (postgres only)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PASS",
+        "label": "DB password (postgres only)",
+        "initialValue": "",
+        "type": "password"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/wikijs:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "DB_TYPE={Context.DB_TYPE}",
+        "DB_HOST={Context.DB_HOST}",
+        "DB_PORT={Context.DB_PORT}",
+        "DB_NAME={Context.DB_NAME}",
+        "DB_USER={Context.DB_USER}",
+        "DB_PASS={Context.DB_PASS}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://static.requarks.io/logo/wikijs-full.svg",
+        "cosmos.stack": "{ServiceName}-wikijs"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-data",
+          "target": "/data",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:3000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

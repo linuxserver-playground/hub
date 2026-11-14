@@ -1,0 +1,21 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/resilio-sync-logo.png
+  urls:
+  - https://www.resilio.com/individuals/
+  - https://github.com/linuxserver-playground/docker-resilio-sync
+services:
+  resilio-sync:
+    image: ghcr.io/linuxserver-playground/resilio-sync:latest
+    container_name: resilio-sync
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DOWNLOADS_PATH:-./downloads}:/downloads
+    - ${SYNC_PATH:-./sync}:/sync
+    ports:
+    - ${PORT_8888:-8888}:8888
+    - ${PORT_55555:-55555}:55555
+    restart: unless-stopped

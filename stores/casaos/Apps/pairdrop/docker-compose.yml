@@ -1,0 +1,66 @@
+name: pairdrop
+services:
+  pairdrop:
+    image: ghcr.io/linuxserver-playground/pairdrop:latest
+    container_name: pairdrop
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - RATE_LIMIT=false
+    - WS_FALLBACK=false
+    - RTC_CONFIG=
+    - DEBUG_MODE=false
+    ports:
+    - 3000:3000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: RATE_LIMIT
+        description:
+          en_us: Set to true to limit clients to 100 requests per 5 min
+      - container: WS_FALLBACK
+        description:
+          en_us: Set to true to enable websocket fallback if the peer to peer WebRTC connection is not available to the client (see App Setup notes).
+      - container: RTC_CONFIG
+        description:
+          en_us: Path to a json file containing custom STUN/TURN config (see App Setup notes)
+      - container: DEBUG_MODE
+        description:
+          en_us: Set to true to debug the http server configuration by logging clients IP addresses used by PairDrop to STDOUT. See here for more info. Do not use in production!
+      ports:
+      - container: '3000'
+        description:
+          en_us: http gui
+      volumes: []
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: pairdrop
+  author: LinuxServer.io
+  developer: Pairdrop
+  category: File Sharing
+  description:
+    en_us: PairDrop is a sublime alternative to AirDrop that works on all platforms. Send images, documents or text via peer to peer connection to devices in the same local network/Wi-Fi or to paired devices.
+  tagline:
+    en_us: PairDrop is a sublime alternative to AirDrop that works on all platforms
+  title:
+    en_us: Pairdrop
+  icon: https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png
+  thumbnail: https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png
+  store_app_id: pairdrop
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-pairdrop/builds/v1.11.2-ls6/amd64/screenshot.png
+  port_map: '3000'

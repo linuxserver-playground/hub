@@ -1,0 +1,63 @@
+name: radarr
+services:
+  radarr:
+    image: ghcr.io/linuxserver-playground/radarr:latest
+    container_name: radarr
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/radarr/config:/config
+    - /DATA/AppData/radarr/movies:/movies
+    - /DATA/AppData/radarr/downloads:/downloads
+    ports:
+    - 7878:7878
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '7878'
+        description:
+          en_us: The port for the Radarr Web UI
+      volumes:
+      - container: /config
+        description:
+          en_us: Database and Radarr configs
+      - container: /movies
+        description:
+          en_us: Location of Movie library on disk (See note in Application setup)
+      - container: /downloads
+        description:
+          en_us: Location of download managers output directory (See note in Application setup)
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: radarr
+  author: LinuxServer.io
+  developer: Radarr
+  category: Media Management
+  description:
+    en_us: Radarr - A fork of Sonarr to work with movies à la Couchpotato.
+  tagline:
+    en_us: Radarr - A fork of Sonarr to work with movies à la Couchpotato
+  title:
+    en_us: Radarr
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/radarr.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/radarr.png
+  store_app_id: radarr
+  index: /system/status
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-radarr/builds/6.4.4.10685-ls6/amd64/screenshot.png
+  port_map: '7878'

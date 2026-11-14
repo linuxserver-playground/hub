@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-git.png
+  urls:
+  - https://mariadb.org/
+  - https://github.com/linuxserver-playground/docker-mariadb
+services:
+  mariadb:
+    image: ghcr.io/linuxserver-playground/mariadb:latest
+    container_name: mariadb
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_3306:-3306}:3306
+    restart: unless-stopped

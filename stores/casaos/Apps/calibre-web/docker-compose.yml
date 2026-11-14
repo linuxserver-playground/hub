@@ -1,0 +1,67 @@
+name: calibre-web
+services:
+  calibre-web:
+    image: ghcr.io/linuxserver-playground/calibre-web:latest
+    container_name: calibre-web
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - DOCKER_MODS=linuxserver/mods:universal-calibre
+    - OAUTHLIB_RELAX_TOKEN_SCOPE=1
+    volumes:
+    - /DATA/AppData/calibre-web/config:/config
+    - /DATA/AppData/calibre-web/books:/books
+    ports:
+    - 8083:8083
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: DOCKER_MODS
+        description:
+          en_us: '#optional & x86-64 only Adds the ability to perform ebook conversion'
+      - container: OAUTHLIB_RELAX_TOKEN_SCOPE
+        description:
+          en_us: Optionally set this to allow Google OAUTH to work
+      ports:
+      - container: '8083'
+        description:
+          en_us: WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Where calibre-web stores the internal database and config.
+      - container: /books
+        description:
+          en_us: Where your preexisting calibre database is located.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: calibre-web
+  author: LinuxServer.io
+  developer: Calibre-web
+  category: Books
+  description:
+    en_us: Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre library through the app itself.
+  tagline:
+    en_us: Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database
+  title:
+    en_us: Calibre-web
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png
+  store_app_id: calibre-web
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-calibre-web/builds/0.6.27-ls9/amd64/screenshot.png
+  port_map: '8083'

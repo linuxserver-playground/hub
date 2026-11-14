@@ -1,0 +1,22 @@
+x-arcane:
+  icon: https://www.wireguard.com/img/wireguard.svg
+  urls:
+  - https://www.wireguard.com/
+  - https://github.com/linuxserver-playground/docker-wireguard
+services:
+  wireguard:
+    image: ghcr.io/linuxserver-playground/wireguard:latest
+    container_name: wireguard
+    cap_add:
+    - NET_ADMIN
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_51820_UDP:-51820}:51820/udp
+    sysctls:
+    - net.ipv4.conf.all.src_valid_mark=1
+    restart: unless-stopped

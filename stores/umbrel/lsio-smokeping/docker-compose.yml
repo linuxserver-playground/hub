@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-smokeping_server_1
+      APP_PORT: 80
+  server:
+    image: ghcr.io/linuxserver-playground/smokeping:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      MASTER_URL: http://<master-host-ip>:80/smokeping/
+      SHARED_SECRET: password
+      CACHE_DIR: /tmp
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data:/data

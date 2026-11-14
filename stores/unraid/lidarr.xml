@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-lidarr/blob/master/image.yml -->
+<Container version="2">
+    <Name>lidarr</Name>
+    <Repository>ghcr.io/linuxserver-playground/lidarr</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/lidarr</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-lidarr/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-lidarr#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-lidarr#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable Lidarr releases.</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>develop</Tag>
+        <TagDescription>Develop Lidarr Releases.</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-lidarr/tree/develop#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-lidarr/tree/develop#application-setup</GitHub>
+    </Branch>
+    <Branch>
+        <Tag>nightly</Tag>
+        <TagDescription>Nightly Lidarr Releases.</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-lidarr/tree/nightly#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-lidarr/tree/nightly#application-setup</GitHub>
+    </Branch>
+    <Project>https://github.com/lidarr/Lidarr</Project>
+    <Overview>Lidarr(https://github.com/lidarr/Lidarr) is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.</Overview>
+    <WebUI>http://[IP]:[PORT:8686]/system/status</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/lidarr.xml</TemplateURL>
+    <Icon>https://github.com/lidarr/Lidarr/raw/develop/Logo/400.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-lidarr/builds/3.1.6.5079-ls5/amd64/screenshot.png</Screenshot>
+    <Date>2026-10-19</Date>
+    <Changes>
+### 2026-10-19
+- Add krb5-libs for better postgresql support.
+
+### 2026-07-04
+- Rebase to Alpine 3.24.
+
+### 2026-01-15
+- Rebase to Alpine 3.23.
+
+### 2025-07-05
+- Rebase to Alpine 3.22.
+
+### 2024-12-23
+- Rebase to Alpine 3.21.
+
+### 2024-05-31
+- Rebase to Alpine 3.20.
+
+### 2024-03-20
+- Rebase to Alpine 3.19.
+
+### 2023-06-06
+- Rebase master to Alpine 3.18, deprecate armhf as per https://www.linuxserver.io/armhf(https://www.linuxserver.io/armhf).
+
+### 2023-01-17
+- Rebase master branch to Alpine 3.17, migrate to s6v3.
+
+### 2022-06-06
+- Rebase master branch to Alpine 3.15.
+
+### 2022-05-06
+- Rebase master branch to Focal.
+
+### 2022-05-06
+- Rebase develop branch to Alpine.
+
+### 2022-02-04
+- Rebase nightly branch to Alpine, deprecate nightly-alpine branch.
+
+### 2021-12-30
+- Add nightly-alpine branch.
+
+### 2021-08-01
+- Add libchromaprint-tools.
+
+### 2021-07-11
+- Make the paths clearer to the user.
+
+### 2021-04-18
+- Switch `latest` tag to net core.
+
+### 2021-01-25
+- Publish `develop` tag.
+
+### 2021-01-20
+- Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information.
+
+### 2020-04-18
+- Removed /downloads and /music volumes from Dockerfiles.
+
+### 2020-04-05
+- Move app to /app.
+
+### 2019-08-01
+- Rebase to Linuxserver LTS mono version.
+
+### 2019-06-13
+- Add env variable for setting umask.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-03-08
+- Rebase to Bionic, use proposed endpoint for libchromaprint.
+
+### 2019-01-26
+- Add pipeline logic and multi arch.
+
+### 2018-04-22
+- Switch to beta builds.
+
+### 2018-03-17
+- Add ENV XDG_CONFIG_HOME=&quot;/config/xdg&quot; to Dockerfile for signalr fix.
+
+### 2018-02-27
+- Use json to query for new version.
+
+### 2018-02-23
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8686" Default="8686" Mode="tcp" Description="Application WebUI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Configuration files for Lidarr." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /music" Target="/music" Default="" Mode="rw" Description="Music files (See note in Application setup)." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /downloads" Target="/downloads" Default="" Mode="rw" Description="Path to your download folder for music (See note in Application setup)." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

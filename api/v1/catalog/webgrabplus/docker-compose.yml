@@ -1,0 +1,15 @@
+---
+services:
+  webgrabplus:
+    image: ghcr.io/linuxserver-playground/webgrabplus:latest
+    container_name: webgrabplus
+    hostname: webgrabplus
+    mac_address: 00:00:00:00:00:00
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/webgrabplus/config:/config
+      - /path/to/data:/data
+    restart: unless-stopped

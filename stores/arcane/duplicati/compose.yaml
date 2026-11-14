@@ -1,0 +1,21 @@
+x-arcane:
+  icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/duplicati-icon.png
+  urls:
+  - https://www.duplicati.com/
+  - https://github.com/linuxserver-playground/docker-duplicati
+services:
+  duplicati:
+    image: ghcr.io/linuxserver-playground/duplicati:latest
+    container_name: duplicati
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      SETTINGS_ENCRYPTION_KEY: ${SETTINGS_ENCRYPTION_KEY}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${BACKUPS_PATH:-./backups}:/backups
+    - ${SOURCE_PATH:-./source}:/source
+    ports:
+    - ${PORT_8200:-8200}:8200
+    restart: unless-stopped

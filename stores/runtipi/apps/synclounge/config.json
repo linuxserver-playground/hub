@@ -1,0 +1,33 @@
+{
+  "name": "Synclounge",
+  "available": true,
+  "exposable": true,
+  "port": 8088,
+  "id": "synclounge",
+  "tipi_version": 1,
+  "version": "5.2.35",
+  "categories": [
+    "media"
+  ],
+  "description": "Synclounge is a third party tool that allows you to watch Plex in sync with your friends/family, wherever you are.",
+  "short_desc": "Synclounge is a third party tool that allows you to watch Plex in sync with your friends/family, wherever you are",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-synclounge",
+  "website": "https://github.com/samcm/synclounge",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/synclounge-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "AUTH_LIST",
+      "hint": "If set, only the users defined here and the users of the plex servers defined here will be able to access the server. Use e-mails, plex usernames and/or plex server machine ids, comma separated, no spaces.",
+      "required": false,
+      "env_variable": "SYNCLOUNGE_AUTH_LIST",
+      "default": "plexuser1,plexuser2,email1,machineid1"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

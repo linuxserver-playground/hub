@@ -1,0 +1,57 @@
+name: oscam
+services:
+  oscam:
+    image: ghcr.io/linuxserver-playground/oscam:latest
+    container_name: oscam
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/oscam/config:/config
+    ports:
+    - 8888:8888
+    devices:
+    - /dev/ttyUSB0:/dev/ttyUSB0
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8888'
+        description:
+          en_us: WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Where oscam should store config files and logs.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: oscam
+  author: LinuxServer.io
+  developer: Oscam
+  category: Media Tools
+  description:
+    en_us: Oscam is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards. It's both a server and a client.
+  tagline:
+    en_us: Oscam is an Open Source Conditional Access Module software used for descrambling DVB transmissions using smart cards
+  title:
+    en_us: Oscam
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png
+  store_app_id: oscam
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-oscam/builds/11976-ls10/amd64/screenshot.png
+  port_map: '8888'

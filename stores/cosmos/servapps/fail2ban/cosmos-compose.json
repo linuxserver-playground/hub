@@ -1,0 +1,133 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "VERBOSITY",
+        "label": "Set the container log verbosity. Valid options are -v, -vv, -vvv, -vvvv, or leaving the value blank or not setting the variable.",
+        "initialValue": "-vv",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/fail2ban:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "VERBOSITY={Context.VERBOSITY}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png",
+        "cosmos.stack": "{ServiceName}-fail2ban"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-var-log:ro",
+          "target": "/var/log:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-airsonic:ro",
+          "target": "/remotelogs/airsonic:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-apache2:ro",
+          "target": "/remotelogs/apache2:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-authelia:ro",
+          "target": "/remotelogs/authelia:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-emby:ro",
+          "target": "/remotelogs/emby:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-filebrowser:ro",
+          "target": "/remotelogs/filebrowser:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-homeassistant:ro",
+          "target": "/remotelogs/homeassistant:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-lighttpd:ro",
+          "target": "/remotelogs/lighttpd:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-nextcloud:ro",
+          "target": "/remotelogs/nextcloud:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-nginx:ro",
+          "target": "/remotelogs/nginx:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-nzbget:ro",
+          "target": "/remotelogs/nzbget:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-overseerr:ro",
+          "target": "/remotelogs/overseerr:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-prowlarr:ro",
+          "target": "/remotelogs/prowlarr:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-radarr:ro",
+          "target": "/remotelogs/radarr:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-sabnzbd:ro",
+          "target": "/remotelogs/sabnzbd:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-sonarr:ro",
+          "target": "/remotelogs/sonarr:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-unificontroller:ro",
+          "target": "/remotelogs/unificontroller:ro",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-remotelogs-vaultwarden:ro",
+          "target": "/remotelogs/vaultwarden:ro",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "cap_add": [
+        "NET_ADMIN",
+        "NET_RAW"
+      ]
+    }
+  }
+}

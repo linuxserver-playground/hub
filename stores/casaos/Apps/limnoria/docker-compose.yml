@@ -1,0 +1,53 @@
+name: limnoria
+services:
+  limnoria:
+    image: ghcr.io/linuxserver-playground/limnoria:latest
+    container_name: limnoria
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/limnoria/config:/config
+    ports:
+    - 8080:8080
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8080'
+        description:
+          en_us: Port for Limnoria's web interface.
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: limnoria
+  author: LinuxServer.io
+  developer: Limnoria
+  category: IRC
+  description:
+    en_us: Limnoria A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins. Successor of the well-known Supybot.
+  tagline:
+    en_us: Limnoria A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins
+  title:
+    en_us: Limnoria
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/limnoria-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/limnoria-icon.png
+  store_app_id: limnoria
+  index: /
+  scheme: http
+  port_map: '8080'

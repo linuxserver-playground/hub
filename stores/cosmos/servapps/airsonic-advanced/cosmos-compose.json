@@ -1,0 +1,81 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "CONTEXT_PATH",
+        "label": "For setting url-base in reverse proxy setups.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "JAVA_OPTS",
+        "label": "For passing additional java options.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/airsonic-advanced:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "CONTEXT_PATH={Context.CONTEXT_PATH}",
+        "JAVA_OPTS={Context.JAVA_OPTS}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-banner.png",
+        "cosmos.stack": "{ServiceName}-airsonic-advanced"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-music",
+          "target": "/music",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-playlists",
+          "target": "/playlists",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-podcasts",
+          "target": "/podcasts",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-media",
+          "target": "/media",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:4040",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

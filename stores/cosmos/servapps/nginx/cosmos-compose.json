@@ -1,0 +1,61 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "NGINX_AUTORELOAD",
+        "label": "Set to true to enable automatic reloading of confs on change without stopping/restarting nginx. Your filesystem must support inotify. This functionality was previously offered via mod.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "NGINX_AUTORELOAD_WATCHLIST",
+        "label": "A pipe-separated list of additional folders for auto reload to watch in addition to /config/nginx",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/nginx:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "NGINX_AUTORELOAD={Context.NGINX_AUTORELOAD}",
+        "NGINX_AUTORELOAD_WATCHLIST={Context.NGINX_AUTORELOAD_WATCHLIST}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png",
+        "cosmos.stack": "{ServiceName}-nginx"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:80",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+name: ngircd
+services:
+  ngircd:
+    image: ghcr.io/linuxserver-playground/ngircd:latest
+    container_name: ngircd
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/ngircd/config:/config
+    ports:
+    - 6667:6667
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '6667'
+        description:
+          en_us: ngircd port
+      volumes:
+      - container: /config
+        description:
+          en_us: Where ngircd.conf is stored
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: ngircd
+  author: LinuxServer.io
+  developer: Ngircd
+  category: IRC
+  description:
+    en_us: Ngircd is a free, portable and lightweight Internet Relay Chat server for small or private networks, developed under the GNU General Public License (GPL). It is easy to configure, can cope with dynamic IP addresses, and supports IPv6, SSL-protected connections as well as PAM for authentication. It is written from scratch and not based on the original IRCd.
+  tagline:
+    en_us: Ngircd is a free, portable and lightweight Internet Relay Chat server for small or private networks, developed under the GNU General Public License (GPL)
+  title:
+    en_us: Ngircd
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ngircd-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ngircd-logo.png
+  store_app_id: ngircd
+  index: /
+  scheme: http
+  port_map: '6667'

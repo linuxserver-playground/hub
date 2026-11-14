@@ -1,0 +1,63 @@
+name: chromium
+services:
+  chromium:
+    image: ghcr.io/linuxserver-playground/chromium:latest
+    container_name: chromium
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - CHROME_CLI=https://www.linuxserver.io/
+    volumes:
+    - /DATA/AppData/chromium/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: CHROME_CLI
+        description:
+          en_us: Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.
+      ports:
+      - container: '3000'
+        description:
+          en_us: HTTP Chromium desktop gui, must be proxied.
+      - container: '3001'
+        description:
+          en_us: HTTPS Chromium desktop gui.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores local files and settings
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: chromium
+  author: LinuxServer.io
+  developer: Chromium
+  category: Web Browser
+  description:
+    en_us: Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.
+  tagline:
+    en_us: Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web
+  title:
+    en_us: Chromium
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chromium-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chromium-logo.png
+  store_app_id: chromium
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-chromium/builds/c9d4d7bf-ls5/amd64/screenshot.png
+  port_map: '3000'

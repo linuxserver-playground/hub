@@ -1,0 +1,46 @@
+{
+  "name": "Ldap-auth",
+  "available": true,
+  "exposable": true,
+  "port": 8888,
+  "id": "ldap-auth",
+  "tipi_version": 1,
+  "version": "3.4.8",
+  "categories": [
+    "security"
+  ],
+  "description": "Ldap-auth software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
+  "short_desc": "Ldap-auth software is for authenticating users who request protected resources from servers proxied by nginx",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-ldap-auth",
+  "website": "https://github.com/nginxinc/nginx-ldap-auth",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ldap-auth-logo.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "FERNETKEY",
+      "hint": "Optionally define a custom valid fernet key (only needed if container is frequently recreated, or if using multi-node setups, invalidating previous authentications)",
+      "required": false,
+      "env_variable": "LDAP_AUTH_FERNETKEY"
+    },
+    {
+      "type": "text",
+      "label": "CERTFILE",
+      "hint": "Optionally point this to a certificate file to enable HTTP over SSL (HTTPS) for the ldap auth daemon",
+      "required": false,
+      "env_variable": "LDAP_AUTH_CERTFILE"
+    },
+    {
+      "type": "password",
+      "label": "KEYFILE",
+      "hint": "Optionally point this to the private key file, matching the certificate file referred to in CERTFILE",
+      "required": false,
+      "env_variable": "LDAP_AUTH_KEYFILE"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

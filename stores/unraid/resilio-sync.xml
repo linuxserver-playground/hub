@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-resilio-sync/blob/master/image.yml -->
+<Container version="2">
+    <Name>resilio-sync</Name>
+    <Repository>ghcr.io/linuxserver-playground/resilio-sync</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/resilio-sync</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-resilio-sync/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-resilio-sync#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-resilio-sync#readme</ReadMe>
+    <Project>https://www.resilio.com/individuals/</Project>
+    <Overview>Resilio-sync(https://www.resilio.com/individuals/) (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both. There is an official sync image but we created this one as it supports user mapping to simplify permissions for volumes.</Overview>
+    <WebUI>http://[IP]:[PORT:8888]/gui</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/resilio-sync.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/resilio-sync-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-resilio-sync/builds/3.1.2.1076-1-ls4/amd64/screenshot.png</Screenshot>
+    <Date>2024-08-21</Date>
+    <Changes>
+### 2024-08-21
+- Rebase to Noble.
+
+### 2023-07-03
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2022-12-14
+- Rebase to Jammy, migrate to s6v3.
+
+### 2021-10-03
+- Use upstream apt repo to install. Rebase to focal.
+
+### 2021-01-20
+- Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-02-11
+- Rebase to bionic, add pipeline logic and multi arch.
+
+### 2018-02-05
+- Add downloads volume mount.
+
+### 2018-01-28
+- Add /sync to dir whitelist.
+
+### 2018-01-26
+- Use variable for arch to bring in line with armhf arch repo.
+
+### 2017-12-15
+- Fix continuation lines.
+
+### 2017-06-02
+- Rebase to ubuntu xenial, alpine linux no longer works with resilio.
+
+### 2017-05-22
+- Add variable for user defined umask.
+
+### 2017-05-14
+- Use fixed version instead of latest, while 2.5.0 is broken on non glibc (alpine).
+
+### 2017-02-08
+- Rebase to alpine 3.5.
+
+### 2016-11-02
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8888" Default="8888" Mode="tcp" Description="WebUI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 55555" Target="55555" Default="55555" Mode="tcp" Description="Sync Port." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Where resilio-sync should store its config file." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /downloads" Target="/downloads" Default="" Mode="rw" Description="Folder for downloads/cache." Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="Path: /sync" Target="/sync" Default="" Mode="rw" Description="Sync folders root." Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

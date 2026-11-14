@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/SergiX44/XBackBone/master/docs/img/xbackbone.png
+  urls:
+  - https://github.com/SergiX44/XBackBone
+  - https://github.com/linuxserver-playground/docker-xbackbone
+services:
+  xbackbone:
+    image: ghcr.io/linuxserver-playground/xbackbone:latest
+    container_name: xbackbone
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_80:-80}:80
+    - ${PORT_443:-443}:443
+    restart: unless-stopped

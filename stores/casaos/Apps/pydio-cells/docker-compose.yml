@@ -1,0 +1,63 @@
+name: pydio-cells
+services:
+  pydio-cells:
+    image: ghcr.io/linuxserver-playground/pydio-cells:latest
+    container_name: pydio-cells
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - EXTERNALURL=yourdomain.url
+    - SERVER_IP=0.0.0.0
+    volumes:
+    - /DATA/AppData/pydio-cells/config:/config
+    ports:
+    - 8080:8080
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: EXTERNALURL
+        description:
+          en_us: The external url you would like to use to access Pydio Cells (Can be https://domain.url or https://IP:PORT).
+      - container: SERVER_IP
+        description:
+          en_us: Enter the LAN IP of the docker server. Required for local access by IP, added to self signed cert as SAN (not required if accessing only through reverse proxy).
+      ports:
+      - container: '8080'
+        description:
+          en_us: Http port
+      volumes:
+      - container: /config
+        description:
+          en_us: All the config files reside here.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: pydio-cells
+  author: LinuxServer.io
+  developer: Pydio-cells
+  category: File Sharing
+  description:
+    en_us: Pydio-cells is the nextgen file sharing platform for organizations. It is a full rewrite of the Pydio project using the Go language following a micro-service architecture.
+  tagline:
+    en_us: Pydio-cells is the nextgen file sharing platform for organizations
+  title:
+    en_us: Pydio-cells
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pydio-cells-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pydio-cells-icon.png
+  store_app_id: pydio-cells
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-pydio-cells/builds/v5.1.1-ls6/amd64/screenshot.png
+  port_map: '8080'

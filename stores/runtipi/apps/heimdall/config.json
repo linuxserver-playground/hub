@@ -1,0 +1,33 @@
+{
+  "name": "Heimdall",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "heimdall",
+  "tipi_version": 1,
+  "version": "v2.8.4",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
+  "short_desc": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-heimdall",
+  "website": "https://heimdall.site",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "ALLOW_INTERNAL_REQUESTS",
+      "hint": "By default, Heimdall blocks lookup requests to private or reserved IP addresses, if your instance is not exposed to the internet, or is behind some level of authentication, you can set this to true to allow requests to private IP addresses.",
+      "required": false,
+      "env_variable": "HEIMDALL_ALLOW_INTERNAL_REQUESTS",
+      "default": "false"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

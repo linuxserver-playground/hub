@@ -1,0 +1,61 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "EXTERNALURL",
+        "label": "The external url you would like to use to access Pydio Cells (Can be https://domain.url or https://IP:PORT).",
+        "initialValue": "yourdomain.url",
+        "type": "text"
+      },
+      {
+        "name": "SERVER_IP",
+        "label": "Enter the LAN IP of the docker server. Required for local access by IP, added to self signed cert as SAN (not required if accessing only through reverse proxy).",
+        "initialValue": "0.0.0.0",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/pydio-cells:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "EXTERNALURL={Context.EXTERNALURL}",
+        "SERVER_IP={Context.SERVER_IP}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pydio-cells-icon.png",
+        "cosmos.stack": "{ServiceName}-pydio-cells"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "https://{ServiceName}:8080",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

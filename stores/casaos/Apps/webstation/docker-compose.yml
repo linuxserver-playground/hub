@@ -1,0 +1,58 @@
+name: webstation
+services:
+  webstation:
+    image: ghcr.io/linuxserver-playground/webstation:latest
+    container_name: webstation
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/webstation/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Webstation desktop gui HTTP must be proxied.
+      - container: '3001'
+        description:
+          en_us: Webstation desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores all files and games.
+x-casaos:
+  architectures:
+  - amd64
+  main: webstation
+  author: LinuxServer.io
+  developer: Webstation
+  category: Games
+  description:
+    en_us: Webstation is a web native emulation focused LXQt desktop based on Ubuntu.
+  tagline:
+    en_us: Webstation is a web native emulation focused LXQt desktop based on Ubuntu
+  title:
+    en_us: Webstation
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webstation-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webstation-logo.png
+  store_app_id: webstation
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-webstation/builds/7a1556f5-ls7/amd64/screenshot.png
+  port_map: '3000'

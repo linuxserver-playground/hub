@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ombi.png
+  urls:
+  - https://ombi.io
+  - https://github.com/linuxserver-playground/docker-ombi
+services:
+  ombi:
+    image: ghcr.io/linuxserver-playground/ombi:latest
+    container_name: ombi
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_3579:-3579}:3579
+    restart: unless-stopped

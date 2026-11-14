@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-speedtest-tracker/blob/main/image.yml -->
+<Container version="2">
+    <Name>speedtest-tracker</Name>
+    <Repository>ghcr.io/linuxserver-playground/speedtest-tracker</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/speedtest-tracker</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-speedtest-tracker/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-speedtest-tracker#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-speedtest-tracker#readme</ReadMe>
+    <Project>https://github.com/alexjustesen/speedtest-tracker</Project>
+    <Overview>Speedtest-tracker(https://github.com/alexjustesen/speedtest-tracker) is a self-hosted internet performance tracking application that runs speedtest checks against Ookla&#x27;s Speedtest service.</Overview>
+    <WebUI>http://[IP]:[PORT:80]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/speedtest-tracker.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/speedtest-tracker-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-speedtest-tracker/builds/v1.15.1-ls6/amd64/screenshot.png</Screenshot>
+    <Date>2026-07-05</Date>
+    <Changes>
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2025-10-11
+- Update nginx configs for v1.7.2. Existing users should update their nginx confs to avoid errors.
+
+### 2025-07-05
+- Rebase to Alpine 3.22.
+
+### 2024-12-20
+- Rebase to Alpine 3.21.
+
+### 2024-06-07
+- Cache Filament components and added APP_KEY as a required param.
+
+### 2024-05-27
+- Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2024-05-24
+- Rebase to Alpine 3.20.
+
+### 2024-04-16
+- Rebase to Alpine 3.19, upgrade to php 8.3.
+
+### 2024-02-10
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="Web UI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Contains speedtest-tracker config and database, if using sqlite." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="APP_KEY" Target="APP_KEY" Default="" Description="App key used for encrypting stored data. You can generate a key as per https://speedtest-tracker.dev(https://docs.speedtest-tracker.dev/getting-started/installation/using-docker-compose#install-with-docker-compose)" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="APP_URL" Target="APP_URL" Default="" Description="The IP:port or URL your application will be accessed on (ie. `http://192.168.1.1:6875` or `https://bookstack.mydomain.com`" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_CONNECTION" Target="DB_CONNECTION" Default="sqlite" Description="Set the database type to use. `sqlite`, `pgsql`, or `mysql`" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="SPEEDTEST_SCHEDULE" Target="SPEEDTEST_SCHEDULE" Default="" Description="Set the test schedule in cron format. e.g. `0 */6 * * *`" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="SPEEDTEST_SERVERS" Target="SPEEDTEST_SERVERS" Default="" Description="A comma-separated list of server IDs to test against. Run `docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/speedtest-tracker:latest list-servers` to get a list of nearby servers." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_HOST" Target="DB_HOST" Default="" Description="Database hostname (postgres/mysql)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_PORT" Target="DB_PORT" Default="" Description="Database port (postgres/mysql)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_DATABASE" Target="DB_DATABASE" Default="" Description="Database name (postgres/mysql)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_USERNAME" Target="DB_USERNAME" Default="" Description="Database username (postgres/mysql)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Description="Database password (postgres/mysql)." Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="DISPLAY_TIMEZONE" Target="DISPLAY_TIMEZONE" Default="Etc/UTC" Description="Timezone for the UI." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PRUNE_RESULTS_OLDER_THAN" Target="PRUNE_RESULTS_OLDER_THAN" Default="0" Description="Days to keep test results." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

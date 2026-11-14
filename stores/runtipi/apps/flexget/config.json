@@ -1,0 +1,57 @@
+{
+  "name": "Flexget",
+  "available": true,
+  "exposable": true,
+  "port": 5050,
+  "id": "flexget",
+  "tipi_version": 1,
+  "version": "v3.22.12",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Flexget is a multipurpose automation tool for all of your media.",
+  "short_desc": "Flexget is a multipurpose automation tool for all of your media",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-flexget",
+  "website": "http://flexget.com/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flexget-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "FG_LOG_LEVEL",
+      "hint": "Set the FlexGet logging level.",
+      "required": true,
+      "env_variable": "FLEXGET_FG_LOG_LEVEL",
+      "default": "info"
+    },
+    {
+      "type": "text",
+      "label": "FG_LOG_FILE",
+      "hint": "Set the FlexGet log file location.",
+      "required": true,
+      "env_variable": "FLEXGET_FG_LOG_FILE",
+      "default": "/config/flexget.log"
+    },
+    {
+      "type": "text",
+      "label": "FG_CONFIG_FILE",
+      "hint": "Set the FlexGet config file location.",
+      "required": true,
+      "env_variable": "FLEXGET_FG_CONFIG_FILE",
+      "default": "/config/.flexget/config.yml"
+    },
+    {
+      "type": "password",
+      "label": "FG_WEBUI_PASSWORD",
+      "hint": "Set the FlexGet webui password. Pay attention to Bash/YAML reserved characters.",
+      "required": false,
+      "env_variable": "FLEXGET_FG_WEBUI_PASSWORD",
+      "default": "info"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

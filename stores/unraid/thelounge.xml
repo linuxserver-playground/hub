@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-thelounge/blob/master/image.yml -->
+<Container version="2">
+    <Name>thelounge</Name>
+    <Repository>ghcr.io/linuxserver-playground/thelounge</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/thelounge</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-thelounge/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-thelounge#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-thelounge#readme</ReadMe>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Stable releases.</TagDescription>
+    </Branch>
+    <Branch>
+        <Tag>next</Tag>
+        <TagDescription>Next Pre-Releases.</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-thelounge/tree/next#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-thelounge/tree/next#application-setup</GitHub>
+    </Branch>
+    <Branch>
+        <Tag>nightly</Tag>
+        <TagDescription>Nightly images from commits in master.</TagDescription>
+        <ReadMe>https://github.com/linuxserver-playground/docker-thelounge/tree/nightly#readme</ReadMe>
+        <GitHub>https://github.com/linuxserver-playground/docker-thelounge/tree/nightly#application-setup</GitHub>
+    </Branch>
+    <Project>https://thelounge.github.io/</Project>
+    <Overview>Thelounge(https://thelounge.github.io/) (a fork of shoutIRC) is a web IRC client that you host on your own server.</Overview>
+    <WebUI>http://[IP]:[PORT:9000]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/thelounge.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/thelounge/thelounge/master/client/img/logo-vertical-transparent-bg.svg?sanitize=true</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-thelounge/builds/v4.5.2-ls6/amd64/screenshot.png</Screenshot>
+    <Date>2025-07-27</Date>
+    <Changes>
+### 2025-07-27
+- Rebase to Alpine 3.22.
+
+### 2024-06-06
+- Rebase to Alpine 3.20.
+
+### 2023-12-23
+- Rebase to Alpine 3.19.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2022-12-18
+- Rebasing master to alpine 3.17.
+
+### 2022-10-24
+- Fix sqlite3 build.
+
+### 2022-04-12
+- Install from source using yarn.
+
+### 2022-04-11
+- Rebasing to alpine 3.15 and switching from python2-dev to python3-dev for building node sqlite on arm.
+
+### 2021-01-23
+- Rebasing to alpine 3.13.
+
+### 2020-06-02
+- Rebasing to alpine 3.12.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-05-15
+- Update Arm variant images to build sqlite3 module.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-02-22
+- Rebasing to alpine 3.9.
+
+### 2019-01-28
+- Add pipeline logic and multi arch.
+
+### 2018-08-25
+- Use global install, simplifies adding users.
+
+### 2018-08-20
+- Rebase to alpine 3.8.
+
+### 2018-01-06
+- Rebase to alpine 3.7.
+
+### 2017-05-26
+- Rebase to alpine 3.6.
+
+### 2017-02-06
+- Rebase to alpine 3.5.
+
+### 2016-10-14
+- Bump to pickup 2.10 release.
+
+### 2016-10-14
+- Add version layer information.
+
+### 2016-09-11
+- Add layer badges to README.
+
+### 2016-08-31
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="9000" Default="9000" Mode="tcp" Description="Application WebUI" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

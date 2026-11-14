@@ -1,0 +1,63 @@
+name: bitcoin-knots
+services:
+  bitcoin-knots:
+    image: ghcr.io/linuxserver-playground/bitcoin-knots:latest
+    container_name: bitcoin-knots
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/bitcoin-knots/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    - 8333:8333
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Bitcoin Knots desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Bitcoin Knots desktop gui HTTPS.
+      - container: '8333'
+        description:
+          en_us: Bitcoin Knots node port.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores all data.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: bitcoin-knots
+  author: LinuxServer.io
+  developer: Bitcoin-knots
+  category: Finance
+  description:
+    en_us: Bitcoin Knots can be used as a desktop client for regular payments or as a full node server utility for merchants and other payment services.
+  tagline:
+    en_us: Bitcoin Knots can be used as a desktop client for regular payments or as a full node server utility for merchants and other payment services
+  title:
+    en_us: Bitcoin-knots
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bitcoin-knots-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bitcoin-knots-logo.png
+  store_app_id: bitcoin-knots
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-bitcoin-knots/builds/29.5knots20260508-resolute2-ls9/amd64/screenshot.png
+  port_map: '3000'

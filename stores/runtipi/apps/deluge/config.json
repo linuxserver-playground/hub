@@ -1,0 +1,33 @@
+{
+  "name": "Deluge",
+  "available": true,
+  "exposable": true,
+  "port": 8112,
+  "id": "deluge",
+  "tipi_version": 1,
+  "version": "2.2.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client.",
+  "short_desc": "Deluge is a lightweight, Free Software, cross-platform BitTorrent client",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-deluge",
+  "website": "http://deluge-torrent.org/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/deluge-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "DELUGE_LOGLEVEL",
+      "hint": "set the loglevel output when running Deluge, default is info for deluged and warning for delgued-web",
+      "required": false,
+      "env_variable": "DELUGE_DELUGE_LOGLEVEL",
+      "default": "error"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

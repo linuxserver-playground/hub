@@ -1,0 +1,313 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "LOCAL_DOMAIN",
+        "label": "This is the unique identifier of your server in the network. It cannot be safely changed later.",
+        "initialValue": "example.com",
+        "type": "text"
+      },
+      {
+        "name": "REDIS_HOST",
+        "label": "Redis server hostname",
+        "initialValue": "redis",
+        "type": "text"
+      },
+      {
+        "name": "REDIS_PORT",
+        "label": "Redis port",
+        "initialValue": "6379",
+        "type": "text"
+      },
+      {
+        "name": "DB_HOST",
+        "label": "Postgres database hostname",
+        "initialValue": "db",
+        "type": "text"
+      },
+      {
+        "name": "DB_USER",
+        "label": "Postgres username",
+        "initialValue": "mastodon",
+        "type": "text"
+      },
+      {
+        "name": "DB_NAME",
+        "label": "Postgres db name",
+        "initialValue": "mastodon",
+        "type": "text"
+      },
+      {
+        "name": "DB_PASS",
+        "label": "Postgres password",
+        "initialValue": "mastodon",
+        "type": "password"
+      },
+      {
+        "name": "DB_PORT",
+        "label": "Postgres port",
+        "initialValue": "5432",
+        "type": "text"
+      },
+      {
+        "name": "ES_ENABLED",
+        "label": "Enable or disable Elasticsearch (requires a separate ES instance)",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY",
+        "label": "Primary key for Active Record Encryption.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY",
+        "label": "Deterministic key for Active Record Encryption.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT",
+        "label": "Derivation salt for Active Record Encryption.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "SECRET_KEY_BASE",
+        "label": "Browser session secret. Changing it will break all active browser sessions.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "OTP_SECRET",
+        "label": "MFA secret. Changing it after initial setup will break two-factor authentication.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "VAPID_PRIVATE_KEY",
+        "label": "Push notification private key. Changing it after initial setup will break push notifications.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "VAPID_PUBLIC_KEY",
+        "label": "Push notification public key. Changing it after initial setup will break push notifications.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "SMTP_SERVER",
+        "label": "SMTP server for email notifications",
+        "initialValue": "mail.example.com",
+        "type": "text"
+      },
+      {
+        "name": "SMTP_PORT",
+        "label": "SMTP server port",
+        "initialValue": "25",
+        "type": "text"
+      },
+      {
+        "name": "SMTP_LOGIN",
+        "label": "SMTP username",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SMTP_PASSWORD",
+        "label": "SMTP password",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "SMTP_FROM_ADDRESS",
+        "label": "From address for emails send from Mastodon",
+        "initialValue": "notifications@example.com",
+        "type": "text"
+      },
+      {
+        "name": "S3_ENABLED",
+        "label": "Enable or disable S3 storage of uploaded files",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "WEB_DOMAIN",
+        "label": "This can be set if you want your server identifier to be different to the subdomain hosting Mastodon. See https://docs.joinmastodon.org/admin/config/#basic",
+        "initialValue": "mastodon.example.com",
+        "type": "text"
+      },
+      {
+        "name": "ES_HOST",
+        "label": "Elasticsearch server hostname",
+        "initialValue": "es",
+        "type": "text"
+      },
+      {
+        "name": "ES_PORT",
+        "label": "Elasticsearch port",
+        "initialValue": "9200",
+        "type": "text"
+      },
+      {
+        "name": "ES_USER",
+        "label": "Elasticsearch username",
+        "initialValue": "elastic",
+        "type": "text"
+      },
+      {
+        "name": "ES_PASS",
+        "label": "Elasticsearch password",
+        "initialValue": "elastic",
+        "type": "password"
+      },
+      {
+        "name": "S3_BUCKET",
+        "label": "S3 bucket hostname",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "AWS_ACCESS_KEY_ID",
+        "label": "S3 bucket access key ID",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "AWS_SECRET_ACCESS_KEY",
+        "label": "S3 bucket secret access key",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "S3_ALIAS_HOST",
+        "label": "Alternate hostname for object fetching if you are front the S3 connections.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SIDEKIQ_ONLY",
+        "label": "Only run the sidekiq service in this container instance. For large scale instances that need better queue handling.",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "SIDEKIQ_QUEUE",
+        "label": "The name of the sidekiq queue to run in this container. See notes.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SIDEKIQ_DEFAULT",
+        "label": "Set to true on the main container if you're running additional sidekiq instances. It will run the default queue.",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "SIDEKIQ_THREADS",
+        "label": "The number of threads for sidekiq to use. See notes.",
+        "initialValue": "5",
+        "type": "text"
+      },
+      {
+        "name": "DB_POOL",
+        "label": "The size of the DB connection pool, must be at least the same as SIDEKIQTHREADS. See notes.",
+        "initialValue": "5",
+        "type": "text"
+      },
+      {
+        "name": "NO_CHOWN",
+        "label": "Set to true to skip chown of /config on init. READ THE APPLICATION NOTES BEFORE SETTING THIS.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "MASTODON_PROMETHEUS_EXPORTER_ENABLED",
+        "label": "If set to true, Mastodon’s Ruby processes (web & Sidekiq) will enable the Prometheus instrumentation.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/mastodon:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "LOCAL_DOMAIN={Context.LOCAL_DOMAIN}",
+        "REDIS_HOST={Context.REDIS_HOST}",
+        "REDIS_PORT={Context.REDIS_PORT}",
+        "DB_HOST={Context.DB_HOST}",
+        "DB_USER={Context.DB_USER}",
+        "DB_NAME={Context.DB_NAME}",
+        "DB_PASS={Context.DB_PASS}",
+        "DB_PORT={Context.DB_PORT}",
+        "ES_ENABLED={Context.ES_ENABLED}",
+        "ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY={Context.ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY}",
+        "ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY={Context.ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY}",
+        "ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT={Context.ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT}",
+        "SECRET_KEY_BASE={Context.SECRET_KEY_BASE}",
+        "OTP_SECRET={Context.OTP_SECRET}",
+        "VAPID_PRIVATE_KEY={Context.VAPID_PRIVATE_KEY}",
+        "VAPID_PUBLIC_KEY={Context.VAPID_PUBLIC_KEY}",
+        "SMTP_SERVER={Context.SMTP_SERVER}",
+        "SMTP_PORT={Context.SMTP_PORT}",
+        "SMTP_LOGIN={Context.SMTP_LOGIN}",
+        "SMTP_PASSWORD={Context.SMTP_PASSWORD}",
+        "SMTP_FROM_ADDRESS={Context.SMTP_FROM_ADDRESS}",
+        "S3_ENABLED={Context.S3_ENABLED}",
+        "WEB_DOMAIN={Context.WEB_DOMAIN}",
+        "ES_HOST={Context.ES_HOST}",
+        "ES_PORT={Context.ES_PORT}",
+        "ES_USER={Context.ES_USER}",
+        "ES_PASS={Context.ES_PASS}",
+        "S3_BUCKET={Context.S3_BUCKET}",
+        "AWS_ACCESS_KEY_ID={Context.AWS_ACCESS_KEY_ID}",
+        "AWS_SECRET_ACCESS_KEY={Context.AWS_SECRET_ACCESS_KEY}",
+        "S3_ALIAS_HOST={Context.S3_ALIAS_HOST}",
+        "SIDEKIQ_ONLY={Context.SIDEKIQ_ONLY}",
+        "SIDEKIQ_QUEUE={Context.SIDEKIQ_QUEUE}",
+        "SIDEKIQ_DEFAULT={Context.SIDEKIQ_DEFAULT}",
+        "SIDEKIQ_THREADS={Context.SIDEKIQ_THREADS}",
+        "DB_POOL={Context.DB_POOL}",
+        "NO_CHOWN={Context.NO_CHOWN}",
+        "MASTODON_PROMETHEUS_EXPORTER_ENABLED={Context.MASTODON_PROMETHEUS_EXPORTER_ENABLED}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png",
+        "cosmos.stack": "{ServiceName}-mastodon"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:80",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

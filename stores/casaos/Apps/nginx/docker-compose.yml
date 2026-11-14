@@ -1,0 +1,67 @@
+name: nginx
+services:
+  nginx:
+    image: ghcr.io/linuxserver-playground/nginx:latest
+    container_name: nginx
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - NGINX_AUTORELOAD=
+    - NGINX_AUTORELOAD_WATCHLIST=
+    volumes:
+    - /DATA/AppData/nginx/config:/config
+    ports:
+    - 80:80
+    - 443:443
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: NGINX_AUTORELOAD
+        description:
+          en_us: Set to true to enable automatic reloading of confs on change without stopping/restarting nginx. Your filesystem must support inotify. This functionality was previously offered via mod.
+      - container: NGINX_AUTORELOAD_WATCHLIST
+        description:
+          en_us: A pipe-separated list of additional folders for auto reload to watch in addition to /config/nginx
+      ports:
+      - container: '80'
+        description:
+          en_us: http
+      - container: '443'
+        description:
+          en_us: https
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: nginx
+  author: LinuxServer.io
+  developer: Nginx
+  category: Reverse Proxy
+  description:
+    en_us: Nginx is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server.
+  tagline:
+    en_us: Nginx is an HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy server, and mail proxy server
+  title:
+    en_us: Nginx
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png
+  store_app_id: nginx
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-nginx/builds/1.30.6-r0-ls8/amd64/screenshot.png
+  port_map: '80'

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-msedge/blob/master/image.yml -->
+<Container version="2">
+    <Name>msedge</Name>
+    <Repository>ghcr.io/linuxserver-playground/msedge</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/msedge</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-msedge/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-msedge#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-msedge#readme</ReadMe>
+    <Project>https://www.microsoft.com/edge</Project>
+    <Overview>Microsoft Edge(https://www.microsoft.com/edge) is a cross-platform web browser developed by Microsoft and based on Chromium.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/msedge.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/edge-logo.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-msedge/builds/157.0.4341.60-1-ls11/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-msedge#security for more information.
+    </Requires>
+    <Date>2026-03-31</Date>
+    <Changes>
+### 2026-03-31
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2025-12-20
+- Add Wayland init logic.
+
+### 2025-09-22
+- Rebase to Debian Trixie.
+
+### 2025-07-12
+- Rebase to Selkies, HTTPS IS NOW REQUIRED.
+
+### 2025-02-04
+- Clean up Singletons if container is shut down while windows are open.
+
+### 2024-04-25
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="HTTP Edge desktop gui, needs to be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="HTTPS Edge desktop gui." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores local files and settings" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="EDGE_CLI" Target="EDGE_CLI" Default="https://www.linuxserver.io/" Description="Specify one or multiple Chromium CLI flags, this string will be passed to the application in full." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

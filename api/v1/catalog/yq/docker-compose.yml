@@ -1,0 +1,10 @@
+---
+services:
+  yq:
+    image: ghcr.io/linuxserver-playground/yq:latest
+    container_name: yq
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

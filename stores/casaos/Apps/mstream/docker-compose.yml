@@ -1,0 +1,59 @@
+name: mstream
+services:
+  mstream:
+    image: ghcr.io/linuxserver-playground/mstream:latest
+    container_name: mstream
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/mstream/config:/config
+    - /DATA/AppData/mstream/music:/music
+    ports:
+    - 3000:3000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: The port for the mStream web interface
+      volumes:
+      - container: /config
+        description:
+          en_us: mStream config
+      - container: /music
+        description:
+          en_us: Music location
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: mstream
+  author: LinuxServer.io
+  developer: Mstream
+  category: Media Servers
+  description:
+    en_us: mstream is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone.
+  tagline:
+    en_us: mstream is a personal music streaming server
+  title:
+    en_us: Mstream
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mstream-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mstream-icon.png
+  store_app_id: mstream
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-mstream/builds/v6.33.1-ls9/amd64/screenshot.png
+  port_map: '3000'

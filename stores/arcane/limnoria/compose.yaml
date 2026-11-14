@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/limnoria-icon.png
+  urls:
+  - https://github.com/ProgVal/limnoria
+  - https://github.com/linuxserver-playground/docker-limnoria
+services:
+  limnoria:
+    image: ghcr.io/linuxserver-playground/limnoria:latest
+    container_name: limnoria
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8080:-8080}:8080
+    restart: unless-stopped

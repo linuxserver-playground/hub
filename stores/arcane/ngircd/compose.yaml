@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ngircd-logo.png
+  urls:
+  - https://ngircd.barton.de/
+  - https://github.com/linuxserver-playground/docker-ngircd
+services:
+  ngircd:
+    image: ghcr.io/linuxserver-playground/ngircd:latest
+    container_name: ngircd
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_6667:-6667}:6667
+    restart: unless-stopped

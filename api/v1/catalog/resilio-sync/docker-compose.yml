@@ -1,0 +1,17 @@
+---
+services:
+  resilio-sync:
+    image: ghcr.io/linuxserver-playground/resilio-sync:latest
+    container_name: resilio-sync
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/resilio-sync/config:/config
+      - /path/to/downloads:/downloads
+      - /path/to/data:/sync
+    ports:
+      - 8888:8888
+      - 55555:55555
+    restart: unless-stopped

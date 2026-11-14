@@ -1,0 +1,36 @@
+---
+services:
+  netbox:
+    image: ghcr.io/linuxserver-playground/netbox:latest
+    container_name: netbox
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - SUPERUSER_EMAIL=
+      - SUPERUSER_PASSWORD=
+      - ALLOWED_HOST=
+      - DB_NAME=
+      - DB_USER=
+      - DB_PASSWORD=
+      - DB_HOST=
+      - DB_PORT=
+      - REDIS_HOST=
+      - REDIS_PORT=
+      - REDIS_USERNAME=
+      - REDIS_PASSWORD=
+      - REDIS_DB_TASK=
+      - REDIS_DB_CACHE=
+      - BASE_PATH= #optional
+      - CSRF_TRUSTED_ORIGINS= #optional
+      - REMOTE_AUTH_ENABLED= #optional
+      - REMOTE_AUTH_BACKEND= #optional
+      - REMOTE_AUTH_HEADER= #optional
+      - REMOTE_AUTH_AUTO_CREATE_USER= #optional
+      - REMOTE_AUTH_DEFAULT_GROUPS= #optional
+      - REMOTE_AUTH_DEFAULT_PERMISSIONS= #optional
+    volumes:
+      - /path/to/netbox/config:/config
+    ports:
+      - 8000:8000
+    restart: unless-stopped

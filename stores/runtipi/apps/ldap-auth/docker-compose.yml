@@ -1,0 +1,18 @@
+services:
+  ldap-auth:
+    image: ghcr.io/linuxserver-playground/ldap-auth:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      FERNETKEY: ${LDAP_AUTH_FERNETKEY}
+      CERTFILE: ${LDAP_AUTH_CERTFILE}
+      KEYFILE: ${LDAP_AUTH_KEYFILE}
+    volumes: []
+    ports:
+    - 9000:9000
+    x-runtipi:
+      is_main: true
+      internal_port: 8888
+x-runtipi:
+  schema_version: 2

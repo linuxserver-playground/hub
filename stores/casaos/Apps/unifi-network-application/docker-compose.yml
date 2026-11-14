@@ -1,0 +1,121 @@
+name: unifi-network-application
+services:
+  unifi-network-application:
+    image: ghcr.io/linuxserver-playground/unifi-network-application:latest
+    container_name: unifi-network-application
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - MONGO_USER=unifi
+    - MONGO_PASS=
+    - MONGO_HOST=unifi-db
+    - MONGO_PORT=27017
+    - MONGO_DBNAME=unifi
+    - MONGO_AUTHSOURCE=admin
+    - MEM_LIMIT=1024
+    - MEM_STARTUP=1024
+    - MONGO_TLS=
+    volumes:
+    - /DATA/AppData/unifi-network-application/config:/config
+    ports:
+    - 8443:8443
+    - 3478:3478/udp
+    - 10001:10001/udp
+    - 8080:8080
+    - 1900:1900/udp
+    - 8843:8843
+    - 8880:8880
+    - 6789:6789
+    - 5514:5514/udp
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: MONGO_USER
+        description:
+          en_us: Mongodb Username. Only evaluated on first run. Special characters must be url encoded.
+      - container: MONGO_PASS
+        description:
+          en_us: Mongodb Password. Only evaluated on first run. Special characters must be url encoded.
+      - container: MONGO_HOST
+        description:
+          en_us: Mongodb Hostname. Only evaluated on first run.
+      - container: MONGO_PORT
+        description:
+          en_us: Mongodb Port. Only evaluated on first run.
+      - container: MONGO_DBNAME
+        description:
+          en_us: Mongodb Database Name (stats DB is automatically suffixed with stat). Only evaluated on first run.
+      - container: MONGO_AUTHSOURCE
+        description:
+          en_us: Mongodb authSource. For Atlas set to admin. Only evaluated on first run.
+      - container: MEM_LIMIT
+        description:
+          en_us: Optionally change the Java memory limit (in Megabytes). Set to default to reset to default
+      - container: MEM_STARTUP
+        description:
+          en_us: Optionally change the Java initial/minimum memory (in Megabytes). Set to default to reset to default
+      - container: MONGO_TLS
+        description:
+          en_us: Mongodb enable TLS. Only evaluated on first run.
+      ports:
+      - container: '8443'
+        description:
+          en_us: Unifi web admin port
+      - container: '3478'
+        description:
+          en_us: Unifi STUN port
+      - container: '10001'
+        description:
+          en_us: Required for AP discovery
+      - container: '8080'
+        description:
+          en_us: Required for device communication
+      - container: '1900'
+        description:
+          en_us: Required for Make controller discoverable on L2 network option
+      - container: '8843'
+        description:
+          en_us: Unifi guest portal HTTPS redirect port
+      - container: '8880'
+        description:
+          en_us: Unifi guest portal HTTP redirect port
+      - container: '6789'
+        description:
+          en_us: For mobile throughput test
+      - container: '5514'
+        description:
+          en_us: Remote syslog port
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: unifi-network-application
+  author: LinuxServer.io
+  developer: Unifi-network-application
+  category: Network
+  description:
+    en_us: The Unifi-network-application software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance.
+  tagline:
+    en_us: The Unifi-network-application software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance
+  title:
+    en_us: Unifi-network-application
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/unifi-banner.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/unifi-banner.png
+  store_app_id: unifi-network-application
+  index: /
+  scheme: http
+  port_map: '8443'

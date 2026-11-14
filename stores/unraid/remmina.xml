@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-remmina/blob/master/image.yml -->
+<Container version="2">
+    <Name>remmina</Name>
+    <Repository>ghcr.io/linuxserver-playground/remmina</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/remmina</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-remmina/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-remmina#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-remmina#readme</ReadMe>
+    <Project>https://remmina.org/</Project>
+    <Overview>Remmina(https://remmina.org/) is a remote desktop client written in GTK, aiming to be useful for system administrators and travellers, who need to work with lots of remote computers in front of either large or tiny screens. Remmina supports multiple network protocols, in an integrated and consistent user interface. Currently RDP, VNC, SPICE, SSH and EXEC are supported.</Overview>
+    <ExtraParams>--shm-size=1gb</ExtraParams>
+    <WebUI>https://[IP]:[PORT:3001]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/remmina.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/remmina-icon.png</Icon>
+    <Screenshot>https://linuxserver-playground.github.io/docker-remmina/builds/1.4.43dfsg-0ubuntu0.26.04.2-ls8/amd64/screenshot.png</Screenshot>
+    <Requires>
+        This image is unprotected by default __**do not**__ expose it to the internet.
+        Please read https://github.com/linuxserver-playground/docker-remmina#security for more information.
+    </Requires>
+    <Date>2026-06-20</Date>
+    <Changes>
+### 2026-06-20
+- Rebase to resolute, stop ingesting from ppa.
+
+### 2026-04-04
+- Make Wayland default disable with PIXELFLUX_WAYLAND=false.
+
+### 2025-12-28
+- Add Wayland init logic.
+
+### 2025-08-14
+- Ingest from PPA.
+
+### 2025-08-11
+- Install librsvg2 for icons.
+
+### 2025-07-12
+- Rebase to Selkies, HTTPS IS NOW REQUIRED.
+
+### 2024-08-28
+- Rebase to noble.
+
+### 2024-02-10
+- Update Readme with new env vars and ingest proper PWA icon.
+
+### 2023-03-18
+- Rebase to KasmVNC base image.
+
+### 2022-12-16
+- Rebase to Jammy. Drop nx, xdmcp plugins due to lack of packages. Add Kiosk, Secret, x2go plugins.
+
+### 2022-06-19
+- Rebase to Focal. Drop Telepathy plugin due to lack of packages.
+
+### 2020-03-27
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3000" Default="3000" Mode="tcp" Description="Remmina desktop gui HTTP, must be proxied." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 3001" Target="3001" Default="3001" Mode="tcp" Description="Remmina desktop gui HTTPS." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Users home directory in the container, stores program settings." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

@@ -1,0 +1,64 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "DOCKER_MODS",
+        "label": "Allows additional functionality to be added, e.g. the Calibredb import program (optional, more info below)",
+        "initialValue": "linuxserver/mods:universal-calibre|linuxserver/mods:lazylibrarian-ffmpeg",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/lazylibrarian:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "DOCKER_MODS={Context.DOCKER_MODS}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lazylibrarian-icon.png",
+        "cosmos.stack": "{ServiceName}-lazylibrarian"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-downloads",
+          "target": "/downloads",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-books",
+          "target": "/books",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:5299",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

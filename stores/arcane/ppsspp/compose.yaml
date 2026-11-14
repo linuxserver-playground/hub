@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ppsspp-logo.png
+  urls:
+  - https://www.ppsspp.org/
+  - https://github.com/linuxserver-playground/docker-ppsspp
+services:
+  ppsspp:
+    image: ghcr.io/linuxserver-playground/ppsspp:latest
+    container_name: ppsspp
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_3000:-3000}:3000
+    - ${PORT_3001:-3001}:3001
+    restart: unless-stopped
