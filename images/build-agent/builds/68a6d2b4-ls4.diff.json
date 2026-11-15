@@ -1,0 +1,70 @@
+{
+ "image": "build-agent",
+ "branch": "main",
+ "tag": "68a6d2b4-ls4",
+ "previous_tag": "a5e52c73-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed"
+ ],
+ "upstream": {
+  "from": "a5e52c73",
+  "to": "68a6d2b4",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:889cf4f4ceb97407b0235fb63691988e256509daf50ca128ef2316f89955972a"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:54678da228b044eb1e311e2e3c8138a36b30be31bc6bf1c610b847320d4f4d0f"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 267846681,
+   "to": 267846718,
+   "delta": 37
+  },
+  "arm64": {
+   "from": 260393913,
+   "to": 260394075,
+   "delta": 162
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

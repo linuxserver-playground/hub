@@ -1,0 +1,193 @@
+{
+ "image": "hedgedoc",
+ "branch": "main",
+ "tag": "1.12.0-ls6",
+ "previous_tag": "1.12.0-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "7 commits (2530ea2 → 174f49f): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "1.12.0",
+  "to": "1.12.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "2530ea2a4c620f4bf102702ea5195a406188954d",
+  "to": "174f49fc3047d9d922d6e23460a813d572e8fe21",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-hedgedoc/compare/2530ea2a4c620f4bf102702ea5195a406188954d...174f49fc3047d9d922d6e23460a813d572e8fe21",
+  "commits": [
+   {
+    "sha": "d1b8aaf8e1c4e4ae2b4ac0506ccf248a3cfc8f19",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:45:21Z",
+    "url": "https://github.com/linuxserver-playground/docker-hedgedoc/commit/d1b8aaf8e1c4e4ae2b4ac0506ccf248a3cfc8f19",
+    "bot": true
+   },
+   {
+    "sha": "c4fcf85eff67846903acdf24df16a019f2b0f58a",
+    "subject": "Wait for the upstream release assets before building",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T16:03:27Z",
+    "url": "https://github.com/linuxserver-playground/docker-hedgedoc/commit/c4fcf85eff67846903acdf24df16a019f2b0f58a",
+    "bot": false
+   },
+   {
+    "sha": "c4ce7397457de4eded8d28ff153fd204b6f4ce39",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T04:33:11Z",
+    "url": "https://github.com/linuxserver-playground/docker-hedgedoc/commit/c4ce7397457de4eded8d28ff153fd204b6f4ce39",
+    "bot": true
+   },
+   {
+    "sha": "9c481d73fc449484f7472b0b23092a4d5455afb7",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T00:33:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-hedgedoc/commit/9c481d73fc449484f7472b0b23092a4d5455afb7",
+    "bot": true
+   },
+   {
+    "sha": "7eb08234d3e58504219cfe47d5824e71f1230244",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T00:41:04Z",
+    "url": "https://github.com/linuxserver-playground/docker-hedgedoc/commit/7eb08234d3e58504219cfe47d5824e71f1230244",
+    "bot": true
+   },
+   {
+    "sha": "4b1e32adc00d80df889dfa95798e6a883325aa01",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T00:39:56Z",
+    "url": "https://github.com/linuxserver-playground/docker-hedgedoc/commit/4b1e32adc00d80df889dfa95798e6a883325aa01",
+    "bot": true
+   },
+   {
+    "sha": "174f49fc3047d9d922d6e23460a813d572e8fe21",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T10:40:47Z",
+    "url": "https://github.com/linuxserver-playground/docker-hedgedoc/commit/174f49fc3047d9d922d6e23460a813d572e8fe21",
+    "bot": true
+   }
+  ],
+  "count": 7,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:c70276612a28beebf4ef5864479a106ad24ee8a515e16744f8849eb26bdad174"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 179985450,
+   "to": 179986984,
+   "delta": 1534
+  },
+  "arm64": {
+   "from": 190873951,
+   "to": 190873939,
+   "delta": -12
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

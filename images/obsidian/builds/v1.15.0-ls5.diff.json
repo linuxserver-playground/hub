@@ -1,0 +1,352 @@
+{
+ "image": "obsidian",
+ "branch": "main",
+ "tag": "v1.15.0-ls5",
+ "previous_tag": "v1.15.0-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (63c31c5 → 60d24d1): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v1.15.0",
+  "to": "v1.15.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "63c31c50670e46be51c8546c84424a8cdb964431",
+  "to": "60d24d1025b9a16ecf27dab334053e38fa7589d1",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-obsidian/compare/63c31c50670e46be51c8546c84424a8cdb964431...60d24d1025b9a16ecf27dab334053e38fa7589d1",
+  "commits": [
+   {
+    "sha": "4b42e34bff46b8f0b657c77abf55351e65ea9662",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T15:54:13Z",
+    "url": "https://github.com/linuxserver-playground/docker-obsidian/commit/4b42e34bff46b8f0b657c77abf55351e65ea9662",
+    "bot": true
+   },
+   {
+    "sha": "60d24d1025b9a16ecf27dab334053e38fa7589d1",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T03:44:17Z",
+    "url": "https://github.com/linuxserver-playground/docker-obsidian/commit/60d24d1025b9a16ecf27dab334053e38fa7589d1",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:b6b7498350faa15f558fa5a1e83cd67540e7ddeb164bd4f376037838df52c52e"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:98982a274f5092704f89e8c3b6027733ed6e724528bd7faf850a571036cb1671"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1319591241,
+   "to": 1263941607,
+   "delta": -55649634
+  },
+  "arm64": {
+   "from": 1282511672,
+   "to": 1226904469,
+   "delta": -55607203
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.79-1~deb13u1?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.79-1~deb13u1?arch=amd64&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.79-1~deb13u1?arch=all&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.6.1-1~debian.13~trixie",
+      "to": "5.7.0-1~debian.13~trixie",
+      "purl": "pkg:deb/debian/docker-compose-plugin@5.7.0-1~debian.13~trixie?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.113-1",
+      "to": "6.12.115-2",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.115-2?arch=all&distro=debian-13.7&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.6.1",
+      "to": "v5.7.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.0"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.79-1~deb13u1?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.79-1~deb13u1?arch=arm64&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.73-1~deb13u1",
+      "to": "156.0.8078.79-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.79-1~deb13u1?arch=all&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.6.1-1~debian.13~trixie",
+      "to": "5.7.0-1~debian.13~trixie",
+      "purl": "pkg:deb/debian/docker-compose-plugin@5.7.0-1~debian.13~trixie?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.113-1",
+      "to": "6.12.115-2",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.115-2?arch=all&distro=debian-13.7&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.6.1",
+      "to": "v5.7.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.0"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 6,
+  "removed": 0,
+  "upgraded": 28,
+  "downgraded": 0
+ }
+}

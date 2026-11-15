@@ -1,0 +1,117 @@
+{
+ "schema": 1,
+ "name": "helium",
+ "summary": "[Helium](https://helium.computer/) is a Chromium-based web browser made for people, with love. Privacy-first with unbiased ad-blocking.",
+ "upstream": {
+  "url": "https://helium.computer/",
+  "version": {
+   "type": "github_release",
+   "repo": "imputnet/helium-linux",
+   "require_assets": [
+    {
+     "asset": "^helium\\-bin_.*\\-1_amd64\\.deb$"
+    },
+    {
+     "asset": "^helium\\-bin_.*\\-1_arm64\\.deb$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "imputnet/helium-linux"
+  },
+  "sponsor": [
+   {
+    "name": "Sponsor Helium",
+    "url": "https://helium.computer/sponsor"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "HELIUM_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP Helium desktop gui, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Helium desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/helium/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "env": [
+   {
+    "name": "HELIUM_CLI",
+    "value": "https://www.linuxserver.io/",
+    "description": "Specify one or multiple Chromium CLI flags, this string will be passed to the application in full.",
+    "optional": true
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for any modern website to function like youtube."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Web Browser"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/helium-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-15",
+   "text": "Initial release."
+  }
+ ]
+}

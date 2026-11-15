@@ -1,0 +1,549 @@
+{
+ "image": "jackett",
+ "branch": "master",
+ "tag": "v0.24.3053-ls13",
+ "previous_tag": "v0.24.2977-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "14 commits (8a6e4c5 → 9ec0004): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "v0.24.2977",
+  "to": "v0.24.3053",
+  "changed": true
+ },
+ "commit": {
+  "from": "8a6e4c5d0cbcaa6eb5382e4c924a30c976891d72",
+  "to": "9ec0004991411fda833abbc3bac600d4f676c345",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-jackett/compare/8a6e4c5d0cbcaa6eb5382e4c924a30c976891d72...9ec0004991411fda833abbc3bac600d4f676c345",
+  "commits": [
+   {
+    "sha": "f6ae33c08e8f942cce6f90f8de77fc7b3391366d",
+    "subject": "Wait for the upstream release assets before building",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T16:03:28Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/f6ae33c08e8f942cce6f90f8de77fc7b3391366d",
+    "bot": false
+   },
+   {
+    "sha": "8030c68d26898725fd700dfb20a1c1439b069f3a",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T06:44:33Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/8030c68d26898725fd700dfb20a1c1439b069f3a",
+    "bot": true
+   },
+   {
+    "sha": "249e23632851f0862538d633d3bb2ce8f6c8f398",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T06:51:10Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/249e23632851f0862538d633d3bb2ce8f6c8f398",
+    "bot": true
+   },
+   {
+    "sha": "7f17ef1c89cdd0db807db8f44178c7a8618bbc4b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T05:50:31Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/7f17ef1c89cdd0db807db8f44178c7a8618bbc4b",
+    "bot": true
+   },
+   {
+    "sha": "5edd357722de5bc0bbd6f7201b5d33681964312f",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T06:44:47Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/5edd357722de5bc0bbd6f7201b5d33681964312f",
+    "bot": true
+   },
+   {
+    "sha": "58c1467d488cc0adbc9ca83266da642fe7856c6e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T06:50:22Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/58c1467d488cc0adbc9ca83266da642fe7856c6e",
+    "bot": true
+   },
+   {
+    "sha": "c4cdf17983a4cc0c8b818b11ced30d691bd95b06",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T06:50:48Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/c4cdf17983a4cc0c8b818b11ced30d691bd95b06",
+    "bot": true
+   },
+   {
+    "sha": "d302cef433b71cfa6620eaf422befb8ef6e9c48a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T06:53:08Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/d302cef433b71cfa6620eaf422befb8ef6e9c48a",
+    "bot": true
+   },
+   {
+    "sha": "df947ad56683a53cafd07f7908d35110c7026b7b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T06:52:53Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/df947ad56683a53cafd07f7908d35110c7026b7b",
+    "bot": true
+   },
+   {
+    "sha": "0dfd7db4cc658c973914556389c8197f61629f3a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T06:51:30Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/0dfd7db4cc658c973914556389c8197f61629f3a",
+    "bot": true
+   },
+   {
+    "sha": "2ef516d1f691f2b0b6479c279d5f21fc100a1aad",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T06:49:51Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/2ef516d1f691f2b0b6479c279d5f21fc100a1aad",
+    "bot": true
+   },
+   {
+    "sha": "155b9e87508b75ab01b48fe0efb8bf540a9b6f6b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T06:51:18Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/155b9e87508b75ab01b48fe0efb8bf540a9b6f6b",
+    "bot": true
+   },
+   {
+    "sha": "e126f5b2a6d32227720b84355a6237c385b24053",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T06:50:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/e126f5b2a6d32227720b84355a6237c385b24053",
+    "bot": true
+   },
+   {
+    "sha": "9ec0004991411fda833abbc3bac600d4f676c345",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T06:52:22Z",
+    "url": "https://github.com/linuxserver-playground/docker-jackett/commit/9ec0004991411fda833abbc3bac600d4f676c345",
+    "bot": true
+   }
+  ],
+  "count": 14,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 81310059,
+   "to": 81350464,
+   "delta": 40405
+  },
+  "arm64": {
+   "from": 80232661,
+   "to": 80271957,
+   "delta": 39296
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "AngleSharp",
+      "from": "1.8.6",
+      "to": "1.10.1",
+      "purl": "pkg:nuget/AngleSharp@1.10.1"
+     },
+     {
+      "name": "AngleSharp.Xml",
+      "from": "1.2.0",
+      "to": "1.3.0",
+      "purl": "pkg:nuget/AngleSharp.Xml@1.3.0"
+     },
+     {
+      "name": "JackettUpdater",
+      "from": "0.24.2977",
+      "to": "0.24.3053",
+      "purl": "pkg:nuget/JackettUpdater@0.24.3053"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Http",
+      "from": "2.3.13",
+      "to": "2.3.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Http@2.3.14"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Http.Abstractions",
+      "from": "2.3.12",
+      "to": "2.3.13",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Http.Abstractions@2.3.13"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Http.Features",
+      "from": "2.3.11",
+      "to": "2.3.12",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Http.Features@2.3.12"
+     },
+     {
+      "name": "Microsoft.AspNetCore.JsonPatch",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.JsonPatch@9.0.23"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Mvc.NewtonsoftJson",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Mvc.NewtonsoftJson@9.0.23"
+     },
+     {
+      "name": "Microsoft.AspNetCore.WebUtilities",
+      "from": "2.3.13",
+      "to": "2.3.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.WebUtilities@2.3.14"
+     },
+     {
+      "name": "Microsoft.Net.Http.Headers",
+      "from": "2.3.12",
+      "to": "2.3.13",
+      "purl": "pkg:nuget/Microsoft.Net.Http.Headers@2.3.13"
+     },
+     {
+      "name": "Polly",
+      "from": "8.8.0",
+      "to": "8.9.1",
+      "purl": "pkg:nuget/Polly@8.9.1"
+     },
+     {
+      "name": "Polly.Core",
+      "from": "8.8.0",
+      "to": "8.9.1",
+      "purl": "pkg:nuget/Polly.Core@8.9.1"
+     },
+     {
+      "name": "System.Diagnostics.EventLog",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/System.Diagnostics.EventLog@9.0.23"
+     },
+     {
+      "name": "System.Security.Cryptography.ProtectedData",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/System.Security.Cryptography.ProtectedData@9.0.23"
+     },
+     {
+      "name": "System.ServiceProcess.ServiceController",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/System.ServiceProcess.ServiceController@9.0.23"
+     },
+     {
+      "name": "jackett",
+      "from": "0.24.2977",
+      "to": "0.24.3053",
+      "purl": "pkg:nuget/jackett@0.24.3053"
+     },
+     {
+      "name": "runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-x64",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-x64@9.0.23"
+     },
+     {
+      "name": "runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-x64",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-x64@9.0.23"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "dotnet": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "AngleSharp",
+      "from": "1.8.6",
+      "to": "1.10.1",
+      "purl": "pkg:nuget/AngleSharp@1.10.1"
+     },
+     {
+      "name": "AngleSharp.Xml",
+      "from": "1.2.0",
+      "to": "1.3.0",
+      "purl": "pkg:nuget/AngleSharp.Xml@1.3.0"
+     },
+     {
+      "name": "JackettUpdater",
+      "from": "0.24.2977",
+      "to": "0.24.3053",
+      "purl": "pkg:nuget/JackettUpdater@0.24.3053"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Http",
+      "from": "2.3.13",
+      "to": "2.3.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Http@2.3.14"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Http.Abstractions",
+      "from": "2.3.12",
+      "to": "2.3.13",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Http.Abstractions@2.3.13"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Http.Features",
+      "from": "2.3.11",
+      "to": "2.3.12",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Http.Features@2.3.12"
+     },
+     {
+      "name": "Microsoft.AspNetCore.JsonPatch",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.JsonPatch@9.0.23"
+     },
+     {
+      "name": "Microsoft.AspNetCore.Mvc.NewtonsoftJson",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.Mvc.NewtonsoftJson@9.0.23"
+     },
+     {
+      "name": "Microsoft.AspNetCore.WebUtilities",
+      "from": "2.3.13",
+      "to": "2.3.14",
+      "purl": "pkg:nuget/Microsoft.AspNetCore.WebUtilities@2.3.14"
+     },
+     {
+      "name": "Microsoft.Net.Http.Headers",
+      "from": "2.3.12",
+      "to": "2.3.13",
+      "purl": "pkg:nuget/Microsoft.Net.Http.Headers@2.3.13"
+     },
+     {
+      "name": "Polly",
+      "from": "8.8.0",
+      "to": "8.9.1",
+      "purl": "pkg:nuget/Polly@8.9.1"
+     },
+     {
+      "name": "Polly.Core",
+      "from": "8.8.0",
+      "to": "8.9.1",
+      "purl": "pkg:nuget/Polly.Core@8.9.1"
+     },
+     {
+      "name": "System.Diagnostics.EventLog",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/System.Diagnostics.EventLog@9.0.23"
+     },
+     {
+      "name": "System.Security.Cryptography.ProtectedData",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/System.Security.Cryptography.ProtectedData@9.0.23"
+     },
+     {
+      "name": "System.ServiceProcess.ServiceController",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/System.ServiceProcess.ServiceController@9.0.23"
+     },
+     {
+      "name": "jackett",
+      "from": "0.24.2977",
+      "to": "0.24.3053",
+      "purl": "pkg:nuget/jackett@0.24.3053"
+     },
+     {
+      "name": "runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-arm64",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/runtimepack.Microsoft.AspNetCore.App.Runtime.linux-musl-arm64@9.0.23"
+     },
+     {
+      "name": "runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-arm64",
+      "from": "9.0.22",
+      "to": "9.0.23",
+      "purl": "pkg:nuget/runtimepack.Microsoft.NETCore.App.Runtime.linux-musl-arm64@9.0.23"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 46,
+  "downgraded": 0
+ }
+}

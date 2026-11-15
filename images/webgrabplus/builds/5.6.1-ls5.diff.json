@@ -1,0 +1,77 @@
+{
+ "image": "webgrabplus",
+ "branch": "master",
+ "tag": "5.6.1-ls5",
+ "previous_tag": "5.6.1-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "repository at a newer commit (2b151d1 → 0b5de74)"
+ ],
+ "upstream": {
+  "from": "5.6.1",
+  "to": "5.6.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "2b151d159d7d1a29d21f170eb8af202509392df5",
+  "to": "0b5de747b75fbb8e60fdb4876cc2c68975b1fb76",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webgrabplus/compare/2b151d159d7d1a29d21f170eb8af202509392df5...0b5de747b75fbb8e60fdb4876cc2c68975b1fb76"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:9008d6d5bb98aa82222a5c4a9463dd82801a1cc2bfacd5862caf4b895fbcf578"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:1ad91f856c8d9d443357d6e4c0a0c3515e5bc1ef830874f0defdb5d64b49f077"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 131179339,
+   "to": 131179235,
+   "delta": -104
+  },
+  "arm64": {
+   "from": 130481726,
+   "to": 130481442,
+   "delta": -284
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

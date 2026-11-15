@@ -1,0 +1,76 @@
+{
+ "image": "ungoogled-chromium",
+ "branch": "master",
+ "tag": "156.0.8078.79-1-ls5",
+ "previous_tag": "156.0.8078.79-1-ls4",
+ "classification": "none",
+ "reasons": [
+  "repository at a newer commit (41cc848 → 3bc330d)"
+ ],
+ "upstream": {
+  "from": "156.0.8078.79-1",
+  "to": "156.0.8078.79-1",
+  "changed": false
+ },
+ "commit": {
+  "from": "41cc84871b2adb86a889f27c02093287849cba4f",
+  "to": "3bc330d515bfb57e18bf27536e84f684d5eae90a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-ungoogled-chromium/compare/41cc84871b2adb86a889f27c02093287849cba4f...3bc330d515bfb57e18bf27536e84f684d5eae90a"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:b6b7498350faa15f558fa5a1e83cd67540e7ddeb164bd4f376037838df52c52e"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:b6b7498350faa15f558fa5a1e83cd67540e7ddeb164bd4f376037838df52c52e"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1278662286,
+   "to": 1278662425,
+   "delta": 139
+  },
+  "arm64": {
+   "from": 1225549776,
+   "to": 1225549984,
+   "delta": 208
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

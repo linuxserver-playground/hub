@@ -1,0 +1,67 @@
+{
+ "image": "baseimage-fedora",
+ "branch": "44",
+ "tag": "44-b3c9859d-ls4",
+ "previous_tag": "44-b3c9859d-ls3",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "b3c9859d",
+  "to": "b3c9859d",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "fedora",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "fedora",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 76763616,
+   "to": 76763609,
+   "delta": -7
+  },
+  "arm64": {
+   "from": 73559908,
+   "to": 73559849,
+   "delta": -59
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

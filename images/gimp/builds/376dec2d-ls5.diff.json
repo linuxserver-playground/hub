@@ -1,0 +1,163 @@
+{
+ "image": "gimp",
+ "branch": "master",
+ "tag": "376dec2d-ls5",
+ "previous_tag": "3fd6014a-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (f698779 → 92a4d62): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "3fd6014a",
+  "to": "376dec2d",
+  "changed": true
+ },
+ "commit": {
+  "from": "f698779afdb5991a92fc43f75523c9b6af63ddf2",
+  "to": "92a4d621389d2036aae90a75f486c2396cf9b42b",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-gimp/compare/f698779afdb5991a92fc43f75523c9b6af63ddf2...92a4d621389d2036aae90a75f486c2396cf9b42b",
+  "commits": [
+   {
+    "sha": "92a4d621389d2036aae90a75f486c2396cf9b42b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T23:11:28Z",
+    "url": "https://github.com/linuxserver-playground/docker-gimp/commit/92a4d621389d2036aae90a75f486c2396cf9b42b",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "debian",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:26048c0565d1c17e8b1f4efc0388e475971432229839e64dc059f8282c291a99"
+  },
+  "to": {
+   "family": "debian",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:6d8031254fcdbcfa840ee42adb617b752a5876a013b438c80b61806ab278dc46"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1044156808,
+   "to": 1044258926,
+   "delta": 102118
+  },
+  "arm64": {
+   "from": 996959708,
+   "to": 996977070,
+   "delta": 17362
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libopenexr-3-1-30",
+      "from": "3.1.13-2",
+      "to": "3.2.12-1~deb13u1",
+      "purl": "pkg:deb/debian/libopenexr-3-1-30@3.2.12-1~deb13u1?arch=amd64&distro=debian-13.7&upstream=openexr"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.115-2",
+      "to": "6.12.116-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.116-1?arch=all&distro=debian-13.7&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libopenexr-3-1-30",
+      "from": "3.1.13-2",
+      "to": "3.2.12-1~deb13u1",
+      "purl": "pkg:deb/debian/libopenexr-3-1-30@3.2.12-1~deb13u1?arch=arm64&distro=debian-13.7&upstream=openexr"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.115-2",
+      "to": "6.12.116-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.116-1?arch=all&distro=debian-13.7&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

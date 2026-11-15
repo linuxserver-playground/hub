@@ -1,0 +1,149 @@
+{
+ "image": "weixin",
+ "branch": "master",
+ "tag": "59629e54-ls3",
+ "previous_tag": "1a7800ae-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1a7800ae",
+  "to": "59629e54",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:731016ff9660aac7a2328ef09c7818ac30a240fd6452035eb2750a4d4657b61b"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1530969716,
+   "to": 1530571557,
+   "delta": -398159
+  },
+  "arm64": {
+   "from": 1484320040,
+   "to": 1483942785,
+   "delta": -377255
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.73-1~deb13u1?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.73-1~deb13u1?arch=amd64&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.73-1~deb13u1?arch=all&distro=debian-13.7&upstream=chromium"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.73-1~deb13u1?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.73-1~deb13u1?arch=arm64&distro=debian-13.7&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.47-1~deb13u1",
+      "to": "156.0.8078.73-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.73-1~deb13u1?arch=all&distro=debian-13.7&upstream=chromium"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

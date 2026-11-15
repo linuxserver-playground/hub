@@ -1,0 +1,237 @@
+{
+ "image": "mastodon",
+ "branch": "main",
+ "tag": "v4.7.5-ls5",
+ "previous_tag": "v4.7.4-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "2 commits (f3454fb → da6c6af): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v4.7.4",
+  "to": "v4.7.5",
+  "changed": true
+ },
+ "commit": {
+  "from": "f3454fbb4505cee7b7de18cb2f94fb0bd740ebbd",
+  "to": "da6c6af3aeda90fca838fc2f21f59b596da20e19",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mastodon/compare/f3454fbb4505cee7b7de18cb2f94fb0bd740ebbd...da6c6af3aeda90fca838fc2f21f59b596da20e19",
+  "commits": [
+   {
+    "sha": "cd8b857c8660a4b20aed7e6b462b1a1f2f4945be",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T10:39:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/cd8b857c8660a4b20aed7e6b462b1a1f2f4945be",
+    "bot": true
+   },
+   {
+    "sha": "da6c6af3aeda90fca838fc2f21f59b596da20e19",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T15:33:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/da6c6af3aeda90fca838fc2f21f59b596da20e19",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:df6a63d8627d7f06e292f4e4cff695743d92f8735617ff755470962e58fd75f5"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a5464bb0b85935854231e0dfa14bd55963c132d4acdfc3f5997de04f2e2bfa52"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 254737151,
+   "to": 254782957,
+   "delta": 45806
+  },
+  "arm64": {
+   "from": 251054967,
+   "to": 251097674,
+   "delta": 42707
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "addressable",
+      "from": "2.9.0",
+      "to": "2.9.2",
+      "purl": "pkg:gem/addressable@2.9.2"
+     },
+     {
+      "name": "loofah",
+      "from": "2.25.2",
+      "to": "2.25.3",
+      "purl": "pkg:gem/loofah@2.25.3"
+     },
+     {
+      "name": "nokogiri",
+      "from": "1.19.4",
+      "to": "1.19.7",
+      "purl": "pkg:gem/nokogiri@1.19.7"
+     },
+     {
+      "name": "rack",
+      "from": "3.2.7",
+      "to": "3.2.8",
+      "purl": "pkg:gem/rack@3.2.8"
+     },
+     {
+      "name": "rails-html-sanitizer",
+      "from": "1.7.1",
+      "to": "1.7.2",
+      "purl": "pkg:gem/rails-html-sanitizer@1.7.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "addressable",
+      "from": "2.9.0",
+      "to": "2.9.2",
+      "purl": "pkg:gem/addressable@2.9.2"
+     },
+     {
+      "name": "loofah",
+      "from": "2.25.2",
+      "to": "2.25.3",
+      "purl": "pkg:gem/loofah@2.25.3"
+     },
+     {
+      "name": "nokogiri",
+      "from": "1.19.4",
+      "to": "1.19.7",
+      "purl": "pkg:gem/nokogiri@1.19.7"
+     },
+     {
+      "name": "rack",
+      "from": "3.2.7",
+      "to": "3.2.8",
+      "purl": "pkg:gem/rack@3.2.8"
+     },
+     {
+      "name": "rails-html-sanitizer",
+      "from": "1.7.1",
+      "to": "1.7.2",
+      "purl": "pkg:gem/rails-html-sanitizer@1.7.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

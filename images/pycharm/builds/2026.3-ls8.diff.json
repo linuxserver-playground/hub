@@ -1,0 +1,1149 @@
+{
+ "image": "pycharm",
+ "branch": "master",
+ "tag": "2026.3-ls8",
+ "previous_tag": "2026.2.3-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "5 commits (81a4ca3 → c03fe1b): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "2026.2.3",
+  "to": "2026.3",
+  "changed": true
+ },
+ "commit": {
+  "from": "81a4ca3347fa620985c41cce9f3e45a71bdcf97e",
+  "to": "c03fe1bcd7b7ea209a0921727bb04936a4b39b93",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pycharm/compare/81a4ca3347fa620985c41cce9f3e45a71bdcf97e...c03fe1bcd7b7ea209a0921727bb04936a4b39b93",
+  "commits": [
+   {
+    "sha": "60b9a17c5e2c9beb8191efa25b6d9fd7fe444e37",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T03:25:43Z",
+    "url": "https://github.com/linuxserver-playground/docker-pycharm/commit/60b9a17c5e2c9beb8191efa25b6d9fd7fe444e37",
+    "bot": true
+   },
+   {
+    "sha": "fe3a22da191debca8cb2b95a2ba5838d5c2774a3",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T03:35:11Z",
+    "url": "https://github.com/linuxserver-playground/docker-pycharm/commit/fe3a22da191debca8cb2b95a2ba5838d5c2774a3",
+    "bot": true
+   },
+   {
+    "sha": "6b0b125c15ce9bfd5837daa352d99e38f13fb5c8",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T23:24:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-pycharm/commit/6b0b125c15ce9bfd5837daa352d99e38f13fb5c8",
+    "bot": true
+   },
+   {
+    "sha": "54442954732e432b512ee7a2a433817b4883e2b5",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T23:36:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-pycharm/commit/54442954732e432b512ee7a2a433817b4883e2b5",
+    "bot": true
+   },
+   {
+    "sha": "c03fe1bcd7b7ea209a0921727bb04936a4b39b93",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T03:35:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-pycharm/commit/c03fe1bcd7b7ea209a0921727bb04936a4b39b93",
+    "bot": true
+   }
+  ],
+  "count": 5,
+  "truncated": false,
+  "areas": {
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:86a816311537c9c907cb07a0a0efd9415ad339708ba972c83e8a008284f4b947"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1846597749,
+   "to": 1870054631,
+   "delta": 23456882
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [
+     {
+      "name": "glibc-locales",
+      "version": "2.44+r50+g1848099f063e-1",
+      "purl": "pkg:alpm/arch/glibc-locales@2.44%2Br50%2Bg1848099f063e-1?arch=x86_64&distro=arch-rolling&upstream=glibc"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates-mozilla",
+      "from": "3.132-1",
+      "to": "3.133-1",
+      "purl": "pkg:alpm/arch/ca-certificates-mozilla@3.133-1?arch=x86_64&distro=arch-rolling&upstream=nss"
+     },
+     {
+      "name": "cmake",
+      "from": "4.4.4-1",
+      "to": "4.4.5-1",
+      "purl": "pkg:alpm/arch/cmake@4.4.5-1?arch=x86_64&distro=arch-rolling&upstream=cmake"
+     },
+     {
+      "name": "debugedit",
+      "from": "5.3-2",
+      "to": "5.4-1",
+      "purl": "pkg:alpm/arch/debugedit@5.4-1?arch=x86_64&distro=arch-rolling&upstream=debugedit"
+     },
+     {
+      "name": "device-mapper",
+      "from": "2.03.43-2",
+      "to": "2.03.44-1",
+      "purl": "pkg:alpm/arch/device-mapper@2.03.44-1?arch=x86_64&distro=arch-rolling&upstream=lvm2"
+     },
+     {
+      "name": "docker",
+      "from": "1:29.9.2-1",
+      "to": "1:29.9.3-1",
+      "purl": "pkg:alpm/arch/docker@1%3A29.9.3-1?arch=x86_64&distro=arch-rolling&upstream=docker"
+     },
+     {
+      "name": "docker-compose",
+      "from": "5.6.1-1",
+      "to": "5.7.0-1",
+      "purl": "pkg:alpm/arch/docker-compose@5.7.0-1?arch=x86_64&distro=arch-rolling&upstream=docker-compose"
+     },
+     {
+      "name": "expat",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:alpm/arch/expat@2.10.0-1?arch=x86_64&distro=arch-rolling&upstream=expat"
+     },
+     {
+      "name": "fakeroot",
+      "from": "1:1.37.2-3",
+      "to": "1:2.1.4-1",
+      "purl": "pkg:alpm/arch/fakeroot@1%3A2.1.4-1?arch=x86_64&distro=arch-rolling&upstream=fakeroot"
+     },
+     {
+      "name": "fribidi",
+      "from": "1.0.17-1",
+      "to": "1.0.18-1",
+      "purl": "pkg:alpm/arch/fribidi@1.0.18-1?arch=x86_64&distro=arch-rolling&upstream=fribidi"
+     },
+     {
+      "name": "glycin",
+      "from": "2.2.5-1",
+      "to": "2.2.6-1",
+      "purl": "pkg:alpm/arch/glycin@2.2.6-1?arch=x86_64&distro=arch-rolling&upstream=glycin"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": "pkg:alpm/arch/gnupg@2.4.9-4?arch=x86_64&distro=arch-rolling&upstream=gnupg"
+     },
+     {
+      "name": "gperftools",
+      "from": "2.19.1-1",
+      "to": "2.19.2-1",
+      "purl": "pkg:alpm/arch/gperftools@2.19.2-1?arch=x86_64&distro=arch-rolling&upstream=gperftools"
+     },
+     {
+      "name": "harfbuzz",
+      "from": "14.6.0-1",
+      "to": "15.1.0-1",
+      "purl": "pkg:alpm/arch/harfbuzz@15.1.0-1?arch=x86_64&distro=arch-rolling&upstream=harfbuzz"
+     },
+     {
+      "name": "kmod",
+      "from": "34.2-1",
+      "to": "34.3-1",
+      "purl": "pkg:alpm/arch/kmod@34.3-1?arch=x86_64&distro=arch-rolling&upstream=kmod"
+     },
+     {
+      "name": "lcms2",
+      "from": "2.19.1-1",
+      "to": "2.20-1",
+      "purl": "pkg:alpm/arch/lcms2@2.20-1?arch=x86_64&distro=arch-rolling&upstream=lcms2"
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.10-1",
+      "to": "3.8.11-1",
+      "purl": "pkg:alpm/arch/libarchive@3.8.11-1?arch=x86_64&distro=arch-rolling&upstream=libarchive"
+     },
+     {
+      "name": "libcloudproviders",
+      "from": "0.4.1-1",
+      "to": "0.4.2-1",
+      "purl": "pkg:alpm/arch/libcloudproviders@0.4.2-1?arch=x86_64&distro=arch-rolling&upstream=libcloudproviders"
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r32.gd49e9284-1",
+      "to": "2.2.1.r57.g9fcc4bf4-1",
+      "purl": "pkg:alpm/arch/libcupsfilters@2.2.1.r57.g9fcc4bf4-1?arch=x86_64&distro=arch-rolling&upstream=libcupsfilters"
+     },
+     {
+      "name": "libjpeg-turbo",
+      "from": "3.2.0-2",
+      "to": "3.2.1-1",
+      "purl": "pkg:alpm/arch/libjpeg-turbo@3.2.1-1?arch=x86_64&distro=arch-rolling&upstream=libjpeg-turbo"
+     },
+     {
+      "name": "libnghttp2",
+      "from": "1.70.0-1",
+      "to": "1.71.0-1",
+      "purl": "pkg:alpm/arch/libnghttp2@1.71.0-1?arch=x86_64&distro=arch-rolling&upstream=libnghttp2"
+     },
+     {
+      "name": "libnghttp3",
+      "from": "1.18.0-1",
+      "to": "1.19.0-1",
+      "purl": "pkg:alpm/arch/libnghttp3@1.19.0-1?arch=x86_64&distro=arch-rolling&upstream=libnghttp3"
+     },
+     {
+      "name": "libngtcp2",
+      "from": "1.25.0-1",
+      "to": "1.26.0-1",
+      "purl": "pkg:alpm/arch/libngtcp2@1.26.0-1?arch=x86_64&distro=arch-rolling&upstream=libngtcp2"
+     },
+     {
+      "name": "lz4",
+      "from": "1:1.10.0-2",
+      "to": "1:1.11.0-1",
+      "purl": "pkg:alpm/arch/lz4@1%3A1.11.0-1?arch=x86_64&distro=arch-rolling&upstream=lz4"
+     },
+     {
+      "name": "mesa",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/mesa@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "noto-fonts",
+      "from": "1:2026.10.01-1",
+      "to": "1:2026.11.01-1",
+      "purl": "pkg:alpm/arch/noto-fonts@1%3A2026.11.01-1?arch=any&distro=arch-rolling&upstream=noto-fonts"
+     },
+     {
+      "name": "noto-fonts-emoji",
+      "from": "1:2.057-1",
+      "to": "1:20260924-1",
+      "purl": "pkg:alpm/arch/noto-fonts-emoji@1%3A20260924-1?arch=any&distro=arch-rolling&upstream=noto-fonts-emoji"
+     },
+     {
+      "name": "nss",
+      "from": "3.132-1",
+      "to": "3.133-1",
+      "purl": "pkg:alpm/arch/nss@3.133-1?arch=x86_64&distro=arch-rolling&upstream=nss"
+     },
+     {
+      "name": "pdfio",
+      "from": "1.6.5-1",
+      "to": "1.6.6-1",
+      "purl": "pkg:alpm/arch/pdfio@1.6.6-1?arch=x86_64&distro=arch-rolling&upstream=pdfio"
+     },
+     {
+      "name": "poppler",
+      "from": "26.10.0-1",
+      "to": "26.10.0-2",
+      "purl": "pkg:alpm/arch/poppler@26.10.0-2?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "pycharm-community-edition",
+      "from": "2026.2.3-1",
+      "to": "2026.3-1",
+      "purl": "pkg:alpm/arch/pycharm-community-edition@2026.3-1?arch=x86_64&distro=arch-rolling&upstream=pycharm-community-edition"
+     },
+     {
+      "name": "python",
+      "from": "3.14.8-1",
+      "to": "3.14.9-1",
+      "purl": "pkg:alpm/arch/python@3.14.9-1?arch=x86_64&distro=arch-rolling&upstream=python"
+     },
+     {
+      "name": "python-markdown",
+      "from": "3.11.2-1",
+      "to": "3.11.3-1",
+      "purl": "pkg:alpm/arch/python-markdown@3.11.3-1?arch=any&distro=arch-rolling&upstream=python-markdown"
+     },
+     {
+      "name": "python-platformdirs",
+      "from": "4.13.5-1",
+      "to": "4.14.3-1",
+      "purl": "pkg:alpm/arch/python-platformdirs@4.14.3-1?arch=any&distro=arch-rolling&upstream=python-platformdirs"
+     },
+     {
+      "name": "sqlite",
+      "from": "3.54.0-1",
+      "to": "3.54.1-1",
+      "purl": "pkg:alpm/arch/sqlite@3.54.1-1?arch=x86_64&distro=arch-rolling&upstream=sqlite"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1",
+      "to": "2026f-1",
+      "purl": "pkg:alpm/arch/tzdata@2026f-1?arch=x86_64&distro=arch-rolling&upstream=tzdata"
+     },
+     {
+      "name": "vulkan-intel",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/vulkan-intel@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-mesa-implicit-layers",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/vulkan-mesa-implicit-layers@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-radeon",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/vulkan-radeon@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "wayland-protocols",
+      "from": "1.49-1",
+      "to": "1.50-1",
+      "purl": "pkg:alpm/arch/wayland-protocols@1.50-1?arch=any&distro=arch-rolling&upstream=wayland-protocols"
+     },
+     {
+      "name": "xf86-video-qxl",
+      "from": "0.1.6-2",
+      "to": "0.1.6-3",
+      "purl": "pkg:alpm/arch/xf86-video-qxl@0.1.6-3?arch=x86_64&distro=arch-rolling&upstream=xf86-video-qxl"
+     },
+     {
+      "name": "xkeyboard-config",
+      "from": "2.48-1",
+      "to": "2.49-1",
+      "purl": "pkg:alpm/arch/xkeyboard-config@2.49-1?arch=any&distro=arch-rolling&upstream=xkeyboard-config"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/go-connections",
+      "from": "v0.8.1",
+      "to": "v0.8.2",
+      "purl": "pkg:golang/github.com/docker/go-connections@v0.8.2"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     },
+     {
+      "name": "golang.org/x/crypto",
+      "from": "v0.56.0",
+      "to": "v0.57.0",
+      "purl": "pkg:golang/golang.org/x/crypto@v0.57.0"
+     },
+     {
+      "name": "golang.org/x/net",
+      "from": "v0.58.0",
+      "to": "v0.60.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.60.0"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.23.0",
+      "to": "v0.24.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.24.0"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.48.0",
+      "to": "v0.49.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.49.0"
+     },
+     {
+      "name": "golang.org/x/text",
+      "from": "v0.41.0",
+      "to": "v0.42.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.42.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [
+     {
+      "name": "grazie-rules-llm",
+      "version": "0.4.31",
+      "purl": "pkg:maven/ai.grazie/grazie-rules-llm@0.4.31"
+     },
+     {
+      "name": "util",
+      "version": "3.25.5",
+      "purl": "pkg:maven/com.google.protobuf.util/util@3.25.5"
+     },
+     {
+      "name": "json-schema-validator",
+      "version": "3.0.0-jetbrains.11",
+      "purl": "pkg:maven/com.networknt/json-schema-validator@3.0.0-jetbrains.11"
+     },
+     {
+      "name": "jvm",
+      "version": "3.18.2",
+      "purl": "pkg:maven/com.squareup.okio/jvm@3.18.2"
+     },
+     {
+      "name": "jing",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/com/thaiopensource/relaxng/util/Driver/jing"
+     },
+     {
+      "name": "engine",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/engine/engine"
+     },
+     {
+      "name": "logging",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/io.github.oshai.kotlinlogging/logging"
+     },
+     {
+      "name": "utils",
+      "version": "3.6.0",
+      "purl": "pkg:maven/io.ktor.utils/utils@3.6.0"
+     },
+     {
+      "name": "codec-protobuf",
+      "version": "4.2.18.Final",
+      "purl": "pkg:maven/io.netty/codec-protobuf@4.2.18.Final"
+     },
+     {
+      "name": "netty-codec-protobuf",
+      "version": "4.2.18.Final",
+      "purl": "pkg:maven/io.netty/netty-codec-protobuf@4.2.18.Final"
+     },
+     {
+      "name": "io",
+      "version": "1.11.0",
+      "purl": "pkg:maven/io/io@1.11.0"
+     },
+     {
+      "name": "isorelax",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/isorelax/isorelax"
+     },
+     {
+      "name": "kotlin",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/kotlin/kotlin"
+     },
+     {
+      "name": "metadata",
+      "version": "2.4.21-RC",
+      "purl": "pkg:maven/metadata/metadata@2.4.21-RC"
+     },
+     {
+      "name": "model",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/model/model"
+     },
+     {
+      "name": "libthrift",
+      "version": "0.19.0",
+      "purl": "pkg:maven/org.apache.thrift/libthrift@0.19.0"
+     },
+     {
+      "name": "engine-core",
+      "version": "2.4.1",
+      "purl": "pkg:maven/org.apache.velocity.engine-core/engine-core@2.4.1"
+     },
+     {
+      "name": "resolver",
+      "version": "1.2",
+      "purl": "pkg:maven/org.apache.xml.resolver.Catalog/resolver@1.2"
+     },
+     {
+      "name": "core",
+      "version": "0.3.0",
+      "purl": "pkg:maven/org.ec4j.core/core@0.3.0"
+     },
+     {
+      "name": "ec4j-core",
+      "version": "0.3.0",
+      "purl": "pkg:maven/org.ec4j.core/ec4j-core@0.3.0"
+     },
+     {
+      "name": "debug",
+      "version": "1.0.0.v20260209-1721",
+      "purl": "pkg:maven/org.eclipse.lsp4j.debug/debug@1.0.0.v20260209-1721"
+     },
+     {
+      "name": "debug",
+      "version": "1.0.0.v20260209-1721",
+      "purl": "pkg:maven/org.eclipse.lsp4j.jsonrpc.debug/debug@1.0.0.v20260209-1721"
+     },
+     {
+      "name": "annotation",
+      "version": "1.3.2",
+      "purl": "pkg:maven/org.glassfish/annotation@1.3.2"
+     },
+     {
+      "name": "sqlite-jdbc;singleton:=true",
+      "version": "3.53.4.0",
+      "purl": "pkg:maven/org.xerial.sqlite-jdbc/sqlite-jdbc%3Bsingleton%3A%3Dtrue@3.53.4.0"
+     },
+     {
+      "name": "sqlite-jdbc",
+      "version": "3.53.4.0",
+      "purl": "pkg:maven/org.xerial/sqlite-jdbc@3.53.4.0"
+     },
+     {
+      "name": "sh",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/sh/sh"
+     },
+     {
+      "name": "signer",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/signer/signer"
+     },
+     {
+      "name": "jackson-dataformat-toml",
+      "version": "3.2.2",
+      "purl": "pkg:maven/tools.jackson.dataformat/jackson-dataformat-toml@3.2.2"
+     },
+     {
+      "name": "validation",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/validation/validation"
+     }
+    ],
+    "removed": [
+     {
+      "name": "core",
+      "version": "6.9.2",
+      "purl": "pkg:maven/com.github.oshi.oshi-core/core@6.9.2"
+     },
+     {
+      "name": "oshi-core",
+      "version": "6.9.2",
+      "purl": "pkg:maven/com.github.oshi/oshi-core@6.9.2"
+     },
+     {
+      "name": "collate",
+      "version": "78.3",
+      "purl": "pkg:maven/com.ibm.icu/collate@78.3"
+     },
+     {
+      "name": "core",
+      "version": "78.3",
+      "purl": "pkg:maven/com.ibm.icu/core@78.3"
+     },
+     {
+      "name": "currdata",
+      "version": "78.3",
+      "purl": "pkg:maven/com.ibm.icu/currdata@78.3"
+     },
+     {
+      "name": "icu4j",
+      "version": "78.3",
+      "purl": "pkg:maven/com.ibm.icu/icu4j@78.3"
+     },
+     {
+      "name": "langdata",
+      "version": "78.3",
+      "purl": "pkg:maven/com.ibm.icu/langdata@78.3"
+     },
+     {
+      "name": "regiondata",
+      "version": "78.3",
+      "purl": "pkg:maven/com.ibm.icu/regiondata@78.3"
+     },
+     {
+      "name": "tools_taglets",
+      "version": "78.3",
+      "purl": "pkg:maven/com.ibm.icu/tools_taglets@78.3"
+     },
+     {
+      "name": "translit",
+      "version": "78.3",
+      "purl": "pkg:maven/com.ibm.icu/translit@78.3"
+     },
+     {
+      "name": "commons-discovery",
+      "version": "0.4",
+      "purl": "pkg:maven/commons-discovery/commons-discovery@0.4"
+     },
+     {
+      "name": "completion-ranking-sh",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/completion-ranking-sh/completion-ranking-sh"
+     },
+     {
+      "name": "jaxb-api",
+      "version": "2.3.1",
+      "purl": "pkg:maven/javax.xml.bind/jaxb-api@2.3.1"
+     },
+     {
+      "name": "engine-core",
+      "version": "2.3",
+      "purl": "pkg:maven/org.apache.velocity/engine-core@2.3"
+     },
+     {
+      "name": "logging",
+      "version": "1.2",
+      "purl": "pkg:maven/org.apache/logging@1.2"
+     },
+     {
+      "name": "swingx-core",
+      "version": "1.6.2-SNAPSHOT",
+      "purl": "pkg:maven/org.swinglabs/swingx-core@1.6.2-SNAPSHOT"
+     },
+     {
+      "name": "terminal-completion-db-with-extensions",
+      "version": "UNKNOWN",
+      "purl": "pkg:maven/terminal-completion-db-with-extensions/terminal-completion-db-with-extensions"
+     },
+     {
+      "name": "tips-pycharm-community",
+      "version": "2.1",
+      "purl": "pkg:maven/tips-pycharm-community/tips-pycharm-community@2.1"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "lz4-java",
+      "from": "1.11.0",
+      "to": "1.11.3",
+      "purl": "pkg:maven/at.yawk.lz4/lz4-java@1.11.3"
+     },
+     {
+      "name": "cbor",
+      "from": "UNKNOWN",
+      "to": "1.11.0",
+      "purl": "pkg:maven/cbor/cbor@1.11.0"
+     },
+     {
+      "name": "ion",
+      "from": "1.11.11",
+      "to": "1.12.1",
+      "purl": "pkg:maven/com.amazon.ion.java/ion@1.12.1"
+     },
+     {
+      "name": "jackson-annotations",
+      "from": "2.21",
+      "to": "2.22",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.22"
+     },
+     {
+      "name": "jackson-core",
+      "from": "2.19.0",
+      "to": "2.22.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.22.2"
+     },
+     {
+      "name": "jackson-databind",
+      "from": "2.19.0",
+      "to": "2.22.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.22.2"
+     },
+     {
+      "name": "jackson-dataformat-toml",
+      "from": "2.19.0",
+      "to": "2.22.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.dataformat/jackson-dataformat-toml@2.22.2"
+     },
+     {
+      "name": "jackson-dataformat-xml",
+      "from": "2.19.0",
+      "to": "2.22.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.dataformat/jackson-dataformat-xml@2.22.2"
+     },
+     {
+      "name": "jackson-dataformat-yaml",
+      "from": "2.19.0",
+      "to": "2.22.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml@2.22.2"
+     },
+     {
+      "name": "jackson-datatype-jdk8",
+      "from": "2.19.0",
+      "to": "2.22.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jdk8@2.22.2"
+     },
+     {
+      "name": "jackson-datatype-jsr310",
+      "from": "2.19.0",
+      "to": "2.22.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jsr310@2.22.2"
+     },
+     {
+      "name": "jackson-jr-objects",
+      "from": "2.19.0",
+      "to": "2.22.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.jr/jackson-jr-objects@2.22.2"
+     },
+     {
+      "name": "jackson-module-kotlin",
+      "from": "2.19.0",
+      "to": "2.22.2",
+      "purl": "pkg:maven/com.fasterxml.jackson.module/jackson-module-kotlin@2.22.2"
+     },
+     {
+      "name": "jsvg",
+      "from": "2.1.0",
+      "to": "2.2.0",
+      "purl": "pkg:maven/com.github.weisj/jsvg@2.2.0"
+     },
+     {
+      "name": "gson",
+      "from": "2.13.2",
+      "to": "2.14.0",
+      "purl": "pkg:maven/com.google.code.gson/gson@2.14.0"
+     },
+     {
+      "name": "mvstore",
+      "from": "2.4.240",
+      "to": "2.5.250",
+      "purl": "pkg:maven/com.h2database.mvstore/mvstore@2.5.250"
+     },
+     {
+      "name": "commons-codec",
+      "from": "1.21.0",
+      "to": "1.22.1",
+      "purl": "pkg:maven/commons-codec/commons-codec@1.22.1"
+     },
+     {
+      "name": "commons-io",
+      "from": "2.8.0",
+      "to": "2.22.0",
+      "purl": "pkg:maven/commons-io/commons-io@2.22.0"
+     },
+     {
+      "name": "commons-logging",
+      "from": "1.2",
+      "to": "1.4.0",
+      "purl": "pkg:maven/commons-logging/commons-logging@1.4.0"
+     },
+     {
+      "name": "debug",
+      "from": "UNKNOWN",
+      "to": "1.11.0-intellij-1",
+      "purl": "pkg:maven/debug/debug@1.11.0-intellij-1"
+     },
+     {
+      "name": "guava",
+      "from": "UNKNOWN",
+      "to": "1.11.0-intellij-1",
+      "purl": "pkg:maven/guava/guava@1.11.0-intellij-1"
+     },
+     {
+      "name": "immutable",
+      "from": "0.5.0",
+      "to": "0.5.2",
+      "purl": "pkg:maven/immutable/immutable@0.5.2"
+     },
+     {
+      "name": "classgraph",
+      "from": "4.8.181",
+      "to": "4.8.195",
+      "purl": "pkg:maven/io.github.classgraph/classgraph@4.8.195"
+     },
+     {
+      "name": "cio",
+      "from": "3.4.1",
+      "to": "3.6.0",
+      "purl": "pkg:maven/io.ktor.client.cio/cio@3.6.0"
+     },
+     {
+      "name": "io",
+      "from": "3.4.1",
+      "to": "3.6.0",
+      "purl": "pkg:maven/io.ktor.io/io@3.6.0"
+     },
+     {
+      "name": "codec-compression",
+      "from": "4.2.15.Final",
+      "to": "4.2.18.Final",
+      "purl": "pkg:maven/io.netty/codec-compression@4.2.18.Final"
+     },
+     {
+      "name": "netty-codec-compression",
+      "from": "4.2.15.Final",
+      "to": "4.2.18.Final",
+      "purl": "pkg:maven/io.netty/netty-codec-compression@4.2.18.Final"
+     },
+     {
+      "name": "jdk",
+      "from": "1.48.0",
+      "to": "1.66.0",
+      "purl": "pkg:maven/io.opentelemetry.exporter.sender.jdk.internal/jdk@1.66.0"
+     },
+     {
+      "name": "kotlin",
+      "from": "1.48.0",
+      "to": "1.66.0",
+      "purl": "pkg:maven/io.opentelemetry.extension.kotlin/kotlin@1.66.0"
+     },
+     {
+      "name": "spi",
+      "from": "1.48.0",
+      "to": "1.66.0",
+      "purl": "pkg:maven/io.opentelemetry.sdk.autoconfigure.spi/spi@1.66.0"
+     },
+     {
+      "name": "semconv",
+      "from": "1.30.0",
+      "to": "1.44.0",
+      "purl": "pkg:maven/io.opentelemetry.semconv/semconv@1.44.0"
+     },
+     {
+      "name": "jrt-fs",
+      "from": "25.0.4",
+      "to": "25.0.4.1",
+      "purl": "pkg:maven/jrt-fs/jrt-fs@25.0.4.1"
+     },
+     {
+      "name": "json",
+      "from": "UNKNOWN",
+      "to": "1.11.0",
+      "purl": "pkg:maven/json/json@1.11.0"
+     },
+     {
+      "name": "velocity-engine-core",
+      "from": "2.3",
+      "to": "2.4.1",
+      "purl": "pkg:maven/org.apache.velocity/velocity-engine-core@2.4.1"
+     },
+     {
+      "name": "jettison",
+      "from": "1.5.4",
+      "to": "1.5.7",
+      "purl": "pkg:maven/org.codehaus.jettison/jettison@1.5.7"
+     },
+     {
+      "name": "jsonrpc",
+      "from": "0.24.0.v20250131-1745",
+      "to": "1.0.0.v20260209-1721",
+      "purl": "pkg:maven/org.eclipse.lsp4j.jsonrpc/jsonrpc@1.0.0.v20260209-1721"
+     },
+     {
+      "name": "lsp4j",
+      "from": "0.24.0.v20250131-1745",
+      "to": "1.0.0.v20260209-1721",
+      "purl": "pkg:maven/org.eclipse.lsp4j/lsp4j@1.0.0.v20260209-1721"
+     },
+     {
+      "name": "xbase",
+      "from": "2.40.0.v20250825-0355",
+      "to": "2.44.0.v20260824-1228",
+      "purl": "pkg:maven/org.eclipse.xtext.xbase.lib/xbase@2.44.0.v20260824-1228"
+     },
+     {
+      "name": "org.eclipse.xtext.xbase.lib",
+      "from": "2.40.0",
+      "to": "2.44.0",
+      "purl": "pkg:maven/org.eclipse.xtext/org.eclipse.xtext.xbase.lib@2.44.0"
+     },
+     {
+      "name": "jvm-native-trusted-roots",
+      "from": "1.1.7",
+      "to": "2.0.8",
+      "purl": "pkg:maven/org.jetbrains.nativecerts/jvm-native-trusted-roots@2.0.8"
+     },
+     {
+      "name": "roots",
+      "from": "1.1.7",
+      "to": "2.0.8",
+      "purl": "pkg:maven/org.jetbrains.nativecerts/roots@2.0.8"
+     },
+     {
+      "name": "jsoup",
+      "from": "1.22.1",
+      "to": "1.23.2",
+      "purl": "pkg:maven/org.jsoup/jsoup@1.23.2"
+     },
+     {
+      "name": "jspecify",
+      "from": "1.0.0",
+      "to": "1.0.1",
+      "purl": "pkg:maven/org.jspecify.jspecify/jspecify@1.0.1"
+     },
+     {
+      "name": "lz4",
+      "from": "1.11.0",
+      "to": "1.11.3",
+      "purl": "pkg:maven/org.lz4/lz4@1.11.3"
+     },
+     {
+      "name": "xz",
+      "from": "1.10",
+      "to": "1.12",
+      "purl": "pkg:maven/org.tukaani.xz/xz@1.12"
+     },
+     {
+      "name": "snakeyaml",
+      "from": "2.4",
+      "to": "2.7",
+      "purl": "pkg:maven/org.yaml/snakeyaml@2.7"
+     },
+     {
+      "name": "pgp",
+      "from": "1.84",
+      "to": "1.86",
+      "purl": "pkg:maven/pgp/pgp@1.86"
+     },
+     {
+      "name": "protobuf",
+      "from": "UNKNOWN",
+      "to": "1.11.0",
+      "purl": "pkg:maven/protobuf/protobuf@1.11.0"
+     },
+     {
+      "name": "reflect",
+      "from": "2.4.0-release-281",
+      "to": "2.4.21-RC",
+      "purl": "pkg:maven/reflect/reflect@2.4.21-RC"
+     },
+     {
+      "name": "slf4j",
+      "from": "UNKNOWN",
+      "to": "1.11.0-intellij-1",
+      "purl": "pkg:maven/slf4j/slf4j@1.11.0-intellij-1"
+     },
+     {
+      "name": "jackson-core",
+      "from": "3.1.4",
+      "to": "3.2.2",
+      "purl": "pkg:maven/tools.jackson.core/jackson-core@3.2.2"
+     },
+     {
+      "name": "jackson-databind",
+      "from": "3.1.4",
+      "to": "3.2.2",
+      "purl": "pkg:maven/tools.jackson.core/jackson-databind@3.2.2"
+     },
+     {
+      "name": "jackson-dataformat-yaml",
+      "from": "3.1.4",
+      "to": "3.2.2",
+      "purl": "pkg:maven/tools.jackson.dataformat/jackson-dataformat-yaml@3.2.2"
+     },
+     {
+      "name": "jackson-jr-objects",
+      "from": "3.1.4",
+      "to": "3.2.2",
+      "purl": "pkg:maven/tools.jackson.jr/jackson-jr-objects@3.2.2"
+     },
+     {
+      "name": "jackson-module-kotlin",
+      "from": "3.1.4",
+      "to": "3.2.2",
+      "purl": "pkg:maven/tools.jackson.module/jackson-module-kotlin@3.2.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.6.17",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.2",
+      "purl": "pkg:pypi/dnspython@2.9.2"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11.2",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.1",
+      "to": "26.2.2",
+      "purl": "pkg:pypi/pip@26.2.2"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.13.5",
+      "to": "4.14.3",
+      "purl": "pkg:pypi/platformdirs@4.14.3"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 33,
+  "removed": 18,
+  "upgraded": 121,
+  "downgraded": 0
+ }
+}

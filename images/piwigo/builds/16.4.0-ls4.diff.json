@@ -1,0 +1,135 @@
+{
+ "image": "piwigo",
+ "branch": "master",
+ "tag": "16.4.0-ls4",
+ "previous_tag": "16.4.0-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (80dc301 → 79a752d): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "16.4.0",
+  "to": "16.4.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "80dc30184d6c534eb255397221eb8846eb35f440",
+  "to": "79a752df79fe383de8d6d81b107d765b4375a92c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-piwigo/compare/80dc30184d6c534eb255397221eb8846eb35f440...79a752df79fe383de8d6d81b107d765b4375a92c",
+  "commits": [
+   {
+    "sha": "f7501abed29bddf134e6c6ed2084c6a8054227b2",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:49:39Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/f7501abed29bddf134e6c6ed2084c6a8054227b2",
+    "bot": true
+   },
+   {
+    "sha": "79a752df79fe383de8d6d81b107d765b4375a92c",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T16:38:28Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/79a752df79fe383de8d6d81b107d765b4375a92c",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 3
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e0867f6ba6d1ecc1e7b95fa128143b3400748c8de7ccabf498044b009c4ca01a"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a55ef6f5b72baa4997d79d545cdd81d262c2a719afbaddf2984d93f9250db2a0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 136202167,
+   "to": 136241947,
+   "delta": 39780
+  },
+  "arm64": {
+   "from": 132829825,
+   "to": 132876882,
+   "delta": 47057
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

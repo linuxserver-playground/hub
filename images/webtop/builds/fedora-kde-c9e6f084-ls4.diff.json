@@ -1,0 +1,146 @@
+{
+ "image": "webtop",
+ "branch": "fedora-kde",
+ "tag": "fedora-kde-c9e6f084-ls4",
+ "previous_tag": "fedora-kde-49b32ede-ls3",
+ "classification": "upstream",
+ "reasons": [
+  "upstream version changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "49b32ede",
+  "to": "c9e6f084",
+  "changed": true
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:56bcd84fe21cbd7e40ab26ba021d3c34658802cfce31bdd02cc4d5f5c501b38b"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:56bcd84fe21cbd7e40ab26ba021d3c34658802cfce31bdd02cc4d5f5c501b38b"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1899269330,
+   "to": 1899402271,
+   "delta": 132941
+  },
+  "arm64": {
+   "from": 1778101468,
+   "to": 1778297439,
+   "delta": 195971
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "LibRaw",
+      "from": "0.22.2-1.fc44",
+      "to": "0.22.3-1.fc44",
+      "purl": "pkg:rpm/fedora/LibRaw@0.22.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=LibRaw-0.22.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "PackageKit",
+      "from": "1.4.0-1.fc44",
+      "to": "1.4.0-2.fc44",
+      "purl": "pkg:rpm/fedora/PackageKit@1.4.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=PackageKit-1.4.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "PackageKit-glib",
+      "from": "1.4.0-1.fc44",
+      "to": "1.4.0-2.fc44",
+      "purl": "pkg:rpm/fedora/PackageKit-glib@1.4.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=PackageKit-1.4.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "ddcutil",
+      "from": "2.2.1-3.fc44",
+      "to": "3.0.2-1.fc44",
+      "purl": "pkg:rpm/fedora/ddcutil@3.0.2-1.fc44?arch=x86_64&distro=fedora-44&upstream=ddcutil-3.0.2-1.fc44.src.rpm"
+     },
+     {
+      "name": "libddcutil",
+      "from": "2.2.1-3.fc44",
+      "to": "3.0.2-1.fc44",
+      "purl": "pkg:rpm/fedora/libddcutil@3.0.2-1.fc44?arch=x86_64&distro=fedora-44&upstream=ddcutil-3.0.2-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "LibRaw",
+      "from": "0.22.2-1.fc44",
+      "to": "0.22.3-1.fc44",
+      "purl": "pkg:rpm/fedora/LibRaw@0.22.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=LibRaw-0.22.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "PackageKit",
+      "from": "1.4.0-1.fc44",
+      "to": "1.4.0-2.fc44",
+      "purl": "pkg:rpm/fedora/PackageKit@1.4.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=PackageKit-1.4.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "PackageKit-glib",
+      "from": "1.4.0-1.fc44",
+      "to": "1.4.0-2.fc44",
+      "purl": "pkg:rpm/fedora/PackageKit-glib@1.4.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=PackageKit-1.4.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "ddcutil",
+      "from": "2.2.1-3.fc44",
+      "to": "3.0.2-1.fc44",
+      "purl": "pkg:rpm/fedora/ddcutil@3.0.2-1.fc44?arch=aarch64&distro=fedora-44&upstream=ddcutil-3.0.2-1.fc44.src.rpm"
+     },
+     {
+      "name": "libddcutil",
+      "from": "2.2.1-3.fc44",
+      "to": "3.0.2-1.fc44",
+      "purl": "pkg:rpm/fedora/libddcutil@3.0.2-1.fc44?arch=aarch64&distro=fedora-44&upstream=ddcutil-3.0.2-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

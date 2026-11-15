@@ -1,0 +1,234 @@
+{
+ "schema": 1,
+ "name": "homeassistant",
+ "summary": "[Home Assistant Core](https://www.home-assistant.io/) - Open source home automation that puts local control and privacy first. Powered by a worldwide community of tinkerers and DIY enthusiasts. Perfect to run on a Raspberry Pi or a local server",
+ "upstream": {
+  "url": "https://www.home-assistant.io/",
+  "version": {
+   "type": "pip",
+   "package": "homeassistant"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "home-assistant/core",
+   "tag": "${VERSION}"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "HASS_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 240,
+  "env": {
+   "TZ": "Europe/London"
+  },
+  "web": {
+   "port": 8123
+  }
+ },
+ "runtime": {
+  "network": {
+   "mode": "host",
+   "description": "Shares host networking with container. Required for some devices to be discovered by Home Assistant."
+  },
+  "ports": [
+   {
+    "internal": "8123",
+    "description": "Application WebUI, only use this if you are not using host mode.",
+    "optional": true
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/homeassistant/data",
+    "description": "Home Assistant config storage path."
+   }
+  ],
+  "devices": [
+   {
+    "path": "/dev/ttyUSB0",
+    "description": "For passing through USB, serial or gpio devices.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Home Automation"
+  ],
+  "logo": "https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192-full.png",
+  "setup": "This image is based on Home Assistant Core.\n\nThe Webui can be found at `http://your-ip:8123`. Follow the wizard to set up Home Assistant.\n\n### Host vs. Bridge\n\nHome Assistant can [discover][hb0] and automatically configure\n[zeroconf][hb1]/[mDNS][hb2] and [UPnP][hb3] devices on your network. In\norder for this to work you must create the container with `--net=host`.\n\n[hb0]: https://www.home-assistant.io/integrations/discovery/#mdns-and-upnp\n[hb1]: https://en.wikipedia.org/wiki/Zero-configuration_networking\n[hb2]: https://en.wikipedia.org/wiki/Multicast_DNS\n[hb3]: https://en.wikipedia.org/wiki/Universal_Plug_and_Play\n\n### Accessing Bluetooth Device\n\nIn order to provide HA with access to the host's Bluetooth device, one needs to install BlueZ on the host, add the capabilities `NET_ADMIN` and `NET_RAW` to the container, and map dbus as a volume as shown in the below examples.\n\n#### Docker Cli:\n```bash\n--cap-add=NET_ADMIN --cap-add=NET_RAW -v /run/dbus:/run/dbus:ro\n```\n\n#### Docker Compose:\n```yaml\n    cap_add:\n      - NET_ADMIN\n      - NET_RAW\n    volumes:\n      - /run/dbus:/run/dbus:ro\n```\n\nIf the dbus path on host differs, such as `/var/run/dbus`, then you can map it as `/var/run/dbus:/run/dbus:ro`.\n\n### Using the Ping integration\n\nFor the [Ping][ping0] integration to work, the capability `NET_RAW` must be added to the container. See above for instructions.\n\n[ping0]: https://www.home-assistant.io/integrations/ping\n"
+ },
+ "proxy": {
+  "port": 8123,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-02",
+   "text": "Rebase to alpine 3.24."
+  },
+  {
+   "date": "2026-03-05",
+   "text": "Remove pycups as there are no python 3.14 wheels for it."
+  },
+  {
+   "date": "2025-10-02",
+   "text": "Rebase to alpine 3.22, rely on baseimage service for usb device permission fixing."
+  },
+  {
+   "date": "2025-09-19",
+   "text": "Add the necessary capabilities in the container to allow the unprivileged user access to bluetooth stack."
+  },
+  {
+   "date": "2025-01-03",
+   "text": "Rebase to alpine 3.21."
+  },
+  {
+   "date": "2024-12-04",
+   "text": "Make setcap target dynamic."
+  },
+  {
+   "date": "2024-11-07",
+   "text": "Add go2rtc binary."
+  },
+  {
+   "date": "2024-10-12",
+   "text": "Allow uv to modify system python packages."
+  },
+  {
+   "date": "2024-10-07",
+   "text": "Switch to `uv` instead of `pip`."
+  },
+  {
+   "date": "2024-07-03",
+   "text": "Rebase to alpine 3.20."
+  },
+  {
+   "date": "2024-03-05",
+   "text": "Add mime.types to help with detection of certain media files."
+  },
+  {
+   "date": "2024-02-13",
+   "text": "Rebase to alpine 3.19, upgrade to python 3.12. Restructure python packages so all packages are internal (no more venv in /config). Use upstream project's wheels. Due to an upstream issue, on first start of the newly updated container, some custom integrations may be disabled in HA due to missing dependencies. A subsequent container restart should fix that and the integrations should be re-enabled."
+  },
+  {
+   "date": "2023-12-18",
+   "text": "Add Bluetooth instructions to readme."
+  },
+  {
+   "date": "2023-07-05",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-06-21",
+   "text": "Pin pycups version."
+  },
+  {
+   "date": "2023-06-14",
+   "text": "Create secondary venv in `/config` for pip installs."
+  },
+  {
+   "date": "2023-06-07",
+   "text": "Rebase to alpine 3.18, switch to cp311 wheels."
+  },
+  {
+   "date": "2023-05-03",
+   "text": "Deprecate arm32v7. Latest HA version with an arm32v7 build is `2023.4.6`."
+  },
+  {
+   "date": "2022-11-16",
+   "text": "Fix the dep conflict for google calendar."
+  },
+  {
+   "date": "2022-09-23",
+   "text": "Migrate to s6v3."
+  },
+  {
+   "date": "2022-07-29",
+   "text": "Improve usb device permission fix."
+  },
+  {
+   "date": "2022-07-07",
+   "text": "Rebase to alpine 3.16, switch to cp310 wheels."
+  },
+  {
+   "date": "2022-05-07",
+   "text": "Build matplotlib with the same Numpy version as HA req."
+  },
+  {
+   "date": "2022-03-31",
+   "text": "Install pycups."
+  },
+  {
+   "date": "2022-03-07",
+   "text": "Install PySwitchbot."
+  },
+  {
+   "date": "2022-03-02",
+   "text": "Update pip and use legacy resolver, clean up temp python files, reduce image size."
+  },
+  {
+   "date": "2022-02-04",
+   "text": "Always compile grpcio on arm32v7 due to pypi pushing a glibc only wheel."
+  },
+  {
+   "date": "2021-12-12",
+   "text": "Use the new `build.yaml` to determine HA base version."
+  },
+  {
+   "date": "2021-09-25",
+   "text": "Use the new lsio homeassistant wheel repo, instead of the HA wheels."
+  },
+  {
+   "date": "2021-09-13",
+   "text": "Build psycopg locally as the HA provided wheel does not seem to work properly."
+  },
+  {
+   "date": "2021-09-13",
+   "text": "Fix setcap in service. Build CISO8601 locally as the HA provided wheel does not seem to work properly."
+  },
+  {
+   "date": "2021-09-12",
+   "text": "Rebase to alpine 3.14. Build on native armhf."
+  },
+  {
+   "date": "2021-08-09",
+   "text": "Fixed broken build caused by missing dependency."
+  },
+  {
+   "date": "2021-07-01",
+   "text": "Remove HACS dependencies as it caused a crash in Home-assistant."
+  },
+  {
+   "date": "2021-02-25",
+   "text": "Add python dependencies from homeassistant base image."
+  },
+  {
+   "date": "2021-02-07",
+   "text": "Fix building from the wrong requirement file. Add ssh client & external DB libs."
+  },
+  {
+   "date": "2021-02-06",
+   "text": "Add iputils so ping works as non root user."
+  },
+  {
+   "date": "2021-01-30",
+   "text": "Initial Release."
+  }
+ ]
+}
