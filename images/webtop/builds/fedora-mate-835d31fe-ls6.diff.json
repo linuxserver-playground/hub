@@ -1,0 +1,403 @@
+{
+ "image": "webtop",
+ "branch": "fedora-mate",
+ "tag": "fedora-mate-835d31fe-ls6",
+ "previous_tag": "fedora-mate-b1abb003-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (bb4e24c → 5e589df): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "b1abb003",
+  "to": "835d31fe",
+  "changed": true
+ },
+ "commit": {
+  "from": "bb4e24cedca4c2335098be377275312bbdfbc295",
+  "to": "5e589df03c232271554cac57b311df59184f7fcf",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/bb4e24cedca4c2335098be377275312bbdfbc295...5e589df03c232271554cac57b311df59184f7fcf",
+  "commits": [
+   {
+    "sha": "5e589df03c232271554cac57b311df59184f7fcf",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T14:26:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/5e589df03c232271554cac57b311df59184f7fcf",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:41071b08049be70f9411ebc65ddcc682d956bcd343d41fd12f086df9885e9243"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:ee16ae8e475b2c09464d72147c06f8119c71ea48a8e3fb0e0b975e62349c1843"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1350229464,
+   "to": 1350571528,
+   "delta": 342064
+  },
+  "arm64": {
+   "from": 1248686684,
+   "to": 1248975192,
+   "delta": 288508
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.4",
+      "purl": "pkg:pypi/fastapi@0.162.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "bluez-libs",
+      "from": "5.87+1.git8750129efca8-1.fc44",
+      "to": "5.88-1.fc44",
+      "purl": "pkg:rpm/fedora/bluez-libs@5.88-1.fc44?arch=x86_64&distro=fedora-44&upstream=bluez-5.88-1.fc44.src.rpm"
+     },
+     {
+      "name": "gstreamer1",
+      "from": "1.28.8-1.fc44",
+      "to": "1.28.9-1.fc44",
+      "purl": "pkg:rpm/fedora/gstreamer1@1.28.9-1.fc44?arch=x86_64&distro=fedora-44&upstream=gstreamer1-1.28.9-1.fc44.src.rpm"
+     },
+     {
+      "name": "gstreamer1-plugins-bad-free-libs",
+      "from": "1.28.8-1.fc44",
+      "to": "1.28.9-1.fc44",
+      "purl": "pkg:rpm/fedora/gstreamer1-plugins-bad-free-libs@1.28.9-1.fc44?arch=x86_64&distro=fedora-44&upstream=gstreamer1-plugins-bad-free-1.28.9-1.fc44.src.rpm"
+     },
+     {
+      "name": "gstreamer1-plugins-base",
+      "from": "1.28.8-1.fc44",
+      "to": "1.28.9-1.fc44",
+      "purl": "pkg:rpm/fedora/gstreamer1-plugins-base@1.28.9-1.fc44?arch=x86_64&distro=fedora-44&upstream=gstreamer1-plugins-base-1.28.9-1.fc44.src.rpm"
+     },
+     {
+      "name": "kernel-headers",
+      "from": "7.2.4-200.fc44",
+      "to": "7.3.3-200.fc44",
+      "purl": "pkg:rpm/fedora/kernel-headers@7.3.3-200.fc44?arch=x86_64&distro=fedora-44&upstream=kernel-headers-7.3.3-200.fc44.src.rpm"
+     },
+     {
+      "name": "kernel-tools-libs",
+      "from": "7.2.15-200.fc44",
+      "to": "7.3.3-200.fc44",
+      "purl": "pkg:rpm/fedora/kernel-tools-libs@7.3.3-200.fc44?arch=x86_64&distro=fedora-44&upstream=kernel-7.3.3-200.fc44.src.rpm"
+     },
+     {
+      "name": "libicu",
+      "from": "77.1-3.fc44",
+      "to": "77.1-4.fc44",
+      "purl": "pkg:rpm/fedora/libicu@77.1-4.fc44?arch=x86_64&distro=fedora-44&upstream=icu-77.1-4.fc44.src.rpm"
+     },
+     {
+      "name": "libicu-devel",
+      "from": "77.1-3.fc44",
+      "to": "77.1-4.fc44",
+      "purl": "pkg:rpm/fedora/libicu-devel@77.1-4.fc44?arch=x86_64&distro=fedora-44&upstream=icu-77.1-4.fc44.src.rpm"
+     },
+     {
+      "name": "nspr",
+      "from": "4.39.0-7.fc44",
+      "to": "4.39.0-8.fc44",
+      "purl": "pkg:rpm/fedora/nspr@4.39.0-8.fc44?arch=x86_64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss@3.133.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss-softokn",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss-softokn@3.133.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss-softokn-freebl",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss-softokn-freebl@3.133.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss-sysinit",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss-sysinit@3.133.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss-util",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss-util@3.133.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2@10.49-1.fc44?arch=x86_64&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2-devel",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2-devel@10.49-1.fc44?arch=x86_64&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2-syntax",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2-syntax@10.49-1.fc44?arch=noarch&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2-utf16",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2-utf16@10.49-1.fc44?arch=x86_64&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2-utf32",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2-utf32@10.49-1.fc44?arch=x86_64&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "vim-filesystem",
+      "from": "2:9.2.1202-1.fc44",
+      "to": "2:9.2.1302-2.fc44",
+      "purl": "pkg:rpm/fedora/vim-filesystem@9.2.1302-2.fc44?arch=noarch&distro=fedora-44&epoch=2&upstream=vim-9.2.1302-2.fc44.src.rpm"
+     },
+     {
+      "name": "xdg-desktop-portal-wlr",
+      "from": "0.8.4-1.fc44",
+      "to": "0.8.5-1.fc44",
+      "purl": "pkg:rpm/fedora/xdg-desktop-portal-wlr@0.8.5-1.fc44?arch=x86_64&distro=fedora-44&upstream=xdg-desktop-portal-wlr-0.8.5-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.4",
+      "purl": "pkg:pypi/fastapi@0.162.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "bluez-libs",
+      "from": "5.87+1.git8750129efca8-1.fc44",
+      "to": "5.88-1.fc44",
+      "purl": "pkg:rpm/fedora/bluez-libs@5.88-1.fc44?arch=aarch64&distro=fedora-44&upstream=bluez-5.88-1.fc44.src.rpm"
+     },
+     {
+      "name": "gstreamer1",
+      "from": "1.28.8-1.fc44",
+      "to": "1.28.9-1.fc44",
+      "purl": "pkg:rpm/fedora/gstreamer1@1.28.9-1.fc44?arch=aarch64&distro=fedora-44&upstream=gstreamer1-1.28.9-1.fc44.src.rpm"
+     },
+     {
+      "name": "gstreamer1-plugins-bad-free-libs",
+      "from": "1.28.8-1.fc44",
+      "to": "1.28.9-1.fc44",
+      "purl": "pkg:rpm/fedora/gstreamer1-plugins-bad-free-libs@1.28.9-1.fc44?arch=aarch64&distro=fedora-44&upstream=gstreamer1-plugins-bad-free-1.28.9-1.fc44.src.rpm"
+     },
+     {
+      "name": "gstreamer1-plugins-base",
+      "from": "1.28.8-1.fc44",
+      "to": "1.28.9-1.fc44",
+      "purl": "pkg:rpm/fedora/gstreamer1-plugins-base@1.28.9-1.fc44?arch=aarch64&distro=fedora-44&upstream=gstreamer1-plugins-base-1.28.9-1.fc44.src.rpm"
+     },
+     {
+      "name": "kernel-headers",
+      "from": "7.2.4-200.fc44",
+      "to": "7.3.3-200.fc44",
+      "purl": "pkg:rpm/fedora/kernel-headers@7.3.3-200.fc44?arch=aarch64&distro=fedora-44&upstream=kernel-headers-7.3.3-200.fc44.src.rpm"
+     },
+     {
+      "name": "kernel-tools-libs",
+      "from": "7.2.15-200.fc44",
+      "to": "7.3.3-200.fc44",
+      "purl": "pkg:rpm/fedora/kernel-tools-libs@7.3.3-200.fc44?arch=aarch64&distro=fedora-44&upstream=kernel-7.3.3-200.fc44.src.rpm"
+     },
+     {
+      "name": "libicu",
+      "from": "77.1-3.fc44",
+      "to": "77.1-4.fc44",
+      "purl": "pkg:rpm/fedora/libicu@77.1-4.fc44?arch=aarch64&distro=fedora-44&upstream=icu-77.1-4.fc44.src.rpm"
+     },
+     {
+      "name": "libicu-devel",
+      "from": "77.1-3.fc44",
+      "to": "77.1-4.fc44",
+      "purl": "pkg:rpm/fedora/libicu-devel@77.1-4.fc44?arch=aarch64&distro=fedora-44&upstream=icu-77.1-4.fc44.src.rpm"
+     },
+     {
+      "name": "nspr",
+      "from": "4.39.0-7.fc44",
+      "to": "4.39.0-8.fc44",
+      "purl": "pkg:rpm/fedora/nspr@4.39.0-8.fc44?arch=aarch64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss@3.133.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss-softokn",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss-softokn@3.133.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss-softokn-freebl",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss-softokn-freebl@3.133.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss-sysinit",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss-sysinit@3.133.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "nss-util",
+      "from": "3.131.0-1.fc44",
+      "to": "3.133.0-1.fc44",
+      "purl": "pkg:rpm/fedora/nss-util@3.133.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=nss-3.133.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2@10.49-1.fc44?arch=aarch64&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2-devel",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2-devel@10.49-1.fc44?arch=aarch64&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2-syntax",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2-syntax@10.49-1.fc44?arch=noarch&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2-utf16",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2-utf16@10.49-1.fc44?arch=aarch64&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "pcre2-utf32",
+      "from": "10.47-1.fc44.1",
+      "to": "10.49-1.fc44",
+      "purl": "pkg:rpm/fedora/pcre2-utf32@10.49-1.fc44?arch=aarch64&distro=fedora-44&upstream=pcre2-10.49-1.fc44.src.rpm"
+     },
+     {
+      "name": "vim-filesystem",
+      "from": "2:9.2.1202-1.fc44",
+      "to": "2:9.2.1302-2.fc44",
+      "purl": "pkg:rpm/fedora/vim-filesystem@9.2.1302-2.fc44?arch=noarch&distro=fedora-44&epoch=2&upstream=vim-9.2.1302-2.fc44.src.rpm"
+     },
+     {
+      "name": "xdg-desktop-portal-wlr",
+      "from": "0.8.4-1.fc44",
+      "to": "0.8.5-1.fc44",
+      "purl": "pkg:rpm/fedora/xdg-desktop-portal-wlr@0.8.5-1.fc44?arch=aarch64&distro=fedora-44&upstream=xdg-desktop-portal-wlr-0.8.5-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 46,
+  "downgraded": 0
+ }
+}

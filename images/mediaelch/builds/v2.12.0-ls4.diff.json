@@ -1,0 +1,62 @@
+{
+ "image": "mediaelch",
+ "branch": "master",
+ "tag": "v2.12.0-ls4",
+ "previous_tag": "v2.12.0-ls3",
+ "classification": "linuxserver",
+ "reasons": [
+  "Dockerfile changed"
+ ],
+ "upstream": {
+  "from": "v2.12.0",
+  "to": "v2.12.0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:94f73fcb763355b1d9eee36a1b72eb3bdddc2a7aee10ae1cfadf728b5f2e0138"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1086253430,
+   "to": 1086253471,
+   "delta": 41
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -29,7 +29,11 @@\n     qt6-image-formats-plugins && \\\n   echo \"**** install mediaelch ****\" && \\\n   mkdir -p /opt/mediaelch && \\\n-  DOWNLOAD_URL=$(curl -sX GET \"https://api.github.com/repos/Komet/MediaElch/releases/latest\" \\\n+  if [ -z ${MEDIAELCH_VERSION+x} ]; then \\\n+    MEDIAELCH_VERSION=$(curl -sX GET \"https://api.github.com/repos/Komet/MediaElch/releases/latest\" \\\n+      | jq -r '.tag_name'); \\\n+  fi && \\\n+  DOWNLOAD_URL=$(curl -sX GET \"https://api.github.com/repos/Komet/MediaElch/releases/tags/${MEDIAELCH_VERSION}\" \\\n     | jq -r 'first(.assets[].browser_download_url | select(test(\"MediaElch_linux.*AppImage\")))') && \\\n   curl -o \\\n     /tmp/mediaelch.app -L \\\n"
+ },
+ "packages": {
+  "amd64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

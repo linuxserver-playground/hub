@@ -1,0 +1,194 @@
+{
+ "image": "baseimage-debian",
+ "branch": "kali",
+ "tag": "kali-fc384758-ls7",
+ "previous_tag": "kali-83aca3ce-ls6",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (5410a75 → bd7650f): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "83aca3ce",
+  "to": "fc384758",
+  "changed": true
+ },
+ "commit": {
+  "from": "5410a75f7f748276533b866072c340602330a174",
+  "to": "bd7650f64746649d794e1efd96357723bed45f67",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-debian/compare/5410a75f7f748276533b866072c340602330a174...bd7650f64746649d794e1efd96357723bed45f67",
+  "commits": [
+   {
+    "sha": "bd7650f64746649d794e1efd96357723bed45f67",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T00:45:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-debian/commit/bd7650f64746649d794e1efd96357723bed45f67",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 84416519,
+   "to": 84418341,
+   "delta": 1822
+  },
+  "arm64": {
+   "from": 83177012,
+   "to": 83179823,
+   "delta": 2811
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "bash",
+      "from": "5.3-4",
+      "to": "5.3-4+b1",
+      "purl": "pkg:deb/kali/bash@5.3-4%2Bb1?arch=amd64&distro=kali-2026.3&upstream=bash%405.3-4"
+     },
+     {
+      "name": "catatonit",
+      "from": "0.2.1-2+b31",
+      "to": "0.2.1-2+b32",
+      "purl": "pkg:deb/kali/catatonit@0.2.1-2%2Bb32?arch=amd64&distro=kali-2026.3&upstream=catatonit%400.2.1-2"
+     },
+     {
+      "name": "gcc-16-base",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-base@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libcom-err2",
+      "from": "1.47.4-1+b2",
+      "to": "1.47.4-1+b3",
+      "purl": "pkg:deb/kali/libcom-err2@1.47.4-1%2Bb3?arch=amd64&distro=kali-2026.3&upstream=e2fsprogs%401.47.4-1"
+     },
+     {
+      "name": "libgcc-s1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-s1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libstdc++6",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B6@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "tar",
+      "from": "1.35+dfsg-6",
+      "to": "1.35+dfsg-7",
+      "purl": "pkg:deb/kali/tar@1.35%2Bdfsg-7?arch=amd64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "bash",
+      "from": "5.3-4",
+      "to": "5.3-4+b1",
+      "purl": "pkg:deb/kali/bash@5.3-4%2Bb1?arch=arm64&distro=kali-2026.3&upstream=bash%405.3-4"
+     },
+     {
+      "name": "catatonit",
+      "from": "0.2.1-2+b31",
+      "to": "0.2.1-2+b32",
+      "purl": "pkg:deb/kali/catatonit@0.2.1-2%2Bb32?arch=arm64&distro=kali-2026.3&upstream=catatonit%400.2.1-2"
+     },
+     {
+      "name": "gcc-16-base",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-base@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libcom-err2",
+      "from": "1.47.4-1+b2",
+      "to": "1.47.4-1+b3",
+      "purl": "pkg:deb/kali/libcom-err2@1.47.4-1%2Bb3?arch=arm64&distro=kali-2026.3&upstream=e2fsprogs%401.47.4-1"
+     },
+     {
+      "name": "libgcc-s1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-s1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libstdc++6",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B6@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "tar",
+      "from": "1.35+dfsg-6",
+      "to": "1.35+dfsg-7",
+      "purl": "pkg:deb/kali/tar@1.35%2Bdfsg-7?arch=arm64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

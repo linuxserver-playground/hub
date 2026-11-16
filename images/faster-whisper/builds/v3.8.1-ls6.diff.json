@@ -1,0 +1,210 @@
+{
+ "image": "faster-whisper",
+ "branch": "main",
+ "tag": "v3.8.1-ls6",
+ "previous_tag": "v3.8.1-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (608ee8c → 6b6dd46): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v3.8.1",
+  "to": "v3.8.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "608ee8ca6521a4d2ffe952304f01be324188576f",
+  "to": "6b6dd46a15b3e958bf6facd32b910a124cfe409c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-faster-whisper/compare/608ee8ca6521a4d2ffe952304f01be324188576f...6b6dd46a15b3e958bf6facd32b910a124cfe409c",
+  "commits": [
+   {
+    "sha": "6b6dd46a15b3e958bf6facd32b910a124cfe409c",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T06:28:54Z",
+    "url": "https://github.com/linuxserver-playground/docker-faster-whisper/commit/6b6dd46a15b3e958bf6facd32b910a124cfe409c",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:9dae1619587960de00fd076cd6b26821982f4853b63ef9e0617b95b5ab8e9364"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:711a6a1365285c3fd8ea267bd102e6477b49f47d521cf64185dc02b3e38c200e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 232767671,
+   "to": 235007322,
+   "delta": 2239651
+  },
+  "arm64": {
+   "from": 203626091,
+   "to": 205851425,
+   "delta": 2225334
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg7.0@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ctranslate2",
+      "from": "4.8.5",
+      "to": "4.9.0",
+      "purl": "pkg:pypi/ctranslate2@4.9.0?file_name=ctranslate2-4.9.0-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+     },
+     {
+      "name": "filelock",
+      "from": "4.2.9",
+      "to": "4.2.10",
+      "purl": "pkg:pypi/filelock@4.2.10"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg7.0@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ctranslate2",
+      "from": "4.8.5",
+      "to": "4.9.0",
+      "purl": "pkg:pypi/ctranslate2@4.9.0?file_name=ctranslate2-4.9.0-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+     },
+     {
+      "name": "filelock",
+      "from": "4.2.9",
+      "to": "4.2.10",
+      "purl": "pkg:pypi/filelock@4.2.10"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

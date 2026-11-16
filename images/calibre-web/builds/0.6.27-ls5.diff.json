@@ -1,0 +1,208 @@
+{
+ "image": "calibre-web",
+ "branch": "master",
+ "tag": "0.6.27-ls5",
+ "previous_tag": "0.6.27-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "0.6.27",
+  "to": "0.6.27",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:8ab987000b0e8001e49199a3d633327473284419740066ddb45c32428c6c0d28"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 261992558,
+   "to": 261986302,
+   "delta": -6256
+  },
+  "arm64": {
+   "from": 257402980,
+   "to": 257413856,
+   "delta": 10876
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.1.0-2build2",
+      "to": "1.1.0-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.1.0-2ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "deprecated",
+      "from": "3.0.0",
+      "to": "3.0.1",
+      "purl": "pkg:pypi/deprecated@3.0.1"
+     },
+     {
+      "name": "google-api-core",
+      "from": "2.43.0",
+      "to": "2.43.2",
+      "purl": "pkg:pypi/google-api-core@2.43.2"
+     },
+     {
+      "name": "httplib2",
+      "from": "0.32.0",
+      "to": "0.32.1",
+      "purl": "pkg:pypi/httplib2@0.32.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pyasn1",
+      "from": "0.6.4",
+      "to": "0.6.5",
+      "purl": "pkg:pypi/pyasn1@0.6.5"
+     },
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     },
+     {
+      "name": "wrapt",
+      "from": "2.5.1",
+      "to": "2.5.2",
+      "purl": "pkg:pypi/wrapt@2.5.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libbrotli1",
+      "from": "1.1.0-2build2",
+      "to": "1.1.0-2ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbrotli1@1.1.0-2ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=brotli"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "deprecated",
+      "from": "3.0.0",
+      "to": "3.0.1",
+      "purl": "pkg:pypi/deprecated@3.0.1"
+     },
+     {
+      "name": "google-api-core",
+      "from": "2.43.0",
+      "to": "2.43.2",
+      "purl": "pkg:pypi/google-api-core@2.43.2"
+     },
+     {
+      "name": "httplib2",
+      "from": "0.32.0",
+      "to": "0.32.1",
+      "purl": "pkg:pypi/httplib2@0.32.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pyasn1",
+      "from": "0.6.4",
+      "to": "0.6.5",
+      "purl": "pkg:pypi/pyasn1@0.6.5"
+     },
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     },
+     {
+      "name": "wrapt",
+      "from": "2.5.1",
+      "to": "2.5.2",
+      "purl": "pkg:pypi/wrapt@2.5.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 18,
+  "downgraded": 0
+ }
+}

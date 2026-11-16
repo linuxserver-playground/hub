@@ -1,0 +1,121 @@
+{
+ "image": "htpcmanager",
+ "branch": "master",
+ "tag": "26a641bf-ls3",
+ "previous_tag": "26a641bf-ls2",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "26a641bf",
+  "to": "26a641bf",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.20",
+   "digest": "sha256:37c85bdd640fd71bf95221f8a8c8cffb151cd91ae114e9917a690a4e702344c3"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.20",
+   "digest": "sha256:37c85bdd640fd71bf95221f8a8c8cffb151cd91ae114e9917a690a4e702344c3"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 72236459,
+   "to": 72239601,
+   "delta": 3142
+  },
+  "arm64": {
+   "from": 72692500,
+   "to": 72695695,
+   "delta": 3195
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyasn1",
+      "from": "0.6.4",
+      "to": "0.6.5",
+      "purl": "pkg:pypi/pyasn1@0.6.5"
+     },
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyasn1",
+      "from": "0.6.4",
+      "to": "0.6.5",
+      "purl": "pkg:pypi/pyasn1@0.6.5"
+     },
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

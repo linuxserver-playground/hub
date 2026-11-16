@@ -1,0 +1,174 @@
+{
+ "image": "calibre-web",
+ "branch": "nightly",
+ "tag": "nightly-6e840acb-ls8",
+ "previous_tag": "nightly-6e840acb-ls7",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (080ba05 → d8c1421): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "6e840acb",
+  "to": "6e840acb",
+  "changed": false
+ },
+ "commit": {
+  "from": "080ba05f97160ad4abf7b6513d81a181c9578089",
+  "to": "d8c1421d44a09abcec921d6066a17efec03916da",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-calibre-web/compare/080ba05f97160ad4abf7b6513d81a181c9578089...d8c1421d44a09abcec921d6066a17efec03916da",
+  "commits": [
+   {
+    "sha": "d8c1421d44a09abcec921d6066a17efec03916da",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T17:16:49Z",
+    "url": "https://github.com/linuxserver-playground/docker-calibre-web/commit/d8c1421d44a09abcec921d6066a17efec03916da",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:f3184f0873fff9a934155ac787603c2d43c1b7fc45bffc9357136ad77d3dc8e3"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 264672319,
+   "to": 262799083,
+   "delta": -1873236
+  },
+  "arm64": {
+   "from": 259918109,
+   "to": 258130677,
+   "delta": -1787432
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "google-auth",
+      "from": "2.62.1",
+      "to": "2.62.2",
+      "purl": "pkg:pypi/google-auth@2.62.2"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.0.1",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "google-auth",
+      "from": "2.62.1",
+      "to": "2.62.2",
+      "purl": "pkg:pypi/google-auth@2.62.2"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.0.1",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

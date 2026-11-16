@@ -1,0 +1,147 @@
+{
+ "image": "orcaslicer",
+ "branch": "master",
+ "tag": "v2.5.0-ls8",
+ "previous_tag": "v2.5.0-ls7",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (bf3d528 → 9570ef7): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v2.5.0",
+  "to": "v2.5.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "bf3d528cfcff0a6100719bc9f579f4e5dc29d135",
+  "to": "9570ef7c7d41e4a081cc9bd34d5412e5afbe739b",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-orcaslicer/compare/bf3d528cfcff0a6100719bc9f579f4e5dc29d135...9570ef7c7d41e4a081cc9bd34d5412e5afbe739b",
+  "commits": [
+   {
+    "sha": "9570ef7c7d41e4a081cc9bd34d5412e5afbe739b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T07:46:33Z",
+    "url": "https://github.com/linuxserver-playground/docker-orcaslicer/commit/9570ef7c7d41e4a081cc9bd34d5412e5afbe739b",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:26048c0565d1c17e8b1f4efc0388e475971432229839e64dc059f8282c291a99"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:26048c0565d1c17e8b1f4efc0388e475971432229839e64dc059f8282c291a99"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1743488847,
+   "to": 1743555079,
+   "delta": 66232
+  },
+  "arm64": {
+   "from": 1668537022,
+   "to": 1668597800,
+   "delta": 60778
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libminizip1t64",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/libminizip1t64@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=zlib"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=zlib"
+     },
+     {
+      "name": "zlib1g-dev",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/zlib1g-dev@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libminizip1t64",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/libminizip1t64@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=zlib"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=zlib"
+     },
+     {
+      "name": "zlib1g-dev",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/zlib1g-dev@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

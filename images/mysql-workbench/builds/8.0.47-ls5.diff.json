@@ -1,0 +1,188 @@
+{
+ "image": "mysql-workbench",
+ "branch": "master",
+ "tag": "8.0.47-ls5",
+ "previous_tag": "8.0.47-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "repository at a newer commit (4ae17e4 → 5b0343b)"
+ ],
+ "upstream": {
+  "from": "8.0.47",
+  "to": "8.0.47",
+  "changed": false
+ },
+ "commit": {
+  "from": "4ae17e413c5e1453790d760b1753cab8f7ef67e2",
+  "to": "5b0343b66818a902af69746cb50959b225969e05",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mysql-workbench/compare/4ae17e413c5e1453790d760b1753cab8f7ef67e2...5b0343b66818a902af69746cb50959b225969e05"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b8c03e9b9565c0f91d326af3bddd794cf8bc4f9f6f0d843eb488edb80f4e5b4c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1259254514,
+   "to": 1259572966,
+   "delta": 318452
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cmake",
+      "from": "4.4.4-1",
+      "to": "4.4.5-1",
+      "purl": "pkg:alpm/arch/cmake@4.4.5-1?arch=x86_64&distro=arch-rolling&upstream=cmake"
+     },
+     {
+      "name": "device-mapper",
+      "from": "2.03.43-2",
+      "to": "2.03.44-1",
+      "purl": "pkg:alpm/arch/device-mapper@2.03.44-1?arch=x86_64&distro=arch-rolling&upstream=lvm2"
+     },
+     {
+      "name": "fribidi",
+      "from": "1.0.17-1",
+      "to": "1.0.18-1",
+      "purl": "pkg:alpm/arch/fribidi@1.0.18-1?arch=x86_64&distro=arch-rolling&upstream=fribidi"
+     },
+     {
+      "name": "gnupg",
+      "from": "2.4.9-3",
+      "to": "2.4.9-4",
+      "purl": "pkg:alpm/arch/gnupg@2.4.9-4?arch=x86_64&distro=arch-rolling&upstream=gnupg"
+     },
+     {
+      "name": "harfbuzz",
+      "from": "14.6.0-1",
+      "to": "15.0.0-1",
+      "purl": "pkg:alpm/arch/harfbuzz@15.0.0-1?arch=x86_64&distro=arch-rolling&upstream=harfbuzz"
+     },
+     {
+      "name": "libjpeg-turbo",
+      "from": "3.2.0-2",
+      "to": "3.2.1-1",
+      "purl": "pkg:alpm/arch/libjpeg-turbo@3.2.1-1?arch=x86_64&distro=arch-rolling&upstream=libjpeg-turbo"
+     },
+     {
+      "name": "mesa",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/mesa@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "poppler",
+      "from": "26.10.0-1",
+      "to": "26.10.0-2",
+      "purl": "pkg:alpm/arch/poppler@26.10.0-2?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "vulkan-intel",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/vulkan-intel@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-mesa-implicit-layers",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/vulkan-mesa-implicit-layers@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-radeon",
+      "from": "1:26.2.5-1",
+      "to": "1:26.2.6-1",
+      "purl": "pkg:alpm/arch/vulkan-radeon@1%3A26.2.6-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "wayland-protocols",
+      "from": "1.49-1",
+      "to": "1.50-1",
+      "purl": "pkg:alpm/arch/wayland-protocols@1.50-1?arch=any&distro=arch-rolling&upstream=wayland-protocols"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 17,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,234 @@
+{
+ "image": "gitqlient",
+ "branch": "master",
+ "tag": "v1.6.3-ls4",
+ "previous_tag": "v1.6.3-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (475f3c2 → be5b460): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v1.6.3",
+  "to": "v1.6.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "475f3c267863106ca0a42b23f44a8230f982e10c",
+  "to": "be5b460cec77e886e47ded95ee54af22d09c8cf7",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-gitqlient/compare/475f3c267863106ca0a42b23f44a8230f982e10c...be5b460cec77e886e47ded95ee54af22d09c8cf7",
+  "commits": [
+   {
+    "sha": "be5b460cec77e886e47ded95ee54af22d09c8cf7",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T15:43:51Z",
+    "url": "https://github.com/linuxserver-playground/docker-gitqlient/commit/be5b460cec77e886e47ded95ee54af22d09c8cf7",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 3
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:75f6076e5aba51a09a04dce1ab641e7cd0174ff367f2faa371c516324e9ee3b0"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:91d001f4e12a5c83e9bd14f32dfe2bf3809ece6ece0898a9a24a239e9a5b3808"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 618097333,
+   "to": 618203724,
+   "delta": 106391
+  },
+  "arm64": {
+   "from": 573013740,
+   "to": 573113989,
+   "delta": 100249
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 18,
+  "downgraded": 0
+ }
+}

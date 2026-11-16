@@ -1,0 +1,106 @@
+{
+ "image": "lidarr",
+ "branch": "master",
+ "tag": "3.1.6.5079-ls3",
+ "previous_tag": "3.1.6.5079-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "2 commits (d866da1 → c9ae1ba): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "3.1.6.5079",
+  "to": "3.1.6.5079",
+  "changed": false
+ },
+ "commit": {
+  "from": "d866da1bc01e60ff81afdfc461b6be640a188b19",
+  "to": "c9ae1baaca96e865daf7f16ca95d5e0167f2fa46",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lidarr/compare/d866da1bc01e60ff81afdfc461b6be640a188b19...c9ae1baaca96e865daf7f16ca95d5e0167f2fa46",
+  "commits": [
+   {
+    "sha": "4cb59328da39f05ece65b3e202a736c67bf49555",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:46:51Z",
+    "url": "https://github.com/linuxserver-playground/docker-lidarr/commit/4cb59328da39f05ece65b3e202a736c67bf49555",
+    "bot": true
+   },
+   {
+    "sha": "c9ae1baaca96e865daf7f16ca95d5e0167f2fa46",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T14:47:27Z",
+    "url": "https://github.com/linuxserver-playground/docker-lidarr/commit/c9ae1baaca96e865daf7f16ca95d5e0167f2fa46",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 3
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 121333986,
+   "to": 121333991,
+   "delta": 5
+  },
+  "arm64": {
+   "from": 117007851,
+   "to": 117008176,
+   "delta": 325
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

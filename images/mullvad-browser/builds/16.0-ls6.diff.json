@@ -1,0 +1,127 @@
+{
+ "image": "mullvad-browser",
+ "branch": "main",
+ "tag": "16.0-ls6",
+ "previous_tag": "16.0-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (26bc12b → 35013e6): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "16.0",
+  "to": "16.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "26bc12ba6e5cb894d618a4a8254062958f5bae93",
+  "to": "35013e69cc8c5de94514c51a705c9b4cf3592829",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mullvad-browser/compare/26bc12ba6e5cb894d618a4a8254062958f5bae93...35013e69cc8c5de94514c51a705c9b4cf3592829",
+  "commits": [
+   {
+    "sha": "35013e69cc8c5de94514c51a705c9b4cf3592829",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T09:42:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-mullvad-browser/commit/35013e69cc8c5de94514c51a705c9b4cf3592829",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 2
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:40830db5ae0f2c8f89f3779f7946fcfa07a190c5a97c4fac8dfbf05272072d41"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1112007283,
+   "to": 1112145953,
+   "delta": 138670
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 5,
+  "downgraded": 0
+ }
+}

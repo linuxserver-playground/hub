@@ -1,0 +1,126 @@
+{
+ "image": "baseimage-debian",
+ "branch": "master",
+ "tag": "trixie-7afe1fb0-ls7",
+ "previous_tag": "trixie-7afe1fb0-ls6",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "7afe1fb0",
+  "to": "7afe1fb0",
+  "changed": false
+ },
+ "commit": {
+  "from": "e8ced8696bd43d83badefb894688412ac20a7a74",
+  "to": "e8ced8696bd43d83badefb894688412ac20a7a74",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 72109116,
+   "to": 71861406,
+   "delta": -247710
+  },
+  "arm64": {
+   "from": 72775718,
+   "to": 72525497,
+   "delta": -250221
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt@3.0.4?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt-utils@3.0.4?arch=amd64&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/libapt-pkg7.0@3.0.4?arch=amd64&distro=debian-13.7&upstream=apt"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt@3.0.4?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt-utils@3.0.4?arch=arm64&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/libapt-pkg7.0@3.0.4?arch=arm64&distro=debian-13.7&upstream=apt"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

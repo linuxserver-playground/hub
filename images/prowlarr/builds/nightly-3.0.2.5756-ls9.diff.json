@@ -1,0 +1,116 @@
+{
+ "image": "prowlarr",
+ "branch": "nightly",
+ "tag": "nightly-3.0.2.5756-ls9",
+ "previous_tag": "nightly-3.0.2.5756-ls8",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "3.0.2.5756",
+  "to": "3.0.2.5756",
+  "changed": false
+ },
+ "commit": {
+  "from": "1ea034f36b131a20729a2ab077b7d7c6f92fd00a",
+  "to": "1ea034f36b131a20729a2ab077b7d7c6f92fd00a",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 84234141,
+   "to": 84237145,
+   "delta": 3004
+  },
+  "arm64": {
+   "from": 82629513,
+   "to": 82630371,
+   "delta": 858
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-libs",
+      "from": "1.22.2-r1",
+      "to": "1.22.3-r0",
+      "purl": "pkg:apk/alpine/krb5-libs@1.22.3-r0?arch=x86_64&distro=alpine-3.24.4&upstream=krb5"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-libs",
+      "from": "1.22.2-r1",
+      "to": "1.22.3-r0",
+      "purl": "pkg:apk/alpine/krb5-libs@1.22.3-r0?arch=aarch64&distro=alpine-3.24.4&upstream=krb5"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

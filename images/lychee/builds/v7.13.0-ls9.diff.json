@@ -1,0 +1,826 @@
+{
+ "image": "lychee",
+ "branch": "master",
+ "tag": "v7.13.0-ls9",
+ "previous_tag": "v7.12.0-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "7 commits (310193d → f7aedf8): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "v7.12.0",
+  "to": "v7.13.0",
+  "changed": true
+ },
+ "commit": {
+  "from": "310193de3a52abaa0d39b62300185d704da633f4",
+  "to": "f7aedf88d4a094481d9c63eeeb6fff27473fb430",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lychee/compare/310193de3a52abaa0d39b62300185d704da633f4...f7aedf88d4a094481d9c63eeeb6fff27473fb430",
+  "commits": [
+   {
+    "sha": "75f4ab18ce5f65a2c0f8f90e80c99ecf7023eb00",
+    "subject": "Add the upstream donation links",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T19:37:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-lychee/commit/75f4ab18ce5f65a2c0f8f90e80c99ecf7023eb00",
+    "bot": false
+   },
+   {
+    "sha": "96977b6864e004748d4f2500739c6a6aeeb525f0",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T19:42:39Z",
+    "url": "https://github.com/linuxserver-playground/docker-lychee/commit/96977b6864e004748d4f2500739c6a6aeeb525f0",
+    "bot": true
+   },
+   {
+    "sha": "8ac5faf3c979ef67c675a77916a550b32808d689",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T03:46:32Z",
+    "url": "https://github.com/linuxserver-playground/docker-lychee/commit/8ac5faf3c979ef67c675a77916a550b32808d689",
+    "bot": true
+   },
+   {
+    "sha": "a9dda899780dc2d180d4d22227e4ff54dd4b6eda",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T03:53:08Z",
+    "url": "https://github.com/linuxserver-playground/docker-lychee/commit/a9dda899780dc2d180d4d22227e4ff54dd4b6eda",
+    "bot": true
+   },
+   {
+    "sha": "546bd9e0f4cbe32c638f01c048e5d2a63db9be82",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T12:54:08Z",
+    "url": "https://github.com/linuxserver-playground/docker-lychee/commit/546bd9e0f4cbe32c638f01c048e5d2a63db9be82",
+    "bot": true
+   },
+   {
+    "sha": "f4225bad288ede113aaad00cd93ff0342c08e99f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T23:54:25Z",
+    "url": "https://github.com/linuxserver-playground/docker-lychee/commit/f4225bad288ede113aaad00cd93ff0342c08e99f",
+    "bot": true
+   },
+   {
+    "sha": "f7aedf88d4a094481d9c63eeeb6fff27473fb430",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T04:54:52Z",
+    "url": "https://github.com/linuxserver-playground/docker-lychee/commit/f7aedf88d4a094481d9c63eeeb6fff27473fb430",
+    "bot": true
+   }
+  ],
+  "count": 7,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:df6a63d8627d7f06e292f4e4cff695743d92f8735617ff755470962e58fd75f5"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a5464bb0b85935854231e0dfa14bd55963c132d4acdfc3f5997de04f2e2bfa52"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 141243633,
+   "to": 141956231,
+   "delta": 712598
+  },
+  "arm64": {
+   "from": 138368431,
+   "to": 139075755,
+   "delta": 707324
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "imagemagick",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "imagemagick-jpeg",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jpeg@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jxl",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jxl@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-libs",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-libs@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-tiff",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-tiff@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-webp",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-webp@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     },
+     {
+      "name": "perl",
+      "from": "5.42.2-r1",
+      "to": "5.42.3-r0",
+      "purl": "pkg:apk/alpine/perl@5.42.3-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [
+     {
+      "name": "spomky-labs/cbor-php",
+      "version": "3.4.2",
+      "purl": "pkg:composer/spomky-labs/cbor-php@3.4.2"
+     },
+     {
+      "name": "spomky-labs/pki-framework",
+      "version": "1.6.3",
+      "purl": "pkg:composer/spomky-labs/pki-framework@1.6.3"
+     },
+     {
+      "name": "symfony/polyfill-php81",
+      "version": "v1.38.1",
+      "purl": "pkg:composer/symfony/polyfill-php81@v1.38.1"
+     },
+     {
+      "name": "symfony/property-access",
+      "version": "v8.1.10",
+      "purl": "pkg:composer/symfony/property-access@v8.1.10"
+     },
+     {
+      "name": "symfony/property-info",
+      "version": "v8.1.10",
+      "purl": "pkg:composer/symfony/property-info@v8.1.10"
+     },
+     {
+      "name": "symfony/serializer",
+      "version": "v8.1.10",
+      "purl": "pkg:composer/symfony/serializer@v8.1.10"
+     },
+     {
+      "name": "symfony/type-info",
+      "version": "v8.1.10",
+      "purl": "pkg:composer/symfony/type-info@v8.1.10"
+     },
+     {
+      "name": "web-auth/cose-lib",
+      "version": "4.8.2",
+      "purl": "pkg:composer/web-auth/cose-lib@4.8.2"
+     },
+     {
+      "name": "web-auth/webauthn-lib",
+      "version": "5.3.12",
+      "purl": "pkg:composer/web-auth/webauthn-lib@5.3.12"
+     }
+    ],
+    "removed": [
+     {
+      "name": "laragear/meta-model",
+      "version": "v3.0.0",
+      "purl": "pkg:composer/laragear/meta-model@v3.0.0"
+     },
+     {
+      "name": "laragear/webauthn",
+      "version": "v5.0.2",
+      "purl": "pkg:composer/laragear/webauthn@v5.0.2"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "composer/semver",
+      "from": "3.5.1",
+      "to": "3.6.0",
+      "purl": "pkg:composer/composer/semver@3.6.0"
+     },
+     {
+      "name": "dedoc/scramble",
+      "from": "v0.13.48",
+      "to": "v0.13.52",
+      "purl": "pkg:composer/dedoc/scramble@v0.13.52"
+     },
+     {
+      "name": "doctrine/inflector",
+      "from": "2.1.0",
+      "to": "2.1.1",
+      "purl": "pkg:composer/doctrine/inflector@2.1.1"
+     },
+     {
+      "name": "guzzlehttp/guzzle",
+      "from": "7.16.0",
+      "to": "7.16.1",
+      "purl": "pkg:composer/guzzlehttp/guzzle@7.16.1"
+     },
+     {
+      "name": "laravel/framework",
+      "from": "v13.37.0",
+      "to": "v13.39.0",
+      "purl": "pkg:composer/laravel/framework@v13.39.0"
+     },
+     {
+      "name": "league/commonmark",
+      "from": "2.10.4",
+      "to": "2.10.7",
+      "purl": "pkg:composer/league/commonmark@2.10.7"
+     },
+     {
+      "name": "league/uri",
+      "from": "7.9.0",
+      "to": "7.9.1",
+      "purl": "pkg:composer/league/uri@7.9.1"
+     },
+     {
+      "name": "league/uri-interfaces",
+      "from": "7.9.0",
+      "to": "7.9.1",
+      "purl": "pkg:composer/league/uri-interfaces@7.9.1"
+     },
+     {
+      "name": "nesbot/carbon",
+      "from": "3.15.0",
+      "to": "3.15.1",
+      "purl": "pkg:composer/nesbot/carbon@3.15.1"
+     },
+     {
+      "name": "nette/schema",
+      "from": "v1.3.6",
+      "to": "v1.4.0",
+      "purl": "pkg:composer/nette/schema@v1.4.0"
+     },
+     {
+      "name": "nette/utils",
+      "from": "v4.1.5",
+      "to": "v4.1.6",
+      "purl": "pkg:composer/nette/utils@v4.1.6"
+     },
+     {
+      "name": "open-telemetry/api",
+      "from": "1.10.0",
+      "to": "1.10.1",
+      "purl": "pkg:composer/open-telemetry/api@1.10.1"
+     },
+     {
+      "name": "phpseclib/phpseclib",
+      "from": "4.0.2",
+      "to": "4.0.3",
+      "purl": "pkg:composer/phpseclib/phpseclib@4.0.3"
+     },
+     {
+      "name": "phpstan/phpdoc-parser",
+      "from": "2.3.6",
+      "to": "2.4.1",
+      "purl": "pkg:composer/phpstan/phpdoc-parser@2.4.1"
+     },
+     {
+      "name": "spatie/laravel-data",
+      "from": "4.23.0",
+      "to": "4.23.1",
+      "purl": "pkg:composer/spatie/laravel-data@4.23.1"
+     },
+     {
+      "name": "symfony/cache",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/cache@v8.1.10"
+     },
+     {
+      "name": "symfony/console",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/console@v8.1.10"
+     },
+     {
+      "name": "symfony/css-selector",
+      "from": "v8.1.6",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/css-selector@v8.1.10"
+     },
+     {
+      "name": "symfony/error-handler",
+      "from": "v8.1.8",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/error-handler@v8.1.10"
+     },
+     {
+      "name": "symfony/finder",
+      "from": "v8.1.8",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/finder@v8.1.10"
+     },
+     {
+      "name": "symfony/http-foundation",
+      "from": "v7.4.21",
+      "to": "v7.4.22",
+      "purl": "pkg:composer/symfony/http-foundation@v7.4.22"
+     },
+     {
+      "name": "symfony/http-kernel",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/http-kernel@v8.1.10"
+     },
+     {
+      "name": "symfony/mailer",
+      "from": "v8.1.7",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/mailer@v8.1.10"
+     },
+     {
+      "name": "symfony/mime",
+      "from": "v8.1.7",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/mime@v8.1.10"
+     },
+     {
+      "name": "symfony/polyfill-intl-grapheme",
+      "from": "v1.43.0",
+      "to": "v1.43.3",
+      "purl": "pkg:composer/symfony/polyfill-intl-grapheme@v1.43.3"
+     },
+     {
+      "name": "symfony/polyfill-mbstring",
+      "from": "v1.43.0",
+      "to": "v1.43.3",
+      "purl": "pkg:composer/symfony/polyfill-mbstring@v1.43.3"
+     },
+     {
+      "name": "symfony/process",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/process@v8.1.10"
+     },
+     {
+      "name": "symfony/routing",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/routing@v8.1.10"
+     },
+     {
+      "name": "symfony/string",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/string@v8.1.10"
+     },
+     {
+      "name": "symfony/translation",
+      "from": "v8.1.5",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/translation@v8.1.10"
+     },
+     {
+      "name": "symfony/var-dumper",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/var-dumper@v8.1.10"
+     },
+     {
+      "name": "symfony/var-exporter",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/var-exporter@v8.1.10"
+     },
+     {
+      "name": "vlucas/phpdotenv",
+      "from": "v5.7.0",
+      "to": "v5.8.0",
+      "purl": "pkg:composer/vlucas/phpdotenv@v5.8.0"
+     },
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "imagemagick",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "imagemagick-jpeg",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jpeg@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jxl",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jxl@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-libs",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-libs@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-tiff",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-tiff@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-webp",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-webp@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     },
+     {
+      "name": "perl",
+      "from": "5.42.2-r1",
+      "to": "5.42.3-r0",
+      "purl": "pkg:apk/alpine/perl@5.42.3-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [
+     {
+      "name": "spomky-labs/cbor-php",
+      "version": "3.4.2",
+      "purl": "pkg:composer/spomky-labs/cbor-php@3.4.2"
+     },
+     {
+      "name": "spomky-labs/pki-framework",
+      "version": "1.6.3",
+      "purl": "pkg:composer/spomky-labs/pki-framework@1.6.3"
+     },
+     {
+      "name": "symfony/polyfill-php81",
+      "version": "v1.38.1",
+      "purl": "pkg:composer/symfony/polyfill-php81@v1.38.1"
+     },
+     {
+      "name": "symfony/property-access",
+      "version": "v8.1.10",
+      "purl": "pkg:composer/symfony/property-access@v8.1.10"
+     },
+     {
+      "name": "symfony/property-info",
+      "version": "v8.1.10",
+      "purl": "pkg:composer/symfony/property-info@v8.1.10"
+     },
+     {
+      "name": "symfony/serializer",
+      "version": "v8.1.10",
+      "purl": "pkg:composer/symfony/serializer@v8.1.10"
+     },
+     {
+      "name": "symfony/type-info",
+      "version": "v8.1.10",
+      "purl": "pkg:composer/symfony/type-info@v8.1.10"
+     },
+     {
+      "name": "web-auth/cose-lib",
+      "version": "4.8.2",
+      "purl": "pkg:composer/web-auth/cose-lib@4.8.2"
+     },
+     {
+      "name": "web-auth/webauthn-lib",
+      "version": "5.3.12",
+      "purl": "pkg:composer/web-auth/webauthn-lib@5.3.12"
+     }
+    ],
+    "removed": [
+     {
+      "name": "laragear/meta-model",
+      "version": "v3.0.0",
+      "purl": "pkg:composer/laragear/meta-model@v3.0.0"
+     },
+     {
+      "name": "laragear/webauthn",
+      "version": "v5.0.2",
+      "purl": "pkg:composer/laragear/webauthn@v5.0.2"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "composer/semver",
+      "from": "3.5.1",
+      "to": "3.6.0",
+      "purl": "pkg:composer/composer/semver@3.6.0"
+     },
+     {
+      "name": "dedoc/scramble",
+      "from": "v0.13.48",
+      "to": "v0.13.52",
+      "purl": "pkg:composer/dedoc/scramble@v0.13.52"
+     },
+     {
+      "name": "doctrine/inflector",
+      "from": "2.1.0",
+      "to": "2.1.1",
+      "purl": "pkg:composer/doctrine/inflector@2.1.1"
+     },
+     {
+      "name": "guzzlehttp/guzzle",
+      "from": "7.16.0",
+      "to": "7.16.1",
+      "purl": "pkg:composer/guzzlehttp/guzzle@7.16.1"
+     },
+     {
+      "name": "laravel/framework",
+      "from": "v13.37.0",
+      "to": "v13.39.0",
+      "purl": "pkg:composer/laravel/framework@v13.39.0"
+     },
+     {
+      "name": "league/commonmark",
+      "from": "2.10.4",
+      "to": "2.10.7",
+      "purl": "pkg:composer/league/commonmark@2.10.7"
+     },
+     {
+      "name": "league/uri",
+      "from": "7.9.0",
+      "to": "7.9.1",
+      "purl": "pkg:composer/league/uri@7.9.1"
+     },
+     {
+      "name": "league/uri-interfaces",
+      "from": "7.9.0",
+      "to": "7.9.1",
+      "purl": "pkg:composer/league/uri-interfaces@7.9.1"
+     },
+     {
+      "name": "nesbot/carbon",
+      "from": "3.15.0",
+      "to": "3.15.1",
+      "purl": "pkg:composer/nesbot/carbon@3.15.1"
+     },
+     {
+      "name": "nette/schema",
+      "from": "v1.3.6",
+      "to": "v1.4.0",
+      "purl": "pkg:composer/nette/schema@v1.4.0"
+     },
+     {
+      "name": "nette/utils",
+      "from": "v4.1.5",
+      "to": "v4.1.6",
+      "purl": "pkg:composer/nette/utils@v4.1.6"
+     },
+     {
+      "name": "open-telemetry/api",
+      "from": "1.10.0",
+      "to": "1.10.1",
+      "purl": "pkg:composer/open-telemetry/api@1.10.1"
+     },
+     {
+      "name": "phpseclib/phpseclib",
+      "from": "4.0.2",
+      "to": "4.0.3",
+      "purl": "pkg:composer/phpseclib/phpseclib@4.0.3"
+     },
+     {
+      "name": "phpstan/phpdoc-parser",
+      "from": "2.3.6",
+      "to": "2.4.1",
+      "purl": "pkg:composer/phpstan/phpdoc-parser@2.4.1"
+     },
+     {
+      "name": "spatie/laravel-data",
+      "from": "4.23.0",
+      "to": "4.23.1",
+      "purl": "pkg:composer/spatie/laravel-data@4.23.1"
+     },
+     {
+      "name": "symfony/cache",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/cache@v8.1.10"
+     },
+     {
+      "name": "symfony/console",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/console@v8.1.10"
+     },
+     {
+      "name": "symfony/css-selector",
+      "from": "v8.1.6",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/css-selector@v8.1.10"
+     },
+     {
+      "name": "symfony/error-handler",
+      "from": "v8.1.8",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/error-handler@v8.1.10"
+     },
+     {
+      "name": "symfony/finder",
+      "from": "v8.1.8",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/finder@v8.1.10"
+     },
+     {
+      "name": "symfony/http-foundation",
+      "from": "v7.4.21",
+      "to": "v7.4.22",
+      "purl": "pkg:composer/symfony/http-foundation@v7.4.22"
+     },
+     {
+      "name": "symfony/http-kernel",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/http-kernel@v8.1.10"
+     },
+     {
+      "name": "symfony/mailer",
+      "from": "v8.1.7",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/mailer@v8.1.10"
+     },
+     {
+      "name": "symfony/mime",
+      "from": "v8.1.7",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/mime@v8.1.10"
+     },
+     {
+      "name": "symfony/polyfill-intl-grapheme",
+      "from": "v1.43.0",
+      "to": "v1.43.3",
+      "purl": "pkg:composer/symfony/polyfill-intl-grapheme@v1.43.3"
+     },
+     {
+      "name": "symfony/polyfill-mbstring",
+      "from": "v1.43.0",
+      "to": "v1.43.3",
+      "purl": "pkg:composer/symfony/polyfill-mbstring@v1.43.3"
+     },
+     {
+      "name": "symfony/process",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/process@v8.1.10"
+     },
+     {
+      "name": "symfony/routing",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/routing@v8.1.10"
+     },
+     {
+      "name": "symfony/string",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/string@v8.1.10"
+     },
+     {
+      "name": "symfony/translation",
+      "from": "v8.1.5",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/translation@v8.1.10"
+     },
+     {
+      "name": "symfony/var-dumper",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/var-dumper@v8.1.10"
+     },
+     {
+      "name": "symfony/var-exporter",
+      "from": "v8.1.9",
+      "to": "v8.1.10",
+      "purl": "pkg:composer/symfony/var-exporter@v8.1.10"
+     },
+     {
+      "name": "vlucas/phpdotenv",
+      "from": "v5.7.0",
+      "to": "v5.8.0",
+      "purl": "pkg:composer/vlucas/phpdotenv@v5.8.0"
+     },
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 18,
+  "removed": 4,
+  "upgraded": 86,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "image": "ffmpeg",
+ "branch": "master",
+ "tag": "9.0.2-cli-ls4",
+ "previous_tag": "9.0.2-cli-ls3",
+ "classification": "linuxserver",
+ "reasons": [
+  "built from a push with the same upstream and base (root/ or build settings changed)"
+ ],
+ "upstream": {
+  "from": "9.0.2-cli",
+  "to": "9.0.2-cli",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:c2398fa94f700f68208462f0b6278794968d3d7436ccba605cacb7f32e2dc120"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:c2398fa94f700f68208462f0b6278794968d3d7436ccba605cacb7f32e2dc120"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 261721225,
+   "to": 261721350,
+   "delta": 125
+  },
+  "arm64": {
+   "from": 171450255,
+   "to": 171449866,
+   "delta": -389
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,155 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "alpine324",
+ "tag": "alpine324-3ff470a6-ls5",
+ "previous_tag": "alpine324-3ff470a6-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "3ff470a6",
+  "to": "3ff470a6",
+  "changed": false
+ },
+ "commit": {
+  "from": "78e2dc949d722d52ea6ed32858d36bbf39471a7e",
+  "to": "78e2dc949d722d52ea6ed32858d36bbf39471a7e",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:27ca3829089cce6a456e61a19eafafd0911b194a555a4db153fece6547c52416"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 579295551,
+   "to": 579348966,
+   "delta": 53415
+  },
+  "arm64": {
+   "from": 534213689,
+   "to": 534275685,
+   "delta": 61996
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}
