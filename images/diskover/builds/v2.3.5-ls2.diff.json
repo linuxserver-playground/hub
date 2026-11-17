@@ -1,0 +1,83 @@
+{
+ "image": "diskover",
+ "branch": "master",
+ "tag": "v2.3.5-ls2",
+ "previous_tag": "v2.3.5-ls1",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "v2.3.5",
+  "to": "v2.3.5",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver/baseimage-alpine-nginx:3.20",
+   "digest": "sha256:95fc4e313a05b5847c881edfe88967e7588beea1877f87be1def6fde438a11db"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver/baseimage-alpine-nginx:3.20",
+   "digest": "sha256:95fc4e313a05b5847c881edfe88967e7588beea1877f87be1def6fde438a11db"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 51226875,
+   "to": 51226828,
+   "delta": -47
+  },
+  "arm64": {
+   "from": 52690050,
+   "to": 52690052,
+   "delta": 2
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "php83-sqlite3",
+      "from": "8.3.15-r0",
+      "to": "8.3.36-r0",
+      "purl": "pkg:apk/alpine/php83-sqlite3@8.3.36-r0?arch=aarch64&distro=alpine-3.20.10&upstream=php83"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 1,
+  "downgraded": 0
+ }
+}

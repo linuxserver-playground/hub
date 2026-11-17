@@ -1,0 +1,160 @@
+{
+ "image": "znc",
+ "branch": "master",
+ "tag": "znc-1.10.3-ls4",
+ "previous_tag": "znc-1.10.3-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (9c60d78 → 93f441d): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "znc-1.10.3",
+  "to": "znc-1.10.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "9c60d78f645f192203b998e5bdbf9cd942657787",
+  "to": "93f441d7e0fc22ac4b9868efc24ed2450835cc9a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-znc/compare/9c60d78f645f192203b998e5bdbf9cd942657787...93f441d7e0fc22ac4b9868efc24ed2450835cc9a",
+  "commits": [
+   {
+    "sha": "07ed18fb37906b9f8cfc89f37e7078b3dac91fd7",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T04:47:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-znc/commit/07ed18fb37906b9f8cfc89f37e7078b3dac91fd7",
+    "bot": true
+   },
+   {
+    "sha": "93f441d7e0fc22ac4b9868efc24ed2450835cc9a",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T08:43:04Z",
+    "url": "https://github.com/linuxserver-playground/docker-znc/commit/93f441d7e0fc22ac4b9868efc24ed2450835cc9a",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:9008d6d5bb98aa82222a5c4a9463dd82801a1cc2bfacd5862caf4b895fbcf578"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:471536f3a3e33e66a1b18d94f6157fc1d57012dd097177aa3b5f4cd741296ae5"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 26402593,
+   "to": 26402540,
+   "delta": -53
+  },
+  "arm64": {
+   "from": 27162671,
+   "to": 27162444,
+   "delta": -227
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apk-tools",
+      "from": "2.14.12-r0",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/apk-tools@2.14.13-r0?arch=x86_64&distro=alpine-3.22.7"
+     },
+     {
+      "name": "libapk2",
+      "from": "2.14.12-r0",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/libapk2@2.14.13-r0?arch=x86_64&distro=alpine-3.22.7&upstream=apk-tools"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.22.7"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apk-tools",
+      "from": "2.14.12-r0",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/apk-tools@2.14.13-r0?arch=aarch64&distro=alpine-3.22.7"
+     },
+     {
+      "name": "libapk2",
+      "from": "2.14.12-r0",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/libapk2@2.14.13-r0?arch=aarch64&distro=alpine-3.22.7&upstream=apk-tools"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.22.7"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

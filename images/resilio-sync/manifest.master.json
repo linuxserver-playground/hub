@@ -1,0 +1,142 @@
+{
+ "schema": 1,
+ "name": "resilio-sync",
+ "summary": "[Resilio-sync](https://www.resilio.com/individuals/) (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both. There is an official sync image but we created this one as it supports user mapping to simplify permissions for volumes.",
+ "upstream": {
+  "url": "https://www.resilio.com/individuals/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "https://linux-packages.resilio.com/resilio-sync/deb/dists/resilio-sync/non-free/binary-amd64/Packages",
+   "package": "resilio-sync"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "SYNC_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8888,
+   "path": "/gui"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8888",
+    "description": "WebUI"
+   },
+   {
+    "internal": "55555",
+    "description": "Sync Port."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/resilio-sync/config",
+    "description": "Where resilio-sync should store its config file."
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/downloads",
+    "description": "Folder for downloads/cache."
+   },
+   {
+    "path": "/sync",
+    "host_path": "/path/to/data",
+    "description": "Sync folders root."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Backup"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/resilio-sync-logo.png",
+  "setup": "* Webui is at `<your-ip>:8888`, for account creation and configuration.\n* More info on setup at [Resilio Sync](https://www.resilio.com/individuals/)\n"
+ },
+ "proxy": {
+  "port": 8888,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2024-08-21",
+   "text": "Rebase to Noble."
+  },
+  {
+   "date": "2023-07-03",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2022-12-14",
+   "text": "Rebase to Jammy, migrate to s6v3."
+  },
+  {
+   "date": "2021-10-03",
+   "text": "Use upstream apt repo to install. Rebase to focal."
+  },
+  {
+   "date": "2021-01-20",
+   "text": "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-11",
+   "text": "Rebase to bionic, add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-02-05",
+   "text": "Add downloads volume mount."
+  },
+  {
+   "date": "2018-01-28",
+   "text": "Add /sync to dir whitelist."
+  },
+  {
+   "date": "2018-01-26",
+   "text": "Use variable for arch to bring in line with armhf arch repo."
+  },
+  {
+   "date": "2017-12-15",
+   "text": "Fix continuation lines."
+  },
+  {
+   "date": "2017-06-02",
+   "text": "Rebase to ubuntu xenial, alpine linux no longer works with resilio."
+  },
+  {
+   "date": "2017-05-22",
+   "text": "Add variable for user defined umask."
+  },
+  {
+   "date": "2017-05-14",
+   "text": "Use fixed version instead of latest, while 2.5.0 is broken on non glibc (alpine)."
+  },
+  {
+   "date": "2017-02-08",
+   "text": "Rebase to alpine 3.5."
+  },
+  {
+   "date": "2016-11-02",
+   "text": "Initial Release."
+  }
+ ]
+}

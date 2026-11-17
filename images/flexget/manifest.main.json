@@ -1,0 +1,150 @@
+{
+ "schema": 1,
+ "name": "flexget",
+ "summary": "[Flexget](http://flexget.com/) is a multipurpose automation tool for all of your media.",
+ "upstream": {
+  "url": "http://flexget.com/",
+  "version": {
+   "type": "github_release",
+   "repo": "flexget/flexget"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "flexget/flexget"
+  },
+  "sponsor": [
+   {
+    "name": "FlexGet",
+    "url": "https://github.com/sponsors/gazpachoking/"
+   }
+  ]
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "FLEXGET_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "Europe/London"
+  },
+  "web": {
+   "port": 5050
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "5050",
+    "description": "HTTP port for the WebUI."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/flexget/data",
+    "description": "Local path for FlexGet config files."
+   },
+   {
+    "path": "/data",
+    "host_path": "/path/to/downloads",
+    "description": "Default path for downloads.",
+    "optional": true
+   }
+  ],
+  "env": [
+   {
+    "name": "FG_LOG_LEVEL",
+    "value": "info",
+    "description": "Set the FlexGet logging level."
+   },
+   {
+    "name": "FG_LOG_FILE",
+    "value": "/config/flexget.log",
+    "description": "Set the FlexGet log file location."
+   },
+   {
+    "name": "FG_CONFIG_FILE",
+    "value": "/config/.flexget/config.yml",
+    "description": "Set the FlexGet config file location."
+   },
+   {
+    "name": "FG_WEBUI_PASSWORD",
+    "value": "info",
+    "description": "Set the FlexGet webui password. Pay attention to Bash/YAML reserved characters.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Downloaders"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flexget-banner.png",
+  "setup": "Default config file is /config/.flexget\n\nSee the [FlexGet website](https://flexget.com/) for more information.\n\n### Download folders\n\nWe have set `/data` as an ***optional path***, this is because it is the easiest way to get started.\n\nUse the optional paths if you don't understand, or don't want hardlinks/atomic moves.\n"
+ },
+ "proxy": {
+  "port": 5050,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true
+  },
+  "api_locations": [
+   "/api"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-08-15",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-11-10",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-10-17",
+   "text": "Add pip to enable [universal-package-install mod](https://github.com/linuxserver/docker-mods/tree/universal-package-install)."
+  },
+  {
+   "date": "2024-09-18",
+   "text": "Suppress creation of empty log file when WebUI password is set."
+  },
+  {
+   "date": "2024-08-17",
+   "text": "Revert to Alpine 3.20 due to 1st party plugin incompatibility with Python 3.12."
+  },
+  {
+   "date": "2024-06-19",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-20",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-10-07",
+   "text": "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."
+  },
+  {
+   "date": "2023-08-10",
+   "text": "Bump unrar to 6.2.10."
+  },
+  {
+   "date": "2023-07-03",
+   "text": "Initial Release."
+  }
+ ]
+}

@@ -1,0 +1,209 @@
+{
+ "schema": 1,
+ "name": "lazylibrarian",
+ "summary": "[Lazylibrarian](https://lazylibrarian.gitlab.io/) is a program to follow authors and grab metadata for all your digital reading needs. It uses a combination of Goodreads Librarything and optionally GoogleBooks as sources for author info and book info.  This container is based on the DobyTang fork.",
+ "upstream": {
+  "url": "https://lazylibrarian.gitlab.io/",
+  "version": {
+   "type": "gitlab_commit",
+   "project_id": 9317860,
+   "branch": "master"
+  },
+  "notes": {
+   "type": "gitlab_commit",
+   "project_id": 9317860,
+   "branch": "master"
+  },
+  "sponsor": [
+   {
+    "name": "Buy Me a Coffee",
+    "url": "https://buymeacoffee.com/philbormang"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "LAZYLIBRARIAN_COMMIT",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 240,
+  "web": {
+   "port": 5299
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "5299",
+    "description": "The port for the LazyLibrarian webinterface"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/lazylibrarian/data",
+    "description": "LazyLibrarian config"
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/downloads/",
+    "description": "Download location"
+   },
+   {
+    "path": "/books",
+    "host_path": "/path/to/data/",
+    "description": "Books location",
+    "optional": true
+   }
+  ],
+  "env": [
+   {
+    "name": "DOCKER_MODS",
+    "value": "linuxserver/mods:universal-calibre|linuxserver/mods:lazylibrarian-ffmpeg",
+    "description": "Allows additional functionality to be added, e.g. the Calibredb import program (optional, more info below)",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Books"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lazylibrarian-icon.png",
+  "setup": "Access the webui at `http://<your-ip>:5299/home`, for more information check out [Lazylibrarian](https://lazylibrarian.gitlab.io/).\n\nWe have set `/books` as optional path, this is because it is the easiest way to get started.\n\n### Calibredb import\n\n**64bit only** We have implemented the optional ability to pull in the dependencies to enable the Calibredb import program:, this means if you don't require this feature the container isn't unnecessarily bloated but should you require it, it is easily available.\nThis optional layer will be rebuilt automatically on our CI pipeline upon new Calibre releases so you can stay up to date.\nTo use this option add the optional environmental variable as detailed in the docker-mods section to pull an addition docker layer to enable ebook conversion and then in the LazyLibrarian config page (Processing:Calibredb import program:) set the path to converter tool to `/usr/bin/calibredb`\n\n### ffmpeg\n\nBy adding `linuxserver/mods:lazylibrarian-ffmpeg` to your `DOCKER_MODS` environment variable you can install ffmpeg into your container on startup.\nThis allows you to use the audiobook conversion features of LazyLibrarian.\nYou can enable it in the Web UI under Settings > Processing > External Programs by setting the ffmpeg path to `ffmpeg`.\n"
+ },
+ "proxy": {
+  "port": 5299,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true
+  }
+ },
+ "changelog": [
+  {
+   "date": "2024-08-14",
+   "text": "Rebase to Ubuntu Noble."
+  },
+  {
+   "date": "2023-10-07",
+   "text": "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar). Switch to Python virtual environment. Add Levenshtein."
+  },
+  {
+   "date": "2023-08-10",
+   "text": "Bump unrar to 6.2.10."
+  },
+  {
+   "date": "2023-07-01",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2022-12-07",
+   "text": "Rebase to Ubuntu Jammy, migrate to s6v3. Use pyproject.toml for deps. Build unrar from source."
+  },
+  {
+   "date": "2022-09-27",
+   "text": "Switch to `Levenshtein`, add cmake as build dep on armhf."
+  },
+  {
+   "date": "2022-05-07",
+   "text": "Rebase to Ubuntu Focal."
+  },
+  {
+   "date": "2021-05-22",
+   "text": "Make the paths clearer to the user, remove optional volume."
+  },
+  {
+   "date": "2021-05-17",
+   "text": "Add linuxserver wheel index."
+  },
+  {
+   "date": "2019-10-23",
+   "text": "Changed gitlab download link."
+  },
+  {
+   "date": "2019-10-23",
+   "text": "Add python module Pillow."
+  },
+  {
+   "date": "2019-07-31",
+   "text": "Add pyopenssl, remove git dependency during build time."
+  },
+  {
+   "date": "2019-07-09",
+   "text": "Rebase to Ubuntu Bionic, enables Calibre docker mod."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-03-05",
+   "text": "Added apprise python package."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2018-12-10",
+   "text": "Moved to Pipeline Building"
+  },
+  {
+   "date": "2018-08-16",
+   "text": "Rebase to alpine 3.8"
+  },
+  {
+   "date": "2018-01-05",
+   "text": "Deprecate cpu_core routine lack of scaling"
+  },
+  {
+   "date": "2017-12-12",
+   "text": "Rebase to alpine 3.7"
+  },
+  {
+   "date": "2017-07-21",
+   "text": "Internal git pull instead of at runtime"
+  },
+  {
+   "date": "2017-05-25",
+   "text": "Rebase to alpine 3.6"
+  },
+  {
+   "date": "2017-02-07",
+   "text": "Rebase to alpine 3.5"
+  },
+  {
+   "date": "2017-01-30",
+   "text": "Compile libunrar.so to allow reading of .cbr format files"
+  },
+  {
+   "date": "2017-01-12",
+   "text": "Add ghostscript package, allows magazine covers to be created etc"
+  },
+  {
+   "date": "2016-10-14",
+   "text": "Add version layer information"
+  },
+  {
+   "date": "2016-10-03",
+   "text": "Fix non-persistent settings and make log folder"
+  },
+  {
+   "date": "2016-09-28",
+   "text": "Inital Release"
+  }
+ ]
+}

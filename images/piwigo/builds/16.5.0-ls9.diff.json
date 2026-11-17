@@ -1,0 +1,180 @@
+{
+ "image": "piwigo",
+ "branch": "master",
+ "tag": "16.5.0-ls9",
+ "previous_tag": "16.5.0-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (1ad5e24 → d31f0b8): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "16.5.0",
+  "to": "16.5.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "1ad5e24c4bf85a517cc4c147ad8b003bf7282216",
+  "to": "d31f0b8ca06697b36b1c9d258b47ce773b05a40b",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-piwigo/compare/1ad5e24c4bf85a517cc4c147ad8b003bf7282216...d31f0b8ca06697b36b1c9d258b47ce773b05a40b",
+  "commits": [
+   {
+    "sha": "d31f0b8ca06697b36b1c9d258b47ce773b05a40b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T12:44:23Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/d31f0b8ca06697b36b1c9d258b47ce773b05a40b",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:3130ae80cea2fa20c89e2c0cc679da86bbb257b3fc9f51a1d9ab6393e5cb7f81"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e81e256976c8d1d16f1e84a53540b12b20a917e650ff884b467db4c04a3458a2"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 136237385,
+   "to": 136296286,
+   "delta": 58901
+  },
+  "arm64": {
+   "from": 132866322,
+   "to": 132925832,
+   "delta": 59510
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [
+     {
+      "name": "git-perl",
+      "version": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-perl@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "perl-error",
+      "version": "0.17030-r0",
+      "purl": "pkg:apk/alpine/perl-error@0.17030-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "perl-git",
+      "version": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/perl-git@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4&upstream=git"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apache2"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4&upstream=git"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [
+     {
+      "name": "git-perl",
+      "version": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-perl@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "perl-error",
+      "version": "0.17030-r0",
+      "purl": "pkg:apk/alpine/perl-error@0.17030-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "perl-git",
+      "version": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/perl-git@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4&upstream=git"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apache2"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4&upstream=git"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 6,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

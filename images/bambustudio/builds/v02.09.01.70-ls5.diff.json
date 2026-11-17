@@ -1,0 +1,261 @@
+{
+ "image": "bambustudio",
+ "branch": "master",
+ "tag": "v02.09.01.70-ls5",
+ "previous_tag": "v02.08.04.57-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "Dockerfile changed",
+  "base image digest changed",
+  "packages changed",
+  "4 commits (55a8a07 → f818fec): changed image.yml, the Dockerfiles, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "v02.08.04.57",
+  "to": "v02.09.01.70",
+  "changed": true
+ },
+ "commit": {
+  "from": "55a8a0731e5a2037667dfde3116281435eab1c90",
+  "to": "f818fece425bc8eee594b2575c32195d6a2ea580",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-bambustudio/compare/55a8a0731e5a2037667dfde3116281435eab1c90...f818fece425bc8eee594b2575c32195d6a2ea580",
+  "commits": [
+   {
+    "sha": "a487b8c308909e6eeab87ebd8314534d1d485d15",
+    "subject": "Download the resolved release's assets and wait for them before building",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T16:03:12Z",
+    "url": "https://github.com/linuxserver-playground/docker-bambustudio/commit/a487b8c308909e6eeab87ebd8314534d1d485d15",
+    "bot": false
+   },
+   {
+    "sha": "e84599004056aa12f257c7ffec8c4aa46f75c220",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T02:22:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-bambustudio/commit/e84599004056aa12f257c7ffec8c4aa46f75c220",
+    "bot": true
+   },
+   {
+    "sha": "490cf665bc18b02a999efd4bd07ac59d2e2b7a7f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T02:33:50Z",
+    "url": "https://github.com/linuxserver-playground/docker-bambustudio/commit/490cf665bc18b02a999efd4bd07ac59d2e2b7a7f",
+    "bot": true
+   },
+   {
+    "sha": "f818fece425bc8eee594b2575c32195d6a2ea580",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T13:21:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-bambustudio/commit/f818fece425bc8eee594b2575c32195d6a2ea580",
+    "bot": true
+   }
+  ],
+  "count": 4,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "dockerfile": 1,
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:968acfc9b937061cf1c1143c7c5c4fb636db2fbd020dfc4801a253ea32043dcd"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:a8e26da62ec31fd5f3b5b03f9ee53ccb1fcd939247714807414f9ade6ac82081"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1593250726,
+   "to": 1497669177,
+   "delta": -95581549
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "--- a/Dockerfile\n+++ b/Dockerfile\n@@ -39,8 +39,11 @@\n     libwebkit2gtk-4.1-0 \\\n     libwx-perl && \\\n   echo \"**** install bambu studio from appimage ****\" && \\\n-  RELEASE_URL=$(curl -sX GET \"https://api.github.com/repos/bambulab/BambuStudio/releases\" \\\n-    | jq -r '.[0].url') && \\\n+  if [ -z ${BAMBUSTUDIO_VERSION+x} ]; then \\\n+    BAMBUSTUDIO_VERSION=$(curl -sX GET \"https://api.github.com/repos/bambulab/BambuStudio/releases\" \\\n+      | jq -r '.[0].tag_name'); \\\n+  fi && \\\n+  RELEASE_URL=\"https://api.github.com/repos/bambulab/BambuStudio/releases/tags/${BAMBUSTUDIO_VERSION}\" && \\\n   DOWNLOAD_URL=$(curl -sX GET \"${RELEASE_URL}\" \\\n     | jq -r 'first(.assets[].browser_download_url | select(test(\"BambuStudio_ubu24\")))') && \\\n   cd /tmp && \\\n"
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.6.1-1~ubuntu.26.04~resolute",
+      "to": "5.7.0-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-compose-plugin@5.7.0-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-38.38",
+      "to": "7.0.0-42.42",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-42.42?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.6.1",
+      "to": "v5.7.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.0"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 3,
+  "removed": 0,
+  "upgraded": 16,
+  "downgraded": 0
+ }
+}

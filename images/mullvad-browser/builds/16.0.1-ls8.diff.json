@@ -1,0 +1,451 @@
+{
+ "image": "mullvad-browser",
+ "branch": "main",
+ "tag": "16.0.1-ls8",
+ "previous_tag": "16.0-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "6 commits (a71b9d7 → 3c50cfc): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "16.0",
+  "to": "16.0.1",
+  "changed": true
+ },
+ "commit": {
+  "from": "a71b9d7c19d1208353ff0f49804a5e303a455dc1",
+  "to": "3c50cfc24f80d5f9c6cc22f96bc81d880d219d09",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mullvad-browser/compare/a71b9d7c19d1208353ff0f49804a5e303a455dc1...3c50cfc24f80d5f9c6cc22f96bc81d880d219d09",
+  "commits": [
+   {
+    "sha": "26bc12ba6e5cb894d618a4a8254062958f5bae93",
+    "subject": "Wait for the upstream release assets before building",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T16:03:32Z",
+    "url": "https://github.com/linuxserver-playground/docker-mullvad-browser/commit/26bc12ba6e5cb894d618a4a8254062958f5bae93",
+    "bot": false
+   },
+   {
+    "sha": "35013e69cc8c5de94514c51a705c9b4cf3592829",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T09:42:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-mullvad-browser/commit/35013e69cc8c5de94514c51a705c9b4cf3592829",
+    "bot": true
+   },
+   {
+    "sha": "bc17f62d132c91b6970b5bf6e99f77052780fb36",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T09:51:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-mullvad-browser/commit/bc17f62d132c91b6970b5bf6e99f77052780fb36",
+    "bot": true
+   },
+   {
+    "sha": "66408ce9f835ab1c1833127a9274f5621e1e099c",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T05:42:48Z",
+    "url": "https://github.com/linuxserver-playground/docker-mullvad-browser/commit/66408ce9f835ab1c1833127a9274f5621e1e099c",
+    "bot": true
+   },
+   {
+    "sha": "ab6e04f85d40ccf5efb0d75a7012898ccee3873b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T05:52:32Z",
+    "url": "https://github.com/linuxserver-playground/docker-mullvad-browser/commit/ab6e04f85d40ccf5efb0d75a7012898ccee3873b",
+    "bot": true
+   },
+   {
+    "sha": "3c50cfc24f80d5f9c6cc22f96bc81d880d219d09",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T15:51:57Z",
+    "url": "https://github.com/linuxserver-playground/docker-mullvad-browser/commit/3c50cfc24f80d5f9c6cc22f96bc81d880d219d09",
+    "bot": true
+   }
+  ],
+  "count": 6,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:d9ee641268c41bb63ac954fbc53de811b13145dce38f730a7afcbdff04ddf419"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:f384c9412c8e6795e58de752f62453a36dc0b3a0876d556f1b61b5a4d4d38513"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1112007211,
+   "to": 1059988161,
+   "delta": -52019050
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "apt-transport-https",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-transport-https@3.2.1ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "base-files",
+      "from": "14ubuntu6.2",
+      "to": "14ubuntu6.3",
+      "purl": "pkg:deb/ubuntu/base-files@14ubuntu6.3?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-ce",
+      "from": "5:29.9.2-1~ubuntu.26.04~resolute",
+      "to": "5:29.9.3-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-ce@5%3A29.9.3-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-ce-cli",
+      "from": "5:29.9.2-1~ubuntu.26.04~resolute",
+      "to": "5:29.9.3-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-ce-cli@5%3A29.9.3-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04&upstream=docker-ce"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.6.1-1~ubuntu.26.04~resolute",
+      "to": "5.7.0-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-compose-plugin@5.7.0-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg7.0@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "libheif-plugin-aomdec",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif-plugin-aomdec@1.21.2-3ubuntu0.7?arch=amd64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libheif1",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif1@1.21.2-3ubuntu0.7?arch=amd64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.46-1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=pcre2"
+     },
+     {
+      "name": "libsoup-3.0-0",
+      "from": "3.6.6-1ubuntu0.1",
+      "to": "3.6.6-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/libsoup-3.0-0@3.6.6-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=libsoup3"
+     },
+     {
+      "name": "libsoup-3.0-common",
+      "from": "3.6.6-1ubuntu0.1",
+      "to": "3.6.6-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/libsoup-3.0-common@3.6.6-1ubuntu0.3?arch=all&distro=ubuntu-26.04&upstream=libsoup3"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-42.42",
+      "to": "7.0.0-43.43",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-43.43?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-prometheus",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-prometheus@v1.2.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.6.1",
+      "to": "v5.7.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.0"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus",
+      "from": "v1.1.0",
+      "to": "v1.1.1",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus@v1.1.1"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/v2",
+      "from": "v2.1.0",
+      "to": "v2.3.3",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/v2@v2.3.3"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.2"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.0",
+      "to": "v0.34.2",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.34.2"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     },
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v29.9.2",
+      "to": "v29.9.3",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v29.9.3"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20260819142231-83cac42c1c52",
+      "to": "v0.0.0-20261103091533-a72de9dcf763",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103091533-a72de9dcf763"
+     },
+     {
+      "name": "go.yaml.in/yaml/v2",
+      "from": "v2.4.4",
+      "to": "v2.4.5",
+      "purl": "pkg:golang/go.yaml.in/yaml/v2@v2.4.5"
+     },
+     {
+      "name": "go.yaml.in/yaml/v3",
+      "from": "v3.0.5",
+      "to": "v3.0.6",
+      "purl": "pkg:golang/go.yaml.in/yaml/v3@v3.0.6"
+     },
+     {
+      "name": "golang.org/x/net",
+      "from": "v0.61.0",
+      "to": "v0.62.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.62.0"
+     },
+     {
+      "name": "google.golang.org/grpc",
+      "from": "v1.84.0",
+      "to": "v1.85.0",
+      "purl": "pkg:golang/google.golang.org/grpc@v1.85.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "github.com/moby/swarmkit/v2",
+      "from": "v2.1.3-0.20260917205909-1fd637ba5cc3",
+      "to": "v2.1.3",
+      "purl": "pkg:golang/github.com/moby/swarmkit/v2@v2.1.3"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.2",
+      "purl": "pkg:pypi/dnspython@2.9.2"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 3,
+  "removed": 1,
+  "upgraded": 42,
+  "downgraded": 1
+ }
+}

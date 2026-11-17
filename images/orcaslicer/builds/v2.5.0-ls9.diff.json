@@ -1,0 +1,186 @@
+{
+ "image": "orcaslicer",
+ "branch": "master",
+ "tag": "v2.5.0-ls9",
+ "previous_tag": "v2.5.0-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (9570ef7 → 5ed6276): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v2.5.0",
+  "to": "v2.5.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "9570ef7c7d41e4a081cc9bd34d5412e5afbe739b",
+  "to": "5ed627670dd76472fa3aade92e4e1366aeceef27",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-orcaslicer/compare/9570ef7c7d41e4a081cc9bd34d5412e5afbe739b...5ed627670dd76472fa3aade92e4e1366aeceef27",
+  "commits": [
+   {
+    "sha": "5ed627670dd76472fa3aade92e4e1366aeceef27",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T12:43:46Z",
+    "url": "https://github.com/linuxserver-playground/docker-orcaslicer/commit/5ed627670dd76472fa3aade92e4e1366aeceef27",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:26048c0565d1c17e8b1f4efc0388e475971432229839e64dc059f8282c291a99"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:6d8031254fcdbcfa840ee42adb617b752a5876a013b438c80b61806ab278dc46"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1743555079,
+   "to": 1744750564,
+   "delta": 1195485
+  },
+  "arm64": {
+   "from": 1668597800,
+   "to": 1670044061,
+   "delta": 1446261
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "firefox",
+      "from": "159.0.1~build1",
+      "to": "160.0~build1",
+      "purl": "pkg:deb/debian/firefox@160.0~build1?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "libopenexr-3-1-30",
+      "from": "3.1.13-2",
+      "to": "3.2.12-1~deb13u1",
+      "purl": "pkg:deb/debian/libopenexr-3-1-30@3.2.12-1~deb13u1?arch=amd64&distro=debian-13.7&upstream=openexr"
+     },
+     {
+      "name": "libopenexr-dev",
+      "from": "3.1.13-2",
+      "to": "3.2.12-1~deb13u1",
+      "purl": "pkg:deb/debian/libopenexr-dev@3.2.12-1~deb13u1?arch=amd64&distro=debian-13.7&upstream=openexr"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.115-2",
+      "to": "6.12.116-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.116-1?arch=all&distro=debian-13.7&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "firefox",
+      "from": "159.0.1~build1",
+      "to": "160.0~build1",
+      "purl": "pkg:deb/debian/firefox@160.0~build1?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "libopenexr-3-1-30",
+      "from": "3.1.13-2",
+      "to": "3.2.12-1~deb13u1",
+      "purl": "pkg:deb/debian/libopenexr-3-1-30@3.2.12-1~deb13u1?arch=arm64&distro=debian-13.7&upstream=openexr"
+     },
+     {
+      "name": "libopenexr-dev",
+      "from": "3.1.13-2",
+      "to": "3.2.12-1~deb13u1",
+      "purl": "pkg:deb/debian/libopenexr-dev@3.2.12-1~deb13u1?arch=arm64&distro=debian-13.7&upstream=openexr"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.115-2",
+      "to": "6.12.116-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.116-1?arch=all&distro=debian-13.7&upstream=linux"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

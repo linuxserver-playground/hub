@@ -1,0 +1,75 @@
+{
+ "image": "baseimage-alpine",
+ "branch": "3.24",
+ "tag": "3.24-3ad40b41-ls6",
+ "previous_tag": "3.24-bc9f8d41-ls5",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "repository at a newer commit (6044fdb → 737aecb)"
+ ],
+ "upstream": {
+  "from": "bc9f8d41",
+  "to": "3ad40b41",
+  "changed": true
+ },
+ "commit": {
+  "from": "6044fdba5473305a53e331b6a11eb4701c3e4918",
+  "to": "737aecb06216f4fec7c3b77e46b73684ff043f40",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-alpine/compare/6044fdba5473305a53e331b6a11eb4701c3e4918...737aecb06216f4fec7c3b77e46b73684ff043f40"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 12369732,
+   "to": 12369697,
+   "delta": -35
+  },
+  "arm64": {
+   "from": 13421179,
+   "to": 13421382,
+   "delta": 203
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,2279 @@
+{
+ "image": "webtop",
+ "branch": "fedora-kde",
+ "tag": "fedora-kde-f6e444e2-ls9",
+ "previous_tag": "fedora-kde-14a328cc-ls8",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (b7a3241 → 620cc5e): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "14a328cc",
+  "to": "f6e444e2",
+  "changed": true
+ },
+ "commit": {
+  "from": "b7a324188ec7e16a95441e0a831bd6ec7b90cd73",
+  "to": "620cc5efbbbbcd906aa511dde3086871e01deddd",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/b7a324188ec7e16a95441e0a831bd6ec7b90cd73...620cc5efbbbbcd906aa511dde3086871e01deddd",
+  "commits": [
+   {
+    "sha": "620cc5efbbbbcd906aa511dde3086871e01deddd",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T23:07:52Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/620cc5efbbbbcd906aa511dde3086871e01deddd",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:ee16ae8e475b2c09464d72147c06f8119c71ea48a8e3fb0e0b975e62349c1843"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:9b12b7e8cfd9b3a57ca15bc7db71f9180a8520f449819cdada3b8ded7254007b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1900320653,
+   "to": 1901366991,
+   "delta": 1046338
+  },
+  "arm64": {
+   "from": 1778623493,
+   "to": 1779653939,
+   "delta": 1030446
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-prometheus",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-prometheus@v1.2.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2",
+      "to": "v29.9.3",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3"
+     },
+     {
+      "name": "github.com/fvbommel/sortorder",
+      "from": "v1.2.0",
+      "to": "v1.2.1",
+      "purl": "pkg:golang/github.com/fvbommel/sortorder@v1.2.1"
+     },
+     {
+      "name": "github.com/go-jose/go-jose/v4",
+      "from": "v4.1.5",
+      "to": "v4.1.7",
+      "purl": "pkg:golang/github.com/go-jose/go-jose/v4@v4.1.7"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus",
+      "from": "v1.1.0",
+      "to": "v1.1.1",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus@v1.1.1"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/v2",
+      "from": "v2.1.0",
+      "to": "v2.3.3",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/v2@v2.3.3"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.2"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.0",
+      "to": "v0.34.2",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.34.2"
+     },
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v29.9.2",
+      "to": "v29.9.3",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v29.9.3"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20260819142231-83cac42c1c52",
+      "to": "v0.0.0-20261103091533-a72de9dcf763",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103091533-a72de9dcf763"
+     },
+     {
+      "name": "go.yaml.in/yaml/v2",
+      "from": "v2.4.4",
+      "to": "v2.4.5",
+      "purl": "pkg:golang/go.yaml.in/yaml/v2@v2.4.5"
+     },
+     {
+      "name": "go.yaml.in/yaml/v3",
+      "from": "v3.0.5",
+      "to": "v3.0.6",
+      "purl": "pkg:golang/go.yaml.in/yaml/v3@v3.0.6"
+     },
+     {
+      "name": "golang.org/x/net",
+      "from": "v0.61.0",
+      "to": "v0.62.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.62.0"
+     },
+     {
+      "name": "google.golang.org/grpc",
+      "from": "v1.84.0",
+      "to": "v1.85.0",
+      "purl": "pkg:golang/google.golang.org/grpc@v1.85.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "github.com/moby/swarmkit/v2",
+      "from": "v2.1.3-0.20260917205909-1fd637ba5cc3",
+      "to": "v2.1.3",
+      "purl": "pkg:golang/github.com/moby/swarmkit/v2@v2.1.3"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.4",
+      "to": "0.162.7",
+      "purl": "pkg:pypi/fastapi@0.162.7"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [
+     {
+      "name": "icu-tzdata",
+      "version": "2026f-1.fc44",
+      "purl": "pkg:rpm/fedora/icu-tzdata@2026f-1.fc44?arch=noarch&distro=fedora-44&upstream=icu-tzdata-2026f-1.fc44.src.rpm"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "PackageKit",
+      "from": "1.4.0-2.fc44",
+      "to": "1.4.0-3.fc44",
+      "purl": "pkg:rpm/fedora/PackageKit@1.4.0-3.fc44?arch=x86_64&distro=fedora-44&upstream=PackageKit-1.4.0-3.fc44.src.rpm"
+     },
+     {
+      "name": "PackageKit-glib",
+      "from": "1.4.0-2.fc44",
+      "to": "1.4.0-3.fc44",
+      "purl": "pkg:rpm/fedora/PackageKit-glib@1.4.0-3.fc44?arch=x86_64&distro=fedora-44&upstream=PackageKit-1.4.0-3.fc44.src.rpm"
+     },
+     {
+      "name": "aurorae",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/aurorae@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=aurorae-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "baloo-widgets",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/baloo-widgets@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=baloo-widgets-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "breeze-gtk-common",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/breeze-gtk-common@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=breeze-gtk-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "breeze-icon-theme",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/breeze-icon-theme@6.32.0-1.fc44?arch=noarch&distro=fedora-44&upstream=kf6-breeze-icons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "dnf5",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/dnf5@5.4.8.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "dnf5-plugins",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/dnf5-plugins@5.4.8.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "docker-cli",
+      "from": "29.9.2-2.fc44",
+      "to": "29.9.3-1.fc44",
+      "purl": "pkg:rpm/fedora/docker-cli@29.9.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=moby-engine-29.9.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "docker-compose",
+      "from": "5.6.0-1.fc44",
+      "to": "5.7.0-2.fc44",
+      "purl": "pkg:rpm/fedora/docker-compose@5.7.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=docker-compose-5.7.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "dolphin",
+      "from": "26.08.2-3.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/dolphin@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=dolphin-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "dolphin-libs",
+      "from": "26.08.2-3.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/dolphin-libs@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=dolphin-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "fribidi",
+      "from": "1.0.16-4.fc44",
+      "to": "1.0.18-1.fc44",
+      "purl": "pkg:rpm/fedora/fribidi@1.0.18-1.fc44?arch=x86_64&distro=fedora-44&upstream=fribidi-1.0.18-1.fc44.src.rpm"
+     },
+     {
+      "name": "git",
+      "from": "2.56.0-1.fc44",
+      "to": "2.56.1-1.fc44",
+      "purl": "pkg:rpm/fedora/git@2.56.1-1.fc44?arch=x86_64&distro=fedora-44&upstream=git-2.56.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "git-core",
+      "from": "2.56.0-1.fc44",
+      "to": "2.56.1-1.fc44",
+      "purl": "pkg:rpm/fedora/git-core@2.56.1-1.fc44?arch=x86_64&distro=fedora-44&upstream=git-2.56.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "git-core-doc",
+      "from": "2.56.0-1.fc44",
+      "to": "2.56.1-1.fc44",
+      "purl": "pkg:rpm/fedora/git-core-doc@2.56.1-1.fc44?arch=noarch&distro=fedora-44&upstream=git-2.56.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "kaccounts-integration-qt6",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kaccounts-integration-qt6@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kaccounts-integration-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kactivitymanagerd",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kactivitymanagerd@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kactivitymanagerd-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kate-libs",
+      "from": "26.08.2-2.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kate-libs@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kate-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kcm-plasma-keyboard",
+      "from": "1:6.8.2-1.fc44",
+      "to": "1:6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kcm-plasma-keyboard@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=plasma-keyboard-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kde-cli-tools",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kde-cli-tools@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kde-cli-tools-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kde-gtk-config",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kde-gtk-config@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kde-gtk-config-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kdecoration",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kdecoration@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kdecoration-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kdegraphics-mobipocket",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kdegraphics-mobipocket@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kdegraphics-mobipocket-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kdesu",
+      "from": "1:6.8.2-1.fc44",
+      "to": "1:6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kdesu@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=kde-cli-tools-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kdialog",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kdialog@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kdialog-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "keditbookmarks",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/keditbookmarks@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=keditbookmarks-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "keditbookmarks-libs",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/keditbookmarks-libs@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=keditbookmarks-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-attica",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-attica@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-attica-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-baloo",
+      "from": "6.31.0-3.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-baloo@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-baloo-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-baloo-libs",
+      "from": "6.31.0-3.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-baloo-libs@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-baloo-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-bluez-qt",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-bluez-qt@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-bluez-qt-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-breeze-icons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-breeze-icons@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-breeze-icons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-filesystem",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-filesystem@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-frameworkintegration",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-frameworkintegration@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-frameworkintegration-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-frameworkintegration-libs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-frameworkintegration-libs@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-frameworkintegration-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-karchive",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-karchive@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-karchive-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kauth",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kauth@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kauth-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kbookmarks",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kbookmarks@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kbookmarks-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcmutils",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcmutils@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kcmutils-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcodecs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcodecs@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kcodecs-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcolorscheme",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcolorscheme@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kcolorscheme-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcompletion",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcompletion@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kcompletion-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kconfig",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kconfig@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kconfig-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kconfigwidgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kconfigwidgets@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kconfigwidgets-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcoreaddons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcoreaddons@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kcoreaddons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcrash",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcrash@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kcrash-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdbusaddons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdbusaddons@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kdbusaddons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdeclarative",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdeclarative@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kdeclarative-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kded",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kded@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kded-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdesu",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdesu@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kdesu-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdnssd",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdnssd@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kdnssd-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdoctools",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdoctools@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kdoctools-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kfilemetadata",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kfilemetadata@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kfilemetadata-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kglobalaccel",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kglobalaccel@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kglobalaccel-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kguiaddons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kguiaddons@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kguiaddons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kholidays",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kholidays@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kholidays-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-ki18n",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-ki18n@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-ki18n-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kiconthemes",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kiconthemes@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kiconthemes-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kidletime",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kidletime@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kidletime-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kimageformats",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kimageformats@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kimageformats-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-core",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-core@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-core-libs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-core-libs@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-doc",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-doc@6.32.0-1.fc44?arch=noarch&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-file-widgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-file-widgets@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-gui",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-gui@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-widgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-widgets@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-widgets-libs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-widgets-libs@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kirigami",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kirigami@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kirigami-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kitemmodels",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kitemmodels@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kitemmodels-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kitemviews",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kitemviews@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kitemviews-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kjobwidgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kjobwidgets@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kjobwidgets-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-knewstuff",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-knewstuff@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-knewstuff-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-knotifications",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-knotifications@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-knotifications-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-knotifyconfig",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-knotifyconfig@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-knotifyconfig-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kpackage",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kpackage@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kpackage-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kparts",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kparts@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kparts-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kpty",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kpty@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kpty-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kquickcharts",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kquickcharts@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kquickcharts-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-krunner",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-krunner@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-krunner-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kservice",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kservice@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kservice-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kstatusnotifieritem",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kstatusnotifieritem@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kstatusnotifieritem-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-ksvg",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-ksvg@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-ksvg-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-ktexteditor",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-ktexteditor@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-ktexteditor-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-ktextwidgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-ktextwidgets@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-ktextwidgets-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kunitconversion",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kunitconversion@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kunitconversion-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kuserfeedback",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kuserfeedback@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kuserfeedback-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kwallet",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kwallet@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kwallet-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kwallet-libs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kwallet-libs@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kwallet-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kwidgetsaddons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kwidgetsaddons@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kwidgetsaddons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kwindowsystem",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kwindowsystem@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kwindowsystem-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kxmlgui",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kxmlgui@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-kxmlgui-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-networkmanager-qt",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-networkmanager-qt@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-networkmanager-qt-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-prison",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-prison@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-prison-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-purpose",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-purpose@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-purpose-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-qqc2-desktop-style",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-qqc2-desktop-style@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-qqc2-desktop-style-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-solid",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-solid@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-solid-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-sonnet",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-sonnet@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-sonnet-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-syndication",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-syndication@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-syndication-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-syntax-highlighting",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-syntax-highlighting@6.32.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=kf6-syntax-highlighting-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kfind",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kfind@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kfind-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kglobalacceld",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kglobalacceld@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kglobalacceld-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kio-extras",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kio-extras@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kio-extras-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kmenuedit",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kmenuedit@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kmenuedit-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "knighttime",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/knighttime@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=knighttime-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "konsole",
+      "from": "26.08.2-2.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/konsole@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=konsole-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "konsole-part",
+      "from": "26.08.2-2.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/konsole-part@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=konsole-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kpipewire",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kpipewire@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kpipewire-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kscreenlocker",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kscreenlocker@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kscreenlocker-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "ksystemstats",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/ksystemstats@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=ksystemstats-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwayland",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwayland@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kwayland-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwin",
+      "from": "6.8.2-3.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwin@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kwin-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwin-common",
+      "from": "6.8.2-3.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwin-common@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kwin-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwin-libs",
+      "from": "6.8.2-3.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwin-libs@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kwin-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwrite",
+      "from": "26.08.2-2.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwrite@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kate-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwrited",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwrited@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=kwrited-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "layer-shell-qt",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/layer-shell-qt@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=layer-shell-qt-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libaom",
+      "from": "3.15.2-1.fc44",
+      "to": "3.15.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libaom@3.15.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=aom-3.15.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5@5.4.8.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5-cli",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5-cli@5.4.8.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5-plugin-appstream",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5-plugin-appstream@5.4.8.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libkexiv2-qt6",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libkexiv2-qt6@26.08.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=libkexiv2-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libkscreen",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libkscreen@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=libkscreen-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libksysguard",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libksysguard@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=libksysguard-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libksysguard-common",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libksysguard-common@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=libksysguard-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libkworkspace6",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libkworkspace6@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libplasma",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libplasma@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=libplasma-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "moby-engine",
+      "from": "29.9.2-2.fc44",
+      "to": "29.9.3-1.fc44",
+      "purl": "pkg:rpm/fedora/moby-engine@29.9.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=moby-engine-29.9.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "moby-filesystem",
+      "from": "29.9.2-2.fc44",
+      "to": "29.9.3-1.fc44",
+      "purl": "pkg:rpm/fedora/moby-filesystem@29.9.3-1.fc44?arch=noarch&distro=fedora-44&upstream=moby-engine-29.9.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "ocean-sound-theme",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/ocean-sound-theme@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=ocean-sound-theme-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "perl-Git",
+      "from": "2.56.0-1.fc44",
+      "to": "2.56.1-1.fc44",
+      "purl": "pkg:rpm/fedora/perl-Git@2.56.1-1.fc44?arch=noarch&distro=fedora-44&upstream=git-2.56.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-activities",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-activities@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-activities-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-activities-stats",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-activities-stats@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-activities-stats-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-breeze",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-breeze@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-breeze-common",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-breeze-common@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-breeze-qt5",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-breeze-qt5@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-breeze-qt6",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-breeze-qt6@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-desktop",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-desktop@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-desktop-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-discover",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-discover@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-discover-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-discover-libs",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-discover-libs@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-discover-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-discover-packagekit",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-discover-packagekit@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-discover-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-integration",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-integration@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-integration-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-integration-qt5",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-integration-qt5@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-integration-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-keyboard",
+      "from": "1:6.8.2-1.fc44",
+      "to": "1:6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-keyboard@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=plasma-keyboard-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-lookandfeel-fedora",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-lookandfeel-fedora@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-systemmonitor",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-systemmonitor@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-systemmonitor-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-systemsettings",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-systemsettings@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-systemsettings-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-union",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-union@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-union-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-workspace",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-workspace@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-workspace-common",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-workspace-common@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-workspace-libs",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-workspace-libs@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma5support",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma5support@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=plasma5support-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "polkit-kde",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/polkit-kde@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=polkit-kde-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "powerdevil",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/powerdevil@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=powerdevil-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "qqc2-breeze-style",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/qqc2-breeze-style@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=qqc2-breeze-style-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "qt6-qtdeclarative",
+      "from": "6.11.2-2.fc44",
+      "to": "6.11.2-3.fc44",
+      "purl": "pkg:rpm/fedora/qt6-qtdeclarative@6.11.2-3.fc44?arch=x86_64&distro=fedora-44&upstream=qt6-qtdeclarative-6.11.2-3.fc44.src.rpm"
+     },
+     {
+      "name": "xdg-desktop-portal-kde",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/xdg-desktop-portal-kde@6.8.3-1.fc44?arch=x86_64&distro=fedora-44&upstream=xdg-desktop-portal-kde-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-Xorg",
+      "from": "21.1.25-2.fc44",
+      "to": "21.1.26-1.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-Xorg@21.1.26-1.fc44?arch=x86_64&distro=fedora-44&upstream=xorg-x11-server-21.1.26-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-Xvfb",
+      "from": "21.1.25-2.fc44",
+      "to": "21.1.26-1.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-Xvfb@21.1.26-1.fc44?arch=x86_64&distro=fedora-44&upstream=xorg-x11-server-21.1.26-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-common",
+      "from": "21.1.25-2.fc44",
+      "to": "21.1.26-1.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-common@21.1.26-1.fc44?arch=x86_64&distro=fedora-44&upstream=xorg-x11-server-21.1.26-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-prometheus",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-prometheus@v1.2.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2",
+      "to": "v29.9.3",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3"
+     },
+     {
+      "name": "github.com/fvbommel/sortorder",
+      "from": "v1.2.0",
+      "to": "v1.2.1",
+      "purl": "pkg:golang/github.com/fvbommel/sortorder@v1.2.1"
+     },
+     {
+      "name": "github.com/go-jose/go-jose/v4",
+      "from": "v4.1.5",
+      "to": "v4.1.7",
+      "purl": "pkg:golang/github.com/go-jose/go-jose/v4@v4.1.7"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus",
+      "from": "v1.1.0",
+      "to": "v1.1.1",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus@v1.1.1"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/v2",
+      "from": "v2.1.0",
+      "to": "v2.3.3",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/v2@v2.3.3"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.2"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.0",
+      "to": "v0.34.2",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.34.2"
+     },
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v29.9.2",
+      "to": "v29.9.3",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v29.9.3"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20260819142231-83cac42c1c52",
+      "to": "v0.0.0-20261103091533-a72de9dcf763",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103091533-a72de9dcf763"
+     },
+     {
+      "name": "go.yaml.in/yaml/v2",
+      "from": "v2.4.4",
+      "to": "v2.4.5",
+      "purl": "pkg:golang/go.yaml.in/yaml/v2@v2.4.5"
+     },
+     {
+      "name": "go.yaml.in/yaml/v3",
+      "from": "v3.0.5",
+      "to": "v3.0.6",
+      "purl": "pkg:golang/go.yaml.in/yaml/v3@v3.0.6"
+     },
+     {
+      "name": "golang.org/x/net",
+      "from": "v0.61.0",
+      "to": "v0.62.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.62.0"
+     },
+     {
+      "name": "google.golang.org/grpc",
+      "from": "v1.84.0",
+      "to": "v1.85.0",
+      "purl": "pkg:golang/google.golang.org/grpc@v1.85.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "github.com/moby/swarmkit/v2",
+      "from": "v2.1.3-0.20260917205909-1fd637ba5cc3",
+      "to": "v2.1.3",
+      "purl": "pkg:golang/github.com/moby/swarmkit/v2@v2.1.3"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.4",
+      "to": "0.162.7",
+      "purl": "pkg:pypi/fastapi@0.162.7"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [
+     {
+      "name": "icu-tzdata",
+      "version": "2026f-1.fc44",
+      "purl": "pkg:rpm/fedora/icu-tzdata@2026f-1.fc44?arch=noarch&distro=fedora-44&upstream=icu-tzdata-2026f-1.fc44.src.rpm"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "PackageKit",
+      "from": "1.4.0-2.fc44",
+      "to": "1.4.0-3.fc44",
+      "purl": "pkg:rpm/fedora/PackageKit@1.4.0-3.fc44?arch=aarch64&distro=fedora-44&upstream=PackageKit-1.4.0-3.fc44.src.rpm"
+     },
+     {
+      "name": "PackageKit-glib",
+      "from": "1.4.0-2.fc44",
+      "to": "1.4.0-3.fc44",
+      "purl": "pkg:rpm/fedora/PackageKit-glib@1.4.0-3.fc44?arch=aarch64&distro=fedora-44&upstream=PackageKit-1.4.0-3.fc44.src.rpm"
+     },
+     {
+      "name": "aurorae",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/aurorae@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=aurorae-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "baloo-widgets",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/baloo-widgets@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=baloo-widgets-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "breeze-gtk-common",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/breeze-gtk-common@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=breeze-gtk-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "breeze-icon-theme",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/breeze-icon-theme@6.32.0-1.fc44?arch=noarch&distro=fedora-44&upstream=kf6-breeze-icons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "dnf5",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/dnf5@5.4.8.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "dnf5-plugins",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/dnf5-plugins@5.4.8.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "docker-cli",
+      "from": "29.9.2-2.fc44",
+      "to": "29.9.3-1.fc44",
+      "purl": "pkg:rpm/fedora/docker-cli@29.9.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=moby-engine-29.9.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "docker-compose",
+      "from": "5.6.0-1.fc44",
+      "to": "5.7.0-2.fc44",
+      "purl": "pkg:rpm/fedora/docker-compose@5.7.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=docker-compose-5.7.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "dolphin",
+      "from": "26.08.2-3.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/dolphin@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=dolphin-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "dolphin-libs",
+      "from": "26.08.2-3.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/dolphin-libs@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=dolphin-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "fribidi",
+      "from": "1.0.16-4.fc44",
+      "to": "1.0.18-1.fc44",
+      "purl": "pkg:rpm/fedora/fribidi@1.0.18-1.fc44?arch=aarch64&distro=fedora-44&upstream=fribidi-1.0.18-1.fc44.src.rpm"
+     },
+     {
+      "name": "git",
+      "from": "2.56.0-1.fc44",
+      "to": "2.56.1-1.fc44",
+      "purl": "pkg:rpm/fedora/git@2.56.1-1.fc44?arch=aarch64&distro=fedora-44&upstream=git-2.56.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "git-core",
+      "from": "2.56.0-1.fc44",
+      "to": "2.56.1-1.fc44",
+      "purl": "pkg:rpm/fedora/git-core@2.56.1-1.fc44?arch=aarch64&distro=fedora-44&upstream=git-2.56.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "git-core-doc",
+      "from": "2.56.0-1.fc44",
+      "to": "2.56.1-1.fc44",
+      "purl": "pkg:rpm/fedora/git-core-doc@2.56.1-1.fc44?arch=noarch&distro=fedora-44&upstream=git-2.56.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "kaccounts-integration-qt6",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kaccounts-integration-qt6@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kaccounts-integration-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kactivitymanagerd",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kactivitymanagerd@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kactivitymanagerd-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kate-libs",
+      "from": "26.08.2-2.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kate-libs@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kate-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kcm-plasma-keyboard",
+      "from": "1:6.8.2-1.fc44",
+      "to": "1:6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kcm-plasma-keyboard@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=plasma-keyboard-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kde-cli-tools",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kde-cli-tools@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kde-cli-tools-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kde-gtk-config",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kde-gtk-config@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kde-gtk-config-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kdecoration",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kdecoration@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kdecoration-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kdegraphics-mobipocket",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kdegraphics-mobipocket@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kdegraphics-mobipocket-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kdesu",
+      "from": "1:6.8.2-1.fc44",
+      "to": "1:6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kdesu@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=kde-cli-tools-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kdialog",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kdialog@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kdialog-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "keditbookmarks",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/keditbookmarks@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=keditbookmarks-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "keditbookmarks-libs",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/keditbookmarks-libs@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=keditbookmarks-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-attica",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-attica@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-attica-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-baloo",
+      "from": "6.31.0-3.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-baloo@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-baloo-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-baloo-libs",
+      "from": "6.31.0-3.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-baloo-libs@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-baloo-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-bluez-qt",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-bluez-qt@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-bluez-qt-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-breeze-icons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-breeze-icons@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-breeze-icons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-filesystem",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-filesystem@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-frameworkintegration",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-frameworkintegration@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-frameworkintegration-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-frameworkintegration-libs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-frameworkintegration-libs@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-frameworkintegration-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-karchive",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-karchive@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-karchive-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kauth",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kauth@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kauth-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kbookmarks",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kbookmarks@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kbookmarks-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcmutils",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcmutils@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kcmutils-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcodecs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcodecs@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kcodecs-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcolorscheme",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcolorscheme@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kcolorscheme-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcompletion",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcompletion@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kcompletion-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kconfig",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kconfig@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kconfig-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kconfigwidgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kconfigwidgets@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kconfigwidgets-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcoreaddons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcoreaddons@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kcoreaddons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kcrash",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kcrash@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kcrash-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdbusaddons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdbusaddons@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kdbusaddons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdeclarative",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdeclarative@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kdeclarative-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kded",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kded@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kded-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdesu",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdesu@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kdesu-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdnssd",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdnssd@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kdnssd-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kdoctools",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kdoctools@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kdoctools-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kfilemetadata",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kfilemetadata@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kfilemetadata-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kglobalaccel",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kglobalaccel@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kglobalaccel-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kguiaddons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kguiaddons@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kguiaddons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kholidays",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kholidays@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kholidays-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-ki18n",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-ki18n@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-ki18n-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kiconthemes",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kiconthemes@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kiconthemes-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kidletime",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kidletime@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kidletime-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kimageformats",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kimageformats@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kimageformats-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-core",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-core@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-core-libs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-core-libs@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-doc",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-doc@6.32.0-1.fc44?arch=noarch&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-file-widgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-file-widgets@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-gui",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-gui@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-widgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-widgets@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kio-widgets-libs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kio-widgets-libs@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kio-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kirigami",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kirigami@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kirigami-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kitemmodels",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kitemmodels@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kitemmodels-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kitemviews",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kitemviews@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kitemviews-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kjobwidgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kjobwidgets@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kjobwidgets-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-knewstuff",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-knewstuff@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-knewstuff-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-knotifications",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-knotifications@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-knotifications-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-knotifyconfig",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-knotifyconfig@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-knotifyconfig-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kpackage",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kpackage@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kpackage-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kparts",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kparts@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kparts-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kpty",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kpty@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kpty-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kquickcharts",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kquickcharts@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kquickcharts-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-krunner",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-krunner@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-krunner-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kservice",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kservice@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kservice-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kstatusnotifieritem",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kstatusnotifieritem@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kstatusnotifieritem-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-ksvg",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-ksvg@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-ksvg-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-ktexteditor",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-ktexteditor@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-ktexteditor-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-ktextwidgets",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-ktextwidgets@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-ktextwidgets-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kunitconversion",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kunitconversion@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kunitconversion-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kuserfeedback",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kuserfeedback@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kuserfeedback-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kwallet",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kwallet@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kwallet-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kwallet-libs",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kwallet-libs@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kwallet-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kwidgetsaddons",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kwidgetsaddons@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kwidgetsaddons-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kwindowsystem",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kwindowsystem@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kwindowsystem-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-kxmlgui",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-kxmlgui@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-kxmlgui-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-networkmanager-qt",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-networkmanager-qt@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-networkmanager-qt-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-prison",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-prison@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-prison-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-purpose",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-purpose@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-purpose-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-qqc2-desktop-style",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-qqc2-desktop-style@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-qqc2-desktop-style-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-solid",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-solid@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-solid-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-sonnet",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-sonnet@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-sonnet-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-syndication",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-syndication@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-syndication-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kf6-syntax-highlighting",
+      "from": "6.31.0-1.fc44",
+      "to": "6.32.0-1.fc44",
+      "purl": "pkg:rpm/fedora/kf6-syntax-highlighting@6.32.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=kf6-syntax-highlighting-6.32.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "kfind",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kfind@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kfind-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kglobalacceld",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kglobalacceld@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kglobalacceld-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kio-extras",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kio-extras@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kio-extras-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kmenuedit",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kmenuedit@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kmenuedit-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "knighttime",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/knighttime@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=knighttime-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "konsole",
+      "from": "26.08.2-2.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/konsole@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=konsole-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "konsole-part",
+      "from": "26.08.2-2.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/konsole-part@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=konsole-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kpipewire",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kpipewire@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kpipewire-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kscreenlocker",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kscreenlocker@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kscreenlocker-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "ksystemstats",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/ksystemstats@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=ksystemstats-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwayland",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwayland@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kwayland-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwin",
+      "from": "6.8.2-3.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwin@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kwin-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwin-common",
+      "from": "6.8.2-3.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwin-common@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kwin-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwin-libs",
+      "from": "6.8.2-3.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwin-libs@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kwin-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwrite",
+      "from": "26.08.2-2.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwrite@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kate-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "kwrited",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/kwrited@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=kwrited-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "layer-shell-qt",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/layer-shell-qt@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=layer-shell-qt-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libaom",
+      "from": "3.15.2-1.fc44",
+      "to": "3.15.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libaom@3.15.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=aom-3.15.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5@5.4.8.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5-cli",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5-cli@5.4.8.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5-plugin-appstream",
+      "from": "5.4.7.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5-plugin-appstream@5.4.8.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libkexiv2-qt6",
+      "from": "26.08.2-1.fc44",
+      "to": "26.08.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libkexiv2-qt6@26.08.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=libkexiv2-26.08.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libkscreen",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libkscreen@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=libkscreen-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libksysguard",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libksysguard@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=libksysguard-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libksysguard-common",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libksysguard-common@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=libksysguard-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libkworkspace6",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libkworkspace6@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "libplasma",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/libplasma@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=libplasma-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "moby-engine",
+      "from": "29.9.2-2.fc44",
+      "to": "29.9.3-1.fc44",
+      "purl": "pkg:rpm/fedora/moby-engine@29.9.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=moby-engine-29.9.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "moby-filesystem",
+      "from": "29.9.2-2.fc44",
+      "to": "29.9.3-1.fc44",
+      "purl": "pkg:rpm/fedora/moby-filesystem@29.9.3-1.fc44?arch=noarch&distro=fedora-44&upstream=moby-engine-29.9.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "ocean-sound-theme",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/ocean-sound-theme@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=ocean-sound-theme-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "perl-Git",
+      "from": "2.56.0-1.fc44",
+      "to": "2.56.1-1.fc44",
+      "purl": "pkg:rpm/fedora/perl-Git@2.56.1-1.fc44?arch=noarch&distro=fedora-44&upstream=git-2.56.1-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-activities",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-activities@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-activities-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-activities-stats",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-activities-stats@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-activities-stats-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-breeze",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-breeze@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-breeze-common",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-breeze-common@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-breeze-qt5",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-breeze-qt5@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-breeze-qt6",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-breeze-qt6@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-desktop",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-desktop@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-desktop-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-discover",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-discover@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-discover-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-discover-libs",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-discover-libs@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-discover-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-discover-packagekit",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-discover-packagekit@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-discover-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-integration",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-integration@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-integration-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-integration-qt5",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-integration-qt5@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-integration-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-keyboard",
+      "from": "1:6.8.2-1.fc44",
+      "to": "1:6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-keyboard@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=plasma-keyboard-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-lookandfeel-fedora",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-lookandfeel-fedora@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-systemmonitor",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-systemmonitor@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-systemmonitor-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-systemsettings",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-systemsettings@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-systemsettings-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-union",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-union@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-union-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-workspace",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-workspace@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-workspace-common",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-workspace-common@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma-workspace-libs",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma-workspace-libs@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma-workspace-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "plasma5support",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/plasma5support@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=plasma5support-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "polkit-kde",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/polkit-kde@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=polkit-kde-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "powerdevil",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/powerdevil@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=powerdevil-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "qqc2-breeze-style",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/qqc2-breeze-style@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=qqc2-breeze-style-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "qt6-qtdeclarative",
+      "from": "6.11.2-2.fc44",
+      "to": "6.11.2-3.fc44",
+      "purl": "pkg:rpm/fedora/qt6-qtdeclarative@6.11.2-3.fc44?arch=aarch64&distro=fedora-44&upstream=qt6-qtdeclarative-6.11.2-3.fc44.src.rpm"
+     },
+     {
+      "name": "xdg-desktop-portal-kde",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/xdg-desktop-portal-kde@6.8.3-1.fc44?arch=aarch64&distro=fedora-44&upstream=xdg-desktop-portal-kde-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-Xorg",
+      "from": "21.1.25-2.fc44",
+      "to": "21.1.26-1.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-Xorg@21.1.26-1.fc44?arch=aarch64&distro=fedora-44&upstream=xorg-x11-server-21.1.26-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-Xvfb",
+      "from": "21.1.25-2.fc44",
+      "to": "21.1.26-1.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-Xvfb@21.1.26-1.fc44?arch=aarch64&distro=fedora-44&upstream=xorg-x11-server-21.1.26-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-common",
+      "from": "21.1.25-2.fc44",
+      "to": "21.1.26-1.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-common@21.1.26-1.fc44?arch=aarch64&distro=fedora-44&upstream=xorg-x11-server-21.1.26-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 2,
+  "upgraded": 350,
+  "downgraded": 2
+ }
+}
