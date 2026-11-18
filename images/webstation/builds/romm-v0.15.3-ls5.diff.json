@@ -1,0 +1,156 @@
+{
+ "image": "webstation",
+ "branch": "romm",
+ "tag": "romm-v0.15.3-ls5",
+ "previous_tag": "romm-v0.15.3-ls4",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (6adae88 → fbe6211): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.15.3",
+  "to": "v0.15.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "6adae88091e2483dc0bf59577ff84a70e2c5fc50",
+  "to": "fbe6211c9428033edcbbd3f6f37cc1ca25945ef2",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webstation/compare/6adae88091e2483dc0bf59577ff84a70e2c5fc50...fbe6211c9428033edcbbd3f6f37cc1ca25945ef2",
+  "commits": [
+   {
+    "sha": "fbe6211c9428033edcbbd3f6f37cc1ca25945ef2",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T11:55:34Z",
+    "url": "https://github.com/linuxserver-playground/docker-webstation/commit/fbe6211c9428033edcbbd3f6f37cc1ca25945ef2",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:b1bb00f7eb2f4df3ad87f621aa046379777cd5a5aa6c26ba7bca4f8a49094f2a"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:b1bb00f7eb2f4df3ad87f621aa046379777cd5a5aa6c26ba7bca4f8a49094f2a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 2722206380,
+   "to": 2723661613,
+   "delta": 1455233
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gstreamer1.0-gl",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-gl@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "gstreamer1.0-plugins-base",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-plugins-base@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "gstreamer1.0-x",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-x@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "gtk-update-icon-cache",
+      "from": "4.22.4+ds-0ubuntu0.1",
+      "to": "4.22.4+ds-0ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gtk-update-icon-cache@4.22.4%2Bds-0ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gtk4"
+     },
+     {
+      "name": "libgstreamer-gl1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-gl1.0-0@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgtk-4-1",
+      "from": "4.22.4+ds-0ubuntu0.1",
+      "to": "4.22.4+ds-0ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgtk-4-1@4.22.4%2Bds-0ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gtk4"
+     },
+     {
+      "name": "libgtk-4-common",
+      "from": "4.22.4+ds-0ubuntu0.1",
+      "to": "4.22.4+ds-0ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgtk-4-common@4.22.4%2Bds-0ubuntu0.2?arch=all&distro=ubuntu-26.04&upstream=gtk4"
+     },
+     {
+      "name": "modrinth-app",
+      "from": "0.23.1",
+      "to": "0.23.3",
+      "purl": "pkg:deb/ubuntu/modrinth-app@0.23.3?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nodejs",
+      "from": "22.23.4-1nodesource1",
+      "to": "22.23.5-1nodesource1",
+      "purl": "pkg:deb/ubuntu/nodejs@22.23.5-1nodesource1?arch=amd64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

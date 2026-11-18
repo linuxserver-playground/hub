@@ -1,0 +1,135 @@
+{
+ "image": "radarr",
+ "branch": "master",
+ "tag": "6.4.4.10685-ls6",
+ "previous_tag": "6.4.4.10685-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (ac518d3 → 150499a): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "6.4.4.10685",
+  "to": "6.4.4.10685",
+  "changed": false
+ },
+ "commit": {
+  "from": "ac518d3c9dc3a396a63c4c373099be3753004680",
+  "to": "150499a80de0a1a6b020fd2922f5fd03bdde81bb",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-radarr/compare/ac518d3c9dc3a396a63c4c373099be3753004680...150499a80de0a1a6b020fd2922f5fd03bdde81bb",
+  "commits": [
+   {
+    "sha": "150499a80de0a1a6b020fd2922f5fd03bdde81bb",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T07:01:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-radarr/commit/150499a80de0a1a6b020fd2922f5fd03bdde81bb",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 90952425,
+   "to": 90955386,
+   "delta": 2961
+  },
+  "arm64": {
+   "from": 89394912,
+   "to": 89397204,
+   "delta": 2292
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-libs",
+      "from": "1.22.2-r1",
+      "to": "1.22.3-r0",
+      "purl": "pkg:apk/alpine/krb5-libs@1.22.3-r0?arch=x86_64&distro=alpine-3.24.4&upstream=krb5"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-libs",
+      "from": "1.22.2-r1",
+      "to": "1.22.3-r0",
+      "purl": "pkg:apk/alpine/krb5-libs@1.22.3-r0?arch=aarch64&distro=alpine-3.24.4&upstream=krb5"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

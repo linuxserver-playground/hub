@@ -1,0 +1,220 @@
+{
+ "image": "nzbhydra2",
+ "branch": "master",
+ "tag": "v9.3.1-ls7",
+ "previous_tag": "v9.2.0-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "5 commits (8aa3686 → 4e65af6): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "v9.2.0",
+  "to": "v9.3.1",
+  "changed": true
+ },
+ "commit": {
+  "from": "8aa368613d25fa2a069c31cc05830aebe0017066",
+  "to": "4e65af62e7676e9ca45480145571dce9d8ba752d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-nzbhydra2/compare/8aa368613d25fa2a069c31cc05830aebe0017066...4e65af62e7676e9ca45480145571dce9d8ba752d",
+  "commits": [
+   {
+    "sha": "798eafec03105edc802dd9560c9136bee6c8cd3f",
+    "subject": "Add the upstream donation links",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T19:37:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/798eafec03105edc802dd9560c9136bee6c8cd3f",
+    "bot": false
+   },
+   {
+    "sha": "a11345a9f9050d6f8e73e6452867a929fab2dbb0",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T19:49:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/a11345a9f9050d6f8e73e6452867a929fab2dbb0",
+    "bot": true
+   },
+   {
+    "sha": "3fb9e3ce70295c7f9e2b71182ce5a5bc0ad82765",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T01:00:48Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/3fb9e3ce70295c7f9e2b71182ce5a5bc0ad82765",
+    "bot": true
+   },
+   {
+    "sha": "eec88e0f8093f5b957b366bb03c7d56b7dd20c09",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T01:04:21Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/eec88e0f8093f5b957b366bb03c7d56b7dd20c09",
+    "bot": true
+   },
+   {
+    "sha": "4e65af62e7676e9ca45480145571dce9d8ba752d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T21:06:09Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/4e65af62e7676e9ca45480145571dce9d8ba752d",
+    "bot": true
+   }
+  ],
+  "count": 5,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 168552366,
+   "to": 170467979,
+   "delta": 1915613
+  },
+  "arm64": {
+   "from": 165841821,
+   "to": 167636384,
+   "delta": 1794563
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=amd64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=amd64&distro=ubuntu-24.04&upstream=sqlite3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=arm64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=arm64&distro=ubuntu-24.04&upstream=sqlite3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

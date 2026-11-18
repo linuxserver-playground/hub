@@ -1,0 +1,503 @@
+{
+ "image": "webtop",
+ "branch": "alpine-i3",
+ "tag": "alpine-i3-cc8ab5c3-ls6",
+ "previous_tag": "alpine-i3-431838d2-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (22b7f94 → e9dc5ea): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "431838d2",
+  "to": "cc8ab5c3",
+  "changed": true
+ },
+ "commit": {
+  "from": "22b7f943435ef333234d63a9636e7a882297ced4",
+  "to": "e9dc5eaadf46bd3f8104d0b5226ecd3e7766add1",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/22b7f943435ef333234d63a9636e7a882297ced4...e9dc5eaadf46bd3f8104d0b5226ecd3e7766add1",
+  "commits": [
+   {
+    "sha": "e9dc5eaadf46bd3f8104d0b5226ecd3e7766add1",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T16:38:37Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/e9dc5eaadf46bd3f8104d0b5226ecd3e7766add1",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:f096296122bb9491fba5c10dd7639f0acaa91ad05ccfcadce1c3ac24d1007417"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:bc6dd9cf0cc1e9271c76b421052e246ffc0d43f520887079a92e5eb60008b6c8"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 807965169,
+   "to": 807816284,
+   "delta": -148885
+  },
+  "arm64": {
+   "from": 758511909,
+   "to": 758317775,
+   "delta": -194134
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [
+     {
+      "name": "libheif-aom",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-aom@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-ffmpeg",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-ffmpeg@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-openh264",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-openh264@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-rav1e",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-rav1e@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-svtenc",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-svtenc@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-x265",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x265@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker@29.9.3-r1?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "docker-cli",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-cli@29.9.3-r1?arch=x86_64&distro=alpine-3.24.4&upstream=docker"
+     },
+     {
+      "name": "docker-engine",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-engine@29.9.3-r1?arch=x86_64&distro=alpine-3.24.4&upstream=docker"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "libheif",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libheif-dav1d",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-dav1d@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-jpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-jpeg@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-libde265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-libde265@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-openjpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-openjpeg@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-x264",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x264@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-r0",
+      "to": "0.8.10-r0",
+      "purl": "pkg:apk/alpine/libopenmpt@0.8.10-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "runc",
+      "from": "1.4.3-r2",
+      "to": "1.4.4-r0",
+      "purl": "pkg:apk/alpine/runc@1.4.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "xorg-server",
+      "from": "21.1.25-r0",
+      "to": "21.1.26-r0",
+      "purl": "pkg:apk/alpine/xorg-server@21.1.26-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "xorg-server-common",
+      "from": "21.1.25-r0",
+      "to": "21.1.26-r0",
+      "purl": "pkg:apk/alpine/xorg-server-common@21.1.26-r0?arch=x86_64&distro=alpine-3.24.4&upstream=xorg-server"
+     },
+     {
+      "name": "xvfb",
+      "from": "21.1.25-r0",
+      "to": "21.1.26-r0",
+      "purl": "pkg:apk/alpine/xvfb@21.1.26-r0?arch=x86_64&distro=alpine-3.24.4&upstream=xorg-server"
+     },
+     {
+      "name": "xwayland",
+      "from": "24.1.14-r0",
+      "to": "24.1.15-r0",
+      "purl": "pkg:apk/alpine/xwayland@24.1.15-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.0",
+      "to": "v0.49.1-0.20261022125458-f5cb0306ac0e",
+      "purl": "pkg:golang/golang.org/x/sys@v0.49.1-0.20261022125458-f5cb0306ac0e"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.7",
+      "purl": "pkg:pypi/fastapi@0.162.7"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [
+     {
+      "name": "libheif-aom",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-aom@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-ffmpeg",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-ffmpeg@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-openh264",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-openh264@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-rav1e",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-rav1e@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-svtenc",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-svtenc@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-x265",
+      "version": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x265@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "docker",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker@29.9.3-r1?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "docker-cli",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-cli@29.9.3-r1?arch=aarch64&distro=alpine-3.24.4&upstream=docker"
+     },
+     {
+      "name": "docker-engine",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-engine@29.9.3-r1?arch=aarch64&distro=alpine-3.24.4&upstream=docker"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libheif",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libheif-dav1d",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-dav1d@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-jpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-jpeg@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-libde265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-libde265@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-openjpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-openjpeg@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-x264",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x264@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-r0",
+      "to": "0.8.10-r0",
+      "purl": "pkg:apk/alpine/libopenmpt@0.8.10-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "runc",
+      "from": "1.4.3-r2",
+      "to": "1.4.4-r0",
+      "purl": "pkg:apk/alpine/runc@1.4.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "xorg-server",
+      "from": "21.1.25-r0",
+      "to": "21.1.26-r0",
+      "purl": "pkg:apk/alpine/xorg-server@21.1.26-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "xorg-server-common",
+      "from": "21.1.25-r0",
+      "to": "21.1.26-r0",
+      "purl": "pkg:apk/alpine/xorg-server-common@21.1.26-r0?arch=aarch64&distro=alpine-3.24.4&upstream=xorg-server"
+     },
+     {
+      "name": "xvfb",
+      "from": "21.1.25-r0",
+      "to": "21.1.26-r0",
+      "purl": "pkg:apk/alpine/xvfb@21.1.26-r0?arch=aarch64&distro=alpine-3.24.4&upstream=xorg-server"
+     },
+     {
+      "name": "xwayland",
+      "from": "24.1.14-r0",
+      "to": "24.1.15-r0",
+      "purl": "pkg:apk/alpine/xwayland@24.1.15-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.0",
+      "to": "v0.49.1-0.20261022125458-f5cb0306ac0e",
+      "purl": "pkg:golang/golang.org/x/sys@v0.49.1-0.20261022125458-f5cb0306ac0e"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.7",
+      "purl": "pkg:pypi/fastapi@0.162.7"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 12,
+  "removed": 0,
+  "upgraded": 50,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,158 @@
+{
+ "image": "intellij-idea",
+ "branch": "master",
+ "tag": "2026.3-ls9",
+ "previous_tag": "2026.3-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (486343b → 76b4a14): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026.3",
+  "to": "2026.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "486343b04bcc45d5c13c428cb4723fb02570b1db",
+  "to": "76b4a14b3f7695e8dfad38dc5c9f9eeb0805bc38",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-intellij-idea/compare/486343b04bcc45d5c13c428cb4723fb02570b1db...76b4a14b3f7695e8dfad38dc5c9f9eeb0805bc38",
+  "commits": [
+   {
+    "sha": "76b4a14b3f7695e8dfad38dc5c9f9eeb0805bc38",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T15:42:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-intellij-idea/commit/76b4a14b3f7695e8dfad38dc5c9f9eeb0805bc38",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:c5ce44ebc0f0e5561b2967c85b85b30c8f679ee278a696b7b886a35de6c0119d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:1e6595bc470273de900b0b3105b127d2c7c372eaf5d8a4259821218b4a79dee2"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 2477934106,
+   "to": 2478048847,
+   "delta": 114741
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "caja",
+      "from": "1.28.0-6",
+      "to": "1.28.1-1",
+      "purl": "pkg:alpm/arch/caja@1.28.1-1?arch=x86_64&distro=arch-rolling&upstream=caja"
+     },
+     {
+      "name": "dbus",
+      "from": "1.16.2-2",
+      "to": "1.16.4-1",
+      "purl": "pkg:alpm/arch/dbus@1.16.4-1?arch=x86_64&distro=arch-rolling&upstream=dbus"
+     },
+     {
+      "name": "flex",
+      "from": "2.6.4-6",
+      "to": "2.6.10-1",
+      "purl": "pkg:alpm/arch/flex@2.6.10-1?arch=x86_64&distro=arch-rolling&upstream=flex"
+     },
+     {
+      "name": "gperftools",
+      "from": "2.19.2-1",
+      "to": "2.19.3-1",
+      "purl": "pkg:alpm/arch/gperftools@2.19.3-1?arch=x86_64&distro=arch-rolling&upstream=gperftools"
+     },
+     {
+      "name": "libp11-kit",
+      "from": "0.26.5-1",
+      "to": "0.26.6-1",
+      "purl": "pkg:alpm/arch/libp11-kit@0.26.6-1?arch=x86_64&distro=arch-rolling&upstream=p11-kit"
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.4-1",
+      "to": "23.1.5-1",
+      "purl": "pkg:alpm/arch/llvm-libs@23.1.5-1?arch=x86_64&distro=arch-rolling&upstream=llvm"
+     },
+     {
+      "name": "openssh",
+      "from": "10.6p1-3",
+      "to": "10.6p2-1",
+      "purl": "pkg:alpm/arch/openssh@10.6p2-1?arch=x86_64&distro=arch-rolling&upstream=openssh"
+     },
+     {
+      "name": "p11-kit",
+      "from": "0.26.5-1",
+      "to": "0.26.6-1",
+      "purl": "pkg:alpm/arch/p11-kit@0.26.6-1?arch=x86_64&distro=arch-rolling&upstream=p11-kit"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.5",
+      "to": "0.162.7",
+      "purl": "pkg:pypi/fastapi@0.162.7"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 9,
+  "downgraded": 0
+ }
+}

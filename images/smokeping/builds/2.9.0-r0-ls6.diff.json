@@ -1,0 +1,196 @@
+{
+ "image": "smokeping",
+ "branch": "master",
+ "tag": "2.9.0-r0-ls6",
+ "previous_tag": "2.9.0-r0-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (5232a4d → 045fd47): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "2.9.0-r0",
+  "to": "2.9.0-r0",
+  "changed": false
+ },
+ "commit": {
+  "from": "5232a4db7e70b61835d307dee31c82e74876ed96",
+  "to": "045fd4760c6c383ccd6f3dc7a3e846c6a7d7bf43",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-smokeping/compare/5232a4db7e70b61835d307dee31c82e74876ed96...045fd4760c6c383ccd6f3dc7a3e846c6a7d7bf43",
+  "commits": [
+   {
+    "sha": "a2a758b18e934f98a78f10f1a09470e8ce0e19e5",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T15:53:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-smokeping/commit/a2a758b18e934f98a78f10f1a09470e8ce0e19e5",
+    "bot": true
+   },
+   {
+    "sha": "045fd4760c6c383ccd6f3dc7a3e846c6a7d7bf43",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T19:41:07Z",
+    "url": "https://github.com/linuxserver-playground/docker-smokeping/commit/045fd4760c6c383ccd6f3dc7a3e846c6a7d7bf43",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:1ad91f856c8d9d443357d6e4c0a0c3515e5bc1ef830874f0defdb5d64b49f077"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:471536f3a3e33e66a1b18d94f6157fc1d57012dd097177aa3b5f4cd741296ae5"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 122977277,
+   "to": 122977813,
+   "delta": 536
+  },
+  "arm64": {
+   "from": 123960918,
+   "to": 123961013,
+   "delta": 95
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apk-tools",
+      "from": "2.14.12-r0",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/apk-tools@2.14.13-r0?arch=x86_64&distro=alpine-3.22.7"
+     },
+     {
+      "name": "libapk2",
+      "from": "2.14.12-r0",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/libapk2@2.14.13-r0?arch=x86_64&distro=alpine-3.22.7&upstream=apk-tools"
+     },
+     {
+      "name": "openssh-client-common",
+      "from": "10.0_p1-r10",
+      "to": "10.0_p1-r11",
+      "purl": "pkg:apk/alpine/openssh-client-common@10.0_p1-r11?arch=x86_64&distro=alpine-3.22.7&upstream=openssh"
+     },
+     {
+      "name": "openssh-client-default",
+      "from": "10.0_p1-r10",
+      "to": "10.0_p1-r11",
+      "purl": "pkg:apk/alpine/openssh-client-default@10.0_p1-r11?arch=x86_64&distro=alpine-3.22.7&upstream=openssh"
+     },
+     {
+      "name": "openssh-keygen",
+      "from": "10.0_p1-r10",
+      "to": "10.0_p1-r11",
+      "purl": "pkg:apk/alpine/openssh-keygen@10.0_p1-r11?arch=x86_64&distro=alpine-3.22.7&upstream=openssh"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.22.7"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apk-tools",
+      "from": "2.14.12-r0",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/apk-tools@2.14.13-r0?arch=aarch64&distro=alpine-3.22.7"
+     },
+     {
+      "name": "libapk2",
+      "from": "2.14.12-r0",
+      "to": "2.14.13-r0",
+      "purl": "pkg:apk/alpine/libapk2@2.14.13-r0?arch=aarch64&distro=alpine-3.22.7&upstream=apk-tools"
+     },
+     {
+      "name": "openssh-client-common",
+      "from": "10.0_p1-r10",
+      "to": "10.0_p1-r11",
+      "purl": "pkg:apk/alpine/openssh-client-common@10.0_p1-r11?arch=aarch64&distro=alpine-3.22.7&upstream=openssh"
+     },
+     {
+      "name": "openssh-client-default",
+      "from": "10.0_p1-r10",
+      "to": "10.0_p1-r11",
+      "purl": "pkg:apk/alpine/openssh-client-default@10.0_p1-r11?arch=aarch64&distro=alpine-3.22.7&upstream=openssh"
+     },
+     {
+      "name": "openssh-keygen",
+      "from": "10.0_p1-r10",
+      "to": "10.0_p1-r11",
+      "purl": "pkg:apk/alpine/openssh-keygen@10.0_p1-r11?arch=aarch64&distro=alpine-3.22.7&upstream=openssh"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.22.7"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

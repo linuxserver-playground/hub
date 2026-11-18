@@ -1,0 +1,322 @@
+{
+ "image": "pelorus",
+ "branch": "master",
+ "tag": "0.2.4-ls4",
+ "previous_tag": "0.2.4-ls3",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "0.2.4",
+  "to": "0.2.4",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:8351b5075fde426563342954c6a22f04bac1a17db1a7c4474b80f1d523b24543"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 2655985036,
+   "to": 2656767790,
+   "delta": 782754
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "appstream",
+      "from": "1.2.1-1",
+      "to": "1.2.2-1",
+      "purl": "pkg:alpm/arch/appstream@1.2.2-1?arch=x86_64&distro=arch-rolling&upstream=appstream"
+     },
+     {
+      "name": "appstream-qt",
+      "from": "1.2.1-1",
+      "to": "1.2.2-1",
+      "purl": "pkg:alpm/arch/appstream-qt@1.2.2-1?arch=x86_64&distro=arch-rolling&upstream=appstream"
+     },
+     {
+      "name": "aurorae",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/aurorae@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=aurorae"
+     },
+     {
+      "name": "breeze",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/breeze@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=breeze"
+     },
+     {
+      "name": "breeze-cursors",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/breeze-cursors@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=breeze"
+     },
+     {
+      "name": "chromium",
+      "from": "156.0.8078.47-1",
+      "to": "156.0.8078.79-1",
+      "purl": "pkg:alpm/arch/chromium@156.0.8078.79-1?arch=x86_64&distro=arch-rolling&upstream=chromium"
+     },
+     {
+      "name": "discover",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/discover@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=discover"
+     },
+     {
+      "name": "harfbuzz-icu",
+      "from": "14.6.0-1",
+      "to": "15.0.0-1",
+      "purl": "pkg:alpm/arch/harfbuzz-icu@15.0.0-1?arch=x86_64&distro=arch-rolling&upstream=harfbuzz"
+     },
+     {
+      "name": "kactivitymanagerd",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/kactivitymanagerd@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=kactivitymanagerd"
+     },
+     {
+      "name": "kde-cli-tools",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/kde-cli-tools@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=kde-cli-tools"
+     },
+     {
+      "name": "kdecoration",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/kdecoration@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=kdecoration"
+     },
+     {
+      "name": "kglobalacceld",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/kglobalacceld@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=kglobalacceld"
+     },
+     {
+      "name": "kirigami-addons",
+      "from": "1.15.0-1",
+      "to": "1.16.0-1",
+      "purl": "pkg:alpm/arch/kirigami-addons@1.16.0-1?arch=x86_64&distro=arch-rolling&upstream=kirigami-addons"
+     },
+     {
+      "name": "kmenuedit",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/kmenuedit@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=kmenuedit"
+     },
+     {
+      "name": "knighttime",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/knighttime@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=knighttime"
+     },
+     {
+      "name": "kpipewire",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/kpipewire@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=kpipewire"
+     },
+     {
+      "name": "kscreenlocker",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/kscreenlocker@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=kscreenlocker"
+     },
+     {
+      "name": "ksystemstats",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/ksystemstats@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=ksystemstats"
+     },
+     {
+      "name": "kwayland",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/kwayland@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=kwayland"
+     },
+     {
+      "name": "kwin",
+      "from": "6.8.1-2",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/kwin@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=kwin"
+     },
+     {
+      "name": "layer-shell-qt",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/layer-shell-qt@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=layer-shell-qt"
+     },
+     {
+      "name": "libkscreen",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/libkscreen@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=libkscreen"
+     },
+     {
+      "name": "libksysguard",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/libksysguard@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=libksysguard"
+     },
+     {
+      "name": "libplasma",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/libplasma@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=libplasma"
+     },
+     {
+      "name": "milou",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/milou@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=milou"
+     },
+     {
+      "name": "ocean-sound-theme",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/ocean-sound-theme@6.8.2-1?arch=any&distro=arch-rolling&upstream=ocean-sound-theme"
+     },
+     {
+      "name": "plasma-activities",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/plasma-activities@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=plasma-activities"
+     },
+     {
+      "name": "plasma-activities-stats",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/plasma-activities-stats@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=plasma-activities-stats"
+     },
+     {
+      "name": "plasma-desktop",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/plasma-desktop@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=plasma-desktop"
+     },
+     {
+      "name": "plasma-integration",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/plasma-integration@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=plasma-integration"
+     },
+     {
+      "name": "plasma-workspace",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/plasma-workspace@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=plasma-workspace"
+     },
+     {
+      "name": "plasma5support",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/plasma5support@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=plasma5support"
+     },
+     {
+      "name": "polkit-kde-agent",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/polkit-kde-agent@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=polkit-kde-agent"
+     },
+     {
+      "name": "poppler-glib",
+      "from": "26.10.0-1",
+      "to": "26.10.0-2",
+      "purl": "pkg:alpm/arch/poppler-glib@26.10.0-2?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "poppler-qt6",
+      "from": "26.10.0-1",
+      "to": "26.10.0-2",
+      "purl": "pkg:alpm/arch/poppler-qt6@26.10.0-2?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "powerdevil",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/powerdevil@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=powerdevil"
+     },
+     {
+      "name": "python-certifi",
+      "from": "2026.10.19-1",
+      "to": "2026.10.23-1",
+      "purl": "pkg:alpm/arch/python-certifi@2026.10.23-1?arch=any&distro=arch-rolling&upstream=python-certifi"
+     },
+     {
+      "name": "qqc2-breeze-style",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/qqc2-breeze-style@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=qqc2-breeze-style"
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-2",
+      "to": "6.12.0-3",
+      "purl": "pkg:alpm/arch/qt6-declarative@6.12.0-3?arch=x86_64&distro=arch-rolling&upstream=qt6-declarative"
+     },
+     {
+      "name": "systemsettings",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/systemsettings@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=systemsettings"
+     },
+     {
+      "name": "union",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/union@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=union"
+     },
+     {
+      "name": "xdg-desktop-portal-kde",
+      "from": "6.8.1-1",
+      "to": "6.8.2-1",
+      "purl": "pkg:alpm/arch/xdg-desktop-portal-kde@6.8.2-1?arch=x86_64&distro=arch-rolling&upstream=xdg-desktop-portal-kde"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 42,
+  "downgraded": 0
+ }
+}

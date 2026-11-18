@@ -1,0 +1,147 @@
+{
+ "image": "mylar3",
+ "branch": "master",
+ "tag": "v0.11.0-ls5",
+ "previous_tag": "v0.11.0-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (dff5c65 → 322d3fa): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v0.11.0",
+  "to": "v0.11.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "dff5c65e36ba293fe8bdb843bac278a28536720a",
+  "to": "322d3fa07ff2e0848e3b13ba954db71cda6847b0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mylar3/compare/dff5c65e36ba293fe8bdb843bac278a28536720a...322d3fa07ff2e0848e3b13ba954db71cda6847b0",
+  "commits": [
+   {
+    "sha": "ea3a8b6c8e2d824afa0151bad5fb05374b046a85",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:48:12Z",
+    "url": "https://github.com/linuxserver-playground/docker-mylar3/commit/ea3a8b6c8e2d824afa0151bad5fb05374b046a85",
+    "bot": true
+   },
+   {
+    "sha": "322d3fa07ff2e0848e3b13ba954db71cda6847b0",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T08:49:45Z",
+    "url": "https://github.com/linuxserver-playground/docker-mylar3/commit/322d3fa07ff2e0848e3b13ba954db71cda6847b0",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 4
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy",
+   "digest": "sha256:107a3f6cced224f8be09ee9c08fd46642f9b52cc9d30c87de28c5cf9175c4a42"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy",
+   "digest": "sha256:6bc9a6d75d2bd073c3594fe7e5a7c41b44e34b2e131c7d38d1127ac751d6cfe2"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 194995369,
+   "to": 194998704,
+   "delta": 3335
+  },
+  "arm64": {
+   "from": 189269811,
+   "to": 189268127,
+   "delta": -1684
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pytz",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/pytz@2026.6"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

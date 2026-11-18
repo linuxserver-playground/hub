@@ -1,0 +1,143 @@
+{
+ "schema": 1,
+ "name": "kdenlive",
+ "summary": "[Kdenlive](https://kdenlive.org/) is a powerful free and open source cross-platform video editing program made by the KDE community. Feature rich and production ready.",
+ "upstream": {
+  "url": "https://kdenlive.org/",
+  "version": {
+   "type": "arch_package",
+   "package": "kdenlive",
+   "release": true
+  },
+  "sponsor": [
+   {
+    "name": "Kdenlive fund",
+    "url": "https://kdenlive.org/fund/"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "KDENLIVE_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Kdenlive desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Kdenlive desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/kdenlive/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This might be needed to prevent crashing",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Video Editor"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kdenlive-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-29",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Arch latest Appimage no longer working on Deb distros. Build for arm64 again."
+  },
+  {
+   "date": "2025-08-06",
+   "text": "Fix cpu bug, disable gamepad by default."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies and use official AppImage, HTTPS IS NOW REQUIRED. Remove arm64 support."
+  },
+  {
+   "date": "2024-08-19",
+   "text": "Rebase to noble. Use pypi and lsio wheels."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-04-24",
+   "text": "Ensure application launches in fullscreen."
+  },
+  {
+   "date": "2023-03-18",
+   "text": "Rebase to KasmVNC base image."
+  },
+  {
+   "date": "2022-09-16",
+   "text": "Migrate to s6v3."
+  },
+  {
+   "date": "2022-03-09",
+   "text": "Update seccomp explanation."
+  },
+  {
+   "date": "2022-03-07",
+   "text": "Initial release."
+  }
+ ]
+}

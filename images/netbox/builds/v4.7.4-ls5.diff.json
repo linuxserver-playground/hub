@@ -1,0 +1,257 @@
+{
+ "image": "netbox",
+ "branch": "master",
+ "tag": "v4.7.4-ls5",
+ "previous_tag": "v4.7.4-ls4",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "2 commits (a1610ce → 1b029f5): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v4.7.4",
+  "to": "v4.7.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "a1610ce2bbb5dccfb93970dd694119da1a11c6d2",
+  "to": "1b029f55986a4a1663e7853ca921feed05e6bbea",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-netbox/compare/a1610ce2bbb5dccfb93970dd694119da1a11c6d2...1b029f55986a4a1663e7853ca921feed05e6bbea",
+  "commits": [
+   {
+    "sha": "ad4f8ecc73cbe9ae980d2782d55671585da42651",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T21:36:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/ad4f8ecc73cbe9ae980d2782d55671585da42651",
+    "bot": true
+   },
+   {
+    "sha": "1b029f55986a4a1663e7853ca921feed05e6bbea",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T17:29:17Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/1b029f55986a4a1663e7853ca921feed05e6bbea",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:720a8b962c7cb6c8bcbc747ca074ee519c7e602ce4e217aa789087b602e4b29b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:720a8b962c7cb6c8bcbc747ca074ee519c7e602ce4e217aa789087b602e4b29b"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 131531416,
+   "to": 131674639,
+   "delta": 143223
+  },
+  "arm64": {
+   "from": 131166900,
+   "to": 131325202,
+   "delta": 158302
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.23.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [
+     {
+      "name": "six",
+      "version": "1.17.0",
+      "purl": "pkg:pypi/six@1.17.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.14.2",
+      "to": "4.14.3",
+      "purl": "pkg:pypi/platformdirs@4.14.3"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "3.0.0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "sqlparse",
+      "from": "0.6.0",
+      "to": "0.6.1",
+      "purl": "pkg:pypi/sqlparse@0.6.1"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.23.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [
+     {
+      "name": "six",
+      "version": "1.17.0",
+      "purl": "pkg:pypi/six@1.17.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.14.2",
+      "to": "4.14.3",
+      "purl": "pkg:pypi/platformdirs@4.14.3"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "3.0.0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "sqlparse",
+      "from": "0.6.0",
+      "to": "0.6.1",
+      "purl": "pkg:pypi/sqlparse@0.6.1"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 2,
+  "upgraded": 18,
+  "downgraded": 0
+ }
+}

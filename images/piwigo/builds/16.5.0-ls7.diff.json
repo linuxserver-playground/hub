@@ -1,0 +1,494 @@
+{
+ "image": "piwigo",
+ "branch": "master",
+ "tag": "16.5.0-ls7",
+ "previous_tag": "16.4.0-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "7 commits (bf0a1c1 → f65d627): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "16.4.0",
+  "to": "16.5.0",
+  "changed": true
+ },
+ "commit": {
+  "from": "bf0a1c16d0398ccc2f34288e3fc084975adecde0",
+  "to": "f65d627c71c56baaa6d259d25cac6a14c15198d4",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-piwigo/compare/bf0a1c16d0398ccc2f34288e3fc084975adecde0...f65d627c71c56baaa6d259d25cac6a14c15198d4",
+  "commits": [
+   {
+    "sha": "80dc30184d6c534eb255397221eb8846eb35f440",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-28T12:42:45Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/80dc30184d6c534eb255397221eb8846eb35f440",
+    "bot": true
+   },
+   {
+    "sha": "f7501abed29bddf134e6c6ed2084c6a8054227b2",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:49:39Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/f7501abed29bddf134e6c6ed2084c6a8054227b2",
+    "bot": true
+   },
+   {
+    "sha": "79a752df79fe383de8d6d81b107d765b4375a92c",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T16:38:28Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/79a752df79fe383de8d6d81b107d765b4375a92c",
+    "bot": true
+   },
+   {
+    "sha": "a22267d6dd493f1808bb7e5077af3975bc4f526d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T16:46:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/a22267d6dd493f1808bb7e5077af3975bc4f526d",
+    "bot": true
+   },
+   {
+    "sha": "8894ea676740f2f2c6f645cccff6502e81477212",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T12:37:56Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/8894ea676740f2f2c6f645cccff6502e81477212",
+    "bot": true
+   },
+   {
+    "sha": "2ca21446202431b69805b05bcf13fe2707561373",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T12:45:48Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/2ca21446202431b69805b05bcf13fe2707561373",
+    "bot": true
+   },
+   {
+    "sha": "f65d627c71c56baaa6d259d25cac6a14c15198d4",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T16:45:55Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/f65d627c71c56baaa6d259d25cac6a14c15198d4",
+    "bot": true
+   }
+  ],
+  "count": 7,
+  "truncated": false,
+  "areas": {
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:b0d56c4c1b2d8029704eca17211f594e60c1372e06ce26e921fccae8479c3a14"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a5464bb0b85935854231e0dfa14bd55963c132d4acdfc3f5997de04f2e2bfa52"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 136197822,
+   "to": 136291345,
+   "delta": 93523
+  },
+  "arm64": {
+   "from": 132827009,
+   "to": 132921514,
+   "delta": 94505
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "imagemagick",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "imagemagick-heic",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-heic@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jp2",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jp2@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jpeg",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jpeg@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jxl",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jxl@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-libs",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-libs@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-tiff",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-tiff@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-webp",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-webp@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=curl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     },
+     {
+      "name": "libheif",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libheif-aom",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-aom@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-dav1d",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-dav1d@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-ffmpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-ffmpeg@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-jpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-jpeg@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-libde265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-libde265@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-openjpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-openjpeg@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-rav1e",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-rav1e@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-svtenc",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-svtenc@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-x264",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x264@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-x265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x265@1.23.7-r0?arch=x86_64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-r0",
+      "to": "0.8.10-r0",
+      "purl": "pkg:apk/alpine/libopenmpt@0.8.10-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "perl",
+      "from": "5.42.2-r1",
+      "to": "5.42.3-r0",
+      "purl": "pkg:apk/alpine/perl@5.42.3-r0?arch=x86_64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "imagemagick",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "imagemagick-heic",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-heic@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jp2",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jp2@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jpeg",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jpeg@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-jxl",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jxl@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-libs",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-libs@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-tiff",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-tiff@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-webp",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-webp@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=curl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     },
+     {
+      "name": "libheif",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "libheif-aom",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-aom@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-dav1d",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-dav1d@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-ffmpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-ffmpeg@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-jpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-jpeg@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-libde265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-libde265@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-openjpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-openjpeg@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-rav1e",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-rav1e@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-svtenc",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-svtenc@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-x264",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x264@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libheif-x265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x265@1.23.7-r0?arch=aarch64&distro=alpine-3.24.3&upstream=libheif"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-r0",
+      "to": "0.8.10-r0",
+      "purl": "pkg:apk/alpine/libopenmpt@0.8.10-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "perl",
+      "from": "5.42.2-r1",
+      "to": "5.42.3-r0",
+      "purl": "pkg:apk/alpine/perl@5.42.3-r0?arch=aarch64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 50,
+  "downgraded": 0
+ }
+}
