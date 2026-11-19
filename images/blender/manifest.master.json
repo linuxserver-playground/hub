@@ -1,0 +1,141 @@
+{
+ "schema": 1,
+ "name": "blender",
+ "summary": "[Blender](https://www.blender.org/) is a free and open-source 3D computer graphics software toolset used for creating animated films, visual effects, art, 3D printed models, motion graphics, interactive 3D applications, virtual reality, and computer games. **This image does not support GPU rendering out of the box only accelerated workspace experience**",
+ "upstream": {
+  "url": "https://www.blender.org/",
+  "version": {
+   "type": "json",
+   "url": "https://projects.blender.org/api/v1/repos/blender/blender/tags",
+   "jq": ".[].name | select(contains(\"-rc\") | not)",
+   "sort": "version",
+   "transform": [
+    {
+     "regex": "^v",
+     "replace": ""
+    }
+   ]
+  },
+  "sponsor": [
+   {
+    "name": "Blender Development Fund",
+    "url": "https://fund.blender.org/"
+   },
+   {
+    "name": "Blender one-time donation",
+    "url": "https://fund.blender.org/donate-once/"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "BLENDER_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Blender desktop gui"
+   },
+   {
+    "internal": "3001",
+    "description": "Blender desktop gui HTTPS"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/blender/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "3D Modeling"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/blender-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n>[!NOTE]\n>The arm64 version of this container ingests its version from the Ubuntu repositories, it is pinned at that version while the amd64 version will always be up to date. \n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-19",
+   "text": "Rebase to resolute."
+  },
+  {
+   "date": "2026-03-29",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-27",
+   "text": "Add wayland init logic."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-08-19",
+   "text": "Rebase to noble."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-03-18",
+   "text": "Rebase to KasmVNC base image."
+  },
+  {
+   "date": "2022-12-13",
+   "text": "Rebase to Jammy, migrate to s6v3."
+  },
+  {
+   "date": "2022-05-06",
+   "text": "Use the full semver version in image tags. Arm32/64 version tags are inaccurate due to installing from ubuntu repo, which is usually behind."
+  },
+  {
+   "date": "2022-03-12",
+   "text": "Initial Release."
+  }
+ ]
+}

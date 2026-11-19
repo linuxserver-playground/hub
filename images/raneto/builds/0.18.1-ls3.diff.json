@@ -1,0 +1,77 @@
+{
+ "image": "raneto",
+ "branch": "master",
+ "tag": "0.18.1-ls3",
+ "previous_tag": "0.18.1-ls2",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "repository at a newer commit (978e678 → 4132034)"
+ ],
+ "upstream": {
+  "from": "0.18.1",
+  "to": "0.18.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "978e6784a2506b9d7935bab87de5989bbb94cca8",
+  "to": "4132034cd525ee63247bfc590ab813e3d3915b2c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-raneto/compare/978e6784a2506b9d7935bab87de5989bbb94cca8...4132034cd525ee63247bfc590ab813e3d3915b2c"
+ },
+ "trigger": "rebuild",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:c9849bb7e2f68a29927bfd73214675e1209240eeb03444d1a603321c47af4db4"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:1ad91f856c8d9d443357d6e4c0a0c3515e5bc1ef830874f0defdb5d64b49f077"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 47447724,
+   "to": 47447465,
+   "delta": -259
+  },
+  "arm64": {
+   "from": 47676723,
+   "to": 47676744,
+   "delta": 21
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

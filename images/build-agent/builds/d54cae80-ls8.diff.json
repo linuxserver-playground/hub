@@ -1,0 +1,220 @@
+{
+ "image": "build-agent",
+ "branch": "main",
+ "tag": "d54cae80-ls8",
+ "previous_tag": "de276f12-ls7",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (f4df1de → 6d7ed2b): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "de276f12",
+  "to": "d54cae80",
+  "changed": true
+ },
+ "commit": {
+  "from": "f4df1de6b133032796851e9928312aecf285830a",
+  "to": "6d7ed2b6d16ea5fe7f728c499da8ad8c8e5ec43d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-build-agent/compare/f4df1de6b133032796851e9928312aecf285830a...6d7ed2b6d16ea5fe7f728c499da8ad8c8e5ec43d",
+  "commits": [
+   {
+    "sha": "6d7ed2b6d16ea5fe7f728c499da8ad8c8e5ec43d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T16:29:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-build-agent/commit/6d7ed2b6d16ea5fe7f728c499da8ad8c8e5ec43d",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:7d708408cd3327e6e3d154d36abfa7595ef611fe021fa3adc4860169c893c817"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:7d708408cd3327e6e3d154d36abfa7595ef611fe021fa3adc4860169c893c817"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 268175222,
+   "to": 271611711,
+   "delta": 3436489
+  },
+  "arm64": {
+   "from": 260740709,
+   "to": 264527545,
+   "delta": 3786836
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker@29.9.3-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "docker-cli",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-cli@29.9.3-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=docker"
+     },
+     {
+      "name": "docker-engine",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-engine@29.9.3-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=docker"
+     },
+     {
+      "name": "git",
+      "from": "2.56.0-r0",
+      "to": "2.56.1-r0",
+      "purl": "pkg:apk/alpine/git@2.56.1-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.56.0-r0",
+      "to": "2.56.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.56.1-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=git"
+     },
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=openssl"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "pandoc-cli",
+      "from": "3.12.1-r0",
+      "to": "3.13-r0",
+      "purl": "pkg:apk/alpine/pandoc-cli@3.13-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker@29.9.3-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "docker-cli",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-cli@29.9.3-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=docker"
+     },
+     {
+      "name": "docker-engine",
+      "from": "29.9.3-r0",
+      "to": "29.9.3-r1",
+      "purl": "pkg:apk/alpine/docker-engine@29.9.3-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=docker"
+     },
+     {
+      "name": "git",
+      "from": "2.56.0-r0",
+      "to": "2.56.1-r0",
+      "purl": "pkg:apk/alpine/git@2.56.1-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.56.0-r0",
+      "to": "2.56.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.56.1-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=git"
+     },
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=openssl"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "pandoc-cli",
+      "from": "3.12.1-r0",
+      "to": "3.13-r0",
+      "purl": "pkg:apk/alpine/pandoc-cli@3.13-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 18,
+  "downgraded": 0
+ }
+}

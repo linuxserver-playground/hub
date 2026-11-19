@@ -1,0 +1,101 @@
+{
+ "schema": 1,
+ "name": "hishtory-server",
+ "summary": "[hiSHtory](https://github.com/ddworken/hishtory) is a better shell history. It stores your shell history in context (what directory you ran the command in, whether it succeeded or failed, how long it took, etc). This is all stored locally and end-to-end encrypted for syncing to to all your other computers.",
+ "upstream": {
+  "url": "https://github.com/ddworken/hishtory",
+  "version": {
+   "type": "github_release",
+   "repo": "ddworken/hishtory"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "ddworken/hishtory"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "HISHTORY_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "enabled": false
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8080",
+    "description": "API port"
+   }
+  ],
+  "env": [
+   {
+    "name": "HISHTORY_POSTGRES_DB",
+    "value": "postgresql://${HISHTORY_DB_USER}:${HISHTORY_DB_PASS}@hishtory-db:5432/hishtory?sslmode=disable",
+    "description": "Postgres DB [Connection URI](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING). Special characters must be [URL encoded](https://en.wikipedia.org/wiki/URL_encoding).",
+    "optional": true
+   },
+   {
+    "name": "HISHTORY_SQLITE_DB",
+    "value": "/config/hishtory.db",
+    "description": "SQLite database path. Needs to be a mounted volume for persistence. Don't set at the same time as HISHTORY_POSTGRES_DB.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Administration"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hishtory-server-icon.png",
+  "setup": "After you have installed hishtory on your machine, add `export HISHTORY_SERVER=http://127.0.0.1:8080` (with your server details) to your shellrc. Then run `hishtory init` (or `hishtory init ${SECRET_KEY}`) to initialise hishtory against your local server.\n\nSee the [project readme](https://github.com/ddworken/hishtory/blob/master/README.md) for more details.\n"
+ },
+ "changelog": [
+  {
+   "date": "2026-07-05",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-12-25",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-07-05",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-12-19",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-08-26",
+   "text": "Bump to go 1.23"
+  },
+  {
+   "date": "2024-05-24",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-01-31",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-05-19",
+   "text": "Initial Release."
+  }
+ ]
+}

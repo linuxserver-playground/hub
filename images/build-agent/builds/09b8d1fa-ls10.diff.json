@@ -1,0 +1,693 @@
+{
+ "image": "build-agent",
+ "branch": "main",
+ "tag": "09b8d1fa-ls10",
+ "previous_tag": "2299929e-ls9",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (5d4d7a5 → e3f9667): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2299929e",
+  "to": "09b8d1fa",
+  "changed": true
+ },
+ "commit": {
+  "from": "5d4d7a585a980c272c00f802f0d923594a59fc68",
+  "to": "e3f9667f41994784489e4a2f825b2a10a7edac10",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-build-agent/compare/5d4d7a585a980c272c00f802f0d923594a59fc68...e3f9667f41994784489e4a2f825b2a10a7edac10",
+  "commits": [
+   {
+    "sha": "e3f9667f41994784489e4a2f825b2a10a7edac10",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-15T16:29:50Z",
+    "url": "https://github.com/linuxserver-playground/docker-build-agent/commit/e3f9667f41994784489e4a2f825b2a10a7edac10",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:72b22c6f25cbc24ab3cbd09b4d1c0f8a87ff94bb8f14a2951b6d587f0912c928"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:e3cacdcaf4638c26d0418402b2e75707df2b40b60654fcb0faa6ce7649562737"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 269972257,
+   "to": 270835574,
+   "delta": 863317
+  },
+  "arm64": {
+   "from": 262610585,
+   "to": 263512290,
+   "delta": 901705
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker",
+      "from": "29.9.3-r1",
+      "to": "29.10.0-r0",
+      "purl": "pkg:apk/alpine/docker@29.10.0-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "docker-cli",
+      "from": "29.9.3-r1",
+      "to": "29.10.0-r0",
+      "purl": "pkg:apk/alpine/docker-cli@29.10.0-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=docker"
+     },
+     {
+      "name": "docker-cli-compose",
+      "from": "5.7.1-r0",
+      "to": "5.8.0-r0",
+      "purl": "pkg:apk/alpine/docker-cli-compose@5.8.0-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "docker-engine",
+      "from": "29.9.3-r1",
+      "to": "29.10.0-r0",
+      "purl": "pkg:apk/alpine/docker-engine@29.10.0-r0?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=docker"
+     },
+     {
+      "name": "linux-pam",
+      "from": "1.7.1-r4",
+      "to": "1.7.1-r5",
+      "purl": "pkg:apk/alpine/linux-pam@1.7.1-r5?arch=x86_64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "openjdk25-jre",
+      "from": "25.0.5.0.3_p1-r1",
+      "to": "25.0.5.1_p2-r1",
+      "purl": "pkg:apk/alpine/openjdk25-jre@25.0.5.1_p2-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=openjdk25"
+     },
+     {
+      "name": "openjdk25-jre-headless",
+      "from": "25.0.5.0.3_p1-r1",
+      "to": "25.0.5.1_p2-r1",
+      "purl": "pkg:apk/alpine/openjdk25-jre-headless@25.0.5.1_p2-r1?arch=x86_64&distro=alpine-3.25.0_alpha20260805&upstream=openjdk25"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "cloud.google.com/go/auth",
+      "from": "v0.20.0",
+      "to": "v0.24.1",
+      "purl": "pkg:golang/cloud.google.com/go/auth@v0.24.1"
+     },
+     {
+      "name": "cloud.google.com/go/auth/oauth2adapt",
+      "from": "v0.2.8",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.3.0"
+     },
+     {
+      "name": "cloud.google.com/go/logging",
+      "from": "v1.20.0",
+      "to": "v1.21.1",
+      "purl": "pkg:golang/cloud.google.com/go/logging@v1.21.1"
+     },
+     {
+      "name": "cloud.google.com/go/longrunning",
+      "from": "v1.2.0",
+      "to": "v1.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/longrunning@v1.3.0"
+     },
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream",
+      "from": "v1.7.20",
+      "to": "v1.7.25",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream@v1.7.25"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/config",
+      "from": "v1.33.4",
+      "to": "v1.33.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.33.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/credentials",
+      "from": "v1.20.4",
+      "to": "v1.20.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.20.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs",
+      "from": "v1.87.0",
+      "to": "v1.91.0",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs@v1.91.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.2",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/containerd/nri",
+      "from": "v0.12.3",
+      "to": "v0.12.5",
+      "purl": "pkg:golang/github.com/containerd/nri@v0.12.5"
+     },
+     {
+      "name": "github.com/containerd/stargz-snapshotter/estargz",
+      "from": "v0.18.2",
+      "to": "v0.19.1",
+      "purl": "pkg:golang/github.com/containerd/stargz-snapshotter/estargz@v0.19.1"
+     },
+     {
+      "name": "github.com/godbus/dbus/v5",
+      "from": "v5.2.2",
+      "to": "v5.2.4",
+      "purl": "pkg:golang/github.com/godbus/dbus/v5@v5.2.4"
+     },
+     {
+      "name": "github.com/google/s2a-go",
+      "from": "v0.1.9",
+      "to": "v0.1.11",
+      "purl": "pkg:golang/github.com/google/s2a-go@v0.1.11"
+     },
+     {
+      "name": "github.com/googleapis/enterprise-certificate-proxy",
+      "from": "v0.3.17",
+      "to": "v0.3.23",
+      "purl": "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.23"
+     },
+     {
+      "name": "github.com/googleapis/gax-go/v2",
+      "from": "v2.23.0",
+      "to": "v2.27.0",
+      "purl": "pkg:golang/github.com/googleapis/gax-go/v2@v2.27.0"
+     },
+     {
+      "name": "github.com/mdlayher/socket",
+      "from": "v0.7.0",
+      "to": "v0.8.0",
+      "purl": "pkg:golang/github.com/mdlayher/socket@v0.8.0"
+     },
+     {
+      "name": "github.com/moby/extensions",
+      "from": "v0.0.0-20260918151408-e4c23d866037",
+      "to": "v0.0.0-20261026144205-2b6b3bd5fa82",
+      "purl": "pkg:golang/github.com/moby/extensions@v0.0.0-20261026144205-2b6b3bd5fa82"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.2",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "github.com/moby/profiles/apparmor",
+      "from": "v0.2.2",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/apparmor@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/profiles/seccomp",
+      "from": "v0.2.4",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/seccomp@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/sys/user",
+      "from": "v0.4.1",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/user@v0.5.0"
+     },
+     {
+      "name": "github.com/prometheus/client_golang",
+      "from": "v1.24.1",
+      "to": "v1.25.0",
+      "purl": "pkg:golang/github.com/prometheus/client_golang@v1.25.0"
+     },
+     {
+      "name": "github.com/prometheus/common",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/github.com/prometheus/common@v0.72.0"
+     },
+     {
+      "name": "github.com/prometheus/procfs",
+      "from": "v0.21.1",
+      "to": "v0.22.0",
+      "purl": "pkg:golang/github.com/prometheus/procfs@v0.22.0"
+     },
+     {
+      "name": "github.com/tinylib/msgp",
+      "from": "v1.3.0",
+      "to": "v1.4.0",
+      "purl": "pkg:golang/github.com/tinylib/msgp@v1.4.0"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/processors/baggagecopy",
+      "from": "v0.16.3",
+      "to": "v0.17.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/processors/baggagecopy@v0.17.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/sdk/log",
+      "from": "v0.22.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk/log@v1.47.0"
+     },
+     {
+      "name": "golang.org/x/mod",
+      "from": "v0.42.0",
+      "to": "v0.43.0",
+      "purl": "pkg:golang/golang.org/x/mod@v0.43.0"
+     },
+     {
+      "name": "golang.org/x/oauth2",
+      "from": "v0.37.0",
+      "to": "v0.38.0",
+      "purl": "pkg:golang/golang.org/x/oauth2@v0.38.0"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/text",
+      "from": "v0.43.0",
+      "to": "v0.44.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.44.0"
+     },
+     {
+      "name": "google.golang.org/api",
+      "from": "v0.287.1",
+      "to": "v0.304.0",
+      "purl": "pkg:golang/google.golang.org/api@v0.304.0"
+     },
+     {
+      "name": "google.golang.org/genproto",
+      "from": "v0.0.0-20260825221802-da73d73af1c5",
+      "to": "v0.0.0-20261012220534-4341edf3f941",
+      "purl": "pkg:golang/google.golang.org/genproto@v0.0.0-20261012220534-4341edf3f941"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jrt-fs",
+      "from": "25.0.5.0.3",
+      "to": "25.0.5.1",
+      "purl": "pkg:maven/jrt-fs/jrt-fs@25.0.5.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker",
+      "from": "29.9.3-r1",
+      "to": "29.10.0-r0",
+      "purl": "pkg:apk/alpine/docker@29.10.0-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "docker-cli",
+      "from": "29.9.3-r1",
+      "to": "29.10.0-r0",
+      "purl": "pkg:apk/alpine/docker-cli@29.10.0-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=docker"
+     },
+     {
+      "name": "docker-cli-compose",
+      "from": "5.7.1-r0",
+      "to": "5.8.0-r0",
+      "purl": "pkg:apk/alpine/docker-cli-compose@5.8.0-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "docker-engine",
+      "from": "29.9.3-r1",
+      "to": "29.10.0-r0",
+      "purl": "pkg:apk/alpine/docker-engine@29.10.0-r0?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=docker"
+     },
+     {
+      "name": "linux-pam",
+      "from": "1.7.1-r4",
+      "to": "1.7.1-r5",
+      "purl": "pkg:apk/alpine/linux-pam@1.7.1-r5?arch=aarch64&distro=alpine-3.25.0_alpha20260805"
+     },
+     {
+      "name": "openjdk25-jre",
+      "from": "25.0.5.0.3_p1-r1",
+      "to": "25.0.5.1_p2-r1",
+      "purl": "pkg:apk/alpine/openjdk25-jre@25.0.5.1_p2-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=openjdk25"
+     },
+     {
+      "name": "openjdk25-jre-headless",
+      "from": "25.0.5.0.3_p1-r1",
+      "to": "25.0.5.1_p2-r1",
+      "purl": "pkg:apk/alpine/openjdk25-jre-headless@25.0.5.1_p2-r1?arch=aarch64&distro=alpine-3.25.0_alpha20260805&upstream=openjdk25"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "cloud.google.com/go/auth",
+      "from": "v0.20.0",
+      "to": "v0.24.1",
+      "purl": "pkg:golang/cloud.google.com/go/auth@v0.24.1"
+     },
+     {
+      "name": "cloud.google.com/go/auth/oauth2adapt",
+      "from": "v0.2.8",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.3.0"
+     },
+     {
+      "name": "cloud.google.com/go/logging",
+      "from": "v1.20.0",
+      "to": "v1.21.1",
+      "purl": "pkg:golang/cloud.google.com/go/logging@v1.21.1"
+     },
+     {
+      "name": "cloud.google.com/go/longrunning",
+      "from": "v1.2.0",
+      "to": "v1.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/longrunning@v1.3.0"
+     },
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream",
+      "from": "v1.7.20",
+      "to": "v1.7.25",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream@v1.7.25"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/config",
+      "from": "v1.33.4",
+      "to": "v1.33.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.33.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/credentials",
+      "from": "v1.20.4",
+      "to": "v1.20.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.20.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs",
+      "from": "v1.87.0",
+      "to": "v1.91.0",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs@v1.91.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.2",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/containerd/nri",
+      "from": "v0.12.3",
+      "to": "v0.12.5",
+      "purl": "pkg:golang/github.com/containerd/nri@v0.12.5"
+     },
+     {
+      "name": "github.com/containerd/stargz-snapshotter/estargz",
+      "from": "v0.18.2",
+      "to": "v0.19.1",
+      "purl": "pkg:golang/github.com/containerd/stargz-snapshotter/estargz@v0.19.1"
+     },
+     {
+      "name": "github.com/godbus/dbus/v5",
+      "from": "v5.2.2",
+      "to": "v5.2.4",
+      "purl": "pkg:golang/github.com/godbus/dbus/v5@v5.2.4"
+     },
+     {
+      "name": "github.com/google/s2a-go",
+      "from": "v0.1.9",
+      "to": "v0.1.11",
+      "purl": "pkg:golang/github.com/google/s2a-go@v0.1.11"
+     },
+     {
+      "name": "github.com/googleapis/enterprise-certificate-proxy",
+      "from": "v0.3.17",
+      "to": "v0.3.23",
+      "purl": "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.23"
+     },
+     {
+      "name": "github.com/googleapis/gax-go/v2",
+      "from": "v2.23.0",
+      "to": "v2.27.0",
+      "purl": "pkg:golang/github.com/googleapis/gax-go/v2@v2.27.0"
+     },
+     {
+      "name": "github.com/mdlayher/socket",
+      "from": "v0.7.0",
+      "to": "v0.8.0",
+      "purl": "pkg:golang/github.com/mdlayher/socket@v0.8.0"
+     },
+     {
+      "name": "github.com/moby/extensions",
+      "from": "v0.0.0-20260918151408-e4c23d866037",
+      "to": "v0.0.0-20261026144205-2b6b3bd5fa82",
+      "purl": "pkg:golang/github.com/moby/extensions@v0.0.0-20261026144205-2b6b3bd5fa82"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.2",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "github.com/moby/profiles/apparmor",
+      "from": "v0.2.2",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/apparmor@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/profiles/seccomp",
+      "from": "v0.2.4",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/seccomp@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/sys/user",
+      "from": "v0.4.1",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/user@v0.5.0"
+     },
+     {
+      "name": "github.com/prometheus/client_golang",
+      "from": "v1.24.1",
+      "to": "v1.25.0",
+      "purl": "pkg:golang/github.com/prometheus/client_golang@v1.25.0"
+     },
+     {
+      "name": "github.com/prometheus/common",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/github.com/prometheus/common@v0.72.0"
+     },
+     {
+      "name": "github.com/prometheus/procfs",
+      "from": "v0.21.1",
+      "to": "v0.22.0",
+      "purl": "pkg:golang/github.com/prometheus/procfs@v0.22.0"
+     },
+     {
+      "name": "github.com/tinylib/msgp",
+      "from": "v1.3.0",
+      "to": "v1.4.0",
+      "purl": "pkg:golang/github.com/tinylib/msgp@v1.4.0"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/processors/baggagecopy",
+      "from": "v0.16.3",
+      "to": "v0.17.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/processors/baggagecopy@v0.17.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/sdk/log",
+      "from": "v0.22.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk/log@v1.47.0"
+     },
+     {
+      "name": "golang.org/x/mod",
+      "from": "v0.42.0",
+      "to": "v0.43.0",
+      "purl": "pkg:golang/golang.org/x/mod@v0.43.0"
+     },
+     {
+      "name": "golang.org/x/oauth2",
+      "from": "v0.37.0",
+      "to": "v0.38.0",
+      "purl": "pkg:golang/golang.org/x/oauth2@v0.38.0"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/text",
+      "from": "v0.43.0",
+      "to": "v0.44.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.44.0"
+     },
+     {
+      "name": "google.golang.org/api",
+      "from": "v0.287.1",
+      "to": "v0.304.0",
+      "purl": "pkg:golang/google.golang.org/api@v0.304.0"
+     },
+     {
+      "name": "google.golang.org/genproto",
+      "from": "v0.0.0-20260825221802-da73d73af1c5",
+      "to": "v0.0.0-20261012220534-4341edf3f941",
+      "purl": "pkg:golang/google.golang.org/genproto@v0.0.0-20261012220534-4341edf3f941"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jrt-fs",
+      "from": "25.0.5.0.3",
+      "to": "25.0.5.1",
+      "purl": "pkg:maven/jrt-fs/jrt-fs@25.0.5.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 2,
+  "upgraded": 90,
+  "downgraded": 0
+ }
+}

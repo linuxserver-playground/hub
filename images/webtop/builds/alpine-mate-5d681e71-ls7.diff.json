@@ -1,0 +1,124 @@
+{
+ "image": "webtop",
+ "branch": "alpine-mate",
+ "tag": "alpine-mate-5d681e71-ls7",
+ "previous_tag": "alpine-mate-cfbd5ae4-ls6",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (3160e87 → 4fb0e22): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "cfbd5ae4",
+  "to": "5d681e71",
+  "changed": true
+ },
+ "commit": {
+  "from": "3160e87e14b73eecf52735a5d984d57d0ddaef91",
+  "to": "4fb0e22af6f3def17d0daa203c693d16a729322d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/3160e87e14b73eecf52735a5d984d57d0ddaef91...4fb0e22af6f3def17d0daa203c693d16a729322d",
+  "commits": [
+   {
+    "sha": "4fb0e22af6f3def17d0daa203c693d16a729322d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-14T16:30:55Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/4fb0e22af6f3def17d0daa203c693d16a729322d",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:bc6dd9cf0cc1e9271c76b421052e246ffc0d43f520887079a92e5eb60008b6c8"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:bc6dd9cf0cc1e9271c76b421052e246ffc0d43f520887079a92e5eb60008b6c8"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1093681894,
+   "to": 1093686055,
+   "delta": 4161
+  },
+  "arm64": {
+   "from": 1037864032,
+   "to": 1037869348,
+   "delta": 5316
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls3",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls3@3.6.8-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls3",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls3@3.6.8-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

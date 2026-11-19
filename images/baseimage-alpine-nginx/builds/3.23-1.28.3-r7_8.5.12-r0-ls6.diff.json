@@ -1,0 +1,123 @@
+{
+ "image": "baseimage-alpine-nginx",
+ "branch": "3.23",
+ "tag": "3.23-1.28.3-r7_8.5.12-r0-ls6",
+ "previous_tag": "3.23-1.28.3-r7_8.5.12-r0-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (ad46246 → 047a54d): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.28.3-r7_8.5.12-r0",
+  "to": "1.28.3-r7_8.5.12-r0",
+  "changed": false
+ },
+ "commit": {
+  "from": "ad46246866440f40555d3270a323e646767fe2a5",
+  "to": "047a54d665a84cd33bd68dc1203e9e20082cd444",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/compare/ad46246866440f40555d3270a323e646767fe2a5...047a54d665a84cd33bd68dc1203e9e20082cd444",
+  "commits": [
+   {
+    "sha": "047a54d665a84cd33bd68dc1203e9e20082cd444",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T18:31:36Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/047a54d665a84cd33bd68dc1203e9e20082cd444",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.23",
+   "digest": "sha256:36dfe19d24ed7fb4e9e380005f8187fe620f113162f960194a90594013c9fcfb"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.23",
+   "digest": "sha256:36dfe19d24ed7fb4e9e380005f8187fe620f113162f960194a90594013c9fcfb"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 28424047,
+   "to": 28425571,
+   "delta": 1524
+  },
+  "arm64": {
+   "from": 29215100,
+   "to": 29215910,
+   "delta": 810
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.23.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.23.7&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,123 @@
+{
+ "image": "mylar3",
+ "branch": "master",
+ "tag": "v0.11.0-ls10",
+ "previous_tag": "v0.11.0-ls9",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (a84a2fe → 0e857ae): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.11.0",
+  "to": "v0.11.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "a84a2fe18debc8c284f9cfbb79d2c92f9f6b941b",
+  "to": "0e857ae94967fd152e55cd8718fd45673c0f071d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mylar3/compare/a84a2fe18debc8c284f9cfbb79d2c92f9f6b941b...0e857ae94967fd152e55cd8718fd45673c0f071d",
+  "commits": [
+   {
+    "sha": "0e857ae94967fd152e55cd8718fd45673c0f071d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-15T08:57:44Z",
+    "url": "https://github.com/linuxserver-playground/docker-mylar3/commit/0e857ae94967fd152e55cd8718fd45673c0f071d",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy",
+   "digest": "sha256:9a86e8d702eb88ba0671f0d97b468d579fcd20e5c5e86bbf11406a216cdbaa67"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy",
+   "digest": "sha256:9a86e8d702eb88ba0671f0d97b468d579fcd20e5c5e86bbf11406a216cdbaa67"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 199286827,
+   "to": 199390183,
+   "delta": 103356
+  },
+  "arm64": {
+   "from": 193612337,
+   "to": 193718468,
+   "delta": 106131
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pycryptodome",
+      "from": "4.4.0",
+      "to": "4.5.0",
+      "purl": "pkg:pypi/pycryptodome@4.5.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pycryptodome",
+      "from": "4.4.0",
+      "to": "4.5.0",
+      "purl": "pkg:pypi/pycryptodome@4.5.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

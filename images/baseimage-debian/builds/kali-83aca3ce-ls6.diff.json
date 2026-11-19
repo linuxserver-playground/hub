@@ -1,0 +1,146 @@
+{
+ "image": "baseimage-debian",
+ "branch": "kali",
+ "tag": "kali-83aca3ce-ls6",
+ "previous_tag": "kali-f4cf76f4-ls5",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (a17531b → 5410a75): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "f4cf76f4",
+  "to": "83aca3ce",
+  "changed": true
+ },
+ "commit": {
+  "from": "a17531ba1cb8bffac609ab58d64f1856f689cc3b",
+  "to": "5410a75f7f748276533b866072c340602330a174",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-debian/compare/a17531ba1cb8bffac609ab58d64f1856f689cc3b...5410a75f7f748276533b866072c340602330a174",
+  "commits": [
+   {
+    "sha": "5410a75f7f748276533b866072c340602330a174",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T20:47:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-debian/commit/5410a75f7f748276533b866072c340602330a174",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 84243167,
+   "to": 84416519,
+   "delta": 173352
+  },
+  "arm64": {
+   "from": 83157760,
+   "to": 83177012,
+   "delta": 19252
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.3.3+kali1",
+      "to": "3.3.6+kali1",
+      "purl": "pkg:deb/kali/apt@3.3.6%2Bkali1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.3.3+kali1",
+      "to": "3.3.6+kali1",
+      "purl": "pkg:deb/kali/apt-utils@3.3.6%2Bkali1?arch=amd64&distro=kali-2026.3&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.3.3+kali1",
+      "to": "3.3.6+kali1",
+      "purl": "pkg:deb/kali/libapt-pkg7.0@3.3.6%2Bkali1?arch=amd64&distro=kali-2026.3&upstream=apt"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.3.3+kali1",
+      "to": "3.3.6+kali1",
+      "purl": "pkg:deb/kali/apt@3.3.6%2Bkali1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.3.3+kali1",
+      "to": "3.3.6+kali1",
+      "purl": "pkg:deb/kali/apt-utils@3.3.6%2Bkali1?arch=arm64&distro=kali-2026.3&upstream=apt"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.3.3+kali1",
+      "to": "3.3.6+kali1",
+      "purl": "pkg:deb/kali/libapt-pkg7.0@3.3.6%2Bkali1?arch=arm64&distro=kali-2026.3&upstream=apt"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

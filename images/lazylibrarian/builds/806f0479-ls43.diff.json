@@ -1,0 +1,123 @@
+{
+ "image": "lazylibrarian",
+ "branch": "master",
+ "tag": "806f0479-ls43",
+ "previous_tag": "806f0479-ls42",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (a7ccdb8 → 049d6da): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "806f0479",
+  "to": "806f0479",
+  "changed": false
+ },
+ "commit": {
+  "from": "a7ccdb885521a56c31e6776b6b906fdb45606360",
+  "to": "049d6da69635ba844f673c2dc0b4eef028c9d19e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lazylibrarian/compare/a7ccdb885521a56c31e6776b6b906fdb45606360...049d6da69635ba844f673c2dc0b4eef028c9d19e",
+  "commits": [
+   {
+    "sha": "049d6da69635ba844f673c2dc0b4eef028c9d19e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-18T11:34:27Z",
+    "url": "https://github.com/linuxserver-playground/docker-lazylibrarian/commit/049d6da69635ba844f673c2dc0b4eef028c9d19e",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:5625688e073ff0f6795f3f5e3687c4f4ab313dd4881b1964627094e5ac12c4ee"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:5625688e073ff0f6795f3f5e3687c4f4ab313dd4881b1964627094e5ac12c4ee"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 195384627,
+   "to": 195381153,
+   "delta": -3474
+  },
+  "arm64": {
+   "from": 191373270,
+   "to": 191388636,
+   "delta": 15366
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pypdf",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/pypdf@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pypdf",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/pypdf@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}
