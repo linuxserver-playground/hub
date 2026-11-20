@@ -1,0 +1,639 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-11-06-ls10",
+ "previous_tag": "2026-11-06-ls9",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (5b28653 → 0d6979f): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-06",
+  "to": "2026-11-06",
+  "changed": false
+ },
+ "commit": {
+  "from": "5b2865353f31ded5891e5ea9f176ef433378a433",
+  "to": "0d6979fae266b0d588af3417700d55e88a37cf0e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lm-studio/compare/5b2865353f31ded5891e5ea9f176ef433378a433...0d6979fae266b0d588af3417700d55e88a37cf0e",
+  "commits": [
+   {
+    "sha": "0d6979fae266b0d588af3417700d55e88a37cf0e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T20:48:05Z",
+    "url": "https://github.com/linuxserver-playground/docker-lm-studio/commit/0d6979fae266b0d588af3417700d55e88a37cf0e",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:56fe6be93c625f9549d4589b4dd663ce99e9efe02149c826bcd5f3aeab0c4e46"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:86a816311537c9c907cb07a0a0efd9415ad339708ba972c83e8a008284f4b947"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 9456629283,
+   "to": 9460175822,
+   "delta": 3546539
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ansible",
+      "from": "14.5.0-1",
+      "to": "14.6.0-1",
+      "purl": "pkg:alpm/arch/ansible@14.6.0-1?arch=any&distro=arch-rolling&upstream=ansible"
+     },
+     {
+      "name": "kirigami-addons",
+      "from": "1.16.0-1",
+      "to": "1.16.1-1",
+      "purl": "pkg:alpm/arch/kirigami-addons@1.16.1-1?arch=x86_64&distro=arch-rolling&upstream=kirigami-addons"
+     },
+     {
+      "name": "kvantum",
+      "from": "1.1.8-1",
+      "to": "1.1.9-1",
+      "purl": "pkg:alpm/arch/kvantum@1.1.9-1?arch=x86_64&distro=arch-rolling&upstream=kvantum"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@ai-sdk/amazon-bedrock",
+      "from": "5.0.134",
+      "to": "5.0.135",
+      "purl": "pkg:npm/%40ai-sdk/amazon-bedrock@5.0.135"
+     },
+     {
+      "name": "@ai-sdk/anthropic",
+      "from": "4.0.98",
+      "to": "4.0.99",
+      "purl": "pkg:npm/%40ai-sdk/anthropic@4.0.99"
+     },
+     {
+      "name": "@ai-sdk/google",
+      "from": "4.0.113",
+      "to": "4.0.114",
+      "purl": "pkg:npm/%40ai-sdk/google@4.0.114"
+     },
+     {
+      "name": "@ai-sdk/google-vertex",
+      "from": "5.0.133",
+      "to": "5.0.134",
+      "purl": "pkg:npm/%40ai-sdk/google-vertex@5.0.134"
+     },
+     {
+      "name": "@ai-sdk/mistral",
+      "from": "4.0.80",
+      "to": "4.0.81",
+      "purl": "pkg:npm/%40ai-sdk/mistral@4.0.81"
+     },
+     {
+      "name": "@ai-sdk/openai",
+      "from": "4.0.110",
+      "to": "4.0.111",
+      "purl": "pkg:npm/%40ai-sdk/openai@4.0.111"
+     },
+     {
+      "name": "@ai-sdk/openai-compatible",
+      "from": "3.0.86",
+      "to": "3.0.87",
+      "purl": "pkg:npm/%40ai-sdk/openai-compatible@3.0.87"
+     },
+     {
+      "name": "@ai-sdk/provider",
+      "from": "4.0.36",
+      "to": "4.0.37",
+      "purl": "pkg:npm/%40ai-sdk/provider@4.0.37"
+     },
+     {
+      "name": "@ai-sdk/provider-utils",
+      "from": "5.0.75",
+      "to": "5.0.76",
+      "purl": "pkg:npm/%40ai-sdk/provider-utils@5.0.76"
+     },
+     {
+      "name": "@openclaw/a2a",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/a2a@2026.11.2"
+     },
+     {
+      "name": "@openclaw/admin-http-rpc",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/admin-http-rpc@2026.11.2"
+     },
+     {
+      "name": "@openclaw/advisor",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/advisor@2026.11.2"
+     },
+     {
+      "name": "@openclaw/agentsapi",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/agentsapi@2026.11.2"
+     },
+     {
+      "name": "@openclaw/ai",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/ai@2026.11.2"
+     },
+     {
+      "name": "@openclaw/alibaba-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/alibaba-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/anthropic-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/anthropic-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/apple-fm-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/apple-fm-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/azure-speech",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/azure-speech@2026.11.2"
+     },
+     {
+      "name": "@openclaw/beam",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/beam@2026.11.2"
+     },
+     {
+      "name": "@openclaw/bonjour",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/bonjour@2026.11.2"
+     },
+     {
+      "name": "@openclaw/browser-plugin",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/browser-plugin@2026.11.2"
+     },
+     {
+      "name": "@openclaw/canvas-plugin",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/canvas-plugin@2026.11.2"
+     },
+     {
+      "name": "@openclaw/clawrouter",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/clawrouter@2026.11.2"
+     },
+     {
+      "name": "@openclaw/cloudflare",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/cloudflare@2026.11.2"
+     },
+     {
+      "name": "@openclaw/code-mode-quickjs",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/code-mode-quickjs@2026.11.2"
+     },
+     {
+      "name": "@openclaw/copilot-proxy",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/copilot-proxy@2026.11.2"
+     },
+     {
+      "name": "@openclaw/crabbox-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/crabbox-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/cua-computer",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/cua-computer@2026.11.2"
+     },
+     {
+      "name": "@openclaw/deepgram-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/deepgram-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/document-extract-plugin",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/document-extract-plugin@2026.11.2"
+     },
+     {
+      "name": "@openclaw/elevenlabs-speech",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/elevenlabs-speech@2026.11.2"
+     },
+     {
+      "name": "@openclaw/fal-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/fal-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/file-transfer",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/file-transfer@2026.11.2"
+     },
+     {
+      "name": "@openclaw/geolocation-plugin",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/geolocation-plugin@2026.11.2"
+     },
+     {
+      "name": "@openclaw/github",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/github@2026.11.2"
+     },
+     {
+      "name": "@openclaw/github-copilot-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/github-copilot-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/google-plugin",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/google-plugin@2026.11.2"
+     },
+     {
+      "name": "@openclaw/huggingface-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/huggingface-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/image-generation-core",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/image-generation-core@2026.11.2"
+     },
+     {
+      "name": "@openclaw/imap",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/imap@2026.11.2"
+     },
+     {
+      "name": "@openclaw/kie-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/kie-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/linux-node",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/linux-node@2026.11.2"
+     },
+     {
+      "name": "@openclaw/litellm-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/litellm-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/llm-task",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/llm-task@2026.11.2"
+     },
+     {
+      "name": "@openclaw/lmstudio-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/lmstudio-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/logbook",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/logbook@2026.11.2"
+     },
+     {
+      "name": "@openclaw/mcp-events",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/mcp-events@2026.11.2"
+     },
+     {
+      "name": "@openclaw/mcp-relay",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/mcp-relay@2026.11.2"
+     },
+     {
+      "name": "@openclaw/memory-core",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/memory-core@2026.11.2"
+     },
+     {
+      "name": "@openclaw/memory-wiki",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/memory-wiki@2026.11.2"
+     },
+     {
+      "name": "@openclaw/microsoft-foundry",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/microsoft-foundry@2026.11.2"
+     },
+     {
+      "name": "@openclaw/microsoft-speech",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/microsoft-speech@2026.11.2"
+     },
+     {
+      "name": "@openclaw/migrate-claude",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/migrate-claude@2026.11.2"
+     },
+     {
+      "name": "@openclaw/migrate-hermes",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/migrate-hermes@2026.11.2"
+     },
+     {
+      "name": "@openclaw/minimax-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/minimax-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/nvidia-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/nvidia-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/oc-path",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/oc-path@2026.11.2"
+     },
+     {
+      "name": "@openclaw/ollama-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/ollama-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/onepassword",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/onepassword@2026.11.2"
+     },
+     {
+      "name": "@openclaw/openai-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/openai-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/opencode-go-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/opencode-go-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/openrouter-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/openrouter-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/policy",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/policy@2026.11.2"
+     },
+     {
+      "name": "@openclaw/reef",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/reef@2026.11.2"
+     },
+     {
+      "name": "@openclaw/runway-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/runway-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/senseaudio-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/senseaudio-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/session-share",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/session-share@2026.11.2"
+     },
+     {
+      "name": "@openclaw/sglang-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/sglang-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/telegram",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/telegram@2026.11.2"
+     },
+     {
+      "name": "@openclaw/together-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/together-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/tts-local-cli",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/tts-local-cli@2026.11.2"
+     },
+     {
+      "name": "@openclaw/vault",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/vault@2026.11.2"
+     },
+     {
+      "name": "@openclaw/vllm-provider",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/vllm-provider@2026.11.2"
+     },
+     {
+      "name": "@openclaw/web-readability-plugin",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/web-readability-plugin@2026.11.2"
+     },
+     {
+      "name": "@openclaw/workboard",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/workboard@2026.11.2"
+     },
+     {
+      "name": "@openclaw/x",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/x@2026.11.2"
+     },
+     {
+      "name": "@openclaw/xai-plugin",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/%40openclaw/xai-plugin@2026.11.2"
+     },
+     {
+      "name": "axios",
+      "from": "1.21.0",
+      "to": "1.21.1",
+      "purl": "pkg:npm/axios@1.21.1"
+     },
+     {
+      "name": "follow-redirects",
+      "from": "1.16.2",
+      "to": "1.16.3",
+      "purl": "pkg:npm/follow-redirects@1.16.3"
+     },
+     {
+      "name": "hono",
+      "from": "4.13.16",
+      "to": "4.13.17",
+      "purl": "pkg:npm/hono@4.13.17"
+     },
+     {
+      "name": "jose",
+      "from": "6.2.15",
+      "to": "6.2.16",
+      "purl": "pkg:npm/jose@6.2.16"
+     },
+     {
+      "name": "openclaw",
+      "from": "2026.11.1",
+      "to": "2026.11.2",
+      "purl": "pkg:npm/openclaw@2026.11.2"
+     },
+     {
+      "name": "ws",
+      "from": "8.22.1",
+      "to": "8.22.2",
+      "purl": "pkg:npm/ws@8.22.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ansible",
+      "from": "14.5.0",
+      "to": "14.6.0",
+      "purl": "pkg:pypi/ansible@14.6.0"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 88,
+  "downgraded": 0
+ }
+}

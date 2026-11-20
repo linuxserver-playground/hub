@@ -1,0 +1,222 @@
+{
+ "schema": 1,
+ "name": "radarr",
+ "summary": "[Radarr](https://github.com/Radarr/Radarr) - A fork of Sonarr to work with movies à la Couchpotato.",
+ "upstream": {
+  "url": "https://github.com/Radarr/Radarr",
+  "version": {
+   "type": "json",
+   "url": "https://radarr.servarr.com/v1/update/develop/changes?runtime=netcore%26os=linuxmusl",
+   "jq": ".[0].version"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "Radarr/Radarr",
+   "tag": "v${VERSION}"
+  },
+  "sponsor": [
+   {
+    "name": "Radarr",
+    "url": "https://opencollective.com/radarr"
+   }
+  ]
+ },
+ "release": {
+  "branch": "develop",
+  "tag": "develop",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable Radarr releases"
+   },
+   {
+    "tag": "develop",
+    "description": "Radarr releases from their develop branch"
+   },
+   {
+    "tag": "nightly",
+    "description": "Radarr releases from their nightly branch"
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "RADARR_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 240,
+  "web": {
+   "port": 7878,
+   "path": "/system/status"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "7878",
+    "description": "The port for the Radarr web UI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/radarr/data",
+    "description": "Database and Radarr configs"
+   },
+   {
+    "path": "/movies",
+    "host_path": "/path/to/movies",
+    "description": "Location of Movie library on disk (See note in Application setup)",
+    "optional": true
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/download-client-downloads",
+    "description": "Location of download managers output directory (See note in Application setup)",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Media Management"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/radarr.png",
+  "setup": "Access the webui at `<your-ip>:7878`, for more information check out [Radarr](https://github.com/Radarr/Radarr).\n",
+  "notices": {
+   "media": true
+  }
+ },
+ "proxy": {
+  "port": 7878,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true,
+   "base_url_note": "Settings → General → URL Base, set to /radarr"
+  },
+  "api_locations": [
+   "/api"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-10-19",
+   "text": "Add krb5-libs for better postgresql support."
+  },
+  {
+   "date": "2026-07-04",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2026-01-15",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-07-05",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-12-20",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-25",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-20",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-06-06",
+   "text": "Rebase develop to Alpine 3.18."
+  },
+  {
+   "date": "2022-12-19",
+   "text": "Rebase develop branch to Alpine 3.17, migrate to s6v3."
+  },
+  {
+   "date": "2022-02-20",
+   "text": "Rebase develop branch to Alpine."
+  },
+  {
+   "date": "2021-10-17",
+   "text": "Remove `UMASK_SET`."
+  },
+  {
+   "date": "2021-07-11",
+   "text": "Make the paths clearer to the user"
+  },
+  {
+   "date": "2021-01-17",
+   "text": "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information."
+  },
+  {
+   "date": "2020-11-30",
+   "text": "Publish `develop` tag."
+  },
+  {
+   "date": "2020-11-28",
+   "text": "Switch to v3 .NET CORE builds (no more mono, `5.14` tag is deprecated). Rebase to Focal (for issues on arm32v7, [see here](https://docs.linuxserver.io/faq#my-host-is-incompatible-with-images-based-on-ubuntu-focal))."
+  },
+  {
+   "date": "2020-04-05",
+   "text": "Move app to /app."
+  },
+  {
+   "date": "2019-08-01",
+   "text": "Rebase to Linuxserver LTS mono version."
+  },
+  {
+   "date": "2019-06-13",
+   "text": "Add env variable for setting umask."
+  },
+  {
+   "date": "2019-05-10",
+   "text": "Rebase to Bionic."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2018-09-09",
+   "text": "Add pipeline build process."
+  },
+  {
+   "date": "2018-02-24",
+   "text": "Add nightly branch."
+  },
+  {
+   "date": "2018-02-06",
+   "text": "Radarr repo changed owner."
+  },
+  {
+   "date": "2017-12-15",
+   "text": "Fix continuation lines."
+  },
+  {
+   "date": "2017-04-17",
+   "text": "Switch to using inhouse mono baseimage, adds python also."
+  },
+  {
+   "date": "2017-04-13",
+   "text": "Switch to official mono repository."
+  },
+  {
+   "date": "2017-01-10",
+   "text": "Initial Release."
+  }
+ ]
+}

@@ -1,0 +1,461 @@
+{
+ "image": "opera",
+ "branch": "master",
+ "tag": "140.0.6074.18-ls7",
+ "previous_tag": "138.0.6044.24-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "8 commits (bf783bc → de68491): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "138.0.6044.24",
+  "to": "140.0.6074.18",
+  "changed": true
+ },
+ "commit": {
+  "from": "bf783bc20f8bbff7bf34e9231315c61d4f6cb8f5",
+  "to": "de68491510390e4775e7c4811872a40a26d09453",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-opera/compare/bf783bc20f8bbff7bf34e9231315c61d4f6cb8f5...de68491510390e4775e7c4811872a40a26d09453",
+  "commits": [
+   {
+    "sha": "d296191b9ecc7220abbe304b77596e2c1a1a729c",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:49:11Z",
+    "url": "https://github.com/linuxserver-playground/docker-opera/commit/d296191b9ecc7220abbe304b77596e2c1a1a729c",
+    "bot": true
+   },
+   {
+    "sha": "49ab08f6fb8df081dfc6cd04ee703dbe438612fa",
+    "subject": "Read the upstream version with a typed source instead of a shell command",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T19:48:41Z",
+    "url": "https://github.com/linuxserver-playground/docker-opera/commit/49ab08f6fb8df081dfc6cd04ee703dbe438612fa",
+    "bot": false
+   },
+   {
+    "sha": "e3597cdd949bc39f271cae4b643b08e20d7230d7",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T22:49:28Z",
+    "url": "https://github.com/linuxserver-playground/docker-opera/commit/e3597cdd949bc39f271cae4b643b08e20d7230d7",
+    "bot": true
+   },
+   {
+    "sha": "023e2d84bd56cf87c29eff7c09c132be4c786144",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T22:57:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-opera/commit/023e2d84bd56cf87c29eff7c09c132be4c786144",
+    "bot": true
+   },
+   {
+    "sha": "361901f7ea209d29ae18b9e2b13f79a31db7f12f",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T09:49:48Z",
+    "url": "https://github.com/linuxserver-playground/docker-opera/commit/361901f7ea209d29ae18b9e2b13f79a31db7f12f",
+    "bot": true
+   },
+   {
+    "sha": "f85b9ecc0d3b6084fc66ca97b63706059c005e29",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T09:58:59Z",
+    "url": "https://github.com/linuxserver-playground/docker-opera/commit/f85b9ecc0d3b6084fc66ca97b63706059c005e29",
+    "bot": true
+   },
+   {
+    "sha": "fec6b98af1e1e0b573626b30bda38f3351a6ed06",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T22:58:18Z",
+    "url": "https://github.com/linuxserver-playground/docker-opera/commit/fec6b98af1e1e0b573626b30bda38f3351a6ed06",
+    "bot": true
+   },
+   {
+    "sha": "de68491510390e4775e7c4811872a40a26d09453",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T14:03:03Z",
+    "url": "https://github.com/linuxserver-playground/docker-opera/commit/de68491510390e4775e7c4811872a40a26d09453",
+    "bot": true
+   }
+  ],
+  "count": 8,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:731016ff9660aac7a2328ef09c7818ac30a240fd6452035eb2750a4d4657b61b"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:6d8031254fcdbcfa840ee42adb617b752a5876a013b438c80b61806ab278dc46"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1192545015,
+   "to": 1140725925,
+   "delta": -51819090
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt@3.0.4?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "apt-transport-https",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt-transport-https@3.0.4?arch=all&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt-utils@3.0.4?arch=amd64&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "docker-ce",
+      "from": "5:29.9.2-1~debian.13~trixie",
+      "to": "5:29.9.3-1~debian.13~trixie",
+      "purl": "pkg:deb/debian/docker-ce@5%3A29.9.3-1~debian.13~trixie?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "docker-ce-cli",
+      "from": "5:29.9.2-1~debian.13~trixie",
+      "to": "5:29.9.3-1~debian.13~trixie",
+      "purl": "pkg:deb/debian/docker-ce-cli@5%3A29.9.3-1~debian.13~trixie?arch=amd64&distro=debian-13.7&upstream=docker-ce"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.6.1-1~debian.13~trixie",
+      "to": "5.7.0-1~debian.13~trixie",
+      "purl": "pkg:deb/debian/docker-compose-plugin@5.7.0-1~debian.13~trixie?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/libapt-pkg7.0@3.0.4?arch=amd64&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "libnss3",
+      "from": "2:3.110-1+deb13u4",
+      "to": "2:3.110-1+deb13u5",
+      "purl": "pkg:deb/debian/libnss3@2%3A3.110-1%2Bdeb13u5?arch=amd64&distro=debian-13.7&upstream=nss"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.113-1",
+      "to": "6.12.116-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.116-1?arch=all&distro=debian-13.7&upstream=linux"
+     },
+     {
+      "name": "opera-stable",
+      "from": "138.0.6044.24",
+      "to": "140.0.6074.18",
+      "purl": "pkg:deb/debian/opera-stable@140.0.6074.18?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0+deb13u1",
+      "to": "2026f-0+deb13u1",
+      "purl": "pkg:deb/debian/tzdata@2026f-0%2Bdeb13u1?arch=all&distro=debian-13.7"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-prometheus",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-prometheus@v1.2.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.16.2",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.16.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.8.2+incompatible",
+      "to": "v29.9.2+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.2%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.6.1",
+      "to": "v5.7.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.0"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus",
+      "from": "v1.1.0",
+      "to": "v1.1.1",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus@v1.1.1"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/v2",
+      "from": "v2.1.0",
+      "to": "v2.3.3",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/v2@v2.3.3"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.2"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.0",
+      "to": "v0.34.2",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.34.2"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.2",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.2"
+     },
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v29.9.2",
+      "to": "v29.9.3",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v29.9.3"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20260819142231-83cac42c1c52",
+      "to": "v0.0.0-20261103091533-a72de9dcf763",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103091533-a72de9dcf763"
+     },
+     {
+      "name": "go.yaml.in/yaml/v2",
+      "from": "v2.4.4",
+      "to": "v2.4.5",
+      "purl": "pkg:golang/go.yaml.in/yaml/v2@v2.4.5"
+     },
+     {
+      "name": "go.yaml.in/yaml/v3",
+      "from": "v3.0.5",
+      "to": "v3.0.6",
+      "purl": "pkg:golang/go.yaml.in/yaml/v3@v3.0.6"
+     },
+     {
+      "name": "golang.org/x/net",
+      "from": "v0.61.0",
+      "to": "v0.62.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.62.0"
+     },
+     {
+      "name": "google.golang.org/grpc",
+      "from": "v1.84.0",
+      "to": "v1.85.0",
+      "purl": "pkg:golang/google.golang.org/grpc@v1.85.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "github.com/moby/swarmkit/v2",
+      "from": "v2.1.3-0.20260917205909-1fd637ba5cc3",
+      "to": "v2.1.3",
+      "purl": "pkg:golang/github.com/moby/swarmkit/v2@v2.1.3"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.2",
+      "purl": "pkg:pypi/dnspython@2.9.2"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.2.3",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 3,
+  "removed": 1,
+  "upgraded": 40,
+  "downgraded": 1
+ }
+}

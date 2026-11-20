@@ -1,0 +1,124 @@
+{
+ "image": "calibre-web",
+ "branch": "master",
+ "tag": "0.6.27-ls10",
+ "previous_tag": "0.6.27-ls9",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (b3d6472 → 0669c21): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "0.6.27",
+  "to": "0.6.27",
+  "changed": false
+ },
+ "commit": {
+  "from": "b3d6472aa774c8aea115c303d43ed68ffe665445",
+  "to": "0669c21fd914bc79cfa886568b95cfb0995fdb56",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-calibre-web/compare/b3d6472aa774c8aea115c303d43ed68ffe665445...0669c21fd914bc79cfa886568b95cfb0995fdb56",
+  "commits": [
+   {
+    "sha": "0669c21fd914bc79cfa886568b95cfb0995fdb56",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T20:39:58Z",
+    "url": "https://github.com/linuxserver-playground/docker-calibre-web/commit/0669c21fd914bc79cfa886568b95cfb0995fdb56",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:f3184f0873fff9a934155ac787603c2d43c1b7fc45bffc9357136ad77d3dc8e3"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:5625688e073ff0f6795f3f5e3687c4f4ab313dd4881b1964627094e5ac12c4ee"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 274900000,
+   "to": 268805045,
+   "delta": -6094955
+  },
+  "arm64": {
+   "from": 269994149,
+   "to": 263917032,
+   "delta": -6077117
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "soupsieve",
+      "from": "4.1",
+      "to": "4.1.1",
+      "purl": "pkg:pypi/soupsieve@4.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "soupsieve",
+      "from": "4.1",
+      "to": "4.1.1",
+      "purl": "pkg:pypi/soupsieve@4.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

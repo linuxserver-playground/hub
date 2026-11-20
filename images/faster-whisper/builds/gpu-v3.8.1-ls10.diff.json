@@ -1,0 +1,121 @@
+{
+ "image": "faster-whisper",
+ "branch": "gpu",
+ "tag": "gpu-v3.8.1-ls10",
+ "previous_tag": "gpu-v3.8.1-ls9",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (5ea34c7 → cdc6a99): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v3.8.1",
+  "to": "v3.8.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "5ea34c702d7a6e5aa844d7c0474511b7d40d71e6",
+  "to": "cdc6a9946d2d2cef9a9f8a15a3b1a75594fe0de2",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-faster-whisper/compare/5ea34c702d7a6e5aa844d7c0474511b7d40d71e6...cdc6a9946d2d2cef9a9f8a15a3b1a75594fe0de2",
+  "commits": [
+   {
+    "sha": "cdc6a9946d2d2cef9a9f8a15a3b1a75594fe0de2",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T23:50:25Z",
+    "url": "https://github.com/linuxserver-playground/docker-faster-whisper/commit/cdc6a9946d2d2cef9a9f8a15a3b1a75594fe0de2",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:f3184f0873fff9a934155ac787603c2d43c1b7fc45bffc9357136ad77d3dc8e3"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:5625688e073ff0f6795f3f5e3687c4f4ab313dd4881b1964627094e5ac12c4ee"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1631039412,
+   "to": 1623201563,
+   "delta": -7837849
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "httpcore2",
+      "from": "2.16.0",
+      "to": "2.16.2",
+      "purl": "pkg:pypi/httpcore2@2.16.2"
+     },
+     {
+      "name": "httpx2",
+      "from": "2.16.0",
+      "to": "2.16.2",
+      "purl": "pkg:pypi/httpx2@2.16.2"
+     },
+     {
+      "name": "numpy",
+      "from": "2.5.4",
+      "to": "2.5.5",
+      "purl": "pkg:pypi/numpy@2.5.5"
+     },
+     {
+      "name": "pysilero-vad",
+      "from": "3.4.0",
+      "to": "3.4.1",
+      "purl": "pkg:pypi/pysilero-vad@3.4.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

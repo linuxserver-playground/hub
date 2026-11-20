@@ -1,0 +1,123 @@
+{
+ "image": "pwndrop",
+ "branch": "master",
+ "tag": "1.0.1-ls6",
+ "previous_tag": "1.0.1-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (114446a → c72535c): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.0.1",
+  "to": "1.0.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "114446a9c33fa7ee7098dacf9d98a963ef4a6f08",
+  "to": "c72535c3a68796a97594d35844888776cebba400",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pwndrop/compare/114446a9c33fa7ee7098dacf9d98a963ef4a6f08...c72535c3a68796a97594d35844888776cebba400",
+  "commits": [
+   {
+    "sha": "c72535c3a68796a97594d35844888776cebba400",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T09:52:49Z",
+    "url": "https://github.com/linuxserver-playground/docker-pwndrop/commit/c72535c3a68796a97594d35844888776cebba400",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 18734320,
+   "to": 18733994,
+   "delta": -326
+  },
+  "arm64": {
+   "from": 19350049,
+   "to": 19350559,
+   "delta": 510
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "stdlib",
+      "from": "go1.26.10",
+      "to": "go1.26.11",
+      "purl": "pkg:golang/stdlib@1.26.11"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "stdlib",
+      "from": "go1.26.10",
+      "to": "go1.26.11",
+      "purl": "pkg:golang/stdlib@1.26.11"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

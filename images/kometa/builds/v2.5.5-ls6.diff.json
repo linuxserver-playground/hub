@@ -1,0 +1,954 @@
+{
+ "image": "kometa",
+ "branch": "main",
+ "tag": "v2.5.5-ls6",
+ "previous_tag": "v2.5.3-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "7 commits (1097db0 → be8635c): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v2.5.3",
+  "to": "v2.5.5",
+  "changed": true
+ },
+ "commit": {
+  "from": "1097db06257b4a90e0d9988119cf67177975755b",
+  "to": "be8635cc9fb3af5eb2d775d2ef7c1c8ad29b87ee",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kometa/compare/1097db06257b4a90e0d9988119cf67177975755b...be8635cc9fb3af5eb2d775d2ef7c1c8ad29b87ee",
+  "commits": [
+   {
+    "sha": "7db1afee3a185bb3c0ba44d13b79770dc421364f",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:46:23Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/7db1afee3a185bb3c0ba44d13b79770dc421364f",
+    "bot": true
+   },
+   {
+    "sha": "625e513d65fd0508ba6643868e779c7a70d5e833",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T13:51:39Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/625e513d65fd0508ba6643868e779c7a70d5e833",
+    "bot": true
+   },
+   {
+    "sha": "9d12bbf422d6ee2c111f2c487fe985832052cad3",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T15:46:21Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/9d12bbf422d6ee2c111f2c487fe985832052cad3",
+    "bot": true
+   },
+   {
+    "sha": "bfaf7e6cb8fccf31559942a5e87028361e7f6574",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T15:55:11Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/bfaf7e6cb8fccf31559942a5e87028361e7f6574",
+    "bot": true
+   },
+   {
+    "sha": "b27f1480237f20635cd2bdcb39f8399b28fcac1d",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T17:46:52Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/b27f1480237f20635cd2bdcb39f8399b28fcac1d",
+    "bot": true
+   },
+   {
+    "sha": "d85ea29441dcac04bcce903e46a74d3bdb94512e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T17:56:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/d85ea29441dcac04bcce903e46a74d3bdb94512e",
+    "bot": true
+   },
+   {
+    "sha": "be8635cc9fb3af5eb2d775d2ef7c1c8ad29b87ee",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T17:57:34Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/be8635cc9fb3af5eb2d775d2ef7c1c8ad29b87ee",
+    "bot": true
+   }
+  ],
+  "count": 7,
+  "truncated": false,
+  "areas": {
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:3e48e94fd69c1f32b89bebc67864fc80f75954690031010308313143c90cf2b5"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 315638129,
+   "to": 318383605,
+   "delta": 2745476
+  },
+  "arm64": {
+   "from": 314897752,
+   "to": 317787627,
+   "delta": 2889875
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "FriBiDi",
+      "from": "1.0.16",
+      "to": "1.0.17",
+      "purl": "pkg:generic/fribidi"
+     },
+     {
+      "name": "HarfBuzz",
+      "from": "14.2.1",
+      "to": "14.5.0",
+      "purl": "pkg:generic/harfbuzz"
+     },
+     {
+      "name": "libjpeg / libjpeg-turbo",
+      "from": "3.1.4.1",
+      "to": "3.2.0",
+      "purl": "pkg:generic/libjpeg"
+     },
+     {
+      "name": "libtiff",
+      "from": "4.7.1",
+      "to": "4.7.2",
+      "purl": "pkg:generic/libtiff"
+     }
+    ],
+    "downgraded": []
+   },
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r1?arch=x86_64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r1?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r1?arch=x86_64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r1?arch=x86_64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "purl": "pkg:pypi/httpcore2@2.16.0"
+     },
+     {
+      "name": "httpx2",
+      "version": "2.16.0",
+      "purl": "pkg:pypi/httpx2@2.16.0"
+     },
+     {
+      "name": "PIL._avif",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.11.0",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/raqm"
+     },
+     {
+      "name": "pylast",
+      "version": "7.2.0",
+      "purl": "pkg:pypi/pylast@7.2.0"
+     },
+     {
+      "name": "tzdata",
+      "version": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     },
+     {
+      "name": "ytmusicapi",
+      "version": "1.12.3",
+      "purl": "pkg:pypi/ytmusicapi@1.12.3"
+     }
+    ],
+    "removed": [
+     {
+      "name": "PIL._avif",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@12.3.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.10.5",
+      "purl": "pkg:pypi/pillow@12.3.0#thirdparty/raqm"
+     },
+     {
+      "name": "six",
+      "version": "1.17.0",
+      "purl": "pkg:pypi/six@1.17.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "apprise",
+      "from": "2.0.1",
+      "to": "2.2.0",
+      "purl": "pkg:pypi/apprise@2.2.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.7.22",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "gitpython",
+      "from": "3.2.0",
+      "to": "3.2.1",
+      "purl": "pkg:pypi/gitpython@3.2.1"
+     },
+     {
+      "name": "letterboxdpy",
+      "from": "6.5.9",
+      "to": "6.7.0",
+      "purl": "pkg:pypi/letterboxdpy@6.7.0"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pillow",
+      "from": "12.3.0",
+      "to": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0?file_name=pillow-13.0.0-cp314-cp314-musllinux_1_2_x86_64.whl"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.11",
+      "to": "3.12",
+      "purl": "pkg:pypi/pycparser@3.12"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "2.9.0.post0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "setuptools",
+      "from": "84.0.0",
+      "to": "84.2.1",
+      "purl": "pkg:pypi/setuptools@84.2.1"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.1",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.4.0",
+      "purl": "pkg:pypi/tomli@2.4.0"
+     }
+    ]
+   }
+  },
+  "arm64": {
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "FriBiDi",
+      "from": "1.0.16",
+      "to": "1.0.17",
+      "purl": "pkg:generic/fribidi"
+     },
+     {
+      "name": "HarfBuzz",
+      "from": "14.2.1",
+      "to": "14.5.0",
+      "purl": "pkg:generic/harfbuzz"
+     },
+     {
+      "name": "libjpeg / libjpeg-turbo",
+      "from": "3.1.4.1",
+      "to": "3.2.0",
+      "purl": "pkg:generic/libjpeg"
+     },
+     {
+      "name": "libtiff",
+      "from": "4.7.1",
+      "to": "4.7.2",
+      "purl": "pkg:generic/libtiff"
+     }
+    ],
+    "downgraded": []
+   },
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r1?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r1?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r1?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.8-r0",
+      "to": "3.14.10-r1",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r1?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "httpcore2",
+      "version": "2.16.0",
+      "purl": "pkg:pypi/httpcore2@2.16.0"
+     },
+     {
+      "name": "httpx2",
+      "version": "2.16.0",
+      "purl": "pkg:pypi/httpx2@2.16.0"
+     },
+     {
+      "name": "PIL._avif",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.11.0",
+      "purl": "pkg:pypi/pillow@13.0.0#thirdparty/raqm"
+     },
+     {
+      "name": "pylast",
+      "version": "7.2.0",
+      "purl": "pkg:pypi/pylast@7.2.0"
+     },
+     {
+      "name": "tzdata",
+      "version": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     },
+     {
+      "name": "ytmusicapi",
+      "version": "1.12.3",
+      "purl": "pkg:pypi/ytmusicapi@1.12.3"
+     }
+    ],
+    "removed": [
+     {
+      "name": "PIL._avif",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._avif"
+     },
+     {
+      "name": "PIL._imaging",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imaging"
+     },
+     {
+      "name": "PIL._imagingcms",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingcms"
+     },
+     {
+      "name": "PIL._imagingft",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingft"
+     },
+     {
+      "name": "PIL._imagingmath",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingmath"
+     },
+     {
+      "name": "PIL._imagingmorph",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingmorph"
+     },
+     {
+      "name": "PIL._imagingtk",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._imagingtk"
+     },
+     {
+      "name": "PIL._webp",
+      "version": "12.3.0",
+      "purl": "pkg:pypi/pillow@12.3.0#c-ext/PIL._webp"
+     },
+     {
+      "name": "fribidi-shim",
+      "version": "1.x",
+      "purl": "pkg:pypi/pillow@12.3.0#thirdparty/fribidi-shim"
+     },
+     {
+      "name": "raqm",
+      "version": "0.10.5",
+      "purl": "pkg:pypi/pillow@12.3.0#thirdparty/raqm"
+     },
+     {
+      "name": "six",
+      "version": "1.17.0",
+      "purl": "pkg:pypi/six@1.17.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "apprise",
+      "from": "2.0.1",
+      "to": "2.2.0",
+      "purl": "pkg:pypi/apprise@2.2.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.7.22",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "curl-cffi",
+      "from": "0.16.3",
+      "to": "0.17.0",
+      "purl": "pkg:pypi/curl-cffi@0.17.0"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "gitpython",
+      "from": "3.2.0",
+      "to": "3.2.1",
+      "purl": "pkg:pypi/gitpython@3.2.1"
+     },
+     {
+      "name": "letterboxdpy",
+      "from": "6.5.9",
+      "to": "6.7.0",
+      "purl": "pkg:pypi/letterboxdpy@6.7.0"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pillow",
+      "from": "12.3.0",
+      "to": "13.0.0",
+      "purl": "pkg:pypi/pillow@13.0.0?file_name=pillow-13.0.0-cp314-cp314-musllinux_1_2_aarch64.whl"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "pycparser",
+      "from": "3.11",
+      "to": "3.12",
+      "purl": "pkg:pypi/pycparser@3.12"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "2.9.0.post0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "setuptools",
+      "from": "84.0.0",
+      "to": "84.2.1",
+      "purl": "pkg:pypi/setuptools@84.2.1"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.1",
+      "to": "4.1",
+      "purl": "pkg:pypi/soupsieve@4.1"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.4.0",
+      "purl": "pkg:pypi/tomli@2.4.0"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "added": 30,
+  "removed": 22,
+  "upgraded": 78,
+  "downgraded": 2
+ }
+}

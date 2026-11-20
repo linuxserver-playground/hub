@@ -1,0 +1,599 @@
+{
+ "image": "netbox",
+ "branch": "master",
+ "tag": "v4.7.5-ls7",
+ "previous_tag": "v4.7.4-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "8 commits (c645c1d → f373eb2): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v4.7.4",
+  "to": "v4.7.5",
+  "changed": true
+ },
+ "commit": {
+  "from": "c645c1d23994e95a735e851217c03a3b59c6035d",
+  "to": "f373eb24e2b1520cc76d5f8f57c7d6fd986be146",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-netbox/compare/c645c1d23994e95a735e851217c03a3b59c6035d...f373eb24e2b1520cc76d5f8f57c7d6fd986be146",
+  "commits": [
+   {
+    "sha": "bc7bc6367da51d2f8d9eddd37fe6801228856622",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-27T17:35:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/bc7bc6367da51d2f8d9eddd37fe6801228856622",
+    "bot": true
+   },
+   {
+    "sha": "deff06e6f3c5c675a9d8f4d03e00cd2cecf57223",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:48:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/deff06e6f3c5c675a9d8f4d03e00cd2cecf57223",
+    "bot": true
+   },
+   {
+    "sha": "a1610ce2bbb5dccfb93970dd694119da1a11c6d2",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T21:29:18Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/a1610ce2bbb5dccfb93970dd694119da1a11c6d2",
+    "bot": true
+   },
+   {
+    "sha": "ad4f8ecc73cbe9ae980d2782d55671585da42651",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T21:36:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/ad4f8ecc73cbe9ae980d2782d55671585da42651",
+    "bot": true
+   },
+   {
+    "sha": "1b029f55986a4a1663e7853ca921feed05e6bbea",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T17:29:17Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/1b029f55986a4a1663e7853ca921feed05e6bbea",
+    "bot": true
+   },
+   {
+    "sha": "29913c9b736f9263cc3eb90ead586812147f7e98",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T17:38:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/29913c9b736f9263cc3eb90ead586812147f7e98",
+    "bot": true
+   },
+   {
+    "sha": "a3ebde4a9ad6dc19ace4e100fb5d70a05b435c7b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T21:36:22Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/a3ebde4a9ad6dc19ace4e100fb5d70a05b435c7b",
+    "bot": true
+   },
+   {
+    "sha": "f373eb24e2b1520cc76d5f8f57c7d6fd986be146",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T17:45:23Z",
+    "url": "https://github.com/linuxserver-playground/docker-netbox/commit/f373eb24e2b1520cc76d5f8f57c7d6fd986be146",
+    "bot": true
+   }
+  ],
+  "count": 8,
+  "truncated": false,
+  "areas": {
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:4f46c5f444e23c01aa121f4b10113177c536b140b64440c844abb7bc4a65e483"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:4f4271ee62893d6686f6ed90666598a025cb29fbfc98b0ddcff93f7a61fec58c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 131475044,
+   "to": 132277914,
+   "delta": 802870
+  },
+  "arm64": {
+   "from": 131103461,
+   "to": 131898010,
+   "delta": 794549
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.23.7-r0",
+      "to": "3.23.8-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.23.8-r0?arch=x86_64&distro=alpine-3.23.8&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=x86_64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=x86_64&distro=alpine-3.23.8&upstream=apk-tools"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.23.8&upstream=expat"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.23.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "zensical-ui",
+      "version": "0.0.41",
+      "purl": "pkg:pypi/zensical-ui@0.0.41"
+     }
+    ],
+    "removed": [
+     {
+      "name": "deepmerge",
+      "version": "4.0.0",
+      "purl": "pkg:pypi/deepmerge@4.0.0"
+     },
+     {
+      "name": "six",
+      "version": "1.17.0",
+      "purl": "pkg:pypi/six@1.17.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "croniter",
+      "from": "6.2.4",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/croniter@7.0.0"
+     },
+     {
+      "name": "cross-web",
+      "from": "0.7.0",
+      "to": "0.7.1",
+      "purl": "pkg:pypi/cross-web@0.7.1"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "django",
+      "from": "6.1.2",
+      "to": "6.1.3",
+      "purl": "pkg:pypi/django@6.1.3"
+     },
+     {
+      "name": "django-taggit",
+      "from": "6.1.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/django-taggit@7.0.0"
+     },
+     {
+      "name": "graphql-core",
+      "from": "3.3.1",
+      "to": "3.3.2",
+      "purl": "pkg:pypi/graphql-core@3.3.2"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11.2",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "markdown-it-py",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/markdown-it-py@4.3.0"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.13.6",
+      "to": "4.14.5",
+      "purl": "pkg:pypi/platformdirs@4.14.5"
+     },
+     {
+      "name": "psycopg",
+      "from": "3.3.6",
+      "to": "3.3.8",
+      "purl": "pkg:pypi/psycopg@3.3.8"
+     },
+     {
+      "name": "psycopg-c",
+      "from": "3.3.6",
+      "to": "3.3.8",
+      "purl": "pkg:pypi/psycopg-c@3.3.8"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "3.0.0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "sqlparse",
+      "from": "0.6.0",
+      "to": "0.6.1",
+      "purl": "pkg:pypi/sqlparse@0.6.1"
+     },
+     {
+      "name": "strawberry-graphql",
+      "from": "0.338.0",
+      "to": "0.341.2",
+      "purl": "pkg:pypi/strawberry-graphql@0.341.2"
+     },
+     {
+      "name": "strawberry-graphql-django",
+      "from": "0.93.0",
+      "to": "0.96.3",
+      "purl": "pkg:pypi/strawberry-graphql-django@0.96.3"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     },
+     {
+      "name": "zensical",
+      "from": "0.0.73",
+      "to": "0.1.0",
+      "purl": "pkg:pypi/zensical@0.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.23.7-r0",
+      "to": "3.23.8-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.23.8-r0?arch=aarch64&distro=alpine-3.23.8&upstream=alpine-base"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.23.8&upstream=apk-tools"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.23.8&upstream=expat"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.23.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "zensical-ui",
+      "version": "0.0.41",
+      "purl": "pkg:pypi/zensical-ui@0.0.41"
+     }
+    ],
+    "removed": [
+     {
+      "name": "deepmerge",
+      "version": "4.0.0",
+      "purl": "pkg:pypi/deepmerge@4.0.0"
+     },
+     {
+      "name": "six",
+      "version": "1.17.0",
+      "purl": "pkg:pypi/six@1.17.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "croniter",
+      "from": "6.2.4",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/croniter@7.0.0"
+     },
+     {
+      "name": "cross-web",
+      "from": "0.7.0",
+      "to": "0.7.1",
+      "purl": "pkg:pypi/cross-web@0.7.1"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "django",
+      "from": "6.1.2",
+      "to": "6.1.3",
+      "purl": "pkg:pypi/django@6.1.3"
+     },
+     {
+      "name": "django-taggit",
+      "from": "6.1.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/django-taggit@7.0.0"
+     },
+     {
+      "name": "graphql-core",
+      "from": "3.3.1",
+      "to": "3.3.2",
+      "purl": "pkg:pypi/graphql-core@3.3.2"
+     },
+     {
+      "name": "markdown",
+      "from": "3.11.2",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "markdown-it-py",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/markdown-it-py@4.3.0"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "oauthlib",
+      "from": "4.0.0",
+      "to": "4.0.1",
+      "purl": "pkg:pypi/oauthlib@4.0.1"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.13.6",
+      "to": "4.14.5",
+      "purl": "pkg:pypi/platformdirs@4.14.5"
+     },
+     {
+      "name": "psycopg",
+      "from": "3.3.6",
+      "to": "3.3.8",
+      "purl": "pkg:pypi/psycopg@3.3.8"
+     },
+     {
+      "name": "psycopg-c",
+      "from": "3.3.6",
+      "to": "3.3.8",
+      "purl": "pkg:pypi/psycopg-c@3.3.8"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "python-dateutil",
+      "from": "3.0.0",
+      "to": "4.0.0",
+      "purl": "pkg:pypi/python-dateutil@4.0.0"
+     },
+     {
+      "name": "sqlparse",
+      "from": "0.6.0",
+      "to": "0.6.1",
+      "purl": "pkg:pypi/sqlparse@0.6.1"
+     },
+     {
+      "name": "strawberry-graphql",
+      "from": "0.338.0",
+      "to": "0.341.2",
+      "purl": "pkg:pypi/strawberry-graphql@0.341.2"
+     },
+     {
+      "name": "strawberry-graphql-django",
+      "from": "0.93.0",
+      "to": "0.96.3",
+      "purl": "pkg:pypi/strawberry-graphql-django@0.96.3"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026.5",
+      "to": "2026.6",
+      "purl": "pkg:pypi/tzdata@2026.6"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     },
+     {
+      "name": "zensical",
+      "from": "0.0.73",
+      "to": "0.1.0",
+      "purl": "pkg:pypi/zensical@0.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 4,
+  "upgraded": 60,
+  "downgraded": 0
+ }
+}

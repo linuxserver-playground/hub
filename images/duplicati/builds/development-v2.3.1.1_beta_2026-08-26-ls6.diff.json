@@ -1,0 +1,161 @@
+{
+ "image": "duplicati",
+ "branch": "development",
+ "tag": "development-v2.3.1.1_beta_2026-08-26-ls6",
+ "previous_tag": "development-v2.3.1.1_beta_2026-08-26-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (40ed53c → ab9fb33): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v2.3.1.1_beta_2026-08-26",
+  "to": "v2.3.1.1_beta_2026-08-26",
+  "changed": false
+ },
+ "commit": {
+  "from": "40ed53ce3392de5b381bd6cf70b24685aef40a40",
+  "to": "ab9fb334bcc389f7104747328436f0978a75a493",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-duplicati/compare/40ed53ce3392de5b381bd6cf70b24685aef40a40...ab9fb334bcc389f7104747328436f0978a75a493",
+  "commits": [
+   {
+    "sha": "ab9fb334bcc389f7104747328436f0978a75a493",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T11:55:09Z",
+    "url": "https://github.com/linuxserver-playground/docker-duplicati/commit/ab9fb334bcc389f7104747328436f0978a75a493",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:f3184f0873fff9a934155ac787603c2d43c1b7fc45bffc9357136ad77d3dc8e3"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 189175762,
+   "to": 187298722,
+   "delta": -1877040
+  },
+  "arm64": {
+   "from": 185368818,
+   "to": 183597136,
+   "delta": -1771682
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "distro-info",
+      "from": "1.7build1",
+      "to": "1.7ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/distro-info@1.7ubuntu0.1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=perl"
+     },
+     {
+      "name": "python3-distro-info",
+      "from": "1.7build1",
+      "to": "1.7ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/python3-distro-info@1.7ubuntu0.1?arch=all&distro=ubuntu-24.04&upstream=distro-info"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "distro-info",
+      "from": "1.7+build1",
+      "to": "1.7+ubuntu0.1",
+      "purl": "pkg:pypi/distro-info@1.7%2Bubuntu0.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 7,
+  "downgraded": 0
+ }
+}
