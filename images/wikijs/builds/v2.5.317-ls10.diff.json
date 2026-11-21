@@ -1,0 +1,123 @@
+{
+ "image": "wikijs",
+ "branch": "master",
+ "tag": "v2.5.317-ls10",
+ "previous_tag": "v2.5.317-ls9",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (3a1b697 → 930ab07): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v2.5.317",
+  "to": "v2.5.317",
+  "changed": false
+ },
+ "commit": {
+  "from": "3a1b69746306b52e0452eb85035554e8bc2488b8",
+  "to": "930ab072c9a70dd1cce20d1a221ff6b6bb3ea135",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-wikijs/compare/3a1b69746306b52e0452eb85035554e8bc2488b8...930ab072c9a70dd1cce20d1a221ff6b6bb3ea135",
+  "commits": [
+   {
+    "sha": "930ab072c9a70dd1cce20d1a221ff6b6bb3ea135",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T16:05:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-wikijs/commit/930ab072c9a70dd1cce20d1a221ff6b6bb3ea135",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 142993527,
+   "to": 142998212,
+   "delta": 4685
+  },
+  "arm64": {
+   "from": 143328536,
+   "to": 143337931,
+   "delta": 9395
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r1",
+      "to": "24.22.3-r0",
+      "purl": "pkg:apk/alpine/nodejs@24.22.3-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r1",
+      "to": "24.22.3-r0",
+      "purl": "pkg:apk/alpine/nodejs@24.22.3-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,161 @@
+{
+ "image": "mylar3",
+ "branch": "nightly",
+ "tag": "nightly-3cab379d-ls9",
+ "previous_tag": "nightly-3cab379d-ls8",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (553fdec → a04e74b): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "3cab379d",
+  "to": "3cab379d",
+  "changed": false
+ },
+ "commit": {
+  "from": "553fdec3738c9e996ecca443d672ba0c721e5dd3",
+  "to": "a04e74bf498ec7b9a4515b86df5219993911591e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mylar3/compare/553fdec3738c9e996ecca443d672ba0c721e5dd3...a04e74bf498ec7b9a4515b86df5219993911591e",
+  "commits": [
+   {
+    "sha": "a04e74bf498ec7b9a4515b86df5219993911591e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T13:18:30Z",
+    "url": "https://github.com/linuxserver-playground/docker-mylar3/commit/a04e74bf498ec7b9a4515b86df5219993911591e",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 93997560,
+   "to": 94120135,
+   "delta": 122575
+  },
+  "arm64": {
+   "from": 92483211,
+   "to": 92618068,
+   "delta": 134857
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r1",
+      "to": "24.22.3-r0",
+      "purl": "pkg:apk/alpine/nodejs@24.22.3-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pycryptodome",
+      "from": "4.4.0",
+      "to": "4.5.0",
+      "purl": "pkg:pypi/pycryptodome@4.5.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.1",
+      "to": "4.1.1",
+      "purl": "pkg:pypi/soupsieve@4.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r1",
+      "to": "24.22.3-r0",
+      "purl": "pkg:apk/alpine/nodejs@24.22.3-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pycryptodome",
+      "from": "4.4.0",
+      "to": "4.5.0",
+      "purl": "pkg:pypi/pycryptodome@4.5.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.1",
+      "to": "4.1.1",
+      "purl": "pkg:pypi/soupsieve@4.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

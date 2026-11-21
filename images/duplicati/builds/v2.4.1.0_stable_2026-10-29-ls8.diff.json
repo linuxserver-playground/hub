@@ -1,0 +1,186 @@
+{
+ "image": "duplicati",
+ "branch": "master",
+ "tag": "v2.4.1.0_stable_2026-10-29-ls8",
+ "previous_tag": "v2.4.1.0_stable_2026-10-29-ls7",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (6d50e40 → 7d9a91e): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v2.4.1.0_stable_2026-10-29",
+  "to": "v2.4.1.0_stable_2026-10-29",
+  "changed": false
+ },
+ "commit": {
+  "from": "6d50e40c47cdaffd9acadbc5e21994d93b4bccdc",
+  "to": "7d9a91e3655865fbbf670ac03d46374394f99518",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-duplicati/compare/6d50e40c47cdaffd9acadbc5e21994d93b4bccdc...7d9a91e3655865fbbf670ac03d46374394f99518",
+  "commits": [
+   {
+    "sha": "7d9a91e3655865fbbf670ac03d46374394f99518",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T10:47:22Z",
+    "url": "https://github.com/linuxserver-playground/docker-duplicati/commit/7d9a91e3655865fbbf670ac03d46374394f99518",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:f3184f0873fff9a934155ac787603c2d43c1b7fc45bffc9357136ad77d3dc8e3"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 188612250,
+   "to": 186735603,
+   "delta": -1876647
+  },
+  "arm64": {
+   "from": 184796006,
+   "to": 183024303,
+   "delta": -1771703
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "distro-info",
+      "from": "1.7build1",
+      "to": "1.7ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/distro-info@1.7ubuntu0.1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=perl"
+     },
+     {
+      "name": "python3-distro-info",
+      "from": "1.7build1",
+      "to": "1.7ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/python3-distro-info@1.7ubuntu0.1?arch=all&distro=ubuntu-24.04&upstream=distro-info"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "distro-info",
+      "from": "1.7+build1",
+      "to": "1.7+ubuntu0.1",
+      "purl": "pkg:pypi/distro-info@1.7%2Bubuntu0.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "distro-info",
+      "from": "1.7build1",
+      "to": "1.7ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/distro-info@1.7ubuntu0.1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=perl"
+     },
+     {
+      "name": "python3-distro-info",
+      "from": "1.7build1",
+      "to": "1.7ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/python3-distro-info@1.7ubuntu0.1?arch=all&distro=ubuntu-24.04&upstream=distro-info"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "distro-info",
+      "from": "1.7+build1",
+      "to": "1.7+ubuntu0.1",
+      "purl": "pkg:pypi/distro-info@1.7%2Bubuntu0.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

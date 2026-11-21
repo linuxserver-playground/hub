@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "name": "baseimage-selkies",
+ "kind": "base",
+ "summary": "baseimage-selkies container image.",
+ "upstream": {
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "fedora44",
+  "tag": "fedora44",
+  "channel": "prerelease"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "SELKIES_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ],
+  "first_party": false
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {},
+ "docs": {
+  "categories": [
+   "Uncategorized"
+  ],
+  "custom_readme": "Up to date documentation is available [here](https://github.com/linuxserver/docker-baseimage-selkies/blob/master/README.md).\n"
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ }
+}

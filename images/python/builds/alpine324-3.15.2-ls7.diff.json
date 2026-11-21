@@ -1,0 +1,248 @@
+{
+ "image": "python",
+ "branch": "alpine324",
+ "tag": "alpine324-3.15.2-ls7",
+ "previous_tag": "alpine324-3.15.2-ls6",
+ "classification": "packages",
+ "reasons": [
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "3.15.2",
+  "to": "3.15.2",
+  "changed": false
+ },
+ "commit": {
+  "from": "9e0e23b780e21ac4e89cb464d5cef3dafc907643",
+  "to": "9e0e23b780e21ac4e89cb464d5cef3dafc907643",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 27797662,
+   "to": 28011324,
+   "delta": 213662
+  },
+  "arm64": {
+   "from": 27698888,
+   "to": 27916517,
+   "delta": 217629
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.19",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "idna",
+      "from": "3.18",
+      "to": "3.20",
+      "purl": "pkg:pypi/idna@3.20"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "packaging",
+      "from": "26.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/packaging@26.3"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.10.0",
+      "to": "4.12.4",
+      "purl": "pkg:pypi/platformdirs@4.12.4"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "urllib3",
+      "from": "2.7.0",
+      "to": "2.8.0",
+      "purl": "pkg:pypi/urllib3@2.8.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.3.2",
+      "purl": "pkg:pypi/tomli@2.3.2"
+     }
+    ]
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.19",
+      "to": "2026.10.23",
+      "purl": "pkg:pypi/certifi@2026.10.23"
+     },
+     {
+      "name": "distlib",
+      "from": "0.4.2",
+      "to": "0.4.4",
+      "purl": "pkg:pypi/distlib@0.4.4"
+     },
+     {
+      "name": "idna",
+      "from": "3.18",
+      "to": "3.20",
+      "purl": "pkg:pypi/idna@3.20"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.1.2",
+      "to": "1.2.4",
+      "purl": "pkg:pypi/msgpack@1.2.4"
+     },
+     {
+      "name": "packaging",
+      "from": "26.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/packaging@26.3"
+     },
+     {
+      "name": "pip",
+      "from": "26.2.2",
+      "to": "26.3",
+      "purl": "pkg:pypi/pip@26.3"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.10.0",
+      "to": "4.12.4",
+      "purl": "pkg:pypi/platformdirs@4.12.4"
+     },
+     {
+      "name": "pygments",
+      "from": "2.20.0",
+      "to": "2.21.0",
+      "purl": "pkg:pypi/pygments@2.21.0"
+     },
+     {
+      "name": "pyproject-hooks",
+      "from": "1.2.0",
+      "to": "1.3.3",
+      "purl": "pkg:pypi/pyproject-hooks@1.3.3"
+     },
+     {
+      "name": "rich",
+      "from": "14.2.0",
+      "to": "15.0.0",
+      "purl": "pkg:pypi/rich@15.0.0"
+     },
+     {
+      "name": "truststore",
+      "from": "0.10.4",
+      "to": "0.10.5",
+      "purl": "pkg:pypi/truststore@0.10.5"
+     },
+     {
+      "name": "urllib3",
+      "from": "2.7.0",
+      "to": "2.8.0",
+      "purl": "pkg:pypi/urllib3@2.8.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "tomli",
+      "from": "2.4.1",
+      "to": "2.3.2",
+      "purl": "pkg:pypi/tomli@2.3.2"
+     }
+    ]
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 24,
+  "downgraded": 2
+ }
+}

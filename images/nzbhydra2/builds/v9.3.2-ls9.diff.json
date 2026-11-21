@@ -1,0 +1,291 @@
+{
+ "image": "nzbhydra2",
+ "branch": "master",
+ "tag": "v9.3.2-ls9",
+ "previous_tag": "v9.2.0-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "6 commits (8aa3686 → 91268f3): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "v9.2.0",
+  "to": "v9.3.2",
+  "changed": true
+ },
+ "commit": {
+  "from": "8aa368613d25fa2a069c31cc05830aebe0017066",
+  "to": "91268f39c167f87f9f5c70e551343c0228f3b711",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-nzbhydra2/compare/8aa368613d25fa2a069c31cc05830aebe0017066...91268f39c167f87f9f5c70e551343c0228f3b711",
+  "commits": [
+   {
+    "sha": "798eafec03105edc802dd9560c9136bee6c8cd3f",
+    "subject": "Add the upstream donation links",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T19:37:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/798eafec03105edc802dd9560c9136bee6c8cd3f",
+    "bot": false
+   },
+   {
+    "sha": "a11345a9f9050d6f8e73e6452867a929fab2dbb0",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T19:49:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/a11345a9f9050d6f8e73e6452867a929fab2dbb0",
+    "bot": true
+   },
+   {
+    "sha": "3fb9e3ce70295c7f9e2b71182ce5a5bc0ad82765",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T01:00:48Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/3fb9e3ce70295c7f9e2b71182ce5a5bc0ad82765",
+    "bot": true
+   },
+   {
+    "sha": "eec88e0f8093f5b957b366bb03c7d56b7dd20c09",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T01:04:21Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/eec88e0f8093f5b957b366bb03c7d56b7dd20c09",
+    "bot": true
+   },
+   {
+    "sha": "4e65af62e7676e9ca45480145571dce9d8ba752d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T21:06:09Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/4e65af62e7676e9ca45480145571dce9d8ba752d",
+    "bot": true
+   },
+   {
+    "sha": "91268f39c167f87f9f5c70e551343c0228f3b711",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T21:06:33Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbhydra2/commit/91268f39c167f87f9f5c70e551343c0228f3b711",
+    "bot": true
+   }
+  ],
+  "count": 6,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:5625688e073ff0f6795f3f5e3687c4f4ab313dd4881b1964627094e5ac12c4ee"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 168552366,
+   "to": 173138668,
+   "delta": 4586302
+  },
+  "arm64": {
+   "from": 165841821,
+   "to": 170185062,
+   "delta": 4343241
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.39-0ubuntu8.12?arch=amd64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc6@2.39-0ubuntu8.12?arch=amd64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=amd64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=amd64&distro=ubuntu-24.04&upstream=sqlite3"
+     },
+     {
+      "name": "locales",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/locales@2.39-0ubuntu8.12?arch=all&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.39-0ubuntu8.12?arch=arm64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc6@2.39-0ubuntu8.12?arch=arm64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=arm64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=arm64&distro=ubuntu-24.04&upstream=sqlite3"
+     },
+     {
+      "name": "locales",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/locales@2.39-0ubuntu8.12?arch=all&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 20,
+  "downgraded": 0
+ }
+}

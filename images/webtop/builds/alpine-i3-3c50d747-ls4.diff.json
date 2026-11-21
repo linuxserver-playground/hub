@@ -1,0 +1,223 @@
+{
+ "image": "webtop",
+ "branch": "alpine-i3",
+ "tag": "alpine-i3-3c50d747-ls4",
+ "previous_tag": "alpine-i3-dee05d97-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (59d079c → d373dd7): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "dee05d97",
+  "to": "3c50d747",
+  "changed": true
+ },
+ "commit": {
+  "from": "59d079cd44a93edc97490b90ee31967a63a5af0d",
+  "to": "d373dd7defcbbb8159a3c26cb8f5fdb7e8052de5",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/59d079cd44a93edc97490b90ee31967a63a5af0d...d373dd7defcbbb8159a3c26cb8f5fdb7e8052de5",
+  "commits": [
+   {
+    "sha": "d373dd7defcbbb8159a3c26cb8f5fdb7e8052de5",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T16:39:04Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/d373dd7defcbbb8159a3c26cb8f5fdb7e8052de5",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:38f1825aace74959f082c07699d154dfe6521ab2d03ae8624e27bc97d3f63c99"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:91d001f4e12a5c83e9bd14f32dfe2bf3809ece6ece0898a9a24a239e9a5b3808"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 806808987,
+   "to": 808034496,
+   "delta": 1225509
+  },
+  "arm64": {
+   "from": 757330596,
+   "to": 758530536,
+   "delta": 1199940
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "155.0.8059.84-r0",
+      "to": "156.0.8078.79-r0",
+      "purl": "pkg:apk/alpine/chromium@156.0.8078.79-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "chromium-angle",
+      "from": "155.0.8059.84-r0",
+      "to": "156.0.8078.79-r0",
+      "purl": "pkg:apk/alpine/chromium-angle@156.0.8078.79-r0?arch=x86_64&distro=alpine-3.24.3&upstream=chromium"
+     },
+     {
+      "name": "chromium-common",
+      "from": "155.0.8059.84-r0",
+      "to": "156.0.8078.79-r0",
+      "purl": "pkg:apk/alpine/chromium-common@156.0.8078.79-r0?arch=x86_64&distro=alpine-3.24.3&upstream=chromium"
+     },
+     {
+      "name": "chromium-lang",
+      "from": "155.0.8059.84-r0",
+      "to": "156.0.8078.79-r0",
+      "purl": "pkg:apk/alpine/chromium-lang@156.0.8078.79-r0?arch=x86_64&distro=alpine-3.24.3&upstream=chromium"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "155.0.8059.84-r0",
+      "to": "156.0.8078.79-r0",
+      "purl": "pkg:apk/alpine/chromium@156.0.8078.79-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "chromium-angle",
+      "from": "155.0.8059.84-r0",
+      "to": "156.0.8078.79-r0",
+      "purl": "pkg:apk/alpine/chromium-angle@156.0.8078.79-r0?arch=aarch64&distro=alpine-3.24.3&upstream=chromium"
+     },
+     {
+      "name": "chromium-common",
+      "from": "155.0.8059.84-r0",
+      "to": "156.0.8078.79-r0",
+      "purl": "pkg:apk/alpine/chromium-common@156.0.8078.79-r0?arch=aarch64&distro=alpine-3.24.3&upstream=chromium"
+     },
+     {
+      "name": "chromium-lang",
+      "from": "155.0.8059.84-r0",
+      "to": "156.0.8078.79-r0",
+      "purl": "pkg:apk/alpine/chromium-lang@156.0.8078.79-r0?arch=aarch64&distro=alpine-3.24.3&upstream=chromium"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "anyio",
+      "from": "4.15.1",
+      "to": "4.16.0",
+      "purl": "pkg:pypi/anyio@4.16.0"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.0",
+      "to": "16.0.1",
+      "purl": "pkg:pypi/pyee@16.0.1"
+     },
+     {
+      "name": "watchdog",
+      "from": "6.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:pypi/watchdog@7.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 16,
+  "downgraded": 0
+ }
+}
