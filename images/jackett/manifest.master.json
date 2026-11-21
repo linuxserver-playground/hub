@@ -1,0 +1,210 @@
+{
+ "schema": 1,
+ "name": "jackett",
+ "summary": "[Jackett](https://github.com/Jackett/Jackett) works as a proxy server: it translates queries from apps (Sonarr, SickRage, CouchPotato, Mylar, etc) into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. This allows for getting recent uploads (like RSS) and performing searches. Jackett is a single repository of maintained indexer scraping & translation logic - removing the burden from other apps.",
+ "upstream": {
+  "url": "https://github.com/Jackett/Jackett",
+  "version": {
+   "type": "github_release",
+   "repo": "Jackett/Jackett",
+   "require_assets": [
+    {
+     "asset": "^Jackett\\.Binaries\\.LinuxMuslAMDx64\\.tar\\.gz$"
+    },
+    {
+     "asset": "^Jackett\\.Binaries\\.LinuxMuslARM64\\.tar\\.gz$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "Jackett/Jackett"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "JACKETT_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 60,
+  "web": {
+   "port": 9117
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "9117",
+    "description": "WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/jackett/data",
+    "description": "Where Jackett should store its config file."
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/blackhole",
+    "description": "Path to torrent blackhole."
+   }
+  ],
+  "env": [
+   {
+    "name": "AUTO_UPDATE",
+    "value": "true",
+    "description": "Allow Jackett to update inside of the container.",
+    "optional": true
+   },
+   {
+    "name": "RUN_OPTS",
+    "value": "",
+    "description": "Optionally specify additional arguments to be passed.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true,
+   "notes": "* `AUTO_UPDATE` will not be available.\n"
+  },
+  "nonroot": {
+   "supported": true,
+   "notes": "* `AUTO_UPDATE` will not be available.\n"
+  }
+ },
+ "docs": {
+  "categories": [
+   "Indexers"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jackett-banner.png",
+  "setup": "The web interface is at `<your-ip>:9117` , configure various trackers and connections to other apps there.\nMore info at [Jackett](https://github.com/Jackett/Jackett).\n"
+ },
+ "proxy": {
+  "port": 9117,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true,
+   "base_url_note": "Jackett dashboard → Base path override, set to /jackett"
+  },
+  "api_locations": [
+   "/api",
+   "/dl"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-07-14",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2025-07-09",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2025-01-12",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-31",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-11",
+   "text": "Rebase to Alpine 3.19. Deprecate development tag as upstream is publishing nightly stable releases."
+  },
+  {
+   "date": "2023-07-11",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-07-01",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-02-13",
+   "text": "Add icu-data-full to address [ICU issue](https://github.com/Jackett/Jackett/issues/14008) with Cyrillic character sets."
+  },
+  {
+   "date": "2023-02-11",
+   "text": "Rebase to Alpine 3.17, migrate to s6v3."
+  },
+  {
+   "date": "2022-05-10",
+   "text": "Rebase to Ubuntu Focal."
+  },
+  {
+   "date": "2020-05-24",
+   "text": "Allow user to optionally enable auto updates."
+  },
+  {
+   "date": "2019-12-31",
+   "text": "Remove agressive startup chowning."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-03-10",
+   "text": "Switch to net-core builds of jackett, not dependant on mono and smaller images."
+  },
+  {
+   "date": "2019-02-11",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-06-11",
+   "text": "Ensure root ownership of Jackett files."
+  },
+  {
+   "date": "2017-12-13",
+   "text": "Fix continuation lines."
+  },
+  {
+   "date": "2017-04-17",
+   "text": "Switch to using inhouse mono baseimage, ubuntu xenial based."
+  },
+  {
+   "date": "2017-02-09",
+   "text": "Rebase to alpine 3.5."
+  },
+  {
+   "date": "2016-10-29",
+   "text": "Call python2 from edge main to satisfy new mono dependency."
+  },
+  {
+   "date": "2016-10-14",
+   "text": "Add version layer information."
+  },
+  {
+   "date": "2016-09-22",
+   "text": "Remove autoupdate, tidy up Dockerfile."
+  },
+  {
+   "date": "2016-09-10",
+   "text": "Add layer badges to README."
+  },
+  {
+   "date": "2016-08-28",
+   "text": "Add badges to README."
+  },
+  {
+   "date": "2016-08-06",
+   "text": "Rebase to alpine linux for smaller image."
+  },
+  {
+   "date": "2016-01-25",
+   "text": "Initial Release."
+  }
+ ]
+}

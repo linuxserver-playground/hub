@@ -1,0 +1,133 @@
+{
+ "schema": 1,
+ "name": "spotube",
+ "summary": "[Spotube](https://spotube.krtirtho.dev/) is an open source, cross-platform Spotify client compatible across multiple platforms utilizing Spotify's data API and YouTube, Piped.video or JioSaavn as an audio source, eliminating the need for Spotify Premium",
+ "upstream": {
+  "url": "https://spotube.krtirtho.dev/",
+  "version": {
+   "type": "github_release",
+   "repo": "team-spotube/spotube",
+   "require_assets": [
+    {
+     "asset": "^Spotube\\-linux\\-x86_64\\.deb$"
+    },
+    {
+     "asset": "^Spotube\\-linux\\-aarch64\\.deb$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "team-spotube/spotube"
+  },
+  "sponsor": [
+   {
+    "name": "Spotube",
+    "url": "https://opencollective.com/spotube"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "SPOTUBE_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP Spotube desktop gui, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Spotube desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/spotube/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Music"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/spotube-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-04",
+   "text": "Point to live repo endpoint at team-spotube."
+  },
+  {
+   "date": "2026-04-04",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-10-09",
+   "text": "Add aarch64 support."
+  },
+  {
+   "date": "2024-04-26",
+   "text": "Initial release."
+  }
+ ]
+}

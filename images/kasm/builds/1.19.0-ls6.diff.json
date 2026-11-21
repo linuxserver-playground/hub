@@ -1,0 +1,406 @@
+{
+ "image": "kasm",
+ "branch": "master",
+ "tag": "1.19.0-ls6",
+ "previous_tag": "1.19.0-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (9877ada → 046e4fe): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.19.0",
+  "to": "1.19.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "9877ada0c08dc8516d9ec28fa04b0bc17fe9c69f",
+  "to": "046e4fe5755662b8eee2648ed6b5b0aecebfc5af",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kasm/compare/9877ada0c08dc8516d9ec28fa04b0bc17fe9c69f...046e4fe5755662b8eee2648ed6b5b0aecebfc5af",
+  "commits": [
+   {
+    "sha": "046e4fe5755662b8eee2648ed6b5b0aecebfc5af",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T05:32:46Z",
+    "url": "https://github.com/linuxserver-playground/docker-kasm/commit/046e4fe5755662b8eee2648ed6b5b0aecebfc5af",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:fa525877b43b5a66b75b8f50a297ce4c64740891a40afdd7319ff2cf41ae6a3d"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:f3184f0873fff9a934155ac787603c2d43c1b7fc45bffc9357136ad77d3dc8e3"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 295635661,
+   "to": 306223216,
+   "delta": 10587555
+  },
+  "arm64": {
+   "from": 285067593,
+   "to": 295488403,
+   "delta": 10420810
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "containerd.io",
+      "from": "2.4.2-3~ubuntu.24.04~noble",
+      "to": "2.4.2-4~ubuntu.24.04~noble",
+      "purl": "pkg:deb/ubuntu/containerd.io@2.4.2-4~ubuntu.24.04~noble?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.0-1~ubuntu.24.04~noble",
+      "to": "5.7.1-1~ubuntu.24.04~noble",
+      "purl": "pkg:deb/ubuntu/docker-compose-plugin@5.7.1-1~ubuntu.24.04~noble?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.39-0ubuntu8.12?arch=amd64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc6@2.39-0ubuntu8.12?arch=amd64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libnvidia-container-tools",
+      "from": "1.20.1-1",
+      "to": "1.20.2-1",
+      "purl": "pkg:deb/ubuntu/libnvidia-container-tools@1.20.2-1?arch=amd64&distro=ubuntu-24.04&upstream=libnvidia-container"
+     },
+     {
+      "name": "libnvidia-container1",
+      "from": "1.20.1-1",
+      "to": "1.20.2-1",
+      "purl": "pkg:deb/ubuntu/libnvidia-container1@1.20.2-1?arch=amd64&distro=ubuntu-24.04&upstream=libnvidia-container"
+     },
+     {
+      "name": "locales",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/locales@2.39-0ubuntu8.12?arch=all&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "nodejs",
+      "from": "24.22.2-1nodesource1",
+      "to": "24.22.3-1nodesource1",
+      "purl": "pkg:deb/ubuntu/nodejs@24.22.3-1nodesource1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "nvidia-container-toolkit",
+      "from": "1.20.1-1",
+      "to": "1.20.2-1",
+      "purl": "pkg:deb/ubuntu/nvidia-container-toolkit@1.20.2-1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "nvidia-container-toolkit-base",
+      "from": "1.20.1-1",
+      "to": "1.20.2-1",
+      "purl": "pkg:deb/ubuntu/nvidia-container-toolkit-base@1.20.2-1?arch=amd64&distro=ubuntu-24.04&upstream=nvidia-container-toolkit"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/NVIDIA/go-nvml",
+      "from": "v0.13.4-0",
+      "to": "v0.13.4-1",
+      "purl": "pkg:golang/github.com/NVIDIA/go-nvml@v0.13.4-1"
+     },
+     {
+      "name": "github.com/NVIDIA/nvidia-container-toolkit",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/NVIDIA/nvidia-container-toolkit@v1.20.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.0",
+      "to": "v5.7.1",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.1"
+     },
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     },
+     {
+      "name": "github.com/opencontainers/runc",
+      "from": "v1.5.2",
+      "to": "v1.5.3",
+      "purl": "pkg:golang/github.com/opencontainers/runc@v1.5.3"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "encodeurl",
+      "from": "2.0.1",
+      "to": "2.0.3",
+      "purl": "pkg:npm/encodeurl@2.0.3"
+     },
+     {
+      "name": "systeminformation",
+      "from": "5.33.19",
+      "to": "5.33.20",
+      "purl": "pkg:npm/systeminformation@5.33.20"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "containerd.io",
+      "from": "2.4.2-3~ubuntu.24.04~noble",
+      "to": "2.4.2-4~ubuntu.24.04~noble",
+      "purl": "pkg:deb/ubuntu/containerd.io@2.4.2-4~ubuntu.24.04~noble?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.0-1~ubuntu.24.04~noble",
+      "to": "5.7.1-1~ubuntu.24.04~noble",
+      "purl": "pkg:deb/ubuntu/docker-compose-plugin@5.7.1-1~ubuntu.24.04~noble?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.39-0ubuntu8.12?arch=arm64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc6@2.39-0ubuntu8.12?arch=arm64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libnvidia-container-tools",
+      "from": "1.20.1-1",
+      "to": "1.20.2-1",
+      "purl": "pkg:deb/ubuntu/libnvidia-container-tools@1.20.2-1?arch=arm64&distro=ubuntu-24.04&upstream=libnvidia-container"
+     },
+     {
+      "name": "libnvidia-container1",
+      "from": "1.20.1-1",
+      "to": "1.20.2-1",
+      "purl": "pkg:deb/ubuntu/libnvidia-container1@1.20.2-1?arch=arm64&distro=ubuntu-24.04&upstream=libnvidia-container"
+     },
+     {
+      "name": "locales",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/locales@2.39-0ubuntu8.12?arch=all&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "nodejs",
+      "from": "24.22.2-1nodesource1",
+      "to": "24.22.3-1nodesource1",
+      "purl": "pkg:deb/ubuntu/nodejs@24.22.3-1nodesource1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "nvidia-container-toolkit",
+      "from": "1.20.1-1",
+      "to": "1.20.2-1",
+      "purl": "pkg:deb/ubuntu/nvidia-container-toolkit@1.20.2-1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "nvidia-container-toolkit-base",
+      "from": "1.20.1-1",
+      "to": "1.20.2-1",
+      "purl": "pkg:deb/ubuntu/nvidia-container-toolkit-base@1.20.2-1?arch=arm64&distro=ubuntu-24.04&upstream=nvidia-container-toolkit"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/NVIDIA/go-nvml",
+      "from": "v0.13.4-0",
+      "to": "v0.13.4-1",
+      "purl": "pkg:golang/github.com/NVIDIA/go-nvml@v0.13.4-1"
+     },
+     {
+      "name": "github.com/NVIDIA/nvidia-container-toolkit",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/NVIDIA/nvidia-container-toolkit@v1.20.2"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.0",
+      "to": "v5.7.1",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.1"
+     },
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     },
+     {
+      "name": "github.com/opencontainers/runc",
+      "from": "v1.5.2",
+      "to": "v1.5.3",
+      "purl": "pkg:golang/github.com/opencontainers/runc@v1.5.3"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "encodeurl",
+      "from": "2.0.1",
+      "to": "2.0.3",
+      "purl": "pkg:npm/encodeurl@2.0.3"
+     },
+     {
+      "name": "systeminformation",
+      "from": "5.33.19",
+      "to": "5.33.20",
+      "purl": "pkg:npm/systeminformation@5.33.20"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 42,
+  "downgraded": 2
+ }
+}

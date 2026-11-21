@@ -1,0 +1,136 @@
+{
+ "image": "mariadb",
+ "branch": "master",
+ "tag": "11.8.9-r0-ls4",
+ "previous_tag": "11.8.9-r0-ls3",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (7520b94 → f1b37fa): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "11.8.9-r0",
+  "to": "11.8.9-r0",
+  "changed": false
+ },
+ "commit": {
+  "from": "7520b942f97292991647bafad8d51e68c4fbb0bd",
+  "to": "f1b37fa43ea0ae0ec52481af5ccf969b03c84f82",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mariadb/compare/7520b942f97292991647bafad8d51e68c4fbb0bd...f1b37fa43ea0ae0ec52481af5ccf969b03c84f82",
+  "commits": [
+   {
+    "sha": "21c970883dbc2ab74d0c9a640806abe561579d95",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T08:08:49Z",
+    "url": "https://github.com/linuxserver-playground/docker-mariadb/commit/21c970883dbc2ab74d0c9a640806abe561579d95",
+    "bot": true
+   },
+   {
+    "sha": "f1b37fa43ea0ae0ec52481af5ccf969b03c84f82",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T12:02:49Z",
+    "url": "https://github.com/linuxserver-playground/docker-mariadb/commit/f1b37fa43ea0ae0ec52481af5ccf969b03c84f82",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 132755312,
+   "to": 132760064,
+   "delta": 4752
+  },
+  "arm64": {
+   "from": 129305601,
+   "to": 129315063,
+   "delta": 9462
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl",
+      "from": "5.42.2-r1",
+      "to": "5.42.3-r0",
+      "purl": "pkg:apk/alpine/perl@5.42.3-r0?arch=x86_64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl",
+      "from": "5.42.2-r1",
+      "to": "5.42.3-r0",
+      "purl": "pkg:apk/alpine/perl@5.42.3-r0?arch=aarch64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

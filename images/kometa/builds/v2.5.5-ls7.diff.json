@@ -1,0 +1,123 @@
+{
+ "image": "kometa",
+ "branch": "main",
+ "tag": "v2.5.5-ls7",
+ "previous_tag": "v2.5.5-ls6",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (be8635c → 7eb5787): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v2.5.5",
+  "to": "v2.5.5",
+  "changed": false
+ },
+ "commit": {
+  "from": "be8635cc9fb3af5eb2d775d2ef7c1c8ad29b87ee",
+  "to": "7eb57873cbe814d1babc28fd096fac924e923fc7",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kometa/compare/be8635cc9fb3af5eb2d775d2ef7c1c8ad29b87ee...7eb57873cbe814d1babc28fd096fac924e923fc7",
+  "commits": [
+   {
+    "sha": "7eb57873cbe814d1babc28fd096fac924e923fc7",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T12:55:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-kometa/commit/7eb57873cbe814d1babc28fd096fac924e923fc7",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 318383605,
+   "to": 318384265,
+   "delta": 660
+  },
+  "arm64": {
+   "from": 317787627,
+   "to": 317787950,
+   "delta": 323
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r2",
+      "to": "2.13.9-r3",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r3?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r2",
+      "to": "2.13.9-r3",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r3?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

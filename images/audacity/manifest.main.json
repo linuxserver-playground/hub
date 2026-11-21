@@ -1,0 +1,146 @@
+{
+ "schema": 1,
+ "name": "audacity",
+ "summary": "[Audacity](https://www.audacityteam.org/) is an easy-to-use, multi-track audio editor and recorder. Developed by a group of volunteers as open source.",
+ "upstream": {
+  "url": "https://www.audacityteam.org/",
+  "version": {
+   "type": "github_release",
+   "repo": "audacity/audacity",
+   "transform": [
+    {
+     "regex": "^Audacity-",
+     "replace": ""
+    }
+   ],
+   "require_assets": [
+    {
+     "asset": "^audacity\\-linux\\-.*\\-x86_64\\.AppImage$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "audacity/audacity",
+   "tag": "Audacity-${VERSION}"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "AUDACITY_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Audacity desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Audacity desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/audacity/config",
+    "description": "Users home directory in the container, stores program settings and images"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Audio Processing"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/audacity-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-29",
+   "text": "Rebase to resolute."
+  },
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-10-31",
+   "text": "Fix artifact name."
+  },
+  {
+   "date": "2024-08-19",
+   "text": "Rebase to noble."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars, ingest proper PWA icon, and pre-extract appimage."
+  },
+  {
+   "date": "2023-05-05",
+   "text": "Start Audacity in full screen."
+  },
+  {
+   "date": "2023-03-18",
+   "text": "Rebase to KasmVNC base image."
+  },
+  {
+   "date": "2022-12-13",
+   "text": "Rebase to Jammy."
+  },
+  {
+   "date": "2021-09-14",
+   "text": "Use the official appimage, switch to single arch (x86_64). Armhf and aarch64 users can remain on version 3.0.2 but there won't be further updates."
+  },
+  {
+   "date": "2021-04-07",
+   "text": "Initial release."
+  }
+ ]
+}

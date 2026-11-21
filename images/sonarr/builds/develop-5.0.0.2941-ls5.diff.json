@@ -1,0 +1,130 @@
+{
+ "image": "sonarr",
+ "branch": "develop",
+ "tag": "develop-5.0.0.2941-ls5",
+ "previous_tag": "develop-5.0.0.2838-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "4 commits (86f98e7 → bca7aaf): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "5.0.0.2838",
+  "to": "5.0.0.2941",
+  "changed": true
+ },
+ "commit": {
+  "from": "86f98e7d78dc4ffb256ed774aee12c95e44d63ec",
+  "to": "bca7aaf5b8394bc1bca8691c64c1acf22df1e90a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-sonarr/compare/86f98e7d78dc4ffb256ed774aee12c95e44d63ec...bca7aaf5b8394bc1bca8691c64c1acf22df1e90a",
+  "commits": [
+   {
+    "sha": "bfdf656bb8cd2258089f4cb36b126d93d3478315",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:51:53Z",
+    "url": "https://github.com/linuxserver-playground/docker-sonarr/commit/bfdf656bb8cd2258089f4cb36b126d93d3478315",
+    "bot": true
+   },
+   {
+    "sha": "d3f84474fbd73e169883f6d6388fe87b8a2d82aa",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-29T17:10:09Z",
+    "url": "https://github.com/linuxserver-playground/docker-sonarr/commit/d3f84474fbd73e169883f6d6388fe87b8a2d82aa",
+    "bot": true
+   },
+   {
+    "sha": "1284ae28f51dee15dab13769fd1600c7a5dd5cd3",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T21:07:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-sonarr/commit/1284ae28f51dee15dab13769fd1600c7a5dd5cd3",
+    "bot": true
+   },
+   {
+    "sha": "bca7aaf5b8394bc1bca8691c64c1acf22df1e90a",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T21:06:59Z",
+    "url": "https://github.com/linuxserver-playground/docker-sonarr/commit/bca7aaf5b8394bc1bca8691c64c1acf22df1e90a",
+    "bot": true
+   }
+  ],
+  "count": 4,
+  "truncated": false,
+  "areas": {
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 97238428,
+   "to": 97326982,
+   "delta": 88554
+  },
+  "arm64": {
+   "from": 94957583,
+   "to": 95058041,
+   "delta": 100458
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

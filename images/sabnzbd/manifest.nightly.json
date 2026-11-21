@@ -1,0 +1,297 @@
+{
+ "schema": 1,
+ "name": "sabnzbd",
+ "summary": "[Sabnzbd](http://sabnzbd.org/) makes Usenet as simple and streamlined as possible by automating everything we can. All you have to do is add an .nzb. SABnzbd takes over from there, where it will be automatically downloaded, verified, repaired, extracted and filed away with zero human interaction.",
+ "upstream": {
+  "url": "http://sabnzbd.org/",
+  "version": {
+   "type": "github_commit",
+   "repo": "sabnzbd/sabnzbd",
+   "branch": "develop"
+  },
+  "notes": {
+   "type": "github_commit",
+   "repo": "sabnzbd/sabnzbd",
+   "branch": "develop"
+  },
+  "sponsor": [
+   {
+    "name": "SABnzbd",
+    "url": "https://sabnzbd.org/donate"
+   }
+  ]
+ },
+ "release": {
+  "branch": "nightly",
+  "tag": "nightly",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable releases"
+   },
+   {
+    "tag": "unstable",
+    "description": "Pre-release builds"
+   },
+   {
+    "tag": "nightly",
+    "description": "Latest commits from the develop branch"
+   }
+  ]
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "SABNZBD_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8080
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8080",
+    "description": "HTTP port for the WebUI."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/sabnzbd/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/downloads",
+    "host_path": "/path/to/downloads",
+    "description": "Local path for finished downloads.",
+    "optional": true
+   },
+   {
+    "path": "/incomplete-downloads",
+    "host_path": "/path/to/incomplete/downloads",
+    "description": "Local path for incomplete-downloads.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true,
+   "notes": "* IPv4-only operation (i.e. with IPv6 disabled on the host) is not supported\n"
+  }
+ },
+ "docs": {
+  "categories": [
+   "Downloaders"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sabnzbd-banner.png",
+  "setup": "Initial setup is done via `http://<your-ip>:8080`.\n\nSee the [SABnzbd wiki](https://sabnzbd.org/wiki/) for more information.\n",
+  "notices": {
+   "media": true
+  }
+ },
+ "proxy": {
+  "port": 8080,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true,
+   "base_url_note": "SABnzbd serves /sabnzbd by default; nothing to change"
+  },
+  "api_locations": [
+   "/api"
+  ],
+  "notes": [
+   "Add your domain to host_whitelist in sabnzbd.ini (Config → Special) to avoid hostname verification errors."
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-07-04",
+   "text": "Rebase to Alpine 3.24"
+  },
+  {
+   "date": "2025-12-26",
+   "text": "Rebase to Alpine 3.23."
+  },
+  {
+   "date": "2025-05-30",
+   "text": "Rebase to Alpine 3.22. Add experimental RISCV build."
+  },
+  {
+   "date": "2024-12-15",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-05-24",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2024-03-23",
+   "text": "Remove nzb-notify as apprise is now directly supported."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-11-23",
+   "text": "Build translations."
+  },
+  {
+   "date": "2023-09-13",
+   "text": "Use par2cmdline-turbo in place of par2cmdline."
+  },
+  {
+   "date": "2023-08-16",
+   "text": "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."
+  },
+  {
+   "date": "2023-08-10",
+   "text": "Bump unrar to 6.2.10."
+  },
+  {
+   "date": "2023-07-03",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-05-11",
+   "text": "Rebase nightly branch to Alpine 3.18, deprecate `arm32v7' (armhf) builds."
+  },
+  {
+   "date": "2023-03-15",
+   "text": "Switch from p7zip to 7zip, bump unrar to 6.2.6."
+  },
+  {
+   "date": "2022-11-23",
+   "text": "Rebase nightly branch to Alpine Edge for Python 3.11."
+  },
+  {
+   "date": "2022-10-03",
+   "text": "Rebase nightly branch to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-08-12",
+   "text": "Bump unrar to 6.1.7."
+  },
+  {
+   "date": "2022-07-31",
+   "text": "Add nightly tag."
+  },
+  {
+   "date": "2022-03-10",
+   "text": "Add nzb-notify."
+  },
+  {
+   "date": "2022-02-22",
+   "text": "Rebase master branch to Alpine, build unrar from source, deprecate Alpine branch."
+  },
+  {
+   "date": "2022-01-25",
+   "text": "Rebase Unstable branch to Alpine."
+  },
+  {
+   "date": "2022-01-13",
+   "text": "Add alpine branch"
+  },
+  {
+   "date": "2021-08-08",
+   "text": "Bump to focal, dont enforce binding to ipv4 port 8080"
+  },
+  {
+   "date": "2021-07-24",
+   "text": "Add python3-setuptools."
+  },
+  {
+   "date": "2021-05-14",
+   "text": "Use linuxserver.io wheel index for pip packages."
+  },
+  {
+   "date": "2021-02-12",
+   "text": "Clean up rust/cargo and pip cache."
+  },
+  {
+   "date": "2020-08-17",
+   "text": "Run from source with python3 instead of ppa, remove python2 completely, symlink `python` to `python3`."
+  },
+  {
+   "date": "2020-01-02",
+   "text": "Add python3 on top of python2 to image during transition."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-25",
+   "text": "Rebase to Bionic, add python deps for scripts."
+  },
+  {
+   "date": "2019-01-26",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2017-12-13",
+   "text": "Fix continuation lines."
+  },
+  {
+   "date": "2017-07-12",
+   "text": "Add inspect commands to README, move to jenkins build and push."
+  },
+  {
+   "date": "2017-04-10",
+   "text": "Bump to 2.0 Release."
+  },
+  {
+   "date": "2017-02-25",
+   "text": "Switch to nobetas repo for master/latest branch and add unstable branch."
+  },
+  {
+   "date": "2017-02-08",
+   "text": "Add pythonioenconding=utf8 as env."
+  },
+  {
+   "date": "2016-09-15",
+   "text": "Compile par2 multicore as per latest info sabnzbd git [readme](https://github.com/sabnzbd/sabnzbd#resolving-dependencies)."
+  },
+  {
+   "date": "2016-09-11",
+   "text": "Bump to release of 1.10."
+  },
+  {
+   "date": "2016-09-09",
+   "text": "Rebase back to xenial, issues with alpine version of python and 1.10 branch of sab."
+  },
+  {
+   "date": "2016-08-28",
+   "text": "Rebase to alpine, using git version of sab."
+  },
+  {
+   "date": "2016-03-17",
+   "text": "Bump to install 1.0 final at startup."
+  },
+  {
+   "date": "2016-03-14",
+   "text": "Refresh image to pick up latest RC."
+  },
+  {
+   "date": "2016-01-23",
+   "text": "Refresh image."
+  },
+  {
+   "date": "2015-12-14",
+   "text": "Refresh image to pick up latest beta."
+  },
+  {
+   "date": "2015-08-21",
+   "text": "Initial Release."
+  }
+ ]
+}

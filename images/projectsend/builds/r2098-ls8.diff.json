@@ -1,0 +1,124 @@
+{
+ "image": "projectsend",
+ "branch": "master",
+ "tag": "r2098-ls8",
+ "previous_tag": "r2098-ls7",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (d4acc27 → 0a6e3fb): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "r2098",
+  "to": "r2098",
+  "changed": false
+ },
+ "commit": {
+  "from": "d4acc27b93e41a87981feda7e6b5eb95f0d921fd",
+  "to": "0a6e3fb6ef4eeb4df0e5feb2a09efb642c1bab73",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-projectsend/compare/d4acc27b93e41a87981feda7e6b5eb95f0d921fd...0a6e3fb6ef4eeb4df0e5feb2a09efb642c1bab73",
+  "commits": [
+   {
+    "sha": "0a6e3fb6ef4eeb4df0e5feb2a09efb642c1bab73",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T20:31:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-projectsend/commit/0a6e3fb6ef4eeb4df0e5feb2a09efb642c1bab73",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.22",
+   "digest": "sha256:ff0f5f99fdbd6740371b84ebdd6d4a8e7424367d0433cf6f090a06411680d428"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.22",
+   "digest": "sha256:125932e0324ae31249cc0436dd936b1c8a72d76858cfec75836c44ff4ea7a660"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 55422788,
+   "to": 55423992,
+   "delta": 1204
+  },
+  "arm64": {
+   "from": 56630390,
+   "to": 56633842,
+   "delta": 3452
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nginx",
+      "from": "1.28.3-r7",
+      "to": "1.28.3-r9",
+      "purl": "pkg:apk/alpine/nginx@1.28.3-r9?arch=x86_64&distro=alpine-3.22.8"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nginx",
+      "from": "1.28.3-r7",
+      "to": "1.28.3-r9",
+      "purl": "pkg:apk/alpine/nginx@1.28.3-r9?arch=aarch64&distro=alpine-3.22.8"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}
