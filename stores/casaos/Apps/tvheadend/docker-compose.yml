@@ -1,0 +1,67 @@
+name: tvheadend
+services:
+  tvheadend:
+    image: ghcr.io/linuxserver-playground/tvheadend:latest
+    container_name: tvheadend
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - RUN_OPTS=
+    volumes:
+    - /DATA/AppData/tvheadend/config:/config
+    - /DATA/AppData/tvheadend/recordings:/recordings
+    ports:
+    - 9981:9981
+    - 9982:9982
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: RUN_OPTS
+        description:
+          en_us: Optionally specify additional arguments to be passed. See Additional runtime parameters.
+      ports:
+      - container: '9981'
+        description:
+          en_us: WebUI
+      - container: '9982'
+        description:
+          en_us: HTSP server port.
+      volumes:
+      - container: /config
+        description:
+          en_us: Where TVHeadend show store it's config files.
+      - container: /recordings
+        description:
+          en_us: Where you want the PVR to store recordings.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: tvheadend
+  author: LinuxServer.io
+  developer: Tvheadend
+  category: Media Tools
+  description:
+    en_us: 'Tvheadend works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources. Tvheadend offers the HTTP (VLC, MPlayer), HTSP (Kodi, Movian) and SAT>IP streaming. Multiple EPG sources are supported (over-the-air DVB and ATSC including OpenTV DVB extensions, XMLTV, PyXML).'
+  tagline:
+    en_us: 'Tvheadend works as a proxy server: is a TV streaming server and recorder for Linux, FreeBSD and Android supporting DVB-S, DVB-S2, DVB-C, DVB-T, ATSC, ISDB-T, IPTV, SAT>IP and HDHomeRun as input sources'
+  title:
+    en_us: Tvheadend
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tvheadend-big.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tvheadend-big.png
+  store_app_id: tvheadend
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-tvheadend/builds/443f15ba-ls2/amd64/screenshot.png
+  port_map: '9981'

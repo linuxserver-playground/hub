@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/smokeping-logo.png
+  urls:
+  - https://oss.oetiker.ch/smokeping/
+  - https://github.com/linuxserver-playground/docker-smokeping
+services:
+  smokeping:
+    image: ghcr.io/linuxserver-playground/smokeping:latest
+    container_name: smokeping
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DATA_PATH:-./data}:/data
+    ports:
+    - ${PORT_80:-80}:80
+    restart: unless-stopped

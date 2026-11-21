@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piper-logo.png
+  urls:
+  - https://github.com/rhasspy/wyoming-piper
+  - https://github.com/linuxserver-playground/docker-piper
+services:
+  piper:
+    image: ghcr.io/linuxserver-playground/piper:latest
+    container_name: piper
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      PIPER_VOICE: ${PIPER_VOICE:-en_US-lessac-medium}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_10200:-10200}:10200
+    restart: unless-stopped

@@ -1,0 +1,38 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-fail2ban_server_1
+      APP_PORT: 80
+  server:
+    image: ghcr.io/linuxserver-playground/fail2ban:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      VERBOSITY: -vv
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/var/log:ro:/var/log:ro
+    - ${APP_DATA_DIR}/data/remotelogs/airsonic:ro:/remotelogs/airsonic:ro
+    - ${APP_DATA_DIR}/data/remotelogs/apache2:ro:/remotelogs/apache2:ro
+    - ${APP_DATA_DIR}/data/remotelogs/authelia:ro:/remotelogs/authelia:ro
+    - ${APP_DATA_DIR}/data/remotelogs/emby:ro:/remotelogs/emby:ro
+    - ${APP_DATA_DIR}/data/remotelogs/filebrowser:ro:/remotelogs/filebrowser:ro
+    - ${APP_DATA_DIR}/data/remotelogs/homeassistant:ro:/remotelogs/homeassistant:ro
+    - ${APP_DATA_DIR}/data/remotelogs/lighttpd:ro:/remotelogs/lighttpd:ro
+    - ${APP_DATA_DIR}/data/remotelogs/nextcloud:ro:/remotelogs/nextcloud:ro
+    - ${APP_DATA_DIR}/data/remotelogs/nginx:ro:/remotelogs/nginx:ro
+    - ${APP_DATA_DIR}/data/remotelogs/nzbget:ro:/remotelogs/nzbget:ro
+    - ${APP_DATA_DIR}/data/remotelogs/overseerr:ro:/remotelogs/overseerr:ro
+    - ${APP_DATA_DIR}/data/remotelogs/prowlarr:ro:/remotelogs/prowlarr:ro
+    - ${APP_DATA_DIR}/data/remotelogs/radarr:ro:/remotelogs/radarr:ro
+    - ${APP_DATA_DIR}/data/remotelogs/sabnzbd:ro:/remotelogs/sabnzbd:ro
+    - ${APP_DATA_DIR}/data/remotelogs/sonarr:ro:/remotelogs/sonarr:ro
+    - ${APP_DATA_DIR}/data/remotelogs/unificontroller:ro:/remotelogs/unificontroller:ro
+    - ${APP_DATA_DIR}/data/remotelogs/vaultwarden:ro:/remotelogs/vaultwarden:ro
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW

@@ -1,0 +1,99 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "TRANSMISSION_WEB_HOME",
+        "label": "Specify the path to an alternative UI folder.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "USER",
+        "label": "Specify an optional username for the interface",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "PASS",
+        "label": "Specify an optional password for the interface",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "WHITELIST",
+        "label": "Specify an optional list of comma separated ip whitelist. Fills rpc-whitelist setting.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "PEERPORT",
+        "label": "Specify an optional port for torrent TCP/UDP connections. Fills peer-port setting.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "HOST_WHITELIST",
+        "label": "Specify an optional list of comma separated dns name whitelist. Fills rpc-host-whitelist setting.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/transmission:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "TRANSMISSION_WEB_HOME={Context.TRANSMISSION_WEB_HOME}",
+        "USER={Context.USER}",
+        "PASS={Context.PASS}",
+        "WHITELIST={Context.WHITELIST}",
+        "PEERPORT={Context.PEERPORT}",
+        "HOST_WHITELIST={Context.HOST_WHITELIST}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/transmission.png",
+        "cosmos.stack": "{ServiceName}-transmission"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-downloads",
+          "target": "/downloads",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-watch",
+          "target": "/watch",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:9091",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

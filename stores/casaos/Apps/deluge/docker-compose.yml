@@ -1,0 +1,75 @@
+name: deluge
+services:
+  deluge:
+    image: ghcr.io/linuxserver-playground/deluge:latest
+    container_name: deluge
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - DELUGE_LOGLEVEL=error
+    volumes:
+    - /DATA/AppData/deluge/config:/config
+    - /DATA/AppData/deluge/downloads:/downloads
+    ports:
+    - 8112:8112
+    - 6881:6881
+    - 6881:6881/udp
+    - 58846:58846
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: DELUGE_LOGLEVEL
+        description:
+          en_us: set the loglevel output when running Deluge, default is info for deluged and warning for delgued-web
+      ports:
+      - container: '8112'
+        description:
+          en_us: Port for webui
+      - container: '6881'
+        description:
+          en_us: Inbound torrent traffic (See App Setup)
+      - container: '6881'
+        description:
+          en_us: Inbound torrent traffic (See App Setup)
+      - container: '58846'
+        description:
+          en_us: Default deluged port for thin client connectivity
+      volumes:
+      - container: /config
+        description:
+          en_us: deluge configs
+      - container: /downloads
+        description:
+          en_us: torrent download directory
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: deluge
+  author: LinuxServer.io
+  developer: Deluge
+  category: Downloaders
+  description:
+    en_us: Deluge is a lightweight, Free Software, cross-platform BitTorrent client.
+  tagline:
+    en_us: Deluge is a lightweight, Free Software, cross-platform BitTorrent client
+  title:
+    en_us: Deluge
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/deluge-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/deluge-logo.png
+  store_app_id: deluge
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-deluge/builds/2.2.0-ls6/amd64/screenshot.png
+  port_map: '8112'

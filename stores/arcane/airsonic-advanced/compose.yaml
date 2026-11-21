@@ -1,0 +1,21 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-banner.png
+  urls:
+  - https://github.com/kagemomiji/airsonic-advanced
+  - https://github.com/linuxserver-playground/docker-airsonic-advanced
+services:
+  airsonic-advanced:
+    image: ghcr.io/linuxserver-playground/airsonic-advanced:latest
+    container_name: airsonic-advanced
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${MUSIC_PATH:-./music}:/music
+    - ${PLAYLISTS_PATH:-./playlists}:/playlists
+    - ${PODCASTS_PATH:-./podcasts}:/podcasts
+    ports:
+    - ${PORT_4040:-4040}:4040
+    restart: unless-stopped

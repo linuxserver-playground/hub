@@ -1,0 +1,16 @@
+---
+services:
+  kdenlive:
+    image: ghcr.io/linuxserver-playground/kdenlive:latest
+    container_name: kdenlive
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/kdenlive/config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb" #optional
+    restart: unless-stopped

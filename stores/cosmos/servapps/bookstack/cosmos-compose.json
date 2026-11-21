@@ -1,0 +1,103 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "APP_URL",
+        "label": "The protocol, IP/URL, and port that your application will be accessed on (ie. http://192.168.1.1:6875 or https://bookstack.mydomain.com",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "APP_KEY",
+        "label": "Session encryption key. You will need to generate this with docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "DB_HOST",
+        "label": "The database instance hostname",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PORT",
+        "label": "Database port",
+        "initialValue": "3306",
+        "type": "text"
+      },
+      {
+        "name": "DB_USERNAME",
+        "label": "Database user",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "label": "Database password (minimum 4 characters & non-alphanumeric passwords must be properly escaped.)",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "DB_DATABASE",
+        "label": "Database name",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "QUEUE_CONNECTION",
+        "label": "Set to database to enable async actions like sending email or triggering webhooks. See documentation.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/bookstack:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "APP_URL={Context.APP_URL}",
+        "APP_KEY={Context.APP_KEY}",
+        "DB_HOST={Context.DB_HOST}",
+        "DB_PORT={Context.DB_PORT}",
+        "DB_USERNAME={Context.DB_USERNAME}",
+        "DB_PASSWORD={Context.DB_PASSWORD}",
+        "DB_DATABASE={Context.DB_DATABASE}",
+        "QUEUE_CONNECTION={Context.QUEUE_CONNECTION}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bookstack-logo.png",
+        "cosmos.stack": "{ServiceName}-bookstack"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:6875",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

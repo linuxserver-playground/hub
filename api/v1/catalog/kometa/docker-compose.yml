@@ -1,0 +1,17 @@
+---
+services:
+  kometa:
+    image: ghcr.io/linuxserver-playground/kometa:latest
+    container_name: kometa
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - KOMETA_CONFIG=/config/config.yml #optional
+      - KOMETA_TIMES=03:00 #optional
+      - KOMETA_RUN=False #optional
+      - KOMETA_TESTS=False #optional
+      - KOMETA_NO_MISSING=False #optional
+    volumes:
+      - /path/to/kometa/config:/config
+    restart: unless-stopped

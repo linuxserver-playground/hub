@@ -1,0 +1,78 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "SETTINGS_ENCRYPTION_KEY",
+        "label": "Encryption key for settings database. Minimum 8 characters, alphanumeric.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "CLI_ARGS",
+        "label": "Optionally specify any CLI variables you want to launch the app with",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DUPLICATI__WEBSERVICE_PASSWORD",
+        "label": "Password for the webui. If left unset will default to changeme and can be changed from the webui settings.",
+        "initialValue": "",
+        "type": "password"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/duplicati:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "SETTINGS_ENCRYPTION_KEY={Context.SETTINGS_ENCRYPTION_KEY}",
+        "CLI_ARGS={Context.CLI_ARGS}",
+        "DUPLICATI__WEBSERVICE_PASSWORD={Context.DUPLICATI__WEBSERVICE_PASSWORD}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/duplicati-icon.png",
+        "cosmos.stack": "{ServiceName}-duplicati"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-backups",
+          "target": "/backups",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-source",
+          "target": "/source",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8200",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

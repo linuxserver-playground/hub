@@ -1,0 +1,80 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "FG_LOG_LEVEL",
+        "label": "Set the FlexGet logging level.",
+        "initialValue": "info",
+        "type": "text"
+      },
+      {
+        "name": "FG_LOG_FILE",
+        "label": "Set the FlexGet log file location.",
+        "initialValue": "/config/flexget.log",
+        "type": "text"
+      },
+      {
+        "name": "FG_CONFIG_FILE",
+        "label": "Set the FlexGet config file location.",
+        "initialValue": "/config/.flexget/config.yml",
+        "type": "text"
+      },
+      {
+        "name": "FG_WEBUI_PASSWORD",
+        "label": "Set the FlexGet webui password. Pay attention to Bash/YAML reserved characters.",
+        "initialValue": "info",
+        "type": "password"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/flexget:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "FG_LOG_LEVEL={Context.FG_LOG_LEVEL}",
+        "FG_LOG_FILE={Context.FG_LOG_FILE}",
+        "FG_CONFIG_FILE={Context.FG_CONFIG_FILE}",
+        "FG_WEBUI_PASSWORD={Context.FG_WEBUI_PASSWORD}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/flexget-banner.png",
+        "cosmos.stack": "{ServiceName}-flexget"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-data",
+          "target": "/data",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:5050",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

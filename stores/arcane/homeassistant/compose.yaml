@@ -1,0 +1,17 @@
+x-arcane:
+  icon: https://github.com/home-assistant/home-assistant.io/raw/next/source/images/favicon-192x192-full.png
+  urls:
+  - https://www.home-assistant.io/
+  - https://github.com/linuxserver-playground/docker-homeassistant
+services:
+  homeassistant:
+    image: ghcr.io/linuxserver-playground/homeassistant:latest
+    container_name: homeassistant
+    network_mode: host
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    restart: unless-stopped

@@ -1,0 +1,21 @@
+services:
+  piper:
+    image: ghcr.io/linuxserver-playground/piper:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      PIPER_VOICE: ${PIPER_PIPER_VOICE}
+      LOCAL_ONLY: ${PIPER_LOCAL_ONLY}
+      PIPER_LENGTH: ${PIPER_PIPER_LENGTH}
+      PIPER_NOISE: ${PIPER_PIPER_NOISE}
+      PIPER_NOISEW: ${PIPER_PIPER_NOISEW}
+      PIPER_SPEAKER: ${PIPER_PIPER_SPEAKER}
+      NO_STREAMING: ${PIPER_NO_STREAMING}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 10200
+x-runtipi:
+  schema_version: 2

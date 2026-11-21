@@ -1,0 +1,67 @@
+{
+  "name": "Transmission",
+  "available": true,
+  "exposable": true,
+  "port": 9091,
+  "id": "transmission",
+  "tipi_version": 1,
+  "version": "4.1.4-r0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Transmission is designed for easy, powerful use. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch directories, tracker editing, global and per-torrent speed limits, and more.",
+  "short_desc": "Transmission is designed for easy, powerful use",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-transmission",
+  "website": "https://www.transmissionbt.com/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/transmission.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "TRANSMISSION_WEB_HOME",
+      "hint": "Specify the path to an alternative UI folder.",
+      "required": false,
+      "env_variable": "TRANSMISSION_TRANSMISSION_WEB_HOME"
+    },
+    {
+      "type": "text",
+      "label": "USER",
+      "hint": "Specify an optional username for the interface",
+      "required": false,
+      "env_variable": "TRANSMISSION_USER"
+    },
+    {
+      "type": "password",
+      "label": "PASS",
+      "hint": "Specify an optional password for the interface",
+      "required": false,
+      "env_variable": "TRANSMISSION_PASS"
+    },
+    {
+      "type": "text",
+      "label": "WHITELIST",
+      "hint": "Specify an optional list of comma separated ip whitelist. Fills rpc-whitelist setting.",
+      "required": false,
+      "env_variable": "TRANSMISSION_WHITELIST"
+    },
+    {
+      "type": "text",
+      "label": "PEERPORT",
+      "hint": "Specify an optional port for torrent TCP/UDP connections. Fills peer-port setting.",
+      "required": false,
+      "env_variable": "TRANSMISSION_PEERPORT"
+    },
+    {
+      "type": "text",
+      "label": "HOST_WHITELIST",
+      "hint": "Specify an optional list of comma separated dns name whitelist. Fills rpc-host-whitelist setting.",
+      "required": false,
+      "env_variable": "TRANSMISSION_HOST_WHITELIST"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

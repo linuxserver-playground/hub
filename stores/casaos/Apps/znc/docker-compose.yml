@@ -1,0 +1,55 @@
+name: znc
+services:
+  znc:
+    image: ghcr.io/linuxserver-playground/znc:latest
+    container_name: znc
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/znc/config:/config
+    ports:
+    - 6501:6501
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '6501'
+        description:
+          en_us: Port ZNC listens on.
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: znc
+  author: LinuxServer.io
+  developer: Znc
+  category: IRC
+  description:
+    en_us: Znc is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels. Multiple clients from different locations can connect to a single ZNC account simultaneously and therefore appear under the same nickname on IRC.
+  tagline:
+    en_us: Znc is an IRC network bouncer or BNC
+  title:
+    en_us: Znc
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/znc-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/znc-logo.png
+  store_app_id: znc
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-znc/builds/znc-1.10.3-ls5/amd64/screenshot.png
+  port_map: '6501'

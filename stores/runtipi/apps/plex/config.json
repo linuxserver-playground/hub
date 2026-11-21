@@ -1,0 +1,41 @@
+{
+  "name": "Plex",
+  "available": true,
+  "exposable": true,
+  "port": 32400,
+  "id": "plex",
+  "tipi_version": 1,
+  "version": "1.43.5.11079-b3b13e506",
+  "categories": [
+    "media",
+    "books"
+  ],
+  "description": "Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
+  "short_desc": "Plex organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and ",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-plex",
+  "website": "https://plex.tv",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "VERSION",
+      "hint": "Set whether to update plex or not - see Application Setup section.",
+      "required": true,
+      "env_variable": "PLEX_VERSION",
+      "default": "docker"
+    },
+    {
+      "type": "text",
+      "label": "PLEX_CLAIM",
+      "hint": "Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes.",
+      "required": false,
+      "env_variable": "PLEX_PLEX_CLAIM"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

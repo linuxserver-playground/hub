@@ -1,0 +1,51 @@
+name: webgrabplus
+services:
+  webgrabplus:
+    image: ghcr.io/linuxserver-playground/webgrabplus:latest
+    container_name: webgrabplus
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/webgrabplus/config:/config
+    - /DATA/AppData/webgrabplus/data:/data
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports: []
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /data
+        description:
+          en_us: Where webgrabplus should store it's data files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: webgrabplus
+  author: LinuxServer.io
+  developer: Webgrabplus
+  category: Media Tools
+  description:
+    en_us: Webgrabplus is a multi-site incremental xmltv epg grabber. It collects tv-program guide data from selected tvguide sites for your favourite channels.
+  tagline:
+    en_us: Webgrabplus is a multi-site incremental xmltv epg grabber
+  title:
+    en_us: Webgrabplus
+  icon: https://www.webgrabplus.com/sites/default/themes/WgTheme/images/slideshows/EPG_fading.jpg
+  thumbnail: https://www.webgrabplus.com/sites/default/themes/WgTheme/images/slideshows/EPG_fading.jpg
+  store_app_id: webgrabplus
+  index: /
+  scheme: http

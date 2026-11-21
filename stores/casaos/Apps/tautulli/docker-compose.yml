@@ -1,0 +1,55 @@
+name: tautulli
+services:
+  tautulli:
+    image: ghcr.io/linuxserver-playground/tautulli:latest
+    container_name: tautulli
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/tautulli/config:/config
+    ports:
+    - 8181:8181
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8181'
+        description:
+          en_us: WebUI
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: tautulli
+  author: LinuxServer.io
+  developer: Tautulli
+  category: Media Tools
+  description:
+    en_us: Tautulli is a python based web application for monitoring, analytics and notifications for Plex Media Server.
+  tagline:
+    en_us: Tautulli is a python based web application for monitoring, analytics and notifications for Plex Media Server
+  title:
+    en_us: Tautulli
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tautulli-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tautulli-icon.png
+  store_app_id: tautulli
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-tautulli/builds/v2.19.1-ls8/amd64/screenshot.png
+  port_map: '8181'

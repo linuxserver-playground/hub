@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/wireshark-icon.png
+  urls:
+  - https://www.wireshark.org/
+  - https://github.com/linuxserver-playground/docker-wireshark
+services:
+  wireshark:
+    image: ghcr.io/linuxserver-playground/wireshark:latest
+    container_name: wireshark
+    cap_add:
+    - NET_ADMIN
+    network_mode: host
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    shm_size: 1gb
+    restart: unless-stopped

@@ -1,0 +1,63 @@
+name: duckdns
+services:
+  duckdns:
+    image: ghcr.io/linuxserver-playground/duckdns:latest
+    container_name: duckdns
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - SUBDOMAINS=subdomain1,subdomain2
+    - TOKEN=token
+    - UPDATE_IP=ipv4
+    - LOG_FILE=false
+    volumes:
+    - /DATA/AppData/duckdns/config:/config
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: SUBDOMAINS
+        description:
+          en_us: multiple subdomains allowed, comma separated, no spaces, if your domain is user.duckdns.org you put user, not a sub-subdomain
+      - container: TOKEN
+        description:
+          en_us: DuckDNS token
+      - container: UPDATE_IP
+        description:
+          en_us: Set to ipv6 or ipv4 to update only your public IPv4/6 address. Set to both to update IPv6 and IPv4 address. This variable makes use of a third-party service. Omitting this variable uses DuckDNS for detection and only supports IPv4. both and ipv6 modes needs host networking.
+      - container: LOG_FILE
+        description:
+          en_us: Set to true to log to file (also need to map /config).
+      ports: []
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files. Also set LOGFILE=true to keep address history.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: duckdns
+  author: LinuxServer.io
+  developer: Duckdns
+  category: Network
+  description:
+    en_us: Duckdns is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.
+  tagline:
+    en_us: Duckdns is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice
+  title:
+    en_us: Duckdns
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png
+  store_app_id: duckdns
+  index: /
+  scheme: http

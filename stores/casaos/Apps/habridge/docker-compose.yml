@@ -1,0 +1,63 @@
+name: habridge
+services:
+  habridge:
+    image: ghcr.io/linuxserver-playground/habridge:latest
+    container_name: habridge
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - SEC_KEY=
+    volumes:
+    - /DATA/AppData/habridge/config:/config
+    ports:
+    - 8080:8080
+    - 50000:50000
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: SEC_KEY
+        description:
+          en_us: Key used to secure communication.
+      ports:
+      - container: '8080'
+        description:
+          en_us: WebUI
+      - container: '50000'
+        description:
+          en_us: HABridge communication port.
+      volumes:
+      - container: /config
+        description:
+          en_us: Where HABridge stores config files and data.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: habridge
+  author: LinuxServer.io
+  developer: Habridge
+  category: Home Automation
+  description:
+    en_us: Habridge emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot Gen 1 (gen 2 has issues discovering ha-bridge) or other systems that support Philips Hue. The Bridge handles basic commands such as On, Off and brightness commands of the hue protocol. This bridge can control most devices that have a distinct API.
+  tagline:
+    en_us: Habridge emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot Gen 1 (gen 2 has issues discovering ha-bridge) or other systems that support Philips Hue
+  title:
+    en_us: Habridge
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/habridge-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/habridge-logo.png
+  store_app_id: habridge
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-habridge/builds/v5.4.1-ls4/amd64/screenshot.png
+  port_map: '8080'

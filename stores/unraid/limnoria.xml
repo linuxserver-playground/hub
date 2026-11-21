@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-limnoria/blob/master/image.yml -->
+<Container version="2">
+    <Name>limnoria</Name>
+    <Repository>ghcr.io/linuxserver-playground/limnoria</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/limnoria</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-limnoria/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-limnoria#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-limnoria#readme</ReadMe>
+    <Project>https://github.com/ProgVal/limnoria</Project>
+    <Overview>Limnoria(https://github.com/ProgVal/limnoria) A robust, full-featured, and user/programmer-friendly Python IRC bot, with many existing plugins. Successor of the well-known Supybot.</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/limnoria.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/limnoria-icon.png</Icon>
+    <Date>2025-02-01</Date>
+    <Changes>
+### 2025-02-01
+- Rebase to Alpine 3.21.
+
+### 2024-06-27
+- Rebase to Alpine 3.20.
+
+### 2023-12-23
+- Rebase to Alpine 3.19.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2022-12-22
+- Rebase to alpine 3.17.
+
+### 2022-09-19
+- Rebase to alpine 3.15.
+
+### 2021-05-25
+- Install plugin requirements on container init.
+
+### 2021-05-17
+- Add linuxserver wheel index.
+
+### 2021-02-13
+- Rebasing to alpine 3.13.
+
+### 2020-06-01
+- Rebasing to alpine 3.12.
+
+### 2020-01-13
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8080" Default="8080" Mode="tcp" Description="Port for Limnoria&#x27;s web interface." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

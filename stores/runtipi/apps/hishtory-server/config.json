@@ -1,0 +1,41 @@
+{
+  "name": "Hishtory-server",
+  "available": true,
+  "exposable": true,
+  "port": 8080,
+  "id": "hishtory-server",
+  "tipi_version": 1,
+  "version": "v0.335",
+  "categories": [
+    "utilities"
+  ],
+  "description": "hiSHtory is a better shell history. It stores your shell history in context (what directory you ran the command in, whether it succeeded or failed, how long it took, etc). This is all stored locally and end-to-end encrypted for syncing to to all your other computers.",
+  "short_desc": "hiSHtory is a better shell history",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-hishtory-server",
+  "website": "https://github.com/ddworken/hishtory",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hishtory-server-icon.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "HISHTORY_POSTGRES_DB",
+      "hint": "Postgres DB Connection URI. Special characters must be URL encoded.",
+      "required": false,
+      "env_variable": "HISHTORY_SERVER_HISHTORY_POSTGRES_DB",
+      "default": "postgresql://${HISHTORY_DB_USER}:${HISHTORY_DB_PASS}@hishtory-db:5432/hishtory?sslmode=disable"
+    },
+    {
+      "type": "text",
+      "label": "HISHTORY_SQLITE_DB",
+      "hint": "SQLite database path. Needs to be a mounted volume for persistence. Don't set at the same time as HISHTORYPOSTGRESDB.",
+      "required": false,
+      "env_variable": "HISHTORY_SERVER_HISHTORY_SQLITE_DB",
+      "default": "/config/hishtory.db"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

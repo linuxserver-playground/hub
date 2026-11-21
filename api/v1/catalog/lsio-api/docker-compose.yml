@@ -1,0 +1,10 @@
+---
+services:
+  lsio-api:
+    image: ghcr.io/linuxserver-playground/lsio-api:latest
+    container_name: lsio-api
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

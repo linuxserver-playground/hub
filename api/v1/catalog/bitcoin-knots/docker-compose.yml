@@ -1,0 +1,16 @@
+---
+services:
+  bitcoin-knots:
+    image: ghcr.io/linuxserver-playground/bitcoin-knots:latest
+    container_name: bitcoin-knots
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/bitcoin-knots/config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+      - 8333:8333
+    restart: unless-stopped

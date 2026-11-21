@@ -1,0 +1,67 @@
+name: diskover
+services:
+  diskover:
+    image: ghcr.io/linuxserver-playground/diskover:latest
+    container_name: diskover
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - ES_HOST=elasticsearch
+    - ES_PORT=9200
+    volumes:
+    - /DATA/AppData/diskover/config:/config
+    - /DATA/AppData/diskover/data:/data
+    ports:
+    - 80:80
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: ES_HOST
+        description:
+          en_us: ElasticSearch host (optional)
+      - container: ES_PORT
+        description:
+          en_us: ElasticSearch port (optional)
+      ports:
+      - container: '80'
+        description:
+          en_us: diskover Web UI
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /data
+        description:
+          en_us: Default mount point to crawl
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: diskover
+  author: LinuxServer.io
+  developer: Diskover
+  category: Storage
+  description:
+    en_us: diskover is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.
+  tagline:
+    en_us: diskover is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems
+  title:
+    en_us: Diskover
+  icon: https://raw.githubusercontent.com/diskoverdata/diskover-community/master/diskover-web/public/images/diskover.png
+  thumbnail: https://raw.githubusercontent.com/diskoverdata/diskover-community/master/diskover-web/public/images/diskover.png
+  store_app_id: diskover
+  index: /
+  scheme: http
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-diskover/builds/v2.3.5-ls3/amd64/screenshot.png
+  port_map: '80'

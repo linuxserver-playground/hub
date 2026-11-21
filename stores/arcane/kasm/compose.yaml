@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://kasm-ci.s3.amazonaws.com/kasm_wide.png
+  urls:
+  - https://www.kasmweb.com/?utm_campaign=LinuxServer&utm_source=listing
+  - https://github.com/linuxserver-playground/docker-kasm
+services:
+  kasm:
+    image: ghcr.io/linuxserver-playground/kasm:latest
+    container_name: kasm
+    privileged: true
+    environment:
+      KASM_PORT: ${KASM_PORT:-443}
+    volumes:
+    - ${OPT_PATH:-./opt}:/opt
+    ports:
+    - ${PORT_3000:-3000}:3000
+    - ${PORT_443:-443}:443
+    restart: unless-stopped

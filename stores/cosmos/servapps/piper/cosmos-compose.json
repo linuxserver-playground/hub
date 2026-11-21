@@ -1,0 +1,96 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "PIPER_VOICE",
+        "label": "The Piper voice to use, in the format <language>-<name>-<quality>",
+        "initialValue": "en_US-lessac-medium",
+        "type": "text"
+      },
+      {
+        "name": "LOCAL_ONLY",
+        "label": "If set to true, or any other value, the container will not attempt to download models from HuggingFace and will only use locally-provided models.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "PIPER_LENGTH",
+        "label": "Voice speaking rate, 1.0 is default with < 1.0 being faster and > 1.0 being slower.",
+        "initialValue": "1.0",
+        "type": "text"
+      },
+      {
+        "name": "PIPER_NOISE",
+        "label": "Controls the variability of the voice by adding noise. Values above 1 will start to degrade audio.",
+        "initialValue": "0.667",
+        "type": "text"
+      },
+      {
+        "name": "PIPER_NOISEW",
+        "label": "Controls the variability of speaking cadence. Values above 1 produce extreme stutters and pauses.",
+        "initialValue": "0.333",
+        "type": "text"
+      },
+      {
+        "name": "PIPER_SPEAKER",
+        "label": "Speaker number to use if the voice supports multiple speakers.",
+        "initialValue": "0",
+        "type": "text"
+      },
+      {
+        "name": "NO_STREAMING",
+        "label": "Setting to true, or any other value, will disable support for streaming audio on sentence boundaries.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/piper:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "PIPER_VOICE={Context.PIPER_VOICE}",
+        "LOCAL_ONLY={Context.LOCAL_ONLY}",
+        "PIPER_LENGTH={Context.PIPER_LENGTH}",
+        "PIPER_NOISE={Context.PIPER_NOISE}",
+        "PIPER_NOISEW={Context.PIPER_NOISEW}",
+        "PIPER_SPEAKER={Context.PIPER_SPEAKER}",
+        "NO_STREAMING={Context.NO_STREAMING}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piper-logo.png",
+        "cosmos.stack": "{ServiceName}-piper"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:10200",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

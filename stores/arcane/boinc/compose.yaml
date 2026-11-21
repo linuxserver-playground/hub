@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg
+  urls:
+  - https://boinc.berkeley.edu/
+  - https://github.com/linuxserver-playground/docker-boinc
+services:
+  boinc:
+    image: ghcr.io/linuxserver-playground/boinc:latest
+    container_name: boinc
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8080:-8080}:8080
+    - ${PORT_8181:-8181}:8181
+    shm_size: 1gb
+    restart: unless-stopped

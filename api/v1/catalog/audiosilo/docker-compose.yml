@@ -1,0 +1,15 @@
+---
+services:
+  audiosilo:
+    image: ghcr.io/linuxserver-playground/audiosilo:latest
+    container_name: audiosilo
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/audiosilo/config:/config
+      - /path/to/audiobooks:/audiobooks:ro
+    ports:
+      - 8080:8080
+    restart: unless-stopped

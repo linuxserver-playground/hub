@@ -1,0 +1,15 @@
+services:
+  luanti:
+    image: ghcr.io/linuxserver-playground/luanti:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      CLI_ARGS: ${LUANTI_CLI_ARGS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config/.minetest:/config/.minetest
+    x-runtipi:
+      is_main: true
+      internal_port: 30000
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-hedgedoc_server_1
+      APP_PORT: 3000
+  server:
+    image: ghcr.io/linuxserver-playground/hedgedoc:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      DB_HOST: <hostname or ip>
+      DB_PORT: '3306'
+      DB_USER: hedgedoc
+      DB_PASS: <secret password>
+      DB_NAME: hedgedoc
+      CMD_DOMAIN: localhost
+      CMD_URL_ADDPORT: 'false'
+      CMD_PROTOCOL_USESSL: 'false'
+      CMD_PORT: '3000'
+      CMD_ALLOW_ORIGIN: '[''localhost'']'
+      CMD_DB_DIALECT: ''
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config

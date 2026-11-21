@@ -1,0 +1,88 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "KASM_PORT",
+        "label": "Specify the port you bind to the outside for Kasm Workspaces.",
+        "initialValue": "443",
+        "type": "text"
+      },
+      {
+        "name": "DOCKER_HUB_USERNAME",
+        "label": "Optionally specify a DockerHub Username to pull private images.",
+        "initialValue": "USER",
+        "type": "text"
+      },
+      {
+        "name": "DOCKER_HUB_PASSWORD",
+        "label": "Optionally specify a DockerHub password to pull private images.",
+        "initialValue": "PASS",
+        "type": "password"
+      },
+      {
+        "name": "DOCKER_MTU",
+        "label": "Optionally specify the mtu options passed to dockerd.",
+        "initialValue": "1500",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/kasm:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "KASM_PORT={Context.KASM_PORT}",
+        "DOCKER_HUB_USERNAME={Context.DOCKER_HUB_USERNAME}",
+        "DOCKER_HUB_PASSWORD={Context.DOCKER_HUB_PASSWORD}",
+        "DOCKER_MTU={Context.DOCKER_MTU}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://kasm-ci.s3.amazonaws.com/kasm_wide.png",
+        "cosmos.stack": "{ServiceName}-kasm"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-opt",
+          "target": "/opt",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-profiles",
+          "target": "/profiles",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-dev-input",
+          "target": "/dev/input",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-run-udev-data",
+          "target": "/run/udev/data",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "privileged": true,
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:3000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

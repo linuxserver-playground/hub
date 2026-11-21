@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-ubooquity_server_1
+      APP_PORT: 2202
+  server:
+    image: ghcr.io/linuxserver-playground/ubooquity:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      MAXMEM: ''
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/books:/books
+    - ${APP_DATA_DIR}/data/comics:/comics
+    - ${APP_DATA_DIR}/data/files:/files
+    ports:
+    - 2203:2203

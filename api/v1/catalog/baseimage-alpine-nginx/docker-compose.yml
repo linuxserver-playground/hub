@@ -1,0 +1,10 @@
+---
+services:
+  baseimage-alpine-nginx:
+    image: ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.21
+    container_name: baseimage-alpine-nginx
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

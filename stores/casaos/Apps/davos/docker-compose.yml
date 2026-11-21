@@ -1,0 +1,57 @@
+name: davos
+services:
+  davos:
+    image: ghcr.io/linuxserver-playground/davos:latest
+    container_name: davos
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/davos/config:/config
+    - /DATA/AppData/davos/download:/download
+    ports:
+    - 8080:8080
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '8080'
+        description:
+          en_us: This is the default port that davos runs under
+      volumes:
+      - container: /config
+        description:
+          en_us: davos's config location. This is where it stores its database file and logs.
+      - container: /download
+        description:
+          en_us: davos's file download location
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: davos
+  author: LinuxServer.io
+  developer: Davos
+  category: FTP
+  description:
+    en_us: Davos is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.
+  tagline:
+    en_us: Davos is an FTP automation tool that periodically scans given host locations for new files
+  title:
+    en_us: Davos
+  icon: https://raw.githubusercontent.com/linuxserver/davos/master/docs/list.PNG
+  thumbnail: https://raw.githubusercontent.com/linuxserver/davos/master/docs/list.PNG
+  store_app_id: davos
+  index: /
+  scheme: http
+  port_map: '8080'

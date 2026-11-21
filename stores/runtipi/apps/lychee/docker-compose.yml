@@ -1,0 +1,24 @@
+services:
+  lychee:
+    image: ghcr.io/linuxserver-playground/lychee:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      DB_CONNECTION: ${LYCHEE_DB_CONNECTION}
+      DB_HOST: ${LYCHEE_DB_HOST}
+      DB_PORT: ${LYCHEE_DB_PORT}
+      DB_USERNAME: ${LYCHEE_DB_USERNAME}
+      DB_PASSWORD: ${LYCHEE_DB_PASSWORD}
+      DB_DATABASE: ${LYCHEE_DB_DATABASE}
+      APP_NAME: ${LYCHEE_APP_NAME}
+      APP_URL: ${LYCHEE_APP_URL}
+      TRUSTED_PROXIES: ${LYCHEE_TRUSTED_PROXIES}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/pictures:/pictures
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

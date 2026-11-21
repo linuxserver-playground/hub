@@ -1,0 +1,117 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "PUBLIC_KEY",
+        "label": "Optional ssh public key, which will automatically be added to authorizedkeys.",
+        "initialValue": "yourpublickey",
+        "type": "password"
+      },
+      {
+        "name": "PUBLIC_KEY_FILE",
+        "label": "Optionally specify a file containing the public key (works with docker secrets).",
+        "initialValue": "/path/to/file",
+        "type": "password"
+      },
+      {
+        "name": "PUBLIC_KEY_DIR",
+        "label": "Optionally specify a directory containing the public keys (works with docker secrets).",
+        "initialValue": "/path/to/directory/containing/_only_/pubkeys",
+        "type": "password"
+      },
+      {
+        "name": "PUBLIC_KEY_URL",
+        "label": "Optionally specify a URL containing the public key.",
+        "initialValue": "https://github.com/username.keys",
+        "type": "password"
+      },
+      {
+        "name": "SUDO_ACCESS",
+        "label": "Set to true to allow linuxserver.io, the ssh user, sudo access. Without USERPASSWORD set, this will allow passwordless sudo access.",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "PASSWORD_ACCESS",
+        "label": "Set to true to allow user/password ssh access. You will want to set USERPASSWORD or USERPASSWORDFILE as well.",
+        "initialValue": "false",
+        "type": "password"
+      },
+      {
+        "name": "USER_PASSWORD",
+        "label": "Optionally set a sudo password for linuxserver.io, the ssh user. If this or USERPASSWORDFILE are not set but SUDOACCESS is set to true, the user will have passwordless sudo access.",
+        "initialValue": "password",
+        "type": "password"
+      },
+      {
+        "name": "USER_PASSWORD_FILE",
+        "label": "Optionally specify a file that contains the password. This setting supersedes the USERPASSWORD option (works with docker secrets).",
+        "initialValue": "/path/to/file",
+        "type": "password"
+      },
+      {
+        "name": "USER_NAME",
+        "label": "Optionally specify a user name (Default:linuxserver.io)",
+        "initialValue": "linuxserver.io",
+        "type": "text"
+      },
+      {
+        "name": "LOG_STDOUT",
+        "label": "Set to true to log to stdout instead of file.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/openssh-server:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "PUBLIC_KEY={Context.PUBLIC_KEY}",
+        "PUBLIC_KEY_FILE={Context.PUBLIC_KEY_FILE}",
+        "PUBLIC_KEY_DIR={Context.PUBLIC_KEY_DIR}",
+        "PUBLIC_KEY_URL={Context.PUBLIC_KEY_URL}",
+        "SUDO_ACCESS={Context.SUDO_ACCESS}",
+        "PASSWORD_ACCESS={Context.PASSWORD_ACCESS}",
+        "USER_PASSWORD={Context.USER_PASSWORD}",
+        "USER_PASSWORD_FILE={Context.USER_PASSWORD_FILE}",
+        "USER_NAME={Context.USER_NAME}",
+        "LOG_STDOUT={Context.LOG_STDOUT}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openssh-server-logo.png",
+        "cosmos.stack": "{ServiceName}-openssh-server"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:2222",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

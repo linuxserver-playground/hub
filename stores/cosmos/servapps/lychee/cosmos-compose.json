@@ -1,0 +1,115 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "DB_CONNECTION",
+        "label": "DB type, from sqlite, mysql, pqsql.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_HOST",
+        "label": "DB server hostname. For mysql and pgsql only.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PORT",
+        "label": "DB server port. For mysql and pgsql only.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_USERNAME",
+        "label": "DB user. For mysql and pgsql only.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "label": "DB password. For mysql and pgsql only.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "DB_DATABASE",
+        "label": "Path to DB file for sqlite. DB name for mysql and pgsql.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "APP_NAME",
+        "label": "The gallery name.",
+        "initialValue": "Lychee",
+        "type": "text"
+      },
+      {
+        "name": "APP_URL",
+        "label": "The URL you will use to access Lychee including protocol, and port where appropriate.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "TRUSTED_PROXIES",
+        "label": "Set to the IP or netmask covering your reverse proxy, if running behind one. Set to to trust all IPs (do not use if exposed to the internet).",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/lychee:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "DB_CONNECTION={Context.DB_CONNECTION}",
+        "DB_HOST={Context.DB_HOST}",
+        "DB_PORT={Context.DB_PORT}",
+        "DB_USERNAME={Context.DB_USERNAME}",
+        "DB_PASSWORD={Context.DB_PASSWORD}",
+        "DB_DATABASE={Context.DB_DATABASE}",
+        "APP_NAME={Context.APP_NAME}",
+        "APP_URL={Context.APP_URL}",
+        "TRUSTED_PROXIES={Context.TRUSTED_PROXIES}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png",
+        "cosmos.stack": "{ServiceName}-lychee"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-pictures",
+          "target": "/pictures",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:80",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

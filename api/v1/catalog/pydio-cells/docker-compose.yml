@@ -1,0 +1,17 @@
+---
+services:
+  pydio-cells:
+    image: ghcr.io/linuxserver-playground/pydio-cells:latest
+    container_name: pydio-cells
+    hostname: pydio-cells
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - EXTERNALURL=yourdomain.url
+      - SERVER_IP=0.0.0.0 #optional
+    volumes:
+      - /path/to/pydio-cells/config:/config
+    ports:
+      - 8080:8080
+    restart: unless-stopped

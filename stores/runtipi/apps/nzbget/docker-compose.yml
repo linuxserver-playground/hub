@@ -1,0 +1,17 @@
+services:
+  nzbget:
+    image: ghcr.io/linuxserver-playground/nzbget:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      NZBGET_USER: ${NZBGET_NZBGET_USER}
+      NZBGET_PASS: ${NZBGET_NZBGET_PASS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/downloads:/downloads
+    x-runtipi:
+      is_main: true
+      internal_port: 6789
+x-runtipi:
+  schema_version: 2

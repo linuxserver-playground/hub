@@ -1,0 +1,25 @@
+services:
+  hedgedoc:
+    image: ghcr.io/linuxserver-playground/hedgedoc:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      DB_HOST: ${HEDGEDOC_DB_HOST}
+      DB_PORT: ${HEDGEDOC_DB_PORT}
+      DB_USER: ${HEDGEDOC_DB_USER}
+      DB_PASS: ${HEDGEDOC_DB_PASS}
+      DB_NAME: ${HEDGEDOC_DB_NAME}
+      CMD_DOMAIN: ${HEDGEDOC_CMD_DOMAIN}
+      CMD_URL_ADDPORT: ${HEDGEDOC_CMD_URL_ADDPORT}
+      CMD_PROTOCOL_USESSL: ${HEDGEDOC_CMD_PROTOCOL_USESSL}
+      CMD_PORT: ${HEDGEDOC_CMD_PORT}
+      CMD_ALLOW_ORIGIN: ${HEDGEDOC_CMD_ALLOW_ORIGIN}
+      CMD_DB_DIALECT: ${HEDGEDOC_CMD_DB_DIALECT}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+x-runtipi:
+  schema_version: 2

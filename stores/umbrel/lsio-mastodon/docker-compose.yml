@@ -1,0 +1,56 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-mastodon_server_1
+      APP_PORT: 80
+  server:
+    image: ghcr.io/linuxserver-playground/mastodon:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      LOCAL_DOMAIN: example.com
+      REDIS_HOST: redis
+      REDIS_PORT: '6379'
+      DB_HOST: db
+      DB_USER: mastodon
+      DB_NAME: mastodon
+      DB_PASS: mastodon
+      DB_PORT: '5432'
+      ES_ENABLED: 'false'
+      ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY: ''
+      ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY: ''
+      ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT: ''
+      SECRET_KEY_BASE: ''
+      OTP_SECRET: ''
+      VAPID_PRIVATE_KEY: ''
+      VAPID_PUBLIC_KEY: ''
+      SMTP_SERVER: mail.example.com
+      SMTP_PORT: '25'
+      SMTP_LOGIN: ''
+      SMTP_PASSWORD: ''
+      SMTP_FROM_ADDRESS: notifications@example.com
+      S3_ENABLED: 'false'
+      WEB_DOMAIN: mastodon.example.com
+      ES_HOST: es
+      ES_PORT: '9200'
+      ES_USER: elastic
+      ES_PASS: elastic
+      S3_BUCKET: ''
+      AWS_ACCESS_KEY_ID: ''
+      AWS_SECRET_ACCESS_KEY: ''
+      S3_ALIAS_HOST: ''
+      SIDEKIQ_ONLY: 'false'
+      SIDEKIQ_QUEUE: ''
+      SIDEKIQ_DEFAULT: 'false'
+      SIDEKIQ_THREADS: '5'
+      DB_POOL: '5'
+      NO_CHOWN: ''
+      MASTODON_PROMETHEUS_EXPORTER_ENABLED: ''
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 443:443

@@ -1,0 +1,38 @@
+---
+services:
+  kimai:
+    image: ghcr.io/linuxserver-playground/kimai:latest
+    container_name: kimai
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - APP_SECRET=
+      - DATABASE_URL=mysql://your_db_user:your_db_pass@your_db_host:3306/your_db_name?charset=your_db_charset&serverVersion=your_db_version
+      - TRUSTED_HOSTS=kimai.example.com
+      - TRUSTED_PROXIES=127.0.0.1/32 #optional
+    volumes:
+      - /path/to/kimai/config:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+
+# This container requires an external application to be run separately.
+# MariaDB
+  mariadb:
+    image: lscr.io/linuxserver/mariadb:latest
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
+      - MYSQL_DATABASE=your_db_name #optional
+      - MYSQL_USER=your_db_user #optional
+      - MYSQL_PASSWORD=your_db_pass #optional
+    volumes:
+      - path_to_data:/config
+    ports:
+      - 3306:3306
+    restart: unless-stopped

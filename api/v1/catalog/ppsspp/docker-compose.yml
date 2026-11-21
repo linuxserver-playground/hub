@@ -1,0 +1,16 @@
+---
+services:
+  ppsspp:
+    image: ghcr.io/linuxserver-playground/ppsspp:latest
+    container_name: ppsspp
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/ppsspp/config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb" #optional
+    restart: unless-stopped

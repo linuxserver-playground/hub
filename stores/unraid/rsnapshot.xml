@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-rsnapshot/blob/master/image.yml -->
+<Container version="2">
+    <Name>rsnapshot</Name>
+    <Repository>ghcr.io/linuxserver-playground/rsnapshot</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/rsnapshot</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-rsnapshot/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-rsnapshot#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-rsnapshot#readme</ReadMe>
+    <Project>http://www.rsnapshot.org/</Project>
+    <Overview>Rsnapshot(http://www.rsnapshot.org/) is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines, and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required.</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/rsnapshot.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rsnapshot.png</Icon>
+    <Date>2025-02-01</Date>
+    <Changes>
+### 2025-02-01
+- Rebase to Alpine 3.21.
+
+### 2024-03-06
+- Rebase to Alpine 3.20.
+
+### 2023-12-23
+- Rebase to Alpine 3.19, add root periodic crontabs for logrotate.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-03-02
+- Split cron into separate init step and set crontab permissions.
+
+### 2022-12-15
+- Rebase to alpine 3.17.
+
+### 2022-10-11
+- Rebase to alpine 3.16, migrate to s6v3.
+
+### 2021-10-10
+- Rebase to alpine 3.14.
+
+### 2020-08-20
+- Initial Release.
+
+    </Changes>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /.snapshots" Target="/.snapshots" Default="" Mode="rw" Description="Storage location for all snapshots." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="Path: /data" Target="/data" Default="" Mode="rw" Description="Storage location for data to be backed up." Type="Path" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

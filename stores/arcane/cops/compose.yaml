@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/cops-icon.png
+  urls:
+  - https://github.com/mikespub-org/seblucas-cops
+  - https://github.com/linuxserver-playground/docker-cops
+services:
+  cops:
+    image: ghcr.io/linuxserver-playground/cops:latest
+    container_name: cops
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${BOOKS_PATH:-./books}:/books
+    ports:
+    - ${PORT_80:-80}:80
+    - ${PORT_443:-443}:443
+    restart: unless-stopped

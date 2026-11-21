@@ -1,0 +1,17 @@
+services:
+  helium:
+    image: ghcr.io/linuxserver-playground/helium:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      HELIUM_CLI: ${HELIUM_HELIUM_CLI}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 3001:3001
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+x-runtipi:
+  schema_version: 2

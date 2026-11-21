@@ -1,0 +1,15 @@
+---
+services:
+  nzbhydra2:
+    image: ghcr.io/linuxserver-playground/nzbhydra2:latest
+    container_name: nzbhydra2
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/nzbhydra2/data:/config
+      - /path/to/downloads:/downloads #optional
+    ports:
+      - 5076:5076
+    restart: unless-stopped

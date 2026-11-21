@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/htpcmanager-icon.png
+  urls:
+  - https://github.com/HTPC-Manager/HTPC-Manager
+  - https://github.com/linuxserver-playground/docker-htpcmanager
+services:
+  htpcmanager:
+    image: ghcr.io/linuxserver-playground/htpcmanager:latest
+    container_name: htpcmanager
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8085:-8085}:8085
+    restart: unless-stopped

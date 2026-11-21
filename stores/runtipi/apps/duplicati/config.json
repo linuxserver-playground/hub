@@ -1,0 +1,46 @@
+{
+  "name": "Duplicati",
+  "available": true,
+  "exposable": true,
+  "port": 8200,
+  "id": "duplicati",
+  "tipi_version": 1,
+  "version": "v2.4.1.0_stable_2026-10-29",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Duplicati is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers. It works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon S3, Google Drive, box.com, Mega, B2, and many others.",
+  "short_desc": "Duplicati is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud sto",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-duplicati",
+  "website": "https://www.duplicati.com/",
+  "logo_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/duplicati-icon.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "SETTINGS_ENCRYPTION_KEY",
+      "hint": "Encryption key for settings database. Minimum 8 characters, alphanumeric.",
+      "required": true,
+      "env_variable": "DUPLICATI_SETTINGS_ENCRYPTION_KEY"
+    },
+    {
+      "type": "text",
+      "label": "CLI_ARGS",
+      "hint": "Optionally specify any CLI variables you want to launch the app with",
+      "required": false,
+      "env_variable": "DUPLICATI_CLI_ARGS"
+    },
+    {
+      "type": "password",
+      "label": "DUPLICATI__WEBSERVICE_PASSWORD",
+      "hint": "Password for the webui. If left unset will default to changeme and can be changed from the webui settings.",
+      "required": false,
+      "env_variable": "DUPLICATI_DUPLICATI__WEBSERVICE_PASSWORD"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

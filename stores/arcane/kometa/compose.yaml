@@ -1,0 +1,16 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kometa-banner.png
+  urls:
+  - https://github.com/Kometa-Team/Kometa
+  - https://github.com/linuxserver-playground/docker-kometa
+services:
+  kometa:
+    image: ghcr.io/linuxserver-playground/kometa:latest
+    container_name: kometa
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    restart: unless-stopped

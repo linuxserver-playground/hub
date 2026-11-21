@@ -1,0 +1,16 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rsnapshot.png
+  urls:
+  - http://www.rsnapshot.org/
+  - https://github.com/linuxserver-playground/docker-rsnapshot
+services:
+  rsnapshot:
+    image: ghcr.io/linuxserver-playground/rsnapshot:latest
+    container_name: rsnapshot
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    restart: unless-stopped

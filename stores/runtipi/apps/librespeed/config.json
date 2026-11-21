@@ -1,0 +1,97 @@
+{
+  "name": "Librespeed",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "librespeed",
+  "tipi_version": 1,
+  "version": "v6.3.1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Librespeed is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers.",
+  "short_desc": "Librespeed is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-librespeed",
+  "website": "https://github.com/librespeed/speedtest",
+  "logo_url": "https://raw.githubusercontent.com/librespeed/speedtest/master/.logo/logo3.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "PASSWORD",
+      "hint": "Set the password for the results database.",
+      "required": true,
+      "env_variable": "LIBRESPEED_PASSWORD",
+      "default": "PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "CUSTOM_RESULTS",
+      "hint": "(optional) set to true to enable custom results page in /config/www/results/index.php.",
+      "required": false,
+      "env_variable": "LIBRESPEED_CUSTOM_RESULTS",
+      "default": "false"
+    },
+    {
+      "type": "text",
+      "label": "DB_TYPE",
+      "hint": "Defaults to sqlite, can also be set to mysql or postgresql.",
+      "required": false,
+      "env_variable": "LIBRESPEED_DB_TYPE",
+      "default": "sqlite"
+    },
+    {
+      "type": "text",
+      "label": "DB_NAME",
+      "hint": "Database name. Required for mysql and pgsql.",
+      "required": false,
+      "env_variable": "LIBRESPEED_DB_NAME",
+      "default": "DB_NAME"
+    },
+    {
+      "type": "text",
+      "label": "DB_HOSTNAME",
+      "hint": "Database address. Required for mysql and pgsql.",
+      "required": false,
+      "env_variable": "LIBRESPEED_DB_HOSTNAME",
+      "default": "DB_HOSTNAME"
+    },
+    {
+      "type": "text",
+      "label": "DB_USERNAME",
+      "hint": "Database username. Required for mysql and pgsql.",
+      "required": false,
+      "env_variable": "LIBRESPEED_DB_USERNAME",
+      "default": "DB_USERNAME"
+    },
+    {
+      "type": "password",
+      "label": "DB_PASSWORD",
+      "hint": "Database password. Required for mysql and pgsql.",
+      "required": false,
+      "env_variable": "LIBRESPEED_DB_PASSWORD",
+      "default": "DB_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "DB_PORT",
+      "hint": "Database port. Required for mysql.",
+      "required": false,
+      "env_variable": "LIBRESPEED_DB_PORT",
+      "default": "DB_PORT"
+    },
+    {
+      "type": "password",
+      "label": "IPINFO_APIKEY",
+      "hint": "Access token from ipinfo.io. Required for detailed IP information.",
+      "required": false,
+      "env_variable": "LIBRESPEED_IPINFO_APIKEY",
+      "default": "ACCESS_TOKEN"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

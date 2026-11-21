@@ -1,0 +1,56 @@
+name: hishtory-server
+services:
+  hishtory-server:
+    image: ghcr.io/linuxserver-playground/hishtory-server:latest
+    container_name: hishtory-server
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - HISHTORY_POSTGRES_DB=postgresql://${HISHTORY_DB_USER}:${HISHTORY_DB_PASS}@hishtory-db:5432/hishtory?sslmode=disable
+    - HISHTORY_SQLITE_DB=/config/hishtory.db
+    ports:
+    - 8080:8080
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: HISHTORY_POSTGRES_DB
+        description:
+          en_us: Postgres DB Connection URI. Special characters must be URL encoded.
+      - container: HISHTORY_SQLITE_DB
+        description:
+          en_us: SQLite database path. Needs to be a mounted volume for persistence. Don't set at the same time as HISHTORYPOSTGRESDB.
+      ports:
+      - container: '8080'
+        description:
+          en_us: API port
+      volumes: []
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: hishtory-server
+  author: LinuxServer.io
+  developer: Hishtory-server
+  category: Administration
+  description:
+    en_us: hiSHtory is a better shell history. It stores your shell history in context (what directory you ran the command in, whether it succeeded or failed, how long it took, etc). This is all stored locally and end-to-end encrypted for syncing to to all your other computers.
+  tagline:
+    en_us: hiSHtory is a better shell history
+  title:
+    en_us: Hishtory-server
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hishtory-server-icon.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hishtory-server-icon.png
+  store_app_id: hishtory-server
+  index: /
+  scheme: http
+  port_map: '8080'

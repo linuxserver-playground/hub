@@ -1,0 +1,10 @@
+---
+services:
+  baseimage-ubuntu:
+    image: ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy
+    container_name: baseimage-ubuntu
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

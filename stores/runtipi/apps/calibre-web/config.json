@@ -1,0 +1,42 @@
+{
+  "name": "Calibre-web",
+  "available": true,
+  "exposable": true,
+  "port": 8083,
+  "id": "calibre-web",
+  "tipi_version": 1,
+  "version": "0.6.27",
+  "categories": [
+    "media",
+    "books"
+  ],
+  "description": "Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre library through the app itself.",
+  "short_desc": "Calibre-web is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Cali",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-calibre-web",
+  "website": "https://github.com/janeczku/calibre-web",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "DOCKER_MODS",
+      "hint": "#optional & x86-64 only Adds the ability to perform ebook conversion",
+      "required": false,
+      "env_variable": "CALIBRE_WEB_DOCKER_MODS",
+      "default": "linuxserver/mods:universal-calibre"
+    },
+    {
+      "type": "password",
+      "label": "OAUTHLIB_RELAX_TOKEN_SCOPE",
+      "hint": "Optionally set this to allow Google OAUTH to work",
+      "required": false,
+      "env_variable": "CALIBRE_WEB_OAUTHLIB_RELAX_TOKEN_SCOPE",
+      "default": "1"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

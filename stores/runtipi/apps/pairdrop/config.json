@@ -1,0 +1,56 @@
+{
+  "name": "Pairdrop",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "pairdrop",
+  "tipi_version": 1,
+  "version": "v1.11.2",
+  "categories": [
+    "utilities"
+  ],
+  "description": "PairDrop is a sublime alternative to AirDrop that works on all platforms. Send images, documents or text via peer to peer connection to devices in the same local network/Wi-Fi or to paired devices.",
+  "short_desc": "PairDrop is a sublime alternative to AirDrop that works on all platforms",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-pairdrop",
+  "website": "https://github.com/schlagmichdoch/PairDrop",
+  "logo_url": "https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "RATE_LIMIT",
+      "hint": "Set to true to limit clients to 100 requests per 5 min",
+      "required": false,
+      "env_variable": "PAIRDROP_RATE_LIMIT",
+      "default": "false"
+    },
+    {
+      "type": "text",
+      "label": "WS_FALLBACK",
+      "hint": "Set to true to enable websocket fallback if the peer to peer WebRTC connection is not available to the client (see App Setup notes).",
+      "required": false,
+      "env_variable": "PAIRDROP_WS_FALLBACK",
+      "default": "false"
+    },
+    {
+      "type": "text",
+      "label": "RTC_CONFIG",
+      "hint": "Path to a json file containing custom STUN/TURN config (see App Setup notes)",
+      "required": false,
+      "env_variable": "PAIRDROP_RTC_CONFIG"
+    },
+    {
+      "type": "text",
+      "label": "DEBUG_MODE",
+      "hint": "Set to true to debug the http server configuration by logging clients IP addresses used by PairDrop to STDOUT. See here for more info. Do not use in production!",
+      "required": false,
+      "env_variable": "PAIRDROP_DEBUG_MODE",
+      "default": "false"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

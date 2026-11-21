@@ -1,0 +1,127 @@
+name: fail2ban
+services:
+  fail2ban:
+    image: ghcr.io/linuxserver-playground/fail2ban:latest
+    container_name: fail2ban
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+    - NET_ADMIN
+    - NET_RAW
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - VERBOSITY=-vv
+    volumes:
+    - /DATA/AppData/fail2ban/config:/config
+    - /DATA/AppData/fail2ban/var/log:ro:/var/log:ro
+    - /DATA/AppData/fail2ban/remotelogs/airsonic:ro:/remotelogs/airsonic:ro
+    - /DATA/AppData/fail2ban/remotelogs/apache2:ro:/remotelogs/apache2:ro
+    - /DATA/AppData/fail2ban/remotelogs/authelia:ro:/remotelogs/authelia:ro
+    - /DATA/AppData/fail2ban/remotelogs/emby:ro:/remotelogs/emby:ro
+    - /DATA/AppData/fail2ban/remotelogs/filebrowser:ro:/remotelogs/filebrowser:ro
+    - /DATA/AppData/fail2ban/remotelogs/homeassistant:ro:/remotelogs/homeassistant:ro
+    - /DATA/AppData/fail2ban/remotelogs/lighttpd:ro:/remotelogs/lighttpd:ro
+    - /DATA/AppData/fail2ban/remotelogs/nextcloud:ro:/remotelogs/nextcloud:ro
+    - /DATA/AppData/fail2ban/remotelogs/nginx:ro:/remotelogs/nginx:ro
+    - /DATA/AppData/fail2ban/remotelogs/nzbget:ro:/remotelogs/nzbget:ro
+    - /DATA/AppData/fail2ban/remotelogs/overseerr:ro:/remotelogs/overseerr:ro
+    - /DATA/AppData/fail2ban/remotelogs/prowlarr:ro:/remotelogs/prowlarr:ro
+    - /DATA/AppData/fail2ban/remotelogs/radarr:ro:/remotelogs/radarr:ro
+    - /DATA/AppData/fail2ban/remotelogs/sabnzbd:ro:/remotelogs/sabnzbd:ro
+    - /DATA/AppData/fail2ban/remotelogs/sonarr:ro:/remotelogs/sonarr:ro
+    - /DATA/AppData/fail2ban/remotelogs/unificontroller:ro:/remotelogs/unificontroller:ro
+    - /DATA/AppData/fail2ban/remotelogs/vaultwarden:ro:/remotelogs/vaultwarden:ro
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: VERBOSITY
+        description:
+          en_us: Set the container log verbosity. Valid options are -v, -vv, -vvv, -vvvv, or leaving the value blank or not setting the variable.
+      ports: []
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /var/log:ro
+        description:
+          en_us: Host logs. Mounted as Read Only.
+      - container: /remotelogs/airsonic:ro
+        description:
+          en_us: Optional path to airsonic log folder. Mounted as Read Only.
+      - container: /remotelogs/apache2:ro
+        description:
+          en_us: Optional path to apache2 log folder. Mounted as Read Only.
+      - container: /remotelogs/authelia:ro
+        description:
+          en_us: Optional path to authelia log folder. Mounted as Read Only.
+      - container: /remotelogs/emby:ro
+        description:
+          en_us: Optional path to emby log folder. Mounted as Read Only.
+      - container: /remotelogs/filebrowser:ro
+        description:
+          en_us: Optional path to filebrowser log folder. Mounted as Read Only.
+      - container: /remotelogs/homeassistant:ro
+        description:
+          en_us: Optional path to homeassistant log folder. Mounted as Read Only.
+      - container: /remotelogs/lighttpd:ro
+        description:
+          en_us: Optional path to lighttpd log folder. Mounted as Read Only.
+      - container: /remotelogs/nextcloud:ro
+        description:
+          en_us: Optional path to nextcloud log folder. Mounted as Read Only.
+      - container: /remotelogs/nginx:ro
+        description:
+          en_us: Optional path to nginx log folder. Mounted as Read Only.
+      - container: /remotelogs/nzbget:ro
+        description:
+          en_us: Optional path to nzbget log folder. Mounted as Read Only.
+      - container: /remotelogs/overseerr:ro
+        description:
+          en_us: Optional path to overseerr log folder. Mounted as Read Only.
+      - container: /remotelogs/prowlarr:ro
+        description:
+          en_us: Optional path to prowlarr log folder. Mounted as Read Only.
+      - container: /remotelogs/radarr:ro
+        description:
+          en_us: Optional path to radarr log folder. Mounted as Read Only.
+      - container: /remotelogs/sabnzbd:ro
+        description:
+          en_us: Optional path to sabnzbd log folder. Mounted as Read Only.
+      - container: /remotelogs/sonarr:ro
+        description:
+          en_us: Optional path to sonarr log folder. Mounted as Read Only.
+      - container: /remotelogs/unificontroller:ro
+        description:
+          en_us: Optional path to unificontroller log folder. Mounted as Read Only.
+      - container: /remotelogs/vaultwarden:ro
+        description:
+          en_us: Optional path to vaultwarden log folder. Mounted as Read Only.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: fail2ban
+  author: LinuxServer.io
+  developer: Fail2ban
+  category: Network
+  description:
+    en_us: Fail2ban is a daemon to ban hosts that cause multiple authentication errors.
+  tagline:
+    en_us: Fail2ban is a daemon to ban hosts that cause multiple authentication errors
+  title:
+    en_us: Fail2ban
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png
+  store_app_id: fail2ban
+  index: /
+  scheme: http

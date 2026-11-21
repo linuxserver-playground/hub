@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-bookstack/blob/master/image.yml -->
+<Container version="2">
+    <Name>bookstack</Name>
+    <Repository>ghcr.io/linuxserver-playground/bookstack</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/bookstack</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-bookstack/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-bookstack#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-bookstack#readme</ReadMe>
+    <Project>https://codeberg.org/bookstack/bookstack</Project>
+    <Overview>Bookstack(https://codeberg.org/bookstack/bookstack) is a free and open source Wiki designed for creating beautiful documentation. Featuring a simple, but powerful WYSIWYG editor it allows for teams to create detailed and useful documentation with ease.</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/bookstack.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bookstack-logo.png</Icon>
+    <Date>2026-08-05</Date>
+    <Changes>
+### 2026-08-05
+- Run the async queue worker as the PUID/PGID-managed abc user.
+
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2026-04-29
+- Switch to pulling releases from Codeberg(https://codeberg.org/bookstack/bookstack).
+
+### 2025-12-28
+- Rebase to Alpine 3.23.
+
+### 2025-07-05
+- Rebase to Alpine 3.22.
+
+### 2025-01-04
+- Add php-opcache.
+
+### 2024-12-17
+- Rebase to Alpine 3.21.
+
+### 2024-10-11
+- Default to environment config over .env file config.
+
+### 2024-09-06
+- Add php-exif for reading image EXIF data.
+
+### 2024-05-27
+- Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2024-01-25
+- Existing users should update: site-confs/default.conf - Cleanup default site conf.
+
+### 2023-12-23
+- Rebase to Alpine 3.19 with php 8.3.
+
+### 2023-10-31
+- Further sanitize sed replace.
+
+### 2023-06-07
+- Add mariadb-client for bookstack-system-cli support.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-04-13
+- Move ssl.conf include to default.conf.
+
+### 2023-03-01
+- Add php iconv.
+
+### 2023-01-19
+- Rebase to alpine 3.17 with php8.1.
+
+### 2023-01-16
+- Wrap `.env` values in quotes.
+
+### 2023-01-05
+- Fix db password setting (sed escape `and`).
+
+### 2022-12-21
+- Update db info in .env file when env vars are updated.
+
+### 2022-10-10
+- Remove password escape logic which caused problems for a small subset of users.
+
+### 2022-08-20
+- Rebasing to alpine 3.15 with php8. Restructure nginx configs (see changes announcement(https://info.linuxserver.io/issues/2022-08-20-nginx-base)).
+
+### 2022-03-14
+- Add symlinks for theme support.
+
+### 2021-07-11
+- Rebase to Alpine 3.14.
+
+### 2021-01-12
+- Remove unused requirement, as of release 0.31.0.
+
+### 2020-12-17
+- Make APP_URL var required (upstream changes).
+
+### 2020-09-17
+- Rebase to alpine 3.12. Fix APP_URL setting. Bump php post max and upload max filesizes to 100MB by default.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-07-26
+- Use old version of tidyhtml pending upstream fixes.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-06-14
+- Add wkhtmltopdf to image for PDF rendering.
+
+### 2019-04-20
+- Rebase to Alpine 3.9, add MySQL init logic.
+
+### 2019-03-22
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-01-20
+- Added php7-curl
+
+### 2018-11-04
+- Added php7-ldap
+
+### 2018-10-15
+- Changed functionality for advanced users
+
+### 2018-10-08
+- Advanced mode, symlink changes, sed fixing, docs updated, added some composer files
+
+### 2018-09-23
+- Updates pre-release
+
+### 2018-07-02
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="6875" Mode="tcp" Description="http/s web interface." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="APP_URL" Target="APP_URL" Default="" Description="The protocol, IP/URL, and port that your application will be accessed on (ie. `http://192.168.1.1:6875` or `https://bookstack.mydomain.com`" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="APP_KEY" Target="APP_KEY" Default="" Description="Session encryption key. You will need to generate this with `docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/bookstack:latest appkey`" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="DB_HOST" Target="DB_HOST" Default="" Description="The database instance hostname" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_PORT" Target="DB_PORT" Default="3306" Description="Database port" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_USERNAME" Target="DB_USERNAME" Default="" Description="Database user" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DB_PASSWORD" Target="DB_PASSWORD" Default="" Description="Database password (minimum 4 characters and non-alphanumeric passwords must be properly escaped.)" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="DB_DATABASE" Target="DB_DATABASE" Default="" Description="Database name" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="QUEUE_CONNECTION" Target="QUEUE_CONNECTION" Default="" Description="Set to `database` to enable async actions like sending email or triggering webhooks. See documentation(https://www.bookstackapp.com/docs/admin/email-webhooks/#async-action-handling)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

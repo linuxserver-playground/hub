@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-davos/blob/master/image.yml -->
+<Container version="2">
+    <Name>davos</Name>
+    <Repository>ghcr.io/linuxserver-playground/davos</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/davos</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-davos/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-davos#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-davos#readme</ReadMe>
+    <Project>https://github.com/linuxserver/davos</Project>
+    <Overview>Davos(https://github.com/linuxserver/davos) is an FTP automation tool that periodically scans given host locations for new files. It can be configured for various purposes, including listening for specific files to appear in the host location, ready for it to download and then move, if required. It also supports completion notifications as well as downstream API calls, to further the workflow.</Overview>
+    <WebUI>http://[IP]:[PORT:8080]</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/davos.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/davos/master/docs/list.PNG</Icon>
+    <Date>2025-01-27</Date>
+    <Changes>
+### 2025-01-27
+- Rebase to Alpine 3.21.
+
+### 2024-06-24
+- Rebase to Alpine 3.20.
+
+### 2024-03-20
+- Rebase to Alpine 3.19.
+
+### 2023-07-12
+- Rebase to Alpine 3.18.
+
+### 2023-07-07
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-02-13
+- Rebase to Alpine 3.17, migrate to s6v3.
+
+### 2022-01-15
+- Rebasing to alpine 3.15.
+
+### 2020-06-01
+- Rebasing to alpine 3.12.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-06-28
+- Rebasing to alpine 3.10.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-03-22
+- Updating runtime deps due to change in OpenJRE.
+
+### 2019-03-08
+- Updating build environment to pass proper build flags and use gradle wrapper.
+
+### 2019-02-22
+- Rebasing to alpine 3.9.
+
+### 2016-11-18
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="8080" Default="8080" Mode="tcp" Description="This is the default port that davos runs under" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="davos&#x27;s config location. This is where it stores its database file and logs." Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="Path: /download" Target="/download" Default="" Mode="rw" Description="davos&#x27;s file download location" Type="Path" Display="always" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

@@ -1,0 +1,68 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "ACCOUNT_TOKEN",
+        "label": "Register for an account on https://app.foldingathome.org and retrieve account token in settings. Required on first start.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "MACHINE_NAME",
+        "label": "Assign a friendly name to this instance (no spaces). Required on first start.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "CLI_ARGS",
+        "label": "Optionally pass additional cli arguments to fah-client on container start.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/foldingathome:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "ACCOUNT_TOKEN={Context.ACCOUNT_TOKEN}",
+        "MACHINE_NAME={Context.MACHINE_NAME}",
+        "CLI_ARGS={Context.CLI_ARGS}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://foldingathome.org/wp-content/uploads/2016/09/folding-at-home-logo.png",
+        "cosmos.stack": "{ServiceName}-foldingathome"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:7396",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

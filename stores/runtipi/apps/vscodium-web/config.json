@@ -1,0 +1,61 @@
+{
+  "name": "Vscodium-web",
+  "available": true,
+  "exposable": true,
+  "port": 8000,
+  "id": "vscodium-web",
+  "tipi_version": 1,
+  "version": "1.143.17232",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Vscodium-web is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.",
+  "short_desc": "Vscodium-web is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's ",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-vscodium-web",
+  "website": "https://vscodium.com/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "CONNECTION_TOKEN",
+      "hint": "Optional security token for accessing the Web UI (ie. supersecrettoken).",
+      "required": false,
+      "env_variable": "VSCODIUM_WEB_CONNECTION_TOKEN"
+    },
+    {
+      "type": "password",
+      "label": "CONNECTION_TOKEN_FILE",
+      "hint": "Optional path to a file inside the container that contains the security token for accessing the Web UI (ie. /path/to/file). Overrides CONNECTIONTOKEN.",
+      "required": false,
+      "env_variable": "VSCODIUM_WEB_CONNECTION_TOKEN_FILE"
+    },
+    {
+      "type": "password",
+      "label": "SUDO_PASSWORD",
+      "hint": "If this optional variable is set, user will have sudo access in the vscodium-web terminal with the specified password.",
+      "required": false,
+      "env_variable": "VSCODIUM_WEB_SUDO_PASSWORD",
+      "default": "password"
+    },
+    {
+      "type": "password",
+      "label": "SUDO_PASSWORD_HASH",
+      "hint": "Optionally set sudo password via hash (takes priority over SUDOPASSWORD var). Format is $type$salt$hashed.",
+      "required": false,
+      "env_variable": "VSCODIUM_WEB_SUDO_PASSWORD_HASH"
+    },
+    {
+      "type": "text",
+      "label": "CODE_ARGS",
+      "hint": "Optionally add cli parameters to vscodium binary.",
+      "required": false,
+      "env_variable": "VSCODIUM_WEB_CODE_ARGS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

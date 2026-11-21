@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-kimai/blob/main/image.yml -->
+<Container version="2">
+    <Name>kimai</Name>
+    <Repository>ghcr.io/linuxserver-playground/kimai</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/kimai</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-kimai/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-kimai#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-kimai#readme</ReadMe>
+    <Project>https://kimai.org/</Project>
+    <Overview>Kimai(https://kimai.org/) is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users. Kimai was build to track your project times and ships with many advanced features, including but not limited to:</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/kimai.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kimai-logo.png</Icon>
+    <Requires>
+        A MySQL or MariaDB database is required.
+        This container requires an external application to be run separately.
+        We recommend using our MariaDB(https://github.com/linuxserver/docker-mariadb) container from community applications.
+    </Requires>
+    <Date>2027-07-04</Date>
+    <Changes>
+### 2027-07-04
+- Rebase to Alpine 3.24.
+
+### 2025-12-28
+- Rebase to Alpine 3.23.
+
+### 2025-07-04
+- Rebase to Alpine 3.22.
+
+### 2025-04-06
+- Rebase to Alpine 3.21.
+
+### 2024-06-30
+- Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
+
+### 2024-03-24
+- Added LDAP module to composer
+
+### 2024-03-06
+- Existing users should update: site-confs/default.conf - Cleanup default site conf.
+
+### 2024-01-23
+- Rebase to Alpine 3.19 with php 8.3.
+
+### 2024-01-02
+- Symlink config.yaml to /config for user editing.
+
+### 2023-08-21
+- Important documentation update for setting `DATABASE_URL` with version 2.0.30 and later.
+
+### 2023-08-09
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="80" Default="80" Mode="tcp" Description="http gui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Port: 443" Target="443" Default="443" Mode="tcp" Description="https gui" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="APP_SECRET" Target="APP_SECRET" Default="" Description="Random string used for session encryption. Generate using e.g. `openssl rand -hex 32`." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="DATABASE_URL" Target="DATABASE_URL" Default="mysql://your_db_user:your_db_pass@your_db_host:3306/your_db_name?charset=your_db_charsetandserverVersion=your_db_version" Description="Configure your database connection, see Application Setup instructions." Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="TRUSTED_HOSTS" Target="TRUSTED_HOSTS" Default="kimai.example.com" Description="Domain or IP you will be using to access Kimai. Can be a regex like `localhost|127.0.0.1|kimai.example.com`" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="TRUSTED_PROXIES" Target="TRUSTED_PROXIES" Default="127.0.0.1/32" Description="If behind a reverse proxy set this to its IP or network CIDR so that Kimai trusts its headers." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

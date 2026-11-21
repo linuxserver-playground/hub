@@ -1,0 +1,19 @@
+services:
+  vscodium-web:
+    image: ghcr.io/linuxserver-playground/vscodium-web:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      CONNECTION_TOKEN: ${VSCODIUM_WEB_CONNECTION_TOKEN}
+      CONNECTION_TOKEN_FILE: ${VSCODIUM_WEB_CONNECTION_TOKEN_FILE}
+      SUDO_PASSWORD: ${VSCODIUM_WEB_SUDO_PASSWORD}
+      SUDO_PASSWORD_HASH: ${VSCODIUM_WEB_SUDO_PASSWORD_HASH}
+      CODE_ARGS: ${VSCODIUM_WEB_CODE_ARGS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 8000
+x-runtipi:
+  schema_version: 2

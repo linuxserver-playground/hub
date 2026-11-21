@@ -1,0 +1,18 @@
+services:
+  nginx:
+    image: ghcr.io/linuxserver-playground/nginx:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      NGINX_AUTORELOAD: ${NGINX_NGINX_AUTORELOAD}
+      NGINX_AUTORELOAD_WATCHLIST: ${NGINX_NGINX_AUTORELOAD_WATCHLIST}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 443:443
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

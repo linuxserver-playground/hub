@@ -1,0 +1,110 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "PASSWORD",
+        "label": "Set the password for the results database.",
+        "initialValue": "PASSWORD",
+        "type": "password"
+      },
+      {
+        "name": "CUSTOM_RESULTS",
+        "label": "(optional) set to true to enable custom results page in /config/www/results/index.php.",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "DB_TYPE",
+        "label": "Defaults to sqlite, can also be set to mysql or postgresql.",
+        "initialValue": "sqlite",
+        "type": "text"
+      },
+      {
+        "name": "DB_NAME",
+        "label": "Database name. Required for mysql and pgsql.",
+        "initialValue": "DB_NAME",
+        "type": "text"
+      },
+      {
+        "name": "DB_HOSTNAME",
+        "label": "Database address. Required for mysql and pgsql.",
+        "initialValue": "DB_HOSTNAME",
+        "type": "text"
+      },
+      {
+        "name": "DB_USERNAME",
+        "label": "Database username. Required for mysql and pgsql.",
+        "initialValue": "DB_USERNAME",
+        "type": "text"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "label": "Database password. Required for mysql and pgsql.",
+        "initialValue": "DB_PASSWORD",
+        "type": "password"
+      },
+      {
+        "name": "DB_PORT",
+        "label": "Database port. Required for mysql.",
+        "initialValue": "DB_PORT",
+        "type": "text"
+      },
+      {
+        "name": "IPINFO_APIKEY",
+        "label": "Access token from ipinfo.io. Required for detailed IP information.",
+        "initialValue": "ACCESS_TOKEN",
+        "type": "password"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/librespeed:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "PASSWORD={Context.PASSWORD}",
+        "CUSTOM_RESULTS={Context.CUSTOM_RESULTS}",
+        "DB_TYPE={Context.DB_TYPE}",
+        "DB_NAME={Context.DB_NAME}",
+        "DB_HOSTNAME={Context.DB_HOSTNAME}",
+        "DB_USERNAME={Context.DB_USERNAME}",
+        "DB_PASSWORD={Context.DB_PASSWORD}",
+        "DB_PORT={Context.DB_PORT}",
+        "IPINFO_APIKEY={Context.IPINFO_APIKEY}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/librespeed/speedtest/master/.logo/logo3.png",
+        "cosmos.stack": "{ServiceName}-librespeed"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:80",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "name": "Healthchecks",
+  "available": true,
+  "exposable": true,
+  "port": 8000,
+  "id": "healthchecks",
+  "tipi_version": 1,
+  "version": "v5.0.3",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Healthchecks is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.",
+  "short_desc": "Healthchecks is a watchdog for your cron jobs",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-healthchecks",
+  "website": "https://github.com/healthchecks/healthchecks",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/healthchecks-logo.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "SECRET_KEY",
+      "hint": "A secret key used for cryptographic signing. Will generate a random value if one is not supplied and save it to /config/localsettings.py.",
+      "required": true,
+      "env_variable": "HEALTHCHECKS_SECRET_KEY"
+    },
+    {
+      "type": "text",
+      "label": "SITE_ROOT",
+      "hint": "The site's top-level URL and the port it listens to if different than 80 or 443 (e.g., https://healthchecks.example.com:8000).",
+      "required": true,
+      "env_variable": "HEALTHCHECKS_SITE_ROOT"
+    },
+    {
+      "type": "text",
+      "label": "SITE_NAME",
+      "hint": "The site's name (e.g., \"Example Corp HealthChecks\").",
+      "required": true,
+      "env_variable": "HEALTHCHECKS_SITE_NAME"
+    },
+    {
+      "type": "text",
+      "label": "SUPERUSER_EMAIL",
+      "hint": "Superuser email.",
+      "required": true,
+      "env_variable": "HEALTHCHECKS_SUPERUSER_EMAIL"
+    },
+    {
+      "type": "password",
+      "label": "SUPERUSER_PASSWORD",
+      "hint": "Superuser password.",
+      "required": true,
+      "env_variable": "HEALTHCHECKS_SUPERUSER_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "ALLOWED_HOSTS",
+      "hint": "A comma-separated list of valid hostnames for the server. Default is the domain portion of SITEROOT.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_ALLOWED_HOSTS"
+    },
+    {
+      "type": "text",
+      "label": "APPRISE_ENABLED",
+      "hint": "Set to True to enable the Apprise integration (https://github.com/caronc/apprise).",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_APPRISE_ENABLED",
+      "default": "False"
+    },
+    {
+      "type": "text",
+      "label": "CSRF_TRUSTED_ORIGINS",
+      "hint": "A list of trusted origins for unsafe requests (e.g. POST). Defaults to the value of SITEROOT.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_CSRF_TRUSTED_ORIGINS"
+    },
+    {
+      "type": "text",
+      "label": "DEBUG",
+      "hint": "Set to False to disable. Debug mode relaxes CSRF protections and increases logging verbosity but should be disabled for production instances as it will impact performance and security.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_DEBUG",
+      "default": "True"
+    },
+    {
+      "type": "text",
+      "label": "DEFAULT_FROM_EMAIL",
+      "hint": "From email for alerts.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_DEFAULT_FROM_EMAIL"
+    },
+    {
+      "type": "text",
+      "label": "EMAIL_HOST",
+      "hint": "SMTP host.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_EMAIL_HOST"
+    },
+    {
+      "type": "text",
+      "label": "EMAIL_PORT",
+      "hint": "SMTP port.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_EMAIL_PORT"
+    },
+    {
+      "type": "text",
+      "label": "EMAIL_HOST_USER",
+      "hint": "SMTP user.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_EMAIL_HOST_USER"
+    },
+    {
+      "type": "password",
+      "label": "EMAIL_HOST_PASSWORD",
+      "hint": "SMTP password.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_EMAIL_HOST_PASSWORD"
+    },
+    {
+      "type": "text",
+      "label": "EMAIL_USE_TLS",
+      "hint": "Use TLS for SMTP (True or False).",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_EMAIL_USE_TLS"
+    },
+    {
+      "type": "text",
+      "label": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+      "hint": "Defaults to False. Set to True to allow integrations to connect to private IP addresses.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_INTEGRATIONS_ALLOW_PRIVATE_IPS"
+    },
+    {
+      "type": "text",
+      "label": "PING_EMAIL_DOMAIN",
+      "hint": "The domain to use for generating ping email addresses. Defaults to localhost.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_PING_EMAIL_DOMAIN"
+    },
+    {
+      "type": "text",
+      "label": "RP_ID",
+      "hint": "If using webauthn for 2FA set this to match your Healthchecks domain. Webauthn will only work over https.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_RP_ID"
+    },
+    {
+      "type": "text",
+      "label": "SITE_LOGO_URL",
+      "hint": "Full URL to custom site logo.",
+      "required": false,
+      "env_variable": "HEALTHCHECKS_SITE_LOGO_URL"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

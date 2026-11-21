@@ -1,0 +1,131 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "APP_KEY",
+        "label": "App key used for encrypting stored data. You can generate a key as per https://speedtest-tracker.dev",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "APP_URL",
+        "label": "The IP:port or URL your application will be accessed on (ie. http://192.168.1.1:6875 or https://bookstack.mydomain.com",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_CONNECTION",
+        "label": "Set the database type to use. sqlite, pgsql, or mysql",
+        "initialValue": "sqlite",
+        "type": "text"
+      },
+      {
+        "name": "SPEEDTEST_SCHEDULE",
+        "label": "Set the test schedule in cron format. e.g. 0 /6",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SPEEDTEST_SERVERS",
+        "label": "A comma-separated list of server IDs to test against. Run docker run -it --rm --entrypoint /bin/bash lscr.io/linuxserver/speedtest-tracker:latest list-servers to get a list of nearby servers.",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_HOST",
+        "label": "Database hostname (postgres/mysql).",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PORT",
+        "label": "Database port (postgres/mysql).",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_DATABASE",
+        "label": "Database name (postgres/mysql).",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_USERNAME",
+        "label": "Database username (postgres/mysql).",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "label": "Database password (postgres/mysql).",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "DISPLAY_TIMEZONE",
+        "label": "Timezone for the UI.",
+        "initialValue": "Etc/UTC",
+        "type": "text"
+      },
+      {
+        "name": "PRUNE_RESULTS_OLDER_THAN",
+        "label": "Days to keep test results.",
+        "initialValue": "0",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/speedtest-tracker:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "APP_KEY={Context.APP_KEY}",
+        "APP_URL={Context.APP_URL}",
+        "DB_CONNECTION={Context.DB_CONNECTION}",
+        "SPEEDTEST_SCHEDULE={Context.SPEEDTEST_SCHEDULE}",
+        "SPEEDTEST_SERVERS={Context.SPEEDTEST_SERVERS}",
+        "DB_HOST={Context.DB_HOST}",
+        "DB_PORT={Context.DB_PORT}",
+        "DB_DATABASE={Context.DB_DATABASE}",
+        "DB_USERNAME={Context.DB_USERNAME}",
+        "DB_PASSWORD={Context.DB_PASSWORD}",
+        "DISPLAY_TIMEZONE={Context.DISPLAY_TIMEZONE}",
+        "PRUNE_RESULTS_OLDER_THAN={Context.PRUNE_RESULTS_OLDER_THAN}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/speedtest-tracker-logo.png",
+        "cosmos.stack": "{ServiceName}-speedtest-tracker"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:80",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

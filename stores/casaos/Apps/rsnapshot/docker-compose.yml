@@ -1,0 +1,55 @@
+name: rsnapshot
+services:
+  rsnapshot:
+    image: ghcr.io/linuxserver-playground/rsnapshot:latest
+    container_name: rsnapshot
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/rsnapshot/config:/config
+    - /DATA/AppData/rsnapshot/.snapshots:/.snapshots
+    - /DATA/AppData/rsnapshot/data:/data
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports: []
+      volumes:
+      - container: /config
+        description:
+          en_us: Persistent config files
+      - container: /.snapshots
+        description:
+          en_us: Storage location for all snapshots.
+      - container: /data
+        description:
+          en_us: Storage location for data to be backed up.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: rsnapshot
+  author: LinuxServer.io
+  developer: Rsnapshot
+  category: Backup
+  description:
+    en_us: Rsnapshot is a filesystem snapshot utility based on rsync. rsnapshot makes it easy to make periodic snapshots of local machines, and remote machines over ssh. The code makes extensive use of hard links whenever possible, to greatly reduce the disk space required.
+  tagline:
+    en_us: Rsnapshot is a filesystem snapshot utility based on rsync
+  title:
+    en_us: Rsnapshot
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rsnapshot.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/rsnapshot.png
+  store_app_id: rsnapshot
+  index: /
+  scheme: http

@@ -1,0 +1,16 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ddclient-logo.png
+  urls:
+  - https://github.com/ddclient/ddclient
+  - https://github.com/linuxserver-playground/docker-ddclient
+services:
+  ddclient:
+    image: ghcr.io/linuxserver-playground/ddclient:latest
+    container_name: ddclient
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    restart: unless-stopped

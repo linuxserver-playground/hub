@@ -1,0 +1,17 @@
+services:
+  qdirstat:
+    image: ghcr.io/linuxserver-playground/qdirstat:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data:/data
+    ports:
+    - 3001:3001
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+x-runtipi:
+  schema_version: 2

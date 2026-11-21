@@ -1,0 +1,41 @@
+{
+  "name": "Qbittorrent",
+  "available": true,
+  "exposable": true,
+  "port": 8080,
+  "id": "qbittorrent",
+  "tipi_version": 1,
+  "version": "5.3.0_v2.1.2",
+  "categories": [
+    "utilities"
+  ],
+  "description": "The Qbittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg.",
+  "short_desc": "The Qbittorrent is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterba",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-qbittorrent",
+  "website": "https://www.qbittorrent.org/",
+  "logo_url": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/qbittorrent-icon.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "WEBUI_PORT",
+      "hint": "for changing the port of the web UI, see below for explanation",
+      "required": true,
+      "env_variable": "QBITTORRENT_WEBUI_PORT",
+      "default": "8080"
+    },
+    {
+      "type": "text",
+      "label": "TORRENTING_PORT",
+      "hint": "for changing the port of tcp/udp connection, see below for explanation",
+      "required": true,
+      "env_variable": "QBITTORRENT_TORRENTING_PORT",
+      "default": "6881"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}
