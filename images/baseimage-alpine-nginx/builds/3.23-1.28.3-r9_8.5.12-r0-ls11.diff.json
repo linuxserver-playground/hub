@@ -1,0 +1,374 @@
+{
+ "image": "baseimage-alpine-nginx",
+ "branch": "3.23",
+ "tag": "3.23-1.28.3-r9_8.5.12-r0-ls11",
+ "previous_tag": "3.23-1.28.3-r7_8.5.12-r0-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "9 commits (2322001 → 7d0a871): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "1.28.3-r7_8.5.12-r0",
+  "to": "1.28.3-r9_8.5.12-r0",
+  "changed": true
+ },
+ "commit": {
+  "from": "23220013af4a19596c11e686cc3095dbb828b310",
+  "to": "7d0a871d8c0309527ad5148d2602315d56ec922d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/compare/23220013af4a19596c11e686cc3095dbb828b310...7d0a871d8c0309527ad5148d2602315d56ec922d",
+  "commits": [
+   {
+    "sha": "cb804882683f499f19e7e82fb83d72d2558c3fce",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:41:01Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/cb804882683f499f19e7e82fb83d72d2558c3fce",
+    "bot": true
+   },
+   {
+    "sha": "4464251d550716c080313221e3d3f53665ff60aa",
+    "subject": "Read the upstream version with a typed source instead of a shell command",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T19:47:55Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/4464251d550716c080313221e3d3f53665ff60aa",
+    "bot": false
+   },
+   {
+    "sha": "ad46246866440f40555d3270a323e646767fe2a5",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T23:33:51Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/ad46246866440f40555d3270a323e646767fe2a5",
+    "bot": true
+   },
+   {
+    "sha": "047a54d665a84cd33bd68dc1203e9e20082cd444",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T18:31:36Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/047a54d665a84cd33bd68dc1203e9e20082cd444",
+    "bot": true
+   },
+   {
+    "sha": "289954db0413d1a795e57b014b7c133dcfec872e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T22:30:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/289954db0413d1a795e57b014b7c133dcfec872e",
+    "bot": true
+   },
+   {
+    "sha": "a7e63783c6251350814a7d92a25a20f0498314ef",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T18:30:47Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/a7e63783c6251350814a7d92a25a20f0498314ef",
+    "bot": true
+   },
+   {
+    "sha": "f00629f69803073bf4a99585ff4328e52b89c898",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T22:31:12Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/f00629f69803073bf4a99585ff4328e52b89c898",
+    "bot": true
+   },
+   {
+    "sha": "a1467773ee7b6ec83c6bd82b999be0fffcfa15f4",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-14T18:30:54Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/a1467773ee7b6ec83c6bd82b999be0fffcfa15f4",
+    "bot": true
+   },
+   {
+    "sha": "7d0a871d8c0309527ad5148d2602315d56ec922d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-19T11:30:10Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/7d0a871d8c0309527ad5148d2602315d56ec922d",
+    "bot": true
+   }
+  ],
+  "count": 9,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.23",
+   "digest": "sha256:8b8bec70e3d1c2d5e94701290856866bb99a67f9ca45eaf27a9e86c6ac3197df"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.23",
+   "digest": "sha256:2daca693dcdf1d77c695412c55a1d2b03a94290018c2b375f5e03a3b87567338"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 28375814,
+   "to": 28440184,
+   "delta": 64370
+  },
+  "arm64": {
+   "from": 29166794,
+   "to": 29224571,
+   "delta": 57777
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.23.7-r0",
+      "to": "3.23.8-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.23.8-r0?arch=x86_64&distro=alpine-3.23.8&upstream=alpine-base"
+     },
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=x86_64&distro=alpine-3.23.8&upstream=apache2"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=x86_64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=x86_64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "git",
+      "from": "2.52.0-r0",
+      "to": "2.52.1-r0",
+      "purl": "pkg:apk/alpine/git@2.52.1-r0?arch=x86_64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.52.0-r0",
+      "to": "2.52.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.52.1-r0?arch=x86_64&distro=alpine-3.23.8&upstream=git"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=x86_64&distro=alpine-3.23.8&upstream=apk-tools"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=x86_64&distro=alpine-3.23.8&upstream=curl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.23.8&upstream=expat"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-r7",
+      "to": "1.28.3-r9",
+      "purl": "pkg:apk/alpine/nginx@1.28.3-r9?arch=x86_64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.23.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.2",
+      "purl": "pkg:generic/composer@2.11.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.23.7-r0",
+      "to": "3.23.8-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.23.8-r0?arch=aarch64&distro=alpine-3.23.8&upstream=alpine-base"
+     },
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=aarch64&distro=alpine-3.23.8&upstream=apache2"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "curl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/curl@8.23.0-r0?arch=aarch64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "git",
+      "from": "2.52.0-r0",
+      "to": "2.52.1-r0",
+      "purl": "pkg:apk/alpine/git@2.52.1-r0?arch=aarch64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.52.0-r0",
+      "to": "2.52.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.52.1-r0?arch=aarch64&distro=alpine-3.23.8&upstream=git"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.23.8&upstream=apk-tools"
+     },
+     {
+      "name": "libcurl",
+      "from": "8.22.0-r0",
+      "to": "8.23.0-r0",
+      "purl": "pkg:apk/alpine/libcurl@8.23.0-r0?arch=aarch64&distro=alpine-3.23.8&upstream=curl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.23.8&upstream=expat"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-r7",
+      "to": "1.28.3-r9",
+      "purl": "pkg:apk/alpine/nginx@1.28.3-r9?arch=aarch64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.23.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.2",
+      "purl": "pkg:generic/composer@2.11.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 26,
+  "downgraded": 0
+ }
+}

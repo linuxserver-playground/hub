@@ -1,0 +1,155 @@
+{
+ "image": "webtop",
+ "branch": "arch-mate",
+ "tag": "arch-mate-2026-11-13-ls12",
+ "previous_tag": "arch-mate-2026-11-13-ls11",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (6b925dd → d25f6f9): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-13",
+  "to": "2026-11-13",
+  "changed": false
+ },
+ "commit": {
+  "from": "6b925dd397fa0d363b57630dce7170398d60136b",
+  "to": "d25f6f90e4496f680754b138bb878b535e998283",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/6b925dd397fa0d363b57630dce7170398d60136b...d25f6f90e4496f680754b138bb878b535e998283",
+  "commits": [
+   {
+    "sha": "d25f6f90e4496f680754b138bb878b535e998283",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T18:07:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/d25f6f90e4496f680754b138bb878b535e998283",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:df1a425de853d1446ce76e49279cc6126eb339f81a51be446cade12022a6221c"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b3ebf9fbab39d22eee091564f1a3a8e375a2f7c7531da4239eb5601cf53b5135"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1768763682,
+   "to": 1767135303,
+   "delta": -1628379
+  },
+  "arm64": {
+   "from": 1879792053,
+   "to": 1879780617,
+   "delta": -11436
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "automake",
+      "from": "1.19-1",
+      "to": "1.20-1",
+      "purl": "pkg:alpm/arch/automake@1.20-1?arch=any&distro=arch-rolling&upstream=automake"
+     },
+     {
+      "name": "cpupower",
+      "from": "7.3.1-1",
+      "to": "7.3.4-1",
+      "purl": "pkg:alpm/arch/cpupower@7.3.4-1?arch=x86_64&distro=arch-rolling&upstream=linux-tools"
+     },
+     {
+      "name": "python-platformdirs",
+      "from": "4.14.3-1",
+      "to": "4.14.5-1",
+      "purl": "pkg:alpm/arch/python-platformdirs@4.14.5-1?arch=any&distro=arch-rolling&upstream=python-platformdirs"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.6",
+      "to": "0.162.7",
+      "purl": "pkg:pypi/fastapi@0.162.7"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.14.3",
+      "to": "4.14.5",
+      "purl": "pkg:pypi/platformdirs@4.14.5"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.6",
+      "to": "0.162.7",
+      "purl": "pkg:pypi/fastapi@0.162.7"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "image": "pyload-ng",
+ "branch": "develop",
+ "tag": "develop-b86d4491-ls16",
+ "previous_tag": "develop-b86d4491-ls15",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (7a0737a → 41dfbce): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "b86d4491",
+  "to": "b86d4491",
+  "changed": false
+ },
+ "commit": {
+  "from": "7a0737a5becf6d3f821a0e8cda6b21b2c59bf7b2",
+  "to": "41dfbce8d6cc76b173d9789326577a2dd23bcc86",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pyload-ng/compare/7a0737a5becf6d3f821a0e8cda6b21b2c59bf7b2...41dfbce8d6cc76b173d9789326577a2dd23bcc86",
+  "commits": [
+   {
+    "sha": "41dfbce8d6cc76b173d9789326577a2dd23bcc86",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-16T22:47:39Z",
+    "url": "https://github.com/linuxserver-playground/docker-pyload-ng/commit/41dfbce8d6cc76b173d9789326577a2dd23bcc86",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 146914939,
+   "to": 146923488,
+   "delta": 8549
+  },
+  "arm64": {
+   "from": 145513578,
+   "to": 145517784,
+   "delta": 4206
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls@3.6.8-r0?arch=x86_64&distro=alpine-3.22.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cachetools",
+      "from": "8.0.0",
+      "to": "8.0.1",
+      "purl": "pkg:pypi/cachetools@8.0.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls@3.6.8-r0?arch=aarch64&distro=alpine-3.22.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cachetools",
+      "from": "8.0.0",
+      "to": "8.0.1",
+      "purl": "pkg:pypi/cachetools@8.0.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

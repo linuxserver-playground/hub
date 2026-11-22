@@ -1,0 +1,125 @@
+{
+ "image": "heimdall",
+ "branch": "development",
+ "tag": "development-8c3a84ad-ls6",
+ "previous_tag": "development-efb2fb6a-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (6d51637 → e46407f): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "efb2fb6a",
+  "to": "8c3a84ad",
+  "changed": true
+ },
+ "commit": {
+  "from": "6d51637731e9793c17fa9fc8365b1b700c2bce71",
+  "to": "e46407f9dcee706511fc0a14dda9925bf67c1db3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-heimdall/compare/6d51637731e9793c17fa9fc8365b1b700c2bce71...e46407f9dcee706511fc0a14dda9925bf67c1db3",
+  "commits": [
+   {
+    "sha": "e46407f9dcee706511fc0a14dda9925bf67c1db3",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T03:17:14Z",
+    "url": "https://github.com/linuxserver-playground/docker-heimdall/commit/e46407f9dcee706511fc0a14dda9925bf67c1db3",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 2
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:30be75c4c7470207fece77d8399848c405a6e5c14ff3fb7ca82a4cfc37498b7b"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a55ef6f5b72baa4997d79d545cdd81d262c2a719afbaddf2984d93f9250db2a0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 53394513,
+   "to": 53365506,
+   "delta": -29007
+  },
+  "arm64": {
+   "from": 54115482,
+   "to": 54089758,
+   "delta": -25724
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,109 @@
+{
+ "schema": 1,
+ "name": "kavita",
+ "summary": "[Kavita](https://github.com/Kareadita/Kavita) is a fast, feature rich, cross platform reading server. Built with a focus for being a full solution for all your reading needs. Setup your own server and share your reading collection with your friends and family!",
+ "upstream": {
+  "url": "https://github.com/Kareadita/Kavita",
+  "version": {
+   "type": "github_release",
+   "repo": "kareadita/kavita",
+   "require_assets": [
+    {
+     "asset": "^kavita\\-linux\\-x64\\.tar\\.gz$"
+    },
+    {
+     "asset": "^kavita\\-linux\\-arm64\\.tar\\.gz$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "kareadita/kavita"
+  },
+  "sponsor": [
+   {
+    "name": "Kavita",
+    "url": "https://opencollective.com/kavita"
+   }
+  ]
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "KAVITA_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 300,
+  "web": {
+   "port": 5000
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "5000",
+    "description": "web gui"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/kavita/config",
+    "description": "Contains all relevant configuration files."
+   },
+   {
+    "path": "/data",
+    "host_path": "/path/to/data",
+    "description": "Media library containing manga, comics and books.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Books"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kavita-logo.png",
+  "setup": "Access the webui at `<your-ip>:5000`. Follow the setup wizard on initial install.\n\nThe docker cli and compose yml samples provided list a single `/data` folder for the media, however, you can set up multiple mount points if you wish. For instance, you can set up 3 separate mountpoints named `/manga`, `/comics` and `/books`, each mapped to separate folders on host.\n"
+ },
+ "proxy": {
+  "port": 5000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": true
+  },
+  "api_locations": [
+   "/api"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-09-11",
+   "text": "Rebase to Ubuntu Resolute. Enable jemalloc to reduce memory footprint."
+  },
+  {
+   "date": "2025-07-05",
+   "text": "Update init for version 0.8.7 compatibility."
+  },
+  {
+   "date": "2024-07-10",
+   "text": "Rebase to Ubuntu Noble."
+  },
+  {
+   "date": "2023-08-12",
+   "text": "Fix app file perms to prevent high uid."
+  },
+  {
+   "date": "2023-08-07",
+   "text": "Initial Release."
+  }
+ ]
+}

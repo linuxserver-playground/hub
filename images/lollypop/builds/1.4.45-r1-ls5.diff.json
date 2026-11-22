@@ -1,0 +1,153 @@
+{
+ "image": "lollypop",
+ "branch": "master",
+ "tag": "1.4.45-r1-ls5",
+ "previous_tag": "1.4.45-r1-ls4",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "1.4.45-r1",
+  "to": "1.4.45-r1",
+  "changed": false
+ },
+ "commit": {
+  "from": "399a643c22f3a5f8e83ef00f3470b2065fd9a1bf",
+  "to": "399a643c22f3a5f8e83ef00f3470b2065fd9a1bf",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:75f6076e5aba51a09a04dce1ab641e7cd0174ff367f2faa371c516324e9ee3b0"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:38f1825aace74959f082c07699d154dfe6521ab2d03ae8624e27bc97d3f63c99"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 639180468,
+   "to": 639233737,
+   "delta": 53269
+  },
+  "arm64": {
+   "from": 592885354,
+   "to": 592923637,
+   "delta": 38283
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dnspython",
+      "from": "2.9.0",
+      "to": "2.9.1",
+      "purl": "pkg:pypi/dnspython@2.9.1"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.45.1",
+      "to": "1.45.2",
+      "purl": "pkg:pypi/opentelemetry-api@1.45.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.1",
+      "to": "2.14.2",
+      "purl": "pkg:pypi/pydantic@2.14.2"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.1",
+      "to": "2.50.2",
+      "purl": "pkg:pypi/pydantic-core@2.50.2"
+     },
+     {
+      "name": "websockets",
+      "from": "17.3",
+      "to": "17.4",
+      "purl": "pkg:pypi/websockets@17.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

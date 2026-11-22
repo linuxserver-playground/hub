@@ -1,0 +1,373 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "fedora44",
+ "tag": "fedora44-f8fa0a6b-ls11",
+ "previous_tag": "fedora44-59ca7bbd-ls10",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (9851e2b → 1b7508e): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "59ca7bbd",
+  "to": "f8fa0a6b",
+  "changed": true
+ },
+ "commit": {
+  "from": "9851e2b31a71f80a71f62d89dc977874351dfe68",
+  "to": "1b7508e20774f0cbef28bd2b878665ff1b6dcc12",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/9851e2b31a71f80a71f62d89dc977874351dfe68...1b7508e20774f0cbef28bd2b878665ff1b6dcc12",
+  "commits": [
+   {
+    "sha": "1b7508e20774f0cbef28bd2b878665ff1b6dcc12",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-14T03:58:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/1b7508e20774f0cbef28bd2b878665ff1b6dcc12",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:b9d8c6d4a696bbd88b7ad3cfb3219b54fb923fa641a4fa89125c626d79d4f496"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:e47d757e7b31d809e20928c931aff0e19d58cf5cde3a381d958ac11bf8eb93d8"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 885065042,
+   "to": 882967412,
+   "delta": -2097630
+  },
+  "arm64": {
+   "from": 791856181,
+   "to": 789772131,
+   "delta": -2084050
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.7",
+      "to": "0.163.2",
+      "purl": "pkg:pypi/fastapi@0.163.2"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "breeze-cursor-theme",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/breeze-cursor-theme@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "dnf5",
+      "from": "5.4.6.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/dnf5@5.4.8.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "dnf5-plugins",
+      "from": "5.4.6.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/dnf5-plugins@5.4.8.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "elfutils-default-yama-scope",
+      "from": "0.196-1.fc44",
+      "to": "0.197-1.fc44",
+      "purl": "pkg:rpm/fedora/elfutils-default-yama-scope@0.197-1.fc44?arch=noarch&distro=fedora-44&upstream=elfutils-0.197-1.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5",
+      "from": "5.4.6.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5@5.4.8.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5-cli",
+      "from": "5.4.6.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5-cli@5.4.8.0-2.fc44?arch=x86_64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libmodulemd",
+      "from": "2.15.3-1.fc44",
+      "to": "2.15.4-1.fc44",
+      "purl": "pkg:rpm/fedora/libmodulemd@2.15.4-1.fc44?arch=x86_64&distro=fedora-44&upstream=libmodulemd-2.15.4-1.fc44.src.rpm"
+     },
+     {
+      "name": "librepo",
+      "from": "1.21.2-1.fc44",
+      "to": "1.22.0-1.fc44",
+      "purl": "pkg:rpm/fedora/librepo@1.22.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=librepo-1.22.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-dri-drivers",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-dri-drivers@26.2.7-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-filesystem",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-filesystem@26.2.7-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libEGL",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libEGL@26.2.7-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libGL",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libGL@26.2.7-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libgbm",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libgbm@26.2.7-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-va-drivers-freeworld",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-va-drivers-freeworld@26.2.7-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-freeworld-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-vulkan-drivers",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-vulkan-drivers@26.2.7-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "openldap",
+      "from": "2.6.15-1.fc44",
+      "to": "2.6.16-1.fc44",
+      "purl": "pkg:rpm/fedora/openldap@2.6.16-1.fc44?arch=x86_64&distro=fedora-44&upstream=openldap-2.6.16-1.fc44.src.rpm"
+     },
+     {
+      "name": "tpm2-tss",
+      "from": "4.1.3-9.fc44",
+      "to": "4.1.5-1.fc44",
+      "purl": "pkg:rpm/fedora/tpm2-tss@4.1.5-1.fc44?arch=x86_64&distro=fedora-44&upstream=tpm2-tss-4.1.5-1.fc44.src.rpm"
+     },
+     {
+      "name": "vim-data",
+      "from": "2:9.2.1202-1.fc44",
+      "to": "2:9.2.1302-2.fc44",
+      "purl": "pkg:rpm/fedora/vim-data@9.2.1302-2.fc44?arch=noarch&distro=fedora-44&epoch=2&upstream=vim-9.2.1302-2.fc44.src.rpm"
+     },
+     {
+      "name": "vim-minimal",
+      "from": "2:9.2.1202-1.fc44",
+      "to": "2:9.2.1302-2.fc44",
+      "purl": "pkg:rpm/fedora/vim-minimal@9.2.1302-2.fc44?arch=x86_64&distro=fedora-44&epoch=2&upstream=vim-9.2.1302-2.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.7",
+      "to": "0.163.2",
+      "purl": "pkg:pypi/fastapi@0.163.2"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "breeze-cursor-theme",
+      "from": "6.8.2-1.fc44",
+      "to": "6.8.3-1.fc44",
+      "purl": "pkg:rpm/fedora/breeze-cursor-theme@6.8.3-1.fc44?arch=noarch&distro=fedora-44&upstream=plasma-breeze-6.8.3-1.fc44.src.rpm"
+     },
+     {
+      "name": "dnf5",
+      "from": "5.4.6.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/dnf5@5.4.8.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "dnf5-plugins",
+      "from": "5.4.6.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/dnf5-plugins@5.4.8.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "elfutils-default-yama-scope",
+      "from": "0.196-1.fc44",
+      "to": "0.197-1.fc44",
+      "purl": "pkg:rpm/fedora/elfutils-default-yama-scope@0.197-1.fc44?arch=noarch&distro=fedora-44&upstream=elfutils-0.197-1.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5",
+      "from": "5.4.6.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5@5.4.8.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libdnf5-cli",
+      "from": "5.4.6.0-1.fc44",
+      "to": "5.4.8.0-2.fc44",
+      "purl": "pkg:rpm/fedora/libdnf5-cli@5.4.8.0-2.fc44?arch=aarch64&distro=fedora-44&upstream=dnf5-5.4.8.0-2.fc44.src.rpm"
+     },
+     {
+      "name": "libmodulemd",
+      "from": "2.15.3-1.fc44",
+      "to": "2.15.4-1.fc44",
+      "purl": "pkg:rpm/fedora/libmodulemd@2.15.4-1.fc44?arch=aarch64&distro=fedora-44&upstream=libmodulemd-2.15.4-1.fc44.src.rpm"
+     },
+     {
+      "name": "librepo",
+      "from": "1.21.2-1.fc44",
+      "to": "1.22.0-1.fc44",
+      "purl": "pkg:rpm/fedora/librepo@1.22.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=librepo-1.22.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-dri-drivers",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-dri-drivers@26.2.7-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-filesystem",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-filesystem@26.2.7-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libEGL",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libEGL@26.2.7-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libGL",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libGL@26.2.7-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libgbm",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libgbm@26.2.7-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-vulkan-drivers",
+      "from": "26.2.6-1.fc44",
+      "to": "26.2.7-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-vulkan-drivers@26.2.7-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.7-1.fc44.src.rpm"
+     },
+     {
+      "name": "openldap",
+      "from": "2.6.15-1.fc44",
+      "to": "2.6.16-1.fc44",
+      "purl": "pkg:rpm/fedora/openldap@2.6.16-1.fc44?arch=aarch64&distro=fedora-44&upstream=openldap-2.6.16-1.fc44.src.rpm"
+     },
+     {
+      "name": "tpm2-tss",
+      "from": "4.1.3-9.fc44",
+      "to": "4.1.5-1.fc44",
+      "purl": "pkg:rpm/fedora/tpm2-tss@4.1.5-1.fc44?arch=aarch64&distro=fedora-44&upstream=tpm2-tss-4.1.5-1.fc44.src.rpm"
+     },
+     {
+      "name": "vim-data",
+      "from": "2:9.2.1202-1.fc44",
+      "to": "2:9.2.1302-2.fc44",
+      "purl": "pkg:rpm/fedora/vim-data@9.2.1302-2.fc44?arch=noarch&distro=fedora-44&epoch=2&upstream=vim-9.2.1302-2.fc44.src.rpm"
+     },
+     {
+      "name": "vim-minimal",
+      "from": "2:9.2.1202-1.fc44",
+      "to": "2:9.2.1302-2.fc44",
+      "purl": "pkg:rpm/fedora/vim-minimal@9.2.1302-2.fc44?arch=aarch64&distro=fedora-44&epoch=2&upstream=vim-9.2.1302-2.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 41,
+  "downgraded": 0
+ }
+}
