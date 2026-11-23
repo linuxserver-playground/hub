@@ -1,0 +1,132 @@
+{
+ "image": "handbrake",
+ "branch": "master",
+ "tag": "1.11.2-ls10",
+ "previous_tag": "1.11.2-ls9",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (8e20edf → 03d7cc8): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.11.2",
+  "to": "1.11.2",
+  "changed": false
+ },
+ "commit": {
+  "from": "8e20edf228a8e29cb1883ec2ede8f44a4a267f21",
+  "to": "03d7cc88b4c86f1d937dafe773aad81f5b7a70b8",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-handbrake/compare/8e20edf228a8e29cb1883ec2ede8f44a4a267f21...03d7cc88b4c86f1d937dafe773aad81f5b7a70b8",
+  "commits": [
+   {
+    "sha": "03d7cc88b4c86f1d937dafe773aad81f5b7a70b8",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-17T06:40:25Z",
+    "url": "https://github.com/linuxserver-playground/docker-handbrake/commit/03d7cc88b4c86f1d937dafe773aad81f5b7a70b8",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:ef32147f7d33317846cfeb87e72ca304e035e1f31d5b715e65426c257ae06eaf"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:ef32147f7d33317846cfeb87e72ca304e035e1f31d5b715e65426c257ae06eaf"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1303384695,
+   "to": 1303385738,
+   "delta": 1043
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gst-plugins-bad-libs",
+      "from": "1.28.9-2",
+      "to": "1.28.9-3",
+      "purl": "pkg:alpm/arch/gst-plugins-bad-libs@1.28.9-3?arch=x86_64&distro=arch-rolling&upstream=gstreamer"
+     },
+     {
+      "name": "gst-plugins-base",
+      "from": "1.28.9-2",
+      "to": "1.28.9-3",
+      "purl": "pkg:alpm/arch/gst-plugins-base@1.28.9-3?arch=x86_64&distro=arch-rolling&upstream=gstreamer"
+     },
+     {
+      "name": "gst-plugins-base-libs",
+      "from": "1.28.9-2",
+      "to": "1.28.9-3",
+      "purl": "pkg:alpm/arch/gst-plugins-base-libs@1.28.9-3?arch=x86_64&distro=arch-rolling&upstream=gstreamer"
+     },
+     {
+      "name": "gstreamer",
+      "from": "1.28.9-2",
+      "to": "1.28.9-3",
+      "purl": "pkg:alpm/arch/gstreamer@1.28.9-3?arch=x86_64&distro=arch-rolling&upstream=gstreamer"
+     },
+     {
+      "name": "libpipewire",
+      "from": "1:1.6.11-1",
+      "to": "1:1.6.11-2",
+      "purl": "pkg:alpm/arch/libpipewire@1%3A1.6.11-2?arch=x86_64&distro=arch-rolling&upstream=pipewire"
+     },
+     {
+      "name": "pipewire",
+      "from": "1:1.6.11-1",
+      "to": "1:1.6.11-2",
+      "purl": "pkg:alpm/arch/pipewire@1%3A1.6.11-2?arch=x86_64&distro=arch-rolling&upstream=pipewire"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

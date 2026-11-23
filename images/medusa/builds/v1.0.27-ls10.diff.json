@@ -1,0 +1,161 @@
+{
+ "image": "medusa",
+ "branch": "master",
+ "tag": "v1.0.27-ls10",
+ "previous_tag": "v1.0.27-ls9",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (c30dfc7 → a6e35c1): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v1.0.27",
+  "to": "v1.0.27",
+  "changed": false
+ },
+ "commit": {
+  "from": "c30dfc7c539348a4fb076747a8977790d31c497b",
+  "to": "a6e35c19a64d001ae07d390ef61561622852f7e3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-medusa/compare/c30dfc7c539348a4fb076747a8977790d31c497b...a6e35c19a64d001ae07d390ef61561622852f7e3",
+  "commits": [
+   {
+    "sha": "a6e35c19a64d001ae07d390ef61561622852f7e3",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-14T15:44:03Z",
+    "url": "https://github.com/linuxserver-playground/docker-medusa/commit/a6e35c19a64d001ae07d390ef61561622852f7e3",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:4f4271ee62893d6686f6ed90666598a025cb29fbfc98b0ddcff93f7a61fec58c"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:4f4271ee62893d6686f6ed90666598a025cb29fbfc98b0ddcff93f7a61fec58c"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 141405307,
+   "to": 141410386,
+   "delta": 5079
+  },
+  "arm64": {
+   "from": 139184132,
+   "to": 139196242,
+   "delta": 12110
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls@3.6.8-r0?arch=x86_64&distro=alpine-3.23.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click-option-group",
+      "from": "0.5.9",
+      "to": "0.5.10",
+      "purl": "pkg:pypi/click-option-group@0.5.10"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.1",
+      "to": "4.1.1",
+      "purl": "pkg:pypi/soupsieve@4.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls@3.6.8-r0?arch=aarch64&distro=alpine-3.23.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click-option-group",
+      "from": "0.5.9",
+      "to": "0.5.10",
+      "purl": "pkg:pypi/click-option-group@0.5.10"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.1",
+      "to": "4.1.1",
+      "purl": "pkg:pypi/soupsieve@4.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

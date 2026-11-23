@@ -1,0 +1,122 @@
+{
+ "image": "baseimage-debian",
+ "branch": "kali",
+ "tag": "kali-73547282-ls10",
+ "previous_tag": "kali-88ce5e86-ls9",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (a8b2a7a → 79d3321): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "88ce5e86",
+  "to": "73547282",
+  "changed": true
+ },
+ "commit": {
+  "from": "a8b2a7a1c089de8553e550dc4d1583ec84f18cfb",
+  "to": "79d332160c86afeafc8a07eabe8eb150c159e135",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-debian/compare/a8b2a7a1c089de8553e550dc4d1583ec84f18cfb...79d332160c86afeafc8a07eabe8eb150c159e135",
+  "commits": [
+   {
+    "sha": "79d332160c86afeafc8a07eabe8eb150c159e135",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-16T20:45:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-debian/commit/79d332160c86afeafc8a07eabe8eb150c159e135",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 84418361,
+   "to": 84419247,
+   "delta": 886
+  },
+  "arm64": {
+   "from": 83181132,
+   "to": 83181010,
+   "delta": -122
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.48-3.1",
+      "to": "10.49-1",
+      "purl": "pkg:deb/kali/libpcre2-8-0@10.49-1?arch=amd64&distro=kali-2026.3&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.48-3.1",
+      "to": "10.49-1",
+      "purl": "pkg:deb/kali/libpcre2-8-0@10.49-1?arch=arm64&distro=kali-2026.3&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

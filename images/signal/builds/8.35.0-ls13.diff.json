@@ -1,0 +1,177 @@
+{
+ "image": "signal",
+ "branch": "master",
+ "tag": "8.35.0-ls13",
+ "previous_tag": "8.35.0-ls12",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (b085807 → 5da0831): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "8.35.0",
+  "to": "8.35.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "b085807f64df05aa6a4fec11dcf4bcbb9bba7245",
+  "to": "5da08310f6c371752a52497729456add62162e29",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-signal/compare/b085807f64df05aa6a4fec11dcf4bcbb9bba7245...5da08310f6c371752a52497729456add62162e29",
+  "commits": [
+   {
+    "sha": "5da08310f6c371752a52497729456add62162e29",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-16T04:37:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-signal/commit/5da08310f6c371752a52497729456add62162e29",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b3ebf9fbab39d22eee091564f1a3a8e375a2f7c7531da4239eb5601cf53b5135"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:ef32147f7d33317846cfeb87e72ca304e035e1f31d5b715e65426c257ae06eaf"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1574602674,
+   "to": 1579144295,
+   "delta": 4541621
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [
+     {
+      "name": "libxslt",
+      "version": "1.1.45-2",
+      "purl": "pkg:alpm/arch/libxslt@1.1.45-2?arch=x86_64&distro=arch-rolling&upstream=libxslt"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "157.0.8103.78-1",
+      "to": "158.0.8127.36-1",
+      "purl": "pkg:alpm/arch/chromium@158.0.8127.36-1?arch=x86_64&distro=arch-rolling&upstream=chromium"
+     },
+     {
+      "name": "glibc",
+      "from": "2.44+r50+g1848099f063e-1",
+      "to": "2.44+r78+gfcfb867c58ab-1",
+      "purl": "pkg:alpm/arch/glibc@2.44%2Br78%2Bgfcfb867c58ab-1?arch=x86_64&distro=arch-rolling&upstream=glibc"
+     },
+     {
+      "name": "glibc-locales",
+      "from": "2.44+r50+g1848099f063e-1",
+      "to": "2.44+r78+gfcfb867c58ab-1",
+      "purl": "pkg:alpm/arch/glibc-locales@2.44%2Br78%2Bgfcfb867c58ab-1?arch=x86_64&distro=arch-rolling&upstream=glibc"
+     },
+     {
+      "name": "imlib2",
+      "from": "1.12.7-3",
+      "to": "1.13.0-1",
+      "purl": "pkg:alpm/arch/imlib2@1.13.0-1?arch=x86_64&distro=arch-rolling&upstream=imlib2"
+     },
+     {
+      "name": "labwc",
+      "from": "0.20.2-1",
+      "to": "0.20.3-2",
+      "purl": "pkg:alpm/arch/labwc@0.20.3-2?arch=x86_64&distro=arch-rolling&upstream=labwc"
+     },
+     {
+      "name": "poppler",
+      "from": "26.10.0-2",
+      "to": "26.11.0-1",
+      "purl": "pkg:alpm/arch/poppler@26.11.0-1?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "runc",
+      "from": "1.5.2-1",
+      "to": "1.5.3-1",
+      "purl": "pkg:alpm/arch/runc@1.5.3-1?arch=x86_64&distro=arch-rolling&upstream=runc"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.7",
+      "to": "0.163.1",
+      "purl": "pkg:pypi/fastapi@0.163.1"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 1,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,172 @@
+{
+ "image": "mastodon",
+ "branch": "main",
+ "tag": "v4.7.5-ls9",
+ "previous_tag": "v4.7.5-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (38b0b54 → bdfebfb): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v4.7.5",
+  "to": "v4.7.5",
+  "changed": false
+ },
+ "commit": {
+  "from": "38b0b54f254717c64644da3538cd727e398b34b3",
+  "to": "bdfebfbdfda09cf288e1ab89c327740073cb00b2",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mastodon/compare/38b0b54f254717c64644da3538cd727e398b34b3...bdfebfbdfda09cf288e1ab89c327740073cb00b2",
+  "commits": [
+   {
+    "sha": "bdfebfbdfda09cf288e1ab89c327740073cb00b2",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T14:47:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/bdfebfbdfda09cf288e1ab89c327740073cb00b2",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:3130ae80cea2fa20c89e2c0cc679da86bbb257b3fc9f51a1d9ab6393e5cb7f81"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e81e256976c8d1d16f1e84a53540b12b20a917e650ff884b467db4c04a3458a2"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 254806387,
+   "to": 254824413,
+   "delta": 18026
+  },
+  "arm64": {
+   "from": 251135087,
+   "to": 251146649,
+   "delta": 11562
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apache2"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "libpq",
+      "from": "18.6-r0",
+      "to": "18.7-r0",
+      "purl": "pkg:apk/alpine/libpq@18.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=postgresql18"
+     },
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r1",
+      "to": "24.22.3-r0",
+      "purl": "pkg:apk/alpine/nodejs@24.22.3-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apache2"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "libpq",
+      "from": "18.6-r0",
+      "to": "18.7-r0",
+      "purl": "pkg:apk/alpine/libpq@18.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=postgresql18"
+     },
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r1",
+      "to": "24.22.3-r0",
+      "purl": "pkg:apk/alpine/nodejs@24.22.3-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

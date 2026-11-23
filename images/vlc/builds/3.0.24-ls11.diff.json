@@ -1,0 +1,1634 @@
+{
+ "image": "vlc",
+ "branch": "master",
+ "tag": "3.0.24-ls11",
+ "previous_tag": "3.0.24-ls10",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (62e4bd3 → bd7350f): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "3.0.24",
+  "to": "3.0.24",
+  "changed": false
+ },
+ "commit": {
+  "from": "62e4bd33b5f4a8934aa060ad89e5732d7939b3fa",
+  "to": "bd7350f309f01cddde59c56c9b62cfb5145f993f",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-vlc/compare/62e4bd33b5f4a8934aa060ad89e5732d7939b3fa...bd7350f309f01cddde59c56c9b62cfb5145f993f",
+  "commits": [
+   {
+    "sha": "bd7350f309f01cddde59c56c9b62cfb5145f993f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-18T01:23:46Z",
+    "url": "https://github.com/linuxserver-playground/docker-vlc/commit/bd7350f309f01cddde59c56c9b62cfb5145f993f",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:ef32147f7d33317846cfeb87e72ca304e035e1f31d5b715e65426c257ae06eaf"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:086e00be8171b7113ca0abc3196a8e531c47ce2bdfdb5579546b79ab43eab54d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1378109562,
+   "to": 1380393552,
+   "delta": 2283990
+  },
+  "arm64": {
+   "from": 1436633713,
+   "to": 1439210908,
+   "delta": 2577195
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates-mozilla",
+      "from": "3.133-1",
+      "to": "3.134-1",
+      "purl": "pkg:alpm/arch/ca-certificates-mozilla@3.134-1?arch=x86_64&distro=arch-rolling&upstream=nss"
+     },
+     {
+      "name": "cmake",
+      "from": "4.5.0-1",
+      "to": "4.5.1-1",
+      "purl": "pkg:alpm/arch/cmake@4.5.1-1?arch=x86_64&distro=arch-rolling&upstream=cmake"
+     },
+     {
+      "name": "dav1d",
+      "from": "1.5.4-1",
+      "to": "1.5.5-1",
+      "purl": "pkg:alpm/arch/dav1d@1.5.5-1?arch=x86_64&distro=arch-rolling&upstream=dav1d"
+     },
+     {
+      "name": "docker",
+      "from": "1:29.9.3-1",
+      "to": "1:29.10.0-1",
+      "purl": "pkg:alpm/arch/docker@1%3A29.10.0-1?arch=x86_64&distro=arch-rolling&upstream=docker"
+     },
+     {
+      "name": "docker-compose",
+      "from": "5.7.1-1",
+      "to": "5.8.0-1",
+      "purl": "pkg:alpm/arch/docker-compose@5.8.0-1?arch=x86_64&distro=arch-rolling&upstream=docker-compose"
+     },
+     {
+      "name": "ffmpeg",
+      "from": "2:9.0.2-5",
+      "to": "2:9.1-1",
+      "purl": "pkg:alpm/arch/ffmpeg@2%3A9.1-1?arch=x86_64&distro=arch-rolling&upstream=ffmpeg"
+     },
+     {
+      "name": "flex",
+      "from": "2.6.10-1",
+      "to": "2.7.1-1",
+      "purl": "pkg:alpm/arch/flex@2.7.1-1?arch=x86_64&distro=arch-rolling&upstream=flex"
+     },
+     {
+      "name": "fontconfig",
+      "from": "2:2.18.3-2",
+      "to": "2:2.18.4-1",
+      "purl": "pkg:alpm/arch/fontconfig@2%3A2.18.4-1?arch=x86_64&distro=arch-rolling&upstream=fontconfig"
+     },
+     {
+      "name": "gdb",
+      "from": "18.1-1",
+      "to": "18.1-2",
+      "purl": "pkg:alpm/arch/gdb@18.1-2?arch=x86_64&distro=arch-rolling&upstream=gdb"
+     },
+     {
+      "name": "gdb-common",
+      "from": "18.1-1",
+      "to": "18.1-2",
+      "purl": "pkg:alpm/arch/gdb-common@18.1-2?arch=x86_64&distro=arch-rolling&upstream=gdb"
+     },
+     {
+      "name": "glycin",
+      "from": "2.2.6-1",
+      "to": "2.2.6-2",
+      "purl": "pkg:alpm/arch/glycin@2.2.6-2?arch=x86_64&distro=arch-rolling&upstream=glycin"
+     },
+     {
+      "name": "gst-plugins-base-libs",
+      "from": "1.28.9-2",
+      "to": "1.28.9-3",
+      "purl": "pkg:alpm/arch/gst-plugins-base-libs@1.28.9-3?arch=x86_64&distro=arch-rolling&upstream=gstreamer"
+     },
+     {
+      "name": "gstreamer",
+      "from": "1.28.9-2",
+      "to": "1.28.9-3",
+      "purl": "pkg:alpm/arch/gstreamer@1.28.9-3?arch=x86_64&distro=arch-rolling&upstream=gstreamer"
+     },
+     {
+      "name": "imlib2",
+      "from": "1.13.0-1",
+      "to": "1.13.0-2",
+      "purl": "pkg:alpm/arch/imlib2@1.13.0-2?arch=x86_64&distro=arch-rolling&upstream=imlib2"
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r80.ge1dde819-1",
+      "to": "2.2.1.r108.g3bf18925-1",
+      "purl": "pkg:alpm/arch/libcupsfilters@2.2.1.r108.g3bf18925-1?arch=x86_64&distro=arch-rolling&upstream=libcupsfilters"
+     },
+     {
+      "name": "libffi",
+      "from": "3.8.0-1",
+      "to": "3.8.1-1",
+      "purl": "pkg:alpm/arch/libffi@3.8.1-1?arch=x86_64&distro=arch-rolling&upstream=libffi"
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.9-1",
+      "to": "1.1.10-1",
+      "purl": "pkg:alpm/arch/libfontenc@1.1.10-1?arch=x86_64&distro=arch-rolling&upstream=libfontenc"
+     },
+     {
+      "name": "libjxl",
+      "from": "0.12.0-1",
+      "to": "0.13.0-1",
+      "purl": "pkg:alpm/arch/libjxl@0.13.0-1?arch=x86_64&distro=arch-rolling&upstream=libjxl"
+     },
+     {
+      "name": "libpipewire",
+      "from": "1:1.6.11-1",
+      "to": "1:1.6.11-2",
+      "purl": "pkg:alpm/arch/libpipewire@1%3A1.6.11-2?arch=x86_64&distro=arch-rolling&upstream=pipewire"
+     },
+     {
+      "name": "libvlc",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/libvlc@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "libxfont2",
+      "from": "2.0.9-1",
+      "to": "2.0.10-1",
+      "purl": "pkg:alpm/arch/libxfont2@2.0.10-1?arch=x86_64&distro=arch-rolling&upstream=libxfont2"
+     },
+     {
+      "name": "mesa",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": "pkg:alpm/arch/mesa@1%3A26.3.1-2?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-3",
+      "to": "1.30.7-1",
+      "purl": "pkg:alpm/arch/nginx@1.30.7-1?arch=x86_64&distro=arch-rolling&upstream=nginx"
+     },
+     {
+      "name": "nspr",
+      "from": "4.40-1",
+      "to": "4.41-1",
+      "purl": "pkg:alpm/arch/nspr@4.41-1?arch=x86_64&distro=arch-rolling&upstream=nspr"
+     },
+     {
+      "name": "nss",
+      "from": "3.133-1",
+      "to": "3.134-1",
+      "purl": "pkg:alpm/arch/nss@3.134-1?arch=x86_64&distro=arch-rolling&upstream=nss"
+     },
+     {
+      "name": "pcsclite",
+      "from": "2.5.3-1",
+      "to": "2.5.4-1",
+      "purl": "pkg:alpm/arch/pcsclite@2.5.4-1?arch=x86_64&distro=arch-rolling&upstream=pcsclite"
+     },
+     {
+      "name": "pkgconf",
+      "from": "3.0.10-1",
+      "to": "3.0.11-1",
+      "purl": "pkg:alpm/arch/pkgconf@3.0.11-1?arch=x86_64&distro=arch-rolling&upstream=pkgconf"
+     },
+     {
+      "name": "sndio",
+      "from": "1.10.0-1",
+      "to": "1.11.0-1",
+      "purl": "pkg:alpm/arch/sndio@1.11.0-1?arch=x86_64&distro=arch-rolling&upstream=sndio"
+     },
+     {
+      "name": "tpm2-tss",
+      "from": "4.2.1-2",
+      "to": "4.2.2s-1",
+      "purl": "pkg:alpm/arch/tpm2-tss@4.2.2s-1?arch=x86_64&distro=arch-rolling&upstream=tpm2-tss"
+     },
+     {
+      "name": "vlc",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-cli",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-cli@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-gui-qt",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-gui-qt@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-a52dec",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-a52dec@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-aalib",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-aalib@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-alsa",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-alsa@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-aom",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-aom@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-archive",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-archive@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-aribb24",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-aribb24@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-aribb25",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-aribb25@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-ass",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-ass@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-avahi",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-avahi@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-bluray",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-bluray@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-caca",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-caca@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-cddb",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-cddb@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-chromecast",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-chromecast@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-dav1d",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-dav1d@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-dbus",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-dbus@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-dbus-screensaver",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-dbus-screensaver@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-dca",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-dca@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-dvb",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-dvb@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-dvd",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-dvd@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-faad2",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-faad2@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-ffmpeg",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-ffmpeg@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-firewire",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-firewire@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-flac",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-flac@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-fluidsynth",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-fluidsynth@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-freetype",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-freetype@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-gme",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-gme@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-gnutls",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-gnutls@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-gstreamer",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-gstreamer@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-inflate",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-inflate@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-jack",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-jack@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-journal",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-journal@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-jpeg",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-jpeg@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-kate",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-kate@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-libsecret",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-libsecret@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-lirc",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-lirc@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-live555",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-live555@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-lua",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-lua@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-mad",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-mad@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-matroska",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-matroska@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-mdns",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-mdns@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-modplug",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-modplug@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-mpeg2",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-mpeg2@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-mpg123",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-mpg123@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-mtp",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-mtp@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-musepack",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-musepack@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-nfs",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-nfs@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-notify",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-notify@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-ogg",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-ogg@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-opus",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-opus@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-png",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-png@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-pulse",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-pulse@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-samplerate",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-samplerate@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-sdl",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-sdl@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-sftp",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-sftp@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-shout",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-shout@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-smb",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-smb@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-soxr",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-soxr@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-speex",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-speex@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-srt",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-srt@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-svg",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-svg@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-tag",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-tag@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-theora",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-theora@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-twolame",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-twolame@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-udev",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-udev@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-upnp",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-upnp@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-vorbis",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-vorbis@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-vpx",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-vpx@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-x264",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-x264@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-x265",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-x265@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-xml",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-xml@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugin-zvbi",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugin-zvbi@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugins-all",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugins-all@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugins-base",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugins-base@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugins-extra",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugins-extra@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugins-video-output",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugins-video-output@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vlc-plugins-visualization",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": "pkg:alpm/arch/vlc-plugins-visualization@3.0.24-2?arch=x86_64&distro=arch-rolling&upstream=vlc"
+     },
+     {
+      "name": "vulkan-intel",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": "pkg:alpm/arch/vulkan-intel@1%3A26.3.1-2?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-mesa-implicit-layers",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": "pkg:alpm/arch/vulkan-mesa-implicit-layers@1%3A26.3.1-2?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-radeon",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": "pkg:alpm/arch/vulkan-radeon@1%3A26.3.1-2?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "github.com/moby/extensions",
+      "version": "v0.0.0-20261020100352-d2819d88bcbe",
+      "purl": "pkg:golang/github.com/moby/extensions@v0.0.0-20261020100352-d2819d88bcbe"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.2",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.3+incompatible",
+      "to": "v29.10.0+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.10.0%2Bincompatible"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.2",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.0",
+      "to": "v0.50.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.50.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.6",
+      "to": "0.0.7",
+      "purl": "pkg:pypi/annotated-doc@0.0.7"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.163.1",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates-mozilla",
+      "from": "3.133-1",
+      "to": "3.134-1",
+      "purl": null
+     },
+     {
+      "name": "cmake",
+      "from": "4.5.0-1",
+      "to": "4.5.1-1",
+      "purl": null
+     },
+     {
+      "name": "dav1d",
+      "from": "1.5.4-1",
+      "to": "1.5.5-1",
+      "purl": null
+     },
+     {
+      "name": "docker",
+      "from": "1:29.9.3-1",
+      "to": "1:29.10.0-1",
+      "purl": null
+     },
+     {
+      "name": "docker-compose",
+      "from": "5.7.1-1",
+      "to": "5.8.0-1",
+      "purl": null
+     },
+     {
+      "name": "ffmpeg",
+      "from": "2:9.0.2-5",
+      "to": "2:9.1-1",
+      "purl": null
+     },
+     {
+      "name": "flex",
+      "from": "2.6.10-1",
+      "to": "2.7.1-1",
+      "purl": null
+     },
+     {
+      "name": "fontconfig",
+      "from": "2:2.18.3-2",
+      "to": "2:2.18.4-1",
+      "purl": null
+     },
+     {
+      "name": "gdb",
+      "from": "18.1-1",
+      "to": "18.1-2",
+      "purl": null
+     },
+     {
+      "name": "gdb-common",
+      "from": "18.1-1",
+      "to": "18.1-2",
+      "purl": null
+     },
+     {
+      "name": "glycin",
+      "from": "2.2.6-1",
+      "to": "2.2.6-2",
+      "purl": null
+     },
+     {
+      "name": "gst-plugins-base-libs",
+      "from": "1.28.9-2",
+      "to": "1.28.9-3",
+      "purl": null
+     },
+     {
+      "name": "gstreamer",
+      "from": "1.28.9-2",
+      "to": "1.28.9-3",
+      "purl": null
+     },
+     {
+      "name": "imlib2",
+      "from": "1.13.0-1",
+      "to": "1.13.0-2",
+      "purl": null
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r80.ge1dde819-1",
+      "to": "2.2.1.r108.g3bf18925-1",
+      "purl": null
+     },
+     {
+      "name": "libffi",
+      "from": "3.8.0-1",
+      "to": "3.8.1-1",
+      "purl": null
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.9-1",
+      "to": "1.1.10-1",
+      "purl": null
+     },
+     {
+      "name": "libjxl",
+      "from": "0.12.0-1",
+      "to": "0.13.0-1",
+      "purl": null
+     },
+     {
+      "name": "libpipewire",
+      "from": "1:1.6.11-1",
+      "to": "1:1.6.11-2",
+      "purl": null
+     },
+     {
+      "name": "libvlc",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "libxfont2",
+      "from": "2.0.9-1",
+      "to": "2.0.10-1",
+      "purl": null
+     },
+     {
+      "name": "mesa",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": null
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-3",
+      "to": "1.30.7-1",
+      "purl": null
+     },
+     {
+      "name": "nspr",
+      "from": "4.40-1",
+      "to": "4.41-1",
+      "purl": null
+     },
+     {
+      "name": "nss",
+      "from": "3.133-1",
+      "to": "3.134-1",
+      "purl": null
+     },
+     {
+      "name": "pcsclite",
+      "from": "2.5.3-1",
+      "to": "2.5.4-1",
+      "purl": null
+     },
+     {
+      "name": "pkgconf",
+      "from": "3.0.10-1",
+      "to": "3.0.11-1",
+      "purl": null
+     },
+     {
+      "name": "poppler",
+      "from": "26.10.0-2",
+      "to": "26.11.0-1",
+      "purl": null
+     },
+     {
+      "name": "sndio",
+      "from": "1.10.0-1",
+      "to": "1.11.0-1",
+      "purl": null
+     },
+     {
+      "name": "tpm2-tss",
+      "from": "4.2.1-2",
+      "to": "4.2.2s-1",
+      "purl": null
+     },
+     {
+      "name": "vlc",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-cli",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-gui-qt",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-a52dec",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-aalib",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-alsa",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-aom",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-archive",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-aribb24",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-aribb25",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-ass",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-avahi",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-bluray",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-caca",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-cddb",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-chromecast",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-dav1d",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-dbus",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-dbus-screensaver",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-dca",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-dvb",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-dvd",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-faad2",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-ffmpeg",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-firewire",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-flac",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-fluidsynth",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-freetype",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-gme",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-gnutls",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-gstreamer",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-inflate",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-jack",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-journal",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-jpeg",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-kate",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-libsecret",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-lirc",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-live555",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-lua",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-mad",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-matroska",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-mdns",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-modplug",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-mpeg2",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-mpg123",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-mtp",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-musepack",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-nfs",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-notify",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-ogg",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-opus",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-png",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-pulse",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-samplerate",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-sdl",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-sftp",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-shout",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-smb",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-soxr",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-speex",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-srt",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-svg",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-tag",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-theora",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-twolame",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-udev",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-upnp",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-vorbis",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-vpx",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-x264",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-x265",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-xml",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugin-zvbi",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugins-all",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugins-base",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugins-extra",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugins-video-output",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vlc-plugins-visualization",
+      "from": "3.0.24-1",
+      "to": "3.0.24-2",
+      "purl": null
+     },
+     {
+      "name": "vulkan-broadcom",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": null
+     },
+     {
+      "name": "vulkan-mesa-implicit-layers",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": null
+     },
+     {
+      "name": "vulkan-radeon",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "github.com/moby/extensions",
+      "version": "v0.0.0-20261020100352-d2819d88bcbe",
+      "purl": "pkg:golang/github.com/moby/extensions@v0.0.0-20261020100352-d2819d88bcbe"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.2",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.3+incompatible",
+      "to": "v29.10.0+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.10.0%2Bincompatible"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.2",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.0",
+      "to": "v0.50.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.50.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.6",
+      "to": "0.0.7",
+      "purl": "pkg:pypi/annotated-doc@0.0.7"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.163.1",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 2,
+  "upgraded": 245,
+  "downgraded": 0
+ }
+}

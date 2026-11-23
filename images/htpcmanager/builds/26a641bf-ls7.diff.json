@@ -1,0 +1,189 @@
+{
+ "image": "htpcmanager",
+ "branch": "master",
+ "tag": "26a641bf-ls7",
+ "previous_tag": "26a641bf-ls6",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (d50ec31 → c366426): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "26a641bf",
+  "to": "26a641bf",
+  "changed": false
+ },
+ "commit": {
+  "from": "d50ec31643d00de1869f98345f1772d00169098d",
+  "to": "c366426733c2ad02560fea7d7000bdc35c449bac",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-htpcmanager/compare/d50ec31643d00de1869f98345f1772d00169098d...c366426733c2ad02560fea7d7000bdc35c449bac",
+  "commits": [
+   {
+    "sha": "c366426733c2ad02560fea7d7000bdc35c449bac",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T06:05:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-htpcmanager/commit/c366426733c2ad02560fea7d7000bdc35c449bac",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.20",
+   "digest": "sha256:37c85bdd640fd71bf95221f8a8c8cffb151cd91ae114e9917a690a4e702344c3"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver/baseimage-alpine:3.20",
+   "digest": "sha256:37c85bdd640fd71bf95221f8a8c8cffb151cd91ae114e9917a690a4e702344c3"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 70478459,
+   "to": 74306012,
+   "delta": 3827553
+  },
+  "arm64": {
+   "from": 70920914,
+   "to": 74571141,
+   "delta": 3650227
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [
+     {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "purl": "pkg:pypi/annotated-types@0.8.0"
+     },
+     {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "version": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "markdown-it-py",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/markdown-it-py@4.3.0"
+     },
+     {
+      "name": "typer",
+      "from": "0.28.0",
+      "to": "0.29.1",
+      "purl": "pkg:pypi/typer@0.29.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [
+     {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "purl": "pkg:pypi/annotated-types@0.8.0"
+     },
+     {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "version": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "markdown-it-py",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/markdown-it-py@4.3.0"
+     },
+     {
+      "name": "typer",
+      "from": "0.28.0",
+      "to": "0.29.1",
+      "purl": "pkg:pypi/typer@0.29.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 8,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,112 @@
+{
+ "schema": 1,
+ "name": "scummvm",
+ "summary": "[ScummVM](https://www.scummvm.org/) is a program which allows you to run certain classic graphical adventure and role-playing games, provided you already have their data files. The clever part about this: ScummVM just replaces the executables shipped with the games, allowing you to play them on systems for which they were never designed! ScummVM is a complete rewrite of these games' executables and is not an emulator.",
+ "upstream": {
+  "url": "https://www.scummvm.org/",
+  "version": {
+   "type": "github_release",
+   "repo": "scummvm/scummvm"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "scummvm/scummvm"
+  },
+  "sponsor": [
+   {
+    "name": "ScummVM",
+    "url": "https://www.scummvm.org/donate-with-paypal"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "SCUMMVM_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP ScummVM desktop gui must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS ScummVM desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "security_opt": [
+   {
+    "run": "seccomp=unconfined",
+    "compose": "seccomp:unconfined",
+    "description": "For Docker Engine only, many modern gui apps need this to function on older hosts as syscalls are unknown to Docker.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/scummvm-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n**The cursor double renders during gameplay, you can use \"gaming mode\" in the sidebar to get around this.**\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-09-22",
+   "text": "Update for Selkies v2, default to X11 for cursor."
+  },
+  {
+   "date": "2026-06-20",
+   "text": "Rebase to Debian Trixie, make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-01-13",
+   "text": "Rebase to Ubuntu Noble, add wayland init."
+  },
+  {
+   "date": "2025-08-25",
+   "text": "Initial release."
+  }
+ ]
+}

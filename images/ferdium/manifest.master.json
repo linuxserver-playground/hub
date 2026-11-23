@@ -1,0 +1,134 @@
+{
+ "schema": 1,
+ "name": "ferdium",
+ "summary": "[Ferdium](https://ferdium.org/) is a desktop app that helps you organize how you use your favourite apps by combining them into one application.",
+ "upstream": {
+  "url": "https://ferdium.org/",
+  "version": {
+   "type": "github_release",
+   "repo": "ferdium/ferdium-app",
+   "require_assets": [
+    {
+     "asset": "^Ferdium\\-linux\\-.*\\-amd64\\.deb$"
+    },
+    {
+     "asset": "^Ferdium\\-linux\\-.*\\-arm64\\.deb$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "ferdium/ferdium-app"
+  },
+  "sponsor": [
+   {
+    "name": "Ferdium",
+    "url": "https://opencollective.com/ferdium"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "FERDIUM_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Ferdium desktop gui HTTP, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Ferdium desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores program settings and files."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Required for electron apps to fucntion properly."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Chat",
+   "Social"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ferdium-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-03",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-21",
+   "text": "Use Wayland ozone platform fixes scaling and acceleration."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2023-12-07",
+   "text": "Initial release."
+  }
+ ]
+}

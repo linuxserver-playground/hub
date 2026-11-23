@@ -1,0 +1,1171 @@
+{
+ "image": "kali-linux",
+ "branch": "master",
+ "tag": "2fe1b6ad-ls11",
+ "previous_tag": "34a601e5-ls10",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (73bf24b → 4136145): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "34a601e5",
+  "to": "2fe1b6ad",
+  "changed": true
+ },
+ "commit": {
+  "from": "73bf24bc9ce9f1206c0b53a93187cb608e3a66fd",
+  "to": "4136145cb08cd9f7dc4431a2cc1db0f9d9b2fa64",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kali-linux/compare/73bf24bc9ce9f1206c0b53a93187cb608e3a66fd...4136145cb08cd9f7dc4431a2cc1db0f9d9b2fa64",
+  "commits": [
+   {
+    "sha": "4136145cb08cd9f7dc4431a2cc1db0f9d9b2fa64",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-16T14:33:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-kali-linux/commit/4136145cb08cd9f7dc4431a2cc1db0f9d9b2fa64",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:a198690bb4829ec484329a3e358c7b64a869e5726a04101f56b85b6c6c7f1c8d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:3e1fbde0249d9e03a0f609546991838627cb53cf9c8e4e9ee916c2ff4b86715a"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 4772821943,
+   "to": 4765372424,
+   "delta": -7449519
+  },
+  "arm64": {
+   "from": 3988437416,
+   "to": 3981498087,
+   "delta": -6939329
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [
+     {
+      "name": "libstd-rust-1.98",
+      "version": "1.98.1+dfsg1-1",
+      "purl": "pkg:deb/kali/libstd-rust-1.98@1.98.1%2Bdfsg1-1?arch=amd64&distro=kali-2026.3&upstream=rustc"
+     },
+     {
+      "name": "libxml++-5.0-1",
+      "version": "5.6.1+ds-3",
+      "purl": "pkg:deb/kali/libxml%2B%2B-5.0-1@5.6.1%2Bds-3?arch=amd64&distro=kali-2026.3&upstream=libxml%2B%2B-5.0"
+     }
+    ],
+    "removed": [
+     {
+      "name": "libstd-rust-1.97",
+      "version": "1.97.1+dfsg1-1",
+      "purl": "pkg:deb/kali/libstd-rust-1.97@1.97.1%2Bdfsg1-1?arch=amd64&distro=kali-2026.3&upstream=rustc"
+     },
+     {
+      "name": "libxml++2.6-2v5",
+      "version": "2.42.3-2+b2",
+      "purl": "pkg:deb/kali/libxml%2B%2B2.6-2v5@2.42.3-2%2Bb2?arch=amd64&distro=kali-2026.3&upstream=libxml%2B%2B2.6%402.42.3-2"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "cargo",
+      "from": "1.97.1+dfsg1-1",
+      "to": "1.98.1+dfsg1-1",
+      "purl": "pkg:deb/kali/cargo@1.98.1%2Bdfsg1-1?arch=amd64&distro=kali-2026.3&upstream=rustc"
+     },
+     {
+      "name": "cherrytree",
+      "from": "1.2.0+dfsg-1+b2",
+      "to": "1.7.3+dfsg-0.1",
+      "purl": "pkg:deb/kali/cherrytree@1.7.3%2Bdfsg-0.1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "docker-ce",
+      "from": "5:29.9.3-1~debian.12~bookworm",
+      "to": "5:29.10.0-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-ce@5%3A29.10.0-1~debian.12~bookworm?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "docker-ce-cli",
+      "from": "5:29.9.3-1~debian.12~bookworm",
+      "to": "5:29.10.0-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-ce-cli@5%3A29.10.0-1~debian.12~bookworm?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.1-1~debian.12~bookworm",
+      "to": "5.8.0-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-compose-plugin@5.8.0-1~debian.12~bookworm?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "hyphen-en-us",
+      "from": "2.8.9-3",
+      "to": "2.8.10-2",
+      "purl": "pkg:deb/kali/hyphen-en-us@2.8.10-2?arch=all&distro=kali-2026.3&upstream=hyphen"
+     },
+     {
+      "name": "kirigami-addons-data",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/kirigami-addons-data@1.16.1-2?arch=all&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "libaio1t64",
+      "from": "0.3.113-9+kali2",
+      "to": "0.3.113-10+kali1",
+      "purl": "pkg:deb/kali/libaio1t64@0.3.113-10%2Bkali1?arch=amd64&distro=kali-2026.3&upstream=libaio"
+     },
+     {
+      "name": "libaspell15",
+      "from": "0.60.8.2-3+b1",
+      "to": "0.60.8.3-1",
+      "purl": "pkg:deb/kali/libaspell15@0.60.8.3-1?arch=amd64&distro=kali-2026.3&upstream=aspell"
+     },
+     {
+      "name": "libhunspell-1.7-0",
+      "from": "1.7.5-1",
+      "to": "1.7.6-3",
+      "purl": "pkg:deb/kali/libhunspell-1.7-0@1.7.6-3?arch=amd64&distro=kali-2026.3&upstream=hunspell"
+     },
+     {
+      "name": "libkirigamiaddonscomponents6",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/libkirigamiaddonscomponents6@1.16.1-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "liblerc4",
+      "from": "4.2.0+ds-1",
+      "to": "4.3.0+ds-2",
+      "purl": "pkg:deb/kali/liblerc4@4.3.0%2Bds-2?arch=amd64&distro=kali-2026.3&upstream=lerc"
+     },
+     {
+      "name": "liblua5.4-0",
+      "from": "5.4.9-1",
+      "to": "5.4.9-2",
+      "purl": "pkg:deb/kali/liblua5.4-0@5.4.9-2?arch=amd64&distro=kali-2026.3&upstream=lua5.4"
+     },
+     {
+      "name": "libpcre2-16-0",
+      "from": "10.48-3.1",
+      "to": "10.49-1",
+      "purl": "pkg:deb/kali/libpcre2-16-0@10.49-1?arch=amd64&distro=kali-2026.3&upstream=pcre2"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.48-3.1",
+      "to": "10.49-1",
+      "purl": "pkg:deb/kali/libpcre2-8-0@10.49-1?arch=amd64&distro=kali-2026.3&upstream=pcre2"
+     },
+     {
+      "name": "libpcre2-posix3",
+      "from": "10.48-3.1",
+      "to": "10.49-1",
+      "purl": "pkg:deb/kali/libpcre2-posix3@10.49-1?arch=amd64&distro=kali-2026.3&upstream=pcre2"
+     },
+     {
+      "name": "libpolkit-agent-1-0",
+      "from": "127+really127-3kali1",
+      "to": "128-1+kali1",
+      "purl": "pkg:deb/kali/libpolkit-agent-1-0@128-1%2Bkali1?arch=amd64&distro=kali-2026.3&upstream=policykit-1"
+     },
+     {
+      "name": "libpolkit-gobject-1-0",
+      "from": "127+really127-3kali1",
+      "to": "128-1+kali1",
+      "purl": "pkg:deb/kali/libpolkit-gobject-1-0@128-1%2Bkali1?arch=amd64&distro=kali-2026.3&upstream=policykit-1"
+     },
+     {
+      "name": "libqt6keychain1",
+      "from": "0.17.0-1",
+      "to": "0.18.0-1",
+      "purl": "pkg:deb/kali/libqt6keychain1@0.18.0-1?arch=amd64&distro=kali-2026.3&upstream=qtkeychain"
+     },
+     {
+      "name": "libsdl3-0",
+      "from": "3.4.18+ds-1",
+      "to": "3.4.20+ds-1",
+      "purl": "pkg:deb/kali/libsdl3-0@3.4.20%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=libsdl3"
+     },
+     {
+      "name": "libsqlcipher2",
+      "from": "4.19.0-1",
+      "to": "4.20.0-1",
+      "purl": "pkg:deb/kali/libsqlcipher2@4.20.0-1?arch=amd64&distro=kali-2026.3&upstream=sqlcipher"
+     },
+     {
+      "name": "libstd-rust-dev",
+      "from": "1.97.1+dfsg1-1",
+      "to": "1.98.1+dfsg1-1",
+      "purl": "pkg:deb/kali/libstd-rust-dev@1.98.1%2Bdfsg1-1?arch=amd64&distro=kali-2026.3&upstream=rustc"
+     },
+     {
+      "name": "libtcl8.6",
+      "from": "8.6.18+dfsg-1",
+      "to": "8.6.18+dfsg-2",
+      "purl": "pkg:deb/kali/libtcl8.6@8.6.18%2Bdfsg-2?arch=amd64&distro=kali-2026.3&upstream=tcl8.6"
+     },
+     {
+      "name": "libtk8.6",
+      "from": "8.6.18-1",
+      "to": "8.6.18-2",
+      "purl": "pkg:deb/kali/libtk8.6@8.6.18-2?arch=amd64&distro=kali-2026.3&upstream=tk8.6"
+     },
+     {
+      "name": "pkexec",
+      "from": "127+really127-3kali1",
+      "to": "128-1+kali1",
+      "purl": "pkg:deb/kali/pkexec@128-1%2Bkali1?arch=amd64&distro=kali-2026.3&upstream=policykit-1"
+     },
+     {
+      "name": "polkitd",
+      "from": "127+really127-3kali1",
+      "to": "128-1+kali1",
+      "purl": "pkg:deb/kali/polkitd@128-1%2Bkali1?arch=amd64&distro=kali-2026.3&upstream=policykit-1"
+     },
+     {
+      "name": "python3-dnspython",
+      "from": "2.8.0-6",
+      "to": "2.8.0-7",
+      "purl": "pkg:deb/kali/python3-dnspython@2.8.0-7?arch=all&distro=kali-2026.3&upstream=dnspython"
+     },
+     {
+      "name": "python3-pydantic",
+      "from": "2.13.5-2",
+      "to": "2.14.1-1",
+      "purl": "pkg:deb/kali/python3-pydantic@2.14.1-1?arch=amd64&distro=kali-2026.3&upstream=pydantic"
+     },
+     {
+      "name": "python3-pydantic-core",
+      "from": "2.46.5-2",
+      "to": "2.50.1-3",
+      "purl": "pkg:deb/kali/python3-pydantic-core@2.50.1-3?arch=amd64&distro=kali-2026.3&upstream=pydantic-core"
+     },
+     {
+      "name": "python3-pypdf",
+      "from": "6.21.1-1",
+      "to": "6.21.4-1",
+      "purl": "pkg:deb/kali/python3-pypdf@6.21.4-1?arch=all&distro=kali-2026.3&upstream=pypdf"
+     },
+     {
+      "name": "python3-pyqt6.sip",
+      "from": "13.12.0-1+b2",
+      "to": "13.13.0-1",
+      "purl": "pkg:deb/kali/python3-pyqt6.sip@13.13.0-1?arch=amd64&distro=kali-2026.3&upstream=pyqt6-sip"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-components",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-components@1.16.1-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-datetime",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-datetime@1.16.1-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-delegates",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-delegates@1.16.1-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-formcard",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-formcard@1.16.1-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-private",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-private@1.16.1-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-treeview",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-treeview@1.16.1-2?arch=amd64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "rustc",
+      "from": "1.97.1+dfsg1-1",
+      "to": "1.98.1+dfsg1-1",
+      "purl": "pkg:deb/kali/rustc@1.98.1%2Bdfsg1-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "tcl8.6",
+      "from": "8.6.18+dfsg-1",
+      "to": "8.6.18+dfsg-2",
+      "purl": "pkg:deb/kali/tcl8.6@8.6.18%2Bdfsg-2?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "windows-binaries",
+      "from": "0.6.10",
+      "to": "0.6.11",
+      "purl": "pkg:deb/kali/windows-binaries@0.6.11?arch=all&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "cloud.google.com/go/auth",
+      "from": "v0.20.0",
+      "to": "v0.24.1",
+      "purl": "pkg:golang/cloud.google.com/go/auth@v0.24.1"
+     },
+     {
+      "name": "cloud.google.com/go/auth/oauth2adapt",
+      "from": "v0.2.8",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.3.0"
+     },
+     {
+      "name": "cloud.google.com/go/logging",
+      "from": "v1.20.0",
+      "to": "v1.21.1",
+      "purl": "pkg:golang/cloud.google.com/go/logging@v1.21.1"
+     },
+     {
+      "name": "cloud.google.com/go/longrunning",
+      "from": "v1.2.0",
+      "to": "v1.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/longrunning@v1.3.0"
+     },
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/config",
+      "from": "v1.33.4",
+      "to": "v1.33.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.33.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/credentials",
+      "from": "v1.20.4",
+      "to": "v1.20.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.20.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs",
+      "from": "v1.87.0",
+      "to": "v1.91.0",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs@v1.91.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.2",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/containerd/nri",
+      "from": "v0.12.3",
+      "to": "v0.12.5",
+      "purl": "pkg:golang/github.com/containerd/nri@v0.12.5"
+     },
+     {
+      "name": "github.com/containerd/stargz-snapshotter/estargz",
+      "from": "v0.18.2",
+      "to": "v0.19.1",
+      "purl": "pkg:golang/github.com/containerd/stargz-snapshotter/estargz@v0.19.1"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.1",
+      "to": "v5.8.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.8.0"
+     },
+     {
+      "name": "github.com/godbus/dbus/v5",
+      "from": "v5.2.2",
+      "to": "v5.2.4",
+      "purl": "pkg:golang/github.com/godbus/dbus/v5@v5.2.4"
+     },
+     {
+      "name": "github.com/google/s2a-go",
+      "from": "v0.1.9",
+      "to": "v0.1.11",
+      "purl": "pkg:golang/github.com/google/s2a-go@v0.1.11"
+     },
+     {
+      "name": "github.com/googleapis/enterprise-certificate-proxy",
+      "from": "v0.3.17",
+      "to": "v0.3.23",
+      "purl": "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.23"
+     },
+     {
+      "name": "github.com/googleapis/gax-go/v2",
+      "from": "v2.23.0",
+      "to": "v2.27.0",
+      "purl": "pkg:golang/github.com/googleapis/gax-go/v2@v2.27.0"
+     },
+     {
+      "name": "github.com/mdlayher/socket",
+      "from": "v0.7.0",
+      "to": "v0.8.0",
+      "purl": "pkg:golang/github.com/mdlayher/socket@v0.8.0"
+     },
+     {
+      "name": "github.com/moby/extensions",
+      "from": "v0.0.0-20260918151408-e4c23d866037",
+      "to": "v0.0.0-20261026144205-2b6b3bd5fa82",
+      "purl": "pkg:golang/github.com/moby/extensions@v0.0.0-20261026144205-2b6b3bd5fa82"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.2",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "github.com/moby/profiles/apparmor",
+      "from": "v0.2.2",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/apparmor@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/profiles/seccomp",
+      "from": "v0.2.4",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/seccomp@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/sys/user",
+      "from": "v0.4.1",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/user@v0.5.0"
+     },
+     {
+      "name": "github.com/prometheus/client_golang",
+      "from": "v1.24.1",
+      "to": "v1.25.0",
+      "purl": "pkg:golang/github.com/prometheus/client_golang@v1.25.0"
+     },
+     {
+      "name": "github.com/prometheus/common",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/github.com/prometheus/common@v0.72.0"
+     },
+     {
+      "name": "github.com/prometheus/procfs",
+      "from": "v0.21.1",
+      "to": "v0.22.0",
+      "purl": "pkg:golang/github.com/prometheus/procfs@v0.22.0"
+     },
+     {
+      "name": "github.com/tinylib/msgp",
+      "from": "v1.3.0",
+      "to": "v1.4.0",
+      "purl": "pkg:golang/github.com/tinylib/msgp@v1.4.0"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/processors/baggagecopy",
+      "from": "v0.16.3",
+      "to": "v0.17.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/processors/baggagecopy@v0.17.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/sdk/log",
+      "from": "v0.22.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk/log@v1.47.0"
+     },
+     {
+      "name": "golang.org/x/mod",
+      "from": "v0.42.0",
+      "to": "v0.43.0",
+      "purl": "pkg:golang/golang.org/x/mod@v0.43.0"
+     },
+     {
+      "name": "golang.org/x/oauth2",
+      "from": "v0.37.0",
+      "to": "v0.38.0",
+      "purl": "pkg:golang/golang.org/x/oauth2@v0.38.0"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/text",
+      "from": "v0.43.0",
+      "to": "v0.44.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.44.0"
+     },
+     {
+      "name": "google.golang.org/api",
+      "from": "v0.287.1",
+      "to": "v0.304.0",
+      "purl": "pkg:golang/google.golang.org/api@v0.304.0"
+     },
+     {
+      "name": "google.golang.org/genproto",
+      "from": "v0.0.0-20260825221802-da73d73af1c5",
+      "to": "v0.0.0-20261012220534-4341edf3f941",
+      "purl": "pkg:golang/google.golang.org/genproto@v0.0.0-20261012220534-4341edf3f941"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v29.9.3",
+      "to": "v2.0.0-beta.30.0.20261113133159-06db1734267b",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v2.0.0-beta.30.0.20261113133159-06db1734267b"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.6",
+      "to": "0.0.7",
+      "purl": "pkg:pypi/annotated-doc@0.0.7"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.163.1",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pypdf",
+      "from": "6.21.1",
+      "to": "6.21.4",
+      "purl": "pkg:pypi/pypdf@6.21.4"
+     },
+     {
+      "name": "pyqt6-sip",
+      "from": "13.12.0",
+      "to": "13.13.0",
+      "purl": "pkg:pypi/pyqt6-sip@13.13.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [
+     {
+      "name": "libstd-rust-1.98",
+      "version": "1.98.1+dfsg1-1",
+      "purl": "pkg:deb/kali/libstd-rust-1.98@1.98.1%2Bdfsg1-1?arch=arm64&distro=kali-2026.3&upstream=rustc"
+     },
+     {
+      "name": "libxml++-5.0-1",
+      "version": "5.6.1+ds-3",
+      "purl": "pkg:deb/kali/libxml%2B%2B-5.0-1@5.6.1%2Bds-3?arch=arm64&distro=kali-2026.3&upstream=libxml%2B%2B-5.0"
+     }
+    ],
+    "removed": [
+     {
+      "name": "libstd-rust-1.97",
+      "version": "1.97.1+dfsg1-1",
+      "purl": "pkg:deb/kali/libstd-rust-1.97@1.97.1%2Bdfsg1-1?arch=arm64&distro=kali-2026.3&upstream=rustc"
+     },
+     {
+      "name": "libxml++2.6-2v5",
+      "version": "2.42.3-2+b2",
+      "purl": "pkg:deb/kali/libxml%2B%2B2.6-2v5@2.42.3-2%2Bb2?arch=arm64&distro=kali-2026.3&upstream=libxml%2B%2B2.6%402.42.3-2"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "cargo",
+      "from": "1.97.1+dfsg1-1",
+      "to": "1.98.1+dfsg1-1",
+      "purl": "pkg:deb/kali/cargo@1.98.1%2Bdfsg1-1?arch=arm64&distro=kali-2026.3&upstream=rustc"
+     },
+     {
+      "name": "cherrytree",
+      "from": "1.2.0+dfsg-1+b3",
+      "to": "1.7.3+dfsg-0.1",
+      "purl": "pkg:deb/kali/cherrytree@1.7.3%2Bdfsg-0.1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "docker-ce",
+      "from": "5:29.9.3-1~debian.12~bookworm",
+      "to": "5:29.10.0-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-ce@5%3A29.10.0-1~debian.12~bookworm?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "docker-ce-cli",
+      "from": "5:29.9.3-1~debian.12~bookworm",
+      "to": "5:29.10.0-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-ce-cli@5%3A29.10.0-1~debian.12~bookworm?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.1-1~debian.12~bookworm",
+      "to": "5.8.0-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-compose-plugin@5.8.0-1~debian.12~bookworm?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "hyphen-en-us",
+      "from": "2.8.9-3",
+      "to": "2.8.10-2",
+      "purl": "pkg:deb/kali/hyphen-en-us@2.8.10-2?arch=all&distro=kali-2026.3&upstream=hyphen"
+     },
+     {
+      "name": "kirigami-addons-data",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/kirigami-addons-data@1.16.1-2?arch=all&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "libaio1t64",
+      "from": "0.3.113-9+kali2",
+      "to": "0.3.113-10+kali1",
+      "purl": "pkg:deb/kali/libaio1t64@0.3.113-10%2Bkali1?arch=arm64&distro=kali-2026.3&upstream=libaio"
+     },
+     {
+      "name": "libaspell15",
+      "from": "0.60.8.2-3+b1",
+      "to": "0.60.8.3-1",
+      "purl": "pkg:deb/kali/libaspell15@0.60.8.3-1?arch=arm64&distro=kali-2026.3&upstream=aspell"
+     },
+     {
+      "name": "libhunspell-1.7-0",
+      "from": "1.7.5-1",
+      "to": "1.7.6-3",
+      "purl": "pkg:deb/kali/libhunspell-1.7-0@1.7.6-3?arch=arm64&distro=kali-2026.3&upstream=hunspell"
+     },
+     {
+      "name": "libkirigamiaddonscomponents6",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/libkirigamiaddonscomponents6@1.16.1-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "liblerc4",
+      "from": "4.2.0+ds-1",
+      "to": "4.3.0+ds-2",
+      "purl": "pkg:deb/kali/liblerc4@4.3.0%2Bds-2?arch=arm64&distro=kali-2026.3&upstream=lerc"
+     },
+     {
+      "name": "liblua5.4-0",
+      "from": "5.4.9-1",
+      "to": "5.4.9-2",
+      "purl": "pkg:deb/kali/liblua5.4-0@5.4.9-2?arch=arm64&distro=kali-2026.3&upstream=lua5.4"
+     },
+     {
+      "name": "libpcre2-16-0",
+      "from": "10.48-3.1",
+      "to": "10.49-1",
+      "purl": "pkg:deb/kali/libpcre2-16-0@10.49-1?arch=arm64&distro=kali-2026.3&upstream=pcre2"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.48-3.1",
+      "to": "10.49-1",
+      "purl": "pkg:deb/kali/libpcre2-8-0@10.49-1?arch=arm64&distro=kali-2026.3&upstream=pcre2"
+     },
+     {
+      "name": "libpcre2-posix3",
+      "from": "10.48-3.1",
+      "to": "10.49-1",
+      "purl": "pkg:deb/kali/libpcre2-posix3@10.49-1?arch=arm64&distro=kali-2026.3&upstream=pcre2"
+     },
+     {
+      "name": "libpolkit-agent-1-0",
+      "from": "127+really127-3kali1",
+      "to": "128-1+kali1",
+      "purl": "pkg:deb/kali/libpolkit-agent-1-0@128-1%2Bkali1?arch=arm64&distro=kali-2026.3&upstream=policykit-1"
+     },
+     {
+      "name": "libpolkit-gobject-1-0",
+      "from": "127+really127-3kali1",
+      "to": "128-1+kali1",
+      "purl": "pkg:deb/kali/libpolkit-gobject-1-0@128-1%2Bkali1?arch=arm64&distro=kali-2026.3&upstream=policykit-1"
+     },
+     {
+      "name": "libqt6keychain1",
+      "from": "0.17.0-1",
+      "to": "0.18.0-1",
+      "purl": "pkg:deb/kali/libqt6keychain1@0.18.0-1?arch=arm64&distro=kali-2026.3&upstream=qtkeychain"
+     },
+     {
+      "name": "libsdl3-0",
+      "from": "3.4.18+ds-1",
+      "to": "3.4.20+ds-1",
+      "purl": "pkg:deb/kali/libsdl3-0@3.4.20%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=libsdl3"
+     },
+     {
+      "name": "libsqlcipher2",
+      "from": "4.19.0-1",
+      "to": "4.20.0-1",
+      "purl": "pkg:deb/kali/libsqlcipher2@4.20.0-1?arch=arm64&distro=kali-2026.3&upstream=sqlcipher"
+     },
+     {
+      "name": "libstd-rust-dev",
+      "from": "1.97.1+dfsg1-1",
+      "to": "1.98.1+dfsg1-1",
+      "purl": "pkg:deb/kali/libstd-rust-dev@1.98.1%2Bdfsg1-1?arch=arm64&distro=kali-2026.3&upstream=rustc"
+     },
+     {
+      "name": "libtcl8.6",
+      "from": "8.6.18+dfsg-1",
+      "to": "8.6.18+dfsg-2",
+      "purl": "pkg:deb/kali/libtcl8.6@8.6.18%2Bdfsg-2?arch=arm64&distro=kali-2026.3&upstream=tcl8.6"
+     },
+     {
+      "name": "libtk8.6",
+      "from": "8.6.18-1",
+      "to": "8.6.18-2",
+      "purl": "pkg:deb/kali/libtk8.6@8.6.18-2?arch=arm64&distro=kali-2026.3&upstream=tk8.6"
+     },
+     {
+      "name": "pkexec",
+      "from": "127+really127-3kali1",
+      "to": "128-1+kali1",
+      "purl": "pkg:deb/kali/pkexec@128-1%2Bkali1?arch=arm64&distro=kali-2026.3&upstream=policykit-1"
+     },
+     {
+      "name": "polkitd",
+      "from": "127+really127-3kali1",
+      "to": "128-1+kali1",
+      "purl": "pkg:deb/kali/polkitd@128-1%2Bkali1?arch=arm64&distro=kali-2026.3&upstream=policykit-1"
+     },
+     {
+      "name": "python3-dnspython",
+      "from": "2.8.0-6",
+      "to": "2.8.0-7",
+      "purl": "pkg:deb/kali/python3-dnspython@2.8.0-7?arch=all&distro=kali-2026.3&upstream=dnspython"
+     },
+     {
+      "name": "python3-pydantic",
+      "from": "2.13.5-2",
+      "to": "2.14.1-1",
+      "purl": "pkg:deb/kali/python3-pydantic@2.14.1-1?arch=arm64&distro=kali-2026.3&upstream=pydantic"
+     },
+     {
+      "name": "python3-pydantic-core",
+      "from": "2.46.5-2",
+      "to": "2.50.1-3",
+      "purl": "pkg:deb/kali/python3-pydantic-core@2.50.1-3?arch=arm64&distro=kali-2026.3&upstream=pydantic-core"
+     },
+     {
+      "name": "python3-pypdf",
+      "from": "6.21.1-1",
+      "to": "6.21.4-1",
+      "purl": "pkg:deb/kali/python3-pypdf@6.21.4-1?arch=all&distro=kali-2026.3&upstream=pypdf"
+     },
+     {
+      "name": "python3-pyqt6.sip",
+      "from": "13.12.0-1+b2",
+      "to": "13.13.0-1",
+      "purl": "pkg:deb/kali/python3-pyqt6.sip@13.13.0-1?arch=arm64&distro=kali-2026.3&upstream=pyqt6-sip"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-components",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-components@1.16.1-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-datetime",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-datetime@1.16.1-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-delegates",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-delegates@1.16.1-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-formcard",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-formcard@1.16.1-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-private",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-private@1.16.1-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "qml6-module-org-kde-kirigamiaddons-treeview",
+      "from": "1.16.0-2",
+      "to": "1.16.1-2",
+      "purl": "pkg:deb/kali/qml6-module-org-kde-kirigamiaddons-treeview@1.16.1-2?arch=arm64&distro=kali-2026.3&upstream=kirigami-addons"
+     },
+     {
+      "name": "rustc",
+      "from": "1.97.1+dfsg1-1",
+      "to": "1.98.1+dfsg1-1",
+      "purl": "pkg:deb/kali/rustc@1.98.1%2Bdfsg1-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "tcl8.6",
+      "from": "8.6.18+dfsg-1",
+      "to": "8.6.18+dfsg-2",
+      "purl": "pkg:deb/kali/tcl8.6@8.6.18%2Bdfsg-2?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "windows-binaries",
+      "from": "0.6.10",
+      "to": "0.6.11",
+      "purl": "pkg:deb/kali/windows-binaries@0.6.11?arch=all&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "cloud.google.com/go/auth",
+      "from": "v0.20.0",
+      "to": "v0.24.1",
+      "purl": "pkg:golang/cloud.google.com/go/auth@v0.24.1"
+     },
+     {
+      "name": "cloud.google.com/go/auth/oauth2adapt",
+      "from": "v0.2.8",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.3.0"
+     },
+     {
+      "name": "cloud.google.com/go/logging",
+      "from": "v1.20.0",
+      "to": "v1.21.1",
+      "purl": "pkg:golang/cloud.google.com/go/logging@v1.21.1"
+     },
+     {
+      "name": "cloud.google.com/go/longrunning",
+      "from": "v1.2.0",
+      "to": "v1.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/longrunning@v1.3.0"
+     },
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/config",
+      "from": "v1.33.4",
+      "to": "v1.33.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.33.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/credentials",
+      "from": "v1.20.4",
+      "to": "v1.20.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.20.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs",
+      "from": "v1.87.0",
+      "to": "v1.91.0",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs@v1.91.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.2",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/containerd/nri",
+      "from": "v0.12.3",
+      "to": "v0.12.5",
+      "purl": "pkg:golang/github.com/containerd/nri@v0.12.5"
+     },
+     {
+      "name": "github.com/containerd/stargz-snapshotter/estargz",
+      "from": "v0.18.2",
+      "to": "v0.19.1",
+      "purl": "pkg:golang/github.com/containerd/stargz-snapshotter/estargz@v0.19.1"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.1",
+      "to": "v5.8.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.8.0"
+     },
+     {
+      "name": "github.com/godbus/dbus/v5",
+      "from": "v5.2.2",
+      "to": "v5.2.4",
+      "purl": "pkg:golang/github.com/godbus/dbus/v5@v5.2.4"
+     },
+     {
+      "name": "github.com/google/s2a-go",
+      "from": "v0.1.9",
+      "to": "v0.1.11",
+      "purl": "pkg:golang/github.com/google/s2a-go@v0.1.11"
+     },
+     {
+      "name": "github.com/googleapis/enterprise-certificate-proxy",
+      "from": "v0.3.17",
+      "to": "v0.3.23",
+      "purl": "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.23"
+     },
+     {
+      "name": "github.com/googleapis/gax-go/v2",
+      "from": "v2.23.0",
+      "to": "v2.27.0",
+      "purl": "pkg:golang/github.com/googleapis/gax-go/v2@v2.27.0"
+     },
+     {
+      "name": "github.com/mdlayher/socket",
+      "from": "v0.7.0",
+      "to": "v0.8.0",
+      "purl": "pkg:golang/github.com/mdlayher/socket@v0.8.0"
+     },
+     {
+      "name": "github.com/moby/extensions",
+      "from": "v0.0.0-20260918151408-e4c23d866037",
+      "to": "v0.0.0-20261026144205-2b6b3bd5fa82",
+      "purl": "pkg:golang/github.com/moby/extensions@v0.0.0-20261026144205-2b6b3bd5fa82"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.2",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "github.com/moby/profiles/apparmor",
+      "from": "v0.2.2",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/apparmor@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/profiles/seccomp",
+      "from": "v0.2.4",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/seccomp@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/sys/user",
+      "from": "v0.4.1",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/user@v0.5.0"
+     },
+     {
+      "name": "github.com/prometheus/client_golang",
+      "from": "v1.24.1",
+      "to": "v1.25.0",
+      "purl": "pkg:golang/github.com/prometheus/client_golang@v1.25.0"
+     },
+     {
+      "name": "github.com/prometheus/common",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/github.com/prometheus/common@v0.72.0"
+     },
+     {
+      "name": "github.com/prometheus/procfs",
+      "from": "v0.21.1",
+      "to": "v0.22.0",
+      "purl": "pkg:golang/github.com/prometheus/procfs@v0.22.0"
+     },
+     {
+      "name": "github.com/tinylib/msgp",
+      "from": "v1.3.0",
+      "to": "v1.4.0",
+      "purl": "pkg:golang/github.com/tinylib/msgp@v1.4.0"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/processors/baggagecopy",
+      "from": "v0.16.3",
+      "to": "v0.17.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/processors/baggagecopy@v0.17.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/sdk/log",
+      "from": "v0.22.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk/log@v1.47.0"
+     },
+     {
+      "name": "golang.org/x/mod",
+      "from": "v0.42.0",
+      "to": "v0.43.0",
+      "purl": "pkg:golang/golang.org/x/mod@v0.43.0"
+     },
+     {
+      "name": "golang.org/x/oauth2",
+      "from": "v0.37.0",
+      "to": "v0.38.0",
+      "purl": "pkg:golang/golang.org/x/oauth2@v0.38.0"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/text",
+      "from": "v0.43.0",
+      "to": "v0.44.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.44.0"
+     },
+     {
+      "name": "google.golang.org/api",
+      "from": "v0.287.1",
+      "to": "v0.304.0",
+      "purl": "pkg:golang/google.golang.org/api@v0.304.0"
+     },
+     {
+      "name": "google.golang.org/genproto",
+      "from": "v0.0.0-20260825221802-da73d73af1c5",
+      "to": "v0.0.0-20261012220534-4341edf3f941",
+      "purl": "pkg:golang/google.golang.org/genproto@v0.0.0-20261012220534-4341edf3f941"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v29.9.3",
+      "to": "v2.0.0-beta.30.0.20261113133159-06db1734267b",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v2.0.0-beta.30.0.20261113133159-06db1734267b"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.6",
+      "to": "0.0.7",
+      "purl": "pkg:pypi/annotated-doc@0.0.7"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.163.1",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pypdf",
+      "from": "6.21.1",
+      "to": "6.21.4",
+      "purl": "pkg:pypi/pypdf@6.21.4"
+     },
+     {
+      "name": "pyqt6-sip",
+      "from": "13.12.0",
+      "to": "13.13.0",
+      "purl": "pkg:pypi/pyqt6-sip@13.13.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 4,
+  "removed": 6,
+  "upgraded": 160,
+  "downgraded": 2
+ }
+}

@@ -1,0 +1,170 @@
+{
+ "schema": 1,
+ "name": "ddclient",
+ "summary": "[Ddclient](https://github.com/ddclient/ddclient) is a Perl client used to update dynamic DNS entries for accounts on Dynamic DNS Network Service Provider. It was originally written by Paul Burry and is now mostly by wimpunk. It has the capability to update more than just dyndns and it can fetch your WAN-ipaddress in a few different ways.",
+ "upstream": {
+  "url": "https://github.com/ddclient/ddclient",
+  "version": {
+   "type": "github_release",
+   "repo": "ddclient/ddclient"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "ddclient/ddclient"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "DDCLIENT_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120
+ },
+ "runtime": {
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/ddclient/config",
+    "description": "Persistent config files"
+   }
+  ],
+  "readonly": {
+   "supported": true,
+   "notes": "`/tmp` must also be mounted to tmpfs for this image.\n"
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Network",
+   "DNS"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ddclient-logo.png",
+  "setup": "Edit the `ddclient.conf` file found in your `/config` volume (also see official [ddclient documentation](https://ddclient.net)). This config file has many providers to choose from and you basically just have to uncomment your provider and add username/password where requested. If you modify ddclient.conf, ddclient will automaticcaly restart and read the config.\n\n### Get dynamic IP from Fritz.Box\nIf ddclient shall fetch the dynamic (public) IP-address from a fritz.box (AVM) add the following line to `/config/ddclient.conf`:\n````\nuse=cmd, cmd=/etc/ddclient/get-ip-from-fritzbox\n````\n"
+ },
+ "changelog": [
+  {
+   "date": "2025-07-10",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-07-08",
+   "text": "Fix cache issue."
+  },
+  {
+   "date": "2024-07-08",
+   "text": "Don't copy config from `/config/ddclient.conf` to `/ddclient.conf` at runtime."
+  },
+  {
+   "date": "2024-06-27",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-08-25",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-07-04",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-02-13",
+   "text": "Rebase to Alpine 3.17, migrate to s6v3."
+  },
+  {
+   "date": "2022-10-20",
+   "text": "Update build instructions for 3.10.0. Update default `ddclient.conf`."
+  },
+  {
+   "date": "2022-01-15",
+   "text": "Rebase to Alpine 3.15"
+  },
+  {
+   "date": "2021-05-15",
+   "text": "Distribute script 'sample-get-ip-from-fritzbox' from ddclient repo"
+  },
+  {
+   "date": "2021-03-08",
+   "text": "Added bind-tools to provide nsupdate"
+  },
+  {
+   "date": "2020-06-01",
+   "text": "Rebasing to alpine 3.12."
+  },
+  {
+   "date": "2020-02-08",
+   "text": "Ingest from Github."
+  },
+  {
+   "date": "2020-02-06",
+   "text": "Fix permissions."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-03-10",
+   "text": "Add perl-io-socket-inet6 for ipv6 support."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2019-02-11",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2018-08-22",
+   "text": "Rebase to alpine 3.8."
+  },
+  {
+   "date": "2018-08-10",
+   "text": "Update to ddclient v3.9.0. For Cloudflare users, please ensure you remove the line `server=www.cloudflare.com` from your `ddclient.conf`."
+  },
+  {
+   "date": "2017-12-07",
+   "text": "Rebase to alpine 3.7."
+  },
+  {
+   "date": "2017-05-28",
+   "text": "Rebase to alpine 3.6."
+  },
+  {
+   "date": "2017-02-10",
+   "text": "Rebase to alpine 3.5."
+  },
+  {
+   "date": "2016-11-26",
+   "text": "Update README to new standard and add icon and other small details."
+  },
+  {
+   "date": "2016-08-29",
+   "text": "Initial release."
+  }
+ ]
+}

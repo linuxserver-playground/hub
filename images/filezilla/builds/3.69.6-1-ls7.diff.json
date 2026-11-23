@@ -1,0 +1,135 @@
+{
+ "image": "filezilla",
+ "branch": "master",
+ "tag": "3.69.6-1-ls7",
+ "previous_tag": "3.69.6-1-ls6",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (c8a0d25 → 618810f): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "3.69.6-1",
+  "to": "3.69.6-1",
+  "changed": false
+ },
+ "commit": {
+  "from": "c8a0d25cbcbbbc34f84afe9aed3d1fffd22bbc44",
+  "to": "618810f8c550e47307d740ae9379a229d5cf9642",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-filezilla/compare/c8a0d25cbcbbbc34f84afe9aed3d1fffd22bbc44...618810f8c550e47307d740ae9379a229d5cf9642",
+  "commits": [
+   {
+    "sha": "618810f8c550e47307d740ae9379a229d5cf9642",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T14:22:21Z",
+    "url": "https://github.com/linuxserver-playground/docker-filezilla/commit/618810f8c550e47307d740ae9379a229d5cf9642",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:a8e26da62ec31fd5f3b5b03f9ee53ccb1fcd939247714807414f9ade6ac82081"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:a8e26da62ec31fd5f3b5b03f9ee53ccb1fcd939247714807414f9ade6ac82081"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 909618805,
+   "to": 909902706,
+   "delta": 283901
+  },
+  "arm64": {
+   "from": 873052370,
+   "to": 873317287,
+   "delta": 264917
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libpcre2-32-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-32-0@10.46-1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=pcre2"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.46-1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libpcre2-32-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-32-0@10.46-1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=pcre2"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.46-1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

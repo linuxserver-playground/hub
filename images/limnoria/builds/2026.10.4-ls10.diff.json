@@ -1,0 +1,124 @@
+{
+ "image": "limnoria",
+ "branch": "master",
+ "tag": "2026.10.4-ls10",
+ "previous_tag": "2026.10.4-ls9",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (e088d98 → 1df6173): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026.10.4",
+  "to": "2026.10.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "e088d9883cc3b2fad7f079d5467b0e20c671d8c3",
+  "to": "1df61731dcb69372589883476a6e3bbbbc53f0a0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-limnoria/compare/e088d9883cc3b2fad7f079d5467b0e20c671d8c3...1df61731dcb69372589883476a6e3bbbbc53f0a0",
+  "commits": [
+   {
+    "sha": "1df61731dcb69372589883476a6e3bbbbc53f0a0",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T03:42:08Z",
+    "url": "https://github.com/linuxserver-playground/docker-limnoria/commit/1df61731dcb69372589883476a6e3bbbbc53f0a0",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.21",
+   "digest": "sha256:ba356b0853b0079e990e1ce4af4e4e4b4b1a5658c1ddc526e0dbafc66c4a1c4a"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.21",
+   "digest": "sha256:d8851b24dc71fde2955b629c0bb94c0d3e0760f2da4670d89157b25916bcaf61"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 48993541,
+   "to": 48863538,
+   "delta": -130003
+  },
+  "arm64": {
+   "from": 49741021,
+   "to": 49614928,
+   "delta": -126093
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jq",
+      "from": "1.7.1-r0",
+      "to": "1.8.2-r0",
+      "purl": "pkg:apk/alpine/jq@1.8.2-r0?arch=x86_64&distro=alpine-3.21.10"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "jq",
+      "from": "1.7.1-r0",
+      "to": "1.8.2-r0",
+      "purl": "pkg:apk/alpine/jq@1.8.2-r0?arch=aarch64&distro=alpine-3.21.10"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}
