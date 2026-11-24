@@ -1,0 +1,116 @@
+{
+ "schema": 1,
+ "name": "steam",
+ "summary": "[Steam](https://store.steampowered.com/) is the ultimate destination for playing, discussing, and creating games.",
+ "upstream": {
+  "url": "https://store.steampowered.com/",
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "STEAM_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 60
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Steam desktop gui HTTP must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "Steam desktop gui HTTPS."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores all files and games."
+   }
+  ],
+  "security_opt": [
+   {
+    "run": "seccomp=unconfined",
+    "compose": "seccomp:unconfined",
+    "description": "This is needed to allow bwrap to use namespacing for games.",
+    "optional": true
+   },
+   {
+    "run": "apparmor=unconfined",
+    "compose": "apparmor:unconfined",
+    "description": "For Debian/Ubuntu hosts Steam needs elevated perms that AppArmor blocks.",
+    "optional": true
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/steam-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n>[!NOTE]\n>This image is for a web accessible version of Steam to be played through a web browser, if you want a fully flushed out Moonlight couch solution please consider [Wolf](https://games-on-whales.github.io/wolf/stable/user/quickstart.html) or another non Docker solution. Moonlight clients have major advantages over using a web browser specifically for gaming.\n\n## Permissions\n\nSteam runs its browser helper and every game inside [bubblewrap](https://github.com/containers/bubblewrap), which needs user namespaces. Docker's default seccomp profile (and AppArmor on Debian/Ubuntu hosts) blocks those, so the recommended way to run this container is with `--security-opt seccomp=unconfined` and `--security-opt apparmor=unconfined`, which lets Steam use bubblewrap as intended.\n\nThese options are not required, but running without them will degrade performance as userspace proot with ptrace or fakechroot will be used to run games. [proot-bwrap](https://github.com/selkies-project/proot-bwrap)\n\n## Gamepad support\n\nThis container leverages a userspace gamepad interposer to provide gamepad support. To use a gamepad always force Proton in \"Properties>Compatibility\" even for Linux native games, \"Proton Hotfix\" is a good default selection. You cannot use the \"Steam Input\" feature on any game as the uinput socket and HID do not exist.\n\n## Gaming mode\n\nAn absolute must for mouse and keyboard input is sending relative mouse input from the browser, you will need to use the \"Gaming Mode\" which is a small crosshair in the top right of the sidebar. This runs in fullscreen and traps you in the window, to exit this mode hold down escape for 3 seconds.\n\n## Game Launching\n\nIncluded in this image are tools for managing [Proton versions](https://davidotek.github.io/protonup-qt/) and a [command line launcher](https://github.com/Open-Wine-Components/umu-launcher). This means once a game or application is installed via Steam it can be directly launched on init by creating a config file and modifying `/config/.config/labwc/autostart` to run `umu-run` instead of Steam.:\n\n```\numu-run --config /config/game.toml\n```\n\n```toml\n[umu]\nprefix = \"/config/game\"\nexe = \"/config/Desktop/game/game.exe\"\nproton = \"/config/.local/share/Steam/compatibilitytools.d/GE-Proton-version\"\ngame_id = \"0\"\n```\n\nThis facilitates custom home directories with pre-configured runtimes and gamefiles for baking images outside of using the Steam launcher.\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-09-12",
+   "text": "Make seccomp and apparmor unconfined optional with proot-bwrap."
+  },
+  {
+   "date": "2026-02-04",
+   "text": "Add ProtonUp Qt for runtime management and umu-run for custom auto game launching."
+  },
+  {
+   "date": "2026-01-17",
+   "text": "Document Nvidia support."
+  },
+  {
+   "date": "2026-01-09",
+   "text": "Initial Version."
+  }
+ ]
+}

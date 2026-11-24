@@ -1,0 +1,278 @@
+{
+ "image": "baseimage-debian",
+ "branch": "master",
+ "tag": "trixie-fee1039d-ls9",
+ "previous_tag": "trixie-7c3a4fd0-ls8",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (e5950c6 → 8296fbe): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "7c3a4fd0",
+  "to": "fee1039d",
+  "changed": true
+ },
+ "commit": {
+  "from": "e5950c67c31b9742703f92a6337ed2692568f92e",
+  "to": "8296fbe4238e3b3c439991e4caae999e3aed01c8",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-debian/compare/e5950c67c31b9742703f92a6337ed2692568f92e...8296fbe4238e3b3c439991e4caae999e3aed01c8",
+  "commits": [
+   {
+    "sha": "8296fbe4238e3b3c439991e4caae999e3aed01c8",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T12:39:53Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-debian/commit/8296fbe4238e3b3c439991e4caae999e3aed01c8",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 71933889,
+   "to": 80777385,
+   "delta": 8843496
+  },
+  "arm64": {
+   "from": 72596607,
+   "to": 81811391,
+   "delta": 9214784
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "base-files",
+      "from": "13.8+deb13u7",
+      "to": "13.8+deb13u8",
+      "purl": "pkg:deb/debian/base-files@13.8%2Bdeb13u8?arch=amd64&distro=debian-13.8"
+     },
+     {
+      "name": "krb5-locales",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/krb5-locales@1.21.3-5%2Bdeb13u2?arch=all&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-bin@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-l10n@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc6@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libgssapi-krb5-2",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libgssapi-krb5-2@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libk5crypto3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libk5crypto3@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5-3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5-3@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5support0",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5support0@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libnghttp2-14",
+      "from": "1.64.0-1.1+deb13u1",
+      "to": "1.64.0-1.1+deb13u2",
+      "purl": "pkg:deb/debian/libnghttp2-14@1.64.0-1.1%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=nghttp2"
+     },
+     {
+      "name": "libssl3t64",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/libssl3t64@3.5.9-1~deb13u1?arch=amd64&distro=debian-13.8&upstream=openssl"
+     },
+     {
+      "name": "locales",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/locales@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/openssl@3.5.9-1~deb13u1?arch=amd64&distro=debian-13.8"
+     },
+     {
+      "name": "openssl-provider-legacy",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/openssl-provider-legacy@3.5.9-1~deb13u1?arch=amd64&distro=debian-13.8&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "base-files",
+      "from": "13.8+deb13u7",
+      "to": "13.8+deb13u8",
+      "purl": "pkg:deb/debian/base-files@13.8%2Bdeb13u8?arch=arm64&distro=debian-13.8"
+     },
+     {
+      "name": "krb5-locales",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/krb5-locales@1.21.3-5%2Bdeb13u2?arch=all&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-bin@2.41-12%2Bdeb13u5?arch=arm64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-l10n@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc6@2.41-12%2Bdeb13u5?arch=arm64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libgssapi-krb5-2",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libgssapi-krb5-2@1.21.3-5%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libk5crypto3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libk5crypto3@1.21.3-5%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5-3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5-3@1.21.3-5%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5support0",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5support0@1.21.3-5%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libnghttp2-14",
+      "from": "1.64.0-1.1+deb13u1",
+      "to": "1.64.0-1.1+deb13u2",
+      "purl": "pkg:deb/debian/libnghttp2-14@1.64.0-1.1%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=nghttp2"
+     },
+     {
+      "name": "libssl3t64",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/libssl3t64@3.5.9-1~deb13u1?arch=arm64&distro=debian-13.8&upstream=openssl"
+     },
+     {
+      "name": "locales",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/locales@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/openssl@3.5.9-1~deb13u1?arch=arm64&distro=debian-13.8"
+     },
+     {
+      "name": "openssl-provider-legacy",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/openssl-provider-legacy@3.5.9-1~deb13u1?arch=arm64&distro=debian-13.8&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 28,
+  "downgraded": 0
+ }
+}

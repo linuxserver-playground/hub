@@ -1,0 +1,222 @@
+{
+ "schema": 1,
+ "name": "jellyfin",
+ "summary": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
+ "upstream": {
+  "url": "https://github.com/jellyfin/jellyfin",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "https://repo.jellyfin.org/ubuntu/dists/resolute/unstable/binary-amd64/Packages",
+   "package": "jellyfin-server"
+  },
+  "sponsor": [
+   {
+    "name": "Jellyfin",
+    "url": "https://opencollective.com/jellyfin"
+   }
+  ]
+ },
+ "release": {
+  "branch": "nightly",
+  "tag": "nightly",
+  "channel": "prerelease",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Stable Jellyfin releases"
+   },
+   {
+    "tag": "nightly",
+    "description": "Nightly Jellyfin releases"
+   }
+  ]
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "JELLYFIN_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 300,
+  "web": {
+   "port": 8096
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8096",
+    "description": "Http webUI."
+   },
+   {
+    "internal": "8920",
+    "description": "Optional - Https webUI (you need to set up your own certificate).",
+    "optional": true
+   },
+   {
+    "internal": "7359/udp",
+    "description": "Optional - Allows clients to discover Jellyfin on the local network.",
+    "optional": true
+   },
+   {
+    "internal": "1900/udp",
+    "description": "Optional - Service discovery used by DNLA and clients.",
+    "optional": true
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/jellyfin/library",
+    "description": "Jellyfin data storage location. *This can grow very large, 50gb+ is likely for a large collection.*"
+   },
+   {
+    "path": "/data/tvshows",
+    "host_path": "/path/to/tvseries",
+    "description": "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc."
+   },
+   {
+    "path": "/data/movies",
+    "host_path": "/path/to/movies",
+    "description": "Media goes here. Add as many as needed e.g. `/data/movies`, `/data/tv`, etc."
+   }
+  ],
+  "env": [
+   {
+    "name": "JELLYFIN_PublishedServerUrl",
+    "value": "http://192.168.0.5",
+    "description": "Set the autodiscovery response domain or IP address.",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Media Servers",
+   "Music",
+   "Audiobooks"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jellyfin-logo.png",
+  "setup": "Webui can be found at `http://<your-ip>:8096`\n\nMore information can be found on the official documentation [here](https://jellyfin.org/docs/general/quick-start.html).\n\n### Hardware Acceleration Enhancements\n\nThis section lists the enhancements we have made for hardware acceleration in this image specifically.\n\n### Intel\n\nTo enable the OpenCL based DV, HDR10 and HLG tone-mapping, please refer to the OpenCL-Intel mod from here:\n\nhttps://mods.linuxserver.io/?mod=jellyfin\n\nAnd follow this guide even if you are using iGPU: https://jellyfin.org/docs/general/administration/hardware-acceleration/intel/#configure-and-verify-lp-mode-on-linux\n",
+  "optional_parameters": "The [official documentation for ports](https://jellyfin.org/docs/general/networking/index.html) has additional ports that can provide auto discovery.\n\nService Discovery (`1900/udp`) - Since client auto-discover would break if this option were configurable, you cannot change this in the settings at this time. DLNA also uses this port and is required to be in the local subnet.\n\nClient Discovery (`7359/udp`) - Allows clients to discover Jellyfin on the local network. A broadcast message to this port with \"Who is Jellyfin Server?\" will get a JSON response that includes the server address, ID, and name.\n\n```\n  -p 7359:7359/udp \\\n  -p 1900:1900/udp \\\n```\n\nThe [official documentation for environmentals](https://jellyfin.org/docs/general/administration/configuration.html) has additional environmentals that can provide additional configurability such as migrating to the native Jellyfin image.\n",
+  "notices": {
+   "hwaccel": true
+  }
+ },
+ "proxy": {
+  "port": 8096,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-14",
+   "text": "Rebase to Ubuntu Resolute."
+  },
+  {
+   "date": "2026-02-21",
+   "text": "Add support for IPv6 OOTB."
+  },
+  {
+   "date": "2025-10-20",
+   "text": "Add libjemalloc2 as runtime dep."
+  },
+  {
+   "date": "2024-10-06",
+   "text": "Fix fontconfig cache path."
+  },
+  {
+   "date": "2024-08-13",
+   "text": "Rebase to Ubuntu Noble."
+  },
+  {
+   "date": "2024-05-01",
+   "text": "Increase verbosity of device permissions fixing. Use universal hardware acceleration blurb."
+  },
+  {
+   "date": "2023-12-03",
+   "text": "Switch nightly to ffmpeg6."
+  },
+  {
+   "date": "2023-07-01",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2022-12-07",
+   "text": "Rebase nightly to Jammy, migrate to s6v3."
+  },
+  {
+   "date": "2022-01-05",
+   "text": "Specify Intel iHD driver versions to avoid mismatched libva errors."
+  },
+  {
+   "date": "2021-12-25",
+   "text": "Fix video device group perms error message."
+  },
+  {
+   "date": "2021-09-22",
+   "text": "Pull only the server, web and ffmpeg packages instead of the wrapper."
+  },
+  {
+   "date": "2021-06-23",
+   "text": "Add log message if device permissions are incorrect. Deprecate the `bionic` tag."
+  },
+  {
+   "date": "2021-01-20",
+   "text": "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information."
+  },
+  {
+   "date": "2021-01-05",
+   "text": "Add nvidia.icd file to fix missing tonemapping using Nvidia HW."
+  },
+  {
+   "date": "2020-11-23",
+   "text": "Rebase to Focal, branch off Bionic."
+  },
+  {
+   "date": "2020-07-22",
+   "text": "Install nightly from unstable."
+  },
+  {
+   "date": "2020-05-27",
+   "text": "Set web directory path."
+  },
+  {
+   "date": "2020-04-11",
+   "text": "Enable hw decode (mmal) on Raspberry Pi, update readme instructions, add donation info, create missing default transcodes folder."
+  },
+  {
+   "date": "2020-03-11",
+   "text": "Add v4l2 support on Raspberry Pi; remove optional transcode mapping (location is selected in the gui, defaults to path under `/config`)."
+  },
+  {
+   "date": "2020-01-30",
+   "text": "Add nightly tag."
+  },
+  {
+   "date": "2020-01-09",
+   "text": "Add Pi OpenMax support."
+  },
+  {
+   "date": "2019-10-02",
+   "text": "Improve permission fixing for render & dvb devices."
+  },
+  {
+   "date": "2019-07-31",
+   "text": "Add AMD drivers for vaapi support on x86."
+  },
+  {
+   "date": "2019-06-13",
+   "text": "Add Intel drivers for vaapi support on x86."
+  },
+  {
+   "date": "2019-06-07",
+   "text": "Initial release."
+  }
+ ]
+}

@@ -1,0 +1,137 @@
+{
+ "image": "modmanager",
+ "branch": "main",
+ "tag": "064b4398-ls5",
+ "previous_tag": "5d7f36a3-ls4",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (4bcf106 → e0be925): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "5d7f36a3",
+  "to": "064b4398",
+  "changed": true
+ },
+ "commit": {
+  "from": "4bcf106ea3a92b3cbc47ac873bb750f72f8323c7",
+  "to": "e0be925da5cc44122b61a75bad3f407fdaa6fc7d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-modmanager/compare/4bcf106ea3a92b3cbc47ac873bb750f72f8323c7...e0be925da5cc44122b61a75bad3f407fdaa6fc7d",
+  "commits": [
+   {
+    "sha": "e0be925da5cc44122b61a75bad3f407fdaa6fc7d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-12T12:05:18Z",
+    "url": "https://github.com/linuxserver-playground/docker-modmanager/commit/e0be925da5cc44122b61a75bad3f407fdaa6fc7d",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:149bdce0bc2d9276e6727f2e6912bc69c0df4d3606b355267cd72a443551f067"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 23563020,
+   "to": 23563289,
+   "delta": 269
+  },
+  "arm64": {
+   "from": 23577641,
+   "to": 23577895,
+   "delta": 254
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

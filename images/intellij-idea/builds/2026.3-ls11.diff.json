@@ -1,0 +1,218 @@
+{
+ "image": "intellij-idea",
+ "branch": "master",
+ "tag": "2026.3-ls11",
+ "previous_tag": "2026.3-ls10",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (4b47735 → b1bf4c2): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026.3",
+  "to": "2026.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "4b47735d813dd5ffa3395a991cd696fd2d51ac36",
+  "to": "b1bf4c220a38934fb6672f8021591e4ab22d17d0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-intellij-idea/compare/4b47735d813dd5ffa3395a991cd696fd2d51ac36...b1bf4c220a38934fb6672f8021591e4ab22d17d0",
+  "commits": [
+   {
+    "sha": "b1bf4c220a38934fb6672f8021591e4ab22d17d0",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T15:42:40Z",
+    "url": "https://github.com/linuxserver-playground/docker-intellij-idea/commit/b1bf4c220a38934fb6672f8021591e4ab22d17d0",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:0fd2a76c81dc7f3cc4a5c1e6e509baf8f204ac13a18be3c5164b1e1da97f3401"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:arch",
+   "digest": "sha256:b8195fe16b7caa71d1fa9650252bee2cbef86028bd0d762e715b5b31c4e43586"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 2490607033,
+   "to": 2481225187,
+   "delta": -9381846
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ca-certificates-mozilla",
+      "from": "3.133-1",
+      "to": "3.134-1",
+      "purl": "pkg:alpm/arch/ca-certificates-mozilla@3.134-1?arch=x86_64&distro=arch-rolling&upstream=nss"
+     },
+     {
+      "name": "cmake",
+      "from": "4.5.0-1",
+      "to": "4.5.1-1",
+      "purl": "pkg:alpm/arch/cmake@4.5.1-1?arch=x86_64&distro=arch-rolling&upstream=cmake"
+     },
+     {
+      "name": "flex",
+      "from": "2.6.15-1",
+      "to": "2.7.1-1",
+      "purl": "pkg:alpm/arch/flex@2.7.1-1?arch=x86_64&distro=arch-rolling&upstream=flex"
+     },
+     {
+      "name": "glycin",
+      "from": "2.2.6-1",
+      "to": "2.2.6-2",
+      "purl": "pkg:alpm/arch/glycin@2.2.6-2?arch=x86_64&distro=arch-rolling&upstream=glycin"
+     },
+     {
+      "name": "gnutls",
+      "from": "3.8.13-3",
+      "to": "3.8.14-1",
+      "purl": "pkg:alpm/arch/gnutls@3.8.14-1?arch=x86_64&distro=arch-rolling&upstream=gnutls"
+     },
+     {
+      "name": "imlib2",
+      "from": "1.13.0-1",
+      "to": "1.13.0-2",
+      "purl": "pkg:alpm/arch/imlib2@1.13.0-2?arch=x86_64&distro=arch-rolling&upstream=imlib2"
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r80.ge1dde819-1",
+      "to": "2.2.1.r108.g3bf18925-1",
+      "purl": "pkg:alpm/arch/libcupsfilters@2.2.1.r108.g3bf18925-1?arch=x86_64&distro=arch-rolling&upstream=libcupsfilters"
+     },
+     {
+      "name": "libffi",
+      "from": "3.8.0-1",
+      "to": "3.8.1-1",
+      "purl": "pkg:alpm/arch/libffi@3.8.1-1?arch=x86_64&distro=arch-rolling&upstream=libffi"
+     },
+     {
+      "name": "libjxl",
+      "from": "0.12.0-1",
+      "to": "0.13.0-1",
+      "purl": "pkg:alpm/arch/libjxl@0.13.0-1?arch=x86_64&distro=arch-rolling&upstream=libjxl"
+     },
+     {
+      "name": "mesa",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": "pkg:alpm/arch/mesa@1%3A26.3.1-2?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "nspr",
+      "from": "4.40-1",
+      "to": "4.41-1",
+      "purl": "pkg:alpm/arch/nspr@4.41-1?arch=x86_64&distro=arch-rolling&upstream=nspr"
+     },
+     {
+      "name": "nss",
+      "from": "3.133-1",
+      "to": "3.134-1",
+      "purl": "pkg:alpm/arch/nss@3.134-1?arch=x86_64&distro=arch-rolling&upstream=nss"
+     },
+     {
+      "name": "tpm2-tss",
+      "from": "4.2.1-2",
+      "to": "4.2.2s-1",
+      "purl": "pkg:alpm/arch/tpm2-tss@4.2.2s-1?arch=x86_64&distro=arch-rolling&upstream=tpm2-tss"
+     },
+     {
+      "name": "vulkan-intel",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": "pkg:alpm/arch/vulkan-intel@1%3A26.3.1-2?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-mesa-implicit-layers",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": "pkg:alpm/arch/vulkan-mesa-implicit-layers@1%3A26.3.1-2?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-radeon",
+      "from": "1:26.2.7-1",
+      "to": "1:26.3.1-2",
+      "purl": "pkg:alpm/arch/vulkan-radeon@1%3A26.3.1-2?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.164.0",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 19,
+  "downgraded": 0
+ }
+}

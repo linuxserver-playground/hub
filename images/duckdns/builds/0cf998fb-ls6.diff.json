@@ -1,0 +1,124 @@
+{
+ "image": "duckdns",
+ "branch": "master",
+ "tag": "0cf998fb-ls6",
+ "previous_tag": "db74a9e2-ls5",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (e58197d → 69c70a8): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "db74a9e2",
+  "to": "0cf998fb",
+  "changed": true
+ },
+ "commit": {
+  "from": "e58197df3c5415dab0bd9c2fe547129e31f3d36e",
+  "to": "69c70a8842c20c57316b168e97e5319fef0aff42",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-duckdns/compare/e58197df3c5415dab0bd9c2fe547129e31f3d36e...69c70a8842c20c57316b168e97e5319fef0aff42",
+  "commits": [
+   {
+    "sha": "69c70a8842c20c57316b168e97e5319fef0aff42",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T15:45:34Z",
+    "url": "https://github.com/linuxserver-playground/docker-duckdns/commit/69c70a8842c20c57316b168e97e5319fef0aff42",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 15720299,
+   "to": 15720371,
+   "delta": 72
+  },
+  "arm64": {
+   "from": 16837593,
+   "to": 16837631,
+   "delta": 38
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r2",
+      "to": "2.13.9-r3",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r3?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r2",
+      "to": "2.13.9-r3",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r3?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

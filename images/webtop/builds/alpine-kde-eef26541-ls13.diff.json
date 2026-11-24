@@ -1,0 +1,859 @@
+{
+ "image": "webtop",
+ "branch": "alpine-kde",
+ "tag": "alpine-kde-eef26541-ls13",
+ "previous_tag": "alpine-kde-2471e136-ls12",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (49f5c1a → f4cdaed): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2471e136",
+  "to": "eef26541",
+  "changed": true
+ },
+ "commit": {
+  "from": "49f5c1a10840e6150418bb3e409367cfd3508b67",
+  "to": "f4cdaed3a1e83f42640f191683ea43be47966547",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/49f5c1a10840e6150418bb3e409367cfd3508b67...f4cdaed3a1e83f42640f191683ea43be47966547",
+  "commits": [
+   {
+    "sha": "f4cdaed3a1e83f42640f191683ea43be47966547",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T22:02:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/f4cdaed3a1e83f42640f191683ea43be47966547",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:bc6dd9cf0cc1e9271c76b421052e246ffc0d43f520887079a92e5eb60008b6c8"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:e26658c9eb6cbb25197ea41ea76d1f26ea74761006462c37836c9f6b264818ae"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1636409065,
+   "to": 1666967387,
+   "delta": 30558322
+  },
+  "arm64": {
+   "from": 1557325659,
+   "to": 1587783023,
+   "delta": 30457364
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [
+     {
+      "name": "directfb",
+      "version": "1.7.7-r8",
+      "purl": "pkg:apk/alpine/directfb@1.7.7-r8?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "faac",
+      "version": "1.31.1-r0",
+      "purl": "pkg:apk/alpine/faac@1.31.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "faad2-libs",
+      "version": "2.11.2-r0",
+      "purl": "pkg:apk/alpine/faad2-libs@2.11.2-r0?arch=x86_64&distro=alpine-3.24.4&upstream=faad2"
+     },
+     {
+      "name": "fdk-aac",
+      "version": "2.0.2-r4",
+      "purl": "pkg:apk/alpine/fdk-aac@2.0.2-r4?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gsm",
+      "version": "1.0.23-r0",
+      "purl": "pkg:apk/alpine/gsm@1.0.23-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gst-plugins-bad",
+      "version": "1.28.3-r0",
+      "purl": "pkg:apk/alpine/gst-plugins-bad@1.28.3-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gst-plugins-bad-lang",
+      "version": "1.28.3-r0",
+      "purl": "pkg:apk/alpine/gst-plugins-bad-lang@1.28.3-r0?arch=x86_64&distro=alpine-3.24.4&upstream=gst-plugins-bad"
+     },
+     {
+      "name": "gtk-update-icon-cache",
+      "version": "3.24.52-r0",
+      "purl": "pkg:apk/alpine/gtk-update-icon-cache@3.24.52-r0?arch=x86_64&distro=alpine-3.24.4&upstream=gtk%2B3.0"
+     },
+     {
+      "name": "gtk4.0",
+      "version": "4.22.4-r0",
+      "purl": "pkg:apk/alpine/gtk4.0@4.22.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gtk4.0-lang",
+      "version": "4.22.4-r0",
+      "purl": "pkg:apk/alpine/gtk4.0-lang@4.22.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=gtk4.0"
+     },
+     {
+      "name": "ibus-gtk4",
+      "version": "1.5.35-r0",
+      "purl": "pkg:apk/alpine/ibus-gtk4@1.5.35-r0?arch=x86_64&distro=alpine-3.24.4&upstream=ibus"
+     },
+     {
+      "name": "imath",
+      "version": "3.2.2-r1",
+      "purl": "pkg:apk/alpine/imath@3.2.2-r1?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libdc1394",
+      "version": "2.2.7-r0",
+      "purl": "pkg:apk/alpine/libdc1394@2.2.7-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libdeflate",
+      "version": "1.25-r0",
+      "purl": "pkg:apk/alpine/libdeflate@1.25-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libfreeaptx",
+      "version": "0.2.2-r0",
+      "purl": "pkg:apk/alpine/libfreeaptx@0.2.2-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libldac",
+      "version": "2.0.2.3-r1",
+      "purl": "pkg:apk/alpine/libldac@2.0.2.3-r1?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libmodplug",
+      "version": "0.8.9.0-r3",
+      "purl": "pkg:apk/alpine/libmodplug@0.8.9.0-r3?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libraw1394",
+      "version": "2.1.2-r5",
+      "purl": "pkg:apk/alpine/libraw1394@2.1.2-r5?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "librtmp",
+      "version": "2.4_git20190330-r5",
+      "purl": "pkg:apk/alpine/librtmp@2.4_git20190330-r5?arch=x86_64&distro=alpine-3.24.4&upstream=rtmpdump"
+     },
+     {
+      "name": "libsrtp",
+      "version": "2.7.0-r0",
+      "purl": "pkg:apk/alpine/libsrtp@2.7.0-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libzbar",
+      "version": "0.23.93-r2",
+      "purl": "pkg:apk/alpine/libzbar@0.23.93-r2?arch=x86_64&distro=alpine-3.24.4&upstream=zbar"
+     },
+     {
+      "name": "openal-soft-libs",
+      "version": "1.25.2-r0",
+      "purl": "pkg:apk/alpine/openal-soft-libs@1.25.2-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openal-soft"
+     },
+     {
+      "name": "openexr-libiex",
+      "version": "3.4.15-r0",
+      "purl": "pkg:apk/alpine/openexr-libiex@3.4.15-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openexr"
+     },
+     {
+      "name": "openexr-libilmthread",
+      "version": "3.4.15-r0",
+      "purl": "pkg:apk/alpine/openexr-libilmthread@3.4.15-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openexr"
+     },
+     {
+      "name": "openexr-libopenexr",
+      "version": "3.4.15-r0",
+      "purl": "pkg:apk/alpine/openexr-libopenexr@3.4.15-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openexr"
+     },
+     {
+      "name": "openexr-libopenexrcore",
+      "version": "3.4.15-r0",
+      "purl": "pkg:apk/alpine/openexr-libopenexrcore@3.4.15-r0?arch=x86_64&distro=alpine-3.24.4&upstream=openexr"
+     },
+     {
+      "name": "sbc",
+      "version": "2.1-r0",
+      "purl": "pkg:apk/alpine/sbc@2.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "soundtouch",
+      "version": "2.4.1-r0",
+      "purl": "pkg:apk/alpine/soundtouch@2.4.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "spandsp",
+      "version": "0.0.6-r5",
+      "purl": "pkg:apk/alpine/spandsp@0.0.6-r5?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "vo-aacenc",
+      "version": "0.1.3-r3",
+      "purl": "pkg:apk/alpine/vo-aacenc@0.1.3-r3?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "vo-amrwbenc",
+      "version": "0.1.3-r3",
+      "purl": "pkg:apk/alpine/vo-amrwbenc@0.1.3-r3?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.79-r0",
+      "to": "158.0.8127.36-r0",
+      "purl": "pkg:apk/alpine/chromium@158.0.8127.36-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "chromium-angle",
+      "from": "156.0.8078.79-r0",
+      "to": "158.0.8127.36-r0",
+      "purl": "pkg:apk/alpine/chromium-angle@158.0.8127.36-r0?arch=x86_64&distro=alpine-3.24.4&upstream=chromium"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.79-r0",
+      "to": "158.0.8127.36-r0",
+      "purl": "pkg:apk/alpine/chromium-common@158.0.8127.36-r0?arch=x86_64&distro=alpine-3.24.4&upstream=chromium"
+     },
+     {
+      "name": "chromium-lang",
+      "from": "156.0.8078.79-r0",
+      "to": "158.0.8127.36-r0",
+      "purl": "pkg:apk/alpine/chromium-lang@158.0.8127.36-r0?arch=x86_64&distro=alpine-3.24.4&upstream=chromium"
+     },
+     {
+      "name": "docker-cli-compose",
+      "from": "5.6.1-r0",
+      "to": "5.7.2-r0",
+      "purl": "pkg:apk/alpine/docker-cli-compose@5.7.2-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gnutls",
+      "from": "3.8.13-r0",
+      "to": "3.8.14-r0",
+      "purl": "pkg:apk/alpine/gnutls@3.8.14-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gpgme",
+      "from": "2.0.1-r1",
+      "to": "2.3.1-r0",
+      "purl": "pkg:apk/alpine/gpgme@2.3.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.9-r0",
+      "to": "1.1.10-r0",
+      "purl": "pkg:apk/alpine/libfontenc@1.1.10-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx-mod-http-fancyindex",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx-mod-http-fancyindex@1.30.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=nginx"
+     },
+     {
+      "name": "nss",
+      "from": "3.124-r0",
+      "to": "3.133-r0",
+      "purl": "pkg:apk/alpine/nss@3.133-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.1-0.20261022125458-f5cb0306ac0e",
+      "to": "v0.50.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.50.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.6",
+      "to": "0.0.7",
+      "purl": "pkg:pypi/annotated-doc@0.0.7"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.7",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [
+     {
+      "name": "directfb",
+      "version": "1.7.7-r8",
+      "purl": "pkg:apk/alpine/directfb@1.7.7-r8?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "faac",
+      "version": "1.31.1-r0",
+      "purl": "pkg:apk/alpine/faac@1.31.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "faad2-libs",
+      "version": "2.11.2-r0",
+      "purl": "pkg:apk/alpine/faad2-libs@2.11.2-r0?arch=aarch64&distro=alpine-3.24.4&upstream=faad2"
+     },
+     {
+      "name": "fdk-aac",
+      "version": "2.0.2-r4",
+      "purl": "pkg:apk/alpine/fdk-aac@2.0.2-r4?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gsm",
+      "version": "1.0.23-r0",
+      "purl": "pkg:apk/alpine/gsm@1.0.23-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gst-plugins-bad",
+      "version": "1.28.3-r0",
+      "purl": "pkg:apk/alpine/gst-plugins-bad@1.28.3-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gst-plugins-bad-lang",
+      "version": "1.28.3-r0",
+      "purl": "pkg:apk/alpine/gst-plugins-bad-lang@1.28.3-r0?arch=aarch64&distro=alpine-3.24.4&upstream=gst-plugins-bad"
+     },
+     {
+      "name": "gtk-update-icon-cache",
+      "version": "3.24.52-r0",
+      "purl": "pkg:apk/alpine/gtk-update-icon-cache@3.24.52-r0?arch=aarch64&distro=alpine-3.24.4&upstream=gtk%2B3.0"
+     },
+     {
+      "name": "gtk4.0",
+      "version": "4.22.4-r0",
+      "purl": "pkg:apk/alpine/gtk4.0@4.22.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gtk4.0-lang",
+      "version": "4.22.4-r0",
+      "purl": "pkg:apk/alpine/gtk4.0-lang@4.22.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=gtk4.0"
+     },
+     {
+      "name": "ibus-gtk4",
+      "version": "1.5.35-r0",
+      "purl": "pkg:apk/alpine/ibus-gtk4@1.5.35-r0?arch=aarch64&distro=alpine-3.24.4&upstream=ibus"
+     },
+     {
+      "name": "imath",
+      "version": "3.2.2-r1",
+      "purl": "pkg:apk/alpine/imath@3.2.2-r1?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libdc1394",
+      "version": "2.2.7-r0",
+      "purl": "pkg:apk/alpine/libdc1394@2.2.7-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libdeflate",
+      "version": "1.25-r0",
+      "purl": "pkg:apk/alpine/libdeflate@1.25-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libfreeaptx",
+      "version": "0.2.2-r0",
+      "purl": "pkg:apk/alpine/libfreeaptx@0.2.2-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libldac",
+      "version": "2.0.2.3-r1",
+      "purl": "pkg:apk/alpine/libldac@2.0.2.3-r1?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libmodplug",
+      "version": "0.8.9.0-r3",
+      "purl": "pkg:apk/alpine/libmodplug@0.8.9.0-r3?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libraw1394",
+      "version": "2.1.2-r5",
+      "purl": "pkg:apk/alpine/libraw1394@2.1.2-r5?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "librtmp",
+      "version": "2.4_git20190330-r5",
+      "purl": "pkg:apk/alpine/librtmp@2.4_git20190330-r5?arch=aarch64&distro=alpine-3.24.4&upstream=rtmpdump"
+     },
+     {
+      "name": "libsrtp",
+      "version": "2.7.0-r0",
+      "purl": "pkg:apk/alpine/libsrtp@2.7.0-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libzbar",
+      "version": "0.23.93-r2",
+      "purl": "pkg:apk/alpine/libzbar@0.23.93-r2?arch=aarch64&distro=alpine-3.24.4&upstream=zbar"
+     },
+     {
+      "name": "openal-soft-libs",
+      "version": "1.25.2-r0",
+      "purl": "pkg:apk/alpine/openal-soft-libs@1.25.2-r0?arch=aarch64&distro=alpine-3.24.4&upstream=openal-soft"
+     },
+     {
+      "name": "openexr-libiex",
+      "version": "3.4.15-r0",
+      "purl": "pkg:apk/alpine/openexr-libiex@3.4.15-r0?arch=aarch64&distro=alpine-3.24.4&upstream=openexr"
+     },
+     {
+      "name": "openexr-libilmthread",
+      "version": "3.4.15-r0",
+      "purl": "pkg:apk/alpine/openexr-libilmthread@3.4.15-r0?arch=aarch64&distro=alpine-3.24.4&upstream=openexr"
+     },
+     {
+      "name": "openexr-libopenexr",
+      "version": "3.4.15-r0",
+      "purl": "pkg:apk/alpine/openexr-libopenexr@3.4.15-r0?arch=aarch64&distro=alpine-3.24.4&upstream=openexr"
+     },
+     {
+      "name": "openexr-libopenexrcore",
+      "version": "3.4.15-r0",
+      "purl": "pkg:apk/alpine/openexr-libopenexrcore@3.4.15-r0?arch=aarch64&distro=alpine-3.24.4&upstream=openexr"
+     },
+     {
+      "name": "sbc",
+      "version": "2.1-r0",
+      "purl": "pkg:apk/alpine/sbc@2.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "soundtouch",
+      "version": "2.4.1-r0",
+      "purl": "pkg:apk/alpine/soundtouch@2.4.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "spandsp",
+      "version": "0.0.6-r5",
+      "purl": "pkg:apk/alpine/spandsp@0.0.6-r5?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "vo-aacenc",
+      "version": "0.1.3-r3",
+      "purl": "pkg:apk/alpine/vo-aacenc@0.1.3-r3?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "vo-amrwbenc",
+      "version": "0.1.3-r3",
+      "purl": "pkg:apk/alpine/vo-amrwbenc@0.1.3-r3?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.79-r0",
+      "to": "158.0.8127.36-r0",
+      "purl": "pkg:apk/alpine/chromium@158.0.8127.36-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "chromium-angle",
+      "from": "156.0.8078.79-r0",
+      "to": "158.0.8127.36-r0",
+      "purl": "pkg:apk/alpine/chromium-angle@158.0.8127.36-r0?arch=aarch64&distro=alpine-3.24.4&upstream=chromium"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.79-r0",
+      "to": "158.0.8127.36-r0",
+      "purl": "pkg:apk/alpine/chromium-common@158.0.8127.36-r0?arch=aarch64&distro=alpine-3.24.4&upstream=chromium"
+     },
+     {
+      "name": "chromium-lang",
+      "from": "156.0.8078.79-r0",
+      "to": "158.0.8127.36-r0",
+      "purl": "pkg:apk/alpine/chromium-lang@158.0.8127.36-r0?arch=aarch64&distro=alpine-3.24.4&upstream=chromium"
+     },
+     {
+      "name": "docker-cli-compose",
+      "from": "5.6.1-r0",
+      "to": "5.7.2-r0",
+      "purl": "pkg:apk/alpine/docker-cli-compose@5.7.2-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gnutls",
+      "from": "3.8.13-r0",
+      "to": "3.8.14-r0",
+      "purl": "pkg:apk/alpine/gnutls@3.8.14-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gpgme",
+      "from": "2.0.1-r1",
+      "to": "2.3.1-r0",
+      "purl": "pkg:apk/alpine/gpgme@2.3.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.9-r0",
+      "to": "1.1.10-r0",
+      "purl": "pkg:apk/alpine/libfontenc@1.1.10-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx-mod-http-fancyindex",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx-mod-http-fancyindex@1.30.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=nginx"
+     },
+     {
+      "name": "nss",
+      "from": "3.124-r0",
+      "to": "3.133-r0",
+      "purl": "pkg:apk/alpine/nss@3.133-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.1-0.20261022125458-f5cb0306ac0e",
+      "to": "v0.50.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.50.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.6",
+      "to": "0.0.7",
+      "purl": "pkg:pypi/annotated-doc@0.0.7"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.7",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 68,
+  "removed": 2,
+  "upgraded": 58,
+  "downgraded": 2
+ }
+}
