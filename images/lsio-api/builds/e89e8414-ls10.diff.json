@@ -1,0 +1,123 @@
+{
+ "image": "lsio-api",
+ "branch": "main",
+ "tag": "e89e8414-ls10",
+ "previous_tag": "25005dda-ls9",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (5c3e62f → c3234eb): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "25005dda",
+  "to": "e89e8414",
+  "changed": true
+ },
+ "commit": {
+  "from": "5c3e62f1aacc7383dc271a27167c8e4c9bb7983e",
+  "to": "c3234eb0c0d62d513908f9c2ca35932ce36fd0f2",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lsio-api/compare/5c3e62f1aacc7383dc271a27167c8e4c9bb7983e...c3234eb0c0d62d513908f9c2ca35932ce36fd0f2",
+  "commits": [
+   {
+    "sha": "c3234eb0c0d62d513908f9c2ca35932ce36fd0f2",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-14T09:12:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-lsio-api/commit/c3234eb0c0d62d513908f9c2ca35932ce36fd0f2",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:72b22c6f25cbc24ab3cbd09b4d1c0f8a87ff94bb8f14a2951b6d587f0912c928"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:e3cacdcaf4638c26d0418402b2e75707df2b40b60654fcb0faa6ce7649562737"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 64064835,
+   "to": 64066429,
+   "delta": 1594
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nghttp2-libs",
+      "from": "1.70.0-r0",
+      "to": "1.71.0-r0",
+      "purl": "pkg:apk/busybox/nghttp2-libs@1.71.0-r0?arch=x86_64&distro=busybox-1.38.0&upstream=nghttp2"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "email-validator",
+      "from": "2.3.0",
+      "to": "2.4.0",
+      "purl": "pkg:pypi/email-validator@2.4.0"
+     },
+     {
+      "name": "python-multipart",
+      "from": "0.0.33",
+      "to": "0.0.34",
+      "purl": "pkg:pypi/python-multipart@0.0.34"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 3,
+  "downgraded": 0
+ }
+}

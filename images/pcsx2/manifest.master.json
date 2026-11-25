@@ -1,0 +1,128 @@
+{
+ "schema": 1,
+ "name": "pcsx2",
+ "summary": "[PCSX2](https://pcsx2.net/) is an open source PS2 Emulator.",
+ "upstream": {
+  "url": "https://pcsx2.net/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "https://ppa.launchpadcontent.net/pcsx2-team/pcsx2-daily/ubuntu/dists/resolute/main/binary-amd64/Packages.gz",
+   "package": "pcsx2-stable",
+   "transform": [
+    {
+     "regex": "~.*$",
+     "replace": ""
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "PCSX2/pcsx2",
+   "tag": "v${VERSION}"
+  },
+  "sponsor": [
+   {
+    "name": "GitHub Sponsors",
+    "url": "https://github.com/sponsors/PCSX2"
+   },
+   {
+    "name": "Liberapay",
+    "url": "https://liberapay.com/PCSX2"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "PCSX2_VERSION",
+  "platforms": [
+   "amd64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP PCSX2 desktop gui must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS PCSX2 desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for PCSX2 to function."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Games"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pcsx2-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n\n**Make sure to set the proper graphics settings for your system, \"Automatic\" will not work and OpenGL is the most compatible**\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-29",
+   "text": "Rebase to resolute."
+  },
+  {
+   "date": "2026-03-05",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-07-15",
+   "text": "Switch to stable release for pcsx2."
+  },
+  {
+   "date": "2025-06-26",
+   "text": "Initial release."
+  }
+ ]
+}

@@ -1,0 +1,147 @@
+{
+ "image": "lidarr",
+ "branch": "develop",
+ "tag": "develop-3.2.1.5196-ls8",
+ "previous_tag": "develop-3.2.1.5196-ls7",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (fdc6c47 → 273ace3): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "3.2.1.5196",
+  "to": "3.2.1.5196",
+  "changed": false
+ },
+ "commit": {
+  "from": "fdc6c47fe51e5d04b578d189e8042e7e009f019b",
+  "to": "273ace35b14d878273c7d773ca7138cf1340b50a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lidarr/compare/fdc6c47fe51e5d04b578d189e8042e7e009f019b...273ace35b14d878273c7d773ca7138cf1340b50a",
+  "commits": [
+   {
+    "sha": "273ace35b14d878273c7d773ca7138cf1340b50a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T19:37:47Z",
+    "url": "https://github.com/linuxserver-playground/docker-lidarr/commit/273ace35b14d878273c7d773ca7138cf1340b50a",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 121295469,
+   "to": 121296876,
+   "delta": 1407
+  },
+  "arm64": {
+   "from": 116980854,
+   "to": 116983448,
+   "delta": 2594
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-libs",
+      "from": "1.22.2-r1",
+      "to": "1.22.3-r0",
+      "purl": "pkg:apk/alpine/krb5-libs@1.22.3-r0?arch=x86_64&distro=alpine-3.24.4&upstream=krb5"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-r0",
+      "to": "0.8.10-r0",
+      "purl": "pkg:apk/alpine/libopenmpt@0.8.10-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-libs",
+      "from": "1.22.2-r1",
+      "to": "1.22.3-r0",
+      "purl": "pkg:apk/alpine/krb5-libs@1.22.3-r0?arch=aarch64&distro=alpine-3.24.4&upstream=krb5"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-r0",
+      "to": "0.8.10-r0",
+      "purl": "pkg:apk/alpine/libopenmpt@0.8.10-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libxslt",
+      "from": "1.1.43-r3",
+      "to": "1.1.43-r4",
+      "purl": "pkg:apk/alpine/libxslt@1.1.43-r4?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

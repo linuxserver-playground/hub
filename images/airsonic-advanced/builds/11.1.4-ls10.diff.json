@@ -1,0 +1,135 @@
+{
+ "image": "airsonic-advanced",
+ "branch": "master",
+ "tag": "11.1.4-ls10",
+ "previous_tag": "11.1.4-ls9",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (271edfb → 9b3cb0e): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "11.1.4",
+  "to": "11.1.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "271edfb966f140acbac74753ad3c1d8881d69e5c",
+  "to": "9b3cb0e5e22d082d7645d1b53c5e2cbf2666f10f",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-airsonic-advanced/compare/271edfb966f140acbac74753ad3c1d8881d69e5c...9b3cb0e5e22d082d7645d1b53c5e2cbf2666f10f",
+  "commits": [
+   {
+    "sha": "9b3cb0e5e22d082d7645d1b53c5e2cbf2666f10f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T15:50:07Z",
+    "url": "https://github.com/linuxserver-playground/docker-airsonic-advanced/commit/9b3cb0e5e22d082d7645d1b53c5e2cbf2666f10f",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.21",
+   "digest": "sha256:d8851b24dc71fde2955b629c0bb94c0d3e0760f2da4670d89157b25916bcaf61"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.21",
+   "digest": "sha256:d8851b24dc71fde2955b629c0bb94c0d3e0760f2da4670d89157b25916bcaf61"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 257947129,
+   "to": 257956860,
+   "delta": 9731
+  },
+  "arm64": {
+   "from": 256479766,
+   "to": 256481883,
+   "delta": 2117
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libffi",
+      "from": "3.4.7-r0",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=x86_64&distro=alpine-3.21.10"
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.8-r0",
+      "to": "1.1.10-r0",
+      "purl": "pkg:apk/alpine/libfontenc@1.1.10-r0?arch=x86_64&distro=alpine-3.21.10"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libffi",
+      "from": "3.4.7-r0",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=aarch64&distro=alpine-3.21.10"
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.8-r0",
+      "to": "1.1.10-r0",
+      "purl": "pkg:apk/alpine/libfontenc@1.1.10-r0?arch=aarch64&distro=alpine-3.21.10"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

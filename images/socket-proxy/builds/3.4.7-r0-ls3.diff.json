@@ -1,0 +1,123 @@
+{
+ "image": "socket-proxy",
+ "branch": "main",
+ "tag": "3.4.7-r0-ls3",
+ "previous_tag": "3.4.7-r0-ls2",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (7fa4ab1 → b9ad4bd): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "3.4.7-r0",
+  "to": "3.4.7-r0",
+  "changed": false
+ },
+ "commit": {
+  "from": "7fa4ab1024e80ef2e7f9211650dbb10b4ed7d6bc",
+  "to": "b9ad4bd8b0e87572436bfbb43fbf464e1635adc2",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-socket-proxy/compare/7fa4ab1024e80ef2e7f9211650dbb10b4ed7d6bc...b9ad4bd8b0e87572436bfbb43fbf464e1635adc2",
+  "commits": [
+   {
+    "sha": "b9ad4bd8b0e87572436bfbb43fbf464e1635adc2",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T06:19:58Z",
+    "url": "https://github.com/linuxserver-playground/docker-socket-proxy/commit/b9ad4bd8b0e87572436bfbb43fbf464e1635adc2",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 2
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "docker.io/alpine:3.24",
+   "digest": "sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "docker.io/alpine:3.24",
+   "digest": "sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 7064427,
+   "to": 7064403,
+   "delta": -24
+  },
+  "arm64": {
+   "from": 7334263,
+   "to": 7334228,
+   "delta": -35
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.24.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

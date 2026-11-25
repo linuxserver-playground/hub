@@ -1,0 +1,1142 @@
+{
+ "image": "emby",
+ "branch": "beta",
+ "tag": "beta-4.11.0.18-ls9",
+ "previous_tag": "beta-4.11.0.11-ls2",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "9 commits (22d4f87 → 14d1f3e): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "4.11.0.11",
+  "to": "4.11.0.18",
+  "changed": true
+ },
+ "commit": {
+  "from": "22d4f8762784a8d6b6dfe5e15bd45b91e980bf40",
+  "to": "14d1f3eb08be96d469af372242cfb0890af536b0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-emby/compare/22d4f8762784a8d6b6dfe5e15bd45b91e980bf40...14d1f3eb08be96d469af372242cfb0890af536b0",
+  "commits": [
+   {
+    "sha": "1a2623c458831311d1d293611f0fb59b64dba709",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-27T20:10:29Z",
+    "url": "https://github.com/linuxserver-playground/docker-emby/commit/1a2623c458831311d1d293611f0fb59b64dba709",
+    "bot": true
+   },
+   {
+    "sha": "33f286c8aeaf6021aea7a42ec6cd9ec00208129f",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-28T14:44:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-emby/commit/33f286c8aeaf6021aea7a42ec6cd9ec00208129f",
+    "bot": true
+   },
+   {
+    "sha": "4b9f99443181ea9cf80bae241d9931143d58d18d",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-31T07:04:35Z",
+    "url": "https://github.com/linuxserver-playground/docker-emby/commit/4b9f99443181ea9cf80bae241d9931143d58d18d",
+    "bot": true
+   },
+   {
+    "sha": "4f2b13d1c447fa3c5cb9ec15597e1bb485cfd70e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T00:10:02Z",
+    "url": "https://github.com/linuxserver-playground/docker-emby/commit/4f2b13d1c447fa3c5cb9ec15597e1bb485cfd70e",
+    "bot": true
+   },
+   {
+    "sha": "ad674bb5d8be0964b2f92c6eaf1526bfb2013361",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T20:05:43Z",
+    "url": "https://github.com/linuxserver-playground/docker-emby/commit/ad674bb5d8be0964b2f92c6eaf1526bfb2013361",
+    "bot": true
+   },
+   {
+    "sha": "d1b8f66a0e61c77519f9ba9a70fba70da8b44fe9",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T01:14:12Z",
+    "url": "https://github.com/linuxserver-playground/docker-emby/commit/d1b8f66a0e61c77519f9ba9a70fba70da8b44fe9",
+    "bot": true
+   },
+   {
+    "sha": "3208bfd8eff5b145796dbc3390242b8230660afa",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T20:18:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-emby/commit/3208bfd8eff5b145796dbc3390242b8230660afa",
+    "bot": true
+   },
+   {
+    "sha": "360db03a0081eaf41d34b16c8b0941fc3a9a0075",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-15T00:11:14Z",
+    "url": "https://github.com/linuxserver-playground/docker-emby/commit/360db03a0081eaf41d34b16c8b0941fc3a9a0075",
+    "bot": true
+   },
+   {
+    "sha": "14d1f3eb08be96d469af372242cfb0890af536b0",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-17T20:12:48Z",
+    "url": "https://github.com/linuxserver-playground/docker-emby/commit/14d1f3eb08be96d469af372242cfb0890af536b0",
+    "bot": true
+   }
+  ],
+  "count": 9,
+  "truncated": false,
+  "areas": {
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:5260b5c74c8d3ce0acc4e5302059301507511a064df3bbfdc7967526d6ce14f3"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:474ae94121b29ecb1165cc9ba08d55f1245dcf53e20532808e3c0c61200ec682"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 443743636,
+   "to": 496475734,
+   "delta": 52732098
+  },
+  "arm64": {
+   "from": 208474394,
+   "to": 247630429,
+   "delta": 39156035
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ffmpeg",
+      "from": "5.1",
+      "to": "8.0",
+      "purl": "pkg:generic/ffmpeg@8.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "base-files",
+      "from": "14ubuntu6.2",
+      "to": "14ubuntu6.3",
+      "purl": "pkg:deb/ubuntu/base-files@14ubuntu6.3?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg7.0@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.43-2ubuntu2.7?arch=amd64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libc-gconv-modules-extra",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc-gconv-modules-extra@2.43-2ubuntu2.7?arch=amd64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc6@2.43-2ubuntu2.7?arch=amd64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.46-1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=pcre2"
+     },
+     {
+      "name": "locales",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/locales@2.43-2ubuntu2.7?arch=all&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "dotnet": {
+    "added": [
+     {
+      "name": "Confuser.MSBuild",
+      "version": "1.8.4",
+      "purl": "pkg:nuget/Confuser.MSBuild@1.8.4"
+     },
+     {
+      "name": "Emby.FFmpegBinaries",
+      "version": "2026.11.6.1",
+      "purl": "pkg:nuget/Emby.FFmpegBinaries@2026.11.6.1"
+     },
+     {
+      "name": "Emby.FFmpegBinaries.Linux",
+      "version": "2026.11.6.1",
+      "purl": "pkg:nuget/Emby.FFmpegBinaries.Linux@2026.11.6.1"
+     },
+     {
+      "name": "Emby.FFmpegBinaries.Mac",
+      "version": "2026.11.6.1",
+      "purl": "pkg:nuget/Emby.FFmpegBinaries.Mac@2026.11.6.1"
+     },
+     {
+      "name": "Emby.FFmpegBinaries.Windows",
+      "version": "2026.11.6.1",
+      "purl": "pkg:nuget/Emby.FFmpegBinaries.Windows@2026.11.6.1"
+     },
+     {
+      "name": "Emby.Protection.Fody",
+      "version": "1.0.34",
+      "purl": "pkg:nuget/Emby.Protection.Fody@1.0.34"
+     },
+     {
+      "name": "Fody",
+      "version": "6.9.3",
+      "purl": "pkg:nuget/Fody@6.9.3"
+     },
+     {
+      "name": "Microsoft.Bcl.HashCode",
+      "version": "1.1.1",
+      "purl": "pkg:nuget/Microsoft.Bcl.HashCode@1.1.1"
+     },
+     {
+      "name": "Microsoft.CSharp",
+      "version": "4.7.0",
+      "purl": "pkg:nuget/Microsoft.CSharp@4.7.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Abstractions@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "version": "8.0.2",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Binder@8.0.2"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.CommandLine",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.CommandLine@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.FileExtensions",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.FileExtensions@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Json",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Json@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.UserSecrets",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.UserSecrets@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyInjection@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "version": "8.0.2",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyInjection.Abstractions@8.0.2"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics.Abstractions",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics.Abstractions@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.FileProviders.Abstractions",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileProviders.Abstractions@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.FileProviders.Physical",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileProviders.Physical@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.FileSystemGlobbing",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileSystemGlobbing@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting.Abstractions@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "version": "8.0.2",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Abstractions@8.0.2"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Configuration",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Configuration@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Console",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Console@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Debug",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Debug@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.EventLog",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.EventLog@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.EventSource",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.EventSource@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Options",
+      "version": "8.0.2",
+      "purl": "pkg:nuget/Microsoft.Extensions.Options@8.0.2"
+     },
+     {
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Options.ConfigurationExtensions@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Primitives",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Primitives@8.0.0"
+     },
+     {
+      "name": "Microsoft.NETCore.Platforms",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/Microsoft.NETCore.Platforms@5.0.0"
+     },
+     {
+      "name": "Microsoft.NETCore.Targets",
+      "version": "1.0.1",
+      "purl": "pkg:nuget/Microsoft.NETCore.Targets@1.0.1"
+     },
+     {
+      "name": "Microsoft.Win32.Registry",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/Microsoft.Win32.Registry@5.0.0"
+     },
+     {
+      "name": "SkiaSharp.NativeAssets.Win32",
+      "version": "2.88.3",
+      "purl": "pkg:nuget/SkiaSharp.NativeAssets.Win32@2.88.3"
+     },
+     {
+      "name": "SkiaSharp.NativeAssets.macOS",
+      "version": "2.88.3",
+      "purl": "pkg:nuget/SkiaSharp.NativeAssets.macOS@2.88.3"
+     },
+     {
+      "name": "System.Buffers",
+      "version": "4.5.1",
+      "purl": "pkg:nuget/System.Buffers@4.5.1"
+     },
+     {
+      "name": "System.ComponentModel",
+      "version": "4.0.1",
+      "purl": "pkg:nuget/System.ComponentModel@4.0.1"
+     },
+     {
+      "name": "System.ComponentModel.Annotations",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/System.ComponentModel.Annotations@5.0.0"
+     },
+     {
+      "name": "System.Diagnostics.DiagnosticSource",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.Diagnostics.DiagnosticSource@8.0.0"
+     },
+     {
+      "name": "System.Diagnostics.EventLog",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/System.Diagnostics.EventLog@8.0.1"
+     },
+     {
+      "name": "System.IO.Pipelines",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.IO.Pipelines@8.0.0"
+     },
+     {
+      "name": "System.Memory",
+      "version": "4.6.0",
+      "purl": "pkg:nuget/System.Memory@4.6.0"
+     },
+     {
+      "name": "System.Private.Uri",
+      "version": "4.0.1",
+      "purl": "pkg:nuget/System.Private.Uri@4.0.1"
+     },
+     {
+      "name": "System.Runtime",
+      "version": "4.1.0",
+      "purl": "pkg:nuget/System.Runtime@4.1.0"
+     },
+     {
+      "name": "System.Security.AccessControl",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/System.Security.AccessControl@5.0.0"
+     },
+     {
+      "name": "System.Security.Principal.Windows",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/System.Security.Principal.Windows@5.0.0"
+     },
+     {
+      "name": "System.Text.Encoding.CodePages",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.Text.Encoding.CodePages@8.0.0"
+     },
+     {
+      "name": "System.Text.Encodings.Web",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.Text.Encodings.Web@8.0.0"
+     },
+     {
+      "name": "System.Threading.Channels",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.Threading.Channels@8.0.0"
+     },
+     {
+      "name": "System.Threading.Tasks.Dataflow",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/System.Threading.Tasks.Dataflow@8.0.1"
+     },
+     {
+      "name": "System.Threading.Tasks.Extensions",
+      "version": "4.6.3",
+      "purl": "pkg:nuget/System.Threading.Tasks.Extensions@4.6.3"
+     },
+     {
+      "name": "runtime.any.System.Runtime",
+      "version": "4.1.0",
+      "purl": "pkg:nuget/runtime.any.System.Runtime@4.1.0"
+     },
+     {
+      "name": "runtime.native.System",
+      "version": "4.0.0",
+      "purl": "pkg:nuget/runtime.native.System@4.0.0"
+     },
+     {
+      "name": "runtime.unix.System.Private.Uri",
+      "version": "4.0.1",
+      "purl": "pkg:nuget/runtime.unix.System.Private.Uri@4.0.1"
+     }
+    ],
+    "removed": [
+     {
+      "name": "SharpDX.Direct3D9",
+      "version": "4.2.0.0",
+      "purl": "pkg:nuget/SharpDX.Direct3D9@4.2.0.0"
+     },
+     {
+      "name": "SharpDX.MediaFoundation",
+      "version": "4.2.0.0",
+      "purl": "pkg:nuget/SharpDX.MediaFoundation@4.2.0.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "Emby.Dlna",
+      "from": "1.5.7.0",
+      "to": "1.5.8.0",
+      "purl": "pkg:nuget/Emby.Dlna@1.5.8.0"
+     },
+     {
+      "name": "Emby.Ffmpeg.Base.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Base.Reference@4.11.0.18"
+     },
+     {
+      "name": "Emby.Ffmpeg.Lib.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Lib.Reference@4.11.0.18"
+     },
+     {
+      "name": "Emby.Ffmpeg.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Reference@4.11.0.18"
+     },
+     {
+      "name": "Emby.M3UTuner",
+      "from": "1.0.49.0",
+      "to": "1.0.51.0",
+      "purl": "pkg:nuget/Emby.M3UTuner@1.0.51.0"
+     },
+     {
+      "name": "Emby.Server.CinemaMode",
+      "from": "1.0.54.0",
+      "to": "1.0.56.0",
+      "purl": "pkg:nuget/Emby.Server.CinemaMode@1.0.56.0"
+     },
+     {
+      "name": "Emby.XmlTV",
+      "from": "1.2.4.0",
+      "to": "1.2.6.0",
+      "purl": "pkg:nuget/Emby.XmlTV@1.2.6.0"
+     },
+     {
+      "name": "EmbyServer",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/EmbyServer@4.11.0.18"
+     },
+     {
+      "name": "MBBackup",
+      "from": "1.8.7.0",
+      "to": "1.8.9.0",
+      "purl": "pkg:nuget/MBBackup@1.8.9.0"
+     },
+     {
+      "name": "MediaBrowser.Controller",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/MediaBrowser.Controller@4.11.0.18"
+     },
+     {
+      "name": "MusicBrainz",
+      "from": "1.0.33.0",
+      "to": "1.0.34.0",
+      "purl": "pkg:nuget/MusicBrainz@1.0.34.0"
+     },
+     {
+      "name": "SQLitePCLRawEx.core.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/SQLitePCLRawEx.core.Reference@4.11.0.18"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "binary": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ffmpeg",
+      "from": "5.1",
+      "to": "8.0",
+      "purl": "pkg:generic/ffmpeg@8.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "base-files",
+      "from": "14ubuntu6.2",
+      "to": "14ubuntu6.3",
+      "purl": "pkg:deb/ubuntu/base-files@14ubuntu6.3?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg7.0@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.43-2ubuntu2.7?arch=arm64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libc-gconv-modules-extra",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc-gconv-modules-extra@2.43-2ubuntu2.7?arch=arm64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc6@2.43-2ubuntu2.7?arch=arm64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.46-1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=pcre2"
+     },
+     {
+      "name": "locales",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/locales@2.43-2ubuntu2.7?arch=all&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "dotnet": {
+    "added": [
+     {
+      "name": "Confuser.MSBuild",
+      "version": "1.8.4",
+      "purl": "pkg:nuget/Confuser.MSBuild@1.8.4"
+     },
+     {
+      "name": "Emby.FFmpegBinaries",
+      "version": "2026.11.6.1",
+      "purl": "pkg:nuget/Emby.FFmpegBinaries@2026.11.6.1"
+     },
+     {
+      "name": "Emby.FFmpegBinaries.Linux",
+      "version": "2026.11.6.1",
+      "purl": "pkg:nuget/Emby.FFmpegBinaries.Linux@2026.11.6.1"
+     },
+     {
+      "name": "Emby.FFmpegBinaries.Mac",
+      "version": "2026.11.6.1",
+      "purl": "pkg:nuget/Emby.FFmpegBinaries.Mac@2026.11.6.1"
+     },
+     {
+      "name": "Emby.FFmpegBinaries.Windows",
+      "version": "2026.11.6.1",
+      "purl": "pkg:nuget/Emby.FFmpegBinaries.Windows@2026.11.6.1"
+     },
+     {
+      "name": "Emby.Protection.Fody",
+      "version": "1.0.34",
+      "purl": "pkg:nuget/Emby.Protection.Fody@1.0.34"
+     },
+     {
+      "name": "Fody",
+      "version": "6.9.3",
+      "purl": "pkg:nuget/Fody@6.9.3"
+     },
+     {
+      "name": "Microsoft.Bcl.HashCode",
+      "version": "1.1.1",
+      "purl": "pkg:nuget/Microsoft.Bcl.HashCode@1.1.1"
+     },
+     {
+      "name": "Microsoft.CSharp",
+      "version": "4.7.0",
+      "purl": "pkg:nuget/Microsoft.CSharp@4.7.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Abstractions@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "version": "8.0.2",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Binder@8.0.2"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.CommandLine",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.CommandLine@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.EnvironmentVariables@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.FileExtensions",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.FileExtensions@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.Json",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.Json@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Configuration.UserSecrets",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Configuration.UserSecrets@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyInjection@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "version": "8.0.2",
+      "purl": "pkg:nuget/Microsoft.Extensions.DependencyInjection.Abstractions@8.0.2"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Diagnostics.Abstractions",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Diagnostics.Abstractions@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.FileProviders.Abstractions",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileProviders.Abstractions@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.FileProviders.Physical",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileProviders.Physical@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.FileSystemGlobbing",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.FileSystemGlobbing@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Hosting.Abstractions@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "version": "8.0.2",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Abstractions@8.0.2"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Configuration",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Configuration@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Console",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Console@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.Debug",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.Debug@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.EventLog",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.EventLog@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Logging.EventSource",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/Microsoft.Extensions.Logging.EventSource@8.0.1"
+     },
+     {
+      "name": "Microsoft.Extensions.Options",
+      "version": "8.0.2",
+      "purl": "pkg:nuget/Microsoft.Extensions.Options@8.0.2"
+     },
+     {
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Options.ConfigurationExtensions@8.0.0"
+     },
+     {
+      "name": "Microsoft.Extensions.Primitives",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/Microsoft.Extensions.Primitives@8.0.0"
+     },
+     {
+      "name": "Microsoft.NETCore.Platforms",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/Microsoft.NETCore.Platforms@5.0.0"
+     },
+     {
+      "name": "Microsoft.NETCore.Targets",
+      "version": "1.0.1",
+      "purl": "pkg:nuget/Microsoft.NETCore.Targets@1.0.1"
+     },
+     {
+      "name": "Microsoft.Win32.Registry",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/Microsoft.Win32.Registry@5.0.0"
+     },
+     {
+      "name": "SkiaSharp.NativeAssets.Win32",
+      "version": "2.88.3",
+      "purl": "pkg:nuget/SkiaSharp.NativeAssets.Win32@2.88.3"
+     },
+     {
+      "name": "SkiaSharp.NativeAssets.macOS",
+      "version": "2.88.3",
+      "purl": "pkg:nuget/SkiaSharp.NativeAssets.macOS@2.88.3"
+     },
+     {
+      "name": "System.Buffers",
+      "version": "4.5.1",
+      "purl": "pkg:nuget/System.Buffers@4.5.1"
+     },
+     {
+      "name": "System.ComponentModel",
+      "version": "4.0.1",
+      "purl": "pkg:nuget/System.ComponentModel@4.0.1"
+     },
+     {
+      "name": "System.ComponentModel.Annotations",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/System.ComponentModel.Annotations@5.0.0"
+     },
+     {
+      "name": "System.Diagnostics.DiagnosticSource",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.Diagnostics.DiagnosticSource@8.0.0"
+     },
+     {
+      "name": "System.Diagnostics.EventLog",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/System.Diagnostics.EventLog@8.0.1"
+     },
+     {
+      "name": "System.IO.Pipelines",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.IO.Pipelines@8.0.0"
+     },
+     {
+      "name": "System.Memory",
+      "version": "4.6.0",
+      "purl": "pkg:nuget/System.Memory@4.6.0"
+     },
+     {
+      "name": "System.Private.Uri",
+      "version": "4.0.1",
+      "purl": "pkg:nuget/System.Private.Uri@4.0.1"
+     },
+     {
+      "name": "System.Runtime",
+      "version": "4.1.0",
+      "purl": "pkg:nuget/System.Runtime@4.1.0"
+     },
+     {
+      "name": "System.Security.AccessControl",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/System.Security.AccessControl@5.0.0"
+     },
+     {
+      "name": "System.Security.Principal.Windows",
+      "version": "5.0.0",
+      "purl": "pkg:nuget/System.Security.Principal.Windows@5.0.0"
+     },
+     {
+      "name": "System.Text.Encoding.CodePages",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.Text.Encoding.CodePages@8.0.0"
+     },
+     {
+      "name": "System.Text.Encodings.Web",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.Text.Encodings.Web@8.0.0"
+     },
+     {
+      "name": "System.Threading.Channels",
+      "version": "8.0.0",
+      "purl": "pkg:nuget/System.Threading.Channels@8.0.0"
+     },
+     {
+      "name": "System.Threading.Tasks.Dataflow",
+      "version": "8.0.1",
+      "purl": "pkg:nuget/System.Threading.Tasks.Dataflow@8.0.1"
+     },
+     {
+      "name": "System.Threading.Tasks.Extensions",
+      "version": "4.6.3",
+      "purl": "pkg:nuget/System.Threading.Tasks.Extensions@4.6.3"
+     },
+     {
+      "name": "runtime.any.System.Runtime",
+      "version": "4.1.0",
+      "purl": "pkg:nuget/runtime.any.System.Runtime@4.1.0"
+     },
+     {
+      "name": "runtime.native.System",
+      "version": "4.0.0",
+      "purl": "pkg:nuget/runtime.native.System@4.0.0"
+     },
+     {
+      "name": "runtime.unix.System.Private.Uri",
+      "version": "4.0.1",
+      "purl": "pkg:nuget/runtime.unix.System.Private.Uri@4.0.1"
+     }
+    ],
+    "removed": [
+     {
+      "name": "SharpDX.Direct3D9",
+      "version": "4.2.0.0",
+      "purl": "pkg:nuget/SharpDX.Direct3D9@4.2.0.0"
+     },
+     {
+      "name": "SharpDX.MediaFoundation",
+      "version": "4.2.0.0",
+      "purl": "pkg:nuget/SharpDX.MediaFoundation@4.2.0.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "Emby.Dlna",
+      "from": "1.5.7.0",
+      "to": "1.5.8.0",
+      "purl": "pkg:nuget/Emby.Dlna@1.5.8.0"
+     },
+     {
+      "name": "Emby.Ffmpeg.Base.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Base.Reference@4.11.0.18"
+     },
+     {
+      "name": "Emby.Ffmpeg.Lib.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Lib.Reference@4.11.0.18"
+     },
+     {
+      "name": "Emby.Ffmpeg.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/Emby.Ffmpeg.Reference@4.11.0.18"
+     },
+     {
+      "name": "Emby.M3UTuner",
+      "from": "1.0.49.0",
+      "to": "1.0.51.0",
+      "purl": "pkg:nuget/Emby.M3UTuner@1.0.51.0"
+     },
+     {
+      "name": "Emby.Server.CinemaMode",
+      "from": "1.0.54.0",
+      "to": "1.0.56.0",
+      "purl": "pkg:nuget/Emby.Server.CinemaMode@1.0.56.0"
+     },
+     {
+      "name": "Emby.XmlTV",
+      "from": "1.2.4.0",
+      "to": "1.2.6.0",
+      "purl": "pkg:nuget/Emby.XmlTV@1.2.6.0"
+     },
+     {
+      "name": "EmbyServer",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/EmbyServer@4.11.0.18"
+     },
+     {
+      "name": "MBBackup",
+      "from": "1.8.7.0",
+      "to": "1.8.9.0",
+      "purl": "pkg:nuget/MBBackup@1.8.9.0"
+     },
+     {
+      "name": "MediaBrowser.Controller",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/MediaBrowser.Controller@4.11.0.18"
+     },
+     {
+      "name": "MusicBrainz",
+      "from": "1.0.33.0",
+      "to": "1.0.34.0",
+      "purl": "pkg:nuget/MusicBrainz@1.0.34.0"
+     },
+     {
+      "name": "SQLitePCLRawEx.core.Reference",
+      "from": "4.11.0.11",
+      "to": "4.11.0.18",
+      "purl": "pkg:nuget/SQLitePCLRawEx.core.Reference@4.11.0.18"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 120,
+  "removed": 4,
+  "upgraded": 48,
+  "downgraded": 0
+ }
+}

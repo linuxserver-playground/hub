@@ -1,0 +1,436 @@
+{
+ "image": "heimdall",
+ "branch": "development",
+ "tag": "development-8c3a84ad-ls10",
+ "previous_tag": "development-8c3a84ad-ls9",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (5221273 → fc26c2b): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "8c3a84ad",
+  "to": "8c3a84ad",
+  "changed": false
+ },
+ "commit": {
+  "from": "52212732db254f2f41f3d8ac8c34f82bd252be24",
+  "to": "fc26c2bc333533b47ca95f18cad8c70bcd17819c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-heimdall/compare/52212732db254f2f41f3d8ac8c34f82bd252be24...fc26c2bc333533b47ca95f18cad8c70bcd17819c",
+  "commits": [
+   {
+    "sha": "fc26c2bc333533b47ca95f18cad8c70bcd17819c",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-15T03:23:50Z",
+    "url": "https://github.com/linuxserver-playground/docker-heimdall/commit/fc26c2bc333533b47ca95f18cad8c70bcd17819c",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e81e256976c8d1d16f1e84a53540b12b20a917e650ff884b467db4c04a3458a2"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:00312088782a28947c9a7313c8e27d684f234fc088e841b851982e3a96231587"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 53378771,
+   "to": 55962194,
+   "delta": 2583423
+  },
+  "arm64": {
+   "from": 54099870,
+   "to": 56988338,
+   "delta": 2888468
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "php85",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "php85-common",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-common@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-ctype",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-ctype@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-curl",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-curl@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-dom",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-dom@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-fileinfo",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-fileinfo@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-fpm",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-fpm@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-iconv",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-iconv@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-intl",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-intl@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-mbstring",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-mbstring@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-mysqlnd",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-mysqlnd@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-openssl",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-openssl@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-pdo",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-pdo@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-pdo_mysql",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-pdo_mysql@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-pdo_pgsql",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-pdo_pgsql@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-pdo_sqlite",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-pdo_sqlite@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-phar",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-phar@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-session",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-session@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-simplexml",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-simplexml@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-tokenizer",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-tokenizer@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-xml",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-xml@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-xmlwriter",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-xmlwriter@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-zip",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-zip@8.5.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=php85"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "php85",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "php85-common",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-common@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-ctype",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-ctype@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-curl",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-curl@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-dom",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-dom@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-fileinfo",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-fileinfo@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-fpm",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-fpm@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-iconv",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-iconv@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-intl",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-intl@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-mbstring",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-mbstring@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-mysqlnd",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-mysqlnd@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-openssl",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-openssl@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-pdo",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-pdo@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-pdo_mysql",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-pdo_mysql@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-pdo_pgsql",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-pdo_pgsql@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-pdo_sqlite",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-pdo_sqlite@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-phar",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-phar@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-session",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-session@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-simplexml",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-simplexml@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-tokenizer",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-tokenizer@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-xml",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-xml@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-xmlwriter",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-xmlwriter@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     },
+     {
+      "name": "php85-zip",
+      "from": "8.5.12-r0",
+      "to": "8.5.13-r0",
+      "purl": "pkg:apk/alpine/php85-zip@8.5.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=php85"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 54,
+  "downgraded": 0
+ }
+}
