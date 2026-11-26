@@ -1,0 +1,160 @@
+{
+ "image": "kavita",
+ "branch": "main",
+ "tag": "v0.9.1.4-ls6",
+ "previous_tag": "v0.9.1.4-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (c307327 → 381837c): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.9.1.4",
+  "to": "v0.9.1.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "c30732785eebc148af7ef2009deaa004678b49a2",
+  "to": "381837c54c117e77a4416c50f82572e0609f2ef0",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kavita/compare/c30732785eebc148af7ef2009deaa004678b49a2...381837c54c117e77a4416c50f82572e0609f2ef0",
+  "commits": [
+   {
+    "sha": "381837c54c117e77a4416c50f82572e0609f2ef0",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-06T21:07:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-kavita/commit/381837c54c117e77a4416c50f82572e0609f2ef0",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:9dae1619587960de00fd076cd6b26821982f4853b63ef9e0617b95b5ab8e9364"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:5c85b2babfb9f4f3dfa0c4b9e3bf5879f933a18ea06e78cb88ec6838730e98ee"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 197362693,
+   "to": 197098915,
+   "delta": -263778
+  },
+  "arm64": {
+   "from": 194570129,
+   "to": 194317080,
+   "delta": -253049
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg7.0@3.2.1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=apt"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.26.04.1",
+      "to": "20260816ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.26.04.2?arch=all&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.2.0",
+      "to": "3.2.1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg7.0@3.2.1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=apt"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

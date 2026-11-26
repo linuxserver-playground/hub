@@ -1,0 +1,140 @@
+{
+ "schema": 1,
+ "name": "apprise-api",
+ "summary": "[Apprise-api](https://github.com/caronc/apprise-api) Takes advantage of [Apprise](https://github.com/caronc/apprise) through your network with a user-friendly API.\n\n* Send notifications to more than 100 services.\n* An incredibly lightweight gateway to Apprise.\n* A production ready micro-service at your disposal.\n* A Simple Website to verify and test your configuration with.\n\nApprise API was designed to easily fit into existing (and new) eco-systems that are looking for a simple notification solution.",
+ "upstream": {
+  "url": "https://github.com/caronc/apprise-api",
+  "version": {
+   "type": "json",
+   "url": "https://api.github.com/repos/caronc/apprise-api/tags",
+   "jq": ".[0].name"
+  },
+  "sponsor": [
+   {
+    "name": "Apprise",
+    "url": "https://www.paypal.me/lead2gold"
+   }
+  ],
+  "notes": {
+   "type": "github_release",
+   "repo": "caronc/apprise-api"
+  }
+ },
+ "release": {
+  "branch": "main",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "APPRISE_TAG",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 8000
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8000",
+    "description": "Port for apprise's interface and API."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/apprise-api/config",
+    "description": "Persistent config files"
+   },
+   {
+    "path": "/attachments",
+    "host_path": "/path/to/apprise-api/attachments",
+    "description": "Temporary storage for attachments when sent with notifications.",
+    "optional": true
+   }
+  ],
+  "env": [
+   {
+    "name": "APPRISE_ATTACH_SIZE",
+    "value": "0",
+    "description": "Max attachment size in Mb. `0` disables attachments. Must have `/attachments` mounted to set to a positive value.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Monitoring"
+  ],
+  "logo": "https://raw.githubusercontent.com/caronc/apprise-api/master/apprise_api/static/logo.png"
+ },
+ "proxy": {
+  "port": 8000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2025-07-05",
+   "text": "Rebase to Alpine 3.22."
+  },
+  {
+   "date": "2024-12-24",
+   "text": "Rebase to Alpine 3.21."
+  },
+  {
+   "date": "2024-06-24",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-07-10",
+   "text": "Rebase to Alpine 3.18."
+  },
+  {
+   "date": "2023-07-01",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2023-02-11",
+   "text": "Rebase to Alpine 3.17."
+  },
+  {
+   "date": "2022-10-17",
+   "text": "Rebase to alpine 3.16, migrate to S6V3"
+  },
+  {
+   "date": "2022-02-28",
+   "text": "Rebase to alpine 3.15."
+  },
+  {
+   "date": "2021-11-03",
+   "text": "Increase uWSGI buffer size to 32kb."
+  },
+  {
+   "date": "2021-05-16",
+   "text": "Add linuxserver wheel index."
+  },
+  {
+   "date": "2021-02-26",
+   "text": "Initial Release."
+  }
+ ]
+}

@@ -1,0 +1,135 @@
+{
+ "image": "lsio-api",
+ "branch": "main",
+ "tag": "fafa8039-ls12",
+ "previous_tag": "fb2617ff-ls11",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (0b313e4 → 7b62212): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "fb2617ff",
+  "to": "fafa8039",
+  "changed": true
+ },
+ "commit": {
+  "from": "0b313e484d4a637a3073d066eb5797f9bf319114",
+  "to": "7b622121d41b87a0f12237c3ab8df5c754aa86fa",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lsio-api/compare/0b313e484d4a637a3073d066eb5797f9bf319114...7b622121d41b87a0f12237c3ab8df5c754aa86fa",
+  "commits": [
+   {
+    "sha": "7b622121d41b87a0f12237c3ab8df5c754aa86fa",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-21T09:13:41Z",
+    "url": "https://github.com/linuxserver-playground/docker-lsio-api/commit/7b622121d41b87a0f12237c3ab8df5c754aa86fa",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:4a95a5b840e8ad3939e0e7b4832868997c407bb6d95d4cdb59bcfe826d6e443f"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:edge",
+   "digest": "sha256:8248f806f4d6d8b111372a73e1a10ca7570bad6ef0b7af4fda3952989e1b3305"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 64073183,
+   "to": 63804021,
+   "delta": -269162
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apk-tools",
+      "from": "3.0.10-r0",
+      "to": "3.0.10-r1",
+      "purl": "pkg:apk/busybox/apk-tools@3.0.10-r1?arch=x86_64&distro=busybox-1.38.0"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.10-r0",
+      "to": "3.0.10-r1",
+      "purl": "pkg:apk/busybox/libapk@3.0.10-r1?arch=x86_64&distro=busybox-1.38.0&upstream=apk-tools"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/busybox/libexpat@2.11.0-r0?arch=x86_64&distro=busybox-1.38.0&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "charset-normalizer",
+      "from": "3.5.2",
+      "to": "3.5.3",
+      "purl": "pkg:pypi/charset-normalizer@3.5.3"
+     },
+     {
+      "name": "sentry-sdk",
+      "from": "2.75.0",
+      "to": "3.0.0",
+      "purl": "pkg:pypi/sentry-sdk@3.0.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 5,
+  "downgraded": 0
+ }
+}

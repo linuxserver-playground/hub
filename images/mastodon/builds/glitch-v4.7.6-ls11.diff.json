@@ -1,0 +1,4801 @@
+{
+ "image": "mastodon",
+ "branch": "glitch",
+ "tag": "glitch-v4.7.6-ls11",
+ "previous_tag": "glitch-v4.4.27-ls3",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "10 commits (bf57a06 → af57c49): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "v4.4.27",
+  "to": "v4.7.6",
+  "changed": true
+ },
+ "commit": {
+  "from": "bf57a06f36c697e1cfb861febbfa3a4c14ce217c",
+  "to": "af57c49d6dc0a6c96f140b13870c531a080603de",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mastodon/compare/bf57a06f36c697e1cfb861febbfa3a4c14ce217c...af57c49d6dc0a6c96f140b13870c531a080603de",
+  "commits": [
+   {
+    "sha": "b0ca413635c569ad010da189e03c9184eb0ee771",
+    "subject": "Add the upstream donation links",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T19:37:25Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/b0ca413635c569ad010da189e03c9184eb0ee771",
+    "bot": false
+   },
+   {
+    "sha": "9ba01b6f6c248fff405e913177dcad1ccef5ddb8",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T20:04:46Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/9ba01b6f6c248fff405e913177dcad1ccef5ddb8",
+    "bot": true
+   },
+   {
+    "sha": "dccdce800b7dac0bc7f60614d71dc6eca1366ba7",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-02T12:52:30Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/dccdce800b7dac0bc7f60614d71dc6eca1366ba7",
+    "bot": true
+   },
+   {
+    "sha": "c3134f6f0519d5b08b349a20f90876239537570d",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T15:43:51Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/c3134f6f0519d5b08b349a20f90876239537570d",
+    "bot": true
+   },
+   {
+    "sha": "68ee95d6f2992578ea2632471ad4337c4d5fbb30",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T15:58:35Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/68ee95d6f2992578ea2632471ad4337c4d5fbb30",
+    "bot": true
+   },
+   {
+    "sha": "a155042e3cbf043a4bb232c8f8dd4e2327ee88c0",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T08:51:05Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/a155042e3cbf043a4bb232c8f8dd4e2327ee88c0",
+    "bot": true
+   },
+   {
+    "sha": "221f457dd8e4aff82ae8d21315a555eb0526cc22",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T12:53:41Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/221f457dd8e4aff82ae8d21315a555eb0526cc22",
+    "bot": true
+   },
+   {
+    "sha": "1e608136bb6873b5b83a29ca1c0bb4e271c822eb",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-12T08:51:56Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/1e608136bb6873b5b83a29ca1c0bb4e271c822eb",
+    "bot": true
+   },
+   {
+    "sha": "5f91886b43e566ab42243b246324b0056ddd4e64",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-16T13:29:18Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/5f91886b43e566ab42243b246324b0056ddd4e64",
+    "bot": true
+   },
+   {
+    "sha": "af57c49d6dc0a6c96f140b13870c531a080603de",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-19T08:53:56Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/af57c49d6dc0a6c96f140b13870c531a080603de",
+    "bot": true
+   }
+  ],
+  "count": 10,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 4,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:30be75c4c7470207fece77d8399848c405a6e5c14ff3fb7ca82a4cfc37498b7b"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:84491bc2b6d8b490d58a05fdd82e3161af733cb814a38541456f83e328814878"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 251468862,
+   "to": 263732766,
+   "delta": 12263904
+  },
+  "arm64": {
+   "from": 247422572,
+   "to": 260342588,
+   "delta": 12920016
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apache2"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.10-r0",
+      "to": "3.8.11-r0",
+      "purl": "pkg:apk/alpine/libarchive@3.8.11-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libheif",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libheif-aom",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-aom@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-dav1d",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-dav1d@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-ffmpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-ffmpeg@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-jpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-jpeg@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-libde265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-libde265@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-openjpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-openjpeg@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-rav1e",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-rav1e@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-svtenc",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-svtenc@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-x264",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x264@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-x265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x265@1.23.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-r0",
+      "to": "0.8.10-r0",
+      "purl": "pkg:apk/alpine/libopenmpt@0.8.10-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libpq",
+      "from": "18.6-r0",
+      "to": "18.7-r0",
+      "purl": "pkg:apk/alpine/libpq@18.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=postgresql18"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "mbedtls3",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls3@3.6.8-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r0",
+      "to": "24.22.3-r0",
+      "purl": "pkg:apk/alpine/nodejs@24.22.3-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "ruby",
+      "from": "3.4.12-r0",
+      "to": "3.4.13-r0",
+      "purl": "pkg:apk/alpine/ruby@3.4.13-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "ruby-libs",
+      "from": "3.4.12-r0",
+      "to": "3.4.13-r0",
+      "purl": "pkg:apk/alpine/ruby-libs@3.4.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=ruby"
+     },
+     {
+      "name": "ruby-rdoc",
+      "from": "3.4.12-r0",
+      "to": "3.4.13-r0",
+      "purl": "pkg:apk/alpine/ruby-rdoc@3.4.13-r0?arch=x86_64&distro=alpine-3.24.4&upstream=ruby"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [
+     {
+      "name": "action_text-trix",
+      "version": "2.1.19",
+      "purl": "pkg:gem/action_text-trix@2.1.19"
+     },
+     {
+      "name": "base58",
+      "version": "0.2.3",
+      "purl": "pkg:gem/base58@0.2.3"
+     },
+     {
+      "name": "elastic-transport",
+      "version": "8.5.3",
+      "purl": "pkg:gem/elastic-transport@8.5.3"
+     },
+     {
+      "name": "opentelemetry-helpers-sql-processor",
+      "version": "0.5.0",
+      "purl": "pkg:gem/opentelemetry-helpers-sql-processor@0.5.0"
+     },
+     {
+      "name": "rbs",
+      "version": "4.1.3",
+      "purl": "pkg:gem/rbs@4.1.3"
+     },
+     {
+      "name": "ssrf_filter",
+      "version": "1.5.0",
+      "purl": "pkg:gem/ssrf_filter@1.5.0"
+     }
+    ],
+    "removed": [
+     {
+      "name": "dry-cli",
+      "version": "1.2.0",
+      "purl": "pkg:gem/dry-cli@1.2.0"
+     },
+     {
+      "name": "elasticsearch-transport",
+      "version": "7.17.11",
+      "purl": "pkg:gem/elasticsearch-transport@7.17.11"
+     },
+     {
+      "name": "email_validator",
+      "version": "2.2.4",
+      "purl": "pkg:gem/email_validator@2.2.4"
+     },
+     {
+      "name": "hiredis",
+      "version": "0.6.3",
+      "purl": "pkg:gem/hiredis@0.6.3"
+     },
+     {
+      "name": "mini_portile2",
+      "version": "2.8.9",
+      "purl": "pkg:gem/mini_portile2@2.8.9"
+     },
+     {
+      "name": "oj",
+      "version": "3.17.3",
+      "purl": "pkg:gem/oj@3.17.3"
+     },
+     {
+      "name": "opentelemetry-helpers-sql-obfuscation",
+      "version": "0.3.0",
+      "purl": "pkg:gem/opentelemetry-helpers-sql-obfuscation@0.3.0"
+     },
+     {
+      "name": "redlock",
+      "version": "1.3.2",
+      "purl": "pkg:gem/redlock@1.3.2"
+     },
+     {
+      "name": "vite_rails",
+      "version": "3.0.19",
+      "purl": "pkg:gem/vite_rails@3.0.19"
+     },
+     {
+      "name": "vite_ruby",
+      "version": "3.9.2",
+      "purl": "pkg:gem/vite_ruby@3.9.2"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "actioncable",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actioncable@8.1.4.1"
+     },
+     {
+      "name": "actionmailbox",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actionmailbox@8.1.4.1"
+     },
+     {
+      "name": "actionmailer",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actionmailer@8.1.4.1"
+     },
+     {
+      "name": "actionpack",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actionpack@8.1.4.1"
+     },
+     {
+      "name": "actiontext",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actiontext@8.1.4.1"
+     },
+     {
+      "name": "actionview",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actionview@8.1.4.1"
+     },
+     {
+      "name": "active_model_serializers",
+      "from": "0.10.15",
+      "to": "0.10.16",
+      "purl": "pkg:gem/active_model_serializers@0.10.16"
+     },
+     {
+      "name": "activejob",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activejob@8.1.4.1"
+     },
+     {
+      "name": "activemodel",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activemodel@8.1.4.1"
+     },
+     {
+      "name": "activerecord",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activerecord@8.1.4.1"
+     },
+     {
+      "name": "activestorage",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activestorage@8.1.4.1"
+     },
+     {
+      "name": "activesupport",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activesupport@8.1.4.1"
+     },
+     {
+      "name": "addressable",
+      "from": "2.9.0",
+      "to": "2.9.2",
+      "purl": "pkg:gem/addressable@2.9.2"
+     },
+     {
+      "name": "aws-eventstream",
+      "from": "1.4.0",
+      "to": "1.4.1",
+      "purl": "pkg:gem/aws-eventstream@1.4.1"
+     },
+     {
+      "name": "aws-partitions",
+      "from": "1.1238.0",
+      "to": "1.1279.0",
+      "purl": "pkg:gem/aws-partitions@1.1279.0"
+     },
+     {
+      "name": "aws-sdk-core",
+      "from": "3.244.0",
+      "to": "3.261.0",
+      "purl": "pkg:gem/aws-sdk-core@3.261.0"
+     },
+     {
+      "name": "aws-sdk-kms",
+      "from": "1.123.0",
+      "to": "1.130.0",
+      "purl": "pkg:gem/aws-sdk-kms@1.130.0"
+     },
+     {
+      "name": "aws-sdk-s3",
+      "from": "1.219.0",
+      "to": "1.235.0",
+      "purl": "pkg:gem/aws-sdk-s3@1.235.0"
+     },
+     {
+      "name": "aws-sigv4",
+      "from": "1.11.0",
+      "to": "1.12.1",
+      "purl": "pkg:gem/aws-sigv4@1.12.1"
+     },
+     {
+      "name": "azure-blob",
+      "from": "0.5.8",
+      "to": "0.5.9.1",
+      "purl": "pkg:gem/azure-blob@0.5.9.1"
+     },
+     {
+      "name": "benchmark",
+      "from": "0.4.1",
+      "to": "0.5.0",
+      "purl": "pkg:gem/benchmark@0.5.0"
+     },
+     {
+      "name": "bigdecimal",
+      "from": "3.2.2",
+      "to": "3.3.1",
+      "purl": "pkg:gem/bigdecimal@3.3.1"
+     },
+     {
+      "name": "bootsnap",
+      "from": "1.24.6",
+      "to": "1.25.0",
+      "purl": "pkg:gem/bootsnap@1.25.0"
+     },
+     {
+      "name": "bundler",
+      "from": "2.6.9",
+      "to": "4.0.18",
+      "purl": "pkg:gem/bundler@4.0.18"
+     },
+     {
+      "name": "cbor",
+      "from": "0.5.9.8",
+      "to": "0.5.10.3",
+      "purl": "pkg:gem/cbor@0.5.10.3"
+     },
+     {
+      "name": "cgi",
+      "from": "0.4.2",
+      "to": "0.5.2",
+      "purl": "pkg:gem/cgi@0.5.2"
+     },
+     {
+      "name": "chewy",
+      "from": "7.6.0",
+      "to": "8.4.1",
+      "purl": "pkg:gem/chewy@8.4.1"
+     },
+     {
+      "name": "color_diff",
+      "from": "0.1",
+      "to": "0.2",
+      "purl": "pkg:gem/color_diff@0.2"
+     },
+     {
+      "name": "concurrent-ruby",
+      "from": "1.3.7",
+      "to": "1.3.8",
+      "purl": "pkg:gem/concurrent-ruby@1.3.8"
+     },
+     {
+      "name": "connection_pool",
+      "from": "2.5.3",
+      "to": "3.0.2",
+      "purl": "pkg:gem/connection_pool@3.0.2"
+     },
+     {
+      "name": "css_parser",
+      "from": "1.22.0",
+      "to": "3.3.0",
+      "purl": "pkg:gem/css_parser@3.3.0"
+     },
+     {
+      "name": "csv",
+      "from": "3.3.5",
+      "to": "3.3.6",
+      "purl": "pkg:gem/csv@3.3.6"
+     },
+     {
+      "name": "date",
+      "from": "3.4.1",
+      "to": "3.5.1",
+      "purl": "pkg:gem/date@3.5.1"
+     },
+     {
+      "name": "discard",
+      "from": "1.4.0",
+      "to": "2.0.0",
+      "purl": "pkg:gem/discard@2.0.0"
+     },
+     {
+      "name": "doorkeeper",
+      "from": "5.8.2",
+      "to": "5.9.9",
+      "purl": "pkg:gem/doorkeeper@5.9.9"
+     },
+     {
+      "name": "dotenv",
+      "from": "3.1.8",
+      "to": "3.2.0",
+      "purl": "pkg:gem/dotenv@3.2.0"
+     },
+     {
+      "name": "elasticsearch",
+      "from": "7.17.11",
+      "to": "8.19.3",
+      "purl": "pkg:gem/elasticsearch@8.19.3"
+     },
+     {
+      "name": "elasticsearch-api",
+      "from": "7.17.11",
+      "to": "8.19.3",
+      "purl": "pkg:gem/elasticsearch-api@8.19.3"
+     },
+     {
+      "name": "erb",
+      "from": "6.0.4",
+      "to": "6.0.7",
+      "purl": "pkg:gem/erb@6.0.7"
+     },
+     {
+      "name": "et-orbi",
+      "from": "1.2.11",
+      "to": "1.4.1",
+      "purl": "pkg:gem/et-orbi@1.4.1"
+     },
+     {
+      "name": "excon",
+      "from": "1.5.0",
+      "to": "1.8.0",
+      "purl": "pkg:gem/excon@1.8.0"
+     },
+     {
+      "name": "faraday-follow_redirects",
+      "from": "0.3.0",
+      "to": "0.5.0",
+      "purl": "pkg:gem/faraday-follow_redirects@0.5.0"
+     },
+     {
+      "name": "faraday-net_http",
+      "from": "3.4.0",
+      "to": "3.4.4",
+      "purl": "pkg:gem/faraday-net_http@3.4.4"
+     },
+     {
+      "name": "fastimage",
+      "from": "2.4.0",
+      "to": "2.4.1",
+      "purl": "pkg:gem/fastimage@2.4.1"
+     },
+     {
+      "name": "ffi",
+      "from": "1.17.2",
+      "to": "1.17.4",
+      "purl": "pkg:gem/ffi@1.17.4"
+     },
+     {
+      "name": "ffi-compiler",
+      "from": "1.3.2",
+      "to": "1.4.2",
+      "purl": "pkg:gem/ffi-compiler@1.4.2"
+     },
+     {
+      "name": "fog-json",
+      "from": "1.2.0",
+      "to": "1.4.0",
+      "purl": "pkg:gem/fog-json@1.4.0"
+     },
+     {
+      "name": "formatador",
+      "from": "1.1.0",
+      "to": "1.2.3",
+      "purl": "pkg:gem/formatador@1.2.3"
+     },
+     {
+      "name": "forwardable",
+      "from": "1.3.3",
+      "to": "1.4.0",
+      "purl": "pkg:gem/forwardable@1.4.0"
+     },
+     {
+      "name": "fugit",
+      "from": "1.11.1",
+      "to": "1.13.0",
+      "purl": "pkg:gem/fugit@1.13.0"
+     },
+     {
+      "name": "globalid",
+      "from": "1.2.1",
+      "to": "1.4.0",
+      "purl": "pkg:gem/globalid@1.4.0"
+     },
+     {
+      "name": "google-protobuf",
+      "from": "4.31.0",
+      "to": "4.35.1",
+      "purl": "pkg:gem/google-protobuf@4.35.1"
+     },
+     {
+      "name": "googleapis-common-protos-types",
+      "from": "1.20.0",
+      "to": "1.23.0",
+      "purl": "pkg:gem/googleapis-common-protos-types@1.23.0"
+     },
+     {
+      "name": "haml",
+      "from": "6.3.0",
+      "to": "7.3.0",
+      "purl": "pkg:gem/haml@7.3.0"
+     },
+     {
+      "name": "haml-rails",
+      "from": "2.1.0",
+      "to": "3.1.0",
+      "purl": "pkg:gem/haml-rails@3.1.0"
+     },
+     {
+      "name": "hashie",
+      "from": "5.0.0",
+      "to": "5.1.0",
+      "purl": "pkg:gem/hashie@5.1.0"
+     },
+     {
+      "name": "hiredis-client",
+      "from": "0.24.0",
+      "to": "0.30.1",
+      "purl": "pkg:gem/hiredis-client@0.30.1"
+     },
+     {
+      "name": "htmlentities",
+      "from": "4.3.4",
+      "to": "4.4.2",
+      "purl": "pkg:gem/htmlentities@4.4.2"
+     },
+     {
+      "name": "http-cookie",
+      "from": "1.0.8",
+      "to": "1.1.6",
+      "purl": "pkg:gem/http-cookie@1.1.6"
+     },
+     {
+      "name": "httplog",
+      "from": "1.7.0",
+      "to": "1.8.0",
+      "purl": "pkg:gem/httplog@1.8.0"
+     },
+     {
+      "name": "i18n",
+      "from": "1.14.7",
+      "to": "1.15.2",
+      "purl": "pkg:gem/i18n@1.15.2"
+     },
+     {
+      "name": "io-console",
+      "from": "0.8.1",
+      "to": "0.8.2",
+      "purl": "pkg:gem/io-console@0.8.2"
+     },
+     {
+      "name": "ipaddr",
+      "from": "1.2.7",
+      "to": "1.2.9",
+      "purl": "pkg:gem/ipaddr@1.2.9"
+     },
+     {
+      "name": "irb",
+      "from": "1.15.2",
+      "to": "1.18.0",
+      "purl": "pkg:gem/irb@1.18.0"
+     },
+     {
+      "name": "json-jwt",
+      "from": "1.16.7",
+      "to": "1.17.2",
+      "purl": "pkg:gem/json-jwt@1.17.2"
+     },
+     {
+      "name": "json-ld-preloaded",
+      "from": "3.3.1",
+      "to": "3.3.2",
+      "purl": "pkg:gem/json-ld-preloaded@3.3.2"
+     },
+     {
+      "name": "kt-paperclip",
+      "from": "7.2.2",
+      "to": "8.0.0",
+      "purl": "pkg:gem/kt-paperclip@8.0.0"
+     },
+     {
+      "name": "linzer",
+      "from": "0.7.3",
+      "to": "0.8.0",
+      "purl": "pkg:gem/linzer@0.8.0"
+     },
+     {
+      "name": "lograge",
+      "from": "0.14.0",
+      "to": "0.15.0",
+      "purl": "pkg:gem/lograge@0.15.0"
+     },
+     {
+      "name": "loofah",
+      "from": "2.25.2",
+      "to": "2.25.3",
+      "purl": "pkg:gem/loofah@2.25.3"
+     },
+     {
+      "name": "marcel",
+      "from": "1.0.4",
+      "to": "1.2.1",
+      "purl": "pkg:gem/marcel@1.2.1"
+     },
+     {
+      "name": "mime-types-data",
+      "from": "3.2025.0514",
+      "to": "3.2026.0701",
+      "purl": "pkg:gem/mime-types-data@3.2026.0701"
+     },
+     {
+      "name": "minitest",
+      "from": "5.25.5",
+      "to": "6.0.6",
+      "purl": "pkg:gem/minitest@6.0.6"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.8.3",
+      "to": "1.8.7",
+      "purl": "pkg:gem/msgpack@1.8.7"
+     },
+     {
+      "name": "multi_json",
+      "from": "1.15.0",
+      "to": "1.21.1",
+      "purl": "pkg:gem/multi_json@1.21.1"
+     },
+     {
+      "name": "net-http",
+      "from": "0.6.0",
+      "to": "0.9.1",
+      "purl": "pkg:gem/net-http@0.9.1"
+     },
+     {
+      "name": "net-imap",
+      "from": "0.5.15",
+      "to": "0.6.6",
+      "purl": "pkg:gem/net-imap@0.6.6"
+     },
+     {
+      "name": "net-ldap",
+      "from": "0.19.0",
+      "to": "0.20.0",
+      "purl": "pkg:gem/net-ldap@0.20.0"
+     },
+     {
+      "name": "nokogiri",
+      "from": "1.19.4",
+      "to": "1.19.7",
+      "purl": "pkg:gem/nokogiri@1.19.7"
+     },
+     {
+      "name": "omniauth",
+      "from": "2.1.3",
+      "to": "2.4.2",
+      "purl": "pkg:gem/omniauth@2.4.2"
+     },
+     {
+      "name": "omniauth-cas",
+      "from": "3.0.1",
+      "to": "3.0.2",
+      "purl": "pkg:gem/omniauth-cas@3.0.2"
+     },
+     {
+      "name": "omniauth-rails_csrf_protection",
+      "from": "1.0.2",
+      "to": "2.0.1",
+      "purl": "pkg:gem/omniauth-rails_csrf_protection@2.0.1"
+     },
+     {
+      "name": "omniauth-saml",
+      "from": "2.2.4",
+      "to": "2.2.5",
+      "purl": "pkg:gem/omniauth-saml@2.2.5"
+     },
+     {
+      "name": "openid_connect",
+      "from": "2.3.1",
+      "to": "2.5.0",
+      "purl": "pkg:gem/openid_connect@2.5.0"
+     },
+     {
+      "name": "openssl",
+      "from": "3.3.3",
+      "to": "4.0.2",
+      "purl": "pkg:gem/openssl@4.0.2"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.5.0",
+      "to": "1.11.0",
+      "purl": "pkg:gem/opentelemetry-api@1.11.0"
+     },
+     {
+      "name": "opentelemetry-common",
+      "from": "0.22.0",
+      "to": "0.25.1",
+      "purl": "pkg:gem/opentelemetry-common@0.25.1"
+     },
+     {
+      "name": "opentelemetry-exporter-otlp",
+      "from": "0.30.0",
+      "to": "0.34.1",
+      "purl": "pkg:gem/opentelemetry-exporter-otlp@0.34.1"
+     },
+     {
+      "name": "opentelemetry-helpers-sql",
+      "from": "0.1.1",
+      "to": "0.4.0",
+      "purl": "pkg:gem/opentelemetry-helpers-sql@0.4.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-action_mailer",
+      "from": "0.4.0",
+      "to": "0.8.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-action_mailer@0.8.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-action_pack",
+      "from": "0.12.1",
+      "to": "0.18.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-action_pack@0.18.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-action_view",
+      "from": "0.9.0",
+      "to": "0.13.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-action_view@0.13.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_job",
+      "from": "0.8.0",
+      "to": "0.13.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_job@0.13.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_model_serializers",
+      "from": "0.22.0",
+      "to": "0.25.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_model_serializers@0.25.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_record",
+      "from": "0.9.0",
+      "to": "0.13.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_record@0.13.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_storage",
+      "from": "0.1.1",
+      "to": "0.5.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_storage@0.5.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_support",
+      "from": "0.8.0",
+      "to": "0.12.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_support@0.12.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-base",
+      "from": "0.23.0",
+      "to": "0.26.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-base@0.26.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-concurrent_ruby",
+      "from": "0.22.0",
+      "to": "0.25.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-concurrent_ruby@0.25.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-excon",
+      "from": "0.23.0",
+      "to": "0.29.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-excon@0.29.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-faraday",
+      "from": "0.27.0",
+      "to": "0.33.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-faraday@0.33.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-http",
+      "from": "0.25.0",
+      "to": "0.30.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-http@0.30.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-http_client",
+      "from": "0.23.0",
+      "to": "0.29.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-http_client@0.29.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-net_http",
+      "from": "0.23.0",
+      "to": "0.29.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-net_http@0.29.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-pg",
+      "from": "0.30.1",
+      "to": "0.37.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-pg@0.37.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-rack",
+      "from": "0.26.0",
+      "to": "0.31.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-rack@0.31.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-rails",
+      "from": "0.36.0",
+      "to": "0.42.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-rails@0.42.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-redis",
+      "from": "0.26.1",
+      "to": "0.29.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-redis@0.29.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-sidekiq",
+      "from": "0.26.1",
+      "to": "0.29.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-sidekiq@0.29.0"
+     },
+     {
+      "name": "opentelemetry-registry",
+      "from": "0.4.0",
+      "to": "0.6.3",
+      "purl": "pkg:gem/opentelemetry-registry@0.6.3"
+     },
+     {
+      "name": "opentelemetry-sdk",
+      "from": "1.8.0",
+      "to": "1.13.0",
+      "purl": "pkg:gem/opentelemetry-sdk@1.13.0"
+     },
+     {
+      "name": "opentelemetry-semantic_conventions",
+      "from": "1.11.0",
+      "to": "1.43.0",
+      "purl": "pkg:gem/opentelemetry-semantic_conventions@1.43.0"
+     },
+     {
+      "name": "ostruct",
+      "from": "0.6.1",
+      "to": "0.6.3",
+      "purl": "pkg:gem/ostruct@0.6.3"
+     },
+     {
+      "name": "ox",
+      "from": "2.14.23",
+      "to": "2.14.28",
+      "purl": "pkg:gem/ox@2.14.28"
+     },
+     {
+      "name": "pg",
+      "from": "1.5.9",
+      "to": "1.6.3",
+      "purl": "pkg:gem/pg@1.6.3"
+     },
+     {
+      "name": "pghero",
+      "from": "3.7.0",
+      "to": "4.1.0",
+      "purl": "pkg:gem/pghero@4.1.0"
+     },
+     {
+      "name": "pp",
+      "from": "0.6.2",
+      "to": "0.6.4",
+      "purl": "pkg:gem/pp@0.6.4"
+     },
+     {
+      "name": "premailer",
+      "from": "1.27.0",
+      "to": "1.29.0",
+      "purl": "pkg:gem/premailer@1.29.0"
+     },
+     {
+      "name": "prism",
+      "from": "1.5.3",
+      "to": "1.9.0",
+      "purl": "pkg:gem/prism@1.9.0"
+     },
+     {
+      "name": "prometheus_exporter",
+      "from": "2.2.0",
+      "to": "2.3.1",
+      "purl": "pkg:gem/prometheus_exporter@2.3.1"
+     },
+     {
+      "name": "propshaft",
+      "from": "1.1.0",
+      "to": "1.3.2",
+      "purl": "pkg:gem/propshaft@1.3.2"
+     },
+     {
+      "name": "public_suffix",
+      "from": "6.0.2",
+      "to": "7.0.5",
+      "purl": "pkg:gem/public_suffix@7.0.5"
+     },
+     {
+      "name": "puma",
+      "from": "7.2.1",
+      "to": "8.0.4",
+      "purl": "pkg:gem/puma@8.0.4"
+     },
+     {
+      "name": "pundit",
+      "from": "2.5.0",
+      "to": "2.5.2",
+      "purl": "pkg:gem/pundit@2.5.2"
+     },
+     {
+      "name": "raabro",
+      "from": "1.4.0",
+      "to": "1.5.0",
+      "purl": "pkg:gem/raabro@1.5.0"
+     },
+     {
+      "name": "rack",
+      "from": "3.1.21",
+      "to": "3.2.8",
+      "purl": "pkg:gem/rack@3.2.8"
+     },
+     {
+      "name": "rack-attack",
+      "from": "6.7.0",
+      "to": "6.8.0",
+      "purl": "pkg:gem/rack-attack@6.8.0"
+     },
+     {
+      "name": "rack-oauth2",
+      "from": "2.2.1",
+      "to": "2.3.0",
+      "purl": "pkg:gem/rack-oauth2@2.3.0"
+     },
+     {
+      "name": "rack-protection",
+      "from": "4.1.1",
+      "to": "4.2.1",
+      "purl": "pkg:gem/rack-protection@4.2.1"
+     },
+     {
+      "name": "rack-proxy",
+      "from": "0.7.7",
+      "to": "1.0.3",
+      "purl": "pkg:gem/rack-proxy@1.0.3"
+     },
+     {
+      "name": "rackup",
+      "from": "2.2.1",
+      "to": "2.3.1",
+      "purl": "pkg:gem/rackup@2.3.1"
+     },
+     {
+      "name": "rails",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/rails@8.1.4.1"
+     },
+     {
+      "name": "rails-dom-testing",
+      "from": "2.2.0",
+      "to": "2.3.0",
+      "purl": "pkg:gem/rails-dom-testing@2.3.0"
+     },
+     {
+      "name": "rails-html-sanitizer",
+      "from": "1.7.1",
+      "to": "1.7.2",
+      "purl": "pkg:gem/rails-html-sanitizer@1.7.2"
+     },
+     {
+      "name": "rails-i18n",
+      "from": "8.0.1",
+      "to": "8.1.0",
+      "purl": "pkg:gem/rails-i18n@8.1.0"
+     },
+     {
+      "name": "railties",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/railties@8.1.4.1"
+     },
+     {
+      "name": "rake",
+      "from": "13.3.0",
+      "to": "13.4.2",
+      "purl": "pkg:gem/rake@13.4.2"
+     },
+     {
+      "name": "rdf",
+      "from": "3.3.2",
+      "to": "3.3.4",
+      "purl": "pkg:gem/rdf@3.3.4"
+     },
+     {
+      "name": "rdoc",
+      "from": "6.14.1",
+      "to": "8.0.0",
+      "purl": "pkg:gem/rdoc@8.0.0"
+     },
+     {
+      "name": "redis",
+      "from": "4.8.1",
+      "to": "5.4.1",
+      "purl": "pkg:gem/redis@5.4.1"
+     },
+     {
+      "name": "redis-client",
+      "from": "0.24.0",
+      "to": "0.30.1",
+      "purl": "pkg:gem/redis-client@0.30.1"
+     },
+     {
+      "name": "reline",
+      "from": "0.6.1",
+      "to": "0.7.0",
+      "purl": "pkg:gem/reline@0.7.0"
+     },
+     {
+      "name": "responders",
+      "from": "3.1.1",
+      "to": "3.2.0",
+      "purl": "pkg:gem/responders@3.2.0"
+     },
+     {
+      "name": "rqrcode",
+      "from": "3.1.0",
+      "to": "3.2.0",
+      "purl": "pkg:gem/rqrcode@3.2.0"
+     },
+     {
+      "name": "rqrcode_core",
+      "from": "2.0.0",
+      "to": "2.1.0",
+      "purl": "pkg:gem/rqrcode_core@2.1.0"
+     },
+     {
+      "name": "ruby-vips",
+      "from": "2.2.4",
+      "to": "2.3.0",
+      "purl": "pkg:gem/ruby-vips@2.3.0"
+     },
+     {
+      "name": "rubyzip",
+      "from": "2.4.1",
+      "to": "3.4.1",
+      "purl": "pkg:gem/rubyzip@3.4.1"
+     },
+     {
+      "name": "safety_net_attestation",
+      "from": "0.4.0",
+      "to": "0.5.0",
+      "purl": "pkg:gem/safety_net_attestation@0.5.0"
+     },
+     {
+      "name": "sanitize",
+      "from": "7.0.1",
+      "to": "7.0.2",
+      "purl": "pkg:gem/sanitize@7.0.2"
+     },
+     {
+      "name": "scenic",
+      "from": "1.8.0",
+      "to": "1.9.0",
+      "purl": "pkg:gem/scenic@1.9.0"
+     },
+     {
+      "name": "sidekiq",
+      "from": "7.3.9",
+      "to": "8.1.6",
+      "purl": "pkg:gem/sidekiq@8.1.6"
+     },
+     {
+      "name": "sidekiq-scheduler",
+      "from": "5.0.6",
+      "to": "6.0.2",
+      "purl": "pkg:gem/sidekiq-scheduler@6.0.2"
+     },
+     {
+      "name": "sidekiq-unique-jobs",
+      "from": "8.0.11",
+      "to": "8.1.0",
+      "purl": "pkg:gem/sidekiq-unique-jobs@8.1.0"
+     },
+     {
+      "name": "simple-navigation",
+      "from": "4.4.0",
+      "to": "4.5.0",
+      "purl": "pkg:gem/simple-navigation@4.5.0"
+     },
+     {
+      "name": "simple_form",
+      "from": "5.3.1",
+      "to": "5.4.1",
+      "purl": "pkg:gem/simple_form@5.4.1"
+     },
+     {
+      "name": "stoplight",
+      "from": "4.1.1",
+      "to": "5.8.2",
+      "purl": "pkg:gem/stoplight@5.8.2"
+     },
+     {
+      "name": "strong_migrations",
+      "from": "2.4.0",
+      "to": "2.8.0",
+      "purl": "pkg:gem/strong_migrations@2.8.0"
+     },
+     {
+      "name": "temple",
+      "from": "0.10.3",
+      "to": "0.10.6",
+      "purl": "pkg:gem/temple@0.10.6"
+     },
+     {
+      "name": "terrapin",
+      "from": "1.1.0",
+      "to": "1.1.1",
+      "purl": "pkg:gem/terrapin@1.1.1"
+     },
+     {
+      "name": "thor",
+      "from": "1.4.0",
+      "to": "1.5.0",
+      "purl": "pkg:gem/thor@1.5.0"
+     },
+     {
+      "name": "tilt",
+      "from": "2.6.0",
+      "to": "2.8.0",
+      "purl": "pkg:gem/tilt@2.8.0"
+     },
+     {
+      "name": "timeout",
+      "from": "0.4.3",
+      "to": "0.6.1",
+      "purl": "pkg:gem/timeout@0.6.1"
+     },
+     {
+      "name": "tzinfo-data",
+      "from": "1.2025.2",
+      "to": "1.2026.3",
+      "purl": "pkg:gem/tzinfo-data@1.2026.3"
+     },
+     {
+      "name": "uri",
+      "from": "1.0.4",
+      "to": "1.1.1",
+      "purl": "pkg:gem/uri@1.1.1"
+     },
+     {
+      "name": "webauthn",
+      "from": "3.4.1",
+      "to": "3.4.3",
+      "purl": "pkg:gem/webauthn@3.4.3"
+     },
+     {
+      "name": "webrick",
+      "from": "1.9.1",
+      "to": "1.9.2",
+      "purl": "pkg:gem/webrick@1.9.2"
+     },
+     {
+      "name": "zeitwerk",
+      "from": "2.7.3",
+      "to": "2.8.3",
+      "purl": "pkg:gem/zeitwerk@2.8.3"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "psych",
+      "from": "5.2.6",
+      "to": "5.2.2",
+      "purl": "pkg:gem/psych@5.2.2"
+     },
+     {
+      "name": "stringio",
+      "from": "3.1.7",
+      "to": "3.1.2",
+      "purl": "pkg:gem/stringio@3.1.2"
+     }
+    ]
+   },
+   "npm": {
+    "added": [
+     {
+      "name": "@asamuzakjp/dom-selector",
+      "version": "8.3.2",
+      "purl": "pkg:npm/%40asamuzakjp/dom-selector@8.3.2"
+     },
+     {
+      "name": "@bramus/specificity",
+      "version": "2.4.2",
+      "purl": "pkg:npm/%40bramus/specificity@2.4.2"
+     },
+     {
+      "name": "@csstools/css-syntax-patches-for-csstree",
+      "version": "1.1.8",
+      "purl": "pkg:npm/%40csstools/css-syntax-patches-for-csstree@1.1.8"
+     },
+     {
+      "name": "@exodus/bytes",
+      "version": "1.15.1",
+      "purl": "pkg:npm/%40exodus/bytes@1.15.1"
+     },
+     {
+      "name": "@pinojs/redact",
+      "version": "0.4.0",
+      "purl": "pkg:npm/%40pinojs/redact@0.4.0"
+     },
+     {
+      "name": "async-function",
+      "version": "1.0.0",
+      "purl": "pkg:npm/async-function@1.0.0"
+     },
+     {
+      "name": "async-generator-function",
+      "version": "1.0.0",
+      "purl": "pkg:npm/async-generator-function@1.0.0"
+     },
+     {
+      "name": "bidi-js",
+      "version": "1.0.3",
+      "purl": "pkg:npm/bidi-js@1.0.3"
+     },
+     {
+      "name": "css-tree",
+      "version": "3.2.1",
+      "purl": "pkg:npm/css-tree@3.2.1"
+     },
+     {
+      "name": "generator-function",
+      "version": "2.0.1",
+      "purl": "pkg:npm/generator-function@2.0.1"
+     },
+     {
+      "name": "is-promise",
+      "version": "4.0.0",
+      "purl": "pkg:npm/is-promise@4.0.0"
+     },
+     {
+      "name": "mdn-data",
+      "version": "2.27.1",
+      "purl": "pkg:npm/mdn-data@2.27.1"
+     },
+     {
+      "name": "once",
+      "version": "1.4.0",
+      "purl": "pkg:npm/once@1.4.0"
+     },
+     {
+      "name": "require-from-string",
+      "version": "2.0.2",
+      "purl": "pkg:npm/require-from-string@2.0.2"
+     },
+     {
+      "name": "router",
+      "version": "2.2.0",
+      "purl": "pkg:npm/router@2.2.0"
+     },
+     {
+      "name": "source-map-js",
+      "version": "1.2.1",
+      "purl": "pkg:npm/source-map-js@1.2.1"
+     },
+     {
+      "name": "undici",
+      "version": "8.10.0",
+      "purl": "pkg:npm/undici@8.10.0"
+     },
+     {
+      "name": "wrappy",
+      "version": "1.0.2",
+      "purl": "pkg:npm/wrappy@1.0.2"
+     }
+    ],
+    "removed": [
+     {
+      "name": "@isaacs/cliui",
+      "version": "8.0.2",
+      "purl": "pkg:npm/%40isaacs/cliui@8.0.2"
+     },
+     {
+      "name": "@npmcli/agent",
+      "version": "2.2.0",
+      "purl": "pkg:npm/%40npmcli/agent@2.2.0"
+     },
+     {
+      "name": "@npmcli/fs",
+      "version": "3.1.0",
+      "purl": "pkg:npm/%40npmcli/fs@3.1.0"
+     },
+     {
+      "name": "@pkgjs/parseargs",
+      "version": "0.11.0",
+      "purl": "pkg:npm/%40pkgjs/parseargs@0.11.0"
+     },
+     {
+      "name": "abbrev",
+      "version": "2.0.0",
+      "purl": "pkg:npm/abbrev@2.0.0"
+     },
+     {
+      "name": "agent-base",
+      "version": "7.1.3",
+      "purl": "pkg:npm/agent-base@7.1.3"
+     },
+     {
+      "name": "aggregate-error",
+      "version": "3.1.0",
+      "purl": "pkg:npm/aggregate-error@3.1.0"
+     },
+     {
+      "name": "ansi-regex",
+      "version": "6.0.1",
+      "purl": "pkg:npm/ansi-regex@6.0.1"
+     },
+     {
+      "name": "ansi-styles",
+      "version": "6.2.1",
+      "purl": "pkg:npm/ansi-styles@6.2.1"
+     },
+     {
+      "name": "array-flatten",
+      "version": "1.1.1",
+      "purl": "pkg:npm/array-flatten@1.1.1"
+     },
+     {
+      "name": "balanced-match",
+      "version": "1.0.2",
+      "purl": "pkg:npm/balanced-match@1.0.2"
+     },
+     {
+      "name": "brace-expansion",
+      "version": "2.0.1",
+      "purl": "pkg:npm/brace-expansion@2.0.1"
+     },
+     {
+      "name": "bufferutil",
+      "version": "4.0.9",
+      "purl": "pkg:npm/bufferutil@4.0.9"
+     },
+     {
+      "name": "cacache",
+      "version": "18.0.0",
+      "purl": "pkg:npm/cacache@18.0.0"
+     },
+     {
+      "name": "chownr",
+      "version": "2.0.0",
+      "purl": "pkg:npm/chownr@2.0.0"
+     },
+     {
+      "name": "clean-stack",
+      "version": "2.2.0",
+      "purl": "pkg:npm/clean-stack@2.2.0"
+     },
+     {
+      "name": "color-convert",
+      "version": "2.0.1",
+      "purl": "pkg:npm/color-convert@2.0.1"
+     },
+     {
+      "name": "color-name",
+      "version": "1.1.4",
+      "purl": "pkg:npm/color-name@1.1.4"
+     },
+     {
+      "name": "cross-spawn",
+      "version": "7.0.6",
+      "purl": "pkg:npm/cross-spawn@7.0.6"
+     },
+     {
+      "name": "cssstyle",
+      "version": "4.2.1",
+      "purl": "pkg:npm/cssstyle@4.2.1"
+     },
+     {
+      "name": "destroy",
+      "version": "1.2.0",
+      "purl": "pkg:npm/destroy@1.2.0"
+     },
+     {
+      "name": "eastasianwidth",
+      "version": "0.2.0",
+      "purl": "pkg:npm/eastasianwidth@0.2.0"
+     },
+     {
+      "name": "emoji-regex",
+      "version": "9.2.2",
+      "purl": "pkg:npm/emoji-regex@9.2.2"
+     },
+     {
+      "name": "encoding",
+      "version": "0.1.13",
+      "purl": "pkg:npm/encoding@0.1.13"
+     },
+     {
+      "name": "env-paths",
+      "version": "2.2.1",
+      "purl": "pkg:npm/env-paths@2.2.1"
+     },
+     {
+      "name": "err-code",
+      "version": "2.0.3",
+      "purl": "pkg:npm/err-code@2.0.3"
+     },
+     {
+      "name": "exponential-backoff",
+      "version": "3.1.1",
+      "purl": "pkg:npm/exponential-backoff@3.1.1"
+     },
+     {
+      "name": "fast-redact",
+      "version": "3.3.0",
+      "purl": "pkg:npm/fast-redact@3.3.0"
+     },
+     {
+      "name": "foreground-child",
+      "version": "3.1.1",
+      "purl": "pkg:npm/foreground-child@3.1.1"
+     },
+     {
+      "name": "fs-minipass",
+      "version": "3.0.3",
+      "purl": "pkg:npm/fs-minipass@3.0.3"
+     },
+     {
+      "name": "glob",
+      "version": "10.5.0",
+      "purl": "pkg:npm/glob@10.5.0"
+     },
+     {
+      "name": "graceful-fs",
+      "version": "4.2.11",
+      "purl": "pkg:npm/graceful-fs@4.2.11"
+     },
+     {
+      "name": "http-cache-semantics",
+      "version": "4.1.1",
+      "purl": "pkg:npm/http-cache-semantics@4.1.1"
+     },
+     {
+      "name": "http-proxy-agent",
+      "version": "7.0.2",
+      "purl": "pkg:npm/http-proxy-agent@7.0.2"
+     },
+     {
+      "name": "https-proxy-agent",
+      "version": "7.0.6",
+      "purl": "pkg:npm/https-proxy-agent@7.0.6"
+     },
+     {
+      "name": "imurmurhash",
+      "version": "0.1.4",
+      "purl": "pkg:npm/imurmurhash@0.1.4"
+     },
+     {
+      "name": "indent-string",
+      "version": "4.0.0",
+      "purl": "pkg:npm/indent-string@4.0.0"
+     },
+     {
+      "name": "ip",
+      "version": "2.0.0",
+      "purl": "pkg:npm/ip@2.0.0"
+     },
+     {
+      "name": "is-fullwidth-code-point",
+      "version": "3.0.0",
+      "purl": "pkg:npm/is-fullwidth-code-point@3.0.0"
+     },
+     {
+      "name": "is-lambda",
+      "version": "1.0.1",
+      "purl": "pkg:npm/is-lambda@1.0.1"
+     },
+     {
+      "name": "isexe",
+      "version": "3.1.1",
+      "purl": "pkg:npm/isexe@3.1.1"
+     },
+     {
+      "name": "jackspeak",
+      "version": "3.1.2",
+      "purl": "pkg:npm/jackspeak@3.1.2"
+     },
+     {
+      "name": "lodash.defaults",
+      "version": "4.2.0",
+      "purl": "pkg:npm/lodash.defaults@4.2.0"
+     },
+     {
+      "name": "lodash.isarguments",
+      "version": "3.1.0",
+      "purl": "pkg:npm/lodash.isarguments@3.1.0"
+     },
+     {
+      "name": "make-fetch-happen",
+      "version": "13.0.0",
+      "purl": "pkg:npm/make-fetch-happen@13.0.0"
+     },
+     {
+      "name": "methods",
+      "version": "1.1.2",
+      "purl": "pkg:npm/methods@1.1.2"
+     },
+     {
+      "name": "mime",
+      "version": "1.6.0",
+      "purl": "pkg:npm/mime@1.6.0"
+     },
+     {
+      "name": "minimatch",
+      "version": "9.0.4",
+      "purl": "pkg:npm/minimatch@9.0.4"
+     },
+     {
+      "name": "minipass",
+      "version": "7.1.2",
+      "purl": "pkg:npm/minipass@7.1.2"
+     },
+     {
+      "name": "minipass-collect",
+      "version": "1.0.2",
+      "purl": "pkg:npm/minipass-collect@1.0.2"
+     },
+     {
+      "name": "minipass-fetch",
+      "version": "3.0.4",
+      "purl": "pkg:npm/minipass-fetch@3.0.4"
+     },
+     {
+      "name": "minipass-flush",
+      "version": "1.0.5",
+      "purl": "pkg:npm/minipass-flush@1.0.5"
+     },
+     {
+      "name": "minipass-pipeline",
+      "version": "1.2.4",
+      "purl": "pkg:npm/minipass-pipeline@1.2.4"
+     },
+     {
+      "name": "minipass-sized",
+      "version": "1.0.3",
+      "purl": "pkg:npm/minipass-sized@1.0.3"
+     },
+     {
+      "name": "minizlib",
+      "version": "2.1.2",
+      "purl": "pkg:npm/minizlib@2.1.2"
+     },
+     {
+      "name": "mkdirp",
+      "version": "1.0.4",
+      "purl": "pkg:npm/mkdirp@1.0.4"
+     },
+     {
+      "name": "node-gyp",
+      "version": "10.0.1",
+      "purl": "pkg:npm/node-gyp@10.0.1"
+     },
+     {
+      "name": "node-gyp-build",
+      "version": "4.6.1",
+      "purl": "pkg:npm/node-gyp-build@4.6.1"
+     },
+     {
+      "name": "nopt",
+      "version": "7.2.0",
+      "purl": "pkg:npm/nopt@7.2.0"
+     },
+     {
+      "name": "nwsapi",
+      "version": "2.2.16",
+      "purl": "pkg:npm/nwsapi@2.2.16"
+     },
+     {
+      "name": "p-map",
+      "version": "4.0.0",
+      "purl": "pkg:npm/p-map@4.0.0"
+     },
+     {
+      "name": "package-json-from-dist",
+      "version": "1.0.0",
+      "purl": "pkg:npm/package-json-from-dist@1.0.0"
+     },
+     {
+      "name": "path-key",
+      "version": "3.1.1",
+      "purl": "pkg:npm/path-key@3.1.1"
+     },
+     {
+      "name": "path-scurry",
+      "version": "1.11.1",
+      "purl": "pkg:npm/path-scurry@1.11.1"
+     },
+     {
+      "name": "proc-log",
+      "version": "3.0.0",
+      "purl": "pkg:npm/proc-log@3.0.0"
+     },
+     {
+      "name": "promise-retry",
+      "version": "2.0.1",
+      "purl": "pkg:npm/promise-retry@2.0.1"
+     },
+     {
+      "name": "retry",
+      "version": "0.12.0",
+      "purl": "pkg:npm/retry@0.12.0"
+     },
+     {
+      "name": "rrweb-cssom",
+      "version": "0.8.0",
+      "purl": "pkg:npm/rrweb-cssom@0.8.0"
+     },
+     {
+      "name": "safe-buffer",
+      "version": "5.2.1",
+      "purl": "pkg:npm/safe-buffer@5.2.1"
+     },
+     {
+      "name": "semver",
+      "version": "7.7.2",
+      "purl": "pkg:npm/semver@7.7.2"
+     },
+     {
+      "name": "shebang-command",
+      "version": "2.0.0",
+      "purl": "pkg:npm/shebang-command@2.0.0"
+     },
+     {
+      "name": "shebang-regex",
+      "version": "3.0.0",
+      "purl": "pkg:npm/shebang-regex@3.0.0"
+     },
+     {
+      "name": "signal-exit",
+      "version": "4.1.0",
+      "purl": "pkg:npm/signal-exit@4.1.0"
+     },
+     {
+      "name": "smart-buffer",
+      "version": "4.2.0",
+      "purl": "pkg:npm/smart-buffer@4.2.0"
+     },
+     {
+      "name": "socks",
+      "version": "2.7.1",
+      "purl": "pkg:npm/socks@2.7.1"
+     },
+     {
+      "name": "socks-proxy-agent",
+      "version": "8.0.2",
+      "purl": "pkg:npm/socks-proxy-agent@8.0.2"
+     },
+     {
+      "name": "ssri",
+      "version": "10.0.5",
+      "purl": "pkg:npm/ssri@10.0.5"
+     },
+     {
+      "name": "string-width",
+      "version": "5.1.2",
+      "purl": "pkg:npm/string-width@5.1.2"
+     },
+     {
+      "name": "strip-ansi",
+      "version": "7.1.0",
+      "purl": "pkg:npm/strip-ansi@7.1.0"
+     },
+     {
+      "name": "tar",
+      "version": "6.2.0",
+      "purl": "pkg:npm/tar@6.2.0"
+     },
+     {
+      "name": "unique-filename",
+      "version": "3.0.0",
+      "purl": "pkg:npm/unique-filename@3.0.0"
+     },
+     {
+      "name": "unique-slug",
+      "version": "4.0.0",
+      "purl": "pkg:npm/unique-slug@4.0.0"
+     },
+     {
+      "name": "utf-8-validate",
+      "version": "6.0.5",
+      "purl": "pkg:npm/utf-8-validate@6.0.5"
+     },
+     {
+      "name": "utils-merge",
+      "version": "1.0.1",
+      "purl": "pkg:npm/utils-merge@1.0.1"
+     },
+     {
+      "name": "whatwg-encoding",
+      "version": "3.1.1",
+      "purl": "pkg:npm/whatwg-encoding@3.1.1"
+     },
+     {
+      "name": "which",
+      "version": "4.0.0",
+      "purl": "pkg:npm/which@4.0.0"
+     },
+     {
+      "name": "wrap-ansi",
+      "version": "8.1.0",
+      "purl": "pkg:npm/wrap-ansi@8.1.0"
+     },
+     {
+      "name": "yallist",
+      "version": "4.0.0",
+      "purl": "pkg:npm/yallist@4.0.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "@asamuzakjp/css-color",
+      "from": "2.8.2",
+      "to": "6.0.7",
+      "purl": "pkg:npm/%40asamuzakjp/css-color@6.0.7"
+     },
+     {
+      "name": "@csstools/color-helpers",
+      "from": "5.0.2",
+      "to": "6.1.1",
+      "purl": "pkg:npm/%40csstools/color-helpers@6.1.1"
+     },
+     {
+      "name": "@csstools/css-calc",
+      "from": "2.1.4",
+      "to": "3.3.0",
+      "purl": "pkg:npm/%40csstools/css-calc@3.3.0"
+     },
+     {
+      "name": "@csstools/css-color-parser",
+      "from": "3.0.10",
+      "to": "4.2.0",
+      "purl": "pkg:npm/%40csstools/css-color-parser@4.2.0"
+     },
+     {
+      "name": "@csstools/css-parser-algorithms",
+      "from": "3.0.5",
+      "to": "4.0.0",
+      "purl": "pkg:npm/%40csstools/css-parser-algorithms@4.0.0"
+     },
+     {
+      "name": "@csstools/css-tokenizer",
+      "from": "3.0.4",
+      "to": "4.0.0",
+      "purl": "pkg:npm/%40csstools/css-tokenizer@4.0.0"
+     },
+     {
+      "name": "@ioredis/commands",
+      "from": "1.2.0",
+      "to": "1.10.0",
+      "purl": "pkg:npm/%40ioredis/commands@1.10.0"
+     },
+     {
+      "name": "@opentelemetry/api",
+      "from": "1.6.0",
+      "to": "1.9.1",
+      "purl": "pkg:npm/%40opentelemetry/api@1.9.1"
+     },
+     {
+      "name": "@rails/actiontext",
+      "from": "8.0.501",
+      "to": "8.1.401",
+      "purl": "pkg:npm/%40rails/actiontext@8.1.401"
+     },
+     {
+      "name": "accepts",
+      "from": "1.3.8",
+      "to": "2.0.0",
+      "purl": "pkg:npm/accepts@2.0.0"
+     },
+     {
+      "name": "body-parser",
+      "from": "1.20.3",
+      "to": "2.3.0",
+      "purl": "pkg:npm/body-parser@2.3.0"
+     },
+     {
+      "name": "content-disposition",
+      "from": "0.5.4",
+      "to": "1.1.0",
+      "purl": "pkg:npm/content-disposition@1.1.0"
+     },
+     {
+      "name": "content-type",
+      "from": "1.0.5",
+      "to": "2.1.0",
+      "purl": "pkg:npm/content-type@2.1.0"
+     },
+     {
+      "name": "cookie",
+      "from": "0.7.1",
+      "to": "0.7.2",
+      "purl": "pkg:npm/cookie@0.7.2"
+     },
+     {
+      "name": "cookie-signature",
+      "from": "1.0.6",
+      "to": "1.2.2",
+      "purl": "pkg:npm/cookie-signature@1.2.2"
+     },
+     {
+      "name": "cors",
+      "from": "2.8.5",
+      "to": "2.8.6",
+      "purl": "pkg:npm/cors@2.8.6"
+     },
+     {
+      "name": "data-urls",
+      "from": "5.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:npm/data-urls@7.0.0"
+     },
+     {
+      "name": "debug",
+      "from": "4.4.1",
+      "to": "4.4.3",
+      "purl": "pkg:npm/debug@4.4.3"
+     },
+     {
+      "name": "decimal.js",
+      "from": "10.5.0",
+      "to": "10.6.0",
+      "purl": "pkg:npm/decimal.js@10.6.0"
+     },
+     {
+      "name": "dotenv",
+      "from": "16.5.0",
+      "to": "17.4.2",
+      "purl": "pkg:npm/dotenv@17.4.2"
+     },
+     {
+      "name": "entities",
+      "from": "4.5.0",
+      "to": "8.0.0",
+      "purl": "pkg:npm/entities@8.0.0"
+     },
+     {
+      "name": "es-object-atoms",
+      "from": "1.1.1",
+      "to": "1.1.2",
+      "purl": "pkg:npm/es-object-atoms@1.1.2"
+     },
+     {
+      "name": "express",
+      "from": "4.21.2",
+      "to": "5.2.1",
+      "purl": "pkg:npm/express@5.2.1"
+     },
+     {
+      "name": "finalhandler",
+      "from": "1.3.1",
+      "to": "2.1.1",
+      "purl": "pkg:npm/finalhandler@2.1.1"
+     },
+     {
+      "name": "fresh",
+      "from": "0.5.2",
+      "to": "2.0.0",
+      "purl": "pkg:npm/fresh@2.0.0"
+     },
+     {
+      "name": "get-intrinsic",
+      "from": "1.3.0",
+      "to": "1.3.1",
+      "purl": "pkg:npm/get-intrinsic@1.3.1"
+     },
+     {
+      "name": "hasown",
+      "from": "2.0.2",
+      "to": "2.0.4",
+      "purl": "pkg:npm/hasown@2.0.4"
+     },
+     {
+      "name": "html-encoding-sniffer",
+      "from": "4.0.0",
+      "to": "6.0.0",
+      "purl": "pkg:npm/html-encoding-sniffer@6.0.0"
+     },
+     {
+      "name": "http-errors",
+      "from": "2.0.0",
+      "to": "2.0.1",
+      "purl": "pkg:npm/http-errors@2.0.1"
+     },
+     {
+      "name": "iconv-lite",
+      "from": "0.6.3",
+      "to": "0.7.3",
+      "purl": "pkg:npm/iconv-lite@0.7.3"
+     },
+     {
+      "name": "ioredis",
+      "from": "5.6.1",
+      "to": "5.11.1",
+      "purl": "pkg:npm/ioredis@5.11.1"
+     },
+     {
+      "name": "jsdom",
+      "from": "26.1.0",
+      "to": "30.0.1",
+      "purl": "pkg:npm/jsdom@30.0.1"
+     },
+     {
+      "name": "lru-cache",
+      "from": "11.0.2",
+      "to": "11.5.2",
+      "purl": "pkg:npm/lru-cache@11.5.2"
+     },
+     {
+      "name": "media-typer",
+      "from": "0.3.0",
+      "to": "1.1.1",
+      "purl": "pkg:npm/media-typer@1.1.1"
+     },
+     {
+      "name": "merge-descriptors",
+      "from": "1.0.3",
+      "to": "2.0.0",
+      "purl": "pkg:npm/merge-descriptors@2.0.0"
+     },
+     {
+      "name": "mime-db",
+      "from": "1.52.0",
+      "to": "1.54.0",
+      "purl": "pkg:npm/mime-db@1.54.0"
+     },
+     {
+      "name": "mime-types",
+      "from": "2.1.35",
+      "to": "3.0.2",
+      "purl": "pkg:npm/mime-types@3.0.2"
+     },
+     {
+      "name": "negotiator",
+      "from": "0.6.3",
+      "to": "1.0.0",
+      "purl": "pkg:npm/negotiator@1.0.0"
+     },
+     {
+      "name": "parse5",
+      "from": "7.2.1",
+      "to": "8.0.1",
+      "purl": "pkg:npm/parse5@8.0.1"
+     },
+     {
+      "name": "path-to-regexp",
+      "from": "0.1.12",
+      "to": "8.4.2",
+      "purl": "pkg:npm/path-to-regexp@8.4.2"
+     },
+     {
+      "name": "pg",
+      "from": "8.16.3",
+      "to": "8.23.0",
+      "purl": "pkg:npm/pg@8.23.0"
+     },
+     {
+      "name": "pg-cloudflare",
+      "from": "1.2.7",
+      "to": "1.4.0",
+      "purl": "pkg:npm/pg-cloudflare@1.4.0"
+     },
+     {
+      "name": "pg-connection-string",
+      "from": "2.9.1",
+      "to": "2.14.0",
+      "purl": "pkg:npm/pg-connection-string@2.14.0"
+     },
+     {
+      "name": "pg-pool",
+      "from": "3.10.1",
+      "to": "3.14.0",
+      "purl": "pkg:npm/pg-pool@3.14.0"
+     },
+     {
+      "name": "pg-protocol",
+      "from": "1.10.3",
+      "to": "1.16.0",
+      "purl": "pkg:npm/pg-protocol@1.16.0"
+     },
+     {
+      "name": "pino",
+      "from": "9.7.0",
+      "to": "10.3.1",
+      "purl": "pkg:npm/pino@10.3.1"
+     },
+     {
+      "name": "pino-abstract-transport",
+      "from": "2.0.0",
+      "to": "3.0.0",
+      "purl": "pkg:npm/pino-abstract-transport@3.0.0"
+     },
+     {
+      "name": "pino-http",
+      "from": "10.5.0",
+      "to": "11.0.0",
+      "purl": "pkg:npm/pino-http@11.0.0"
+     },
+     {
+      "name": "pino-std-serializers",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:npm/pino-std-serializers@7.1.0"
+     },
+     {
+      "name": "postgres-bytea",
+      "from": "1.0.0",
+      "to": "1.0.1",
+      "purl": "pkg:npm/postgres-bytea@1.0.1"
+     },
+     {
+      "name": "process-warning",
+      "from": "5.0.0",
+      "to": "5.1.0",
+      "purl": "pkg:npm/process-warning@5.1.0"
+     },
+     {
+      "name": "qs",
+      "from": "6.13.0",
+      "to": "6.15.3",
+      "purl": "pkg:npm/qs@6.15.3"
+     },
+     {
+      "name": "range-parser",
+      "from": "1.2.1",
+      "to": "1.3.0",
+      "purl": "pkg:npm/range-parser@1.3.0"
+     },
+     {
+      "name": "raw-body",
+      "from": "2.5.2",
+      "to": "3.0.2",
+      "purl": "pkg:npm/raw-body@3.0.2"
+     },
+     {
+      "name": "real-require",
+      "from": "0.2.0",
+      "to": "1.0.0",
+      "purl": "pkg:npm/real-require@1.0.0"
+     },
+     {
+      "name": "safe-stable-stringify",
+      "from": "2.4.3",
+      "to": "2.5.0",
+      "purl": "pkg:npm/safe-stable-stringify@2.5.0"
+     },
+     {
+      "name": "send",
+      "from": "0.19.0",
+      "to": "1.2.1",
+      "purl": "pkg:npm/send@1.2.1"
+     },
+     {
+      "name": "serve-static",
+      "from": "1.16.2",
+      "to": "2.2.1",
+      "purl": "pkg:npm/serve-static@2.2.1"
+     },
+     {
+      "name": "side-channel",
+      "from": "1.1.0",
+      "to": "1.1.1",
+      "purl": "pkg:npm/side-channel@1.1.1"
+     },
+     {
+      "name": "side-channel-list",
+      "from": "1.0.0",
+      "to": "1.0.1",
+      "purl": "pkg:npm/side-channel-list@1.0.1"
+     },
+     {
+      "name": "sonic-boom",
+      "from": "4.0.1",
+      "to": "4.2.1",
+      "purl": "pkg:npm/sonic-boom@4.2.1"
+     },
+     {
+      "name": "statuses",
+      "from": "2.0.1",
+      "to": "2.0.2",
+      "purl": "pkg:npm/statuses@2.0.2"
+     },
+     {
+      "name": "thread-stream",
+      "from": "3.0.0",
+      "to": "4.2.0",
+      "purl": "pkg:npm/thread-stream@4.2.0"
+     },
+     {
+      "name": "tldts",
+      "from": "6.1.47",
+      "to": "7.4.10",
+      "purl": "pkg:npm/tldts@7.4.10"
+     },
+     {
+      "name": "tldts-core",
+      "from": "6.1.47",
+      "to": "7.4.10",
+      "purl": "pkg:npm/tldts-core@7.4.10"
+     },
+     {
+      "name": "tough-cookie",
+      "from": "5.1.2",
+      "to": "6.0.2",
+      "purl": "pkg:npm/tough-cookie@6.0.2"
+     },
+     {
+      "name": "tr46",
+      "from": "5.1.0",
+      "to": "6.0.0",
+      "purl": "pkg:npm/tr46@6.0.0"
+     },
+     {
+      "name": "type-is",
+      "from": "1.6.18",
+      "to": "2.1.0",
+      "purl": "pkg:npm/type-is@2.1.0"
+     },
+     {
+      "name": "uuid",
+      "from": "11.1.0",
+      "to": "14.0.1",
+      "purl": "pkg:npm/uuid@14.0.1"
+     },
+     {
+      "name": "webidl-conversions",
+      "from": "7.0.0",
+      "to": "8.0.1",
+      "purl": "pkg:npm/webidl-conversions@8.0.1"
+     },
+     {
+      "name": "whatwg-mimetype",
+      "from": "4.0.0",
+      "to": "5.0.0",
+      "purl": "pkg:npm/whatwg-mimetype@5.0.0"
+     },
+     {
+      "name": "whatwg-url",
+      "from": "14.2.0",
+      "to": "17.1.0",
+      "purl": "pkg:npm/whatwg-url@17.1.0"
+     },
+     {
+      "name": "ws",
+      "from": "8.18.3",
+      "to": "8.21.3",
+      "purl": "pkg:npm/ws@8.21.3"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "cluster-key-slot",
+      "from": "1.1.2",
+      "to": "1.1.1",
+      "purl": "pkg:npm/cluster-key-slot@1.1.1"
+     }
+    ]
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.2",
+      "purl": "pkg:generic/composer@2.11.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apache2"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.10-r0",
+      "to": "3.8.11-r0",
+      "purl": "pkg:apk/alpine/libarchive@3.8.11-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libheif",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libheif-aom",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-aom@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-dav1d",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-dav1d@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-ffmpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-ffmpeg@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-jpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-jpeg@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-libde265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-libde265@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-openjpeg",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-openjpeg@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-rav1e",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-rav1e@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-svtenc",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-svtenc@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-x264",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x264@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libheif-x265",
+      "from": "1.23.4-r0",
+      "to": "1.23.7-r0",
+      "purl": "pkg:apk/alpine/libheif-x265@1.23.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=libheif"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-r0",
+      "to": "0.8.10-r0",
+      "purl": "pkg:apk/alpine/libopenmpt@0.8.10-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libpq",
+      "from": "18.6-r0",
+      "to": "18.7-r0",
+      "purl": "pkg:apk/alpine/libpq@18.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=postgresql18"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "mbedtls3",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls3@3.6.8-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nodejs",
+      "from": "24.22.1-r0",
+      "to": "24.22.3-r0",
+      "purl": "pkg:apk/alpine/nodejs@24.22.3-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "ruby",
+      "from": "3.4.12-r0",
+      "to": "3.4.13-r0",
+      "purl": "pkg:apk/alpine/ruby@3.4.13-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "ruby-libs",
+      "from": "3.4.12-r0",
+      "to": "3.4.13-r0",
+      "purl": "pkg:apk/alpine/ruby-libs@3.4.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=ruby"
+     },
+     {
+      "name": "ruby-rdoc",
+      "from": "3.4.12-r0",
+      "to": "3.4.13-r0",
+      "purl": "pkg:apk/alpine/ruby-rdoc@3.4.13-r0?arch=aarch64&distro=alpine-3.24.4&upstream=ruby"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [
+     {
+      "name": "action_text-trix",
+      "version": "2.1.19",
+      "purl": "pkg:gem/action_text-trix@2.1.19"
+     },
+     {
+      "name": "base58",
+      "version": "0.2.3",
+      "purl": "pkg:gem/base58@0.2.3"
+     },
+     {
+      "name": "elastic-transport",
+      "version": "8.5.3",
+      "purl": "pkg:gem/elastic-transport@8.5.3"
+     },
+     {
+      "name": "opentelemetry-helpers-sql-processor",
+      "version": "0.5.0",
+      "purl": "pkg:gem/opentelemetry-helpers-sql-processor@0.5.0"
+     },
+     {
+      "name": "rbs",
+      "version": "4.1.3",
+      "purl": "pkg:gem/rbs@4.1.3"
+     },
+     {
+      "name": "ssrf_filter",
+      "version": "1.5.0",
+      "purl": "pkg:gem/ssrf_filter@1.5.0"
+     }
+    ],
+    "removed": [
+     {
+      "name": "dry-cli",
+      "version": "1.2.0",
+      "purl": "pkg:gem/dry-cli@1.2.0"
+     },
+     {
+      "name": "elasticsearch-transport",
+      "version": "7.17.11",
+      "purl": "pkg:gem/elasticsearch-transport@7.17.11"
+     },
+     {
+      "name": "email_validator",
+      "version": "2.2.4",
+      "purl": "pkg:gem/email_validator@2.2.4"
+     },
+     {
+      "name": "hiredis",
+      "version": "0.6.3",
+      "purl": "pkg:gem/hiredis@0.6.3"
+     },
+     {
+      "name": "mini_portile2",
+      "version": "2.8.9",
+      "purl": "pkg:gem/mini_portile2@2.8.9"
+     },
+     {
+      "name": "oj",
+      "version": "3.17.3",
+      "purl": "pkg:gem/oj@3.17.3"
+     },
+     {
+      "name": "opentelemetry-helpers-sql-obfuscation",
+      "version": "0.3.0",
+      "purl": "pkg:gem/opentelemetry-helpers-sql-obfuscation@0.3.0"
+     },
+     {
+      "name": "redlock",
+      "version": "1.3.2",
+      "purl": "pkg:gem/redlock@1.3.2"
+     },
+     {
+      "name": "vite_rails",
+      "version": "3.0.19",
+      "purl": "pkg:gem/vite_rails@3.0.19"
+     },
+     {
+      "name": "vite_ruby",
+      "version": "3.9.2",
+      "purl": "pkg:gem/vite_ruby@3.9.2"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "actioncable",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actioncable@8.1.4.1"
+     },
+     {
+      "name": "actionmailbox",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actionmailbox@8.1.4.1"
+     },
+     {
+      "name": "actionmailer",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actionmailer@8.1.4.1"
+     },
+     {
+      "name": "actionpack",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actionpack@8.1.4.1"
+     },
+     {
+      "name": "actiontext",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actiontext@8.1.4.1"
+     },
+     {
+      "name": "actionview",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/actionview@8.1.4.1"
+     },
+     {
+      "name": "active_model_serializers",
+      "from": "0.10.15",
+      "to": "0.10.16",
+      "purl": "pkg:gem/active_model_serializers@0.10.16"
+     },
+     {
+      "name": "activejob",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activejob@8.1.4.1"
+     },
+     {
+      "name": "activemodel",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activemodel@8.1.4.1"
+     },
+     {
+      "name": "activerecord",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activerecord@8.1.4.1"
+     },
+     {
+      "name": "activestorage",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activestorage@8.1.4.1"
+     },
+     {
+      "name": "activesupport",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/activesupport@8.1.4.1"
+     },
+     {
+      "name": "addressable",
+      "from": "2.9.0",
+      "to": "2.9.2",
+      "purl": "pkg:gem/addressable@2.9.2"
+     },
+     {
+      "name": "aws-eventstream",
+      "from": "1.4.0",
+      "to": "1.4.1",
+      "purl": "pkg:gem/aws-eventstream@1.4.1"
+     },
+     {
+      "name": "aws-partitions",
+      "from": "1.1238.0",
+      "to": "1.1279.0",
+      "purl": "pkg:gem/aws-partitions@1.1279.0"
+     },
+     {
+      "name": "aws-sdk-core",
+      "from": "3.244.0",
+      "to": "3.261.0",
+      "purl": "pkg:gem/aws-sdk-core@3.261.0"
+     },
+     {
+      "name": "aws-sdk-kms",
+      "from": "1.123.0",
+      "to": "1.130.0",
+      "purl": "pkg:gem/aws-sdk-kms@1.130.0"
+     },
+     {
+      "name": "aws-sdk-s3",
+      "from": "1.219.0",
+      "to": "1.235.0",
+      "purl": "pkg:gem/aws-sdk-s3@1.235.0"
+     },
+     {
+      "name": "aws-sigv4",
+      "from": "1.11.0",
+      "to": "1.12.1",
+      "purl": "pkg:gem/aws-sigv4@1.12.1"
+     },
+     {
+      "name": "azure-blob",
+      "from": "0.5.8",
+      "to": "0.5.9.1",
+      "purl": "pkg:gem/azure-blob@0.5.9.1"
+     },
+     {
+      "name": "benchmark",
+      "from": "0.4.1",
+      "to": "0.5.0",
+      "purl": "pkg:gem/benchmark@0.5.0"
+     },
+     {
+      "name": "bigdecimal",
+      "from": "3.2.2",
+      "to": "3.3.1",
+      "purl": "pkg:gem/bigdecimal@3.3.1"
+     },
+     {
+      "name": "bootsnap",
+      "from": "1.24.6",
+      "to": "1.25.0",
+      "purl": "pkg:gem/bootsnap@1.25.0"
+     },
+     {
+      "name": "bundler",
+      "from": "2.6.9",
+      "to": "4.0.18",
+      "purl": "pkg:gem/bundler@4.0.18"
+     },
+     {
+      "name": "cbor",
+      "from": "0.5.9.8",
+      "to": "0.5.10.3",
+      "purl": "pkg:gem/cbor@0.5.10.3"
+     },
+     {
+      "name": "cgi",
+      "from": "0.4.2",
+      "to": "0.5.2",
+      "purl": "pkg:gem/cgi@0.5.2"
+     },
+     {
+      "name": "chewy",
+      "from": "7.6.0",
+      "to": "8.4.1",
+      "purl": "pkg:gem/chewy@8.4.1"
+     },
+     {
+      "name": "color_diff",
+      "from": "0.1",
+      "to": "0.2",
+      "purl": "pkg:gem/color_diff@0.2"
+     },
+     {
+      "name": "concurrent-ruby",
+      "from": "1.3.7",
+      "to": "1.3.8",
+      "purl": "pkg:gem/concurrent-ruby@1.3.8"
+     },
+     {
+      "name": "connection_pool",
+      "from": "2.5.3",
+      "to": "3.0.2",
+      "purl": "pkg:gem/connection_pool@3.0.2"
+     },
+     {
+      "name": "css_parser",
+      "from": "1.22.0",
+      "to": "3.3.0",
+      "purl": "pkg:gem/css_parser@3.3.0"
+     },
+     {
+      "name": "csv",
+      "from": "3.3.5",
+      "to": "3.3.6",
+      "purl": "pkg:gem/csv@3.3.6"
+     },
+     {
+      "name": "date",
+      "from": "3.4.1",
+      "to": "3.5.1",
+      "purl": "pkg:gem/date@3.5.1"
+     },
+     {
+      "name": "discard",
+      "from": "1.4.0",
+      "to": "2.0.0",
+      "purl": "pkg:gem/discard@2.0.0"
+     },
+     {
+      "name": "doorkeeper",
+      "from": "5.8.2",
+      "to": "5.9.9",
+      "purl": "pkg:gem/doorkeeper@5.9.9"
+     },
+     {
+      "name": "dotenv",
+      "from": "3.1.8",
+      "to": "3.2.0",
+      "purl": "pkg:gem/dotenv@3.2.0"
+     },
+     {
+      "name": "elasticsearch",
+      "from": "7.17.11",
+      "to": "8.19.3",
+      "purl": "pkg:gem/elasticsearch@8.19.3"
+     },
+     {
+      "name": "elasticsearch-api",
+      "from": "7.17.11",
+      "to": "8.19.3",
+      "purl": "pkg:gem/elasticsearch-api@8.19.3"
+     },
+     {
+      "name": "erb",
+      "from": "6.0.4",
+      "to": "6.0.7",
+      "purl": "pkg:gem/erb@6.0.7"
+     },
+     {
+      "name": "et-orbi",
+      "from": "1.2.11",
+      "to": "1.4.1",
+      "purl": "pkg:gem/et-orbi@1.4.1"
+     },
+     {
+      "name": "excon",
+      "from": "1.5.0",
+      "to": "1.8.0",
+      "purl": "pkg:gem/excon@1.8.0"
+     },
+     {
+      "name": "faraday-follow_redirects",
+      "from": "0.3.0",
+      "to": "0.5.0",
+      "purl": "pkg:gem/faraday-follow_redirects@0.5.0"
+     },
+     {
+      "name": "faraday-net_http",
+      "from": "3.4.0",
+      "to": "3.4.4",
+      "purl": "pkg:gem/faraday-net_http@3.4.4"
+     },
+     {
+      "name": "fastimage",
+      "from": "2.4.0",
+      "to": "2.4.1",
+      "purl": "pkg:gem/fastimage@2.4.1"
+     },
+     {
+      "name": "ffi",
+      "from": "1.17.2",
+      "to": "1.17.4",
+      "purl": "pkg:gem/ffi@1.17.4"
+     },
+     {
+      "name": "ffi-compiler",
+      "from": "1.3.2",
+      "to": "1.4.2",
+      "purl": "pkg:gem/ffi-compiler@1.4.2"
+     },
+     {
+      "name": "fog-json",
+      "from": "1.2.0",
+      "to": "1.4.0",
+      "purl": "pkg:gem/fog-json@1.4.0"
+     },
+     {
+      "name": "formatador",
+      "from": "1.1.0",
+      "to": "1.2.3",
+      "purl": "pkg:gem/formatador@1.2.3"
+     },
+     {
+      "name": "forwardable",
+      "from": "1.3.3",
+      "to": "1.4.0",
+      "purl": "pkg:gem/forwardable@1.4.0"
+     },
+     {
+      "name": "fugit",
+      "from": "1.11.1",
+      "to": "1.13.0",
+      "purl": "pkg:gem/fugit@1.13.0"
+     },
+     {
+      "name": "globalid",
+      "from": "1.2.1",
+      "to": "1.4.0",
+      "purl": "pkg:gem/globalid@1.4.0"
+     },
+     {
+      "name": "google-protobuf",
+      "from": "4.31.0",
+      "to": "4.35.1",
+      "purl": "pkg:gem/google-protobuf@4.35.1"
+     },
+     {
+      "name": "googleapis-common-protos-types",
+      "from": "1.20.0",
+      "to": "1.23.0",
+      "purl": "pkg:gem/googleapis-common-protos-types@1.23.0"
+     },
+     {
+      "name": "haml",
+      "from": "6.3.0",
+      "to": "7.3.0",
+      "purl": "pkg:gem/haml@7.3.0"
+     },
+     {
+      "name": "haml-rails",
+      "from": "2.1.0",
+      "to": "3.1.0",
+      "purl": "pkg:gem/haml-rails@3.1.0"
+     },
+     {
+      "name": "hashie",
+      "from": "5.0.0",
+      "to": "5.1.0",
+      "purl": "pkg:gem/hashie@5.1.0"
+     },
+     {
+      "name": "hiredis-client",
+      "from": "0.24.0",
+      "to": "0.30.1",
+      "purl": "pkg:gem/hiredis-client@0.30.1"
+     },
+     {
+      "name": "htmlentities",
+      "from": "4.3.4",
+      "to": "4.4.2",
+      "purl": "pkg:gem/htmlentities@4.4.2"
+     },
+     {
+      "name": "http-cookie",
+      "from": "1.0.8",
+      "to": "1.1.6",
+      "purl": "pkg:gem/http-cookie@1.1.6"
+     },
+     {
+      "name": "httplog",
+      "from": "1.7.0",
+      "to": "1.8.0",
+      "purl": "pkg:gem/httplog@1.8.0"
+     },
+     {
+      "name": "i18n",
+      "from": "1.14.7",
+      "to": "1.15.2",
+      "purl": "pkg:gem/i18n@1.15.2"
+     },
+     {
+      "name": "io-console",
+      "from": "0.8.1",
+      "to": "0.8.2",
+      "purl": "pkg:gem/io-console@0.8.2"
+     },
+     {
+      "name": "ipaddr",
+      "from": "1.2.7",
+      "to": "1.2.9",
+      "purl": "pkg:gem/ipaddr@1.2.9"
+     },
+     {
+      "name": "irb",
+      "from": "1.15.2",
+      "to": "1.18.0",
+      "purl": "pkg:gem/irb@1.18.0"
+     },
+     {
+      "name": "json-jwt",
+      "from": "1.16.7",
+      "to": "1.17.2",
+      "purl": "pkg:gem/json-jwt@1.17.2"
+     },
+     {
+      "name": "json-ld-preloaded",
+      "from": "3.3.1",
+      "to": "3.3.2",
+      "purl": "pkg:gem/json-ld-preloaded@3.3.2"
+     },
+     {
+      "name": "kt-paperclip",
+      "from": "7.2.2",
+      "to": "8.0.0",
+      "purl": "pkg:gem/kt-paperclip@8.0.0"
+     },
+     {
+      "name": "linzer",
+      "from": "0.7.3",
+      "to": "0.8.0",
+      "purl": "pkg:gem/linzer@0.8.0"
+     },
+     {
+      "name": "lograge",
+      "from": "0.14.0",
+      "to": "0.15.0",
+      "purl": "pkg:gem/lograge@0.15.0"
+     },
+     {
+      "name": "loofah",
+      "from": "2.25.2",
+      "to": "2.25.3",
+      "purl": "pkg:gem/loofah@2.25.3"
+     },
+     {
+      "name": "marcel",
+      "from": "1.0.4",
+      "to": "1.2.1",
+      "purl": "pkg:gem/marcel@1.2.1"
+     },
+     {
+      "name": "mime-types-data",
+      "from": "3.2025.0514",
+      "to": "3.2026.0701",
+      "purl": "pkg:gem/mime-types-data@3.2026.0701"
+     },
+     {
+      "name": "minitest",
+      "from": "5.25.5",
+      "to": "6.0.6",
+      "purl": "pkg:gem/minitest@6.0.6"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.8.3",
+      "to": "1.8.7",
+      "purl": "pkg:gem/msgpack@1.8.7"
+     },
+     {
+      "name": "multi_json",
+      "from": "1.15.0",
+      "to": "1.21.1",
+      "purl": "pkg:gem/multi_json@1.21.1"
+     },
+     {
+      "name": "net-http",
+      "from": "0.6.0",
+      "to": "0.9.1",
+      "purl": "pkg:gem/net-http@0.9.1"
+     },
+     {
+      "name": "net-imap",
+      "from": "0.5.15",
+      "to": "0.6.6",
+      "purl": "pkg:gem/net-imap@0.6.6"
+     },
+     {
+      "name": "net-ldap",
+      "from": "0.19.0",
+      "to": "0.20.0",
+      "purl": "pkg:gem/net-ldap@0.20.0"
+     },
+     {
+      "name": "nokogiri",
+      "from": "1.19.4",
+      "to": "1.19.7",
+      "purl": "pkg:gem/nokogiri@1.19.7"
+     },
+     {
+      "name": "omniauth",
+      "from": "2.1.3",
+      "to": "2.4.2",
+      "purl": "pkg:gem/omniauth@2.4.2"
+     },
+     {
+      "name": "omniauth-cas",
+      "from": "3.0.1",
+      "to": "3.0.2",
+      "purl": "pkg:gem/omniauth-cas@3.0.2"
+     },
+     {
+      "name": "omniauth-rails_csrf_protection",
+      "from": "1.0.2",
+      "to": "2.0.1",
+      "purl": "pkg:gem/omniauth-rails_csrf_protection@2.0.1"
+     },
+     {
+      "name": "omniauth-saml",
+      "from": "2.2.4",
+      "to": "2.2.5",
+      "purl": "pkg:gem/omniauth-saml@2.2.5"
+     },
+     {
+      "name": "openid_connect",
+      "from": "2.3.1",
+      "to": "2.5.0",
+      "purl": "pkg:gem/openid_connect@2.5.0"
+     },
+     {
+      "name": "openssl",
+      "from": "3.3.3",
+      "to": "4.0.2",
+      "purl": "pkg:gem/openssl@4.0.2"
+     },
+     {
+      "name": "opentelemetry-api",
+      "from": "1.5.0",
+      "to": "1.11.0",
+      "purl": "pkg:gem/opentelemetry-api@1.11.0"
+     },
+     {
+      "name": "opentelemetry-common",
+      "from": "0.22.0",
+      "to": "0.25.1",
+      "purl": "pkg:gem/opentelemetry-common@0.25.1"
+     },
+     {
+      "name": "opentelemetry-exporter-otlp",
+      "from": "0.30.0",
+      "to": "0.34.1",
+      "purl": "pkg:gem/opentelemetry-exporter-otlp@0.34.1"
+     },
+     {
+      "name": "opentelemetry-helpers-sql",
+      "from": "0.1.1",
+      "to": "0.4.0",
+      "purl": "pkg:gem/opentelemetry-helpers-sql@0.4.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-action_mailer",
+      "from": "0.4.0",
+      "to": "0.8.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-action_mailer@0.8.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-action_pack",
+      "from": "0.12.1",
+      "to": "0.18.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-action_pack@0.18.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-action_view",
+      "from": "0.9.0",
+      "to": "0.13.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-action_view@0.13.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_job",
+      "from": "0.8.0",
+      "to": "0.13.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_job@0.13.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_model_serializers",
+      "from": "0.22.0",
+      "to": "0.25.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_model_serializers@0.25.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_record",
+      "from": "0.9.0",
+      "to": "0.13.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_record@0.13.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_storage",
+      "from": "0.1.1",
+      "to": "0.5.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_storage@0.5.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-active_support",
+      "from": "0.8.0",
+      "to": "0.12.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-active_support@0.12.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-base",
+      "from": "0.23.0",
+      "to": "0.26.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-base@0.26.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-concurrent_ruby",
+      "from": "0.22.0",
+      "to": "0.25.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-concurrent_ruby@0.25.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-excon",
+      "from": "0.23.0",
+      "to": "0.29.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-excon@0.29.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-faraday",
+      "from": "0.27.0",
+      "to": "0.33.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-faraday@0.33.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-http",
+      "from": "0.25.0",
+      "to": "0.30.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-http@0.30.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-http_client",
+      "from": "0.23.0",
+      "to": "0.29.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-http_client@0.29.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-net_http",
+      "from": "0.23.0",
+      "to": "0.29.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-net_http@0.29.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-pg",
+      "from": "0.30.1",
+      "to": "0.37.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-pg@0.37.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-rack",
+      "from": "0.26.0",
+      "to": "0.31.1",
+      "purl": "pkg:gem/opentelemetry-instrumentation-rack@0.31.1"
+     },
+     {
+      "name": "opentelemetry-instrumentation-rails",
+      "from": "0.36.0",
+      "to": "0.42.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-rails@0.42.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-redis",
+      "from": "0.26.1",
+      "to": "0.29.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-redis@0.29.0"
+     },
+     {
+      "name": "opentelemetry-instrumentation-sidekiq",
+      "from": "0.26.1",
+      "to": "0.29.0",
+      "purl": "pkg:gem/opentelemetry-instrumentation-sidekiq@0.29.0"
+     },
+     {
+      "name": "opentelemetry-registry",
+      "from": "0.4.0",
+      "to": "0.6.3",
+      "purl": "pkg:gem/opentelemetry-registry@0.6.3"
+     },
+     {
+      "name": "opentelemetry-sdk",
+      "from": "1.8.0",
+      "to": "1.13.0",
+      "purl": "pkg:gem/opentelemetry-sdk@1.13.0"
+     },
+     {
+      "name": "opentelemetry-semantic_conventions",
+      "from": "1.11.0",
+      "to": "1.43.0",
+      "purl": "pkg:gem/opentelemetry-semantic_conventions@1.43.0"
+     },
+     {
+      "name": "ostruct",
+      "from": "0.6.1",
+      "to": "0.6.3",
+      "purl": "pkg:gem/ostruct@0.6.3"
+     },
+     {
+      "name": "ox",
+      "from": "2.14.23",
+      "to": "2.14.28",
+      "purl": "pkg:gem/ox@2.14.28"
+     },
+     {
+      "name": "pg",
+      "from": "1.5.9",
+      "to": "1.6.3",
+      "purl": "pkg:gem/pg@1.6.3"
+     },
+     {
+      "name": "pghero",
+      "from": "3.7.0",
+      "to": "4.1.0",
+      "purl": "pkg:gem/pghero@4.1.0"
+     },
+     {
+      "name": "pp",
+      "from": "0.6.2",
+      "to": "0.6.4",
+      "purl": "pkg:gem/pp@0.6.4"
+     },
+     {
+      "name": "premailer",
+      "from": "1.27.0",
+      "to": "1.29.0",
+      "purl": "pkg:gem/premailer@1.29.0"
+     },
+     {
+      "name": "prism",
+      "from": "1.5.3",
+      "to": "1.9.0",
+      "purl": "pkg:gem/prism@1.9.0"
+     },
+     {
+      "name": "prometheus_exporter",
+      "from": "2.2.0",
+      "to": "2.3.1",
+      "purl": "pkg:gem/prometheus_exporter@2.3.1"
+     },
+     {
+      "name": "propshaft",
+      "from": "1.1.0",
+      "to": "1.3.2",
+      "purl": "pkg:gem/propshaft@1.3.2"
+     },
+     {
+      "name": "public_suffix",
+      "from": "6.0.2",
+      "to": "7.0.5",
+      "purl": "pkg:gem/public_suffix@7.0.5"
+     },
+     {
+      "name": "puma",
+      "from": "7.2.1",
+      "to": "8.0.4",
+      "purl": "pkg:gem/puma@8.0.4"
+     },
+     {
+      "name": "pundit",
+      "from": "2.5.0",
+      "to": "2.5.2",
+      "purl": "pkg:gem/pundit@2.5.2"
+     },
+     {
+      "name": "raabro",
+      "from": "1.4.0",
+      "to": "1.5.0",
+      "purl": "pkg:gem/raabro@1.5.0"
+     },
+     {
+      "name": "rack",
+      "from": "3.1.21",
+      "to": "3.2.8",
+      "purl": "pkg:gem/rack@3.2.8"
+     },
+     {
+      "name": "rack-attack",
+      "from": "6.7.0",
+      "to": "6.8.0",
+      "purl": "pkg:gem/rack-attack@6.8.0"
+     },
+     {
+      "name": "rack-oauth2",
+      "from": "2.2.1",
+      "to": "2.3.0",
+      "purl": "pkg:gem/rack-oauth2@2.3.0"
+     },
+     {
+      "name": "rack-protection",
+      "from": "4.1.1",
+      "to": "4.2.1",
+      "purl": "pkg:gem/rack-protection@4.2.1"
+     },
+     {
+      "name": "rack-proxy",
+      "from": "0.7.7",
+      "to": "1.0.3",
+      "purl": "pkg:gem/rack-proxy@1.0.3"
+     },
+     {
+      "name": "rackup",
+      "from": "2.2.1",
+      "to": "2.3.1",
+      "purl": "pkg:gem/rackup@2.3.1"
+     },
+     {
+      "name": "rails",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/rails@8.1.4.1"
+     },
+     {
+      "name": "rails-dom-testing",
+      "from": "2.2.0",
+      "to": "2.3.0",
+      "purl": "pkg:gem/rails-dom-testing@2.3.0"
+     },
+     {
+      "name": "rails-html-sanitizer",
+      "from": "1.7.1",
+      "to": "1.7.2",
+      "purl": "pkg:gem/rails-html-sanitizer@1.7.2"
+     },
+     {
+      "name": "rails-i18n",
+      "from": "8.0.1",
+      "to": "8.1.0",
+      "purl": "pkg:gem/rails-i18n@8.1.0"
+     },
+     {
+      "name": "railties",
+      "from": "8.0.5.1",
+      "to": "8.1.4.1",
+      "purl": "pkg:gem/railties@8.1.4.1"
+     },
+     {
+      "name": "rake",
+      "from": "13.3.0",
+      "to": "13.4.2",
+      "purl": "pkg:gem/rake@13.4.2"
+     },
+     {
+      "name": "rdf",
+      "from": "3.3.2",
+      "to": "3.3.4",
+      "purl": "pkg:gem/rdf@3.3.4"
+     },
+     {
+      "name": "rdoc",
+      "from": "6.14.1",
+      "to": "8.0.0",
+      "purl": "pkg:gem/rdoc@8.0.0"
+     },
+     {
+      "name": "redis",
+      "from": "4.8.1",
+      "to": "5.4.1",
+      "purl": "pkg:gem/redis@5.4.1"
+     },
+     {
+      "name": "redis-client",
+      "from": "0.24.0",
+      "to": "0.30.1",
+      "purl": "pkg:gem/redis-client@0.30.1"
+     },
+     {
+      "name": "reline",
+      "from": "0.6.1",
+      "to": "0.7.0",
+      "purl": "pkg:gem/reline@0.7.0"
+     },
+     {
+      "name": "responders",
+      "from": "3.1.1",
+      "to": "3.2.0",
+      "purl": "pkg:gem/responders@3.2.0"
+     },
+     {
+      "name": "rqrcode",
+      "from": "3.1.0",
+      "to": "3.2.0",
+      "purl": "pkg:gem/rqrcode@3.2.0"
+     },
+     {
+      "name": "rqrcode_core",
+      "from": "2.0.0",
+      "to": "2.1.0",
+      "purl": "pkg:gem/rqrcode_core@2.1.0"
+     },
+     {
+      "name": "ruby-vips",
+      "from": "2.2.4",
+      "to": "2.3.0",
+      "purl": "pkg:gem/ruby-vips@2.3.0"
+     },
+     {
+      "name": "rubyzip",
+      "from": "2.4.1",
+      "to": "3.4.1",
+      "purl": "pkg:gem/rubyzip@3.4.1"
+     },
+     {
+      "name": "safety_net_attestation",
+      "from": "0.4.0",
+      "to": "0.5.0",
+      "purl": "pkg:gem/safety_net_attestation@0.5.0"
+     },
+     {
+      "name": "sanitize",
+      "from": "7.0.1",
+      "to": "7.0.2",
+      "purl": "pkg:gem/sanitize@7.0.2"
+     },
+     {
+      "name": "scenic",
+      "from": "1.8.0",
+      "to": "1.9.0",
+      "purl": "pkg:gem/scenic@1.9.0"
+     },
+     {
+      "name": "sidekiq",
+      "from": "7.3.9",
+      "to": "8.1.6",
+      "purl": "pkg:gem/sidekiq@8.1.6"
+     },
+     {
+      "name": "sidekiq-scheduler",
+      "from": "5.0.6",
+      "to": "6.0.2",
+      "purl": "pkg:gem/sidekiq-scheduler@6.0.2"
+     },
+     {
+      "name": "sidekiq-unique-jobs",
+      "from": "8.0.11",
+      "to": "8.1.0",
+      "purl": "pkg:gem/sidekiq-unique-jobs@8.1.0"
+     },
+     {
+      "name": "simple-navigation",
+      "from": "4.4.0",
+      "to": "4.5.0",
+      "purl": "pkg:gem/simple-navigation@4.5.0"
+     },
+     {
+      "name": "simple_form",
+      "from": "5.3.1",
+      "to": "5.4.1",
+      "purl": "pkg:gem/simple_form@5.4.1"
+     },
+     {
+      "name": "stoplight",
+      "from": "4.1.1",
+      "to": "5.8.2",
+      "purl": "pkg:gem/stoplight@5.8.2"
+     },
+     {
+      "name": "strong_migrations",
+      "from": "2.4.0",
+      "to": "2.8.0",
+      "purl": "pkg:gem/strong_migrations@2.8.0"
+     },
+     {
+      "name": "temple",
+      "from": "0.10.3",
+      "to": "0.10.6",
+      "purl": "pkg:gem/temple@0.10.6"
+     },
+     {
+      "name": "terrapin",
+      "from": "1.1.0",
+      "to": "1.1.1",
+      "purl": "pkg:gem/terrapin@1.1.1"
+     },
+     {
+      "name": "thor",
+      "from": "1.4.0",
+      "to": "1.5.0",
+      "purl": "pkg:gem/thor@1.5.0"
+     },
+     {
+      "name": "tilt",
+      "from": "2.6.0",
+      "to": "2.8.0",
+      "purl": "pkg:gem/tilt@2.8.0"
+     },
+     {
+      "name": "timeout",
+      "from": "0.4.3",
+      "to": "0.6.1",
+      "purl": "pkg:gem/timeout@0.6.1"
+     },
+     {
+      "name": "tzinfo-data",
+      "from": "1.2025.2",
+      "to": "1.2026.3",
+      "purl": "pkg:gem/tzinfo-data@1.2026.3"
+     },
+     {
+      "name": "uri",
+      "from": "1.0.4",
+      "to": "1.1.1",
+      "purl": "pkg:gem/uri@1.1.1"
+     },
+     {
+      "name": "webauthn",
+      "from": "3.4.1",
+      "to": "3.4.3",
+      "purl": "pkg:gem/webauthn@3.4.3"
+     },
+     {
+      "name": "webrick",
+      "from": "1.9.1",
+      "to": "1.9.2",
+      "purl": "pkg:gem/webrick@1.9.2"
+     },
+     {
+      "name": "zeitwerk",
+      "from": "2.7.3",
+      "to": "2.8.3",
+      "purl": "pkg:gem/zeitwerk@2.8.3"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "psych",
+      "from": "5.2.6",
+      "to": "5.2.2",
+      "purl": "pkg:gem/psych@5.2.2"
+     },
+     {
+      "name": "stringio",
+      "from": "3.1.7",
+      "to": "3.1.2",
+      "purl": "pkg:gem/stringio@3.1.2"
+     }
+    ]
+   },
+   "npm": {
+    "added": [
+     {
+      "name": "@asamuzakjp/dom-selector",
+      "version": "8.3.2",
+      "purl": "pkg:npm/%40asamuzakjp/dom-selector@8.3.2"
+     },
+     {
+      "name": "@bramus/specificity",
+      "version": "2.4.2",
+      "purl": "pkg:npm/%40bramus/specificity@2.4.2"
+     },
+     {
+      "name": "@csstools/css-syntax-patches-for-csstree",
+      "version": "1.1.8",
+      "purl": "pkg:npm/%40csstools/css-syntax-patches-for-csstree@1.1.8"
+     },
+     {
+      "name": "@exodus/bytes",
+      "version": "1.15.1",
+      "purl": "pkg:npm/%40exodus/bytes@1.15.1"
+     },
+     {
+      "name": "@pinojs/redact",
+      "version": "0.4.0",
+      "purl": "pkg:npm/%40pinojs/redact@0.4.0"
+     },
+     {
+      "name": "async-function",
+      "version": "1.0.0",
+      "purl": "pkg:npm/async-function@1.0.0"
+     },
+     {
+      "name": "async-generator-function",
+      "version": "1.0.0",
+      "purl": "pkg:npm/async-generator-function@1.0.0"
+     },
+     {
+      "name": "bidi-js",
+      "version": "1.0.3",
+      "purl": "pkg:npm/bidi-js@1.0.3"
+     },
+     {
+      "name": "css-tree",
+      "version": "3.2.1",
+      "purl": "pkg:npm/css-tree@3.2.1"
+     },
+     {
+      "name": "generator-function",
+      "version": "2.0.1",
+      "purl": "pkg:npm/generator-function@2.0.1"
+     },
+     {
+      "name": "is-promise",
+      "version": "4.0.0",
+      "purl": "pkg:npm/is-promise@4.0.0"
+     },
+     {
+      "name": "mdn-data",
+      "version": "2.27.1",
+      "purl": "pkg:npm/mdn-data@2.27.1"
+     },
+     {
+      "name": "once",
+      "version": "1.4.0",
+      "purl": "pkg:npm/once@1.4.0"
+     },
+     {
+      "name": "require-from-string",
+      "version": "2.0.2",
+      "purl": "pkg:npm/require-from-string@2.0.2"
+     },
+     {
+      "name": "router",
+      "version": "2.2.0",
+      "purl": "pkg:npm/router@2.2.0"
+     },
+     {
+      "name": "source-map-js",
+      "version": "1.2.1",
+      "purl": "pkg:npm/source-map-js@1.2.1"
+     },
+     {
+      "name": "undici",
+      "version": "8.10.0",
+      "purl": "pkg:npm/undici@8.10.0"
+     },
+     {
+      "name": "wrappy",
+      "version": "1.0.2",
+      "purl": "pkg:npm/wrappy@1.0.2"
+     }
+    ],
+    "removed": [
+     {
+      "name": "@isaacs/cliui",
+      "version": "8.0.2",
+      "purl": "pkg:npm/%40isaacs/cliui@8.0.2"
+     },
+     {
+      "name": "@npmcli/agent",
+      "version": "2.2.0",
+      "purl": "pkg:npm/%40npmcli/agent@2.2.0"
+     },
+     {
+      "name": "@npmcli/fs",
+      "version": "3.1.0",
+      "purl": "pkg:npm/%40npmcli/fs@3.1.0"
+     },
+     {
+      "name": "@pkgjs/parseargs",
+      "version": "0.11.0",
+      "purl": "pkg:npm/%40pkgjs/parseargs@0.11.0"
+     },
+     {
+      "name": "abbrev",
+      "version": "2.0.0",
+      "purl": "pkg:npm/abbrev@2.0.0"
+     },
+     {
+      "name": "agent-base",
+      "version": "7.1.3",
+      "purl": "pkg:npm/agent-base@7.1.3"
+     },
+     {
+      "name": "aggregate-error",
+      "version": "3.1.0",
+      "purl": "pkg:npm/aggregate-error@3.1.0"
+     },
+     {
+      "name": "ansi-regex",
+      "version": "6.0.1",
+      "purl": "pkg:npm/ansi-regex@6.0.1"
+     },
+     {
+      "name": "ansi-styles",
+      "version": "6.2.1",
+      "purl": "pkg:npm/ansi-styles@6.2.1"
+     },
+     {
+      "name": "array-flatten",
+      "version": "1.1.1",
+      "purl": "pkg:npm/array-flatten@1.1.1"
+     },
+     {
+      "name": "balanced-match",
+      "version": "1.0.2",
+      "purl": "pkg:npm/balanced-match@1.0.2"
+     },
+     {
+      "name": "brace-expansion",
+      "version": "2.0.1",
+      "purl": "pkg:npm/brace-expansion@2.0.1"
+     },
+     {
+      "name": "bufferutil",
+      "version": "4.0.9",
+      "purl": "pkg:npm/bufferutil@4.0.9"
+     },
+     {
+      "name": "cacache",
+      "version": "18.0.0",
+      "purl": "pkg:npm/cacache@18.0.0"
+     },
+     {
+      "name": "chownr",
+      "version": "2.0.0",
+      "purl": "pkg:npm/chownr@2.0.0"
+     },
+     {
+      "name": "clean-stack",
+      "version": "2.2.0",
+      "purl": "pkg:npm/clean-stack@2.2.0"
+     },
+     {
+      "name": "color-convert",
+      "version": "2.0.1",
+      "purl": "pkg:npm/color-convert@2.0.1"
+     },
+     {
+      "name": "color-name",
+      "version": "1.1.4",
+      "purl": "pkg:npm/color-name@1.1.4"
+     },
+     {
+      "name": "cross-spawn",
+      "version": "7.0.6",
+      "purl": "pkg:npm/cross-spawn@7.0.6"
+     },
+     {
+      "name": "cssstyle",
+      "version": "4.2.1",
+      "purl": "pkg:npm/cssstyle@4.2.1"
+     },
+     {
+      "name": "destroy",
+      "version": "1.2.0",
+      "purl": "pkg:npm/destroy@1.2.0"
+     },
+     {
+      "name": "eastasianwidth",
+      "version": "0.2.0",
+      "purl": "pkg:npm/eastasianwidth@0.2.0"
+     },
+     {
+      "name": "emoji-regex",
+      "version": "9.2.2",
+      "purl": "pkg:npm/emoji-regex@9.2.2"
+     },
+     {
+      "name": "encoding",
+      "version": "0.1.13",
+      "purl": "pkg:npm/encoding@0.1.13"
+     },
+     {
+      "name": "env-paths",
+      "version": "2.2.1",
+      "purl": "pkg:npm/env-paths@2.2.1"
+     },
+     {
+      "name": "err-code",
+      "version": "2.0.3",
+      "purl": "pkg:npm/err-code@2.0.3"
+     },
+     {
+      "name": "exponential-backoff",
+      "version": "3.1.1",
+      "purl": "pkg:npm/exponential-backoff@3.1.1"
+     },
+     {
+      "name": "fast-redact",
+      "version": "3.3.0",
+      "purl": "pkg:npm/fast-redact@3.3.0"
+     },
+     {
+      "name": "foreground-child",
+      "version": "3.1.1",
+      "purl": "pkg:npm/foreground-child@3.1.1"
+     },
+     {
+      "name": "fs-minipass",
+      "version": "3.0.3",
+      "purl": "pkg:npm/fs-minipass@3.0.3"
+     },
+     {
+      "name": "glob",
+      "version": "10.5.0",
+      "purl": "pkg:npm/glob@10.5.0"
+     },
+     {
+      "name": "graceful-fs",
+      "version": "4.2.11",
+      "purl": "pkg:npm/graceful-fs@4.2.11"
+     },
+     {
+      "name": "http-cache-semantics",
+      "version": "4.1.1",
+      "purl": "pkg:npm/http-cache-semantics@4.1.1"
+     },
+     {
+      "name": "http-proxy-agent",
+      "version": "7.0.2",
+      "purl": "pkg:npm/http-proxy-agent@7.0.2"
+     },
+     {
+      "name": "https-proxy-agent",
+      "version": "7.0.6",
+      "purl": "pkg:npm/https-proxy-agent@7.0.6"
+     },
+     {
+      "name": "imurmurhash",
+      "version": "0.1.4",
+      "purl": "pkg:npm/imurmurhash@0.1.4"
+     },
+     {
+      "name": "indent-string",
+      "version": "4.0.0",
+      "purl": "pkg:npm/indent-string@4.0.0"
+     },
+     {
+      "name": "ip",
+      "version": "2.0.0",
+      "purl": "pkg:npm/ip@2.0.0"
+     },
+     {
+      "name": "is-fullwidth-code-point",
+      "version": "3.0.0",
+      "purl": "pkg:npm/is-fullwidth-code-point@3.0.0"
+     },
+     {
+      "name": "is-lambda",
+      "version": "1.0.1",
+      "purl": "pkg:npm/is-lambda@1.0.1"
+     },
+     {
+      "name": "isexe",
+      "version": "3.1.1",
+      "purl": "pkg:npm/isexe@3.1.1"
+     },
+     {
+      "name": "jackspeak",
+      "version": "3.1.2",
+      "purl": "pkg:npm/jackspeak@3.1.2"
+     },
+     {
+      "name": "lodash.defaults",
+      "version": "4.2.0",
+      "purl": "pkg:npm/lodash.defaults@4.2.0"
+     },
+     {
+      "name": "lodash.isarguments",
+      "version": "3.1.0",
+      "purl": "pkg:npm/lodash.isarguments@3.1.0"
+     },
+     {
+      "name": "make-fetch-happen",
+      "version": "13.0.0",
+      "purl": "pkg:npm/make-fetch-happen@13.0.0"
+     },
+     {
+      "name": "methods",
+      "version": "1.1.2",
+      "purl": "pkg:npm/methods@1.1.2"
+     },
+     {
+      "name": "mime",
+      "version": "1.6.0",
+      "purl": "pkg:npm/mime@1.6.0"
+     },
+     {
+      "name": "minimatch",
+      "version": "9.0.4",
+      "purl": "pkg:npm/minimatch@9.0.4"
+     },
+     {
+      "name": "minipass",
+      "version": "7.1.2",
+      "purl": "pkg:npm/minipass@7.1.2"
+     },
+     {
+      "name": "minipass-collect",
+      "version": "1.0.2",
+      "purl": "pkg:npm/minipass-collect@1.0.2"
+     },
+     {
+      "name": "minipass-fetch",
+      "version": "3.0.4",
+      "purl": "pkg:npm/minipass-fetch@3.0.4"
+     },
+     {
+      "name": "minipass-flush",
+      "version": "1.0.5",
+      "purl": "pkg:npm/minipass-flush@1.0.5"
+     },
+     {
+      "name": "minipass-pipeline",
+      "version": "1.2.4",
+      "purl": "pkg:npm/minipass-pipeline@1.2.4"
+     },
+     {
+      "name": "minipass-sized",
+      "version": "1.0.3",
+      "purl": "pkg:npm/minipass-sized@1.0.3"
+     },
+     {
+      "name": "minizlib",
+      "version": "2.1.2",
+      "purl": "pkg:npm/minizlib@2.1.2"
+     },
+     {
+      "name": "mkdirp",
+      "version": "1.0.4",
+      "purl": "pkg:npm/mkdirp@1.0.4"
+     },
+     {
+      "name": "node-gyp",
+      "version": "10.0.1",
+      "purl": "pkg:npm/node-gyp@10.0.1"
+     },
+     {
+      "name": "node-gyp-build",
+      "version": "4.6.1",
+      "purl": "pkg:npm/node-gyp-build@4.6.1"
+     },
+     {
+      "name": "nopt",
+      "version": "7.2.0",
+      "purl": "pkg:npm/nopt@7.2.0"
+     },
+     {
+      "name": "nwsapi",
+      "version": "2.2.16",
+      "purl": "pkg:npm/nwsapi@2.2.16"
+     },
+     {
+      "name": "p-map",
+      "version": "4.0.0",
+      "purl": "pkg:npm/p-map@4.0.0"
+     },
+     {
+      "name": "package-json-from-dist",
+      "version": "1.0.0",
+      "purl": "pkg:npm/package-json-from-dist@1.0.0"
+     },
+     {
+      "name": "path-key",
+      "version": "3.1.1",
+      "purl": "pkg:npm/path-key@3.1.1"
+     },
+     {
+      "name": "path-scurry",
+      "version": "1.11.1",
+      "purl": "pkg:npm/path-scurry@1.11.1"
+     },
+     {
+      "name": "proc-log",
+      "version": "3.0.0",
+      "purl": "pkg:npm/proc-log@3.0.0"
+     },
+     {
+      "name": "promise-retry",
+      "version": "2.0.1",
+      "purl": "pkg:npm/promise-retry@2.0.1"
+     },
+     {
+      "name": "retry",
+      "version": "0.12.0",
+      "purl": "pkg:npm/retry@0.12.0"
+     },
+     {
+      "name": "rrweb-cssom",
+      "version": "0.8.0",
+      "purl": "pkg:npm/rrweb-cssom@0.8.0"
+     },
+     {
+      "name": "safe-buffer",
+      "version": "5.2.1",
+      "purl": "pkg:npm/safe-buffer@5.2.1"
+     },
+     {
+      "name": "semver",
+      "version": "7.7.2",
+      "purl": "pkg:npm/semver@7.7.2"
+     },
+     {
+      "name": "shebang-command",
+      "version": "2.0.0",
+      "purl": "pkg:npm/shebang-command@2.0.0"
+     },
+     {
+      "name": "shebang-regex",
+      "version": "3.0.0",
+      "purl": "pkg:npm/shebang-regex@3.0.0"
+     },
+     {
+      "name": "signal-exit",
+      "version": "4.1.0",
+      "purl": "pkg:npm/signal-exit@4.1.0"
+     },
+     {
+      "name": "smart-buffer",
+      "version": "4.2.0",
+      "purl": "pkg:npm/smart-buffer@4.2.0"
+     },
+     {
+      "name": "socks",
+      "version": "2.7.1",
+      "purl": "pkg:npm/socks@2.7.1"
+     },
+     {
+      "name": "socks-proxy-agent",
+      "version": "8.0.2",
+      "purl": "pkg:npm/socks-proxy-agent@8.0.2"
+     },
+     {
+      "name": "ssri",
+      "version": "10.0.5",
+      "purl": "pkg:npm/ssri@10.0.5"
+     },
+     {
+      "name": "string-width",
+      "version": "5.1.2",
+      "purl": "pkg:npm/string-width@5.1.2"
+     },
+     {
+      "name": "strip-ansi",
+      "version": "7.1.0",
+      "purl": "pkg:npm/strip-ansi@7.1.0"
+     },
+     {
+      "name": "tar",
+      "version": "6.2.0",
+      "purl": "pkg:npm/tar@6.2.0"
+     },
+     {
+      "name": "unique-filename",
+      "version": "3.0.0",
+      "purl": "pkg:npm/unique-filename@3.0.0"
+     },
+     {
+      "name": "unique-slug",
+      "version": "4.0.0",
+      "purl": "pkg:npm/unique-slug@4.0.0"
+     },
+     {
+      "name": "utf-8-validate",
+      "version": "6.0.5",
+      "purl": "pkg:npm/utf-8-validate@6.0.5"
+     },
+     {
+      "name": "utils-merge",
+      "version": "1.0.1",
+      "purl": "pkg:npm/utils-merge@1.0.1"
+     },
+     {
+      "name": "whatwg-encoding",
+      "version": "3.1.1",
+      "purl": "pkg:npm/whatwg-encoding@3.1.1"
+     },
+     {
+      "name": "which",
+      "version": "4.0.0",
+      "purl": "pkg:npm/which@4.0.0"
+     },
+     {
+      "name": "wrap-ansi",
+      "version": "8.1.0",
+      "purl": "pkg:npm/wrap-ansi@8.1.0"
+     },
+     {
+      "name": "yallist",
+      "version": "4.0.0",
+      "purl": "pkg:npm/yallist@4.0.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "@asamuzakjp/css-color",
+      "from": "2.8.2",
+      "to": "6.0.7",
+      "purl": "pkg:npm/%40asamuzakjp/css-color@6.0.7"
+     },
+     {
+      "name": "@csstools/color-helpers",
+      "from": "5.0.2",
+      "to": "6.1.1",
+      "purl": "pkg:npm/%40csstools/color-helpers@6.1.1"
+     },
+     {
+      "name": "@csstools/css-calc",
+      "from": "2.1.4",
+      "to": "3.3.0",
+      "purl": "pkg:npm/%40csstools/css-calc@3.3.0"
+     },
+     {
+      "name": "@csstools/css-color-parser",
+      "from": "3.0.10",
+      "to": "4.2.0",
+      "purl": "pkg:npm/%40csstools/css-color-parser@4.2.0"
+     },
+     {
+      "name": "@csstools/css-parser-algorithms",
+      "from": "3.0.5",
+      "to": "4.0.0",
+      "purl": "pkg:npm/%40csstools/css-parser-algorithms@4.0.0"
+     },
+     {
+      "name": "@csstools/css-tokenizer",
+      "from": "3.0.4",
+      "to": "4.0.0",
+      "purl": "pkg:npm/%40csstools/css-tokenizer@4.0.0"
+     },
+     {
+      "name": "@ioredis/commands",
+      "from": "1.2.0",
+      "to": "1.10.0",
+      "purl": "pkg:npm/%40ioredis/commands@1.10.0"
+     },
+     {
+      "name": "@opentelemetry/api",
+      "from": "1.6.0",
+      "to": "1.9.1",
+      "purl": "pkg:npm/%40opentelemetry/api@1.9.1"
+     },
+     {
+      "name": "@rails/actiontext",
+      "from": "8.0.501",
+      "to": "8.1.401",
+      "purl": "pkg:npm/%40rails/actiontext@8.1.401"
+     },
+     {
+      "name": "accepts",
+      "from": "1.3.8",
+      "to": "2.0.0",
+      "purl": "pkg:npm/accepts@2.0.0"
+     },
+     {
+      "name": "body-parser",
+      "from": "1.20.3",
+      "to": "2.3.0",
+      "purl": "pkg:npm/body-parser@2.3.0"
+     },
+     {
+      "name": "content-disposition",
+      "from": "0.5.4",
+      "to": "1.1.0",
+      "purl": "pkg:npm/content-disposition@1.1.0"
+     },
+     {
+      "name": "content-type",
+      "from": "1.0.5",
+      "to": "2.1.0",
+      "purl": "pkg:npm/content-type@2.1.0"
+     },
+     {
+      "name": "cookie",
+      "from": "0.7.1",
+      "to": "0.7.2",
+      "purl": "pkg:npm/cookie@0.7.2"
+     },
+     {
+      "name": "cookie-signature",
+      "from": "1.0.6",
+      "to": "1.2.2",
+      "purl": "pkg:npm/cookie-signature@1.2.2"
+     },
+     {
+      "name": "cors",
+      "from": "2.8.5",
+      "to": "2.8.6",
+      "purl": "pkg:npm/cors@2.8.6"
+     },
+     {
+      "name": "data-urls",
+      "from": "5.0.0",
+      "to": "7.0.0",
+      "purl": "pkg:npm/data-urls@7.0.0"
+     },
+     {
+      "name": "debug",
+      "from": "4.4.1",
+      "to": "4.4.3",
+      "purl": "pkg:npm/debug@4.4.3"
+     },
+     {
+      "name": "decimal.js",
+      "from": "10.5.0",
+      "to": "10.6.0",
+      "purl": "pkg:npm/decimal.js@10.6.0"
+     },
+     {
+      "name": "dotenv",
+      "from": "16.5.0",
+      "to": "17.4.2",
+      "purl": "pkg:npm/dotenv@17.4.2"
+     },
+     {
+      "name": "entities",
+      "from": "4.5.0",
+      "to": "8.0.0",
+      "purl": "pkg:npm/entities@8.0.0"
+     },
+     {
+      "name": "es-object-atoms",
+      "from": "1.1.1",
+      "to": "1.1.2",
+      "purl": "pkg:npm/es-object-atoms@1.1.2"
+     },
+     {
+      "name": "express",
+      "from": "4.21.2",
+      "to": "5.2.1",
+      "purl": "pkg:npm/express@5.2.1"
+     },
+     {
+      "name": "finalhandler",
+      "from": "1.3.1",
+      "to": "2.1.1",
+      "purl": "pkg:npm/finalhandler@2.1.1"
+     },
+     {
+      "name": "fresh",
+      "from": "0.5.2",
+      "to": "2.0.0",
+      "purl": "pkg:npm/fresh@2.0.0"
+     },
+     {
+      "name": "get-intrinsic",
+      "from": "1.3.0",
+      "to": "1.3.1",
+      "purl": "pkg:npm/get-intrinsic@1.3.1"
+     },
+     {
+      "name": "hasown",
+      "from": "2.0.2",
+      "to": "2.0.4",
+      "purl": "pkg:npm/hasown@2.0.4"
+     },
+     {
+      "name": "html-encoding-sniffer",
+      "from": "4.0.0",
+      "to": "6.0.0",
+      "purl": "pkg:npm/html-encoding-sniffer@6.0.0"
+     },
+     {
+      "name": "http-errors",
+      "from": "2.0.0",
+      "to": "2.0.1",
+      "purl": "pkg:npm/http-errors@2.0.1"
+     },
+     {
+      "name": "iconv-lite",
+      "from": "0.6.3",
+      "to": "0.7.3",
+      "purl": "pkg:npm/iconv-lite@0.7.3"
+     },
+     {
+      "name": "ioredis",
+      "from": "5.6.1",
+      "to": "5.11.1",
+      "purl": "pkg:npm/ioredis@5.11.1"
+     },
+     {
+      "name": "jsdom",
+      "from": "26.1.0",
+      "to": "30.0.1",
+      "purl": "pkg:npm/jsdom@30.0.1"
+     },
+     {
+      "name": "lru-cache",
+      "from": "11.0.2",
+      "to": "11.5.2",
+      "purl": "pkg:npm/lru-cache@11.5.2"
+     },
+     {
+      "name": "media-typer",
+      "from": "0.3.0",
+      "to": "1.1.1",
+      "purl": "pkg:npm/media-typer@1.1.1"
+     },
+     {
+      "name": "merge-descriptors",
+      "from": "1.0.3",
+      "to": "2.0.0",
+      "purl": "pkg:npm/merge-descriptors@2.0.0"
+     },
+     {
+      "name": "mime-db",
+      "from": "1.52.0",
+      "to": "1.54.0",
+      "purl": "pkg:npm/mime-db@1.54.0"
+     },
+     {
+      "name": "mime-types",
+      "from": "2.1.35",
+      "to": "3.0.2",
+      "purl": "pkg:npm/mime-types@3.0.2"
+     },
+     {
+      "name": "negotiator",
+      "from": "0.6.3",
+      "to": "1.0.0",
+      "purl": "pkg:npm/negotiator@1.0.0"
+     },
+     {
+      "name": "parse5",
+      "from": "7.2.1",
+      "to": "8.0.1",
+      "purl": "pkg:npm/parse5@8.0.1"
+     },
+     {
+      "name": "path-to-regexp",
+      "from": "0.1.12",
+      "to": "8.4.2",
+      "purl": "pkg:npm/path-to-regexp@8.4.2"
+     },
+     {
+      "name": "pg",
+      "from": "8.16.3",
+      "to": "8.23.0",
+      "purl": "pkg:npm/pg@8.23.0"
+     },
+     {
+      "name": "pg-cloudflare",
+      "from": "1.2.7",
+      "to": "1.4.0",
+      "purl": "pkg:npm/pg-cloudflare@1.4.0"
+     },
+     {
+      "name": "pg-connection-string",
+      "from": "2.9.1",
+      "to": "2.14.0",
+      "purl": "pkg:npm/pg-connection-string@2.14.0"
+     },
+     {
+      "name": "pg-pool",
+      "from": "3.10.1",
+      "to": "3.14.0",
+      "purl": "pkg:npm/pg-pool@3.14.0"
+     },
+     {
+      "name": "pg-protocol",
+      "from": "1.10.3",
+      "to": "1.16.0",
+      "purl": "pkg:npm/pg-protocol@1.16.0"
+     },
+     {
+      "name": "pino",
+      "from": "9.7.0",
+      "to": "10.3.1",
+      "purl": "pkg:npm/pino@10.3.1"
+     },
+     {
+      "name": "pino-abstract-transport",
+      "from": "2.0.0",
+      "to": "3.0.0",
+      "purl": "pkg:npm/pino-abstract-transport@3.0.0"
+     },
+     {
+      "name": "pino-http",
+      "from": "10.5.0",
+      "to": "11.0.0",
+      "purl": "pkg:npm/pino-http@11.0.0"
+     },
+     {
+      "name": "pino-std-serializers",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:npm/pino-std-serializers@7.1.0"
+     },
+     {
+      "name": "postgres-bytea",
+      "from": "1.0.0",
+      "to": "1.0.1",
+      "purl": "pkg:npm/postgres-bytea@1.0.1"
+     },
+     {
+      "name": "process-warning",
+      "from": "5.0.0",
+      "to": "5.1.0",
+      "purl": "pkg:npm/process-warning@5.1.0"
+     },
+     {
+      "name": "qs",
+      "from": "6.13.0",
+      "to": "6.15.3",
+      "purl": "pkg:npm/qs@6.15.3"
+     },
+     {
+      "name": "range-parser",
+      "from": "1.2.1",
+      "to": "1.3.0",
+      "purl": "pkg:npm/range-parser@1.3.0"
+     },
+     {
+      "name": "raw-body",
+      "from": "2.5.2",
+      "to": "3.0.2",
+      "purl": "pkg:npm/raw-body@3.0.2"
+     },
+     {
+      "name": "real-require",
+      "from": "0.2.0",
+      "to": "1.0.0",
+      "purl": "pkg:npm/real-require@1.0.0"
+     },
+     {
+      "name": "safe-stable-stringify",
+      "from": "2.4.3",
+      "to": "2.5.0",
+      "purl": "pkg:npm/safe-stable-stringify@2.5.0"
+     },
+     {
+      "name": "send",
+      "from": "0.19.0",
+      "to": "1.2.1",
+      "purl": "pkg:npm/send@1.2.1"
+     },
+     {
+      "name": "serve-static",
+      "from": "1.16.2",
+      "to": "2.2.1",
+      "purl": "pkg:npm/serve-static@2.2.1"
+     },
+     {
+      "name": "side-channel",
+      "from": "1.1.0",
+      "to": "1.1.1",
+      "purl": "pkg:npm/side-channel@1.1.1"
+     },
+     {
+      "name": "side-channel-list",
+      "from": "1.0.0",
+      "to": "1.0.1",
+      "purl": "pkg:npm/side-channel-list@1.0.1"
+     },
+     {
+      "name": "sonic-boom",
+      "from": "4.0.1",
+      "to": "4.2.1",
+      "purl": "pkg:npm/sonic-boom@4.2.1"
+     },
+     {
+      "name": "statuses",
+      "from": "2.0.1",
+      "to": "2.0.2",
+      "purl": "pkg:npm/statuses@2.0.2"
+     },
+     {
+      "name": "thread-stream",
+      "from": "3.0.0",
+      "to": "4.2.0",
+      "purl": "pkg:npm/thread-stream@4.2.0"
+     },
+     {
+      "name": "tldts",
+      "from": "6.1.47",
+      "to": "7.4.10",
+      "purl": "pkg:npm/tldts@7.4.10"
+     },
+     {
+      "name": "tldts-core",
+      "from": "6.1.47",
+      "to": "7.4.10",
+      "purl": "pkg:npm/tldts-core@7.4.10"
+     },
+     {
+      "name": "tough-cookie",
+      "from": "5.1.2",
+      "to": "6.0.2",
+      "purl": "pkg:npm/tough-cookie@6.0.2"
+     },
+     {
+      "name": "tr46",
+      "from": "5.1.0",
+      "to": "6.0.0",
+      "purl": "pkg:npm/tr46@6.0.0"
+     },
+     {
+      "name": "type-is",
+      "from": "1.6.18",
+      "to": "2.1.0",
+      "purl": "pkg:npm/type-is@2.1.0"
+     },
+     {
+      "name": "uuid",
+      "from": "11.1.0",
+      "to": "14.0.1",
+      "purl": "pkg:npm/uuid@14.0.1"
+     },
+     {
+      "name": "webidl-conversions",
+      "from": "7.0.0",
+      "to": "8.0.1",
+      "purl": "pkg:npm/webidl-conversions@8.0.1"
+     },
+     {
+      "name": "whatwg-mimetype",
+      "from": "4.0.0",
+      "to": "5.0.0",
+      "purl": "pkg:npm/whatwg-mimetype@5.0.0"
+     },
+     {
+      "name": "whatwg-url",
+      "from": "14.2.0",
+      "to": "17.1.0",
+      "purl": "pkg:npm/whatwg-url@17.1.0"
+     },
+     {
+      "name": "ws",
+      "from": "8.18.3",
+      "to": "8.21.3",
+      "purl": "pkg:npm/ws@8.21.3"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "cluster-key-slot",
+      "from": "1.1.2",
+      "to": "1.1.1",
+      "purl": "pkg:npm/cluster-key-slot@1.1.1"
+     }
+    ]
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.2",
+      "purl": "pkg:generic/composer@2.11.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 48,
+  "removed": 196,
+  "upgraded": 546,
+  "downgraded": 6
+ }
+}

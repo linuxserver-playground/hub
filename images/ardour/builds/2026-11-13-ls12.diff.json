@@ -1,0 +1,417 @@
+{
+ "image": "ardour",
+ "branch": "master",
+ "tag": "2026-11-13-ls12",
+ "previous_tag": "2026-11-13-ls11",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (5965d4a → a2c42be): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-13",
+  "to": "2026-11-13",
+  "changed": false
+ },
+ "commit": {
+  "from": "5965d4a9a39e161d91993144d7353a65d3b33f14",
+  "to": "a2c42bed4e47816ca0d23985306eaeac88268332",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-ardour/compare/5965d4a9a39e161d91993144d7353a65d3b33f14...a2c42bed4e47816ca0d23985306eaeac88268332",
+  "commits": [
+   {
+    "sha": "a2c42bed4e47816ca0d23985306eaeac88268332",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-14T11:20:36Z",
+    "url": "https://github.com/linuxserver-playground/docker-ardour/commit/a2c42bed4e47816ca0d23985306eaeac88268332",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b3ebf9fbab39d22eee091564f1a3a8e375a2f7c7531da4239eb5601cf53b5135"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:ef32147f7d33317846cfeb87e72ca304e035e1f31d5b715e65426c257ae06eaf"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1312098766,
+   "to": 1312344909,
+   "delta": 246143
+  },
+  "arm64": {
+   "from": 1356957651,
+   "to": 1359262782,
+   "delta": 2305131
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ardour",
+      "from": "9.8-1",
+      "to": "9.10-1",
+      "purl": "pkg:alpm/arch/ardour@9.10-1?arch=x86_64&distro=arch-rolling&upstream=ardour"
+     },
+     {
+      "name": "ffmpeg",
+      "from": "2:9.0.2-3",
+      "to": "2:9.0.2-5",
+      "purl": "pkg:alpm/arch/ffmpeg@2%3A9.0.2-5?arch=x86_64&distro=arch-rolling&upstream=ffmpeg"
+     },
+     {
+      "name": "glibc",
+      "from": "2.44+r50+g1848099f063e-1",
+      "to": "2.44+r78+gfcfb867c58ab-1",
+      "purl": "pkg:alpm/arch/glibc@2.44%2Br78%2Bgfcfb867c58ab-1?arch=x86_64&distro=arch-rolling&upstream=glibc"
+     },
+     {
+      "name": "glibc-locales",
+      "from": "2.44+r50+g1848099f063e-1",
+      "to": "2.44+r78+gfcfb867c58ab-1",
+      "purl": "pkg:alpm/arch/glibc-locales@2.44%2Br78%2Bgfcfb867c58ab-1?arch=x86_64&distro=arch-rolling&upstream=glibc"
+     },
+     {
+      "name": "imlib2",
+      "from": "1.12.7-3",
+      "to": "1.13.0-1",
+      "purl": "pkg:alpm/arch/imlib2@1.13.0-1?arch=x86_64&distro=arch-rolling&upstream=imlib2"
+     },
+     {
+      "name": "labwc",
+      "from": "0.20.2-1",
+      "to": "0.20.3-2",
+      "purl": "pkg:alpm/arch/labwc@0.20.3-2?arch=x86_64&distro=arch-rolling&upstream=labwc"
+     },
+     {
+      "name": "libmodplug",
+      "from": "0.8.9.0-7",
+      "to": "0.8.9.2-1",
+      "purl": "pkg:alpm/arch/libmodplug@0.8.9.2-1?arch=x86_64&distro=arch-rolling&upstream=libmodplug"
+     },
+     {
+      "name": "libpipewire",
+      "from": "1:1.6.11-1",
+      "to": "1:1.6.11-2",
+      "purl": "pkg:alpm/arch/libpipewire@1%3A1.6.11-2?arch=x86_64&distro=arch-rolling&upstream=pipewire"
+     },
+     {
+      "name": "libplacebo",
+      "from": "7.360.1-7",
+      "to": "7.387.0-1",
+      "purl": "pkg:alpm/arch/libplacebo@7.387.0-1?arch=x86_64&distro=arch-rolling&upstream=libplacebo"
+     },
+     {
+      "name": "poppler",
+      "from": "26.10.0-2",
+      "to": "26.11.0-1",
+      "purl": "pkg:alpm/arch/poppler@26.11.0-1?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "runc",
+      "from": "1.5.2-1",
+      "to": "1.5.3-1",
+      "purl": "pkg:alpm/arch/runc@1.5.3-1?arch=x86_64&distro=arch-rolling&upstream=runc"
+     },
+     {
+      "name": "svt-av1",
+      "from": "4.2.0-1",
+      "to": "4.3.0-1",
+      "purl": "pkg:alpm/arch/svt-av1@4.3.0-1?arch=x86_64&distro=arch-rolling&upstream=svt-av1"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.7",
+      "to": "0.163.1",
+      "purl": "pkg:pypi/fastapi@0.163.1"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ardour",
+      "from": "9.8-1",
+      "to": "9.10-1",
+      "purl": null
+     },
+     {
+      "name": "automake",
+      "from": "1.19-1",
+      "to": "1.20-1",
+      "purl": null
+     },
+     {
+      "name": "cmake",
+      "from": "4.4.5-1",
+      "to": "4.5.0-1",
+      "purl": null
+     },
+     {
+      "name": "dbus",
+      "from": "1.16.2-2",
+      "to": "1.16.4-1",
+      "purl": null
+     },
+     {
+      "name": "docker-compose",
+      "from": "5.7.0-1",
+      "to": "5.7.1-1",
+      "purl": null
+     },
+     {
+      "name": "ffmpeg",
+      "from": "2:9.0.2-3",
+      "to": "2:9.0.2-5",
+      "purl": null
+     },
+     {
+      "name": "flex",
+      "from": "2.6.4-6",
+      "to": "2.6.10-1",
+      "purl": null
+     },
+     {
+      "name": "gperftools",
+      "from": "2.19.2-1",
+      "to": "2.19.3-1",
+      "purl": null
+     },
+     {
+      "name": "imlib2",
+      "from": "1.12.7-3",
+      "to": "1.13.0-1",
+      "purl": null
+     },
+     {
+      "name": "labwc",
+      "from": "0.20.2-1",
+      "to": "0.20.3-2",
+      "purl": null
+     },
+     {
+      "name": "libmodplug",
+      "from": "0.8.9.0-7",
+      "to": "0.8.9.2-1",
+      "purl": null
+     },
+     {
+      "name": "libp11-kit",
+      "from": "0.26.5-1",
+      "to": "0.26.6-1",
+      "purl": null
+     },
+     {
+      "name": "libplacebo",
+      "from": "7.360.1-7",
+      "to": "7.387.0-1",
+      "purl": null
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.4-1.1",
+      "to": "23.1.5-1.2",
+      "purl": null
+     },
+     {
+      "name": "mesa",
+      "from": "1:26.2.6-1",
+      "to": "1:26.2.7-1",
+      "purl": null
+     },
+     {
+      "name": "openssh",
+      "from": "10.6p1-3",
+      "to": "10.6p2-1",
+      "purl": null
+     },
+     {
+      "name": "p11-kit",
+      "from": "0.26.5-1",
+      "to": "0.26.6-1",
+      "purl": null
+     },
+     {
+      "name": "python-platformdirs",
+      "from": "4.14.3-1",
+      "to": "4.14.5-1",
+      "purl": null
+     },
+     {
+      "name": "runc",
+      "from": "1.5.2-1",
+      "to": "1.5.3-1",
+      "purl": null
+     },
+     {
+      "name": "sdl3",
+      "from": "3.4.18-1",
+      "to": "3.4.20-1",
+      "purl": null
+     },
+     {
+      "name": "vulkan-broadcom",
+      "from": "1:26.2.6-1",
+      "to": "1:26.2.7-1",
+      "purl": null
+     },
+     {
+      "name": "vulkan-mesa-implicit-layers",
+      "from": "1:26.2.6-1",
+      "to": "1:26.2.7-1",
+      "purl": null
+     },
+     {
+      "name": "vulkan-radeon",
+      "from": "1:26.2.6-1",
+      "to": "1:26.2.7-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     },
+     {
+      "name": "google.golang.org/grpc",
+      "from": "v1.84.0",
+      "to": "v1.85.0",
+      "purl": "pkg:golang/google.golang.org/grpc@v1.85.0"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3-X:nodwarf5",
+      "to": "go1.27.4-X:nodwarf5",
+      "purl": "pkg:golang/stdlib@1.27.4-X%3Anodwarf5"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fastapi",
+      "from": "0.162.7",
+      "to": "0.163.1",
+      "purl": "pkg:pypi/fastapi@0.163.1"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.14.3",
+      "to": "4.14.5",
+      "purl": "pkg:pypi/platformdirs@4.14.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 45,
+  "downgraded": 1
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "image": "tautulli",
+ "branch": "develop",
+ "tag": "develop-f4284391-ls19",
+ "previous_tag": "develop-f4284391-ls18",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed"
+ ],
+ "upstream": {
+  "from": "f4284391",
+  "to": "f4284391",
+  "changed": false
+ },
+ "commit": {
+  "from": "fe4ca7e0e2c275c56b3b0308494a99d94e96afe5",
+  "to": "fe4ca7e0e2c275c56b3b0308494a99d94e96afe5",
+  "changed": false,
+  "compare_url": null
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:149bdce0bc2d9276e6727f2e6912bc69c0df4d3606b355267cd72a443551f067"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 58985805,
+   "to": 58986272,
+   "delta": 467
+  },
+  "arm64": {
+   "from": 59875866,
+   "to": 59876578,
+   "delta": 712
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

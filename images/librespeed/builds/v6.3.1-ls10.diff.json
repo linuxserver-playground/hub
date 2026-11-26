@@ -1,0 +1,137 @@
+{
+ "image": "librespeed",
+ "branch": "master",
+ "tag": "v6.3.1-ls10",
+ "previous_tag": "v6.3.1-ls9",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (2ce6cfe → 3f48aa2): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v6.3.1",
+  "to": "v6.3.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "2ce6cfe9471dae883167d6e5126f47908e92a079",
+  "to": "3f48aa2b8618e117d89b1648495c54e60caf47f6",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-librespeed/compare/2ce6cfe9471dae883167d6e5126f47908e92a079...3f48aa2b8618e117d89b1648495c54e60caf47f6",
+  "commits": [
+   {
+    "sha": "3f48aa2b8618e117d89b1648495c54e60caf47f6",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-21T19:57:11Z",
+    "url": "https://github.com/linuxserver-playground/docker-librespeed/commit/3f48aa2b8618e117d89b1648495c54e60caf47f6",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:00312088782a28947c9a7313c8e27d684f234fc088e841b851982e3a96231587"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:90e1d9b01158670ba81c54855c51233dcd82129a723a24f5e922ac4b452f56be"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 67064723,
+   "to": 64488133,
+   "delta": -2576590
+  },
+  "arm64": {
+   "from": 67906461,
+   "to": 65023316,
+   "delta": -2883145
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r2",
+      "to": "2.13.9-r3",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r3?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.2",
+      "to": "2.11.3",
+      "purl": "pkg:generic/composer@2.11.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r2",
+      "to": "2.13.9-r3",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r3?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 3,
+  "downgraded": 0
+ }
+}

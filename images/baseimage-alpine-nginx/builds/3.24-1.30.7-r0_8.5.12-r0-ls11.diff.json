@@ -1,0 +1,304 @@
+{
+ "image": "baseimage-alpine-nginx",
+ "branch": "3.24",
+ "tag": "3.24-1.30.7-r0_8.5.12-r0-ls11",
+ "previous_tag": "3.24-1.30.6-r0_8.5.12-r0-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "base image digest changed",
+  "packages changed",
+  "5 commits (e9e29f4 → bd416c0): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "1.30.6-r0_8.5.12-r0",
+  "to": "1.30.7-r0_8.5.12-r0",
+  "changed": true
+ },
+ "commit": {
+  "from": "e9e29f48feea1f3b77e4dafbe6598cc93d85244c",
+  "to": "bd416c075342514cf182bc255433297cbfad7fc3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/compare/e9e29f48feea1f3b77e4dafbe6598cc93d85244c...bd416c075342514cf182bc255433297cbfad7fc3",
+  "commits": [
+   {
+    "sha": "dc4c670de7b0724d0649beb762e57afff2c5bddc",
+    "subject": "Update package versions",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T05:22:08Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/dc4c670de7b0724d0649beb762e57afff2c5bddc",
+    "bot": true
+   },
+   {
+    "sha": "15c9a220b7e689e0c124bfb16a61c073534393d6",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-10-30T23:33:56Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/15c9a220b7e689e0c124bfb16a61c073534393d6",
+    "bot": true
+   },
+   {
+    "sha": "2f9463096df812dfb746bf8c3f3624218168a4c6",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T09:24:47Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/2f9463096df812dfb746bf8c3f3624218168a4c6",
+    "bot": true
+   },
+   {
+    "sha": "08d629bcc94917b8c10a98bcaa1ade1be59bc032",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T09:25:08Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/08d629bcc94917b8c10a98bcaa1ade1be59bc032",
+    "bot": true
+   },
+   {
+    "sha": "bd416c075342514cf182bc255433297cbfad7fc3",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T05:24:41Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-alpine-nginx/commit/bd416c075342514cf182bc255433297cbfad7fc3",
+    "bot": true
+   }
+  ],
+  "count": 5,
+  "truncated": false,
+  "areas": {
+   "generated": 2,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 28565553,
+   "to": 28619206,
+   "delta": 53653
+  },
+  "arm64": {
+   "from": 29359787,
+   "to": 29410875,
+   "delta": 51088
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apache2"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=x86_64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=x86_64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.2",
+      "purl": "pkg:generic/composer@2.11.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "alpine-release",
+      "from": "3.24.3-r0",
+      "to": "3.24.4-r0",
+      "purl": "pkg:apk/alpine/alpine-release@3.24.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=alpine-base"
+     },
+     {
+      "name": "apache2-utils",
+      "from": "2.4.69-r0",
+      "to": "2.4.71-r0",
+      "purl": "pkg:apk/alpine/apache2-utils@2.4.71-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apache2"
+     },
+     {
+      "name": "apk-tools",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/apk-tools@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "git-init-template",
+      "from": "2.54.0-r0",
+      "to": "2.54.1-r0",
+      "purl": "pkg:apk/alpine/git-init-template@2.54.1-r0?arch=aarch64&distro=alpine-3.24.4&upstream=git"
+     },
+     {
+      "name": "libapk",
+      "from": "3.0.8-r0",
+      "to": "3.0.9-r0",
+      "purl": "pkg:apk/alpine/libapk@3.0.9-r0?arch=aarch64&distro=alpine-3.24.4&upstream=apk-tools"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-r0",
+      "to": "2026f-r0",
+      "purl": "pkg:apk/alpine/tzdata@2026f-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zlib",
+      "from": "1.3.2-r1",
+      "to": "1.4-r0",
+      "purl": "pkg:apk/alpine/zlib@1.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.10.3",
+      "to": "2.11.2",
+      "purl": "pkg:generic/composer@2.11.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 22,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,320 @@
+{
+ "schema": 1,
+ "name": "webtop",
+ "summary": "[Webtop](https://github.com/linuxserver/docker-webtop) - Alpine, Ubuntu, Fedora, and Arch based containers containing full desktop environments in officially supported flavors accessible via any modern web browser.",
+ "upstream": {
+  "url": "https://github.com/linuxserver/docker-webtop",
+  "version": {
+   "type": "os"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "XFCE Alpine *Wayland Support"
+   },
+   {
+    "tag": "alpine-i3",
+    "description": "i3 Alpine *Wayland Support",
+    "deprecated": false
+   },
+   {
+    "tag": "alpine-kde",
+    "description": "KDE Alpine *Wayland Only"
+   },
+   {
+    "tag": "alpine-mate",
+    "description": "MATE Alpine",
+    "deprecated": false
+   },
+   {
+    "tag": "arch-i3",
+    "description": "i3 Arch *Wayland Support",
+    "deprecated": false
+   },
+   {
+    "tag": "arch-kde",
+    "description": "KDE Arch *Wayland Only",
+    "deprecated": false
+   },
+   {
+    "tag": "arch-mate",
+    "description": "MATE Arch",
+    "deprecated": false
+   },
+   {
+    "tag": "arch-xfce",
+    "description": "XFCE Arch *Wayland Support",
+    "deprecated": false
+   },
+   {
+    "tag": "debian-i3",
+    "description": "i3 Debian *Wayland Support",
+    "deprecated": false
+   },
+   {
+    "tag": "debian-kde",
+    "description": "KDE Debian",
+    "deprecated": false
+   },
+   {
+    "tag": "debian-mate",
+    "description": "MATE Debian",
+    "deprecated": false
+   },
+   {
+    "tag": "debian-xfce",
+    "description": "XFCE Debian",
+    "deprecated": false
+   },
+   {
+    "tag": "fedora-i3",
+    "description": "i3 Fedora *Wayland Support",
+    "deprecated": false
+   },
+   {
+    "tag": "fedora-kde",
+    "description": "KDE Fedora *Wayland Support",
+    "deprecated": false
+   },
+   {
+    "tag": "fedora-mate",
+    "description": "MATE Fedora",
+    "deprecated": false
+   },
+   {
+    "tag": "fedora-xfce",
+    "description": "XFCE Fedora",
+    "deprecated": false
+   },
+   {
+    "tag": "ubuntu-i3",
+    "description": "i3 Ubuntu *Wayland Support",
+    "deprecated": false
+   },
+   {
+    "tag": "ubuntu-kde",
+    "description": "KDE Ubuntu *Wayland Support"
+   },
+   {
+    "tag": "ubuntu-lxqt",
+    "description": "LXQt Ubuntu *Wayland Support",
+    "deprecated": false
+   },
+   {
+    "tag": "ubuntu-mate",
+    "description": "MATE Ubuntu",
+    "deprecated": false
+   },
+   {
+    "tag": "ubuntu-xfce",
+    "description": "XFCE Ubuntu *Wayland Support",
+    "deprecated": false
+   },
+   {
+    "tag": "dev",
+    "description": "KDE Ubuntu *Current Selkies Development Head",
+    "deprecated": false
+   }
+  ]
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "XFCE_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 60,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password",
+   "screenshot_delay": 30
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "Web Desktop GUI HTTP, must be proxied"
+   },
+   {
+    "internal": "3001",
+    "description": "Web Desktop GUI HTTPS"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/data",
+    "description": "abc users home directory"
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "Recommended for all desktop images."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Remote Desktop"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/webtop-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-10-02",
+   "text": "Quality of life upgrades for KDE, MATE, and Xfce. Install base packages for flavors initialize KDE sessions properly."
+  },
+  {
+   "date": "2026-09-21",
+   "text": "Updates for Selkies v2, add x11 init for ubuntu-kde, show ubuntu-lxqt branch."
+  },
+  {
+   "date": "2026-06-10",
+   "text": "Rebase Alpine images to 3.24."
+  },
+  {
+   "date": "2026-05-07",
+   "text": "Deprecate Enterprise Linux tags."
+  },
+  {
+   "date": "2026-04-07",
+   "text": "Rebase Ubuntu images to Resolute."
+  },
+  {
+   "date": "2026-03-26",
+   "text": "Rebase Fedora images to 44."
+  },
+  {
+   "date": "2026-03-24",
+   "text": "Update tags that support Wayland to pass ozone platform for chromium."
+  },
+  {
+   "date": "2025-12-27",
+   "text": "Rebase Alpine images to 3.23."
+  },
+  {
+   "date": "2025-11-17",
+   "text": "Rebase Fedora images to 43."
+  },
+  {
+   "date": "2025-07-24",
+   "text": "Rebase Debian images to Trixie."
+  },
+  {
+   "date": "2025-06-17",
+   "text": "Rebase all images to Selkies, drop openbox and icewm, bump Alpine to 3.22, bump Fedora to 42."
+  },
+  {
+   "date": "2025-01-10",
+   "text": "Rebase Fedora to 41."
+  },
+  {
+   "date": "2024-12-06",
+   "text": "Rebase Alpine to 3.21."
+  },
+  {
+   "date": "2024-09-26",
+   "text": "Swap from firefox to chromium on Alpine images."
+  },
+  {
+   "date": "2024-05-23",
+   "text": "Rebase Alpine to 3.20, document Nvidia support."
+  },
+  {
+   "date": "2024-04-22",
+   "text": "Rebase Ubuntu to Noble."
+  },
+  {
+   "date": "2024-04-16",
+   "text": "Add docs on PRoot Apps."
+  },
+  {
+   "date": "2024-04-14",
+   "text": "Rebase Fedora to 40."
+  },
+  {
+   "date": "2024-02-11",
+   "text": "Add PWA icons and title variants properly."
+  },
+  {
+   "date": "2024-02-06",
+   "text": "Update Readme about native language support."
+  },
+  {
+   "date": "2023-12-29",
+   "text": "Rebase Alpine to 3.19 and swap back to Firefox."
+  },
+  {
+   "date": "2023-11-07",
+   "text": "Rebase Fedora to 39."
+  },
+  {
+   "date": "2023-06-14",
+   "text": "Rebase to Debian Bookworm."
+  },
+  {
+   "date": "2023-05-13",
+   "text": "Rebase to Alpine 3.18 and Fedora 38."
+  },
+  {
+   "date": "2023-03-23",
+   "text": "Rebase all Webtops to KasmVNC base image."
+  },
+  {
+   "date": "2022-10-21",
+   "text": "Rebase xfce to Alpine 3.16, migrate to s6v3."
+  },
+  {
+   "date": "2022-03-12",
+   "text": "Add documentation for mounting in a GPU."
+  },
+  {
+   "date": "2022-02-05",
+   "text": "Rebase KDE Ubuntu to Jammy, add new documentation for updated gclient, stop recommending priv mode."
+  },
+  {
+   "date": "2021-09-26",
+   "text": "Rebase to Alpine versions to 3.14."
+  },
+  {
+   "date": "2021-09-21",
+   "text": "Add Fedora and Arch images, show seccomp settings in readme."
+  },
+  {
+   "date": "2021-04-20",
+   "text": "Initial release."
+  }
+ ]
+}

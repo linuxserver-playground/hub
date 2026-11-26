@@ -1,0 +1,294 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "fedora44",
+ "tag": "fedora44-6f865653-ls13",
+ "previous_tag": "fedora44-135a75e9-ls12",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (5b22795 → a8702c0): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "135a75e9",
+  "to": "6f865653",
+  "changed": true
+ },
+ "commit": {
+  "from": "5b22795bf9126db94480cbe5a102a9822d22be1a",
+  "to": "a8702c04aca2c4b2d8ba173d890b4d8b3db7b4d8",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/5b22795bf9126db94480cbe5a102a9822d22be1a...a8702c04aca2c4b2d8ba173d890b4d8b3db7b4d8",
+  "commits": [
+   {
+    "sha": "a8702c04aca2c4b2d8ba173d890b4d8b3db7b4d8",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-21T03:57:59Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/a8702c04aca2c4b2d8ba173d890b4d8b3db7b4d8",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:e47d757e7b31d809e20928c931aff0e19d58cf5cde3a381d958ac11bf8eb93d8"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:e47d757e7b31d809e20928c931aff0e19d58cf5cde3a381d958ac11bf8eb93d8"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 883130775,
+   "to": 881890498,
+   "delta": -1240277
+  },
+  "arm64": {
+   "from": 789950362,
+   "to": 788335439,
+   "delta": -1614923
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pylibsrtp",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:pypi/pylibsrtp@1.1.0"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dbus",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus@1.16.4-2.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-common",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-common@1.16.4-2.fc44?arch=noarch&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-daemon",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-daemon@1.16.4-2.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-libs",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-libs@1.16.4-2.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-tools",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-tools@1.16.4-2.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-x11",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-x11@1.16.4-2.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "poppler",
+      "from": "26.01.0-3.fc44",
+      "to": "26.01.0-6.fc44",
+      "purl": "pkg:rpm/fedora/poppler@26.01.0-6.fc44?arch=x86_64&distro=fedora-44&upstream=poppler-26.01.0-6.fc44.src.rpm"
+     },
+     {
+      "name": "poppler-cpp",
+      "from": "26.01.0-3.fc44",
+      "to": "26.01.0-6.fc44",
+      "purl": "pkg:rpm/fedora/poppler-cpp@26.01.0-6.fc44?arch=x86_64&distro=fedora-44&upstream=poppler-26.01.0-6.fc44.src.rpm"
+     },
+     {
+      "name": "poppler-utils",
+      "from": "26.01.0-3.fc44",
+      "to": "26.01.0-6.fc44",
+      "purl": "pkg:rpm/fedora/poppler-utils@26.01.0-6.fc44?arch=x86_64&distro=fedora-44&upstream=poppler-26.01.0-6.fc44.src.rpm"
+     },
+     {
+      "name": "selinux-policy",
+      "from": "44.11-1.fc44",
+      "to": "44.12-1.fc44",
+      "purl": "pkg:rpm/fedora/selinux-policy@44.12-1.fc44?arch=noarch&distro=fedora-44&upstream=selinux-policy-44.12-1.fc44.src.rpm"
+     },
+     {
+      "name": "selinux-policy-targeted",
+      "from": "44.11-1.fc44",
+      "to": "44.12-1.fc44",
+      "purl": "pkg:rpm/fedora/selinux-policy-targeted@44.12-1.fc44?arch=noarch&distro=fedora-44&upstream=selinux-policy-44.12-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-Xwayland",
+      "from": "24.1.14-2.fc44",
+      "to": "24.1.15-1.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-Xwayland@24.1.15-1.fc44?arch=x86_64&distro=fedora-44&upstream=xorg-x11-server-Xwayland-24.1.15-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pylibsrtp",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:pypi/pylibsrtp@1.1.0"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "dbus",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus@1.16.4-2.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-common",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-common@1.16.4-2.fc44?arch=noarch&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-daemon",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-daemon@1.16.4-2.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-libs",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-libs@1.16.4-2.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-tools",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-tools@1.16.4-2.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "dbus-x11",
+      "from": "1:1.16.2-1.fc44",
+      "to": "1:1.16.4-2.fc44",
+      "purl": "pkg:rpm/fedora/dbus-x11@1.16.4-2.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=dbus-1.16.4-2.fc44.src.rpm"
+     },
+     {
+      "name": "poppler",
+      "from": "26.01.0-3.fc44",
+      "to": "26.01.0-6.fc44",
+      "purl": "pkg:rpm/fedora/poppler@26.01.0-6.fc44?arch=aarch64&distro=fedora-44&upstream=poppler-26.01.0-6.fc44.src.rpm"
+     },
+     {
+      "name": "poppler-cpp",
+      "from": "26.01.0-3.fc44",
+      "to": "26.01.0-6.fc44",
+      "purl": "pkg:rpm/fedora/poppler-cpp@26.01.0-6.fc44?arch=aarch64&distro=fedora-44&upstream=poppler-26.01.0-6.fc44.src.rpm"
+     },
+     {
+      "name": "poppler-utils",
+      "from": "26.01.0-3.fc44",
+      "to": "26.01.0-6.fc44",
+      "purl": "pkg:rpm/fedora/poppler-utils@26.01.0-6.fc44?arch=aarch64&distro=fedora-44&upstream=poppler-26.01.0-6.fc44.src.rpm"
+     },
+     {
+      "name": "selinux-policy",
+      "from": "44.11-1.fc44",
+      "to": "44.12-1.fc44",
+      "purl": "pkg:rpm/fedora/selinux-policy@44.12-1.fc44?arch=noarch&distro=fedora-44&upstream=selinux-policy-44.12-1.fc44.src.rpm"
+     },
+     {
+      "name": "selinux-policy-targeted",
+      "from": "44.11-1.fc44",
+      "to": "44.12-1.fc44",
+      "purl": "pkg:rpm/fedora/selinux-policy-targeted@44.12-1.fc44?arch=noarch&distro=fedora-44&upstream=selinux-policy-44.12-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-Xwayland",
+      "from": "24.1.14-2.fc44",
+      "to": "24.1.15-1.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-Xwayland@24.1.15-1.fc44?arch=aarch64&distro=fedora-44&upstream=xorg-x11-server-Xwayland-24.1.15-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 28,
+  "downgraded": 0
+ }
+}

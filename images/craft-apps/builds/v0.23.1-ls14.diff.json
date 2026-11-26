@@ -1,0 +1,344 @@
+{
+ "image": "craft-apps",
+ "branch": "master",
+ "tag": "v0.23.1-ls14",
+ "previous_tag": "v0.23.1-ls13",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (1d22e55 → ddcd1e1): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.23.1",
+  "to": "v0.23.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "1d22e554fff634212e3f69b25c49c0b7de45ee68",
+  "to": "ddcd1e11ce4ed32f9c4c1fdf943a38521af5ff52",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-craft-apps/compare/1d22e554fff634212e3f69b25c49c0b7de45ee68...ddcd1e11ce4ed32f9c4c1fdf943a38521af5ff52",
+  "commits": [
+   {
+    "sha": "ddcd1e11ce4ed32f9c4c1fdf943a38521af5ff52",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-21T17:15:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-craft-apps/commit/ddcd1e11ce4ed32f9c4c1fdf943a38521af5ff52",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:07a72a3fb8c2a796b910e6e45be339b0d2f67165ad1b6ea5935d4074c3f32f54"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:97c83a509ccd1a9981bf161e16b73c42374296b60809ce2c2331ef1a7a8248dd"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 2087078252,
+   "to": 2119174602,
+   "delta": 32096350
+  },
+  "arm64": {
+   "from": 2025071448,
+   "to": 2055819795,
+   "delta": 30748347
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium@156.0.8078.108-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium-common@156.0.8078.108-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium-l10n@156.0.8078.108-1xtradeb1.2604.1?arch=all&distro=ubuntu-26.04&upstream=chromium"
+     },
+     {
+      "name": "designcraft",
+      "from": "0.20.1-1",
+      "to": "0.21.1-1",
+      "purl": "pkg:deb/ubuntu/designcraft@0.21.1-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-buildx-plugin",
+      "from": "0.39.0-1~ubuntu.26.04~resolute",
+      "to": "0.39.1-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-buildx-plugin@0.39.1-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "effectcraft",
+      "from": "0.24.1-1",
+      "to": "0.25.1-1",
+      "purl": "pkg:deb/ubuntu/effectcraft@0.25.1-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libpipewire-0.3-0t64",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libpipewire-0.3-0t64@1.6.2-1ubuntu1.3?arch=amd64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libspa-0.2-modules",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libspa-0.2-modules@1.6.2-1ubuntu1.3?arch=amd64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-2ubuntu1.13",
+      "to": "1.28.3-2ubuntu1.14",
+      "purl": "pkg:deb/ubuntu/nginx@1.28.3-2ubuntu1.14?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nginx-common",
+      "from": "1.28.3-2ubuntu1.13",
+      "to": "1.28.3-2ubuntu1.14",
+      "purl": "pkg:deb/ubuntu/nginx-common@1.28.3-2ubuntu1.14?arch=all&distro=ubuntu-26.04&upstream=nginx"
+     },
+     {
+      "name": "pdfcraft",
+      "from": "0.21.1-1",
+      "to": "0.22.0-1",
+      "purl": "pkg:deb/ubuntu/pdfcraft@0.22.0-1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "python3-jwt",
+      "from": "2.10.1-4ubuntu1.3",
+      "to": "2.10.1-4ubuntu1.4",
+      "purl": "pkg:deb/ubuntu/python3-jwt@2.10.1-4ubuntu1.4?arch=all&distro=ubuntu-26.04&upstream=pyjwt"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/buildx",
+      "from": "v0.39.0",
+      "to": "v0.39.1",
+      "purl": "pkg:golang/github.com/docker/buildx@v0.39.1"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.35.0",
+      "to": "v0.35.1",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.35.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium@156.0.8078.108-1xtradeb1.2604.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium-common@156.0.8078.108-1xtradeb1.2604.1?arch=arm64&distro=ubuntu-26.04&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium-l10n@156.0.8078.108-1xtradeb1.2604.1?arch=all&distro=ubuntu-26.04&upstream=chromium"
+     },
+     {
+      "name": "designcraft",
+      "from": "0.20.1-1",
+      "to": "0.21.1-1",
+      "purl": "pkg:deb/ubuntu/designcraft@0.21.1-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-buildx-plugin",
+      "from": "0.39.0-1~ubuntu.26.04~resolute",
+      "to": "0.39.1-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-buildx-plugin@0.39.1-1~ubuntu.26.04~resolute?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "effectcraft",
+      "from": "0.24.1-1",
+      "to": "0.25.1-1",
+      "purl": "pkg:deb/ubuntu/effectcraft@0.25.1-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libpipewire-0.3-0t64",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libpipewire-0.3-0t64@1.6.2-1ubuntu1.3?arch=arm64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libspa-0.2-modules",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libspa-0.2-modules@1.6.2-1ubuntu1.3?arch=arm64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-2ubuntu1.13",
+      "to": "1.28.3-2ubuntu1.14",
+      "purl": "pkg:deb/ubuntu/nginx@1.28.3-2ubuntu1.14?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nginx-common",
+      "from": "1.28.3-2ubuntu1.13",
+      "to": "1.28.3-2ubuntu1.14",
+      "purl": "pkg:deb/ubuntu/nginx-common@1.28.3-2ubuntu1.14?arch=all&distro=ubuntu-26.04&upstream=nginx"
+     },
+     {
+      "name": "pdfcraft",
+      "from": "0.21.1-1",
+      "to": "0.22.0-1",
+      "purl": "pkg:deb/ubuntu/pdfcraft@0.22.0-1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "python3-jwt",
+      "from": "2.10.1-4ubuntu1.3",
+      "to": "2.10.1-4ubuntu1.4",
+      "purl": "pkg:deb/ubuntu/python3-jwt@2.10.1-4ubuntu1.4?arch=all&distro=ubuntu-26.04&upstream=pyjwt"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/buildx",
+      "from": "v0.39.0",
+      "to": "v0.39.1",
+      "purl": "pkg:golang/github.com/docker/buildx@v0.39.1"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.35.0",
+      "to": "v0.35.1",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.35.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 34,
+  "downgraded": 0
+ }
+}

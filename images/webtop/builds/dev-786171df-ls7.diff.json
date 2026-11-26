@@ -1,0 +1,718 @@
+{
+ "image": "webtop",
+ "branch": "dev",
+ "tag": "dev-786171df-ls7",
+ "previous_tag": "dev-0e0b55d7-ls6",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (b36a6ce → 37c2526): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "0e0b55d7",
+  "to": "786171df",
+  "changed": true
+ },
+ "commit": {
+  "from": "b36a6ce2bd950ea8c162b0aded765f4debe86327",
+  "to": "37c252685c8cf269b55d25decffb9bc9c0e64f45",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/b36a6ce2bd950ea8c162b0aded765f4debe86327...37c252685c8cf269b55d25decffb9bc9c0e64f45",
+  "commits": [
+   {
+    "sha": "37c252685c8cf269b55d25decffb9bc9c0e64f45",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T21:57:07Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/37c252685c8cf269b55d25decffb9bc9c0e64f45",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:dev",
+   "digest": "sha256:e13be34014790a2a363b5591669a506a2054c58255cc4ed26be09eb109321a4d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:dev",
+   "digest": "sha256:e13be34014790a2a363b5591669a506a2054c58255cc4ed26be09eb109321a4d"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1749062975,
+   "to": 1750005108,
+   "delta": 942133
+  },
+  "arm64": {
+   "from": 1702742245,
+   "to": 1703688593,
+   "delta": 946348
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [
+     {
+      "name": "libqt6location6",
+      "version": "6.10.2-1",
+      "purl": "pkg:deb/ubuntu/libqt6location6@6.10.2-1?arch=amd64&distro=ubuntu-26.04&upstream=qt6-location"
+     },
+     {
+      "name": "qml6-module-qt-labs-animation",
+      "version": "6.10.2+dfsg-3",
+      "purl": "pkg:deb/ubuntu/qml6-module-qt-labs-animation@6.10.2%2Bdfsg-3?arch=amd64&distro=ubuntu-26.04&upstream=qt6-declarative"
+     },
+     {
+      "name": "qml6-module-qtlocation",
+      "version": "6.10.2-1",
+      "purl": "pkg:deb/ubuntu/qml6-module-qtlocation@6.10.2-1?arch=amd64&distro=ubuntu-26.04&upstream=qt6-location"
+     },
+     {
+      "name": "qt6-location-plugins",
+      "version": "6.10.2-1",
+      "purl": "pkg:deb/ubuntu/qt6-location-plugins@6.10.2-1?arch=amd64&distro=ubuntu-26.04&upstream=qt6-location"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gstreamer1.0-plugins-base",
+      "from": "1.28.2-1ubuntu0.2",
+      "to": "1.28.2-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-plugins-base@1.28.2-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "kdeplasma-addons-data",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kdeplasma-addons-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=kdeplasma-addons"
+     },
+     {
+      "name": "ksystemstats",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/ksystemstats@6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "kwin-addons",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kwin-addons@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=kdeplasma-addons"
+     },
+     {
+      "name": "kwin-common",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kwin-common@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=kwin"
+     },
+     {
+      "name": "kwin-data",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kwin-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=kwin"
+     },
+     {
+      "name": "kwin-wayland",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kwin-wayland@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=kwin"
+     },
+     {
+      "name": "libbatterycontrol6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbatterycontrol6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.2",
+      "to": "1.28.2-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libkfontinst6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkfontinst6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libkfontinstui6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkfontinstui6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libklipper6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libklipper6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libklookandfeel6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libklookandfeel6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libkmpris6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkmpris6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libkpipewire-data",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkpipewire-data@6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "libkpipewire6",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkpipewire6@6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "libkpipewiredmabuf6",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkpipewiredmabuf6@6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "libkpipewirerecord6",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkpipewirerecord6@6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "libksysguard-data",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguard-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libksysguardformatter2",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguardformatter2@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libksysguardsensorfaces2",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguardsensorfaces2@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libksysguardsensors2",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguardsensors2@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libksysguardsystemstats2",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguardsystemstats2@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libkwin6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkwin6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=kwin"
+     },
+     {
+      "name": "libkworkspace6-6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkworkspace6-6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libnotificationmanager1",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libnotificationmanager1@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libplasma-geolocation-interface6",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasma-geolocation-interface6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "libplasma5support-data",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasma5support-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "libplasma5support6",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasma5support6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "libplasma7",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasma7@6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=libplasma"
+     },
+     {
+      "name": "libplasmaquick7",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasmaquick7@6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=libplasma"
+     },
+     {
+      "name": "libprocesscore10",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libprocesscore10@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libtaskmanager6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libtaskmanager6@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libweather-ion7",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libweather-ion7@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "plasma-desktop",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-desktop@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "plasma-desktop-data",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-desktop-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=plasma-desktop"
+     },
+     {
+      "name": "plasma-desktoptheme",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-desktoptheme@6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=libplasma"
+     },
+     {
+      "name": "plasma-discover",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/plasma-discover@6.6.7-0ubuntu0.2?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "plasma-discover-common",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/plasma-discover-common@6.6.7-0ubuntu0.2?arch=all&distro=ubuntu-26.04&upstream=plasma-discover"
+     },
+     {
+      "name": "plasma-session-x11",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-session-x11@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "plasma-workspace",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-workspace@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "plasma-workspace-data",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-workspace-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "qml6-module-org-kde-ksysguard",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/qml6-module-org-kde-ksysguard@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "qml6-module-org-kde-pipewire",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/qml6-module-org-kde-pipewire@6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "qml6-module-org-kde-plasma-plasma5support",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/qml6-module-org-kde-plasma-plasma5support@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "systemsettings",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/systemsettings@4%3A6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "xdg-desktop-portal-kde",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/xdg-desktop-portal-kde@6.6.7-0ubuntu0.1?arch=amd64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [
+     {
+      "name": "libqt6location6",
+      "version": "6.10.2-1",
+      "purl": "pkg:deb/ubuntu/libqt6location6@6.10.2-1?arch=arm64&distro=ubuntu-26.04&upstream=qt6-location"
+     },
+     {
+      "name": "qml6-module-qt-labs-animation",
+      "version": "6.10.2+dfsg-3",
+      "purl": "pkg:deb/ubuntu/qml6-module-qt-labs-animation@6.10.2%2Bdfsg-3?arch=arm64&distro=ubuntu-26.04&upstream=qt6-declarative"
+     },
+     {
+      "name": "qml6-module-qtlocation",
+      "version": "6.10.2-1",
+      "purl": "pkg:deb/ubuntu/qml6-module-qtlocation@6.10.2-1?arch=arm64&distro=ubuntu-26.04&upstream=qt6-location"
+     },
+     {
+      "name": "qt6-location-plugins",
+      "version": "6.10.2-1",
+      "purl": "pkg:deb/ubuntu/qt6-location-plugins@6.10.2-1?arch=arm64&distro=ubuntu-26.04&upstream=qt6-location"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gstreamer1.0-plugins-base",
+      "from": "1.28.2-1ubuntu0.2",
+      "to": "1.28.2-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-plugins-base@1.28.2-1ubuntu0.3?arch=arm64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "kdeplasma-addons-data",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kdeplasma-addons-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=kdeplasma-addons"
+     },
+     {
+      "name": "ksystemstats",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/ksystemstats@6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "kwin-addons",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kwin-addons@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=kdeplasma-addons"
+     },
+     {
+      "name": "kwin-common",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kwin-common@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=kwin"
+     },
+     {
+      "name": "kwin-data",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kwin-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=kwin"
+     },
+     {
+      "name": "kwin-wayland",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/kwin-wayland@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=kwin"
+     },
+     {
+      "name": "libbatterycontrol6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libbatterycontrol6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.2",
+      "to": "1.28.2-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.3?arch=arm64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libkfontinst6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkfontinst6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libkfontinstui6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkfontinstui6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libklipper6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libklipper6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libklookandfeel6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libklookandfeel6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libkmpris6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkmpris6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libkpipewire-data",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkpipewire-data@6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "libkpipewire6",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkpipewire6@6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "libkpipewiredmabuf6",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkpipewiredmabuf6@6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "libkpipewirerecord6",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkpipewirerecord6@6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "libksysguard-data",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguard-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libksysguardformatter2",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguardformatter2@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libksysguardsensorfaces2",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguardsensorfaces2@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libksysguardsensors2",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguardsensors2@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libksysguardsystemstats2",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libksysguardsystemstats2@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libkwin6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkwin6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=kwin"
+     },
+     {
+      "name": "libkworkspace6-6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libkworkspace6-6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libnotificationmanager1",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libnotificationmanager1@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libplasma-geolocation-interface6",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasma-geolocation-interface6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "libplasma5support-data",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasma5support-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "libplasma5support6",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasma5support6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "libplasma7",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasma7@6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=libplasma"
+     },
+     {
+      "name": "libplasmaquick7",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libplasmaquick7@6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=libplasma"
+     },
+     {
+      "name": "libprocesscore10",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libprocesscore10@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "libtaskmanager6",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libtaskmanager6@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "libweather-ion7",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libweather-ion7@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "plasma-desktop",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-desktop@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "plasma-desktop-data",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-desktop-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=plasma-desktop"
+     },
+     {
+      "name": "plasma-desktoptheme",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-desktoptheme@6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=libplasma"
+     },
+     {
+      "name": "plasma-discover",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/plasma-discover@6.6.7-0ubuntu0.2?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "plasma-discover-common",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/plasma-discover-common@6.6.7-0ubuntu0.2?arch=all&distro=ubuntu-26.04&upstream=plasma-discover"
+     },
+     {
+      "name": "plasma-session-x11",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-session-x11@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "plasma-workspace",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-workspace@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "plasma-workspace-data",
+      "from": "4:6.6.6-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/plasma-workspace-data@4%3A6.6.7-0ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=plasma-workspace"
+     },
+     {
+      "name": "qml6-module-org-kde-ksysguard",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/qml6-module-org-kde-ksysguard@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=libksysguard"
+     },
+     {
+      "name": "qml6-module-org-kde-pipewire",
+      "from": "6.6.4-0ubuntu1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/qml6-module-org-kde-pipewire@6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=kpipewire"
+     },
+     {
+      "name": "qml6-module-org-kde-plasma-plasma5support",
+      "from": "4:6.6.4-0ubuntu1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/qml6-module-org-kde-plasma-plasma5support@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=plasma5support"
+     },
+     {
+      "name": "systemsettings",
+      "from": "4:6.6.5-0ubuntu0.1",
+      "to": "4:6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/systemsettings@4%3A6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "xdg-desktop-portal-kde",
+      "from": "6.6.6-0ubuntu0.1",
+      "to": "6.6.7-0ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/xdg-desktop-portal-kde@6.6.7-0ubuntu0.1?arch=arm64&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 8,
+  "removed": 0,
+  "upgraded": 94,
+  "downgraded": 0
+ }
+}

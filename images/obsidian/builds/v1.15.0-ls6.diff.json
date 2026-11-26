@@ -1,0 +1,490 @@
+{
+ "image": "obsidian",
+ "branch": "main",
+ "tag": "v1.15.0-ls6",
+ "previous_tag": "v1.15.0-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (60d24d1 → b24b116): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v1.15.0",
+  "to": "v1.15.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "60d24d1025b9a16ecf27dab334053e38fa7589d1",
+  "to": "b24b11672db2c4fbcfbb30e1d71be0791512992f",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-obsidian/compare/60d24d1025b9a16ecf27dab334053e38fa7589d1...b24b11672db2c4fbcfbb30e1d71be0791512992f",
+  "commits": [
+   {
+    "sha": "b24b11672db2c4fbcfbb30e1d71be0791512992f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T03:54:09Z",
+    "url": "https://github.com/linuxserver-playground/docker-obsidian/commit/b24b11672db2c4fbcfbb30e1d71be0791512992f",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:98982a274f5092704f89e8c3b6027733ed6e724528bd7faf850a571036cb1671"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:6d8031254fcdbcfa840ee42adb617b752a5876a013b438c80b61806ab278dc46"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1263941607,
+   "to": 1263814631,
+   "delta": -126976
+  },
+  "arm64": {
+   "from": 1226904469,
+   "to": 1226706978,
+   "delta": -197491
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt@3.0.4?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "apt-transport-https",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt-transport-https@3.0.4?arch=all&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt-utils@3.0.4?arch=amd64&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "docker-ce",
+      "from": "5:29.9.2-1~debian.13~trixie",
+      "to": "5:29.9.3-1~debian.13~trixie",
+      "purl": "pkg:deb/debian/docker-ce@5%3A29.9.3-1~debian.13~trixie?arch=amd64&distro=debian-13.7"
+     },
+     {
+      "name": "docker-ce-cli",
+      "from": "5:29.9.2-1~debian.13~trixie",
+      "to": "5:29.9.3-1~debian.13~trixie",
+      "purl": "pkg:deb/debian/docker-ce-cli@5%3A29.9.3-1~debian.13~trixie?arch=amd64&distro=debian-13.7&upstream=docker-ce"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/libapt-pkg7.0@3.0.4?arch=amd64&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "libminizip1t64",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/libminizip1t64@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=zlib"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.115-2",
+      "to": "6.12.116-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.116-1?arch=all&distro=debian-13.7&upstream=linux"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=zlib"
+     },
+     {
+      "name": "zlib1g-dev",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/zlib1g-dev@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=amd64&distro=debian-13.7&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-prometheus",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-prometheus@v1.2.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus",
+      "from": "v1.1.0",
+      "to": "v1.1.1",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus@v1.1.1"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/v2",
+      "from": "v2.1.0",
+      "to": "v2.3.3",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/v2@v2.3.3"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.2"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.0",
+      "to": "v0.34.2",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.34.2"
+     },
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v29.9.2",
+      "to": "v29.9.3",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v29.9.3"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20260819142231-83cac42c1c52",
+      "to": "v0.0.0-20261103091533-a72de9dcf763",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103091533-a72de9dcf763"
+     },
+     {
+      "name": "go.yaml.in/yaml/v2",
+      "from": "v2.4.4",
+      "to": "v2.4.5",
+      "purl": "pkg:golang/go.yaml.in/yaml/v2@v2.4.5"
+     },
+     {
+      "name": "go.yaml.in/yaml/v3",
+      "from": "v3.0.5",
+      "to": "v3.0.6",
+      "purl": "pkg:golang/go.yaml.in/yaml/v3@v3.0.6"
+     },
+     {
+      "name": "golang.org/x/net",
+      "from": "v0.61.0",
+      "to": "v0.62.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.62.0"
+     },
+     {
+      "name": "google.golang.org/grpc",
+      "from": "v1.84.0",
+      "to": "v1.85.0",
+      "purl": "pkg:golang/google.golang.org/grpc@v1.85.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "github.com/moby/swarmkit/v2",
+      "from": "v2.1.3-0.20260917205909-1fd637ba5cc3",
+      "to": "v2.1.3",
+      "purl": "pkg:golang/github.com/moby/swarmkit/v2@v2.1.3"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.1",
+      "to": "2.9.2",
+      "purl": "pkg:pypi/dnspython@2.9.2"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.2",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.2",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt@3.0.4?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "apt-transport-https",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt-transport-https@3.0.4?arch=all&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "apt-utils",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/apt-utils@3.0.4?arch=arm64&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "docker-ce",
+      "from": "5:29.9.2-1~debian.13~trixie",
+      "to": "5:29.9.3-1~debian.13~trixie",
+      "purl": "pkg:deb/debian/docker-ce@5%3A29.9.3-1~debian.13~trixie?arch=arm64&distro=debian-13.7"
+     },
+     {
+      "name": "docker-ce-cli",
+      "from": "5:29.9.2-1~debian.13~trixie",
+      "to": "5:29.9.3-1~debian.13~trixie",
+      "purl": "pkg:deb/debian/docker-ce-cli@5%3A29.9.3-1~debian.13~trixie?arch=arm64&distro=debian-13.7&upstream=docker-ce"
+     },
+     {
+      "name": "libapt-pkg7.0",
+      "from": "3.0.3",
+      "to": "3.0.4",
+      "purl": "pkg:deb/debian/libapt-pkg7.0@3.0.4?arch=arm64&distro=debian-13.7&upstream=apt"
+     },
+     {
+      "name": "libminizip1t64",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/libminizip1t64@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=zlib"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.115-2",
+      "to": "6.12.116-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.116-1?arch=all&distro=debian-13.7&upstream=linux"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/zlib1g@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=zlib"
+     },
+     {
+      "name": "zlib1g-dev",
+      "from": "1:1.3.dfsg+really1.3.1-1+b1",
+      "to": "1:1.3.dfsg+really1.3.1-1+deb13u1",
+      "purl": "pkg:deb/debian/zlib1g-dev@1%3A1.3.dfsg%2Breally1.3.1-1%2Bdeb13u1?arch=arm64&distro=debian-13.7&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-prometheus",
+      "version": "v1.2.0",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-prometheus@v1.2.0"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus",
+      "from": "v1.1.0",
+      "to": "v1.1.1",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/providers/prometheus@v1.1.1"
+     },
+     {
+      "name": "github.com/grpc-ecosystem/go-grpc-middleware/v2",
+      "from": "v2.1.0",
+      "to": "v2.3.3",
+      "purl": "pkg:golang/github.com/grpc-ecosystem/go-grpc-middleware/v2@v2.3.3"
+     },
+     {
+      "name": "github.com/klauspost/compress",
+      "from": "v1.20.1",
+      "to": "v1.20.2",
+      "purl": "pkg:golang/github.com/klauspost/compress@v1.20.2"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.34.0",
+      "to": "v0.34.2",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.34.2"
+     },
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v29.9.2",
+      "to": "v29.9.3",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v29.9.3"
+     },
+     {
+      "name": "github.com/tonistiigi/fsutil",
+      "from": "v0.0.0-20260819142231-83cac42c1c52",
+      "to": "v0.0.0-20261103091533-a72de9dcf763",
+      "purl": "pkg:golang/github.com/tonistiigi/fsutil@v0.0.0-20261103091533-a72de9dcf763"
+     },
+     {
+      "name": "go.yaml.in/yaml/v2",
+      "from": "v2.4.4",
+      "to": "v2.4.5",
+      "purl": "pkg:golang/go.yaml.in/yaml/v2@v2.4.5"
+     },
+     {
+      "name": "go.yaml.in/yaml/v3",
+      "from": "v3.0.5",
+      "to": "v3.0.6",
+      "purl": "pkg:golang/go.yaml.in/yaml/v3@v3.0.6"
+     },
+     {
+      "name": "golang.org/x/net",
+      "from": "v0.61.0",
+      "to": "v0.62.0",
+      "purl": "pkg:golang/golang.org/x/net@v0.62.0"
+     },
+     {
+      "name": "google.golang.org/grpc",
+      "from": "v1.84.0",
+      "to": "v1.85.0",
+      "purl": "pkg:golang/google.golang.org/grpc@v1.85.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "github.com/moby/swarmkit/v2",
+      "from": "v2.1.3-0.20260917205909-1fd637ba5cc3",
+      "to": "v2.1.3",
+      "purl": "pkg:golang/github.com/moby/swarmkit/v2@v2.1.3"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.1",
+      "to": "2.9.2",
+      "purl": "pkg:pypi/dnspython@2.9.2"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.0",
+      "to": "0.162.2",
+      "purl": "pkg:pypi/fastapi@0.162.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.2",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.2",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 2,
+  "upgraded": 54,
+  "downgraded": 2
+ }
+}

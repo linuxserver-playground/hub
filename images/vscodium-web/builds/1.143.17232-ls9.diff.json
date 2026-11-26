@@ -1,0 +1,148 @@
+{
+ "image": "vscodium-web",
+ "branch": "main",
+ "tag": "1.143.17232-ls9",
+ "previous_tag": "1.143.17232-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (1dadd36 → 4d15ca1): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.143.17232",
+  "to": "1.143.17232",
+  "changed": false
+ },
+ "commit": {
+  "from": "1dadd361a1aedb6999cb6c9263118460e113c579",
+  "to": "4d15ca1a7576a94c7dd9409a0f80e65c11c44fda",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-vscodium-web/compare/1dadd361a1aedb6999cb6c9263118460e113c579...4d15ca1a7576a94c7dd9409a0f80e65c11c44fda",
+  "commits": [
+   {
+    "sha": "4d15ca1a7576a94c7dd9409a0f80e65c11c44fda",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-18T03:23:26Z",
+    "url": "https://github.com/linuxserver-playground/docker-vscodium-web/commit/4d15ca1a7576a94c7dd9409a0f80e65c11c44fda",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:5625688e073ff0f6795f3f5e3687c4f4ab313dd4881b1964627094e5ac12c4ee"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:f38c17bd15a443d883659d547f45893ebfb7d4fdc3f2ca16c7684207992215f0"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 183425068,
+   "to": 184100848,
+   "delta": 675780
+  },
+  "arm64": {
+   "from": 180951540,
+   "to": 181631009,
+   "delta": 679469
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsystemd0",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/libsystemd0@255.4-1ubuntu8.19?arch=amd64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "libudev1",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/libudev1@255.4-1ubuntu8.19?arch=amd64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/systemd-standalone-sysusers@255.4-1ubuntu8.19?arch=amd64&distro=ubuntu-24.04&upstream=systemd"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsystemd0",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/libsystemd0@255.4-1ubuntu8.19?arch=arm64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "libudev1",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/libudev1@255.4-1ubuntu8.19?arch=arm64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/systemd-standalone-sysusers@255.4-1ubuntu8.19?arch=arm64&distro=ubuntu-24.04&upstream=systemd"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

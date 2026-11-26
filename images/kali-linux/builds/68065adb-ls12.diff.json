@@ -1,0 +1,1655 @@
+{
+ "image": "kali-linux",
+ "branch": "master",
+ "tag": "68065adb-ls12",
+ "previous_tag": "2fe1b6ad-ls11",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (4136145 → 92703c3): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2fe1b6ad",
+  "to": "68065adb",
+  "changed": true
+ },
+ "commit": {
+  "from": "4136145cb08cd9f7dc4431a2cc1db0f9d9b2fa64",
+  "to": "92703c3cda4829a70450bfaaa94dfee2a0aefcec",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kali-linux/compare/4136145cb08cd9f7dc4431a2cc1db0f9d9b2fa64...92703c3cda4829a70450bfaaa94dfee2a0aefcec",
+  "commits": [
+   {
+    "sha": "92703c3cda4829a70450bfaaa94dfee2a0aefcec",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T18:20:13Z",
+    "url": "https://github.com/linuxserver-playground/docker-kali-linux/commit/92703c3cda4829a70450bfaaa94dfee2a0aefcec",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:3e1fbde0249d9e03a0f609546991838627cb53cf9c8e4e9ee916c2ff4b86715a"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:kali",
+   "digest": "sha256:6c3777e04d021e2380ce2fa89127dfa4e33d29dc1e9a5724e7edf1c62924fa0b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 4765372424,
+   "to": 4766227861,
+   "delta": 855437
+  },
+  "arm64": {
+   "from": 3981498087,
+   "to": 3982157801,
+   "delta": 659714
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [
+     {
+      "name": "libopenjph0.33",
+      "version": "0.33.0-1",
+      "purl": "pkg:deb/kali/libopenjph0.33@0.33.0-1?arch=amd64&distro=kali-2026.3&upstream=openjph"
+     }
+    ],
+    "removed": [
+     {
+      "name": "libopenjph0.32",
+      "version": "0.32.0-1",
+      "purl": "pkg:deb/kali/libopenjph0.32@0.32.0-1?arch=amd64&distro=kali-2026.3&upstream=openjph"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "7zip",
+      "from": "26.05+dfsg-1",
+      "to": "26.06+dfsg-1",
+      "purl": "pkg:deb/kali/7zip@26.06%2Bdfsg-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "bluez",
+      "from": "5.87-5",
+      "to": "5.88-1",
+      "purl": "pkg:deb/kali/bluez@5.88-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "bundler",
+      "from": "4.0.22-1",
+      "to": "4.0.24-1",
+      "purl": "pkg:deb/kali/bundler@4.0.24-1?arch=all&distro=kali-2026.3&upstream=rubygems"
+     },
+     {
+      "name": "docker-buildx-plugin",
+      "from": "0.39.0-1~debian.12~bookworm",
+      "to": "0.39.1-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-buildx-plugin@0.39.1-1~debian.12~bookworm?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "dracut-install",
+      "from": "112-7",
+      "to": "112-8",
+      "purl": "pkg:deb/kali/dracut-install@112-8?arch=amd64&distro=kali-2026.3&upstream=dracut"
+     },
+     {
+      "name": "gir1.2-harfbuzz-0.0",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/gir1.2-harfbuzz-0.0@14.4.0%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "hwdata",
+      "from": "0.411-1",
+      "to": "0.413-1",
+      "purl": "pkg:deb/kali/hwdata@0.413-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "konsole",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/konsole@4%3A26.08.3-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "konsole-kpart",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/konsole-kpart@4%3A26.08.3-1?arch=amd64&distro=kali-2026.3&upstream=konsole"
+     },
+     {
+      "name": "libaprutil1-dbd-sqlite3",
+      "from": "1.6.4-2",
+      "to": "1.6.6-1",
+      "purl": "pkg:deb/kali/libaprutil1-dbd-sqlite3@1.6.6-1?arch=amd64&distro=kali-2026.3&upstream=apr-util"
+     },
+     {
+      "name": "libaprutil1-ldap",
+      "from": "1.6.4-2",
+      "to": "1.6.6-1",
+      "purl": "pkg:deb/kali/libaprutil1-ldap@1.6.6-1?arch=amd64&distro=kali-2026.3&upstream=apr-util"
+     },
+     {
+      "name": "libaprutil1t64",
+      "from": "1.6.4-2",
+      "to": "1.6.6-1",
+      "purl": "pkg:deb/kali/libaprutil1t64@1.6.6-1?arch=amd64&distro=kali-2026.3&upstream=apr-util"
+     },
+     {
+      "name": "libbluetooth3",
+      "from": "5.87-5",
+      "to": "5.88-1",
+      "purl": "pkg:deb/kali/libbluetooth3@5.88-1?arch=amd64&distro=kali-2026.3&upstream=bluez"
+     },
+     {
+      "name": "libexpat1",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/libexpat1@2.10.0-1?arch=amd64&distro=kali-2026.3&upstream=expat"
+     },
+     {
+      "name": "libexpat1-dev",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/libexpat1-dev@2.10.0-1?arch=amd64&distro=kali-2026.3&upstream=expat"
+     },
+     {
+      "name": "libharfbuzz-gobject0",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/libharfbuzz-gobject0@14.4.0%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libharfbuzz-subset0",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/libharfbuzz-subset0@14.4.0%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libharfbuzz0b",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/libharfbuzz0b@14.4.0%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libimath-3-2-30",
+      "from": "3.2.2-3+b1",
+      "to": "3.2.3-5",
+      "purl": "pkg:deb/kali/libimath-3-2-30@3.2.3-5?arch=amd64&distro=kali-2026.3&upstream=imath"
+     },
+     {
+      "name": "libminizip1t64",
+      "from": "1:1.3.dfsg+really1.3.2-3",
+      "to": "1:1.3.dfsg+really1.3.2-4",
+      "purl": "pkg:deb/kali/libminizip1t64@1%3A1.3.dfsg%2Breally1.3.2-4?arch=amd64&distro=kali-2026.3&upstream=zlib"
+     },
+     {
+      "name": "libopenexr-3-4-33",
+      "from": "3.4.16+ds-1",
+      "to": "3.4.16+ds-1+b1",
+      "purl": "pkg:deb/kali/libopenexr-3-4-33@3.4.16%2Bds-1%2Bb1?arch=amd64&distro=kali-2026.3&upstream=openexr%403.4.16%2Bds-1"
+     },
+     {
+      "name": "libopenmpt0t64",
+      "from": "0.8.9-1",
+      "to": "0.8.10-1",
+      "purl": "pkg:deb/kali/libopenmpt0t64@0.8.10-1?arch=amd64&distro=kali-2026.3&upstream=libopenmpt"
+     },
+     {
+      "name": "libpoppler-cpp3",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler-cpp3@26.07.0-4?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpoppler-qt6-3t64",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler-qt6-3t64@26.07.0-4?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpoppler162",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler162@26.07.0-4?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpopt0",
+      "from": "1.19+dfsg-2+b2",
+      "to": "1.19+dfsg-3",
+      "purl": "pkg:deb/kali/libpopt0@1.19%2Bdfsg-3?arch=amd64&distro=kali-2026.3&upstream=popt"
+     },
+     {
+      "name": "libproc2-1",
+      "from": "2:4.0.7-1",
+      "to": "2:4.0.7-1.1",
+      "purl": "pkg:deb/kali/libproc2-1@2%3A4.0.7-1.1?arch=amd64&distro=kali-2026.3&upstream=procps"
+     },
+     {
+      "name": "librsvg2-2",
+      "from": "2.63.3+dfsg-1",
+      "to": "2.63.4+dfsg-4",
+      "purl": "pkg:deb/kali/librsvg2-2@2.63.4%2Bdfsg-4?arch=amd64&distro=kali-2026.3&upstream=librsvg"
+     },
+     {
+      "name": "librsvg2-common",
+      "from": "2.63.3+dfsg-1",
+      "to": "2.63.4+dfsg-4",
+      "purl": "pkg:deb/kali/librsvg2-common@2.63.4%2Bdfsg-4?arch=amd64&distro=kali-2026.3&upstream=librsvg"
+     },
+     {
+      "name": "libsmb2-6",
+      "from": "6.2+dfsg-4",
+      "to": "6.3.2+dfsg-1",
+      "purl": "pkg:deb/kali/libsmb2-6@6.3.2%2Bdfsg-1?arch=amd64&distro=kali-2026.3&upstream=libsmb2"
+     },
+     {
+      "name": "libstoken1t64",
+      "from": "0.93-2",
+      "to": "0.93-3",
+      "purl": "pkg:deb/kali/libstoken1t64@0.93-3?arch=amd64&distro=kali-2026.3&upstream=stoken"
+     },
+     {
+      "name": "metasploit-framework",
+      "from": "6.5.7-0kali1",
+      "to": "6.5.9-0kali1",
+      "purl": "pkg:deb/kali/metasploit-framework@6.5.9-0kali1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "openssh-client",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-client@1%3A10.6p2-1?arch=amd64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-common",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-common@1%3A10.6p2-1?arch=amd64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-server",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-server@1%3A10.6p2-1?arch=amd64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-sftp-server",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-sftp-server@1%3A10.6p2-1?arch=amd64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "peass",
+      "from": "20261019.f07b7f97-0kali1",
+      "to": "20261109.f4fdadd7-0kali1",
+      "purl": "pkg:deb/kali/peass@20261109.f4fdadd7-0kali1?arch=all&distro=kali-2026.3&upstream=peass-ng"
+     },
+     {
+      "name": "pnp.ids",
+      "from": "0.411-1",
+      "to": "0.413-1",
+      "purl": "pkg:deb/kali/pnp.ids@0.413-1?arch=all&distro=kali-2026.3&upstream=hwdata"
+     },
+     {
+      "name": "poppler-utils",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/poppler-utils@26.07.0-4?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "procps",
+      "from": "2:4.0.7-1",
+      "to": "2:4.0.7-1.1",
+      "purl": "pkg:deb/kali/procps@2%3A4.0.7-1.1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "python3-asgiref",
+      "from": "3.12.1-1",
+      "to": "3.13.0-1",
+      "purl": "pkg:deb/kali/python3-asgiref@3.13.0-1?arch=all&distro=kali-2026.3&upstream=python-asgiref"
+     },
+     {
+      "name": "python3-bidict",
+      "from": "0.24.1-1",
+      "to": "0.24.1-2",
+      "purl": "pkg:deb/kali/python3-bidict@0.24.1-2?arch=all&distro=kali-2026.3&upstream=bidict"
+     },
+     {
+      "name": "python3-croniter",
+      "from": "6.2.4-1",
+      "to": "6.2.4-2",
+      "purl": "pkg:deb/kali/python3-croniter@6.2.4-2?arch=all&distro=kali-2026.3&upstream=python-croniter"
+     },
+     {
+      "name": "python3-discovery",
+      "from": "1.4.2-1",
+      "to": "1.9.5-1",
+      "purl": "pkg:deb/kali/python3-discovery@1.9.5-1?arch=all&distro=kali-2026.3&upstream=python-discovery"
+     },
+     {
+      "name": "python3-django",
+      "from": "3:5.2.17-2",
+      "to": "3:5.2.19-1",
+      "purl": "pkg:deb/kali/python3-django@3%3A5.2.19-1?arch=all&distro=kali-2026.3&upstream=python-django"
+     },
+     {
+      "name": "python3-filelock",
+      "from": "4.1.1-1",
+      "to": "4.2.8-1",
+      "purl": "pkg:deb/kali/python3-filelock@4.2.8-1?arch=all&distro=kali-2026.3&upstream=python-filelock"
+     },
+     {
+      "name": "python3-markdown",
+      "from": "3.10.3-1",
+      "to": "3.11.3-1",
+      "purl": "pkg:deb/kali/python3-markdown@3.11.3-1?arch=all&distro=kali-2026.3&upstream=python-markdown"
+     },
+     {
+      "name": "python3-pcapy",
+      "from": "2.1.0-3",
+      "to": "2.1.0-4",
+      "purl": "pkg:deb/kali/python3-pcapy@2.1.0-4?arch=amd64&distro=kali-2026.3&upstream=pcapy-ng"
+     },
+     {
+      "name": "python3-pycparser",
+      "from": "3.0-1",
+      "to": "3.12-1",
+      "purl": "pkg:deb/kali/python3-pycparser@3.12-1?arch=all&distro=kali-2026.3&upstream=pycparser"
+     },
+     {
+      "name": "python3-pyqt5.sip",
+      "from": "12.19.0-1+b2",
+      "to": "12.20.0-1",
+      "purl": "pkg:deb/kali/python3-pyqt5.sip@12.20.0-1?arch=amd64&distro=kali-2026.3&upstream=pyqt5-sip"
+     },
+     {
+      "name": "python3-pyqt6",
+      "from": "6.11.0-4",
+      "to": "6.12.0-2",
+      "purl": "pkg:deb/kali/python3-pyqt6@6.12.0-2?arch=amd64&distro=kali-2026.3&upstream=pyqt6"
+     },
+     {
+      "name": "python3-redis",
+      "from": "6.4.0-3",
+      "to": "6.4.0-4",
+      "purl": "pkg:deb/kali/python3-redis@6.4.0-4?arch=all&distro=kali-2026.3&upstream=python-redis"
+     },
+     {
+      "name": "python3-tempita",
+      "from": "0.6.0-1",
+      "to": "0.6.0-2",
+      "purl": "pkg:deb/kali/python3-tempita@0.6.0-2?arch=all&distro=kali-2026.3&upstream=python-tempita"
+     },
+     {
+      "name": "python3-tenacity",
+      "from": "9.1.4-2",
+      "to": "9.1.4-3",
+      "purl": "pkg:deb/kali/python3-tenacity@9.1.4-3?arch=all&distro=kali-2026.3&upstream=python-tenacity"
+     },
+     {
+      "name": "python3-typing-inspection",
+      "from": "0.4.4-1",
+      "to": "0.4.5-1",
+      "purl": "pkg:deb/kali/python3-typing-inspection@0.4.5-1?arch=all&distro=kali-2026.3&upstream=python-typing-inspection"
+     },
+     {
+      "name": "rsync",
+      "from": "3.5.1+ds1-2",
+      "to": "3.5.2+ds1-2",
+      "purl": "pkg:deb/kali/rsync@3.5.2%2Bds1-2?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "ruby-bundler",
+      "from": "4.0.22-1",
+      "to": "4.0.24-1",
+      "purl": "pkg:deb/kali/ruby-bundler@4.0.24-1?arch=all&distro=kali-2026.3&upstream=rubygems"
+     },
+     {
+      "name": "ruby-cms-scanner",
+      "from": "0.15.0-0kali4",
+      "to": "0.15.0-0kali5",
+      "purl": "pkg:deb/kali/ruby-cms-scanner@0.15.0-0kali5?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "ruby-ethon",
+      "from": "0.18.0-2",
+      "to": "0.19.1-1",
+      "purl": "pkg:deb/kali/ruby-ethon@0.19.1-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "ruby-rubygems",
+      "from": "4.0.22-1",
+      "to": "4.0.24-1",
+      "purl": "pkg:deb/kali/ruby-rubygems@4.0.24-1?arch=all&distro=kali-2026.3&upstream=rubygems"
+     },
+     {
+      "name": "ruby-typhoeus",
+      "from": "1.6.0-1",
+      "to": "1.7.1-1",
+      "purl": "pkg:deb/kali/ruby-typhoeus@1.7.1-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "sudo",
+      "from": "1.9.17p2-9",
+      "to": "1.9.17p2-11",
+      "purl": "pkg:deb/kali/sudo@1.9.17p2-11?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "vpnc",
+      "from": "0.5.3+git20260629-2",
+      "to": "0.5.3+git20261102-1",
+      "purl": "pkg:deb/kali/vpnc@0.5.3%2Bgit20261102-1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "wpscan",
+      "from": "4.1.0-0kali1",
+      "to": "4.2.0-0kali2",
+      "purl": "pkg:deb/kali/wpscan@4.2.0-0kali2?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.2-3",
+      "to": "1:1.3.dfsg+really1.3.2-4",
+      "purl": "pkg:deb/kali/zlib1g@1%3A1.3.dfsg%2Breally1.3.2-4?arch=amd64&distro=kali-2026.3&upstream=zlib"
+     },
+     {
+      "name": "zlib1g-dev",
+      "from": "1:1.3.dfsg+really1.3.2-3",
+      "to": "1:1.3.dfsg+really1.3.2-4",
+      "purl": "pkg:deb/kali/zlib1g-dev@1%3A1.3.dfsg%2Breally1.3.2-4?arch=amd64&distro=kali-2026.3&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "addressable",
+      "from": "2.9.0",
+      "to": "2.9.2",
+      "purl": "pkg:gem/addressable@2.9.2"
+     },
+     {
+      "name": "afm",
+      "from": "1.0.0",
+      "to": "1.0.1",
+      "purl": "pkg:gem/afm@1.0.1"
+     },
+     {
+      "name": "aws-eventstream",
+      "from": "1.4.0",
+      "to": "1.4.1",
+      "purl": "pkg:gem/aws-eventstream@1.4.1"
+     },
+     {
+      "name": "aws-partitions",
+      "from": "1.1296.0",
+      "to": "1.1303.0",
+      "purl": "pkg:gem/aws-partitions@1.1303.0"
+     },
+     {
+      "name": "aws-sdk-core",
+      "from": "3.254.1",
+      "to": "3.265.0",
+      "purl": "pkg:gem/aws-sdk-core@3.265.0"
+     },
+     {
+      "name": "aws-sdk-ec2",
+      "from": "1.645.0",
+      "to": "1.665.0",
+      "purl": "pkg:gem/aws-sdk-ec2@1.665.0"
+     },
+     {
+      "name": "aws-sdk-ec2instanceconnect",
+      "from": "1.74.0",
+      "to": "1.83.0",
+      "purl": "pkg:gem/aws-sdk-ec2instanceconnect@1.83.0"
+     },
+     {
+      "name": "aws-sdk-iam",
+      "from": "1.152.0",
+      "to": "1.161.0",
+      "purl": "pkg:gem/aws-sdk-iam@1.161.0"
+     },
+     {
+      "name": "aws-sdk-kms",
+      "from": "1.130.0",
+      "to": "1.140.0",
+      "purl": "pkg:gem/aws-sdk-kms@1.140.0"
+     },
+     {
+      "name": "aws-sdk-s3",
+      "from": "1.230.0",
+      "to": "1.239.0",
+      "purl": "pkg:gem/aws-sdk-s3@1.239.0"
+     },
+     {
+      "name": "aws-sdk-ssm",
+      "from": "1.220.0",
+      "to": "1.230.0",
+      "purl": "pkg:gem/aws-sdk-ssm@1.230.0"
+     },
+     {
+      "name": "bootsnap",
+      "from": "1.26.0",
+      "to": "1.26.1",
+      "purl": "pkg:gem/bootsnap@1.26.1"
+     },
+     {
+      "name": "bundler",
+      "from": "4.0.22",
+      "to": "4.0.24",
+      "purl": "pkg:gem/bundler@4.0.24"
+     },
+     {
+      "name": "crass",
+      "from": "1.0.7",
+      "to": "1.0.8",
+      "purl": "pkg:gem/crass@1.0.8"
+     },
+     {
+      "name": "domain_name",
+      "from": "0.7.20261007",
+      "to": "0.7.20261031",
+      "purl": "pkg:gem/domain_name@0.7.20261031"
+     },
+     {
+      "name": "ethon",
+      "from": "0.18.0",
+      "to": "0.19.1",
+      "purl": "pkg:gem/ethon@0.19.1"
+     },
+     {
+      "name": "faraday",
+      "from": "2.15.0",
+      "to": "2.15.1",
+      "purl": "pkg:gem/faraday@2.15.1"
+     },
+     {
+      "name": "httpclient",
+      "from": "2.9.0",
+      "to": "2.10.0",
+      "purl": "pkg:gem/httpclient@2.10.0"
+     },
+     {
+      "name": "io-console",
+      "from": "0.9.4",
+      "to": "0.9.5",
+      "purl": "pkg:gem/io-console@0.9.5"
+     },
+     {
+      "name": "irb",
+      "from": "1.18.0",
+      "to": "1.19.0",
+      "purl": "pkg:gem/irb@1.19.0"
+     },
+     {
+      "name": "mcp",
+      "from": "1.8.0",
+      "to": "1.9.0",
+      "purl": "pkg:gem/mcp@1.9.0"
+     },
+     {
+      "name": "metasploit-payloads",
+      "from": "2.0.247",
+      "to": "2.0.257",
+      "purl": "pkg:gem/metasploit-payloads@2.0.257"
+     },
+     {
+      "name": "mime-types-data",
+      "from": "3.2026.1027",
+      "to": "3.2026.1103",
+      "purl": "pkg:gem/mime-types-data@3.2026.1103"
+     },
+     {
+      "name": "minitest",
+      "from": "6.0.6",
+      "to": "6.1.0",
+      "purl": "pkg:gem/minitest@6.1.0"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.8.5",
+      "to": "1.8.7",
+      "purl": "pkg:gem/msgpack@1.8.7"
+     },
+     {
+      "name": "net-sftp",
+      "from": "4.0.0",
+      "to": "4.1.1",
+      "purl": "pkg:gem/net-sftp@4.1.1"
+     },
+     {
+      "name": "net-ssh",
+      "from": "7.3.6",
+      "to": "8.1.2",
+      "purl": "pkg:gem/net-ssh@8.1.2"
+     },
+     {
+      "name": "rack",
+      "from": "3.2.7",
+      "to": "3.2.8",
+      "purl": "pkg:gem/rack@3.2.8"
+     },
+     {
+      "name": "rack-test",
+      "from": "2.2.0",
+      "to": "2.3.0",
+      "purl": "pkg:gem/rack-test@2.3.0"
+     },
+     {
+      "name": "rexml",
+      "from": "3.4.1",
+      "to": "3.4.4",
+      "purl": "pkg:gem/rexml@3.4.4"
+     },
+     {
+      "name": "rspec-core",
+      "from": "3.13.6",
+      "to": "3.13.7",
+      "purl": "pkg:gem/rspec-core@3.13.7"
+     },
+     {
+      "name": "rspec-expectations",
+      "from": "3.13.5",
+      "to": "3.13.6",
+      "purl": "pkg:gem/rspec-expectations@3.13.6"
+     },
+     {
+      "name": "rspec-mocks",
+      "from": "3.13.8",
+      "to": "3.13.9",
+      "purl": "pkg:gem/rspec-mocks@3.13.9"
+     },
+     {
+      "name": "rspec-support",
+      "from": "3.13.7",
+      "to": "3.13.8",
+      "purl": "pkg:gem/rspec-support@3.13.8"
+     },
+     {
+      "name": "rubygems-update",
+      "from": "4.0.22",
+      "to": "4.0.24",
+      "purl": "pkg:gem/rubygems-update@4.0.24"
+     },
+     {
+      "name": "ttfunk",
+      "from": "1.7.0",
+      "to": "1.8.0",
+      "purl": "pkg:gem/ttfunk@1.8.0"
+     },
+     {
+      "name": "typhoeus",
+      "from": "1.6.0",
+      "to": "1.7.1",
+      "purl": "pkg:gem/typhoeus@1.7.1"
+     },
+     {
+      "name": "tzinfo-data",
+      "from": "1.2026.5",
+      "to": "1.2026.6",
+      "purl": "pkg:gem/tzinfo-data@1.2026.6"
+     },
+     {
+      "name": "wpscan",
+      "from": "4.1.0",
+      "to": "4.2.0",
+      "purl": "pkg:gem/wpscan@4.2.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "bigdecimal",
+      "from": "4.1.3",
+      "to": "3.3.1",
+      "purl": "pkg:gem/bigdecimal@3.3.1"
+     }
+    ]
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/buildx",
+      "from": "v0.39.0",
+      "to": "v0.39.1",
+      "purl": "pkg:golang/github.com/docker/buildx@v0.39.1"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.35.0",
+      "to": "v0.35.1",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.35.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [
+     {
+      "name": "CVE-2026-75604",
+      "version": "1.0.0",
+      "purl": "pkg:npm/CVE-2026-75604@1.0.0"
+     },
+     {
+      "name": "my-next-app",
+      "version": "0.1.0",
+      "purl": "pkg:npm/my-next-app@0.1.0"
+     }
+    ],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "asgiref",
+      "from": "3.12.1",
+      "to": "3.13.0",
+      "purl": "pkg:pypi/asgiref@3.13.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "django",
+      "from": "5.2.17",
+      "to": "5.2.19",
+      "purl": "pkg:pypi/django@5.2.19"
+     },
+     {
+      "name": "filelock",
+      "from": "4.1.1",
+      "to": "4.2.8",
+      "purl": "pkg:pypi/filelock@4.2.8"
+     },
+     {
+      "name": "markdown",
+      "from": "3.10.3",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     },
+     {
+      "name": "pyqt5-sip",
+      "from": "12.19.0",
+      "to": "12.20.0",
+      "purl": "pkg:pypi/pyqt5-sip@12.20.0"
+     },
+     {
+      "name": "pyqt6",
+      "from": "6.11.0",
+      "to": "6.12.0",
+      "purl": "pkg:pypi/pyqt6@6.12.0"
+     },
+     {
+      "name": "python-discovery",
+      "from": "1.4.2",
+      "to": "1.9.5",
+      "purl": "pkg:pypi/python-discovery@1.9.5"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [
+     {
+      "name": "libopenjph0.33",
+      "version": "0.33.0-1",
+      "purl": "pkg:deb/kali/libopenjph0.33@0.33.0-1?arch=arm64&distro=kali-2026.3&upstream=openjph"
+     }
+    ],
+    "removed": [
+     {
+      "name": "libopenjph0.32",
+      "version": "0.32.0-1",
+      "purl": "pkg:deb/kali/libopenjph0.32@0.32.0-1?arch=arm64&distro=kali-2026.3&upstream=openjph"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "7zip",
+      "from": "26.05+dfsg-1",
+      "to": "26.06+dfsg-1",
+      "purl": "pkg:deb/kali/7zip@26.06%2Bdfsg-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "bluez",
+      "from": "5.87-5",
+      "to": "5.88-1",
+      "purl": "pkg:deb/kali/bluez@5.88-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "bundler",
+      "from": "4.0.22-1",
+      "to": "4.0.24-1",
+      "purl": "pkg:deb/kali/bundler@4.0.24-1?arch=all&distro=kali-2026.3&upstream=rubygems"
+     },
+     {
+      "name": "docker-buildx-plugin",
+      "from": "0.39.0-1~debian.12~bookworm",
+      "to": "0.39.1-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-buildx-plugin@0.39.1-1~debian.12~bookworm?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "dracut-install",
+      "from": "112-7",
+      "to": "112-8",
+      "purl": "pkg:deb/kali/dracut-install@112-8?arch=arm64&distro=kali-2026.3&upstream=dracut"
+     },
+     {
+      "name": "gir1.2-harfbuzz-0.0",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/gir1.2-harfbuzz-0.0@14.4.0%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "hwdata",
+      "from": "0.411-1",
+      "to": "0.413-1",
+      "purl": "pkg:deb/kali/hwdata@0.413-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "konsole",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/konsole@4%3A26.08.3-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "konsole-kpart",
+      "from": "4:26.08.2-1",
+      "to": "4:26.08.3-1",
+      "purl": "pkg:deb/kali/konsole-kpart@4%3A26.08.3-1?arch=arm64&distro=kali-2026.3&upstream=konsole"
+     },
+     {
+      "name": "libaprutil1-dbd-sqlite3",
+      "from": "1.6.4-2",
+      "to": "1.6.6-1",
+      "purl": "pkg:deb/kali/libaprutil1-dbd-sqlite3@1.6.6-1?arch=arm64&distro=kali-2026.3&upstream=apr-util"
+     },
+     {
+      "name": "libaprutil1-ldap",
+      "from": "1.6.4-2",
+      "to": "1.6.6-1",
+      "purl": "pkg:deb/kali/libaprutil1-ldap@1.6.6-1?arch=arm64&distro=kali-2026.3&upstream=apr-util"
+     },
+     {
+      "name": "libaprutil1t64",
+      "from": "1.6.4-2",
+      "to": "1.6.6-1",
+      "purl": "pkg:deb/kali/libaprutil1t64@1.6.6-1?arch=arm64&distro=kali-2026.3&upstream=apr-util"
+     },
+     {
+      "name": "libbluetooth3",
+      "from": "5.87-5",
+      "to": "5.88-1",
+      "purl": "pkg:deb/kali/libbluetooth3@5.88-1?arch=arm64&distro=kali-2026.3&upstream=bluez"
+     },
+     {
+      "name": "libexpat1",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/libexpat1@2.10.0-1?arch=arm64&distro=kali-2026.3&upstream=expat"
+     },
+     {
+      "name": "libexpat1-dev",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/libexpat1-dev@2.10.0-1?arch=arm64&distro=kali-2026.3&upstream=expat"
+     },
+     {
+      "name": "libharfbuzz-gobject0",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/libharfbuzz-gobject0@14.4.0%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libharfbuzz-subset0",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/libharfbuzz-subset0@14.4.0%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libharfbuzz0b",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/libharfbuzz0b@14.4.0%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libimath-3-2-30",
+      "from": "3.2.2-3+b1",
+      "to": "3.2.3-5",
+      "purl": "pkg:deb/kali/libimath-3-2-30@3.2.3-5?arch=arm64&distro=kali-2026.3&upstream=imath"
+     },
+     {
+      "name": "libminizip1t64",
+      "from": "1:1.3.dfsg+really1.3.2-3",
+      "to": "1:1.3.dfsg+really1.3.2-4",
+      "purl": "pkg:deb/kali/libminizip1t64@1%3A1.3.dfsg%2Breally1.3.2-4?arch=arm64&distro=kali-2026.3&upstream=zlib"
+     },
+     {
+      "name": "libopenexr-3-4-33",
+      "from": "3.4.16+ds-1",
+      "to": "3.4.16+ds-1+b1",
+      "purl": "pkg:deb/kali/libopenexr-3-4-33@3.4.16%2Bds-1%2Bb1?arch=arm64&distro=kali-2026.3&upstream=openexr%403.4.16%2Bds-1"
+     },
+     {
+      "name": "libopenmpt0t64",
+      "from": "0.8.9-1",
+      "to": "0.8.10-1",
+      "purl": "pkg:deb/kali/libopenmpt0t64@0.8.10-1?arch=arm64&distro=kali-2026.3&upstream=libopenmpt"
+     },
+     {
+      "name": "libpoppler-cpp3",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler-cpp3@26.07.0-4?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpoppler-qt6-3t64",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler-qt6-3t64@26.07.0-4?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpoppler162",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler162@26.07.0-4?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpopt0",
+      "from": "1.19+dfsg-2+b2",
+      "to": "1.19+dfsg-3",
+      "purl": "pkg:deb/kali/libpopt0@1.19%2Bdfsg-3?arch=arm64&distro=kali-2026.3&upstream=popt"
+     },
+     {
+      "name": "libproc2-1",
+      "from": "2:4.0.7-1",
+      "to": "2:4.0.7-1.1",
+      "purl": "pkg:deb/kali/libproc2-1@2%3A4.0.7-1.1?arch=arm64&distro=kali-2026.3&upstream=procps"
+     },
+     {
+      "name": "librsvg2-2",
+      "from": "2.63.3+dfsg-1",
+      "to": "2.63.4+dfsg-4",
+      "purl": "pkg:deb/kali/librsvg2-2@2.63.4%2Bdfsg-4?arch=arm64&distro=kali-2026.3&upstream=librsvg"
+     },
+     {
+      "name": "librsvg2-common",
+      "from": "2.63.3+dfsg-1",
+      "to": "2.63.4+dfsg-4",
+      "purl": "pkg:deb/kali/librsvg2-common@2.63.4%2Bdfsg-4?arch=arm64&distro=kali-2026.3&upstream=librsvg"
+     },
+     {
+      "name": "libsmb2-6",
+      "from": "6.2+dfsg-4",
+      "to": "6.3.2+dfsg-1",
+      "purl": "pkg:deb/kali/libsmb2-6@6.3.2%2Bdfsg-1?arch=arm64&distro=kali-2026.3&upstream=libsmb2"
+     },
+     {
+      "name": "libstoken1t64",
+      "from": "0.93-2",
+      "to": "0.93-3",
+      "purl": "pkg:deb/kali/libstoken1t64@0.93-3?arch=arm64&distro=kali-2026.3&upstream=stoken"
+     },
+     {
+      "name": "metasploit-framework",
+      "from": "6.5.7-0kali1",
+      "to": "6.5.9-0kali1",
+      "purl": "pkg:deb/kali/metasploit-framework@6.5.9-0kali1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "openssh-client",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-client@1%3A10.6p2-1?arch=arm64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-common",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-common@1%3A10.6p2-1?arch=arm64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-server",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-server@1%3A10.6p2-1?arch=arm64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-sftp-server",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-sftp-server@1%3A10.6p2-1?arch=arm64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "peass",
+      "from": "20261019.f07b7f97-0kali1",
+      "to": "20261109.f4fdadd7-0kali1",
+      "purl": "pkg:deb/kali/peass@20261109.f4fdadd7-0kali1?arch=all&distro=kali-2026.3&upstream=peass-ng"
+     },
+     {
+      "name": "pnp.ids",
+      "from": "0.411-1",
+      "to": "0.413-1",
+      "purl": "pkg:deb/kali/pnp.ids@0.413-1?arch=all&distro=kali-2026.3&upstream=hwdata"
+     },
+     {
+      "name": "poppler-utils",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/poppler-utils@26.07.0-4?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "procps",
+      "from": "2:4.0.7-1",
+      "to": "2:4.0.7-1.1",
+      "purl": "pkg:deb/kali/procps@2%3A4.0.7-1.1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "python3-asgiref",
+      "from": "3.12.1-1",
+      "to": "3.13.0-1",
+      "purl": "pkg:deb/kali/python3-asgiref@3.13.0-1?arch=all&distro=kali-2026.3&upstream=python-asgiref"
+     },
+     {
+      "name": "python3-bidict",
+      "from": "0.24.1-1",
+      "to": "0.24.1-2",
+      "purl": "pkg:deb/kali/python3-bidict@0.24.1-2?arch=all&distro=kali-2026.3&upstream=bidict"
+     },
+     {
+      "name": "python3-croniter",
+      "from": "6.2.4-1",
+      "to": "6.2.4-2",
+      "purl": "pkg:deb/kali/python3-croniter@6.2.4-2?arch=all&distro=kali-2026.3&upstream=python-croniter"
+     },
+     {
+      "name": "python3-discovery",
+      "from": "1.4.2-1",
+      "to": "1.9.5-1",
+      "purl": "pkg:deb/kali/python3-discovery@1.9.5-1?arch=all&distro=kali-2026.3&upstream=python-discovery"
+     },
+     {
+      "name": "python3-django",
+      "from": "3:5.2.17-2",
+      "to": "3:5.2.19-1",
+      "purl": "pkg:deb/kali/python3-django@3%3A5.2.19-1?arch=all&distro=kali-2026.3&upstream=python-django"
+     },
+     {
+      "name": "python3-filelock",
+      "from": "4.1.1-1",
+      "to": "4.2.8-1",
+      "purl": "pkg:deb/kali/python3-filelock@4.2.8-1?arch=all&distro=kali-2026.3&upstream=python-filelock"
+     },
+     {
+      "name": "python3-markdown",
+      "from": "3.10.3-1",
+      "to": "3.11.3-1",
+      "purl": "pkg:deb/kali/python3-markdown@3.11.3-1?arch=all&distro=kali-2026.3&upstream=python-markdown"
+     },
+     {
+      "name": "python3-pcapy",
+      "from": "2.1.0-3",
+      "to": "2.1.0-4",
+      "purl": "pkg:deb/kali/python3-pcapy@2.1.0-4?arch=arm64&distro=kali-2026.3&upstream=pcapy-ng"
+     },
+     {
+      "name": "python3-pycparser",
+      "from": "3.0-1",
+      "to": "3.12-1",
+      "purl": "pkg:deb/kali/python3-pycparser@3.12-1?arch=all&distro=kali-2026.3&upstream=pycparser"
+     },
+     {
+      "name": "python3-pyqt5.sip",
+      "from": "12.19.0-1+b2",
+      "to": "12.20.0-1",
+      "purl": "pkg:deb/kali/python3-pyqt5.sip@12.20.0-1?arch=arm64&distro=kali-2026.3&upstream=pyqt5-sip"
+     },
+     {
+      "name": "python3-pyqt6",
+      "from": "6.11.0-4",
+      "to": "6.12.0-2",
+      "purl": "pkg:deb/kali/python3-pyqt6@6.12.0-2?arch=arm64&distro=kali-2026.3&upstream=pyqt6"
+     },
+     {
+      "name": "python3-redis",
+      "from": "6.4.0-3",
+      "to": "6.4.0-4",
+      "purl": "pkg:deb/kali/python3-redis@6.4.0-4?arch=all&distro=kali-2026.3&upstream=python-redis"
+     },
+     {
+      "name": "python3-tempita",
+      "from": "0.6.0-1",
+      "to": "0.6.0-2",
+      "purl": "pkg:deb/kali/python3-tempita@0.6.0-2?arch=all&distro=kali-2026.3&upstream=python-tempita"
+     },
+     {
+      "name": "python3-tenacity",
+      "from": "9.1.4-2",
+      "to": "9.1.4-3",
+      "purl": "pkg:deb/kali/python3-tenacity@9.1.4-3?arch=all&distro=kali-2026.3&upstream=python-tenacity"
+     },
+     {
+      "name": "python3-typing-inspection",
+      "from": "0.4.4-1",
+      "to": "0.4.5-1",
+      "purl": "pkg:deb/kali/python3-typing-inspection@0.4.5-1?arch=all&distro=kali-2026.3&upstream=python-typing-inspection"
+     },
+     {
+      "name": "rsync",
+      "from": "3.5.1+ds1-2",
+      "to": "3.5.2+ds1-2",
+      "purl": "pkg:deb/kali/rsync@3.5.2%2Bds1-2?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "ruby-bundler",
+      "from": "4.0.22-1",
+      "to": "4.0.24-1",
+      "purl": "pkg:deb/kali/ruby-bundler@4.0.24-1?arch=all&distro=kali-2026.3&upstream=rubygems"
+     },
+     {
+      "name": "ruby-cms-scanner",
+      "from": "0.15.0-0kali4",
+      "to": "0.15.0-0kali5",
+      "purl": "pkg:deb/kali/ruby-cms-scanner@0.15.0-0kali5?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "ruby-ethon",
+      "from": "0.18.0-2",
+      "to": "0.19.1-1",
+      "purl": "pkg:deb/kali/ruby-ethon@0.19.1-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "ruby-rubygems",
+      "from": "4.0.22-1",
+      "to": "4.0.24-1",
+      "purl": "pkg:deb/kali/ruby-rubygems@4.0.24-1?arch=all&distro=kali-2026.3&upstream=rubygems"
+     },
+     {
+      "name": "ruby-typhoeus",
+      "from": "1.6.0-1",
+      "to": "1.7.1-1",
+      "purl": "pkg:deb/kali/ruby-typhoeus@1.7.1-1?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "sudo",
+      "from": "1.9.17p2-9",
+      "to": "1.9.17p2-11",
+      "purl": "pkg:deb/kali/sudo@1.9.17p2-11?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "vpnc",
+      "from": "0.5.3+git20260629-2",
+      "to": "0.5.3+git20261102-1",
+      "purl": "pkg:deb/kali/vpnc@0.5.3%2Bgit20261102-1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "wpscan",
+      "from": "4.1.0-0kali1",
+      "to": "4.2.0-0kali2",
+      "purl": "pkg:deb/kali/wpscan@4.2.0-0kali2?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.2-3",
+      "to": "1:1.3.dfsg+really1.3.2-4",
+      "purl": "pkg:deb/kali/zlib1g@1%3A1.3.dfsg%2Breally1.3.2-4?arch=arm64&distro=kali-2026.3&upstream=zlib"
+     },
+     {
+      "name": "zlib1g-dev",
+      "from": "1:1.3.dfsg+really1.3.2-3",
+      "to": "1:1.3.dfsg+really1.3.2-4",
+      "purl": "pkg:deb/kali/zlib1g-dev@1%3A1.3.dfsg%2Breally1.3.2-4?arch=arm64&distro=kali-2026.3&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "gem": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "addressable",
+      "from": "2.9.0",
+      "to": "2.9.2",
+      "purl": "pkg:gem/addressable@2.9.2"
+     },
+     {
+      "name": "afm",
+      "from": "1.0.0",
+      "to": "1.0.1",
+      "purl": "pkg:gem/afm@1.0.1"
+     },
+     {
+      "name": "aws-eventstream",
+      "from": "1.4.0",
+      "to": "1.4.1",
+      "purl": "pkg:gem/aws-eventstream@1.4.1"
+     },
+     {
+      "name": "aws-partitions",
+      "from": "1.1296.0",
+      "to": "1.1303.0",
+      "purl": "pkg:gem/aws-partitions@1.1303.0"
+     },
+     {
+      "name": "aws-sdk-core",
+      "from": "3.254.1",
+      "to": "3.265.0",
+      "purl": "pkg:gem/aws-sdk-core@3.265.0"
+     },
+     {
+      "name": "aws-sdk-ec2",
+      "from": "1.645.0",
+      "to": "1.665.0",
+      "purl": "pkg:gem/aws-sdk-ec2@1.665.0"
+     },
+     {
+      "name": "aws-sdk-ec2instanceconnect",
+      "from": "1.74.0",
+      "to": "1.83.0",
+      "purl": "pkg:gem/aws-sdk-ec2instanceconnect@1.83.0"
+     },
+     {
+      "name": "aws-sdk-iam",
+      "from": "1.152.0",
+      "to": "1.161.0",
+      "purl": "pkg:gem/aws-sdk-iam@1.161.0"
+     },
+     {
+      "name": "aws-sdk-kms",
+      "from": "1.130.0",
+      "to": "1.140.0",
+      "purl": "pkg:gem/aws-sdk-kms@1.140.0"
+     },
+     {
+      "name": "aws-sdk-s3",
+      "from": "1.230.0",
+      "to": "1.239.0",
+      "purl": "pkg:gem/aws-sdk-s3@1.239.0"
+     },
+     {
+      "name": "aws-sdk-ssm",
+      "from": "1.220.0",
+      "to": "1.230.0",
+      "purl": "pkg:gem/aws-sdk-ssm@1.230.0"
+     },
+     {
+      "name": "bootsnap",
+      "from": "1.26.0",
+      "to": "1.26.1",
+      "purl": "pkg:gem/bootsnap@1.26.1"
+     },
+     {
+      "name": "bundler",
+      "from": "4.0.22",
+      "to": "4.0.24",
+      "purl": "pkg:gem/bundler@4.0.24"
+     },
+     {
+      "name": "crass",
+      "from": "1.0.7",
+      "to": "1.0.8",
+      "purl": "pkg:gem/crass@1.0.8"
+     },
+     {
+      "name": "domain_name",
+      "from": "0.7.20261007",
+      "to": "0.7.20261031",
+      "purl": "pkg:gem/domain_name@0.7.20261031"
+     },
+     {
+      "name": "ethon",
+      "from": "0.18.0",
+      "to": "0.19.1",
+      "purl": "pkg:gem/ethon@0.19.1"
+     },
+     {
+      "name": "faraday",
+      "from": "2.15.0",
+      "to": "2.15.1",
+      "purl": "pkg:gem/faraday@2.15.1"
+     },
+     {
+      "name": "httpclient",
+      "from": "2.9.0",
+      "to": "2.10.0",
+      "purl": "pkg:gem/httpclient@2.10.0"
+     },
+     {
+      "name": "io-console",
+      "from": "0.9.4",
+      "to": "0.9.5",
+      "purl": "pkg:gem/io-console@0.9.5"
+     },
+     {
+      "name": "irb",
+      "from": "1.18.0",
+      "to": "1.19.0",
+      "purl": "pkg:gem/irb@1.19.0"
+     },
+     {
+      "name": "mcp",
+      "from": "1.8.0",
+      "to": "1.9.0",
+      "purl": "pkg:gem/mcp@1.9.0"
+     },
+     {
+      "name": "metasploit-payloads",
+      "from": "2.0.247",
+      "to": "2.0.257",
+      "purl": "pkg:gem/metasploit-payloads@2.0.257"
+     },
+     {
+      "name": "mime-types-data",
+      "from": "3.2026.1027",
+      "to": "3.2026.1103",
+      "purl": "pkg:gem/mime-types-data@3.2026.1103"
+     },
+     {
+      "name": "minitest",
+      "from": "6.0.6",
+      "to": "6.1.0",
+      "purl": "pkg:gem/minitest@6.1.0"
+     },
+     {
+      "name": "msgpack",
+      "from": "1.8.5",
+      "to": "1.8.7",
+      "purl": "pkg:gem/msgpack@1.8.7"
+     },
+     {
+      "name": "net-sftp",
+      "from": "4.0.0",
+      "to": "4.1.1",
+      "purl": "pkg:gem/net-sftp@4.1.1"
+     },
+     {
+      "name": "net-ssh",
+      "from": "7.3.6",
+      "to": "8.1.2",
+      "purl": "pkg:gem/net-ssh@8.1.2"
+     },
+     {
+      "name": "rack",
+      "from": "3.2.7",
+      "to": "3.2.8",
+      "purl": "pkg:gem/rack@3.2.8"
+     },
+     {
+      "name": "rack-test",
+      "from": "2.2.0",
+      "to": "2.3.0",
+      "purl": "pkg:gem/rack-test@2.3.0"
+     },
+     {
+      "name": "rexml",
+      "from": "3.4.1",
+      "to": "3.4.4",
+      "purl": "pkg:gem/rexml@3.4.4"
+     },
+     {
+      "name": "rspec-core",
+      "from": "3.13.6",
+      "to": "3.13.7",
+      "purl": "pkg:gem/rspec-core@3.13.7"
+     },
+     {
+      "name": "rspec-expectations",
+      "from": "3.13.5",
+      "to": "3.13.6",
+      "purl": "pkg:gem/rspec-expectations@3.13.6"
+     },
+     {
+      "name": "rspec-mocks",
+      "from": "3.13.8",
+      "to": "3.13.9",
+      "purl": "pkg:gem/rspec-mocks@3.13.9"
+     },
+     {
+      "name": "rspec-support",
+      "from": "3.13.7",
+      "to": "3.13.8",
+      "purl": "pkg:gem/rspec-support@3.13.8"
+     },
+     {
+      "name": "rubygems-update",
+      "from": "4.0.22",
+      "to": "4.0.24",
+      "purl": "pkg:gem/rubygems-update@4.0.24"
+     },
+     {
+      "name": "ttfunk",
+      "from": "1.7.0",
+      "to": "1.8.0",
+      "purl": "pkg:gem/ttfunk@1.8.0"
+     },
+     {
+      "name": "typhoeus",
+      "from": "1.6.0",
+      "to": "1.7.1",
+      "purl": "pkg:gem/typhoeus@1.7.1"
+     },
+     {
+      "name": "tzinfo-data",
+      "from": "1.2026.5",
+      "to": "1.2026.6",
+      "purl": "pkg:gem/tzinfo-data@1.2026.6"
+     },
+     {
+      "name": "wpscan",
+      "from": "4.1.0",
+      "to": "4.2.0",
+      "purl": "pkg:gem/wpscan@4.2.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "bigdecimal",
+      "from": "4.1.3",
+      "to": "3.3.1",
+      "purl": "pkg:gem/bigdecimal@3.3.1"
+     }
+    ]
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/buildx",
+      "from": "v0.39.0",
+      "to": "v0.39.1",
+      "purl": "pkg:golang/github.com/docker/buildx@v0.39.1"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.35.0",
+      "to": "v0.35.1",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.35.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [
+     {
+      "name": "CVE-2026-75604",
+      "version": "1.0.0",
+      "purl": "pkg:npm/CVE-2026-75604@1.0.0"
+     },
+     {
+      "name": "my-next-app",
+      "version": "0.1.0",
+      "purl": "pkg:npm/my-next-app@0.1.0"
+     }
+    ],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "asgiref",
+      "from": "3.12.1",
+      "to": "3.13.0",
+      "purl": "pkg:pypi/asgiref@3.13.0"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "django",
+      "from": "5.2.17",
+      "to": "5.2.19",
+      "purl": "pkg:pypi/django@5.2.19"
+     },
+     {
+      "name": "filelock",
+      "from": "4.1.1",
+      "to": "4.2.8",
+      "purl": "pkg:pypi/filelock@4.2.8"
+     },
+     {
+      "name": "markdown",
+      "from": "3.10.3",
+      "to": "3.11.3",
+      "purl": "pkg:pypi/markdown@3.11.3"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     },
+     {
+      "name": "pyqt5-sip",
+      "from": "12.19.0",
+      "to": "12.20.0",
+      "purl": "pkg:pypi/pyqt5-sip@12.20.0"
+     },
+     {
+      "name": "pyqt6",
+      "from": "6.11.0",
+      "to": "6.12.0",
+      "purl": "pkg:pypi/pyqt6@6.12.0"
+     },
+     {
+      "name": "python-discovery",
+      "from": "1.4.2",
+      "to": "1.9.5",
+      "purl": "pkg:pypi/python-discovery@1.9.5"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 6,
+  "upgraded": 238,
+  "downgraded": 2
+ }
+}

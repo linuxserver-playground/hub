@@ -1,0 +1,118 @@
+{
+ "schema": 1,
+ "name": "vivaldi",
+ "summary": "[Vivaldi](https://vivaldi.com/) is a Norwegian freeware, cross-platform web browser with a built-in email client developed by Vivaldi Technologies.",
+ "upstream": {
+  "url": "https://vivaldi.com/",
+  "version": {
+   "type": "deb_packages",
+   "index_url": "https://repo.vivaldi.com/archive/deb/dists/stable/main/binary-amd64/Packages",
+   "package": "vivaldi-stable"
+  },
+  "sponsor": [
+   {
+    "name": "Donate to Vivaldi",
+    "url": "https://vivaldi.com/donate/"
+   },
+   {
+    "name": "Contribute to Vivaldi",
+    "url": "https://vivaldi.net/contribute/"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "VIVALDI_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "US/Pacific"
+  },
+  "web": {
+   "port": 3001,
+   "scheme": "https",
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "HTTP Vivaldi desktop gui, must be proxied."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS Vivaldi desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/vivaldi/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "env": [
+   {
+    "name": "VIVALDI_CLI",
+    "value": "https://www.linuxserver.io/",
+    "description": "Specify one or multiple Vivaldi CLI flags, this string will be passed to the application in full.",
+    "optional": true
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for any modern website to function like youtube."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Web Browser"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vivaldi-logo.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-03-31",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2025-12-20",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-06",
+   "text": "Initial release."
+  }
+ ]
+}

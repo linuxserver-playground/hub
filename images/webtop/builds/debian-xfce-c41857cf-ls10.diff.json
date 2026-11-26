@@ -1,0 +1,415 @@
+{
+ "image": "webtop",
+ "branch": "debian-xfce",
+ "tag": "debian-xfce-c41857cf-ls10",
+ "previous_tag": "debian-xfce-6131250a-ls9",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (ae9f88a → 11be909): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "6131250a",
+  "to": "c41857cf",
+  "changed": true
+ },
+ "commit": {
+  "from": "ae9f88a8bfad30abfbef1ec6dc472cc8255ce3ad",
+  "to": "11be9096b63a1e10670f821dabb2bc8df11c98f6",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/ae9f88a8bfad30abfbef1ec6dc472cc8255ce3ad...11be9096b63a1e10670f821dabb2bc8df11c98f6",
+  "commits": [
+   {
+    "sha": "11be9096b63a1e10670f821dabb2bc8df11c98f6",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-23T03:24:22Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/11be9096b63a1e10670f821dabb2bc8df11c98f6",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:95a3e10e4f1e0278dd99eeb33982c4ddc1b6ef4237e6029e0e100c83cd993dcb"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:fbfa7400857f93aadc48362316f56b266492520d0e881e46d3ed13c559910c64"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1267255318,
+   "to": 1276173156,
+   "delta": 8917838
+  },
+  "arm64": {
+   "from": 1226469598,
+   "to": 1235739980,
+   "delta": 9270382
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "base-files",
+      "from": "13.8+deb13u7",
+      "to": "13.8+deb13u8",
+      "purl": "pkg:deb/debian/base-files@13.8%2Bdeb13u8?arch=amd64&distro=debian-13.8"
+     },
+     {
+      "name": "chromium",
+      "from": "156.0.8078.79-1~deb13u1",
+      "to": "156.0.8078.108-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.108-1~deb13u1?arch=amd64&distro=debian-13.8"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.79-1~deb13u1",
+      "to": "156.0.8078.108-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.108-1~deb13u1?arch=amd64&distro=debian-13.8&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.79-1~deb13u1",
+      "to": "156.0.8078.108-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.108-1~deb13u1?arch=all&distro=debian-13.8&upstream=chromium"
+     },
+     {
+      "name": "krb5-locales",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/krb5-locales@1.21.3-5%2Bdeb13u2?arch=all&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-bin@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc-dev-bin",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-dev-bin@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-l10n@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc6@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc6-dev",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc6-dev@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libfreetype6",
+      "from": "2.13.3+dfsg-1+deb13u1",
+      "to": "2.13.3+dfsg-1+deb13u2",
+      "purl": "pkg:deb/debian/libfreetype6@2.13.3%2Bdfsg-1%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=freetype"
+     },
+     {
+      "name": "libgssapi-krb5-2",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libgssapi-krb5-2@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libk5crypto3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libk5crypto3@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5-3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5-3@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5support0",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5support0@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libnghttp2-14",
+      "from": "1.64.0-1.1+deb13u1",
+      "to": "1.64.0-1.1+deb13u2",
+      "purl": "pkg:deb/debian/libnghttp2-14@1.64.0-1.1%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=nghttp2"
+     },
+     {
+      "name": "libssl3t64",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/libssl3t64@3.5.9-1~deb13u1?arch=amd64&distro=debian-13.8&upstream=openssl"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.117-1",
+      "to": "6.12.118-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.118-1?arch=all&distro=debian-13.8&upstream=linux"
+     },
+     {
+      "name": "locales",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/locales@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "locales-all",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/locales-all@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/openssl@3.5.9-1~deb13u1?arch=amd64&distro=debian-13.8"
+     },
+     {
+      "name": "openssl-provider-legacy",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/openssl-provider-legacy@3.5.9-1~deb13u1?arch=amd64&distro=debian-13.8&upstream=openssl"
+     },
+     {
+      "name": "sudo",
+      "from": "1.9.16p2-3+deb13u2",
+      "to": "1.9.16p2-3+deb13u5",
+      "purl": "pkg:deb/debian/sudo@1.9.16p2-3%2Bdeb13u5?arch=amd64&distro=debian-13.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "base-files",
+      "from": "13.8+deb13u7",
+      "to": "13.8+deb13u8",
+      "purl": "pkg:deb/debian/base-files@13.8%2Bdeb13u8?arch=arm64&distro=debian-13.8"
+     },
+     {
+      "name": "chromium",
+      "from": "156.0.8078.79-1~deb13u1",
+      "to": "156.0.8078.108-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium@156.0.8078.108-1~deb13u1?arch=arm64&distro=debian-13.8"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.79-1~deb13u1",
+      "to": "156.0.8078.108-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-common@156.0.8078.108-1~deb13u1?arch=arm64&distro=debian-13.8&upstream=chromium"
+     },
+     {
+      "name": "chromium-l10n",
+      "from": "156.0.8078.79-1~deb13u1",
+      "to": "156.0.8078.108-1~deb13u1",
+      "purl": "pkg:deb/debian/chromium-l10n@156.0.8078.108-1~deb13u1?arch=all&distro=debian-13.8&upstream=chromium"
+     },
+     {
+      "name": "krb5-locales",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/krb5-locales@1.21.3-5%2Bdeb13u2?arch=all&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-bin@2.41-12%2Bdeb13u5?arch=arm64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc-dev-bin",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-dev-bin@2.41-12%2Bdeb13u5?arch=arm64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-l10n@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc6@2.41-12%2Bdeb13u5?arch=arm64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc6-dev",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc6-dev@2.41-12%2Bdeb13u5?arch=arm64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libfreetype6",
+      "from": "2.13.3+dfsg-1+deb13u1",
+      "to": "2.13.3+dfsg-1+deb13u2",
+      "purl": "pkg:deb/debian/libfreetype6@2.13.3%2Bdfsg-1%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=freetype"
+     },
+     {
+      "name": "libgssapi-krb5-2",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libgssapi-krb5-2@1.21.3-5%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libk5crypto3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libk5crypto3@1.21.3-5%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5-3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5-3@1.21.3-5%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5support0",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5support0@1.21.3-5%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libnghttp2-14",
+      "from": "1.64.0-1.1+deb13u1",
+      "to": "1.64.0-1.1+deb13u2",
+      "purl": "pkg:deb/debian/libnghttp2-14@1.64.0-1.1%2Bdeb13u2?arch=arm64&distro=debian-13.8&upstream=nghttp2"
+     },
+     {
+      "name": "libssl3t64",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/libssl3t64@3.5.9-1~deb13u1?arch=arm64&distro=debian-13.8&upstream=openssl"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.117-1",
+      "to": "6.12.118-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.118-1?arch=all&distro=debian-13.8&upstream=linux"
+     },
+     {
+      "name": "locales",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/locales@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "locales-all",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/locales-all@2.41-12%2Bdeb13u5?arch=arm64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/openssl@3.5.9-1~deb13u1?arch=arm64&distro=debian-13.8"
+     },
+     {
+      "name": "openssl-provider-legacy",
+      "from": "3.5.7-1~deb13u3",
+      "to": "3.5.9-1~deb13u1",
+      "purl": "pkg:deb/debian/openssl-provider-legacy@3.5.9-1~deb13u1?arch=arm64&distro=debian-13.8&upstream=openssl"
+     },
+     {
+      "name": "sudo",
+      "from": "1.9.16p2-3+deb13u2",
+      "to": "1.9.16p2-3+deb13u5",
+      "purl": "pkg:deb/debian/sudo@1.9.16p2-3%2Bdeb13u5?arch=arm64&distro=debian-13.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 48,
+  "downgraded": 0
+ }
+}

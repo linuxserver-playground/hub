@@ -1,0 +1,67 @@
+{
+ "image": "baseimage-alpine",
+ "branch": "3.24",
+ "tag": "3.24-bc9f8d41-ls5",
+ "previous_tag": "3.24-bc9f8d41-ls4",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "bc9f8d41",
+  "to": "bc9f8d41",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 12369580,
+   "to": 12369732,
+   "delta": 152
+  },
+  "arm64": {
+   "from": 13421104,
+   "to": 13421179,
+   "delta": 75
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}
