@@ -1,0 +1,124 @@
+{
+ "image": "audiosilo",
+ "branch": "main",
+ "tag": "v2.5.1-ls7",
+ "previous_tag": "v2.5.1-ls6",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (7b80e9c → f0cf562): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v2.5.1",
+  "to": "v2.5.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "7b80e9cec0f37f3f37b138bb1d637bab19608515",
+  "to": "f0cf562674f5d6f4ec7a4a589719c2ebeb5b8d04",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-audiosilo/compare/7b80e9cec0f37f3f37b138bb1d637bab19608515...f0cf562674f5d6f4ec7a4a589719c2ebeb5b8d04",
+  "commits": [
+   {
+    "sha": "f0cf562674f5d6f4ec7a4a589719c2ebeb5b8d04",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T12:25:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-audiosilo/commit/f0cf562674f5d6f4ec7a4a589719c2ebeb5b8d04",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 76274822,
+   "to": 76277557,
+   "delta": 2735
+  },
+  "arm64": {
+   "from": 73667241,
+   "to": 73668072,
+   "delta": 831
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

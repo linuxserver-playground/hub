@@ -1,0 +1,782 @@
+{
+ "image": "code-server",
+ "branch": "master",
+ "tag": "4.146.0-ls11",
+ "previous_tag": "4.144.0-ls6",
+ "classification": "mixed",
+ "reasons": [
+  "upstream version changed",
+  "repository files that reach the image changed (image.yml or root/)",
+  "base image digest changed",
+  "packages changed",
+  "7 commits (2e6e658 → 4e778e8): changed image.yml, generated files, the package table"
+ ],
+ "upstream": {
+  "from": "4.144.0",
+  "to": "4.146.0",
+  "changed": true
+ },
+ "commit": {
+  "from": "2e6e6588f74c75ab24e3e9643c8c848212035380",
+  "to": "4e778e8a403e3b03ff6f2644515b37a789391d7f",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-code-server/compare/2e6e6588f74c75ab24e3e9643c8c848212035380...4e778e8a403e3b03ff6f2644515b37a789391d7f",
+  "commits": [
+   {
+    "sha": "df6feb7d124ab401308f8638204a6d2722b3f21d",
+    "subject": "Wait for the upstream release assets before building",
+    "author": {
+     "name": "thelamer",
+     "login": "thelamer"
+    },
+    "date": "2026-10-30T16:03:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-code-server/commit/df6feb7d124ab401308f8638204a6d2722b3f21d",
+    "bot": false
+   },
+   {
+    "sha": "eb253f2e95e42877c969d0e6eb26f9d38a67e6c9",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T17:53:45Z",
+    "url": "https://github.com/linuxserver-playground/docker-code-server/commit/eb253f2e95e42877c969d0e6eb26f9d38a67e6c9",
+    "bot": true
+   },
+   {
+    "sha": "a4c20560a40f9e7d96a161fcf8f78b98a3c7c74d",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T23:53:33Z",
+    "url": "https://github.com/linuxserver-playground/docker-code-server/commit/a4c20560a40f9e7d96a161fcf8f78b98a3c7c74d",
+    "bot": true
+   },
+   {
+    "sha": "3e09b1bb39e617eb91eeae07c3c8e52b08283984",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-05T00:01:10Z",
+    "url": "https://github.com/linuxserver-playground/docker-code-server/commit/3e09b1bb39e617eb91eeae07c3c8e52b08283984",
+    "bot": true
+   },
+   {
+    "sha": "6a7474e7a024c22a71f7c688fd7d2bc3660a4bc5",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-07T02:00:58Z",
+    "url": "https://github.com/linuxserver-playground/docker-code-server/commit/6a7474e7a024c22a71f7c688fd7d2bc3660a4bc5",
+    "bot": true
+   },
+   {
+    "sha": "f91ec372fb286b0b636f9a0dd4bcb5aa0320b2b2",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-12T22:01:54Z",
+    "url": "https://github.com/linuxserver-playground/docker-code-server/commit/f91ec372fb286b0b636f9a0dd4bcb5aa0320b2b2",
+    "bot": true
+   },
+   {
+    "sha": "4e778e8a403e3b03ff6f2644515b37a789391d7f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-19T22:05:04Z",
+    "url": "https://github.com/linuxserver-playground/docker-code-server/commit/4e778e8a403e3b03ff6f2644515b37a789391d7f",
+    "bot": true
+   }
+  ],
+  "count": 7,
+  "truncated": false,
+  "areas": {
+   "manifest": 1,
+   "generated": 3,
+   "packages": 1
+  }
+ },
+ "trigger": "upstream",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:4a0e605dd0422df67bee626f6d3a8e11e66819f83290da9856ac045404b94266"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:5625688e073ff0f6795f3f5e3687c4f4ab313dd4881b1964627094e5ac12c4ee"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 308698260,
+   "to": 349961375,
+   "delta": 41263115
+  },
+  "arm64": {
+   "from": 308649184,
+   "to": 352754750,
+   "delta": 44105566
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=amd64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.39-0ubuntu8.12?arch=amd64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc6@2.39-0ubuntu8.12?arch=amd64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=amd64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libperl5.38t64",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libperl5.38t64@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=perl"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=amd64&distro=ubuntu-24.04&upstream=sqlite3"
+     },
+     {
+      "name": "locales",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/locales@2.39-0ubuntu8.12?arch=all&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "perl",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=perl"
+     },
+     {
+      "name": "perl-modules-5.38",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-modules-5.38@5.38.2-3.2ubuntu0.7?arch=all&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [
+     {
+      "name": "has-flag",
+      "version": "4.0.0",
+      "purl": "pkg:npm/has-flag@4.0.0"
+     },
+     {
+      "name": "supports-color",
+      "version": "7.2.0",
+      "purl": "pkg:npm/supports-color@7.2.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@github/copilot-sdk",
+      "from": "1.0.27-unstable.40031404408.gba6c003",
+      "to": "1.0.30-preview.0",
+      "purl": "pkg:npm/%40github/copilot-sdk@1.0.30-preview.0"
+     },
+     {
+      "name": "@github/copilot-sdk-linux-x64",
+      "from": "1.0.27-unstable.40031404408.gba6c003",
+      "to": "1.0.30-preview.0",
+      "purl": "pkg:npm/%40github/copilot-sdk-linux-x64@1.0.30-preview.0"
+     },
+     {
+      "name": "@vscode/proxy-agent",
+      "from": "0.45.0",
+      "to": "0.46.0",
+      "purl": "pkg:npm/%40vscode/proxy-agent@0.46.0"
+     },
+     {
+      "name": "argon2",
+      "from": "0.44.0",
+      "to": "0.45.2",
+      "purl": "pkg:npm/argon2@0.45.2"
+     },
+     {
+      "name": "argparse",
+      "from": "2.0.1",
+      "to": "3.0.4",
+      "purl": "pkg:npm/argparse@3.0.4"
+     },
+     {
+      "name": "basic-ftp",
+      "from": "6.2.3",
+      "to": "6.2.6",
+      "purl": "pkg:npm/basic-ftp@6.2.6"
+     },
+     {
+      "name": "code-oss",
+      "from": "1.144.0",
+      "to": "1.146.0",
+      "purl": "pkg:npm/code-oss@1.146.0"
+     },
+     {
+      "name": "code-server",
+      "from": "4.144.0",
+      "to": "4.146.0",
+      "purl": "pkg:npm/code-server@4.146.0"
+     },
+     {
+      "name": "content-disposition",
+      "from": "1.0.1",
+      "to": "2.0.1",
+      "purl": "pkg:npm/content-disposition@2.0.1"
+     },
+     {
+      "name": "copilot-chat",
+      "from": "0.72.0",
+      "to": "0.74.0",
+      "purl": "pkg:npm/copilot-chat@0.74.0"
+     },
+     {
+      "name": "encodeurl",
+      "from": "2.0.0",
+      "to": "2.0.3",
+      "purl": "pkg:npm/encodeurl@2.0.3"
+     },
+     {
+      "name": "es-object-atoms",
+      "from": "1.1.1",
+      "to": "1.1.2",
+      "purl": "pkg:npm/es-object-atoms@1.1.2"
+     },
+     {
+      "name": "express",
+      "from": "5.2.1",
+      "to": "5.3.0",
+      "purl": "pkg:npm/express@5.3.0"
+     },
+     {
+      "name": "follow-redirects",
+      "from": "1.16.2",
+      "to": "1.16.3",
+      "purl": "pkg:npm/follow-redirects@1.16.3"
+     },
+     {
+      "name": "hasown",
+      "from": "2.0.2",
+      "to": "2.0.4",
+      "purl": "pkg:npm/hasown@2.0.4"
+     },
+     {
+      "name": "i18next",
+      "from": "26.3.1",
+      "to": "26.7.2",
+      "purl": "pkg:npm/i18next@26.7.2"
+     },
+     {
+      "name": "ip-address",
+      "from": "10.7.5",
+      "to": "10.7.6",
+      "purl": "pkg:npm/ip-address@10.7.6"
+     },
+     {
+      "name": "js-debug",
+      "from": "1.140.0",
+      "to": "1.140.1",
+      "purl": "pkg:npm/js-debug@1.140.1"
+     },
+     {
+      "name": "js-yaml",
+      "from": "5.4.3",
+      "to": "5.5.0",
+      "purl": "pkg:npm/js-yaml@5.5.0"
+     },
+     {
+      "name": "media-typer",
+      "from": "1.1.0",
+      "to": "1.1.1",
+      "purl": "pkg:npm/media-typer@1.1.1"
+     },
+     {
+      "name": "negotiator",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:npm/negotiator@1.1.0"
+     },
+     {
+      "name": "netmask",
+      "from": "2.0.2",
+      "to": "2.1.1",
+      "purl": "pkg:npm/netmask@2.1.1"
+     },
+     {
+      "name": "node-addon-api",
+      "from": "8.6.0",
+      "to": "8.9.2",
+      "purl": "pkg:npm/node-addon-api@8.9.2"
+     },
+     {
+      "name": "object-inspect",
+      "from": "1.13.4",
+      "to": "1.14.0",
+      "purl": "pkg:npm/object-inspect@1.14.0"
+     },
+     {
+      "name": "on-finished",
+      "from": "2.4.1",
+      "to": "2.4.2",
+      "purl": "pkg:npm/on-finished@2.4.2"
+     },
+     {
+      "name": "qs",
+      "from": "6.16.1",
+      "to": "6.17.1",
+      "purl": "pkg:npm/qs@6.17.1"
+     },
+     {
+      "name": "range-parser",
+      "from": "1.2.1",
+      "to": "1.3.0",
+      "purl": "pkg:npm/range-parser@1.3.0"
+     },
+     {
+      "name": "rotating-file-stream",
+      "from": "3.2.9",
+      "to": "3.2.10",
+      "purl": "pkg:npm/rotating-file-stream@3.2.10"
+     },
+     {
+      "name": "router",
+      "from": "2.2.0",
+      "to": "2.3.0",
+      "purl": "pkg:npm/router@2.3.0"
+     },
+     {
+      "name": "semver",
+      "from": "7.8.5",
+      "to": "7.8.6",
+      "purl": "pkg:npm/semver@7.8.6"
+     },
+     {
+      "name": "tslib",
+      "from": "2.8.1",
+      "to": "2.9.1",
+      "purl": "pkg:npm/tslib@2.9.1"
+     },
+     {
+      "name": "vscode-jsonrpc",
+      "from": "8.2.1",
+      "to": "10.0.0",
+      "purl": "pkg:npm/vscode-jsonrpc@10.0.0"
+     },
+     {
+      "name": "ws",
+      "from": "8.21.0",
+      "to": "8.23.0",
+      "purl": "pkg:npm/ws@8.23.0"
+     },
+     {
+      "name": "zod",
+      "from": "4.4.3",
+      "to": "4.6.7",
+      "purl": "pkg:npm/zod@4.6.7"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "apt",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "apt-utils",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/apt-utils@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "ca-certificates",
+      "from": "20260816ubuntu0.24.04.1",
+      "to": "20260816ubuntu0.24.04.2",
+      "purl": "pkg:deb/ubuntu/ca-certificates@20260816ubuntu0.24.04.2?arch=all&distro=ubuntu-24.04"
+     },
+     {
+      "name": "libapt-pkg6.0t64",
+      "from": "2.8.3",
+      "to": "2.8.4ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libapt-pkg6.0t64@2.8.4ubuntu0.1?arch=arm64&distro=ubuntu-24.04&upstream=apt"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.39-0ubuntu8.12?arch=arm64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/libc6@2.39-0ubuntu8.12?arch=arm64&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.42-4ubuntu2.1",
+      "to": "10.42-4ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.42-4ubuntu2.2?arch=arm64&distro=ubuntu-24.04&upstream=pcre2"
+     },
+     {
+      "name": "libperl5.38t64",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libperl5.38t64@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=perl"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.8",
+      "to": "3.45.1-1ubuntu2.9",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.9?arch=arm64&distro=ubuntu-24.04&upstream=sqlite3"
+     },
+     {
+      "name": "locales",
+      "from": "2.39-0ubuntu8.9",
+      "to": "2.39-0ubuntu8.12",
+      "purl": "pkg:deb/ubuntu/locales@2.39-0ubuntu8.12?arch=all&distro=ubuntu-24.04&upstream=glibc"
+     },
+     {
+      "name": "perl",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-base@5.38.2-3.2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=perl"
+     },
+     {
+      "name": "perl-modules-5.38",
+      "from": "5.38.2-3.2ubuntu0.6",
+      "to": "5.38.2-3.2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/perl-modules-5.38@5.38.2-3.2ubuntu0.7?arch=all&distro=ubuntu-24.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [
+     {
+      "name": "has-flag",
+      "version": "4.0.0",
+      "purl": "pkg:npm/has-flag@4.0.0"
+     },
+     {
+      "name": "supports-color",
+      "version": "7.2.0",
+      "purl": "pkg:npm/supports-color@7.2.0"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@github/copilot-sdk",
+      "from": "1.0.27-unstable.40031404408.gba6c003",
+      "to": "1.0.30-preview.0",
+      "purl": "pkg:npm/%40github/copilot-sdk@1.0.30-preview.0"
+     },
+     {
+      "name": "@github/copilot-sdk-linux-arm64",
+      "from": "1.0.27-unstable.40031404408.gba6c003",
+      "to": "1.0.30-preview.0",
+      "purl": "pkg:npm/%40github/copilot-sdk-linux-arm64@1.0.30-preview.0"
+     },
+     {
+      "name": "@vscode/proxy-agent",
+      "from": "0.45.0",
+      "to": "0.46.0",
+      "purl": "pkg:npm/%40vscode/proxy-agent@0.46.0"
+     },
+     {
+      "name": "argon2",
+      "from": "0.44.0",
+      "to": "0.45.2",
+      "purl": "pkg:npm/argon2@0.45.2"
+     },
+     {
+      "name": "argparse",
+      "from": "2.0.1",
+      "to": "3.0.4",
+      "purl": "pkg:npm/argparse@3.0.4"
+     },
+     {
+      "name": "basic-ftp",
+      "from": "6.2.3",
+      "to": "6.2.6",
+      "purl": "pkg:npm/basic-ftp@6.2.6"
+     },
+     {
+      "name": "code-oss",
+      "from": "1.144.0",
+      "to": "1.146.0",
+      "purl": "pkg:npm/code-oss@1.146.0"
+     },
+     {
+      "name": "code-server",
+      "from": "4.144.0",
+      "to": "4.146.0",
+      "purl": "pkg:npm/code-server@4.146.0"
+     },
+     {
+      "name": "content-disposition",
+      "from": "1.0.1",
+      "to": "2.0.1",
+      "purl": "pkg:npm/content-disposition@2.0.1"
+     },
+     {
+      "name": "copilot-chat",
+      "from": "0.72.0",
+      "to": "0.74.0",
+      "purl": "pkg:npm/copilot-chat@0.74.0"
+     },
+     {
+      "name": "encodeurl",
+      "from": "2.0.0",
+      "to": "2.0.3",
+      "purl": "pkg:npm/encodeurl@2.0.3"
+     },
+     {
+      "name": "es-object-atoms",
+      "from": "1.1.1",
+      "to": "1.1.2",
+      "purl": "pkg:npm/es-object-atoms@1.1.2"
+     },
+     {
+      "name": "express",
+      "from": "5.2.1",
+      "to": "5.3.0",
+      "purl": "pkg:npm/express@5.3.0"
+     },
+     {
+      "name": "follow-redirects",
+      "from": "1.16.2",
+      "to": "1.16.3",
+      "purl": "pkg:npm/follow-redirects@1.16.3"
+     },
+     {
+      "name": "hasown",
+      "from": "2.0.2",
+      "to": "2.0.4",
+      "purl": "pkg:npm/hasown@2.0.4"
+     },
+     {
+      "name": "i18next",
+      "from": "26.3.1",
+      "to": "26.7.2",
+      "purl": "pkg:npm/i18next@26.7.2"
+     },
+     {
+      "name": "ip-address",
+      "from": "10.7.5",
+      "to": "10.7.6",
+      "purl": "pkg:npm/ip-address@10.7.6"
+     },
+     {
+      "name": "js-debug",
+      "from": "1.140.0",
+      "to": "1.140.1",
+      "purl": "pkg:npm/js-debug@1.140.1"
+     },
+     {
+      "name": "js-yaml",
+      "from": "5.4.3",
+      "to": "5.5.0",
+      "purl": "pkg:npm/js-yaml@5.5.0"
+     },
+     {
+      "name": "media-typer",
+      "from": "1.1.0",
+      "to": "1.1.1",
+      "purl": "pkg:npm/media-typer@1.1.1"
+     },
+     {
+      "name": "negotiator",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:npm/negotiator@1.1.0"
+     },
+     {
+      "name": "netmask",
+      "from": "2.0.2",
+      "to": "2.1.1",
+      "purl": "pkg:npm/netmask@2.1.1"
+     },
+     {
+      "name": "node-addon-api",
+      "from": "8.6.0",
+      "to": "8.9.2",
+      "purl": "pkg:npm/node-addon-api@8.9.2"
+     },
+     {
+      "name": "object-inspect",
+      "from": "1.13.4",
+      "to": "1.14.0",
+      "purl": "pkg:npm/object-inspect@1.14.0"
+     },
+     {
+      "name": "on-finished",
+      "from": "2.4.1",
+      "to": "2.4.2",
+      "purl": "pkg:npm/on-finished@2.4.2"
+     },
+     {
+      "name": "qs",
+      "from": "6.16.1",
+      "to": "6.17.1",
+      "purl": "pkg:npm/qs@6.17.1"
+     },
+     {
+      "name": "range-parser",
+      "from": "1.2.1",
+      "to": "1.3.0",
+      "purl": "pkg:npm/range-parser@1.3.0"
+     },
+     {
+      "name": "rotating-file-stream",
+      "from": "3.2.9",
+      "to": "3.2.10",
+      "purl": "pkg:npm/rotating-file-stream@3.2.10"
+     },
+     {
+      "name": "router",
+      "from": "2.2.0",
+      "to": "2.3.0",
+      "purl": "pkg:npm/router@2.3.0"
+     },
+     {
+      "name": "semver",
+      "from": "7.8.5",
+      "to": "7.8.6",
+      "purl": "pkg:npm/semver@7.8.6"
+     },
+     {
+      "name": "tslib",
+      "from": "2.8.1",
+      "to": "2.9.1",
+      "purl": "pkg:npm/tslib@2.9.1"
+     },
+     {
+      "name": "vscode-jsonrpc",
+      "from": "8.2.1",
+      "to": "10.0.0",
+      "purl": "pkg:npm/vscode-jsonrpc@10.0.0"
+     },
+     {
+      "name": "ws",
+      "from": "8.21.0",
+      "to": "8.23.0",
+      "purl": "pkg:npm/ws@8.23.0"
+     },
+     {
+      "name": "zod",
+      "from": "4.4.3",
+      "to": "4.6.7",
+      "purl": "pkg:npm/zod@4.6.7"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 4,
+  "removed": 0,
+  "upgraded": 94,
+  "downgraded": 0
+ }
+}

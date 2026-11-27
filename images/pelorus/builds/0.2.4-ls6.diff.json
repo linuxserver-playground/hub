@@ -1,0 +1,175 @@
+{
+ "image": "pelorus",
+ "branch": "master",
+ "tag": "0.2.4-ls6",
+ "previous_tag": "0.2.4-ls5",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (e777720 → da9ac75): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "0.2.4",
+  "to": "0.2.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "e777720f8bb54e48d3a9897dbbc66ac3a2d01af3",
+  "to": "da9ac75f05b132b0cd55b1983fb70437749d2836",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pelorus/compare/e777720f8bb54e48d3a9897dbbc66ac3a2d01af3...da9ac75f05b132b0cd55b1983fb70437749d2836",
+  "commits": [
+   {
+    "sha": "da9ac75f05b132b0cd55b1983fb70437749d2836",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T19:56:01Z",
+    "url": "https://github.com/linuxserver-playground/docker-pelorus/commit/da9ac75f05b132b0cd55b1983fb70437749d2836",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:52fa07df164b16b16aef191b51e80acf9911a6dd98d836f3e41cee05b1c07f37"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:52fa07df164b16b16aef191b51e80acf9911a6dd98d836f3e41cee05b1c07f37"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 2676300220,
+   "to": 2676412200,
+   "delta": 111980
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "baloo-widgets",
+      "from": "26.08.2-1",
+      "to": "26.08.3-1",
+      "purl": "pkg:alpm/arch/baloo-widgets@26.08.3-1?arch=x86_64&distro=arch-rolling&upstream=baloo-widgets"
+     },
+     {
+      "name": "dolphin",
+      "from": "26.08.2-1",
+      "to": "26.08.3-1",
+      "purl": "pkg:alpm/arch/dolphin@26.08.3-1?arch=x86_64&distro=arch-rolling&upstream=dolphin"
+     },
+     {
+      "name": "harfbuzz-icu",
+      "from": "15.0.0-1",
+      "to": "15.1.0-1",
+      "purl": "pkg:alpm/arch/harfbuzz-icu@15.1.0-1?arch=x86_64&distro=arch-rolling&upstream=harfbuzz"
+     },
+     {
+      "name": "kaccounts-integration",
+      "from": "26.08.2-1",
+      "to": "26.08.3-1",
+      "purl": "pkg:alpm/arch/kaccounts-integration@26.08.3-1?arch=x86_64&distro=arch-rolling&upstream=kaccounts-integration"
+     },
+     {
+      "name": "kate",
+      "from": "26.08.2-1",
+      "to": "26.08.3-1",
+      "purl": "pkg:alpm/arch/kate@26.08.3-1?arch=x86_64&distro=arch-rolling&upstream=kate"
+     },
+     {
+      "name": "kdenlive",
+      "from": "26.08.2-3",
+      "to": "26.08.3-1",
+      "purl": "pkg:alpm/arch/kdenlive@26.08.3-1?arch=x86_64&distro=arch-rolling&upstream=kdenlive"
+     },
+     {
+      "name": "kio-extras",
+      "from": "26.08.2-1",
+      "to": "26.08.3-1",
+      "purl": "pkg:alpm/arch/kio-extras@26.08.3-1?arch=x86_64&distro=arch-rolling&upstream=kio-extras"
+     },
+     {
+      "name": "konsole",
+      "from": "26.08.2-1",
+      "to": "26.08.3-1",
+      "purl": "pkg:alpm/arch/konsole@26.08.3-1?arch=x86_64&distro=arch-rolling&upstream=konsole"
+     },
+     {
+      "name": "libkexiv2",
+      "from": "26.08.2-1",
+      "to": "26.08.3-1",
+      "purl": "pkg:alpm/arch/libkexiv2@26.08.3-1?arch=x86_64&distro=arch-rolling&upstream=libkexiv2"
+     },
+     {
+      "name": "libreoffice-fresh",
+      "from": "26.8.1-2",
+      "to": "26.8.2-1",
+      "purl": "pkg:alpm/arch/libreoffice-fresh@26.8.2-1?arch=x86_64&distro=arch-rolling&upstream=libreoffice-fresh"
+     },
+     {
+      "name": "signon-kwallet-extension",
+      "from": "26.08.2-1",
+      "to": "26.08.3-1",
+      "purl": "pkg:alpm/arch/signon-kwallet-extension@26.08.3-1?arch=x86_64&distro=arch-rolling&upstream=signon-kwallet-extension"
+     }
+    ],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "hsqldb",
+      "from": "build-26.8.1.1",
+      "to": "build-26.8.2.2",
+      "purl": "pkg:maven/org.hsqldb.util.SqlTool/hsqldb@build-26.8.2.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,136 @@
+{
+ "image": "webtop",
+ "branch": "ubuntu-xfce",
+ "tag": "ubuntu-xfce-1b8182db-ls8",
+ "previous_tag": "ubuntu-xfce-25c50df8-ls7",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (c4e6fe8 → 26b2552): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "25c50df8",
+  "to": "1b8182db",
+  "changed": true
+ },
+ "commit": {
+  "from": "c4e6fe86ffa06d280c2bd6293e933fb3093ea661",
+  "to": "26b255223f0af3a1c45388547cd4f467703afdad",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/c4e6fe86ffa06d280c2bd6293e933fb3093ea661...26b255223f0af3a1c45388547cd4f467703afdad",
+  "commits": [
+   {
+    "sha": "26b255223f0af3a1c45388547cd4f467703afdad",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-21T19:07:17Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/26b255223f0af3a1c45388547cd4f467703afdad",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:c4973383c264703f5e4f96508b661065df4d32986b37b3ebb3ed25b8660eae67"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:c4973383c264703f5e4f96508b661065df4d32986b37b3ebb3ed25b8660eae67"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1219795339,
+   "to": 1219828766,
+   "delta": 33427
+  },
+  "arm64": {
+   "from": 1187449268,
+   "to": 1187495924,
+   "delta": 46656
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium@156.0.8078.108-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium-common@156.0.8078.108-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04&upstream=chromium"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium@156.0.8078.108-1xtradeb1.2604.1?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium-common@156.0.8078.108-1xtradeb1.2604.1?arch=arm64&distro=ubuntu-26.04&upstream=chromium"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

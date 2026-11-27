@@ -1,0 +1,173 @@
+{
+ "image": "bazarr",
+ "branch": "master",
+ "tag": "v1.6.2-ls11",
+ "previous_tag": "v1.6.2-ls10",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (124b929 → 28a1a0a): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v1.6.2",
+  "to": "v1.6.2",
+  "changed": false
+ },
+ "commit": {
+  "from": "124b929905f592a01a7ec456d09d704e5ad773c8",
+  "to": "28a1a0ae2244e02512a79e01ed66ccd99a43e9f2",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-bazarr/compare/124b929905f592a01a7ec456d09d704e5ad773c8...28a1a0ae2244e02512a79e01ed66ccd99a43e9f2",
+  "commits": [
+   {
+    "sha": "28a1a0ae2244e02512a79e01ed66ccd99a43e9f2",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-17T11:08:34Z",
+    "url": "https://github.com/linuxserver-playground/docker-bazarr/commit/28a1a0ae2244e02512a79e01ed66ccd99a43e9f2",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:4f4271ee62893d6686f6ed90666598a025cb29fbfc98b0ddcff93f7a61fec58c"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.23",
+   "digest": "sha256:4f4271ee62893d6686f6ed90666598a025cb29fbfc98b0ddcff93f7a61fec58c"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 156428615,
+   "to": 159032479,
+   "delta": 2603864
+  },
+  "arm64": {
+   "from": 151660254,
+   "to": 154572670,
+   "delta": 2912416
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.23.8&upstream=openssl"
+     },
+     {
+      "name": "libffi",
+      "from": "3.5.2-r0",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=x86_64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.23.8&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.23.8&upstream=openssl"
+     },
+     {
+      "name": "libffi",
+      "from": "3.5.2-r0",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=aarch64&distro=alpine-3.23.8"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.23.8&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

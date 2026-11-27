@@ -1,0 +1,186 @@
+{
+ "image": "mylar3",
+ "branch": "master",
+ "tag": "v0.11.0-ls12",
+ "previous_tag": "v0.11.0-ls11",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (11f6cf6 → decfd9c): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.11.0",
+  "to": "v0.11.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "11f6cf641d016d85af4e880eadb12b26688d65db",
+  "to": "decfd9c9f5329b8d94a5cf88a47032efa8442f3a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mylar3/compare/11f6cf641d016d85af4e880eadb12b26688d65db...decfd9c9f5329b8d94a5cf88a47032efa8442f3a",
+  "commits": [
+   {
+    "sha": "decfd9c9f5329b8d94a5cf88a47032efa8442f3a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-22T08:57:49Z",
+    "url": "https://github.com/linuxserver-playground/docker-mylar3/commit/decfd9c9f5329b8d94a5cf88a47032efa8442f3a",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy",
+   "digest": "sha256:9a86e8d702eb88ba0671f0d97b468d579fcd20e5c5e86bbf11406a216cdbaa67"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy",
+   "digest": "sha256:a1a88b2eb5c0972cc72de08e7193ad5d0e2d16449cc84601204dc9b851d1c901"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 199382343,
+   "to": 199814688,
+   "delta": 432345
+  },
+  "arm64": {
+   "from": 193732454,
+   "to": 194079065,
+   "delta": 346611
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libssh-4",
+      "from": "0.9.6-2ubuntu0.22.04.8",
+      "to": "0.9.6-2ubuntu0.22.04.9",
+      "purl": "pkg:deb/ubuntu/libssh-4@0.9.6-2ubuntu0.22.04.9?arch=amd64&distro=ubuntu-22.04&upstream=libssh"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.22.04.1",
+      "to": "2026f-0ubuntu0.22.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.22.04.1?arch=all&distro=ubuntu-22.04"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "charset-normalizer",
+      "from": "3.5.2",
+      "to": "3.5.3",
+      "purl": "pkg:pypi/charset-normalizer@3.5.3"
+     },
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     },
+     {
+      "name": "pycryptodome",
+      "from": "4.5.0",
+      "to": "4.6.0",
+      "purl": "pkg:pypi/pycryptodome@4.6.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libssh-4",
+      "from": "0.9.6-2ubuntu0.22.04.8",
+      "to": "0.9.6-2ubuntu0.22.04.9",
+      "purl": "pkg:deb/ubuntu/libssh-4@0.9.6-2ubuntu0.22.04.9?arch=arm64&distro=ubuntu-22.04&upstream=libssh"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.22.04.1",
+      "to": "2026f-0ubuntu0.22.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.22.04.1?arch=all&distro=ubuntu-22.04"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "charset-normalizer",
+      "from": "3.5.2",
+      "to": "3.5.3",
+      "purl": "pkg:pypi/charset-normalizer@3.5.3"
+     },
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     },
+     {
+      "name": "pycryptodome",
+      "from": "4.5.0",
+      "to": "4.6.0",
+      "purl": "pkg:pypi/pycryptodome@4.6.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,232 @@
+{
+ "image": "webtop",
+ "branch": "dev",
+ "tag": "dev-0e0b55d7-ls6",
+ "previous_tag": "dev-384255f1-ls5",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (50ef093 → b36a6ce): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "384255f1",
+  "to": "0e0b55d7",
+  "changed": true
+ },
+ "commit": {
+  "from": "50ef0930e259238a6522189f02fac27e9d25c5b0",
+  "to": "b36a6ce2bd950ea8c162b0aded765f4debe86327",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/50ef0930e259238a6522189f02fac27e9d25c5b0...b36a6ce2bd950ea8c162b0aded765f4debe86327",
+  "commits": [
+   {
+    "sha": "b36a6ce2bd950ea8c162b0aded765f4debe86327",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T01:48:01Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/b36a6ce2bd950ea8c162b0aded765f4debe86327",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:dev",
+   "digest": "sha256:e13be34014790a2a363b5591669a506a2054c58255cc4ed26be09eb109321a4d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:dev",
+   "digest": "sha256:e13be34014790a2a363b5591669a506a2054c58255cc4ed26be09eb109321a4d"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1747123422,
+   "to": 1749062975,
+   "delta": 1939553
+  },
+  "arm64": {
+   "from": 1700909009,
+   "to": 1702742245,
+   "delta": 1833236
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gstreamer1.0-plugins-base",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-plugins-base@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.2?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libheif-plugin-aomdec",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif-plugin-aomdec@1.21.2-3ubuntu0.7?arch=amd64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libheif-plugin-j2kdec",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif-plugin-j2kdec@1.21.2-3ubuntu0.7?arch=amd64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libheif-plugin-libde265",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif-plugin-libde265@1.21.2-3ubuntu0.7?arch=amd64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libheif-plugin-x265",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif-plugin-x265@1.21.2-3ubuntu0.7?arch=amd64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libheif1",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif1@1.21.2-3ubuntu0.7?arch=amd64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "python3-software-properties",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/python3-software-properties@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     },
+     {
+      "name": "software-properties-common",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/software-properties-common@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     },
+     {
+      "name": "software-properties-qt",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/software-properties-qt@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gstreamer1.0-plugins-base",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-plugins-base@1.28.2-1ubuntu0.2?arch=arm64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.1",
+      "to": "1.28.2-1ubuntu0.2",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.2?arch=arm64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libheif-plugin-aomdec",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif-plugin-aomdec@1.21.2-3ubuntu0.7?arch=arm64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libheif-plugin-j2kdec",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif-plugin-j2kdec@1.21.2-3ubuntu0.7?arch=arm64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libheif-plugin-libde265",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif-plugin-libde265@1.21.2-3ubuntu0.7?arch=arm64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libheif-plugin-x265",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif-plugin-x265@1.21.2-3ubuntu0.7?arch=arm64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "libheif1",
+      "from": "1.21.2-3ubuntu0.6",
+      "to": "1.21.2-3ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libheif1@1.21.2-3ubuntu0.7?arch=arm64&distro=ubuntu-26.04&upstream=libheif"
+     },
+     {
+      "name": "python3-software-properties",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/python3-software-properties@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     },
+     {
+      "name": "software-properties-common",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/software-properties-common@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     },
+     {
+      "name": "software-properties-qt",
+      "from": "0.120.1",
+      "to": "0.120.2",
+      "purl": "pkg:deb/ubuntu/software-properties-qt@0.120.2?arch=all&distro=ubuntu-26.04&upstream=software-properties"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 20,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,795 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-11-20-ls16",
+ "previous_tag": "2026-11-20-ls15",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (a539839 → 86685a6): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-20",
+  "to": "2026-11-20",
+  "changed": false
+ },
+ "commit": {
+  "from": "a539839f7e3154423613233c70ae5ef05a0b8e5c",
+  "to": "86685a6c8b7b552ae041a6f816d3cc091f1df9cb",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lm-studio/compare/a539839f7e3154423613233c70ae5ef05a0b8e5c...86685a6c8b7b552ae041a6f816d3cc091f1df9cb",
+  "commits": [
+   {
+    "sha": "86685a6c8b7b552ae041a6f816d3cc091f1df9cb",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T19:48:59Z",
+    "url": "https://github.com/linuxserver-playground/docker-lm-studio/commit/86685a6c8b7b552ae041a6f816d3cc091f1df9cb",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:086e00be8171b7113ca0abc3196a8e531c47ce2bdfdb5579546b79ab43eab54d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:1bceb8b1c1ebadc5b8c2a9a0d9b239203b34c7802961e2f2bf44cea4761c8b7a"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 9921294455,
+   "to": 9921018686,
+   "delta": -275769
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "158.0.8127.36-1",
+      "to": "158.0.8127.36-2",
+      "purl": "pkg:alpm/arch/chromium@158.0.8127.36-2?arch=x86_64&distro=arch-rolling&upstream=chromium"
+     },
+     {
+      "name": "gnutls",
+      "from": "3.8.13-3",
+      "to": "3.8.14-1",
+      "purl": "pkg:alpm/arch/gnutls@3.8.14-1?arch=x86_64&distro=arch-rolling&upstream=gnutls"
+     },
+     {
+      "name": "hwloc",
+      "from": "2.15.0-1",
+      "to": "2.16.0-1",
+      "purl": "pkg:alpm/arch/hwloc@2.16.0-1?arch=x86_64&distro=arch-rolling&upstream=hwloc"
+     },
+     {
+      "name": "libpackagekit-glib",
+      "from": "1.4.0-1",
+      "to": "1.4.1-1",
+      "purl": "pkg:alpm/arch/libpackagekit-glib@1.4.1-1?arch=x86_64&distro=arch-rolling&upstream=packagekit"
+     },
+     {
+      "name": "openexr",
+      "from": "3.5.4-1",
+      "to": "3.5.5-1",
+      "purl": "pkg:alpm/arch/openexr@3.5.5-1?arch=x86_64&distro=arch-rolling&upstream=openexr"
+     },
+     {
+      "name": "packagekit",
+      "from": "1.4.0-1",
+      "to": "1.4.1-1",
+      "purl": "pkg:alpm/arch/packagekit@1.4.1-1?arch=x86_64&distro=arch-rolling&upstream=packagekit"
+     },
+     {
+      "name": "python-yaml",
+      "from": "6.0.3-2",
+      "to": "6.0.4-1",
+      "purl": "pkg:alpm/arch/python-yaml@6.0.4-1?arch=x86_64&distro=arch-rolling&upstream=python-yaml"
+     },
+     {
+      "name": "simdutf",
+      "from": "9.2.2-1",
+      "to": "9.3.0-1",
+      "purl": "pkg:alpm/arch/simdutf@9.3.0-1?arch=x86_64&distro=arch-rolling&upstream=simdutf"
+     }
+    ],
+    "downgraded": []
+   },
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@ai-sdk/google",
+      "from": "4.0.123",
+      "to": "4.0.124",
+      "purl": "pkg:npm/%40ai-sdk/google@4.0.124"
+     },
+     {
+      "name": "@ai-sdk/google-vertex",
+      "from": "5.0.143",
+      "to": "5.0.144",
+      "purl": "pkg:npm/%40ai-sdk/google-vertex@5.0.144"
+     },
+     {
+      "name": "@aws-sdk/core",
+      "from": "3.981.0",
+      "to": "3.981.1",
+      "purl": "pkg:npm/%40aws-sdk/core@3.981.1"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-cognito-identity",
+      "from": "3.972.83",
+      "to": "3.972.84",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-cognito-identity@3.972.84"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-env",
+      "from": "3.972.84",
+      "to": "3.972.85",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-env@3.972.85"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-http",
+      "from": "3.972.86",
+      "to": "3.972.87",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-http@3.972.87"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-ini",
+      "from": "3.973.30",
+      "to": "3.973.31",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-ini@3.973.31"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-login",
+      "from": "3.972.92",
+      "to": "3.972.93",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-login@3.972.93"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-node",
+      "from": "3.972.97",
+      "to": "3.972.98",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-node@3.972.98"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-process",
+      "from": "3.972.84",
+      "to": "3.972.85",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-process@3.972.85"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-sso",
+      "from": "3.973.28",
+      "to": "3.973.29",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-sso@3.973.29"
+     },
+     {
+      "name": "@aws-sdk/credential-provider-web-identity",
+      "from": "3.972.90",
+      "to": "3.972.91",
+      "purl": "pkg:npm/%40aws-sdk/credential-provider-web-identity@3.972.91"
+     },
+     {
+      "name": "@aws-sdk/credential-providers",
+      "from": "3.1173.0",
+      "to": "3.1175.0",
+      "purl": "pkg:npm/%40aws-sdk/credential-providers@3.1175.0"
+     },
+     {
+      "name": "@aws-sdk/nested-clients",
+      "from": "3.998.3",
+      "to": "3.998.4",
+      "purl": "pkg:npm/%40aws-sdk/nested-clients@3.998.4"
+     },
+     {
+      "name": "@aws-sdk/token-providers",
+      "from": "3.1166.0",
+      "to": "3.1175.0",
+      "purl": "pkg:npm/%40aws-sdk/token-providers@3.1175.0"
+     },
+     {
+      "name": "@cline/agents",
+      "from": "0.2.0",
+      "to": "0.2.1",
+      "purl": "pkg:npm/%40cline/agents@0.2.1"
+     },
+     {
+      "name": "@cline/cli-linux-x64",
+      "from": "3.0.74",
+      "to": "3.0.75",
+      "purl": "pkg:npm/%40cline/cli-linux-x64@3.0.75"
+     },
+     {
+      "name": "@cline/core",
+      "from": "0.2.0",
+      "to": "0.2.1",
+      "purl": "pkg:npm/%40cline/core@0.2.1"
+     },
+     {
+      "name": "@cline/llms",
+      "from": "0.2.0",
+      "to": "0.2.1",
+      "purl": "pkg:npm/%40cline/llms@0.2.1"
+     },
+     {
+      "name": "@cline/sdk",
+      "from": "0.2.0",
+      "to": "0.2.1",
+      "purl": "pkg:npm/%40cline/sdk@0.2.1"
+     },
+     {
+      "name": "@cline/shared",
+      "from": "0.2.0",
+      "to": "0.2.1",
+      "purl": "pkg:npm/%40cline/shared@0.2.1"
+     },
+     {
+      "name": "@openclaw/a2a",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/a2a@2026.11.7"
+     },
+     {
+      "name": "@openclaw/admin-http-rpc",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/admin-http-rpc@2026.11.7"
+     },
+     {
+      "name": "@openclaw/advisor",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/advisor@2026.11.7"
+     },
+     {
+      "name": "@openclaw/agent-guidance",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/agent-guidance@2026.11.7"
+     },
+     {
+      "name": "@openclaw/agentsapi",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/agentsapi@2026.11.7"
+     },
+     {
+      "name": "@openclaw/ai",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/ai@2026.11.7"
+     },
+     {
+      "name": "@openclaw/alibaba-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/alibaba-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/anthropic-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/anthropic-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/apple-fm-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/apple-fm-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/autoreview",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/autoreview@2026.11.7"
+     },
+     {
+      "name": "@openclaw/azure-speech",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/azure-speech@2026.11.7"
+     },
+     {
+      "name": "@openclaw/beam",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/beam@2026.11.7"
+     },
+     {
+      "name": "@openclaw/bifrost-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/bifrost-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/bonjour",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/bonjour@2026.11.7"
+     },
+     {
+      "name": "@openclaw/browser-plugin",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/browser-plugin@2026.11.7"
+     },
+     {
+      "name": "@openclaw/canvas-plugin",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/canvas-plugin@2026.11.7"
+     },
+     {
+      "name": "@openclaw/clawrouter",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/clawrouter@2026.11.7"
+     },
+     {
+      "name": "@openclaw/cloudflare",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/cloudflare@2026.11.7"
+     },
+     {
+      "name": "@openclaw/code-mode-quickjs",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/code-mode-quickjs@2026.11.7"
+     },
+     {
+      "name": "@openclaw/copilot-proxy",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/copilot-proxy@2026.11.7"
+     },
+     {
+      "name": "@openclaw/crabbox-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/crabbox-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/cua-computer",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/cua-computer@2026.11.7"
+     },
+     {
+      "name": "@openclaw/deepgram-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/deepgram-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/document-extract-plugin",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/document-extract-plugin@2026.11.7"
+     },
+     {
+      "name": "@openclaw/elevenlabs-speech",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/elevenlabs-speech@2026.11.7"
+     },
+     {
+      "name": "@openclaw/fal-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/fal-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/file-transfer",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/file-transfer@2026.11.7"
+     },
+     {
+      "name": "@openclaw/fs-safe",
+      "from": "0.26.13",
+      "to": "0.27.1",
+      "purl": "pkg:npm/%40openclaw/fs-safe@0.27.1"
+     },
+     {
+      "name": "@openclaw/fs-safe-linux-x64-gnu",
+      "from": "0.26.13",
+      "to": "0.27.1",
+      "purl": "pkg:npm/%40openclaw/fs-safe-linux-x64-gnu@0.27.1"
+     },
+     {
+      "name": "@openclaw/geolocation-plugin",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/geolocation-plugin@2026.11.7"
+     },
+     {
+      "name": "@openclaw/github",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/github@2026.11.7"
+     },
+     {
+      "name": "@openclaw/github-copilot-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/github-copilot-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/google-plugin",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/google-plugin@2026.11.7"
+     },
+     {
+      "name": "@openclaw/huggingface-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/huggingface-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/image-generation-core",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/image-generation-core@2026.11.7"
+     },
+     {
+      "name": "@openclaw/imap",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/imap@2026.11.7"
+     },
+     {
+      "name": "@openclaw/kie-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/kie-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/knowledge",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/knowledge@2026.11.7"
+     },
+     {
+      "name": "@openclaw/linux-node",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/linux-node@2026.11.7"
+     },
+     {
+      "name": "@openclaw/litellm-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/litellm-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/llm-task",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/llm-task@2026.11.7"
+     },
+     {
+      "name": "@openclaw/lmstudio-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/lmstudio-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/logbook",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/logbook@2026.11.7"
+     },
+     {
+      "name": "@openclaw/mcp-events",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/mcp-events@2026.11.7"
+     },
+     {
+      "name": "@openclaw/mcp-relay",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/mcp-relay@2026.11.7"
+     },
+     {
+      "name": "@openclaw/memory-core",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/memory-core@2026.11.7"
+     },
+     {
+      "name": "@openclaw/memory-wiki",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/memory-wiki@2026.11.7"
+     },
+     {
+      "name": "@openclaw/microsoft-foundry",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/microsoft-foundry@2026.11.7"
+     },
+     {
+      "name": "@openclaw/microsoft-speech",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/microsoft-speech@2026.11.7"
+     },
+     {
+      "name": "@openclaw/migrate-claude",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/migrate-claude@2026.11.7"
+     },
+     {
+      "name": "@openclaw/migrate-hermes",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/migrate-hermes@2026.11.7"
+     },
+     {
+      "name": "@openclaw/minimax-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/minimax-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/nvidia-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/nvidia-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/oc-path",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/oc-path@2026.11.7"
+     },
+     {
+      "name": "@openclaw/ollama-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/ollama-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/omlx-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/omlx-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/onepassword",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/onepassword@2026.11.7"
+     },
+     {
+      "name": "@openclaw/openai-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/openai-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/opencode-go-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/opencode-go-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/openrouter-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/openrouter-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/policy",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/policy@2026.11.7"
+     },
+     {
+      "name": "@openclaw/reef",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/reef@2026.11.7"
+     },
+     {
+      "name": "@openclaw/requesty-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/requesty-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/runway-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/runway-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/senseaudio-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/senseaudio-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/session-share",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/session-share@2026.11.7"
+     },
+     {
+      "name": "@openclaw/sglang-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/sglang-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/telegram",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/telegram@2026.11.7"
+     },
+     {
+      "name": "@openclaw/together-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/together-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/tts-local-cli",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/tts-local-cli@2026.11.7"
+     },
+     {
+      "name": "@openclaw/vault",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/vault@2026.11.7"
+     },
+     {
+      "name": "@openclaw/vllm-provider",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/vllm-provider@2026.11.7"
+     },
+     {
+      "name": "@openclaw/web-readability-plugin",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/web-readability-plugin@2026.11.7"
+     },
+     {
+      "name": "@openclaw/workboard",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/workboard@2026.11.7"
+     },
+     {
+      "name": "@openclaw/x",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/x@2026.11.7"
+     },
+     {
+      "name": "@openclaw/xai-plugin",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/%40openclaw/xai-plugin@2026.11.7"
+     },
+     {
+      "name": "bowser",
+      "from": "2.15.0",
+      "to": "2.15.1",
+      "purl": "pkg:npm/bowser@2.15.1"
+     },
+     {
+      "name": "brace-expansion",
+      "from": "5.0.9",
+      "to": "5.1.0",
+      "purl": "pkg:npm/brace-expansion@5.1.0"
+     },
+     {
+      "name": "cline",
+      "from": "3.0.74",
+      "to": "3.0.75",
+      "purl": "pkg:npm/cline@3.0.75"
+     },
+     {
+      "name": "fast-check",
+      "from": "4.10.3",
+      "to": "4.11.0",
+      "purl": "pkg:npm/fast-check@4.11.0"
+     },
+     {
+      "name": "hono",
+      "from": "4.13.19",
+      "to": "4.13.21",
+      "purl": "pkg:npm/hono@4.13.21"
+     },
+     {
+      "name": "node-forge",
+      "from": "1.4.3",
+      "to": "1.4.4",
+      "purl": "pkg:npm/node-forge@1.4.4"
+     },
+     {
+      "name": "openclaw",
+      "from": "2026.11.6",
+      "to": "2026.11.7",
+      "purl": "pkg:npm/openclaw@2026.11.7"
+     },
+     {
+      "name": "pkce-challenge",
+      "from": "5.0.1",
+      "to": "5.0.2",
+      "purl": "pkg:npm/pkce-challenge@5.0.2"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 114,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,300 @@
+{
+ "schema": 1,
+ "name": "plex",
+ "summary": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
+ "upstream": {
+  "url": "https://plex.tv",
+  "version": {
+   "type": "json",
+   "url": "https://plex.tv/api/downloads/5.json",
+   "jq": ".computer.Linux.version"
+  },
+  "notes": {
+   "type": "json",
+   "url": "https://plex.tv/api/downloads/5.json",
+   "jq": ".computer.Linux | select(.version == \"${VERSION}\") | \"### Added\\n\\(.items_added)\\n\\n### Fixed\\n\\(.items_fixed)\""
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "PLEX_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 32400,
+   "path": "/web/index.html"
+  }
+ },
+ "runtime": {
+  "network": {
+   "mode": "host",
+   "description": "Use Host Networking"
+  },
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/plex/library",
+    "description": "Plex library location. *This can grow very large, 50gb+ is likely for a large collection.*"
+   },
+   {
+    "path": "/tv",
+    "host_path": "/path/to/tvseries",
+    "description": "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc."
+   },
+   {
+    "path": "/movies",
+    "host_path": "/path/to/movies",
+    "description": "Media goes here. Add as many as needed e.g. `/movies`, `/tv`, etc."
+   }
+  ],
+  "env": [
+   {
+    "name": "VERSION",
+    "value": "docker",
+    "description": "Set whether to update plex or not - see Application Setup section."
+   },
+   {
+    "name": "PLEX_CLAIM",
+    "value": "",
+    "description": "Optionally you can obtain a claim token from https://plex.tv/claim and input here. Keep in mind that the claim tokens expire within 4 minutes.",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true,
+   "notes": "* Runtime update of Plex (and thus Plexpass builds) is not supported.\n* Transcode directory must be mounted to a host path or tmpfs.\n"
+  },
+  "nonroot": {
+   "supported": true,
+   "notes": "* Runtime update of Plex (and thus Plexpass builds) is not supported.\n* Transcode directory must be mounted to a host path or tmpfs.\n"
+  }
+ },
+ "docs": {
+  "categories": [
+   "Media Servers",
+   "Music",
+   "Audiobooks"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-logo.png",
+  "setup": "Webui can be found at `<your-ip>:32400/web`\n\n?+note[Updates](|If there is no value set for the VERSION variable, then no updates will take place.|)\n\n?+note[New users](|For new users, no updates will take place on the first run of the container as there is no preferences file to read your token from, to update restart the Docker container after logging in through the webui.|)\n\nValid settings for VERSION are:-\n\n?+info[Plexpass](|YOU CANNOT UPDATE TO A PLEXPASS ONLY (BETA) VERSION IF YOU ARE NOT LOGGED IN WITH A PLEXPASS ACCOUNT.|)\n\n+ **`docker`**: Let Docker handle the Plex Version, we keep our Dockerhub Endpoint up to date with the latest public builds. This is the same as leaving this setting out of your create command.\n+ **`latest`**: will update plex to the latest version available that you are entitled to.\n+ **`public`**: will update plexpass users to the latest public version, useful for plexpass users that don't want to be on the bleeding edge but still want the latest public updates.\n+ **`<specific-version>`**: will select a specific version (eg 0.9.12.4.1192-9a47d21) of plex to install, note you cannot use this to access plexpass versions if you do not have plexpass.\n",
+  "optional_parameters": "If you want to run the container in bridge network mode (instead of the recommended host network mode) you will need to specify ports.\nThe [official documentation for ports](https://support.plex.tv/articles/201543147-what-network-ports-do-i-need-to-allow-through-my-firewall/) lists 32400 as the only required port.\nThe rest of the ports are optionally used for specific purposes listed in the documentation.\nIf you have not already claimed your server (first time setup) you need to set `PLEX_CLAIM` to claim a server set up with bridge networking.\n\n```\n  -p 32400:32400 \\\n  -p 1900:1900/udp \\\n  -p 5353:5353/udp \\\n  -p 8324:8324 \\\n  -p 32410:32410/udp \\\n  -p 32412:32412/udp \\\n  -p 32413:32413/udp \\\n  -p 32414:32414/udp \\\n  -p 32469:32469\n\n```\n\nThe application accepts a series of environment variables to further customize itself on boot:\n\n| Parameter | Function |\n| :---: | --- |\n| `--device=/dev/dri:/dev/dri` | Add this option to your run command if you plan on using Quicksync hardware acceleration - see Application Setup section.|\n| `--device=/dev/dvb:/dev/dvb` | Add this option to your run command if you plan on using dvb devices.|\n",
+  "notices": {
+   "hwaccel": true
+  }
+ },
+ "proxy": {
+  "port": 32400,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-06",
+   "text": "Rebase to Ubuntu Resolute."
+  },
+  {
+   "date": "2026-03-15",
+   "text": "Allow TMPDIR to be changed to better support read-only containers"
+  },
+  {
+   "date": "2026-03-15",
+   "text": "Fix initial claim setup on non-root containers"
+  },
+  {
+   "date": "2024-11-04",
+   "text": "Add Nvidia capability needed for h265"
+  },
+  {
+   "date": "2024-07-18",
+   "text": "Rebase to Ubuntu Noble."
+  },
+  {
+   "date": "2024-02-12",
+   "text": "Use universal hardware acceleration blurb"
+  },
+  {
+   "date": "2024-01-09",
+   "text": "Set ownership on TranscoderTempDirectory when it's been saved in Preferences."
+  },
+  {
+   "date": "2023-08-16",
+   "text": "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar)."
+  },
+  {
+   "date": "2023-07-03",
+   "text": "Deprecate armhf. As announced [here](https://www.linuxserver.io/blog/a-farewell-to-arm-hf)"
+  },
+  {
+   "date": "2022-10-16",
+   "text": "Rebase to jammy. Update to s6v3. Remove opencl packages (bundled with plex)."
+  },
+  {
+   "date": "2022-07-18",
+   "text": "Pin all opencl related driver packages."
+  },
+  {
+   "date": "2022-05-16",
+   "text": "Pin opencl version."
+  },
+  {
+   "date": "2022-03-04",
+   "text": "Increase verbosity of video device permissions fix, attempt to fix missing group rw."
+  },
+  {
+   "date": "2021-12-25",
+   "text": "Install Intel drivers from the official repo."
+  },
+  {
+   "date": "2021-01-20",
+   "text": "Deprecate `UMASK_SET` in favor of UMASK in baseimage, see above for more information."
+  },
+  {
+   "date": "2020-12-10",
+   "text": "Add latest Intel Compute packages from github repo for opencl support on latest gen igpu."
+  },
+  {
+   "date": "2020-11-23",
+   "text": "Add Bionic branch make Focal default."
+  },
+  {
+   "date": "2020-05-03",
+   "text": "Update exposed ports and example docs for bridge mode."
+  },
+  {
+   "date": "2020-03-23",
+   "text": "Remove udev hack (no longer needed), suppress uuid error in log during first start."
+  },
+  {
+   "date": "2019-12-04",
+   "text": "Add variable for setting PLEX_CLAIM. Remove `/transcode` volume mapping as it is now set via plex gui and defaults to a location under `/config`."
+  },
+  {
+   "date": "2019-08-06",
+   "text": "Add variable for setting UMASK."
+  },
+  {
+   "date": "2019-07-10",
+   "text": "Fix permissions for tuner (/dev/dvb) devices."
+  },
+  {
+   "date": "2019-05-20",
+   "text": "Bugfix do not allow Root group for Intel QuickSync ownership rules."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-03-22",
+   "text": "Fix update logic for `VERSION=public`."
+  },
+  {
+   "date": "2019-03-14",
+   "text": "Switch to new api endpoints, enable beta (plex pass) updates for armhf and aarch64."
+  },
+  {
+   "date": "2019-02-15",
+   "text": "Clean up plex pid after unclean stop."
+  },
+  {
+   "date": "2019-02-11",
+   "text": "Fix nvidia variables, add device variables."
+  },
+  {
+   "date": "2019-01-16",
+   "text": "Add pipeline logic, multi arch, and HW transcoding configuration; remove avahi service."
+  },
+  {
+   "date": "2018-09-07",
+   "text": "Rebase to ubuntu bionic, add udev package."
+  },
+  {
+   "date": "2017-12-09",
+   "text": "Fix continuation lines."
+  },
+  {
+   "date": "2017-07-12",
+   "text": "Add inspect commands to README, move to jenkins build and push."
+  },
+  {
+   "date": "2017-05-28",
+   "text": "Add unrar package as per requests, for subzero plugin."
+  },
+  {
+   "date": "2017-01-11",
+   "text": "Use Plex environment variables from pms docker, change abc home folder to /app to alleviate usermod chowning library"
+  },
+  {
+   "date": "2017-01-03",
+   "text": "Use case insensitive version variable matching rather than export and make lowercase."
+  },
+  {
+   "date": "2016-10-17",
+   "text": "Allow use of uppercase version variable"
+  },
+  {
+   "date": "2016-10-01",
+   "text": "Add TZ info to README."
+  },
+  {
+   "date": "2016-09-09",
+   "text": "Add layer badges to README."
+  },
+  {
+   "date": "2016-08-27",
+   "text": "Add badges to README."
+  },
+  {
+   "date": "2016-08-22",
+   "text": "Rebased to xenial and s6 overlay"
+  },
+  {
+   "date": "2016-04-07",
+   "text": "removed `/transcode` volume support (upstream Plex change) and modified PlexPass download method to prevent unauthorised usage of paid PMS"
+  },
+  {
+   "date": "2015-09-24",
+   "text": "added optional support for volume transcoding (/transcode), and various typo fixes."
+  },
+  {
+   "date": "2015-09-19",
+   "text": "Plex updated their download servers from http to https"
+  },
+  {
+   "date": "2015-09-17",
+   "text": "Changed to run chmod only once"
+  },
+  {
+   "date": "2015-08-28",
+   "text": "Removed plexpass from routine, and now uses VERSION as a combination fix."
+  },
+  {
+   "date": "2015-07-18",
+   "text": "Moved autoupdate to be hosted by linuxserver.io and implemented bugfix thanks to ljm42."
+  },
+  {
+   "date": "2015-07-09",
+   "text": "Now with ability to pick static version number."
+  },
+  {
+   "date": "2015-07-08",
+   "text": "Now with autoupdates. (Hosted by fanart.tv)"
+  },
+  {
+   "date": "2015-07-03",
+   "text": "Fixed a mistake that allowed plex to run as user plex rather than abc (99:100). Thanks to double16 for spotting this."
+  }
+ ]
+}

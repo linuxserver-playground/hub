@@ -1,0 +1,498 @@
+{
+ "image": "lollypop",
+ "branch": "master",
+ "tag": "1.4.45-r1-ls10",
+ "previous_tag": "1.4.45-r1-ls9",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (1109a9a → 66cdc0a): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.4.45-r1",
+  "to": "1.4.45-r1",
+  "changed": false
+ },
+ "commit": {
+  "from": "1109a9a3ddfbd3807205daee9aa9ebe1261b5cea",
+  "to": "66cdc0aa73e0971ead2be6bb9fee0f8773c11fb5",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lollypop/compare/1109a9a3ddfbd3807205daee9aa9ebe1261b5cea...66cdc0aa73e0971ead2be6bb9fee0f8773c11fb5",
+  "commits": [
+   {
+    "sha": "66cdc0aa73e0971ead2be6bb9fee0f8773c11fb5",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-16T16:05:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-lollypop/commit/66cdc0aa73e0971ead2be6bb9fee0f8773c11fb5",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:bc6dd9cf0cc1e9271c76b421052e246ffc0d43f520887079a92e5eb60008b6c8"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:e26658c9eb6cbb25197ea41ea76d1f26ea74761006462c37836c9f6b264818ae"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 639069208,
+   "to": 642217468,
+   "delta": 3148260
+  },
+  "arm64": {
+   "from": 592771825,
+   "to": 596201853,
+   "delta": 3430028
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-cli-compose",
+      "from": "5.6.1-r0",
+      "to": "5.7.2-r0",
+      "purl": "pkg:apk/alpine/docker-cli-compose@5.7.2-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gnutls",
+      "from": "3.8.13-r0",
+      "to": "3.8.14-r0",
+      "purl": "pkg:apk/alpine/gnutls@3.8.14-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.9-r0",
+      "to": "1.1.10-r0",
+      "purl": "pkg:apk/alpine/libfontenc@1.1.10-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r2",
+      "to": "2.13.9-r3",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r3?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx-mod-http-fancyindex",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx-mod-http-fancyindex@1.30.7-r0?arch=x86_64&distro=alpine-3.24.4&upstream=nginx"
+     },
+     {
+      "name": "nss",
+      "from": "3.124-r0",
+      "to": "3.133-r0",
+      "purl": "pkg:apk/alpine/nss@3.133-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.1-0.20261022125458-f5cb0306ac0e",
+      "to": "v0.50.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.50.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.6",
+      "to": "0.0.7",
+      "purl": "pkg:pypi/annotated-doc@0.0.7"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.7",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-cli-compose",
+      "from": "5.6.1-r0",
+      "to": "5.7.2-r0",
+      "purl": "pkg:apk/alpine/docker-cli-compose@5.7.2-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "gnutls",
+      "from": "3.8.13-r0",
+      "to": "3.8.14-r0",
+      "purl": "pkg:apk/alpine/gnutls@3.8.14-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.9-r0",
+      "to": "1.1.10-r0",
+      "purl": "pkg:apk/alpine/libfontenc@1.1.10-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r2",
+      "to": "2.13.9-r3",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r3?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx-mod-http-fancyindex",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx-mod-http-fancyindex@1.30.7-r0?arch=aarch64&distro=alpine-3.24.4&upstream=nginx"
+     },
+     {
+      "name": "nss",
+      "from": "3.124-r0",
+      "to": "3.133-r0",
+      "purl": "pkg:apk/alpine/nss@3.133-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [
+     {
+      "name": "connectrpc.com/connect",
+      "version": "v1.19.1",
+      "purl": "pkg:golang/connectrpc.com/connect@v1.19.1"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/client",
+      "version": "v0.2.2",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/client@v0.2.2"
+     },
+     {
+      "name": "github.com/docker/secrets-engine/x",
+      "version": "v0.8.5",
+      "purl": "pkg:golang/github.com/docker/secrets-engine/x@v0.8.5"
+     }
+    ],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.1",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/mattn/go-runewidth",
+      "from": "v0.0.30",
+      "to": "v0.0.31",
+      "purl": "pkg:golang/github.com/mattn/go-runewidth@v0.0.31"
+     },
+     {
+      "name": "github.com/mattn/go-shellwords",
+      "from": "v1.0.15",
+      "to": "v1.0.16",
+      "purl": "pkg:golang/github.com/mattn/go-shellwords@v1.0.16"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.1",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/sys",
+      "from": "v0.49.1-0.20261022125458-f5cb0306ac0e",
+      "to": "v0.50.0",
+      "purl": "pkg:golang/golang.org/x/sys@v0.50.0"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.6",
+      "to": "0.0.7",
+      "purl": "pkg:pypi/annotated-doc@0.0.7"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.7",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 6,
+  "removed": 2,
+  "upgraded": 50,
+  "downgraded": 2
+ }
+}

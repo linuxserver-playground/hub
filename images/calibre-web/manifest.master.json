@@ -1,0 +1,265 @@
+{
+ "schema": 1,
+ "name": "calibre-web",
+ "summary": "[Calibre-web](https://github.com/janeczku/calibre-web) is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database.   It is also possible to integrate google drive and edit metadata and your calibre library through the app itself.\n\nThis software is a fork of library and licensed under the GPL v3 License.",
+ "upstream": {
+  "url": "https://github.com/janeczku/calibre-web",
+  "version": {
+   "type": "github_release",
+   "repo": "janeczku/calibre-web"
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "janeczku/calibre-web"
+  },
+  "sponsor": [
+   {
+    "name": "Calibre-Web",
+    "url": "https://paypal.me/calibreweb"
+   }
+  ]
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable",
+  "tags": [
+   {
+    "tag": "latest",
+    "description": "Releases of Calibre-Web"
+   },
+   {
+    "tag": "nightly",
+    "description": "Commits to the master branch of Calibre-Web"
+   }
+  ]
+ },
+ "build": {
+  "base": "ubuntu",
+  "version_arg": "CALIBREWEB_RELEASE",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "env": {
+   "TZ": "America/Los_Angeles"
+  },
+  "web": {
+   "port": 8083,
+   "auth": "user:password"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8083",
+    "description": "WebUI"
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/calibre-web/data",
+    "description": "Where calibre-web stores the internal database and config."
+   },
+   {
+    "path": "/books",
+    "host_path": "/path/to/calibre/library",
+    "description": "Where your preexisting calibre database is located."
+   }
+  ],
+  "env": [
+   {
+    "name": "DOCKER_MODS",
+    "value": "linuxserver/mods:universal-calibre",
+    "description": "#optional & **x86-64 only** Adds the ability to perform ebook conversion",
+    "optional": true
+   },
+   {
+    "name": "OAUTHLIB_RELAX_TOKEN_SCOPE",
+    "value": "1",
+    "description": "Optionally set this to allow Google OAUTH to work",
+    "optional": true
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Books"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png",
+  "setup": "Webui can be found at `http://your-ip:8083`\n\nOn the initial setup screen, enter `/books` as your calibre library location.\n\n**Default admin login:**\n*Username:* admin\n*Password:* admin123\n\nIf you lock yourself out or forget a password, you will need to specify the app.db similar to this:\n`docker exec -it calibre-web python3 /app/calibre-web/cps.py -p /config/app.db -s <user>:<pass>`\nIf you fail to specify the proper db, it will appear to succeed, but it will not work.\n\nUnrar is included by default and needs to be set in the Calibre-Web admin page (Basic Configuration:External Binaries) with a path of `/usr/bin/unrar`\n\n**64bit only** We have implemented the optional ability to pull in the dependencies to enable ebook conversion utilising Calibre, this means if you don't require this feature the container isn't uneccessarily bloated but should you require it, it is easily available.\nThis optional layer will be rebuilt automatically on our CI pipeline upon new Calibre releases so you can stay up to date.\nTo use this option add the optional environmental variable as shown in the docker-mods section to pull an addition docker layer to enable ebook conversion and then in the Calibre-Web admin page (Basic Configuration:External Binaries) set the **Path to Calibre E-Book Converter** to `/usr/bin/ebook-convert` on versions 0.6.21 and lower. For 0.6.22 and higher, set the directory, `/usr/bin/` only.\n\nThis image contains the [kepubify](https://pgaskin.net/kepubify/) ebook conversion tool (MIT License) to convert epub to kepub.  In the Calibre-Web admin page (Basic Configuration:External Binaries) set the **Path to Kepubify E-Book Converter** to `/usr/bin/kepubify`\n"
+ },
+ "proxy": {
+  "port": 8083,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  },
+  "api_locations": [
+   "/opds",
+   "/kobo"
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2025-10-28",
+   "text": "Add libxfixes3 and libasound2t64 to support epub to pdf conversion; also set --no-sandbox for qtwebengine."
+  },
+  {
+   "date": "2025-01-07",
+   "text": "Set kepubify path by default."
+  },
+  {
+   "date": "2024-12-05",
+   "text": "Rebase to noble."
+  },
+  {
+   "date": "2024-08-26",
+   "text": "Add new dep, xdg-utils."
+  },
+  {
+   "date": "2024-07-07",
+   "text": "Add new dep, libmagic1."
+  },
+  {
+   "date": "2023-10-17",
+   "text": "Remove some packages that are required by the calibre mod but not the base container."
+  },
+  {
+   "date": "2023-10-07",
+   "text": "Install unrar from [linuxserver repo](https://github.com/linuxserver/docker-unrar). Switch to Python virtual environment."
+  },
+  {
+   "date": "2023-04-13",
+   "text": "Deprecate armhf."
+  },
+  {
+   "date": "2023-03-27",
+   "text": "Add cmake as build dep for Levenshtein."
+  },
+  {
+   "date": "2022-12-27",
+   "text": "Add ghostscript, libxtst6, libxkbfile-dev."
+  },
+  {
+   "date": "2022-12-20",
+   "text": "Improve init script and prevent harmless error."
+  },
+  {
+   "date": "2022-10-19",
+   "text": "Rebase to jammy. Upgrade to s6v3. Clean up build dependencies."
+  },
+  {
+   "date": "2021-11-04",
+   "text": "Update pip arguments to ignore distro installed packages."
+  },
+  {
+   "date": "2021-06-24",
+   "text": "Add note on optional OAUTHLIB_RELAX_TOKEN_SCOPE for Google OAUTH support."
+  },
+  {
+   "date": "2021-05-17",
+   "text": "Add linuxserver wheel index."
+  },
+  {
+   "date": "2021-02-10",
+   "text": "Add libxrandr2"
+  },
+  {
+   "date": "2021-01-25",
+   "text": "Add nightly tag"
+  },
+  {
+   "date": "2021-01-19",
+   "text": "Add python3-pkg-resources"
+  },
+  {
+   "date": "2021-01-13",
+   "text": "Rebase to Ubuntu Focal, see [here](https://docs.linuxserver.io/faq#my-host-is-incompatible-with-images-based-on-ubuntu-focal) for troubleshooting armhf."
+  },
+  {
+   "date": "2020-10-12",
+   "text": "Add libxi6"
+  },
+  {
+   "date": "2020-07-12",
+   "text": "Add kepubify for arm64v8"
+  },
+  {
+   "date": "2020-06-05",
+   "text": "Add kepubify for x86-64 and arm32v7"
+  },
+  {
+   "date": "2020-05-06",
+   "text": "Add libxslt1.1 and update ImageMagick policy"
+  },
+  {
+   "date": "2020-01-19",
+   "text": "Adding LDAP libs."
+  },
+  {
+   "date": "2019-10-13",
+   "text": "Migrate to Python3."
+  },
+  {
+   "date": "2019-08-01",
+   "text": "Add libxcomposite1."
+  },
+  {
+   "date": "2019-06-13",
+   "text": "Add docker mod to enable optional ebook conversion on x86-64.  Add unrar."
+  },
+  {
+   "date": "2019-06-02",
+   "text": "Rebase to Ubuntu Bionic & add Gdrive support."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-23",
+   "text": "Rebase to alpine 3.9, use repo version of imagemagick."
+  },
+  {
+   "date": "2019-02-11",
+   "text": "Add pipeline logic and multi arch."
+  },
+  {
+   "date": "2019-01-03",
+   "text": "Remove guest user from default app.db."
+  },
+  {
+   "date": "2018-08-16",
+   "text": "Rebase to alpine 3.8."
+  },
+  {
+   "date": "2018-07-03",
+   "text": "New build pushed, all versions below `67` have [vulnerability](https://github.com/janeczku/calibre-web/issues/534)."
+  },
+  {
+   "date": "2018-01-05",
+   "text": "Deprecate cpu_core routine lack of scaling."
+  },
+  {
+   "date": "2017-12-06",
+   "text": "Rebase to alpine 3.7."
+  },
+  {
+   "date": "2017-11-27",
+   "text": "Use cpu core counting routine to speed up build time."
+  },
+  {
+   "date": "2017-07-24",
+   "text": "Curl version for imagemagick."
+  },
+  {
+   "date": "2017-07-17",
+   "text": "Initial release."
+  }
+ ]
+}

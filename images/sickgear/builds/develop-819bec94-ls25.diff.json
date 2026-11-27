@@ -1,0 +1,123 @@
+{
+ "image": "sickgear",
+ "branch": "develop",
+ "tag": "develop-819bec94-ls25",
+ "previous_tag": "develop-819bec94-ls24",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (1c62fff → 2be820a): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "819bec94",
+  "to": "819bec94",
+  "changed": false
+ },
+ "commit": {
+  "from": "1c62fff28238cf83a1c125f819a32fd3e65b83e9",
+  "to": "2be820ab33302d1af8ad39e6d509dba8490c2a1c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-sickgear/compare/1c62fff28238cf83a1c125f819a32fd3e65b83e9...2be820ab33302d1af8ad39e6d509dba8490c2a1c",
+  "commits": [
+   {
+    "sha": "2be820ab33302d1af8ad39e6d509dba8490c2a1c",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-25T12:02:45Z",
+    "url": "https://github.com/linuxserver-playground/docker-sickgear/commit/2be820ab33302d1af8ad39e6d509dba8490c2a1c",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 75523941,
+   "to": 75528657,
+   "delta": 4716
+  },
+  "arm64": {
+   "from": 74209714,
+   "to": 74208079,
+   "delta": -1635
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=x86_64&distro=alpine-3.22.8&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=aarch64&distro=alpine-3.22.8&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}
