@@ -1,0 +1,185 @@
+{
+ "image": "speedtest-tracker",
+ "branch": "main",
+ "tag": "v1.15.1-ls9",
+ "previous_tag": "v1.15.1-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (33cb2d6 → 7190c1f): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v1.15.1",
+  "to": "v1.15.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "33cb2d6f57fc1945294af51cab1af642b8276fa3",
+  "to": "7190c1f6da0b8ad3ddaba26a9a91962680aced70",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-speedtest-tracker/compare/33cb2d6f57fc1945294af51cab1af642b8276fa3...7190c1f6da0b8ad3ddaba26a9a91962680aced70",
+  "commits": [
+   {
+    "sha": "7190c1f6da0b8ad3ddaba26a9a91962680aced70",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-24T17:56:41Z",
+    "url": "https://github.com/linuxserver-playground/docker-speedtest-tracker/commit/7190c1f6da0b8ad3ddaba26a9a91962680aced70",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:90e1d9b01158670ba81c54855c51233dcd82129a723a24f5e922ac4b452f56be"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:c1438e54e6efb49c63066eac58a9eba1c26118bad1509a32ed81b55e3701f85d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 67020536,
+   "to": 66964524,
+   "delta": -56012
+  },
+  "arm64": {
+   "from": 67549971,
+   "to": 67487548,
+   "delta": -62423
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.7-r0",
+      "to": "1.30.8-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.8-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r2",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=x86_64&distro=alpine-3.24.4&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.7-r0",
+      "to": "1.30.8-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.8-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r2",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=aarch64&distro=alpine-3.24.4&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.2",
+      "to": "2.11.3",
+      "purl": "pkg:generic/composer@2.11.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 11,
+  "downgraded": 0
+ }
+}

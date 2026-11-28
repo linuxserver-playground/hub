@@ -1,0 +1,135 @@
+{
+ "image": "piwigo",
+ "branch": "master",
+ "tag": "16.5.0-ls10",
+ "previous_tag": "16.5.0-ls9",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (d31f0b8 → d50b521): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "16.5.0",
+  "to": "16.5.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "d31f0b8ca06697b36b1c9d258b47ce773b05a40b",
+  "to": "d50b521ebc554f52697dca9640c07b4363768212",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-piwigo/compare/d31f0b8ca06697b36b1c9d258b47ce773b05a40b...d50b521ebc554f52697dca9640c07b4363768212",
+  "commits": [
+   {
+    "sha": "d50b521ebc554f52697dca9640c07b4363768212",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-15T16:46:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-piwigo/commit/d50b521ebc554f52697dca9640c07b4363768212",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e81e256976c8d1d16f1e84a53540b12b20a917e650ff884b467db4c04a3458a2"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e81e256976c8d1d16f1e84a53540b12b20a917e650ff884b467db4c04a3458a2"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 136296286,
+   "to": 136341530,
+   "delta": 45244
+  },
+  "arm64": {
+   "from": 132925832,
+   "to": 132962326,
+   "delta": 36494
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls3",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls3@3.6.8-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nss",
+      "from": "3.124-r0",
+      "to": "3.133-r0",
+      "purl": "pkg:apk/alpine/nss@3.133-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls3",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls3@3.6.8-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nss",
+      "from": "3.124-r0",
+      "to": "3.133-r0",
+      "purl": "pkg:apk/alpine/nss@3.133-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "image": "lm-studio",
+ "branch": "master",
+ "tag": "2026-11-27-ls18",
+ "previous_tag": "2026-11-27-ls17",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (aae0457 → 6846303): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-27",
+  "to": "2026-11-27",
+  "changed": false
+ },
+ "commit": {
+  "from": "aae045701866a04e8f09f68c926b04dcba7739c3",
+  "to": "68463038b67d308d546b21bbf83fbb6afd9f6541",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lm-studio/compare/aae045701866a04e8f09f68c926b04dcba7739c3...68463038b67d308d546b21bbf83fbb6afd9f6541",
+  "commits": [
+   {
+    "sha": "68463038b67d308d546b21bbf83fbb6afd9f6541",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-27T19:03:04Z",
+    "url": "https://github.com/linuxserver-playground/docker-lm-studio/commit/68463038b67d308d546b21bbf83fbb6afd9f6541",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:d45d565b667eb72fe8d6b6b1d407039407094fc6b23da936bd99191bcfacd488"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:d45d565b667eb72fe8d6b6b1d407039407094fc6b23da936bd99191bcfacd488"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 10023763953,
+   "to": 10023786655,
+   "delta": 22702
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "npm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "@aws-sdk/credential-providers",
+      "from": "3.1178.0",
+      "to": "3.1179.0",
+      "purl": "pkg:npm/%40aws-sdk/credential-providers@3.1179.0"
+     },
+     {
+      "name": "@babel/runtime",
+      "from": "7.29.15",
+      "to": "7.29.16",
+      "purl": "pkg:npm/%40babel/runtime@7.29.16"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

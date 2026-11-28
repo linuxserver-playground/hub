@@ -1,0 +1,182 @@
+{
+ "image": "baseimage-debian",
+ "branch": "master",
+ "tag": "trixie-0094b882-ls10",
+ "previous_tag": "trixie-fee1039d-ls9",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (8296fbe → f80a530): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "fee1039d",
+  "to": "0094b882",
+  "changed": true
+ },
+ "commit": {
+  "from": "8296fbe4238e3b3c439991e4caae999e3aed01c8",
+  "to": "f80a530ffc46a4b9ad01c7f44c81e0ab8420cdde",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-debian/compare/8296fbe4238e3b3c439991e4caae999e3aed01c8...f80a530ffc46a4b9ad01c7f44c81e0ab8420cdde",
+  "commits": [
+   {
+    "sha": "f80a530ffc46a4b9ad01c7f44c81e0ab8420cdde",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-23T12:40:38Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-debian/commit/f80a530ffc46a4b9ad01c7f44c81e0ab8420cdde",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 80777385,
+   "to": 72961822,
+   "delta": -7815563
+  },
+  "arm64": {
+   "from": 81811391,
+   "to": 73612388,
+   "delta": -8199003
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "exim4-base",
+      "from": "4.98.2-1+deb13u5",
+      "to": "4.98.2-1+deb13u6",
+      "purl": "pkg:deb/debian/exim4-base@4.98.2-1%2Bdeb13u6?arch=amd64&distro=debian-13.8&upstream=exim4"
+     },
+     {
+      "name": "exim4-config",
+      "from": "4.98.2-1+deb13u5",
+      "to": "4.98.2-1+deb13u6",
+      "purl": "pkg:deb/debian/exim4-config@4.98.2-1%2Bdeb13u6?arch=all&distro=debian-13.8&upstream=exim4"
+     },
+     {
+      "name": "exim4-daemon-light",
+      "from": "4.98.2-1+deb13u5",
+      "to": "4.98.2-1+deb13u6",
+      "purl": "pkg:deb/debian/exim4-daemon-light@4.98.2-1%2Bdeb13u6?arch=amd64&distro=debian-13.8&upstream=exim4"
+     },
+     {
+      "name": "libzstd1",
+      "from": "1.5.7+dfsg-1",
+      "to": "1.5.7+dfsg-1+deb13u1",
+      "purl": "pkg:deb/debian/libzstd1@1.5.7%2Bdfsg-1%2Bdeb13u1?arch=amd64&distro=debian-13.8&upstream=libzstd"
+     },
+     {
+      "name": "login.defs",
+      "from": "1:4.17.4-2",
+      "to": "1:4.17.4-2+deb13u1",
+      "purl": "pkg:deb/debian/login.defs@1%3A4.17.4-2%2Bdeb13u1?arch=all&distro=debian-13.8&upstream=shadow"
+     },
+     {
+      "name": "passwd",
+      "from": "1:4.17.4-2",
+      "to": "1:4.17.4-2+deb13u1",
+      "purl": "pkg:deb/debian/passwd@1%3A4.17.4-2%2Bdeb13u1?arch=amd64&distro=debian-13.8&upstream=shadow"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "exim4-base",
+      "from": "4.98.2-1+deb13u5",
+      "to": "4.98.2-1+deb13u6",
+      "purl": "pkg:deb/debian/exim4-base@4.98.2-1%2Bdeb13u6?arch=arm64&distro=debian-13.8&upstream=exim4"
+     },
+     {
+      "name": "exim4-config",
+      "from": "4.98.2-1+deb13u5",
+      "to": "4.98.2-1+deb13u6",
+      "purl": "pkg:deb/debian/exim4-config@4.98.2-1%2Bdeb13u6?arch=all&distro=debian-13.8&upstream=exim4"
+     },
+     {
+      "name": "exim4-daemon-light",
+      "from": "4.98.2-1+deb13u5",
+      "to": "4.98.2-1+deb13u6",
+      "purl": "pkg:deb/debian/exim4-daemon-light@4.98.2-1%2Bdeb13u6?arch=arm64&distro=debian-13.8&upstream=exim4"
+     },
+     {
+      "name": "libzstd1",
+      "from": "1.5.7+dfsg-1",
+      "to": "1.5.7+dfsg-1+deb13u1",
+      "purl": "pkg:deb/debian/libzstd1@1.5.7%2Bdfsg-1%2Bdeb13u1?arch=arm64&distro=debian-13.8&upstream=libzstd"
+     },
+     {
+      "name": "login.defs",
+      "from": "1:4.17.4-2",
+      "to": "1:4.17.4-2+deb13u1",
+      "purl": "pkg:deb/debian/login.defs@1%3A4.17.4-2%2Bdeb13u1?arch=all&distro=debian-13.8&upstream=shadow"
+     },
+     {
+      "name": "passwd",
+      "from": "1:4.17.4-2",
+      "to": "1:4.17.4-2+deb13u1",
+      "purl": "pkg:deb/debian/passwd@1%3A4.17.4-2%2Bdeb13u1?arch=arm64&distro=debian-13.8&upstream=shadow"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

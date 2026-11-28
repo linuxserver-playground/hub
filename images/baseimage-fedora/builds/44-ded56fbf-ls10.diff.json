@@ -1,0 +1,122 @@
+{
+ "image": "baseimage-fedora",
+ "branch": "44",
+ "tag": "44-ded56fbf-ls10",
+ "previous_tag": "44-54eef4bb-ls9",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (4bc79c2 → a77c287): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "54eef4bb",
+  "to": "ded56fbf",
+  "changed": true
+ },
+ "commit": {
+  "from": "4bc79c2c969ebf6f9c3dc4e8b799e4a19cf5ed6d",
+  "to": "a77c287228f0b8dc7d26ac06f86da5943b6226ed",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-fedora/compare/4bc79c2c969ebf6f9c3dc4e8b799e4a19cf5ed6d...a77c287228f0b8dc7d26ac06f86da5943b6226ed",
+  "commits": [
+   {
+    "sha": "a77c287228f0b8dc7d26ac06f86da5943b6226ed",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-16T20:22:07Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-fedora/commit/a77c287228f0b8dc7d26ac06f86da5943b6226ed",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "fedora",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "fedora",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 77155664,
+   "to": 77163252,
+   "delta": 7588
+  },
+  "arm64": {
+   "from": 73972201,
+   "to": 73989447,
+   "delta": 17246
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "busybox",
+      "from": "1:1.37.0-7.fc44",
+      "to": "1:1.38.0-1.fc44",
+      "purl": "pkg:rpm/fedora/busybox@1.38.0-1.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=busybox-1.38.0-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "busybox",
+      "from": "1:1.37.0-7.fc44",
+      "to": "1:1.38.0-1.fc44",
+      "purl": "pkg:rpm/fedora/busybox@1.38.0-1.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=busybox-1.38.0-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

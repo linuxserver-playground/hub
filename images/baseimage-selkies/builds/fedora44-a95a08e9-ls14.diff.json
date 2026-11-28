@@ -1,0 +1,175 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "fedora44",
+ "tag": "fedora44-a95a08e9-ls14",
+ "previous_tag": "fedora44-6f865653-ls13",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (a8702c0 → 669fb30): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "6f865653",
+  "to": "a95a08e9",
+  "changed": true
+ },
+ "commit": {
+  "from": "a8702c04aca2c4b2d8ba173d890b4d8b3db7b4d8",
+  "to": "669fb30dc31032bf9b778dde25df3f45723d6cba",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/a8702c04aca2c4b2d8ba173d890b4d8b3db7b4d8...669fb30dc31032bf9b778dde25df3f45723d6cba",
+  "commits": [
+   {
+    "sha": "669fb30dc31032bf9b778dde25df3f45723d6cba",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-25T08:03:22Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/669fb30dc31032bf9b778dde25df3f45723d6cba",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:e47d757e7b31d809e20928c931aff0e19d58cf5cde3a381d958ac11bf8eb93d8"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-fedora:44",
+   "digest": "sha256:71f28e4e80b8bd0253366083bdb9541a3564a91bd2c3dd2641e2d200574e5730"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 881890498,
+   "to": 882124377,
+   "delta": 233879
+  },
+  "arm64": {
+   "from": 788335439,
+   "to": 788421161,
+   "delta": 85722
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "httpx",
+      "from": "0.28.1",
+      "to": "0.29.0",
+      "purl": "pkg:pypi/httpx@0.29.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "busybox",
+      "from": "1:1.37.0-7.fc44",
+      "to": "1:1.38.0-1.fc44",
+      "purl": "pkg:rpm/fedora/busybox@1.38.0-1.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=busybox-1.38.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "libjxl",
+      "from": "1:0.11.2-1.fc44",
+      "to": "1:0.11.2-3.fc44",
+      "purl": "pkg:rpm/fedora/libjxl@0.11.2-3.fc44?arch=x86_64&distro=fedora-44&epoch=1&upstream=jpegxl-0.11.2-3.fc44.src.rpm"
+     },
+     {
+      "name": "zstd",
+      "from": "1.5.7-5.fc44",
+      "to": "1.6.0-1.fc44",
+      "purl": "pkg:rpm/fedora/zstd@1.6.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=zstd-1.6.0-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "httpx",
+      "from": "0.28.1",
+      "to": "0.29.0",
+      "purl": "pkg:pypi/httpx@0.29.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "busybox",
+      "from": "1:1.37.0-7.fc44",
+      "to": "1:1.38.0-1.fc44",
+      "purl": "pkg:rpm/fedora/busybox@1.38.0-1.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=busybox-1.38.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "libjxl",
+      "from": "1:0.11.2-1.fc44",
+      "to": "1:0.11.2-3.fc44",
+      "purl": "pkg:rpm/fedora/libjxl@0.11.2-3.fc44?arch=aarch64&distro=fedora-44&epoch=1&upstream=jpegxl-0.11.2-3.fc44.src.rpm"
+     },
+     {
+      "name": "zstd",
+      "from": "1.5.7-5.fc44",
+      "to": "1.6.0-1.fc44",
+      "purl": "pkg:rpm/fedora/zstd@1.6.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=zstd-1.6.0-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

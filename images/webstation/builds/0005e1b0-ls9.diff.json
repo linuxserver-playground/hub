@@ -1,0 +1,617 @@
+{
+ "image": "webstation",
+ "branch": "master",
+ "tag": "0005e1b0-ls9",
+ "previous_tag": "73a857b1-ls8",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (a6506a7 → d97e84b): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "73a857b1",
+  "to": "0005e1b0",
+  "changed": true
+ },
+ "commit": {
+  "from": "a6506a79aa22385a87f0419ccf88fc6bae9fe2f1",
+  "to": "d97e84b5bf5cc7e806e4c7ec845f979c630a2dd4",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webstation/compare/a6506a79aa22385a87f0419ccf88fc6bae9fe2f1...d97e84b5bf5cc7e806e4c7ec845f979c630a2dd4",
+  "commits": [
+   {
+    "sha": "d97e84b5bf5cc7e806e4c7ec845f979c630a2dd4",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-15T18:25:53Z",
+    "url": "https://github.com/linuxserver-playground/docker-webstation/commit/d97e84b5bf5cc7e806e4c7ec845f979c630a2dd4",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:68e4d60f26e237857c52b47113d8135055e5840b247227da77f264bf97588f56"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:ubunturesolute",
+   "digest": "sha256:97c83a509ccd1a9981bf161e16b73c42374296b60809ce2c2331ef1a7a8248dd"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 2656022700,
+   "to": 2689750412,
+   "delta": 33727712
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium@156.0.8078.108-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1xtradeb1.2604.1",
+      "to": "156.0.8078.108-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/chromium-common@156.0.8078.108-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04&upstream=chromium"
+     },
+     {
+      "name": "docker-buildx-plugin",
+      "from": "0.39.0-1~ubuntu.26.04~resolute",
+      "to": "0.39.1-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-buildx-plugin@0.39.1-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-ce",
+      "from": "5:29.9.3-1~ubuntu.26.04~resolute",
+      "to": "5:29.10.0-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-ce@5%3A29.10.0-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-ce-cli",
+      "from": "5:29.9.3-1~ubuntu.26.04~resolute",
+      "to": "5:29.10.0-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-ce-cli@5%3A29.10.0-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.1-1~ubuntu.26.04~resolute",
+      "to": "5.8.0-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-compose-plugin@5.8.0-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "eduke32",
+      "from": "20260807.10669-1xtradeb1.2604.1",
+      "to": "20261119.10670-1xtradeb1.2604.1",
+      "purl": "pkg:deb/ubuntu/eduke32@20261119.10670-1xtradeb1.2604.1?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "gstreamer1.0-gl",
+      "from": "1.28.2-1ubuntu0.2",
+      "to": "1.28.2-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-gl@1.28.2-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "gstreamer1.0-plugins-base",
+      "from": "1.28.2-1ubuntu0.2",
+      "to": "1.28.2-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-plugins-base@1.28.2-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "gstreamer1.0-x",
+      "from": "1.28.2-1ubuntu0.2",
+      "to": "1.28.2-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/gstreamer1.0-x@1.28.2-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc-bin@2.43-2ubuntu2.7?arch=amd64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libc-dev-bin",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc-dev-bin@2.43-2ubuntu2.7?arch=amd64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libc-gconv-modules-extra",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc-gconv-modules-extra@2.43-2ubuntu2.7?arch=amd64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc6@2.43-2ubuntu2.7?arch=amd64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libc6-dev",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/libc6-dev@2.43-2ubuntu2.7?arch=amd64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "libgstreamer-gl1.0-0",
+      "from": "1.28.2-1ubuntu0.2",
+      "to": "1.28.2-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/libgstreamer-gl1.0-0@1.28.2-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer-plugins-base1.0-0",
+      "from": "1.28.2-1ubuntu0.2",
+      "to": "1.28.2-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/libgstreamer-plugins-base1.0-0@1.28.2-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=gst-plugins-base1.0"
+     },
+     {
+      "name": "libgstreamer1.0-0",
+      "from": "1.28.2-1",
+      "to": "1.28.2-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libgstreamer1.0-0@1.28.2-1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=gstreamer1.0"
+     },
+     {
+      "name": "libjavascriptcoregtk-4.1-0",
+      "from": "2.52.6-0ubuntu0.26.04.1",
+      "to": "2.52.6-0ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/libjavascriptcoregtk-4.1-0@2.52.6-0ubuntu0.26.04.2?arch=amd64&distro=ubuntu-26.04&upstream=webkit2gtk"
+     },
+     {
+      "name": "libpipewire-0.3-0t64",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libpipewire-0.3-0t64@1.6.2-1ubuntu1.3?arch=amd64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libpipewire-0.3-common",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libpipewire-0.3-common@1.6.2-1ubuntu1.3?arch=all&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libpipewire-0.3-dev",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libpipewire-0.3-dev@1.6.2-1ubuntu1.3?arch=amd64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libpipewire-0.3-modules",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libpipewire-0.3-modules@1.6.2-1ubuntu1.3?arch=amd64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libpipewire-0.3-modules-extra",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libpipewire-0.3-modules-extra@1.6.2-1ubuntu1.3?arch=amd64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libpipewire-0.3-modules-x11",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libpipewire-0.3-modules-x11@1.6.2-1ubuntu1.3?arch=amd64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libspa-0.2-dev",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libspa-0.2-dev@1.6.2-1ubuntu1.3?arch=amd64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libspa-0.2-modules",
+      "from": "1.6.2-1ubuntu1.2",
+      "to": "1.6.2-1ubuntu1.3",
+      "purl": "pkg:deb/ubuntu/libspa-0.2-modules@1.6.2-1ubuntu1.3?arch=amd64&distro=ubuntu-26.04&upstream=pipewire"
+     },
+     {
+      "name": "libwebkit2gtk-4.1-0",
+      "from": "2.52.6-0ubuntu0.26.04.1",
+      "to": "2.52.6-0ubuntu0.26.04.2",
+      "purl": "pkg:deb/ubuntu/libwebkit2gtk-4.1-0@2.52.6-0ubuntu0.26.04.2?arch=amd64&distro=ubuntu-26.04&upstream=webkit2gtk"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "7.0.0-43.43",
+      "to": "7.0.0-44.44",
+      "purl": "pkg:deb/ubuntu/linux-libc-dev@7.0.0-44.44?arch=amd64&distro=ubuntu-26.04&upstream=linux"
+     },
+     {
+      "name": "locales",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/locales@2.43-2ubuntu2.7?arch=all&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "locales-all",
+      "from": "2.43-2ubuntu2.4",
+      "to": "2.43-2ubuntu2.7",
+      "purl": "pkg:deb/ubuntu/locales-all@2.43-2ubuntu2.7?arch=amd64&distro=ubuntu-26.04&upstream=glibc"
+     },
+     {
+      "name": "modrinth-app",
+      "from": "0.23.3",
+      "to": "0.23.5",
+      "purl": "pkg:deb/ubuntu/modrinth-app@0.23.5?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-2ubuntu1.12",
+      "to": "1.28.3-2ubuntu1.14",
+      "purl": "pkg:deb/ubuntu/nginx@1.28.3-2ubuntu1.14?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "nginx-common",
+      "from": "1.28.3-2ubuntu1.12",
+      "to": "1.28.3-2ubuntu1.14",
+      "purl": "pkg:deb/ubuntu/nginx-common@1.28.3-2ubuntu1.14?arch=all&distro=ubuntu-26.04&upstream=nginx"
+     },
+     {
+      "name": "python3-jwt",
+      "from": "2.10.1-4ubuntu1.3",
+      "to": "2.10.1-4ubuntu1.4",
+      "purl": "pkg:deb/ubuntu/python3-jwt@2.10.1-4ubuntu1.4?arch=all&distro=ubuntu-26.04&upstream=pyjwt"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/inhies/go-bytesize",
+      "version": "v0.0.0-20220417184213-4913239db9cf",
+      "purl": "pkg:golang/github.com/inhies/go-bytesize@v0.0.0-20220417184213-4913239db9cf"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "cloud.google.com/go/auth",
+      "from": "v0.20.0",
+      "to": "v0.24.1",
+      "purl": "pkg:golang/cloud.google.com/go/auth@v0.24.1"
+     },
+     {
+      "name": "cloud.google.com/go/auth/oauth2adapt",
+      "from": "v0.2.8",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/auth/oauth2adapt@v0.3.0"
+     },
+     {
+      "name": "cloud.google.com/go/logging",
+      "from": "v1.20.0",
+      "to": "v1.21.1",
+      "purl": "pkg:golang/cloud.google.com/go/logging@v1.21.1"
+     },
+     {
+      "name": "cloud.google.com/go/longrunning",
+      "from": "v1.2.0",
+      "to": "v1.3.0",
+      "purl": "pkg:golang/cloud.google.com/go/longrunning@v1.3.0"
+     },
+     {
+      "name": "github.com/DefangLabs/secret-detector",
+      "from": "v0.0.0-20260916192156-3e28d7ed64df",
+      "to": "v1.1.0",
+      "purl": "pkg:golang/github.com/DefangLabs/secret-detector@v1.1.0"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream",
+      "from": "v1.7.20",
+      "to": "v1.7.25",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream@v1.7.25"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/config",
+      "from": "v1.33.4",
+      "to": "v1.33.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/config@v1.33.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/credentials",
+      "from": "v1.20.4",
+      "to": "v1.20.13",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/credentials@v1.20.13"
+     },
+     {
+      "name": "github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs",
+      "from": "v1.87.0",
+      "to": "v1.91.0",
+      "purl": "pkg:golang/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs@v1.91.0"
+     },
+     {
+      "name": "github.com/compose-spec/compose-go/v2",
+      "from": "v2.16.2",
+      "to": "v2.17.0",
+      "purl": "pkg:golang/github.com/compose-spec/compose-go/v2@v2.17.0"
+     },
+     {
+      "name": "github.com/containerd/nri",
+      "from": "v0.12.3",
+      "to": "v0.12.5",
+      "purl": "pkg:golang/github.com/containerd/nri@v0.12.5"
+     },
+     {
+      "name": "github.com/containerd/stargz-snapshotter/estargz",
+      "from": "v0.18.2",
+      "to": "v0.19.1",
+      "purl": "pkg:golang/github.com/containerd/stargz-snapshotter/estargz@v0.19.1"
+     },
+     {
+      "name": "github.com/docker/buildx",
+      "from": "v0.39.0",
+      "to": "v0.39.1",
+      "purl": "pkg:golang/github.com/docker/buildx@v0.39.1"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.1",
+      "to": "v5.8.0",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.8.0"
+     },
+     {
+      "name": "github.com/godbus/dbus/v5",
+      "from": "v5.2.2",
+      "to": "v5.2.4",
+      "purl": "pkg:golang/github.com/godbus/dbus/v5@v5.2.4"
+     },
+     {
+      "name": "github.com/google/s2a-go",
+      "from": "v0.1.9",
+      "to": "v0.1.11",
+      "purl": "pkg:golang/github.com/google/s2a-go@v0.1.11"
+     },
+     {
+      "name": "github.com/googleapis/enterprise-certificate-proxy",
+      "from": "v0.3.17",
+      "to": "v0.3.23",
+      "purl": "pkg:golang/github.com/googleapis/enterprise-certificate-proxy@v0.3.23"
+     },
+     {
+      "name": "github.com/googleapis/gax-go/v2",
+      "from": "v2.23.0",
+      "to": "v2.27.0",
+      "purl": "pkg:golang/github.com/googleapis/gax-go/v2@v2.27.0"
+     },
+     {
+      "name": "github.com/mdlayher/socket",
+      "from": "v0.7.0",
+      "to": "v0.8.0",
+      "purl": "pkg:golang/github.com/mdlayher/socket@v0.8.0"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.35.0",
+      "to": "v0.35.1",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.35.1"
+     },
+     {
+      "name": "github.com/moby/extensions",
+      "from": "v0.0.0-20260918151408-e4c23d866037",
+      "to": "v0.0.0-20261026144205-2b6b3bd5fa82",
+      "purl": "pkg:golang/github.com/moby/extensions@v0.0.0-20261026144205-2b6b3bd5fa82"
+     },
+     {
+      "name": "github.com/moby/moby/api",
+      "from": "v1.56.1",
+      "to": "v1.57.0",
+      "purl": "pkg:golang/github.com/moby/moby/api@v1.57.0"
+     },
+     {
+      "name": "github.com/moby/moby/client",
+      "from": "v0.6.2",
+      "to": "v0.6.3",
+      "purl": "pkg:golang/github.com/moby/moby/client@v0.6.3"
+     },
+     {
+      "name": "github.com/moby/profiles/apparmor",
+      "from": "v0.2.2",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/apparmor@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/profiles/seccomp",
+      "from": "v0.2.4",
+      "to": "v0.3.0",
+      "purl": "pkg:golang/github.com/moby/profiles/seccomp@v0.3.0"
+     },
+     {
+      "name": "github.com/moby/sys/user",
+      "from": "v0.4.1",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/user@v0.5.0"
+     },
+     {
+      "name": "github.com/prometheus/client_golang",
+      "from": "v1.24.1",
+      "to": "v1.25.0",
+      "purl": "pkg:golang/github.com/prometheus/client_golang@v1.25.0"
+     },
+     {
+      "name": "github.com/prometheus/common",
+      "from": "v0.71.0",
+      "to": "v0.72.0",
+      "purl": "pkg:golang/github.com/prometheus/common@v0.72.0"
+     },
+     {
+      "name": "github.com/prometheus/procfs",
+      "from": "v0.21.1",
+      "to": "v0.22.0",
+      "purl": "pkg:golang/github.com/prometheus/procfs@v0.22.0"
+     },
+     {
+      "name": "github.com/tinylib/msgp",
+      "from": "v1.3.0",
+      "to": "v1.4.0",
+      "purl": "pkg:golang/github.com/tinylib/msgp@v1.4.0"
+     },
+     {
+      "name": "go.opentelemetry.io/contrib/processors/baggagecopy",
+      "from": "v0.16.3",
+      "to": "v0.17.0",
+      "purl": "pkg:golang/go.opentelemetry.io/contrib/processors/baggagecopy@v0.17.0"
+     },
+     {
+      "name": "go.opentelemetry.io/otel/sdk/log",
+      "from": "v0.22.0",
+      "to": "v1.47.0",
+      "purl": "pkg:golang/go.opentelemetry.io/otel/sdk/log@v1.47.0"
+     },
+     {
+      "name": "golang.org/x/mod",
+      "from": "v0.42.0",
+      "to": "v0.43.0",
+      "purl": "pkg:golang/golang.org/x/mod@v0.43.0"
+     },
+     {
+      "name": "golang.org/x/oauth2",
+      "from": "v0.37.0",
+      "to": "v0.38.0",
+      "purl": "pkg:golang/golang.org/x/oauth2@v0.38.0"
+     },
+     {
+      "name": "golang.org/x/sync",
+      "from": "v0.24.0",
+      "to": "v0.25.0",
+      "purl": "pkg:golang/golang.org/x/sync@v0.25.0"
+     },
+     {
+      "name": "golang.org/x/term",
+      "from": "v0.47.0",
+      "to": "v0.48.0",
+      "purl": "pkg:golang/golang.org/x/term@v0.48.0"
+     },
+     {
+      "name": "golang.org/x/text",
+      "from": "v0.43.0",
+      "to": "v0.44.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.44.0"
+     },
+     {
+      "name": "google.golang.org/api",
+      "from": "v0.287.1",
+      "to": "v0.304.0",
+      "purl": "pkg:golang/google.golang.org/api@v0.304.0"
+     },
+     {
+      "name": "google.golang.org/genproto",
+      "from": "v0.0.0-20260825221802-da73d73af1c5",
+      "to": "v0.0.0-20261012220534-4341edf3f941",
+      "purl": "pkg:golang/google.golang.org/genproto@v0.0.0-20261012220534-4341edf3f941"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v29.9.3",
+      "to": "v2.0.0-beta.30.0.20261113133159-06db1734267b",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v2.0.0-beta.30.0.20261113133159-06db1734267b"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.6",
+      "to": "0.0.7",
+      "purl": "pkg:pypi/annotated-doc@0.0.7"
+     },
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.5",
+      "to": "0.165.0",
+      "purl": "pkg:pypi/fastapi@0.165.0"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 1,
+  "upgraded": 82,
+  "downgraded": 1
+ }
+}

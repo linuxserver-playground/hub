@@ -1,0 +1,136 @@
+{
+ "image": "wikijs",
+ "branch": "master",
+ "tag": "v2.5.317-ls7",
+ "previous_tag": "v2.5.317-ls6",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "2 commits (f05386a → 35a6f9d): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "v2.5.317",
+  "to": "v2.5.317",
+  "changed": false
+ },
+ "commit": {
+  "from": "f05386ad176ce5ee3e45e9b3c0738359123f3f0c",
+  "to": "35a6f9d4f5c42c375e0f38a0d26077474472ef1e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-wikijs/compare/f05386ad176ce5ee3e45e9b3c0738359123f3f0c...35a6f9d4f5c42c375e0f38a0d26077474472ef1e",
+  "commits": [
+   {
+    "sha": "699d9802ecbcbc5499d1e810bffc2fbdce22be4b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-01T19:59:16Z",
+    "url": "https://github.com/linuxserver-playground/docker-wikijs/commit/699d9802ecbcbc5499d1e810bffc2fbdce22be4b",
+    "bot": true
+   },
+   {
+    "sha": "35a6f9d4f5c42c375e0f38a0d26077474472ef1e",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T15:54:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-wikijs/commit/35a6f9d4f5c42c375e0f38a0d26077474472ef1e",
+    "bot": true
+   }
+  ],
+  "count": 2,
+  "truncated": false,
+  "areas": {
+   "generated": 1,
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:a27e524bc36b0c5029c9cc9d6b4c7e3c3b0dd2e5197a9c8c5dadd3ffc4337a0b"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:2124cf9f813072f8caaa4fdc164c5131de5ffec7cf78b43ccb1bbd20209429f1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 142988779,
+   "to": 142990036,
+   "delta": 1257
+  },
+  "arm64": {
+   "from": 143323723,
+   "to": 143326620,
+   "delta": 2897
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,123 @@
+{
+ "image": "airsonic-advanced",
+ "branch": "master",
+ "tag": "11.1.4-ls8",
+ "previous_tag": "11.1.4-ls7",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (16feefa → 1245667): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "11.1.4",
+  "to": "11.1.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "16feefa73b99d048af68783dc15932575418a05c",
+  "to": "1245667697866252d4d81cb62d028c58c190acb6",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-airsonic-advanced/compare/16feefa73b99d048af68783dc15932575418a05c...1245667697866252d4d81cb62d028c58c190acb6",
+  "commits": [
+   {
+    "sha": "1245667697866252d4d81cb62d028c58c190acb6",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-10T19:50:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-airsonic-advanced/commit/1245667697866252d4d81cb62d028c58c190acb6",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.21",
+   "digest": "sha256:ba356b0853b0079e990e1ce4af4e4e4b4b1a5658c1ddc526e0dbafc66c4a1c4a"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.21",
+   "digest": "sha256:ba356b0853b0079e990e1ce4af4e4e4b4b1a5658c1ddc526e0dbafc66c4a1c4a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 258078673,
+   "to": 258076992,
+   "delta": -1681
+  },
+  "arm64": {
+   "from": 256601477,
+   "to": 256605092,
+   "delta": 3615
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls@3.6.8-r0?arch=x86_64&distro=alpine-3.21.10"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "mbedtls",
+      "from": "3.6.7-r0",
+      "to": "3.6.8-r0",
+      "purl": "pkg:apk/alpine/mbedtls@3.6.8-r0?arch=aarch64&distro=alpine-3.21.10"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

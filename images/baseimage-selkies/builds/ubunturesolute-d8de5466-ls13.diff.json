@@ -1,0 +1,321 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "ubunturesolute",
+ "tag": "ubunturesolute-d8de5466-ls13",
+ "previous_tag": "ubunturesolute-0ce61df2-ls12",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (213fc80 → 6132ad2): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "0ce61df2",
+  "to": "d8de5466",
+  "changed": true
+ },
+ "commit": {
+  "from": "213fc80bfc4eb6bccf8fb6e0c7276fab54995a5a",
+  "to": "6132ad2f89f05285e72e25661d6019b6009ee0c4",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/213fc80bfc4eb6bccf8fb6e0c7276fab54995a5a...6132ad2f89f05285e72e25661d6019b6009ee0c4",
+  "commits": [
+   {
+    "sha": "6132ad2f89f05285e72e25661d6019b6009ee0c4",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-23T18:48:14Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/6132ad2f89f05285e72e25661d6019b6009ee0c4",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:474ae94121b29ecb1165cc9ba08d55f1245dcf53e20532808e3c0c61200ec682"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:a44688d5617b27712df6770f62ca32516191b2728cbfe6b08da12acff4175797"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 894225854,
+   "to": 884435749,
+   "delta": -9790105
+  },
+  "arm64": {
+   "from": 858549930,
+   "to": 848364804,
+   "delta": -10185126
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-ce",
+      "from": "5:29.10.0-1~ubuntu.26.04~resolute",
+      "to": "5:29.10.1-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-ce@5%3A29.10.1-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-ce-cli",
+      "from": "5:29.10.0-1~ubuntu.26.04~resolute",
+      "to": "5:29.10.1-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-ce-cli@5%3A29.10.1-1~ubuntu.26.04~resolute?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libasound2-data",
+      "from": "1.2.15.3-1ubuntu1.1",
+      "to": "1.2.15.3-1ubuntu1.2",
+      "purl": "pkg:deb/ubuntu/libasound2-data@1.2.15.3-1ubuntu1.2?arch=all&distro=ubuntu-26.04&upstream=alsa-lib"
+     },
+     {
+      "name": "libasound2t64",
+      "from": "1.2.15.3-1ubuntu1.1",
+      "to": "1.2.15.3-1ubuntu1.2",
+      "purl": "pkg:deb/ubuntu/libasound2t64@1.2.15.3-1ubuntu1.2?arch=amd64&distro=ubuntu-26.04&upstream=alsa-lib"
+     },
+     {
+      "name": "libexpat1",
+      "from": "2.7.4-1ubuntu0.2",
+      "to": "2.7.4-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/libexpat1@2.7.4-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=expat"
+     },
+     {
+      "name": "libspeex1",
+      "from": "1.2.1-3build1",
+      "to": "1.2.1-3ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/libspeex1@1.2.1-3ubuntu0.26.04.1?arch=amd64&distro=ubuntu-26.04&upstream=speex"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.46.1-9ubuntu0.3",
+      "to": "3.46.1-9ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.46.1-9ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=sqlite3"
+     },
+     {
+      "name": "libtiff6",
+      "from": "4.7.0-3ubuntu5",
+      "to": "4.7.0-3ubuntu5.1",
+      "purl": "pkg:deb/ubuntu/libtiff6@4.7.0-3ubuntu5.1?arch=amd64&distro=ubuntu-26.04&upstream=tiff"
+     },
+     {
+      "name": "libxrender1",
+      "from": "1:0.9.12-1build1",
+      "to": "1:0.9.12-1ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/libxrender1@1%3A0.9.12-1ubuntu0.26.04.1?arch=amd64&distro=ubuntu-26.04&upstream=libxrender"
+     },
+     {
+      "name": "python3-oauthlib",
+      "from": "3.3.1-1build1",
+      "to": "3.3.1-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/python3-oauthlib@3.3.1-1ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=python-oauthlib"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.26.04.1",
+      "to": "2026f-0ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.26.04.1?arch=all&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v2.0.0-beta.30.0.20261113133159-06db1734267b",
+      "to": "v2.0.0-beta.31.0.20261124180305-54cd494d0b39",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v2.0.0-beta.31.0.20261124180305-54cd494d0b39"
+     },
+     {
+      "name": "github.com/moby/profiles/apparmor",
+      "from": "v0.3.0",
+      "to": "v0.3.1",
+      "purl": "pkg:golang/github.com/moby/profiles/apparmor@v0.3.1"
+     },
+     {
+      "name": "github.com/moby/sys/user",
+      "from": "v0.5.0",
+      "to": "v0.5.1",
+      "purl": "pkg:golang/github.com/moby/sys/user@v0.5.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pylibsrtp",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:pypi/pylibsrtp@1.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-ce",
+      "from": "5:29.10.0-1~ubuntu.26.04~resolute",
+      "to": "5:29.10.1-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-ce@5%3A29.10.1-1~ubuntu.26.04~resolute?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "docker-ce-cli",
+      "from": "5:29.10.0-1~ubuntu.26.04~resolute",
+      "to": "5:29.10.1-1~ubuntu.26.04~resolute",
+      "purl": "pkg:deb/ubuntu/docker-ce-cli@5%3A29.10.1-1~ubuntu.26.04~resolute?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libasound2-data",
+      "from": "1.2.15.3-1ubuntu1.1",
+      "to": "1.2.15.3-1ubuntu1.2",
+      "purl": "pkg:deb/ubuntu/libasound2-data@1.2.15.3-1ubuntu1.2?arch=all&distro=ubuntu-26.04&upstream=alsa-lib"
+     },
+     {
+      "name": "libasound2t64",
+      "from": "1.2.15.3-1ubuntu1.1",
+      "to": "1.2.15.3-1ubuntu1.2",
+      "purl": "pkg:deb/ubuntu/libasound2t64@1.2.15.3-1ubuntu1.2?arch=arm64&distro=ubuntu-26.04&upstream=alsa-lib"
+     },
+     {
+      "name": "libexpat1",
+      "from": "2.7.4-1ubuntu0.2",
+      "to": "2.7.4-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/libexpat1@2.7.4-1ubuntu0.3?arch=arm64&distro=ubuntu-26.04&upstream=expat"
+     },
+     {
+      "name": "libspeex1",
+      "from": "1.2.1-3build1",
+      "to": "1.2.1-3ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/libspeex1@1.2.1-3ubuntu0.26.04.1?arch=arm64&distro=ubuntu-26.04&upstream=speex"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.46.1-9ubuntu0.3",
+      "to": "3.46.1-9ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.46.1-9ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=sqlite3"
+     },
+     {
+      "name": "libtiff6",
+      "from": "4.7.0-3ubuntu5",
+      "to": "4.7.0-3ubuntu5.1",
+      "purl": "pkg:deb/ubuntu/libtiff6@4.7.0-3ubuntu5.1?arch=arm64&distro=ubuntu-26.04&upstream=tiff"
+     },
+     {
+      "name": "libxrender1",
+      "from": "1:0.9.12-1build1",
+      "to": "1:0.9.12-1ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/libxrender1@1%3A0.9.12-1ubuntu0.26.04.1?arch=arm64&distro=ubuntu-26.04&upstream=libxrender"
+     },
+     {
+      "name": "python3-oauthlib",
+      "from": "3.3.1-1build1",
+      "to": "3.3.1-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/python3-oauthlib@3.3.1-1ubuntu0.1?arch=all&distro=ubuntu-26.04&upstream=python-oauthlib"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.26.04.1",
+      "to": "2026f-0ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.26.04.1?arch=all&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/moby/moby/v2",
+      "from": "v2.0.0-beta.30.0.20261113133159-06db1734267b",
+      "to": "v2.0.0-beta.31.0.20261124180305-54cd494d0b39",
+      "purl": "pkg:golang/github.com/moby/moby/v2@v2.0.0-beta.31.0.20261124180305-54cd494d0b39"
+     },
+     {
+      "name": "github.com/moby/profiles/apparmor",
+      "from": "v0.3.0",
+      "to": "v0.3.1",
+      "purl": "pkg:golang/github.com/moby/profiles/apparmor@v0.3.1"
+     },
+     {
+      "name": "github.com/moby/sys/user",
+      "from": "v0.5.0",
+      "to": "v0.5.1",
+      "purl": "pkg:golang/github.com/moby/sys/user@v0.5.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "pylibsrtp",
+      "from": "1.0.0",
+      "to": "1.1.0",
+      "purl": "pkg:pypi/pylibsrtp@1.1.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 30,
+  "downgraded": 0
+ }
+}

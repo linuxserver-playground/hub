@@ -1,0 +1,191 @@
+{
+ "image": "nzbget",
+ "branch": "master",
+ "tag": "v26.3-ls11",
+ "previous_tag": "v26.3-ls10",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (8f7ea8e → 7710fa4): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v26.3",
+  "to": "v26.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "8f7ea8e29a0ef1ce79693784019b3b02ac429092",
+  "to": "7710fa4e15103f4ca2bd456f6058b9211fce91ea",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-nzbget/compare/8f7ea8e29a0ef1ce79693784019b3b02ac429092...7710fa4e15103f4ca2bd456f6058b9211fce91ea",
+  "commits": [
+   {
+    "sha": "7710fa4e15103f4ca2bd456f6058b9211fce91ea",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-21T02:50:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-nzbget/commit/7710fa4e15103f4ca2bd456f6058b9211fce91ea",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:149bdce0bc2d9276e6727f2e6912bc69c0df4d3606b355267cd72a443551f067"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:149bdce0bc2d9276e6727f2e6912bc69c0df4d3606b355267cd72a443551f067"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 53936853,
+   "to": 53975039,
+   "delta": 38186
+  },
+  "arm64": {
+   "from": 54519595,
+   "to": 54763500,
+   "delta": 243905
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libffi",
+      "from": "3.5.2-r1",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "charset-normalizer",
+      "from": "3.5.2",
+      "to": "3.5.3",
+      "purl": "pkg:pypi/charset-normalizer@3.5.3"
+     },
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [
+     {
+      "name": "python3-ndbm",
+      "version": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3-ndbm@3.14.10-r2?arch=aarch64&distro=alpine-3.24.4&upstream=python3-extra"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libffi",
+      "from": "3.5.2-r1",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "pyc",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r2?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r2?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r2?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r2?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "charset-normalizer",
+      "from": "3.5.2",
+      "to": "3.5.3",
+      "purl": "pkg:pypi/charset-normalizer@3.5.3"
+     },
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 1,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

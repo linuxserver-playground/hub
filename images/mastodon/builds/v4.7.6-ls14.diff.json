@@ -1,0 +1,173 @@
+{
+ "image": "mastodon",
+ "branch": "main",
+ "tag": "v4.7.6-ls14",
+ "previous_tag": "v4.7.6-ls13",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (f07d46e → 36d62f2): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v4.7.6",
+  "to": "v4.7.6",
+  "changed": false
+ },
+ "commit": {
+  "from": "f07d46e05ca8e5c3c44f10bf1fcf88e044d7434a",
+  "to": "36d62f274eabbeb4790974d647e4537e14a99274",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mastodon/compare/f07d46e05ca8e5c3c44f10bf1fcf88e044d7434a...36d62f274eabbeb4790974d647e4537e14a99274",
+  "commits": [
+   {
+    "sha": "36d62f274eabbeb4790974d647e4537e14a99274",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-25T14:43:28Z",
+    "url": "https://github.com/linuxserver-playground/docker-mastodon/commit/36d62f274eabbeb4790974d647e4537e14a99274",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:90e1d9b01158670ba81c54855c51233dcd82129a723a24f5e922ac4b452f56be"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:c1438e54e6efb49c63066eac58a9eba1c26118bad1509a32ed81b55e3701f85d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 255306984,
+   "to": 254828964,
+   "delta": -478020
+  },
+  "arm64": {
+   "from": 251605697,
+   "to": 251117230,
+   "delta": -488467
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libffi",
+      "from": "3.8.1-r0",
+      "to": "3.8.2-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.2-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.7-r0",
+      "to": "1.30.8-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.8-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libffi",
+      "from": "3.8.1-r0",
+      "to": "3.8.2-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.2-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.7-r0",
+      "to": "1.30.8-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.8-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.2",
+      "to": "2.11.3",
+      "purl": "pkg:generic/composer@2.11.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 9,
+  "downgraded": 0
+ }
+}

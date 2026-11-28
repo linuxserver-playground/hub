@@ -1,0 +1,198 @@
+{
+ "image": "projectsend",
+ "branch": "master",
+ "tag": "r2098-ls9",
+ "previous_tag": "r2098-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (0a6e3fb → 701e68e): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "r2098",
+  "to": "r2098",
+  "changed": false
+ },
+ "commit": {
+  "from": "0a6e3fb6ef4eeb4df0e5feb2a09efb642c1bab73",
+  "to": "701e68ed57fef7610946203e6a2c7af0cc173254",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-projectsend/compare/0a6e3fb6ef4eeb4df0e5feb2a09efb642c1bab73...701e68ed57fef7610946203e6a2c7af0cc173254",
+  "commits": [
+   {
+    "sha": "701e68ed57fef7610946203e6a2c7af0cc173254",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T20:30:23Z",
+    "url": "https://github.com/linuxserver-playground/docker-projectsend/commit/701e68ed57fef7610946203e6a2c7af0cc173254",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.22",
+   "digest": "sha256:125932e0324ae31249cc0436dd936b1c8a72d76858cfec75836c44ff4ea7a660"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.22",
+   "digest": "sha256:db4acb6a37e555fd8512af54ba8eea9cc188fc06f90fa327a9913e6e558922e1"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 55423992,
+   "to": 58014778,
+   "delta": 2590786
+  },
+  "arm64": {
+   "from": 56633842,
+   "to": 59524896,
+   "delta": 2891054
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r2?arch=x86_64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=x86_64&distro=alpine-3.22.8&upstream=expat"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r2?arch=x86_64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-r9",
+      "to": "1.28.3-r10",
+      "purl": "pkg:apk/alpine/nginx@1.28.3-r10?arch=x86_64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r2?arch=x86_64&distro=alpine-3.22.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.2",
+      "to": "2.11.3",
+      "purl": "pkg:generic/composer@2.11.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r2?arch=aarch64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=aarch64&distro=alpine-3.22.8&upstream=expat"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r2?arch=aarch64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "nginx",
+      "from": "1.28.3-r9",
+      "to": "1.28.3-r10",
+      "purl": "pkg:apk/alpine/nginx@1.28.3-r10?arch=aarch64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "openssl",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/openssl@3.5.9-r2?arch=aarch64&distro=alpine-3.22.8"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.2",
+      "to": "2.11.3",
+      "purl": "pkg:generic/composer@2.11.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

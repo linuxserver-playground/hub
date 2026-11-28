@@ -1,0 +1,233 @@
+{
+ "image": "pyload-ng",
+ "branch": "main",
+ "tag": "0.5.0b3.dev102-ls11",
+ "previous_tag": "0.5.0b3.dev102-ls10",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (ac37b7e → a30d3f8): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "0.5.0b3.dev102",
+  "to": "0.5.0b3.dev102",
+  "changed": false
+ },
+ "commit": {
+  "from": "ac37b7e5c2d7d8b70401ffc7e78a069dcea3cd46",
+  "to": "a30d3f897668ca6c8be556542ad79d3379bf814d",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pyload-ng/compare/ac37b7e5c2d7d8b70401ffc7e78a069dcea3cd46...a30d3f897668ca6c8be556542ad79d3379bf814d",
+  "commits": [
+   {
+    "sha": "a30d3f897668ca6c8be556542ad79d3379bf814d",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T10:53:03Z",
+    "url": "https://github.com/linuxserver-playground/docker-pyload-ng/commit/a30d3f897668ca6c8be556542ad79d3379bf814d",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 157445134,
+   "to": 160424139,
+   "delta": 2979005
+  },
+  "arm64": {
+   "from": 155507369,
+   "to": 158772499,
+   "delta": 3265130
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libffi",
+      "from": "3.4.8-r0",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=x86_64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r0",
+      "to": "1.6.0-r0",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r0?arch=x86_64&distro=alpine-3.22.8&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "charset-normalizer",
+      "from": "3.5.2",
+      "to": "3.5.3",
+      "purl": "pkg:pypi/charset-normalizer@3.5.3"
+     },
+     {
+      "name": "google-auth",
+      "from": "2.62.2",
+      "to": "2.63.1",
+      "purl": "pkg:pypi/google-auth@2.63.1"
+     },
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.1.2",
+      "to": "4.1.3",
+      "purl": "pkg:pypi/soupsieve@4.1.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libffi",
+      "from": "3.4.8-r0",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=aarch64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r0",
+      "to": "1.6.0-r0",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r0?arch=aarch64&distro=alpine-3.22.8&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "charset-normalizer",
+      "from": "3.5.2",
+      "to": "3.5.3",
+      "purl": "pkg:pypi/charset-normalizer@3.5.3"
+     },
+     {
+      "name": "google-auth",
+      "from": "2.62.2",
+      "to": "2.63.1",
+      "purl": "pkg:pypi/google-auth@2.63.1"
+     },
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     },
+     {
+      "name": "soupsieve",
+      "from": "4.1.2",
+      "to": "4.1.3",
+      "purl": "pkg:pypi/soupsieve@4.1.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 18,
+  "downgraded": 0
+ }
+}

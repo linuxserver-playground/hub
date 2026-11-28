@@ -1,0 +1,160 @@
+{
+ "image": "ubooquity",
+ "branch": "master",
+ "tag": "3.1.0-ls9",
+ "previous_tag": "3.1.0-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (48ec526 → 74a17bf): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "3.1.0",
+  "to": "3.1.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "48ec5269a325a84eaffcee884f0ea6ca56fea845",
+  "to": "74a17bf97e2e4f970390f784ae9d3c05b0a6e320",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-ubooquity/compare/48ec5269a325a84eaffcee884f0ea6ca56fea845...74a17bf97e2e4f970390f784ae9d3c05b0a6e320",
+  "commits": [
+   {
+    "sha": "74a17bf97e2e4f970390f784ae9d3c05b0a6e320",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T03:31:25Z",
+    "url": "https://github.com/linuxserver-playground/docker-ubooquity/commit/74a17bf97e2e4f970390f784ae9d3c05b0a6e320",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:e37f235623e89ea3cceb36519a1bdc247225f6fe6850b7e54358763f0c426d1c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 110921987,
+   "to": 110896548,
+   "delta": -25439
+  },
+  "arm64": {
+   "from": 111152488,
+   "to": 111125042,
+   "delta": -27446
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r2?arch=x86_64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libffi",
+      "from": "3.4.8-r0",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=x86_64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r2?arch=x86_64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r0",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=x86_64&distro=alpine-3.22.8&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r2?arch=aarch64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libffi",
+      "from": "3.4.8-r0",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=aarch64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r2?arch=aarch64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r0",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=aarch64&distro=alpine-3.22.8&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

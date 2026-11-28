@@ -1,0 +1,136 @@
+{
+ "image": "ffmpeg",
+ "branch": "master",
+ "tag": "9.0.2-cli-ls6",
+ "previous_tag": "9.0.2-cli-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (de9f06b → 9d5a7b2): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "9.0.2-cli",
+  "to": "9.0.2-cli",
+  "changed": false
+ },
+ "commit": {
+  "from": "de9f06b79870af7497a236d497274335d7ff8fd0",
+  "to": "9d5a7b26d67be97125cd11a7095d3feabc678da1",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-ffmpeg/compare/de9f06b79870af7497a236d497274335d7ff8fd0...9d5a7b26d67be97125cd11a7095d3feabc678da1",
+  "commits": [
+   {
+    "sha": "9d5a7b26d67be97125cd11a7095d3feabc678da1",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T02:49:06Z",
+    "url": "https://github.com/linuxserver-playground/docker-ffmpeg/commit/9d5a7b26d67be97125cd11a7095d3feabc678da1",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:c2398fa94f700f68208462f0b6278794968d3d7436ccba605cacb7f32e2dc120"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:9dae1619587960de00fd076cd6b26821982f4853b63ef9e0617b95b5ab8e9364"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 261721628,
+   "to": 262035143,
+   "delta": 313515
+  },
+  "arm64": {
+   "from": 171450424,
+   "to": 171744674,
+   "delta": 294250
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "base-files",
+      "from": "14ubuntu6.2",
+      "to": "14ubuntu6.3",
+      "purl": "pkg:deb/ubuntu/base-files@14ubuntu6.3?arch=amd64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.46-1ubuntu0.1?arch=amd64&distro=ubuntu-26.04&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "base-files",
+      "from": "14ubuntu6.2",
+      "to": "14ubuntu6.3",
+      "purl": "pkg:deb/ubuntu/base-files@14ubuntu6.3?arch=arm64&distro=ubuntu-26.04"
+     },
+     {
+      "name": "libpcre2-8-0",
+      "from": "10.46-1build1",
+      "to": "10.46-1ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.46-1ubuntu0.1?arch=arm64&distro=ubuntu-26.04&upstream=pcre2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

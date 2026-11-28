@@ -1,0 +1,141 @@
+{
+ "schema": 1,
+ "name": "vscodium",
+ "summary": "[VSCodium](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of Microsoft’s editor VS Code.",
+ "upstream": {
+  "url": "https://vscodium.com/",
+  "version": {
+   "type": "github_release",
+   "repo": "VSCodium/vscodium",
+   "require_assets": [
+    {
+     "asset": "^codium_.*_amd64\\.deb$"
+    },
+    {
+     "asset": "^codium_.*_arm64\\.deb$"
+    }
+   ]
+  },
+  "notes": {
+   "type": "github_release",
+   "repo": "VSCodium/vscodium"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "selkies",
+  "version_arg": "CODIUM_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 120,
+  "web": {
+   "port": 3001,
+   "scheme": "https"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "3000",
+    "description": "VSCodium desktop gui."
+   },
+   {
+    "internal": "3001",
+    "description": "HTTPS VSCodium desktop gui."
+   }
+  ],
+  "volumes": [
+   {
+    "path": "/config",
+    "host_path": "/path/to/vscodium/config",
+    "description": "Users home directory in the container, stores local files and settings"
+   }
+  ],
+  "cap_add": [
+   {
+    "cap": "IPC_LOCK",
+    "description": "Required for keyring functionality."
+   }
+  ],
+  "custom": [
+   {
+    "flag": "shm-size",
+    "compose": "shm_size",
+    "value": "1gb",
+    "description": "This is needed for electron applications to function properly."
+   }
+  ]
+ },
+ "docs": {
+  "categories": [
+   "Programming"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png",
+  "setup": "The application can be accessed at:\n\n* https://yourhost:3001/\n",
+  "notices": {
+   "strict_proxy": true,
+   "selkies": {
+    "enabled": true,
+    "nvidia": true
+   }
+  }
+ },
+ "proxy": {
+  "port": 3001,
+  "scheme": "https",
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-04-04",
+   "text": "Make Wayland default disable with PIXELFLUX_WAYLAND=false."
+  },
+  {
+   "date": "2026-03-21",
+   "text": "Use Wayland ozone platform fixes scaling and acceleration."
+  },
+  {
+   "date": "2025-12-28",
+   "text": "Add Wayland init logic."
+  },
+  {
+   "date": "2025-09-22",
+   "text": "Rebase to Debian Trixie."
+  },
+  {
+   "date": "2025-07-24",
+   "text": "Swap from thunar to caja for filebrowser."
+  },
+  {
+   "date": "2025-07-12",
+   "text": "Rebase to Selkies, HTTPS IS NOW REQUIRED."
+  },
+  {
+   "date": "2024-02-10",
+   "text": "Update Readme with new env vars and ingest proper PWA icon."
+  },
+  {
+   "date": "2024-02-06",
+   "text": "Rebase to Debian Bookworm."
+  },
+  {
+   "date": "2024-01-17",
+   "text": "Update wrapper scripts to cleanup and launch properly."
+  },
+  {
+   "date": "2023-04-02",
+   "text": "Initial release."
+  }
+ ]
+}

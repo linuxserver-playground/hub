@@ -1,0 +1,463 @@
+{
+ "image": "telegram",
+ "branch": "master",
+ "tag": "7.4.6-ls16",
+ "previous_tag": "7.4.6-ls15",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (da0fc63 → 161546c): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "7.4.6",
+  "to": "7.4.6",
+  "changed": false
+ },
+ "commit": {
+  "from": "da0fc6322e6edad7dc112dc945ee375361b82903",
+  "to": "161546c8acfe665bf5a9764da327715a2026317a",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-telegram/compare/da0fc6322e6edad7dc112dc945ee375361b82903...161546c8acfe665bf5a9764da327715a2026317a",
+  "commits": [
+   {
+    "sha": "161546c8acfe665bf5a9764da327715a2026317a",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-24T05:51:34Z",
+    "url": "https://github.com/linuxserver-playground/docker-telegram/commit/161546c8acfe665bf5a9764da327715a2026317a",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:1bceb8b1c1ebadc5b8c2a9a0d9b239203b34c7802961e2f2bf44cea4761c8b7a"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:1bceb8b1c1ebadc5b8c2a9a0d9b239203b34c7802961e2f2bf44cea4761c8b7a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1708684631,
+   "to": 1708599436,
+   "delta": -85195
+  },
+  "arm64": {
+   "from": 1769574210,
+   "to": 1770123484,
+   "delta": 549274
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "CMake",
+      "from": "4.4.5",
+      "to": "4.5.1",
+      "purl": null
+     },
+     {
+      "name": "PostgreSQL",
+      "from": "18.6",
+      "to": "18.7",
+      "purl": null
+     },
+     {
+      "name": "WrapHarfbuzz",
+      "from": "15.1.0",
+      "to": "15.2.0",
+      "purl": null
+     },
+     {
+      "name": "gbm",
+      "from": "26.2.6-arch1.1",
+      "to": "26.3.1-arch1.3",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "UnknownPackage": {
+    "added": [],
+    "removed": [
+     {
+      "name": "Gui_Attribution_pixman",
+      "version": "0.17.12",
+      "purl": "pkg:generic/pixman@0.17.12?download_url=http%3A%2F%2Fwww.pixman.org%2F"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "qtbase",
+      "from": "6.12.0+dirty",
+      "to": "6.12.1+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtbase@6.12.1%2Bdirty"
+     },
+     {
+      "name": "qtdeclarative",
+      "from": "6.12.0+dirty",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtdeclarative@6.12.1"
+     },
+     {
+      "name": "qtimageformats",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtimageformats@6.12.1"
+     },
+     {
+      "name": "qtsvg",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtsvg@6.12.1"
+     },
+     {
+      "name": "qttranslations",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qttranslations@6.12.1"
+     },
+     {
+      "name": "qtwayland",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtwayland@6.12.1"
+     },
+     {
+      "name": "Core_Attribution_tinycbor",
+      "from": "7.0",
+      "to": "7.1",
+      "purl": "pkg:github/intel/tinycbor@v7.1"
+     },
+     {
+      "name": "wasmdeployqt",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtbase@5af1a37e31a?library_name=wasmdeployqt#src/tools/wasmdeployqt"
+     },
+     {
+      "name": "workerscriptplugin",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtdeclarative@935c3c01bc?library_name=workerscriptplugin#src/qmlworkerscript"
+     },
+     {
+      "name": "QWebpPlugin",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtimageformats@032f617f?library_name=QWebpPlugin#src/plugins/imageformats/webp"
+     },
+     {
+      "name": "SvgWidgets",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtsvg@ce2d9787?library_name=SvgWidgets#src/svgwidgets"
+     },
+     {
+      "name": "Translations",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qttranslations@201bdab?library_name=Translations"
+     },
+     {
+      "name": "qwaylandcompositorplugin",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtwayland@966a42a19?library_name=qwaylandcompositorplugin#src/compositor"
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [],
+    "removed": [
+     {
+      "name": "ada",
+      "version": "4.0.0-1",
+      "purl": "pkg:alpm/arch/ada@4.0.0-1?arch=x86_64&distro=arch-rolling&upstream=ada"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "158.0.8127.36-2",
+      "to": "158.0.8127.88-1",
+      "purl": "pkg:alpm/arch/chromium@158.0.8127.88-1?arch=x86_64&distro=arch-rolling&upstream=chromium"
+     },
+     {
+      "name": "qt6-base",
+      "from": "6.12.0-5",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-base@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-base"
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-4",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-declarative@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-declarative"
+     },
+     {
+      "name": "qt6-imageformats",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-imageformats@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-imageformats"
+     },
+     {
+      "name": "qt6-svg",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-svg@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-svg"
+     },
+     {
+      "name": "qt6-translations",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-translations@6.12.1-1?arch=any&distro=arch-rolling&upstream=qt6-translations"
+     },
+     {
+      "name": "qt6-wayland",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-wayland@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-wayland"
+     },
+     {
+      "name": "simdutf",
+      "from": "9.3.0-1",
+      "to": "9.3.2-1",
+      "purl": "pkg:alpm/arch/simdutf@9.3.2-1?arch=x86_64&distro=arch-rolling&upstream=simdutf"
+     },
+     {
+      "name": "telegram-desktop",
+      "from": "7.4.6-1",
+      "to": "7.4.6-3",
+      "purl": "pkg:alpm/arch/telegram-desktop@7.4.6-3?arch=x86_64&distro=arch-rolling&upstream=telegram-desktop"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "CMake",
+      "from": "4.4.5",
+      "to": "4.5.1",
+      "purl": null
+     },
+     {
+      "name": "PostgreSQL",
+      "from": "18.6",
+      "to": "18.7",
+      "purl": null
+     },
+     {
+      "name": "WrapHarfbuzz",
+      "from": "15.1.0",
+      "to": "15.2.0",
+      "purl": null
+     },
+     {
+      "name": "gbm",
+      "from": "26.2.6-arch1.1",
+      "to": "26.3.1-arch1.3",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "qtbase",
+      "from": "6.12.0+dirty",
+      "to": "6.12.1+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtbase@6.12.1%2Bdirty"
+     },
+     {
+      "name": "qtdeclarative",
+      "from": "6.12.0+dirty",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtdeclarative@6.12.1"
+     },
+     {
+      "name": "qtimageformats",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtimageformats@6.12.1"
+     },
+     {
+      "name": "qtsvg",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtsvg@6.12.1"
+     },
+     {
+      "name": "qttranslations",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qttranslations@6.12.1"
+     },
+     {
+      "name": "qtwayland",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtwayland@6.12.1"
+     },
+     {
+      "name": "Core_Attribution_tinycbor",
+      "from": "7.0",
+      "to": "7.1",
+      "purl": "pkg:github/intel/tinycbor@v7.1"
+     },
+     {
+      "name": "wasmdeployqt",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtbase@5af1a37e31a?library_name=wasmdeployqt#src/tools/wasmdeployqt"
+     },
+     {
+      "name": "workerscriptplugin",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtdeclarative@935c3c01bc?library_name=workerscriptplugin#src/qmlworkerscript"
+     },
+     {
+      "name": "QWebpPlugin",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtimageformats@032f617f?library_name=QWebpPlugin#src/plugins/imageformats/webp"
+     },
+     {
+      "name": "SvgWidgets",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtsvg@ce2d9787?library_name=SvgWidgets#src/svgwidgets"
+     },
+     {
+      "name": "Translations",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qttranslations@201bdab?library_name=Translations"
+     },
+     {
+      "name": "qwaylandcompositorplugin",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtwayland@966a42a19?library_name=qwaylandcompositorplugin#src/compositor"
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "ada",
+      "from": "4.0.0-1",
+      "to": "4.1.1-1",
+      "purl": null
+     },
+     {
+      "name": "chromium",
+      "from": "158.0.8127.36-2",
+      "to": "158.0.8127.88-1",
+      "purl": null
+     },
+     {
+      "name": "qt6-base",
+      "from": "6.12.0-5",
+      "to": "6.12.1-1",
+      "purl": null
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-4",
+      "to": "6.12.1-1",
+      "purl": null
+     },
+     {
+      "name": "qt6-imageformats",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": null
+     },
+     {
+      "name": "qt6-svg",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": null
+     },
+     {
+      "name": "qt6-translations",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": null
+     },
+     {
+      "name": "qt6-wayland",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": null
+     },
+     {
+      "name": "simdutf",
+      "from": "9.3.0-1",
+      "to": "9.3.2-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 2,
+  "upgraded": 52,
+  "downgraded": 0
+ }
+}

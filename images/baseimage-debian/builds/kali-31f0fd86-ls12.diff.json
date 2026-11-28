@@ -1,0 +1,290 @@
+{
+ "image": "baseimage-debian",
+ "branch": "kali",
+ "tag": "kali-31f0fd86-ls12",
+ "previous_tag": "kali-04b38134-ls11",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (93bee57 → bba0ac1): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "04b38134",
+  "to": "31f0fd86",
+  "changed": true
+ },
+ "commit": {
+  "from": "93bee578a4086f3075bd5256bd456e35f8bf32cd",
+  "to": "bba0ac147d56006e82d1a27dd3fff0a6d905cb0e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-debian/compare/93bee578a4086f3075bd5256bd456e35f8bf32cd...bba0ac147d56006e82d1a27dd3fff0a6d905cb0e",
+  "commits": [
+   {
+    "sha": "bba0ac147d56006e82d1a27dd3fff0a6d905cb0e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-23T20:43:37Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-debian/commit/bba0ac147d56006e82d1a27dd3fff0a6d905cb0e",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 85324807,
+   "to": 85513259,
+   "delta": 188452
+  },
+  "arm64": {
+   "from": 83887754,
+   "to": 84027337,
+   "delta": 139583
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-1",
+      "to": "8.23.0-2",
+      "purl": "pkg:deb/kali/curl@8.23.0-2?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "dash",
+      "from": "0.5.12-12",
+      "to": "0.5.12-13",
+      "purl": "pkg:deb/kali/dash@0.5.12-13?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "gcc-16-base",
+      "from": "16.2.0-4",
+      "to": "16.2.0-5",
+      "purl": "pkg:deb/kali/gcc-16-base@16.2.0-5?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "kali-defaults",
+      "from": "2026.4.1",
+      "to": "2026.4.2",
+      "purl": "pkg:deb/kali/kali-defaults@2026.4.2?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "libcurl4t64",
+      "from": "8.22.0-1",
+      "to": "8.23.0-2",
+      "purl": "pkg:deb/kali/libcurl4t64@8.23.0-2?arch=amd64&distro=kali-2026.3&upstream=curl"
+     },
+     {
+      "name": "libgcc-s1",
+      "from": "16.2.0-4",
+      "to": "16.2.0-5",
+      "purl": "pkg:deb/kali/libgcc-s1@16.2.0-5?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libldap2",
+      "from": "2.6.14+dfsg-2",
+      "to": "2.6.14+dfsg-2+b1",
+      "purl": "pkg:deb/kali/libldap2@2.6.14%2Bdfsg-2%2Bb1?arch=amd64&distro=kali-2026.3&upstream=openldap%402.6.14%2Bdfsg-2"
+     },
+     {
+      "name": "libnghttp2-14",
+      "from": "1.70.0-1",
+      "to": "1.71.0-1",
+      "purl": "pkg:deb/kali/libnghttp2-14@1.71.0-1?arch=amd64&distro=kali-2026.3&upstream=nghttp2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.53.4-2",
+      "to": "3.54.1-2",
+      "purl": "pkg:deb/kali/libsqlite3-0@3.54.1-2?arch=amd64&distro=kali-2026.3&upstream=sqlite3"
+     },
+     {
+      "name": "libstdc++6",
+      "from": "16.2.0-4",
+      "to": "16.2.0-5",
+      "purl": "pkg:deb/kali/libstdc%2B%2B6@16.2.0-5?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libsystemd-shared",
+      "from": "262-1",
+      "to": "262.2-1",
+      "purl": "pkg:deb/kali/libsystemd-shared@262.2-1?arch=amd64&distro=kali-2026.3&upstream=systemd"
+     },
+     {
+      "name": "libsystemd0",
+      "from": "262-1",
+      "to": "262.2-1",
+      "purl": "pkg:deb/kali/libsystemd0@262.2-1?arch=amd64&distro=kali-2026.3&upstream=systemd"
+     },
+     {
+      "name": "libudev1",
+      "from": "262-1",
+      "to": "262.2-1",
+      "purl": "pkg:deb/kali/libudev1@262.2-1?arch=amd64&distro=kali-2026.3&upstream=systemd"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.42.3-1",
+      "to": "5.44.0-3",
+      "purl": "pkg:deb/kali/perl-base@5.44.0-3?arch=amd64&distro=kali-2026.3&upstream=perl"
+     },
+     {
+      "name": "systemd",
+      "from": "262-1",
+      "to": "262.2-1",
+      "purl": "pkg:deb/kali/systemd@262.2-1?arch=amd64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "curl",
+      "from": "8.22.0-1",
+      "to": "8.23.0-2",
+      "purl": "pkg:deb/kali/curl@8.23.0-2?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "dash",
+      "from": "0.5.12-12+b1",
+      "to": "0.5.12-13",
+      "purl": "pkg:deb/kali/dash@0.5.12-13?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "gcc-16-base",
+      "from": "16.2.0-4",
+      "to": "16.2.0-5",
+      "purl": "pkg:deb/kali/gcc-16-base@16.2.0-5?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "kali-defaults",
+      "from": "2026.4.1",
+      "to": "2026.4.2",
+      "purl": "pkg:deb/kali/kali-defaults@2026.4.2?arch=all&distro=kali-2026.3"
+     },
+     {
+      "name": "libcurl4t64",
+      "from": "8.22.0-1",
+      "to": "8.23.0-2",
+      "purl": "pkg:deb/kali/libcurl4t64@8.23.0-2?arch=arm64&distro=kali-2026.3&upstream=curl"
+     },
+     {
+      "name": "libgcc-s1",
+      "from": "16.2.0-4",
+      "to": "16.2.0-5",
+      "purl": "pkg:deb/kali/libgcc-s1@16.2.0-5?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libldap2",
+      "from": "2.6.14+dfsg-2",
+      "to": "2.6.14+dfsg-2+b1",
+      "purl": "pkg:deb/kali/libldap2@2.6.14%2Bdfsg-2%2Bb1?arch=arm64&distro=kali-2026.3&upstream=openldap%402.6.14%2Bdfsg-2"
+     },
+     {
+      "name": "libnghttp2-14",
+      "from": "1.70.0-1",
+      "to": "1.71.0-1",
+      "purl": "pkg:deb/kali/libnghttp2-14@1.71.0-1?arch=arm64&distro=kali-2026.3&upstream=nghttp2"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.53.4-2",
+      "to": "3.54.1-2",
+      "purl": "pkg:deb/kali/libsqlite3-0@3.54.1-2?arch=arm64&distro=kali-2026.3&upstream=sqlite3"
+     },
+     {
+      "name": "libstdc++6",
+      "from": "16.2.0-4",
+      "to": "16.2.0-5",
+      "purl": "pkg:deb/kali/libstdc%2B%2B6@16.2.0-5?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libsystemd-shared",
+      "from": "262-1",
+      "to": "262.2-1",
+      "purl": "pkg:deb/kali/libsystemd-shared@262.2-1?arch=arm64&distro=kali-2026.3&upstream=systemd"
+     },
+     {
+      "name": "libsystemd0",
+      "from": "262-1",
+      "to": "262.2-1",
+      "purl": "pkg:deb/kali/libsystemd0@262.2-1?arch=arm64&distro=kali-2026.3&upstream=systemd"
+     },
+     {
+      "name": "libudev1",
+      "from": "262-1",
+      "to": "262.2-1",
+      "purl": "pkg:deb/kali/libudev1@262.2-1?arch=arm64&distro=kali-2026.3&upstream=systemd"
+     },
+     {
+      "name": "perl-base",
+      "from": "5.42.3-1",
+      "to": "5.44.0-3",
+      "purl": "pkg:deb/kali/perl-base@5.44.0-3?arch=arm64&distro=kali-2026.3&upstream=perl"
+     },
+     {
+      "name": "systemd",
+      "from": "262-1",
+      "to": "262.2-1",
+      "purl": "pkg:deb/kali/systemd@262.2-1?arch=arm64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 30,
+  "downgraded": 0
+ }
+}

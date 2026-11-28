@@ -1,0 +1,984 @@
+{
+ "image": "pelorus",
+ "branch": "master",
+ "tag": "0.2.4-ls8",
+ "previous_tag": "0.2.4-ls7",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (2f52f49 → 7a99a2e): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "0.2.4",
+  "to": "0.2.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "2f52f49d97796650a197df08c725962ecfaab0b9",
+  "to": "7a99a2e41fb5ce381a0b76eecfd4a22754c63ab2",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-pelorus/compare/2f52f49d97796650a197df08c725962ecfaab0b9...7a99a2e41fb5ce381a0b76eecfd4a22754c63ab2",
+  "commits": [
+   {
+    "sha": "7a99a2e41fb5ce381a0b76eecfd4a22754c63ab2",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-13T15:52:26Z",
+    "url": "https://github.com/linuxserver-playground/docker-pelorus/commit/7a99a2e41fb5ce381a0b76eecfd4a22754c63ab2",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:b38a390deb2e89c32cf8a779ee2e67470032ab9dc4ebcba340e82a4ab3ae5965"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:ef32147f7d33317846cfeb87e72ca304e035e1f31d5b715e65426c257ae06eaf"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 2710557727,
+   "to": 2753972029,
+   "delta": 43414302
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "CMake",
+      "from": "4.4.5",
+      "to": "4.5.0",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "UnknownPackage": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "qtpdf",
+      "from": "6.11.3+dirty",
+      "to": "6.140.0+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtpdf@6.140.0%2Bdirty"
+     },
+     {
+      "name": "qtwebengine",
+      "from": "6.11.3+dirty",
+      "to": "6.140.0+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtwebengine@6.140.0%2Bdirty"
+     },
+     {
+      "name": "QPdfPlugin",
+      "from": "6.11.3",
+      "to": "6.140.0",
+      "purl": "pkg:github/qt/qtpdf@e081473af?library_name=QPdfPlugin#src/pdf/plugins/imageformats/pdf"
+     },
+     {
+      "name": "qwebengine_convert_dict",
+      "from": "6.11.3",
+      "to": "6.140.0",
+      "purl": "pkg:github/qt/qtwebengine@e081473af?library_name=qwebengine_convert_dict#src/core/tools/qwebengine_convert_dict"
+     }
+    ],
+    "downgraded": []
+   },
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "attica",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/attica@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=attica"
+     },
+     {
+      "name": "aurorae",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/aurorae@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=aurorae"
+     },
+     {
+      "name": "automake",
+      "from": "1.19-1",
+      "to": "1.20-1",
+      "purl": "pkg:alpm/arch/automake@1.20-1?arch=any&distro=arch-rolling&upstream=automake"
+     },
+     {
+      "name": "baloo",
+      "from": "6.31.0-2",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/baloo@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=baloo"
+     },
+     {
+      "name": "breeze",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/breeze@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=breeze"
+     },
+     {
+      "name": "breeze-cursors",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/breeze-cursors@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=breeze"
+     },
+     {
+      "name": "breeze-icons",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/breeze-icons@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=breeze-icons"
+     },
+     {
+      "name": "chromium",
+      "from": "157.0.8103.38-1",
+      "to": "157.0.8103.78-1",
+      "purl": "pkg:alpm/arch/chromium@157.0.8103.78-1?arch=x86_64&distro=arch-rolling&upstream=chromium"
+     },
+     {
+      "name": "dbus",
+      "from": "1.16.2-2",
+      "to": "1.16.4-1",
+      "purl": "pkg:alpm/arch/dbus@1.16.4-1?arch=x86_64&distro=arch-rolling&upstream=dbus"
+     },
+     {
+      "name": "discover",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/discover@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=discover"
+     },
+     {
+      "name": "ffmpeg",
+      "from": "2:9.0.2-3",
+      "to": "2:9.0.2-5",
+      "purl": "pkg:alpm/arch/ffmpeg@2%3A9.0.2-5?arch=x86_64&distro=arch-rolling&upstream=ffmpeg"
+     },
+     {
+      "name": "flex",
+      "from": "2.6.4-6",
+      "to": "2.6.10-1",
+      "purl": "pkg:alpm/arch/flex@2.6.10-1?arch=x86_64&distro=arch-rolling&upstream=flex"
+     },
+     {
+      "name": "frameworkintegration",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/frameworkintegration@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=frameworkintegration"
+     },
+     {
+      "name": "frei0r-plugins",
+      "from": "3.7.1-1",
+      "to": "3.7.1-2",
+      "purl": "pkg:alpm/arch/frei0r-plugins@3.7.1-2?arch=x86_64&distro=arch-rolling&upstream=frei0r-plugins"
+     },
+     {
+      "name": "glibc",
+      "from": "2.44+r50+g1848099f063e-1",
+      "to": "2.44+r78+gfcfb867c58ab-1",
+      "purl": "pkg:alpm/arch/glibc@2.44%2Br78%2Bgfcfb867c58ab-1?arch=x86_64&distro=arch-rolling&upstream=glibc"
+     },
+     {
+      "name": "glibc-locales",
+      "from": "2.44+r50+g1848099f063e-1",
+      "to": "2.44+r78+gfcfb867c58ab-1",
+      "purl": "pkg:alpm/arch/glibc-locales@2.44%2Br78%2Bgfcfb867c58ab-1?arch=x86_64&distro=arch-rolling&upstream=glibc"
+     },
+     {
+      "name": "gperftools",
+      "from": "2.19.2-1",
+      "to": "2.19.3-1",
+      "purl": "pkg:alpm/arch/gperftools@2.19.3-1?arch=x86_64&distro=arch-rolling&upstream=gperftools"
+     },
+     {
+      "name": "gst-plugins-base",
+      "from": "1.28.9-1",
+      "to": "1.28.9-2",
+      "purl": "pkg:alpm/arch/gst-plugins-base@1.28.9-2?arch=x86_64&distro=arch-rolling&upstream=gstreamer"
+     },
+     {
+      "name": "gst-plugins-base-libs",
+      "from": "1.28.9-1",
+      "to": "1.28.9-2",
+      "purl": "pkg:alpm/arch/gst-plugins-base-libs@1.28.9-2?arch=x86_64&distro=arch-rolling&upstream=gstreamer"
+     },
+     {
+      "name": "gstreamer",
+      "from": "1.28.9-1",
+      "to": "1.28.9-2",
+      "purl": "pkg:alpm/arch/gstreamer@1.28.9-2?arch=x86_64&distro=arch-rolling&upstream=gstreamer"
+     },
+     {
+      "name": "imlib2",
+      "from": "1.12.7-3",
+      "to": "1.13.0-1",
+      "purl": "pkg:alpm/arch/imlib2@1.13.0-1?arch=x86_64&distro=arch-rolling&upstream=imlib2"
+     },
+     {
+      "name": "inkscape",
+      "from": "1.4.4-7",
+      "to": "1.4.4-8",
+      "purl": "pkg:alpm/arch/inkscape@1.4.4-8?arch=x86_64&distro=arch-rolling&upstream=inkscape"
+     },
+     {
+      "name": "kactivitymanagerd",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/kactivitymanagerd@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=kactivitymanagerd"
+     },
+     {
+      "name": "karchive",
+      "from": "6.31.0-2",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/karchive@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=karchive"
+     },
+     {
+      "name": "kauth",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kauth@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kauth"
+     },
+     {
+      "name": "kbookmarks",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kbookmarks@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kbookmarks"
+     },
+     {
+      "name": "kcmutils",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kcmutils@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kcmutils"
+     },
+     {
+      "name": "kcodecs",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kcodecs@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kcodecs"
+     },
+     {
+      "name": "kcolorscheme",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kcolorscheme@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kcolorscheme"
+     },
+     {
+      "name": "kcompletion",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kcompletion@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kcompletion"
+     },
+     {
+      "name": "kconfig",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kconfig@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kconfig"
+     },
+     {
+      "name": "kconfigwidgets",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kconfigwidgets@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kconfigwidgets"
+     },
+     {
+      "name": "kcoreaddons",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kcoreaddons@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kcoreaddons"
+     },
+     {
+      "name": "kcrash",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kcrash@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kcrash"
+     },
+     {
+      "name": "kdbusaddons",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kdbusaddons@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kdbusaddons"
+     },
+     {
+      "name": "kde-cli-tools",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/kde-cli-tools@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=kde-cli-tools"
+     },
+     {
+      "name": "kdeclarative",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kdeclarative@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kdeclarative"
+     },
+     {
+      "name": "kdecoration",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/kdecoration@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=kdecoration"
+     },
+     {
+      "name": "kded",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kded@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kded"
+     },
+     {
+      "name": "kdesu",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kdesu@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kdesu"
+     },
+     {
+      "name": "kdnssd",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kdnssd@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kdnssd"
+     },
+     {
+      "name": "kfilemetadata",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kfilemetadata@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kfilemetadata"
+     },
+     {
+      "name": "kglobalaccel",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kglobalaccel@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kglobalaccel"
+     },
+     {
+      "name": "kglobalacceld",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/kglobalacceld@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=kglobalacceld"
+     },
+     {
+      "name": "kguiaddons",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kguiaddons@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kguiaddons"
+     },
+     {
+      "name": "kholidays",
+      "from": "1:6.31.0-1",
+      "to": "1:6.32.0-1",
+      "purl": "pkg:alpm/arch/kholidays@1%3A6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kholidays"
+     },
+     {
+      "name": "ki18n",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/ki18n@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=ki18n"
+     },
+     {
+      "name": "kiconthemes",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kiconthemes@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kiconthemes"
+     },
+     {
+      "name": "kidletime",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kidletime@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kidletime"
+     },
+     {
+      "name": "kio",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kio@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kio"
+     },
+     {
+      "name": "kirigami",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kirigami@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kirigami"
+     },
+     {
+      "name": "kitemmodels",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kitemmodels@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kitemmodels"
+     },
+     {
+      "name": "kitemviews",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kitemviews@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kitemviews"
+     },
+     {
+      "name": "kjobwidgets",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kjobwidgets@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kjobwidgets"
+     },
+     {
+      "name": "kmenuedit",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/kmenuedit@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=kmenuedit"
+     },
+     {
+      "name": "knewstuff",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/knewstuff@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=knewstuff"
+     },
+     {
+      "name": "knighttime",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/knighttime@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=knighttime"
+     },
+     {
+      "name": "knotifications",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/knotifications@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=knotifications"
+     },
+     {
+      "name": "knotifyconfig",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/knotifyconfig@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=knotifyconfig"
+     },
+     {
+      "name": "kpackage",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kpackage@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kpackage"
+     },
+     {
+      "name": "kparts",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kparts@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kparts"
+     },
+     {
+      "name": "kpipewire",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/kpipewire@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=kpipewire"
+     },
+     {
+      "name": "kpty",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kpty@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kpty"
+     },
+     {
+      "name": "kquickcharts",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kquickcharts@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kquickcharts"
+     },
+     {
+      "name": "krunner",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/krunner@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=krunner"
+     },
+     {
+      "name": "kscreenlocker",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/kscreenlocker@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=kscreenlocker"
+     },
+     {
+      "name": "kservice",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kservice@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kservice"
+     },
+     {
+      "name": "kstatusnotifieritem",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kstatusnotifieritem@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kstatusnotifieritem"
+     },
+     {
+      "name": "ksvg",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/ksvg@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=ksvg"
+     },
+     {
+      "name": "ksystemstats",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/ksystemstats@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=ksystemstats"
+     },
+     {
+      "name": "ktexteditor",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/ktexteditor@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=ktexteditor"
+     },
+     {
+      "name": "ktextwidgets",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/ktextwidgets@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=ktextwidgets"
+     },
+     {
+      "name": "kunitconversion",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kunitconversion@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kunitconversion"
+     },
+     {
+      "name": "kuserfeedback",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kuserfeedback@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kuserfeedback"
+     },
+     {
+      "name": "kwallet",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kwallet@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kwallet"
+     },
+     {
+      "name": "kwayland",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/kwayland@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=kwayland"
+     },
+     {
+      "name": "kwidgetsaddons",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kwidgetsaddons@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kwidgetsaddons"
+     },
+     {
+      "name": "kwin",
+      "from": "6.8.2-2",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/kwin@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=kwin"
+     },
+     {
+      "name": "kwindowsystem",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kwindowsystem@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kwindowsystem"
+     },
+     {
+      "name": "kxmlgui",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/kxmlgui@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=kxmlgui"
+     },
+     {
+      "name": "labwc",
+      "from": "0.20.2-1",
+      "to": "0.20.3-2",
+      "purl": "pkg:alpm/arch/labwc@0.20.3-2?arch=x86_64&distro=arch-rolling&upstream=labwc"
+     },
+     {
+      "name": "layer-shell-qt",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/layer-shell-qt@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=layer-shell-qt"
+     },
+     {
+      "name": "libepubgen",
+      "from": "0.1.1-6",
+      "to": "0.1.2-1",
+      "purl": "pkg:alpm/arch/libepubgen@0.1.2-1?arch=x86_64&distro=arch-rolling&upstream=libepubgen"
+     },
+     {
+      "name": "libkscreen",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/libkscreen@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=libkscreen"
+     },
+     {
+      "name": "libksysguard",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/libksysguard@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=libksysguard"
+     },
+     {
+      "name": "libmodplug",
+      "from": "0.8.9.0-7",
+      "to": "0.8.9.2-1",
+      "purl": "pkg:alpm/arch/libmodplug@0.8.9.2-1?arch=x86_64&distro=arch-rolling&upstream=libmodplug"
+     },
+     {
+      "name": "libodfgen",
+      "from": "0.1.8-5",
+      "to": "0.1.9-1",
+      "purl": "pkg:alpm/arch/libodfgen@0.1.9-1?arch=x86_64&distro=arch-rolling&upstream=libodfgen"
+     },
+     {
+      "name": "libp11-kit",
+      "from": "0.26.5-1",
+      "to": "0.26.6-1",
+      "purl": "pkg:alpm/arch/libp11-kit@0.26.6-1?arch=x86_64&distro=arch-rolling&upstream=p11-kit"
+     },
+     {
+      "name": "libplacebo",
+      "from": "7.360.1-7",
+      "to": "7.387.0-1",
+      "purl": "pkg:alpm/arch/libplacebo@7.387.0-1?arch=x86_64&distro=arch-rolling&upstream=libplacebo"
+     },
+     {
+      "name": "libplasma",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/libplasma@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=libplasma"
+     },
+     {
+      "name": "libreoffice-fresh",
+      "from": "26.8.2-2",
+      "to": "26.8.2-3",
+      "purl": "pkg:alpm/arch/libreoffice-fresh@26.8.2-3?arch=x86_64&distro=arch-rolling&upstream=libreoffice-fresh"
+     },
+     {
+      "name": "libvisio",
+      "from": "0.1.11-1",
+      "to": "0.1.12-1",
+      "purl": "pkg:alpm/arch/libvisio@0.1.12-1?arch=x86_64&distro=arch-rolling&upstream=libvisio"
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.4-1",
+      "to": "23.1.5-1",
+      "purl": "pkg:alpm/arch/llvm-libs@23.1.5-1?arch=x86_64&distro=arch-rolling&upstream=llvm"
+     },
+     {
+      "name": "milou",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/milou@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=milou"
+     },
+     {
+      "name": "mlt",
+      "from": "7.42.0-1",
+      "to": "7.42.0-3",
+      "purl": "pkg:alpm/arch/mlt@7.42.0-3?arch=x86_64&distro=arch-rolling&upstream=mlt"
+     },
+     {
+      "name": "ocean-sound-theme",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/ocean-sound-theme@6.8.3-1?arch=any&distro=arch-rolling&upstream=ocean-sound-theme"
+     },
+     {
+      "name": "opencv",
+      "from": "5.0.0-13",
+      "to": "5.1.0-3",
+      "purl": "pkg:alpm/arch/opencv@5.1.0-3?arch=x86_64&distro=arch-rolling&upstream=opencv"
+     },
+     {
+      "name": "openssh",
+      "from": "10.6p1-3",
+      "to": "10.6p2-1",
+      "purl": "pkg:alpm/arch/openssh@10.6p2-1?arch=x86_64&distro=arch-rolling&upstream=openssh"
+     },
+     {
+      "name": "p11-kit",
+      "from": "0.26.5-1",
+      "to": "0.26.6-1",
+      "purl": "pkg:alpm/arch/p11-kit@0.26.6-1?arch=x86_64&distro=arch-rolling&upstream=p11-kit"
+     },
+     {
+      "name": "plasma-activities",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/plasma-activities@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=plasma-activities"
+     },
+     {
+      "name": "plasma-activities-stats",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/plasma-activities-stats@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=plasma-activities-stats"
+     },
+     {
+      "name": "plasma-desktop",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/plasma-desktop@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=plasma-desktop"
+     },
+     {
+      "name": "plasma-integration",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/plasma-integration@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=plasma-integration"
+     },
+     {
+      "name": "plasma-workspace",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/plasma-workspace@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=plasma-workspace"
+     },
+     {
+      "name": "plasma5support",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/plasma5support@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=plasma5support"
+     },
+     {
+      "name": "polkit-kde-agent",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/polkit-kde-agent@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=polkit-kde-agent"
+     },
+     {
+      "name": "poppler",
+      "from": "26.10.0-2",
+      "to": "26.11.0-1",
+      "purl": "pkg:alpm/arch/poppler@26.11.0-1?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "poppler-glib",
+      "from": "26.10.0-2",
+      "to": "26.11.0-1",
+      "purl": "pkg:alpm/arch/poppler-glib@26.11.0-1?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "poppler-qt6",
+      "from": "26.10.0-2",
+      "to": "26.11.0-1",
+      "purl": "pkg:alpm/arch/poppler-qt6@26.11.0-1?arch=x86_64&distro=arch-rolling&upstream=poppler"
+     },
+     {
+      "name": "powerdevil",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/powerdevil@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=powerdevil"
+     },
+     {
+      "name": "prison",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/prison@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=prison"
+     },
+     {
+      "name": "purpose",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/purpose@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=purpose"
+     },
+     {
+      "name": "python-cachecontrol",
+      "from": "1:0.14.4-4",
+      "to": "1:0.15.0-1",
+      "purl": "pkg:alpm/arch/python-cachecontrol@1%3A0.15.0-1?arch=any&distro=arch-rolling&upstream=python-cachecontrol"
+     },
+     {
+      "name": "python-numpy",
+      "from": "2.5.4-1",
+      "to": "2.5.5-1",
+      "purl": "pkg:alpm/arch/python-numpy@2.5.5-1?arch=x86_64&distro=arch-rolling&upstream=python-numpy"
+     },
+     {
+      "name": "python-platformdirs",
+      "from": "4.14.3-1",
+      "to": "4.14.5-1",
+      "purl": "pkg:alpm/arch/python-platformdirs@4.14.5-1?arch=any&distro=arch-rolling&upstream=python-platformdirs"
+     },
+     {
+      "name": "python-soupsieve",
+      "from": "3.0.4-1",
+      "to": "4.1.1-1",
+      "purl": "pkg:alpm/arch/python-soupsieve@4.1.1-1?arch=any&distro=arch-rolling&upstream=python-soupsieve"
+     },
+     {
+      "name": "qqc2-breeze-style",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/qqc2-breeze-style@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=qqc2-breeze-style"
+     },
+     {
+      "name": "qqc2-desktop-style",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/qqc2-desktop-style@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=qqc2-desktop-style"
+     },
+     {
+      "name": "qt6-webengine",
+      "from": "6.11.3-2",
+      "to": "6.140.0-1",
+      "purl": "pkg:alpm/arch/qt6-webengine@6.140.0-1?arch=x86_64&distro=arch-rolling&upstream=qt6-webengine"
+     },
+     {
+      "name": "runc",
+      "from": "1.5.2-1",
+      "to": "1.5.3-1",
+      "purl": "pkg:alpm/arch/runc@1.5.3-1?arch=x86_64&distro=arch-rolling&upstream=runc"
+     },
+     {
+      "name": "rust",
+      "from": "1:1.99.1-4",
+      "to": "1:1.100.0-1",
+      "purl": "pkg:alpm/arch/rust@1%3A1.100.0-1?arch=x86_64&distro=arch-rolling&upstream=rust"
+     },
+     {
+      "name": "solid",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/solid@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=solid"
+     },
+     {
+      "name": "sonnet",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/sonnet@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=sonnet"
+     },
+     {
+      "name": "svt-av1",
+      "from": "4.2.0-1",
+      "to": "4.3.0-1",
+      "purl": "pkg:alpm/arch/svt-av1@4.3.0-1?arch=x86_64&distro=arch-rolling&upstream=svt-av1"
+     },
+     {
+      "name": "syndication",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/syndication@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=syndication"
+     },
+     {
+      "name": "syntax-highlighting",
+      "from": "6.31.0-1",
+      "to": "6.32.0-1",
+      "purl": "pkg:alpm/arch/syntax-highlighting@6.32.0-1?arch=x86_64&distro=arch-rolling&upstream=syntax-highlighting"
+     },
+     {
+      "name": "systemsettings",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/systemsettings@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=systemsettings"
+     },
+     {
+      "name": "union",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/union@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=union"
+     },
+     {
+      "name": "xdg-desktop-portal-kde",
+      "from": "6.8.2-1",
+      "to": "6.8.3-1",
+      "purl": "pkg:alpm/arch/xdg-desktop-portal-kde@6.8.3-1?arch=x86_64&distro=arch-rolling&upstream=xdg-desktop-portal-kde"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/moby/sys/capability",
+      "from": "v0.4.0",
+      "to": "v0.5.0",
+      "purl": "pkg:golang/github.com/moby/sys/capability@v0.5.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "java-archive": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "opencv",
+      "from": "500",
+      "to": "510",
+      "purl": "pkg:maven/org.opencv/opencv@510"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cachecontrol",
+      "from": "0.14.4",
+      "to": "0.15.0",
+      "purl": "pkg:pypi/cachecontrol@0.15.0"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.5",
+      "to": "0.163.1",
+      "purl": "pkg:pypi/fastapi@0.163.1"
+     },
+     {
+      "name": "numpy",
+      "from": "2.5.4",
+      "to": "2.5.5",
+      "purl": "pkg:pypi/numpy@2.5.5"
+     },
+     {
+      "name": "platformdirs",
+      "from": "4.14.3",
+      "to": "4.14.5",
+      "purl": "pkg:pypi/platformdirs@4.14.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.2",
+      "to": "16.1.0",
+      "purl": "pkg:pypi/pyee@16.1.0"
+     },
+     {
+      "name": "soupsieve",
+      "from": "3.0.4",
+      "to": "4.1.1",
+      "purl": "pkg:pypi/soupsieve@4.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 142,
+  "downgraded": 0
+ }
+}

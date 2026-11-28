@@ -1,0 +1,195 @@
+{
+ "schema": 1,
+ "name": "ldap-auth",
+ "summary": "[Ldap-auth](https://github.com/nginxinc/nginx-ldap-auth) software is for authenticating users who request protected resources from servers proxied by nginx. It includes a daemon (ldap-auth) that communicates with an authentication server, and a webserver daemon that generates an authentication cookie based on the user’s credentials. The daemons are written in Python for use with a Lightweight Directory Access Protocol (LDAP) authentication server (OpenLDAP or Microsoft Windows Active Directory 2003 and 2012).",
+ "upstream": {
+  "url": "https://github.com/nginxinc/nginx-ldap-auth",
+  "version": {
+   "type": "pip",
+   "package": "python-ldap"
+  }
+ },
+ "release": {
+  "branch": "master",
+  "tag": "latest",
+  "channel": "stable"
+ },
+ "build": {
+  "base": "alpine",
+  "version_arg": "LDAP_VERSION",
+  "platforms": [
+   "amd64",
+   "arm64"
+  ]
+ },
+ "test": {
+  "startup_timeout": 60,
+  "web": {
+   "port": 9000,
+   "path": "/test"
+  }
+ },
+ "runtime": {
+  "ports": [
+   {
+    "internal": "8888",
+    "description": "the port for ldap auth daemon"
+   },
+   {
+    "internal": "9000",
+    "description": "the port for ldap login page"
+   }
+  ],
+  "env": [
+   {
+    "name": "FERNETKEY",
+    "value": "",
+    "description": "Optionally define a custom valid fernet key (only needed if container is frequently recreated, or if using multi-node setups, invalidating previous authentications)",
+    "optional": true
+   },
+   {
+    "name": "CERTFILE",
+    "value": "",
+    "description": "Optionally point this to a certificate file to enable HTTP over SSL (HTTPS) for the ldap auth daemon",
+    "optional": true
+   },
+   {
+    "name": "KEYFILE",
+    "value": "",
+    "description": "Optionally point this to the private key file, matching the certificate file referred to in CERTFILE",
+    "optional": true
+   }
+  ],
+  "readonly": {
+   "supported": true
+  },
+  "nonroot": {
+   "supported": true
+  }
+ },
+ "docs": {
+  "categories": [
+   "Administration",
+   "Security"
+  ],
+  "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ldap-auth-logo.png",
+  "setup": "- This container itself does not have any settings and it relies on the pertinent information passed through in http headers of incoming requests. Make sure that your webserver is set up with the right config.\n- Here's a sample config: [nginx-ldap-auth.conf](https://github.com/nginxinc/nginx-ldap-auth/blob/master/nginx-ldap-auth.conf).\n- Unlike the upstream project, this image encodes the cookie information with fernet, using a randomly generated key during container creation (or optionally user defined).\n- Also unlike the upstream project, this image serves the login page at `/ldaplogin` (as well as `/login`) to prevent clashes with reverse proxied apps that may also use `/login` for their internal auth.\n"
+ },
+ "proxy": {
+  "port": 9000,
+  "subdomain": true,
+  "subfolder": {
+   "supported": false
+  }
+ },
+ "changelog": [
+  {
+   "date": "2026-07-17",
+   "text": "Rebase to Alpine 3.24."
+  },
+  {
+   "date": "2024-12-25",
+   "text": "Add `legacy-cgi`. Fix fernet key storage."
+  },
+  {
+   "date": "2024-12-22",
+   "text": "Rebase to Alpine 3.21. Add support for read-only and non-root."
+  },
+  {
+   "date": "2024-06-30",
+   "text": "Rebase to Alpine 3.20."
+  },
+  {
+   "date": "2023-12-23",
+   "text": "Rebase to Alpine 3.19."
+  },
+  {
+   "date": "2023-06-20",
+   "text": "Sync upstream changes, including the ability to disable referrals with `X-Ldap-DisableReferrals`."
+  },
+  {
+   "date": "2023-05-25",
+   "text": "Rebase to Alpine 3.18, deprecate armhf."
+  },
+  {
+   "date": "2022-12-30",
+   "text": "Rebase to alpine 3.17."
+  },
+  {
+   "date": "2022-09-19",
+   "text": "Rebase to alpine 3.15."
+  },
+  {
+   "date": "2021-05-14",
+   "text": "Add linuxserver wheel index."
+  },
+  {
+   "date": "2021-02-12",
+   "text": "Clean up cargo/rust cache."
+  },
+  {
+   "date": "2021-02-10",
+   "text": "Rebasing to alpine 3.13."
+  },
+  {
+   "date": "2020-09-08",
+   "text": "Set form action correctly."
+  },
+  {
+   "date": "2020-07-30",
+   "text": "Fix bug related to unset optional `CERTFILE` and `KEYFILE` vars."
+  },
+  {
+   "date": "2020-07-27",
+   "text": "Add support for HTTP over SSL (HTTPS)."
+  },
+  {
+   "date": "2020-07-21",
+   "text": "Add support for optional user defined fernet key."
+  },
+  {
+   "date": "2020-06-02",
+   "text": "Rebasing to alpine 3.12, serve login page at `/ldaplogin` as well as `/login`, to prevent clashes with reverese proxied apps."
+  },
+  {
+   "date": "2020-05-17",
+   "text": "Add support for self-signed CA certs."
+  },
+  {
+   "date": "2020-02-20",
+   "text": "Switch to python3."
+  },
+  {
+   "date": "2019-12-19",
+   "text": "Rebasing to alpine 3.11."
+  },
+  {
+   "date": "2019-07-01",
+   "text": "Fall back to base64 encoding when basic http auth is used."
+  },
+  {
+   "date": "2019-06-28",
+   "text": "Rebasing to alpine 3.10."
+  },
+  {
+   "date": "2019-03-23",
+   "text": "Switching to new Base images, shift to arm32v7 tag."
+  },
+  {
+   "date": "2019-02-22",
+   "text": "Rebasing to alpine 3.9."
+  },
+  {
+   "date": "2018-09-18",
+   "text": "Update pip"
+  },
+  {
+   "date": "2018-09-14",
+   "text": "Add TZ parameter, remove unnecessary PUID/PGID params"
+  },
+  {
+   "date": "2018-08-11",
+   "text": "Initial release."
+  }
+ ]
+}

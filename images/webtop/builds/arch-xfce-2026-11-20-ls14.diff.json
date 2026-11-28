@@ -1,0 +1,162 @@
+{
+ "image": "webtop",
+ "branch": "arch-xfce",
+ "tag": "arch-xfce-2026-11-20-ls14",
+ "previous_tag": "arch-xfce-2026-11-20-ls13",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (1ad5847 → f21c5f8): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-20",
+  "to": "2026-11-20",
+  "changed": false
+ },
+ "commit": {
+  "from": "1ad58476c734ecaecdd4bc2ed756e7efe34b005e",
+  "to": "f21c5f8c1f7d52f8b607c44feb30499b5cdd2a79",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/1ad58476c734ecaecdd4bc2ed756e7efe34b005e...f21c5f8c1f7d52f8b607c44feb30499b5cdd2a79",
+  "commits": [
+   {
+    "sha": "f21c5f8c1f7d52f8b607c44feb30499b5cdd2a79",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T19:33:22Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/f21c5f8c1f7d52f8b607c44feb30499b5cdd2a79",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:086e00be8171b7113ca0abc3196a8e531c47ce2bdfdb5579546b79ab43eab54d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:1bceb8b1c1ebadc5b8c2a9a0d9b239203b34c7802961e2f2bf44cea4761c8b7a"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1580556944,
+   "to": 1580557506,
+   "delta": 562
+  },
+  "arm64": {
+   "from": 1639037424,
+   "to": 1639086193,
+   "delta": 48769
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gnutls",
+      "from": "3.8.13-3",
+      "to": "3.8.14-1",
+      "purl": "pkg:alpm/arch/gnutls@3.8.14-1?arch=x86_64&distro=arch-rolling&upstream=gnutls"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gnutls",
+      "from": "3.8.13-3",
+      "to": "3.8.14-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

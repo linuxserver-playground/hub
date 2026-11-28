@@ -1,0 +1,147 @@
+{
+ "image": "mstream",
+ "branch": "master",
+ "tag": "v6.35.0-ls14",
+ "previous_tag": "v6.35.0-ls13",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (41f84d0 → a8f4143): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v6.35.0",
+  "to": "v6.35.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "41f84d04af9bbb329277c054ca0ec772ee50559b",
+  "to": "a8f414355e034cccaf0db3bd37fd35347ac49e36",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mstream/compare/41f84d04af9bbb329277c054ca0ec772ee50559b...a8f414355e034cccaf0db3bd37fd35347ac49e36",
+  "commits": [
+   {
+    "sha": "a8f414355e034cccaf0db3bd37fd35347ac49e36",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-25T09:23:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-mstream/commit/a8f414355e034cccaf0db3bd37fd35347ac49e36",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:9c7d0c9a503ff7deddf92621de1b54f0a04ebbfec481cc96844d09b53e04fde3"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:9c7d0c9a503ff7deddf92621de1b54f0a04ebbfec481cc96844d09b53e04fde3"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 403390739,
+   "to": 403398528,
+   "delta": 7789
+  },
+  "arm64": {
+   "from": 404883238,
+   "to": 404890717,
+   "delta": 7479
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libffi",
+      "from": "3.8.1-r0",
+      "to": "3.8.2-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.2-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libffi",
+      "from": "3.8.1-r0",
+      "to": "3.8.2-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.2-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

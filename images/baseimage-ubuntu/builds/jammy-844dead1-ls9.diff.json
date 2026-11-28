@@ -1,0 +1,158 @@
+{
+ "image": "baseimage-ubuntu",
+ "branch": "jammy",
+ "tag": "jammy-844dead1-ls9",
+ "previous_tag": "jammy-d1261b33-ls8",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (af54a01 → a309ff2): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "d1261b33",
+  "to": "844dead1",
+  "changed": true
+ },
+ "commit": {
+  "from": "af54a01a93bee32f50338385a7e08b4adaf009bb",
+  "to": "a309ff2ed87e982085ad69e1afef1ea94342aa13",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-ubuntu/compare/af54a01a93bee32f50338385a7e08b4adaf009bb...a309ff2ed87e982085ad69e1afef1ea94342aa13",
+  "commits": [
+   {
+    "sha": "a309ff2ed87e982085ad69e1afef1ea94342aa13",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-24T03:43:14Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-ubuntu/commit/a309ff2ed87e982085ad69e1afef1ea94342aa13",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 72830702,
+   "to": 72831802,
+   "delta": 1100
+  },
+  "arm64": {
+   "from": 70938609,
+   "to": 70941289,
+   "delta": 2680
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libgssapi-krb5-2",
+      "from": "1.19.2-2ubuntu0.10",
+      "to": "1.19.2-2ubuntu0.12",
+      "purl": "pkg:deb/ubuntu/libgssapi-krb5-2@1.19.2-2ubuntu0.12?arch=amd64&distro=ubuntu-22.04&upstream=krb5"
+     },
+     {
+      "name": "libk5crypto3",
+      "from": "1.19.2-2ubuntu0.10",
+      "to": "1.19.2-2ubuntu0.12",
+      "purl": "pkg:deb/ubuntu/libk5crypto3@1.19.2-2ubuntu0.12?arch=amd64&distro=ubuntu-22.04&upstream=krb5"
+     },
+     {
+      "name": "libkrb5-3",
+      "from": "1.19.2-2ubuntu0.10",
+      "to": "1.19.2-2ubuntu0.12",
+      "purl": "pkg:deb/ubuntu/libkrb5-3@1.19.2-2ubuntu0.12?arch=amd64&distro=ubuntu-22.04&upstream=krb5"
+     },
+     {
+      "name": "libkrb5support0",
+      "from": "1.19.2-2ubuntu0.10",
+      "to": "1.19.2-2ubuntu0.12",
+      "purl": "pkg:deb/ubuntu/libkrb5support0@1.19.2-2ubuntu0.12?arch=amd64&distro=ubuntu-22.04&upstream=krb5"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libgssapi-krb5-2",
+      "from": "1.19.2-2ubuntu0.10",
+      "to": "1.19.2-2ubuntu0.12",
+      "purl": "pkg:deb/ubuntu/libgssapi-krb5-2@1.19.2-2ubuntu0.12?arch=arm64&distro=ubuntu-22.04&upstream=krb5"
+     },
+     {
+      "name": "libk5crypto3",
+      "from": "1.19.2-2ubuntu0.10",
+      "to": "1.19.2-2ubuntu0.12",
+      "purl": "pkg:deb/ubuntu/libk5crypto3@1.19.2-2ubuntu0.12?arch=arm64&distro=ubuntu-22.04&upstream=krb5"
+     },
+     {
+      "name": "libkrb5-3",
+      "from": "1.19.2-2ubuntu0.10",
+      "to": "1.19.2-2ubuntu0.12",
+      "purl": "pkg:deb/ubuntu/libkrb5-3@1.19.2-2ubuntu0.12?arch=arm64&distro=ubuntu-22.04&upstream=krb5"
+     },
+     {
+      "name": "libkrb5support0",
+      "from": "1.19.2-2ubuntu0.10",
+      "to": "1.19.2-2ubuntu0.12",
+      "purl": "pkg:deb/ubuntu/libkrb5support0@1.19.2-2ubuntu0.12?arch=arm64&distro=ubuntu-22.04&upstream=krb5"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 8,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,136 @@
+{
+ "image": "plex",
+ "branch": "master",
+ "tag": "1.43.5.11079-b3b13e506-ls11",
+ "previous_tag": "1.43.5.11079-b3b13e506-ls10",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (ec1efe4 → 292dfe4): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.43.5.11079-b3b13e506",
+  "to": "1.43.5.11079-b3b13e506",
+  "changed": false
+ },
+ "commit": {
+  "from": "ec1efe414295e0c9cb962bb1e378cdf096c1ea5b",
+  "to": "292dfe40565cdddf81d8571f76afd45469d8a63f",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-plex/compare/ec1efe414295e0c9cb962bb1e378cdf096c1ea5b...292dfe40565cdddf81d8571f76afd45469d8a63f",
+  "commits": [
+   {
+    "sha": "292dfe40565cdddf81d8571f76afd45469d8a63f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-17T01:57:30Z",
+    "url": "https://github.com/linuxserver-playground/docker-plex/commit/292dfe40565cdddf81d8571f76afd45469d8a63f",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:474ae94121b29ecb1165cc9ba08d55f1245dcf53e20532808e3c0c61200ec682"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:a44688d5617b27712df6770f62ca32516191b2728cbfe6b08da12acff4175797"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 187076505,
+   "to": 178324506,
+   "delta": -8751999
+  },
+  "arm64": {
+   "from": 179132794,
+   "to": 170602253,
+   "delta": -8530541
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsqlite3-0",
+      "from": "3.46.1-9ubuntu0.3",
+      "to": "3.46.1-9ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.46.1-9ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=sqlite3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.26.04.1",
+      "to": "2026f-0ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.26.04.1?arch=all&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsqlite3-0",
+      "from": "3.46.1-9ubuntu0.3",
+      "to": "3.46.1-9ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.46.1-9ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=sqlite3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.26.04.1",
+      "to": "2026f-0ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.26.04.1?arch=all&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

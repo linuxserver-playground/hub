@@ -1,0 +1,114 @@
+{
+ "image": "handbrake",
+ "branch": "master",
+ "tag": "1.11.2-ls12",
+ "previous_tag": "1.11.2-ls11",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (b682cd5 → 6b1b5d0): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1.11.2",
+  "to": "1.11.2",
+  "changed": false
+ },
+ "commit": {
+  "from": "b682cd5538982a9fbfdab7b00edfd0eb776461b5",
+  "to": "6b1b5d0156439a0ce3b801a11ba5e55a5d0a9671",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-handbrake/compare/b682cd5538982a9fbfdab7b00edfd0eb776461b5...6b1b5d0156439a0ce3b801a11ba5e55a5d0a9671",
+  "commits": [
+   {
+    "sha": "6b1b5d0156439a0ce3b801a11ba5e55a5d0a9671",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-24T06:40:12Z",
+    "url": "https://github.com/linuxserver-playground/docker-handbrake/commit/6b1b5d0156439a0ce3b801a11ba5e55a5d0a9671",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:1bceb8b1c1ebadc5b8c2a9a0d9b239203b34c7802961e2f2bf44cea4761c8b7a"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:1bceb8b1c1ebadc5b8c2a9a0d9b239203b34c7802961e2f2bf44cea4761c8b7a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1304756563,
+   "to": 1304785751,
+   "delta": 29188
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gtk4",
+      "from": "1:4.24.1-1",
+      "to": "1:4.24.2-1",
+      "purl": "pkg:alpm/arch/gtk4@1%3A4.24.2-1?arch=x86_64&distro=arch-rolling&upstream=gtk4"
+     },
+     {
+      "name": "libpipewire",
+      "from": "1:1.6.11-2",
+      "to": "1:1.6.12-1",
+      "purl": "pkg:alpm/arch/libpipewire@1%3A1.6.12-1?arch=x86_64&distro=arch-rolling&upstream=pipewire"
+     },
+     {
+      "name": "pipewire",
+      "from": "1:1.6.11-2",
+      "to": "1:1.6.12-1",
+      "purl": "pkg:alpm/arch/pipewire@1%3A1.6.12-1?arch=x86_64&distro=arch-rolling&upstream=pipewire"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 3,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,122 @@
+{
+ "image": "baseimage-ubuntu",
+ "branch": "resolute",
+ "tag": "resolute-be083862-ls9",
+ "previous_tag": "resolute-05394c78-ls8",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (3a179c9 → 3e76129): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "05394c78",
+  "to": "be083862",
+  "changed": true
+ },
+ "commit": {
+  "from": "3a179c98e946ee55a919b76837fc1e9ade238d1f",
+  "to": "3e761295cad735ba91efe864379ca354b7b9dd11",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-ubuntu/compare/3a179c98e946ee55a919b76837fc1e9ade238d1f...3e761295cad735ba91efe864379ca354b7b9dd11",
+  "commits": [
+   {
+    "sha": "3e761295cad735ba91efe864379ca354b7b9dd11",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T11:31:24Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-ubuntu/commit/3e761295cad735ba91efe864379ca354b7b9dd11",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 60925131,
+   "to": 63370175,
+   "delta": 2445044
+  },
+  "arm64": {
+   "from": 60442194,
+   "to": 62850581,
+   "delta": 2408387
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl-base",
+      "from": "5.40.1-7ubuntu0.3",
+      "to": "5.40.1-7ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/perl-base@5.40.1-7ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

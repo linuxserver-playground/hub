@@ -1,0 +1,734 @@
+{
+ "image": "vlc",
+ "branch": "master",
+ "tag": "3.0.24-ls9",
+ "previous_tag": "3.0.24-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (a091960 → 4dfa5ef): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "3.0.24",
+  "to": "3.0.24",
+  "changed": false
+ },
+ "commit": {
+  "from": "a091960fef66987673adc6f3d834c3449c2d1bbc",
+  "to": "4dfa5ef319228c6e2954a44b48e9778ce793523e",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-vlc/compare/a091960fef66987673adc6f3d834c3449c2d1bbc...4dfa5ef319228c6e2954a44b48e9778ce793523e",
+  "commits": [
+   {
+    "sha": "4dfa5ef319228c6e2954a44b48e9778ce793523e",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T02:22:40Z",
+    "url": "https://github.com/linuxserver-playground/docker-vlc/commit/4dfa5ef319228c6e2954a44b48e9778ce793523e",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:3d2bc0fcee9cabb19ef40e04faed82bf733b5a24b7dd6b379615814ec6779bea"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:df1a425de853d1446ce76e49279cc6126eb339f81a51be446cade12022a6221c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1372986679,
+   "to": 1379580225,
+   "delta": 6593546
+  },
+  "arm64": {
+   "from": 1430166871,
+   "to": 1434437903,
+   "delta": 4271032
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [
+     {
+      "name": "openssl-3",
+      "version": "3.5.9-2",
+      "purl": "pkg:alpm/arch/openssl-3@3.5.9-2?arch=x86_64&distro=arch-rolling&upstream=openssl-3"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "boost-libs",
+      "from": "1.92.0-1",
+      "to": "1.92.0-2",
+      "purl": "pkg:alpm/arch/boost-libs@1.92.0-2?arch=x86_64&distro=arch-rolling&upstream=boost"
+     },
+     {
+      "name": "cmake",
+      "from": "4.4.5-1",
+      "to": "4.5.0-1",
+      "purl": "pkg:alpm/arch/cmake@4.5.0-1?arch=x86_64&distro=arch-rolling&upstream=cmake"
+     },
+     {
+      "name": "coreutils",
+      "from": "9.12-2",
+      "to": "9.12-3",
+      "purl": "pkg:alpm/arch/coreutils@9.12-3?arch=x86_64&distro=arch-rolling&upstream=coreutils"
+     },
+     {
+      "name": "cryptsetup",
+      "from": "2.8.8-1",
+      "to": "2.8.8-2",
+      "purl": "pkg:alpm/arch/cryptsetup@2.8.8-2?arch=x86_64&distro=arch-rolling&upstream=cryptsetup"
+     },
+     {
+      "name": "curl",
+      "from": "8.23.0-1",
+      "to": "8.23.0-2",
+      "purl": "pkg:alpm/arch/curl@8.23.0-2?arch=x86_64&distro=arch-rolling&upstream=curl"
+     },
+     {
+      "name": "dbus",
+      "from": "1.16.2-2",
+      "to": "1.16.4-1",
+      "purl": "pkg:alpm/arch/dbus@1.16.4-1?arch=x86_64&distro=arch-rolling&upstream=dbus"
+     },
+     {
+      "name": "docker-compose",
+      "from": "5.7.0-1",
+      "to": "5.7.1-1",
+      "purl": "pkg:alpm/arch/docker-compose@5.7.1-1?arch=x86_64&distro=arch-rolling&upstream=docker-compose"
+     },
+     {
+      "name": "flex",
+      "from": "2.6.4-6",
+      "to": "2.6.10-1",
+      "purl": "pkg:alpm/arch/flex@2.6.10-1?arch=x86_64&distro=arch-rolling&upstream=flex"
+     },
+     {
+      "name": "gperftools",
+      "from": "2.19.2-1",
+      "to": "2.19.3-1",
+      "purl": "pkg:alpm/arch/gperftools@2.19.3-1?arch=x86_64&distro=arch-rolling&upstream=gperftools"
+     },
+     {
+      "name": "kmod",
+      "from": "34.3-1",
+      "to": "34.3-2",
+      "purl": "pkg:alpm/arch/kmod@34.3-2?arch=x86_64&distro=arch-rolling&upstream=kmod"
+     },
+     {
+      "name": "krb5",
+      "from": "1.22.2-1",
+      "to": "1.22.2-2",
+      "purl": "pkg:alpm/arch/krb5@1.22.2-2?arch=x86_64&distro=arch-rolling&upstream=krb5"
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.11-1",
+      "to": "3.8.11-2",
+      "purl": "pkg:alpm/arch/libarchive@3.8.11-2?arch=x86_64&distro=arch-rolling&upstream=libarchive"
+     },
+     {
+      "name": "libbpf",
+      "from": "1.7.0-1",
+      "to": "1.8.0-1",
+      "purl": "pkg:alpm/arch/libbpf@1.8.0-1?arch=x86_64&distro=arch-rolling&upstream=libbpf"
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r57.g9fcc4bf4-1",
+      "to": "2.2.1.r80.ge1dde819-1",
+      "purl": "pkg:alpm/arch/libcupsfilters@2.2.1.r80.ge1dde819-1?arch=x86_64&distro=arch-rolling&upstream=libcupsfilters"
+     },
+     {
+      "name": "libevent",
+      "from": "2.1.13-2",
+      "to": "2.1.13-3",
+      "purl": "pkg:alpm/arch/libevent@2.1.13-3?arch=x86_64&distro=arch-rolling&upstream=libevent"
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.2-2",
+      "to": "2.7.2-3",
+      "purl": "pkg:alpm/arch/libldap@2.7.2-3?arch=x86_64&distro=arch-rolling&upstream=openldap"
+     },
+     {
+      "name": "libmad",
+      "from": "0.15.1b-10",
+      "to": "0.16.5-1",
+      "purl": "pkg:alpm/arch/libmad@0.16.5-1?arch=x86_64&distro=arch-rolling&upstream=libmad"
+     },
+     {
+      "name": "libngtcp2",
+      "from": "1.26.0-1",
+      "to": "1.26.0-2",
+      "purl": "pkg:alpm/arch/libngtcp2@1.26.0-2?arch=x86_64&distro=arch-rolling&upstream=libngtcp2"
+     },
+     {
+      "name": "libp11-kit",
+      "from": "0.26.5-1",
+      "to": "0.26.6-1",
+      "purl": "pkg:alpm/arch/libp11-kit@0.26.6-1?arch=x86_64&distro=arch-rolling&upstream=p11-kit"
+     },
+     {
+      "name": "libpulse",
+      "from": "17.0+r134+g77d25a1e6-1",
+      "to": "17.0+r134+g77d25a1e6-2",
+      "purl": "pkg:alpm/arch/libpulse@17.0%2Br134%2Bg77d25a1e6-2?arch=x86_64&distro=arch-rolling&upstream=pulseaudio"
+     },
+     {
+      "name": "libsasl",
+      "from": "2.1.28-5",
+      "to": "2.1.28-6",
+      "purl": "pkg:alpm/arch/libsasl@2.1.28-6?arch=x86_64&distro=arch-rolling&upstream=libsasl"
+     },
+     {
+      "name": "libssh2",
+      "from": "1.11.1-7",
+      "to": "1.11.1-8",
+      "purl": "pkg:alpm/arch/libssh2@1.11.1-8?arch=x86_64&distro=arch-rolling&upstream=libssh2"
+     },
+     {
+      "name": "llvm-libs",
+      "from": "23.1.4-1",
+      "to": "23.1.5-1",
+      "purl": "pkg:alpm/arch/llvm-libs@23.1.5-1?arch=x86_64&distro=arch-rolling&upstream=llvm"
+     },
+     {
+      "name": "lz4",
+      "from": "1:1.11.0-1",
+      "to": "1:1.11.1-1",
+      "purl": "pkg:alpm/arch/lz4@1%3A1.11.1-1?arch=x86_64&distro=arch-rolling&upstream=lz4"
+     },
+     {
+      "name": "mesa",
+      "from": "1:26.2.6-1",
+      "to": "1:26.2.7-1",
+      "purl": "pkg:alpm/arch/mesa@1%3A26.2.7-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-2",
+      "to": "1.30.6-3",
+      "purl": "pkg:alpm/arch/nginx@1.30.6-3?arch=x86_64&distro=arch-rolling&upstream=nginx"
+     },
+     {
+      "name": "openssh",
+      "from": "10.6p1-2",
+      "to": "10.6p2-1",
+      "purl": "pkg:alpm/arch/openssh@10.6p2-1?arch=x86_64&distro=arch-rolling&upstream=openssh"
+     },
+     {
+      "name": "openssl",
+      "from": "3.6.5-1",
+      "to": "4.1.0-1",
+      "purl": "pkg:alpm/arch/openssl@4.1.0-1?arch=x86_64&distro=arch-rolling&upstream=openssl"
+     },
+     {
+      "name": "p11-kit",
+      "from": "0.26.5-1",
+      "to": "0.26.6-1",
+      "purl": "pkg:alpm/arch/p11-kit@0.26.6-1?arch=x86_64&distro=arch-rolling&upstream=p11-kit"
+     },
+     {
+      "name": "pacman",
+      "from": "7.1.0.r9.g54d9411-3",
+      "to": "7.1.0.r9.g54d9411-4",
+      "purl": "pkg:alpm/arch/pacman@7.1.0.r9.g54d9411-4?arch=x86_64&distro=arch-rolling&upstream=pacman"
+     },
+     {
+      "name": "pulseaudio",
+      "from": "17.0+r134+g77d25a1e6-1",
+      "to": "17.0+r134+g77d25a1e6-2",
+      "purl": "pkg:alpm/arch/pulseaudio@17.0%2Br134%2Bg77d25a1e6-2?arch=x86_64&distro=arch-rolling&upstream=pulseaudio"
+     },
+     {
+      "name": "python",
+      "from": "3.14.9-1",
+      "to": "3.14.10-1",
+      "purl": "pkg:alpm/arch/python@3.14.10-1?arch=x86_64&distro=arch-rolling&upstream=python"
+     },
+     {
+      "name": "qt5-base",
+      "from": "5.15.19+kde+r96-2",
+      "to": "5.15.19+kde+r97-1",
+      "purl": "pkg:alpm/arch/qt5-base@5.15.19%2Bkde%2Br97-1?arch=x86_64&distro=arch-rolling&upstream=qt5-base"
+     },
+     {
+      "name": "sdl3",
+      "from": "3.4.18-1",
+      "to": "3.4.20-1",
+      "purl": "pkg:alpm/arch/sdl3@3.4.20-1?arch=x86_64&distro=arch-rolling&upstream=sdl3"
+     },
+     {
+      "name": "spice",
+      "from": "0.16.0-4",
+      "to": "0.16.0-5",
+      "purl": "pkg:alpm/arch/spice@0.16.0-5?arch=x86_64&distro=arch-rolling&upstream=spice"
+     },
+     {
+      "name": "sudo",
+      "from": "1.9.17.p2-6",
+      "to": "1.9.17.p2-7",
+      "purl": "pkg:alpm/arch/sudo@1.9.17.p2-7?arch=x86_64&distro=arch-rolling&upstream=sudo"
+     },
+     {
+      "name": "systemd",
+      "from": "262.1-1",
+      "to": "262.2-1",
+      "purl": "pkg:alpm/arch/systemd@262.2-1?arch=x86_64&distro=arch-rolling&upstream=systemd"
+     },
+     {
+      "name": "systemd-libs",
+      "from": "262.1-1",
+      "to": "262.2-1",
+      "purl": "pkg:alpm/arch/systemd-libs@262.2-1?arch=x86_64&distro=arch-rolling&upstream=systemd"
+     },
+     {
+      "name": "tpm2-tss",
+      "from": "4.2.0-2",
+      "to": "4.2.1-2",
+      "purl": "pkg:alpm/arch/tpm2-tss@4.2.1-2?arch=x86_64&distro=arch-rolling&upstream=tpm2-tss"
+     },
+     {
+      "name": "vulkan-intel",
+      "from": "1:26.2.6-1",
+      "to": "1:26.2.7-1",
+      "purl": "pkg:alpm/arch/vulkan-intel@1%3A26.2.7-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-mesa-implicit-layers",
+      "from": "1:26.2.6-1",
+      "to": "1:26.2.7-1",
+      "purl": "pkg:alpm/arch/vulkan-mesa-implicit-layers@1%3A26.2.7-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "vulkan-radeon",
+      "from": "1:26.2.6-1",
+      "to": "1:26.2.7-1",
+      "purl": "pkg:alpm/arch/vulkan-radeon@1%3A26.2.7-1?arch=x86_64&distro=arch-rolling&upstream=mesa"
+     },
+     {
+      "name": "xorg-server",
+      "from": "21.1.25-2",
+      "to": "21.1.26-1",
+      "purl": "pkg:alpm/arch/xorg-server@21.1.26-1?arch=x86_64&distro=arch-rolling&upstream=xorg-server"
+     },
+     {
+      "name": "xorg-server-common",
+      "from": "21.1.25-2",
+      "to": "21.1.26-1",
+      "purl": "pkg:alpm/arch/xorg-server-common@21.1.26-1?arch=x86_64&distro=arch-rolling&upstream=xorg-server"
+     },
+     {
+      "name": "xorg-server-xvfb",
+      "from": "21.1.25-2",
+      "to": "21.1.26-1",
+      "purl": "pkg:alpm/arch/xorg-server-xvfb@21.1.26-1?arch=x86_64&distro=arch-rolling&upstream=xorg-server"
+     },
+     {
+      "name": "xorg-xwayland",
+      "from": "24.1.14-1",
+      "to": "24.1.15-1",
+      "purl": "pkg:alpm/arch/xorg-xwayland@24.1.15-1?arch=x86_64&distro=arch-rolling&upstream=xorg-xwayland"
+     },
+     {
+      "name": "zlib",
+      "from": "1:1.3.2-4",
+      "to": "1:1.4-1",
+      "purl": "pkg:alpm/arch/zlib@1%3A1.4-1?arch=x86_64&distro=arch-rolling&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "google.golang.org/grpc",
+      "from": "v1.84.0",
+      "to": "v1.85.0",
+      "purl": "pkg:golang/google.golang.org/grpc@v1.85.0"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3-X:nodwarf5",
+      "to": "go1.27.4-X:nodwarf5",
+      "purl": "pkg:golang/stdlib@1.27.4-X%3Anodwarf5"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.2",
+      "to": "0.162.6",
+      "purl": "pkg:pypi/fastapi@0.162.6"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [
+     {
+      "name": "openssl-3",
+      "version": "3.5.9-2",
+      "purl": null
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "boost-libs",
+      "from": "1.92.0-1",
+      "to": "1.92.0-2",
+      "purl": null
+     },
+     {
+      "name": "coreutils",
+      "from": "9.12-2",
+      "to": "9.12-3",
+      "purl": null
+     },
+     {
+      "name": "cryptsetup",
+      "from": "2.8.8-1",
+      "to": "2.8.8-2",
+      "purl": null
+     },
+     {
+      "name": "curl",
+      "from": "8.23.0-1",
+      "to": "8.23.0-2",
+      "purl": null
+     },
+     {
+      "name": "ffmpeg",
+      "from": "2:9.0.2-2",
+      "to": "2:9.0.2-3",
+      "purl": null
+     },
+     {
+      "name": "gst-plugins-base-libs",
+      "from": "1.28.8-1",
+      "to": "1.28.9-1",
+      "purl": null
+     },
+     {
+      "name": "gstreamer",
+      "from": "1.28.8-1",
+      "to": "1.28.9-1",
+      "purl": null
+     },
+     {
+      "name": "kmod",
+      "from": "34.3-1",
+      "to": "34.3-2",
+      "purl": null
+     },
+     {
+      "name": "krb5",
+      "from": "1.22.2-1",
+      "to": "1.22.2-2",
+      "purl": null
+     },
+     {
+      "name": "libarchive",
+      "from": "3.8.11-1",
+      "to": "3.8.11-2",
+      "purl": null
+     },
+     {
+      "name": "libbpf",
+      "from": "1.7.0-1",
+      "to": "1.8.0-1",
+      "purl": null
+     },
+     {
+      "name": "libcupsfilters",
+      "from": "2.2.1.r57.g9fcc4bf4-1",
+      "to": "2.2.1.r80.ge1dde819-1",
+      "purl": null
+     },
+     {
+      "name": "libevent",
+      "from": "2.1.13-2",
+      "to": "2.1.13-3",
+      "purl": null
+     },
+     {
+      "name": "libldap",
+      "from": "2.7.2-2",
+      "to": "2.7.2-3",
+      "purl": null
+     },
+     {
+      "name": "libngtcp2",
+      "from": "1.26.0-1",
+      "to": "1.26.0-2",
+      "purl": null
+     },
+     {
+      "name": "libpipewire",
+      "from": "1:1.6.10-1",
+      "to": "1:1.6.11-1",
+      "purl": null
+     },
+     {
+      "name": "libpulse",
+      "from": "17.0+r134+g77d25a1e6-1",
+      "to": "17.0+r134+g77d25a1e6-2",
+      "purl": null
+     },
+     {
+      "name": "libsasl",
+      "from": "2.1.28-5",
+      "to": "2.1.28-6",
+      "purl": null
+     },
+     {
+      "name": "libshout",
+      "from": "1:2.4.6-5",
+      "to": "1:2.4.6-6",
+      "purl": null
+     },
+     {
+      "name": "libssh",
+      "from": "0.12.2-1",
+      "to": "0.12.2-2",
+      "purl": null
+     },
+     {
+      "name": "libssh2",
+      "from": "1.11.1-7",
+      "to": "1.11.1-8",
+      "purl": null
+     },
+     {
+      "name": "live-media",
+      "from": "2025.05.24-1",
+      "to": "2026.10.24-1",
+      "purl": null
+     },
+     {
+      "name": "lz4",
+      "from": "1:1.11.0-1",
+      "to": "1:1.11.1-1",
+      "purl": null
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.6-2",
+      "to": "1.30.6-3",
+      "purl": null
+     },
+     {
+      "name": "openssh",
+      "from": "10.6p1-2",
+      "to": "10.6p1-3",
+      "purl": null
+     },
+     {
+      "name": "openssl",
+      "from": "3.6.5-1",
+      "to": "4.1.0-1",
+      "purl": null
+     },
+     {
+      "name": "pacman",
+      "from": "7.1.0.r9.g54d9411-3",
+      "to": "7.1.0.r9.g54d9411-4",
+      "purl": null
+     },
+     {
+      "name": "pulseaudio",
+      "from": "17.0+r134+g77d25a1e6-1",
+      "to": "17.0+r134+g77d25a1e6-2",
+      "purl": null
+     },
+     {
+      "name": "python",
+      "from": "3.14.9-1",
+      "to": "3.14.10-1",
+      "purl": null
+     },
+     {
+      "name": "qt5-base",
+      "from": "5.15.19+kde+r96-1",
+      "to": "5.15.19+kde+r96-2",
+      "purl": null
+     },
+     {
+      "name": "spice",
+      "from": "0.16.0-4",
+      "to": "0.16.0-5",
+      "purl": null
+     },
+     {
+      "name": "srt",
+      "from": "1.5.7-2",
+      "to": "1.5.7-3",
+      "purl": null
+     },
+     {
+      "name": "sudo",
+      "from": "1.9.17.p2-6",
+      "to": "1.9.17.p2-7",
+      "purl": null
+     },
+     {
+      "name": "systemd",
+      "from": "262.1-1",
+      "to": "262.2-1",
+      "purl": null
+     },
+     {
+      "name": "systemd-libs",
+      "from": "262.1-1",
+      "to": "262.2-1",
+      "purl": null
+     },
+     {
+      "name": "tpm2-tss",
+      "from": "4.2.0-2",
+      "to": "4.2.1-2",
+      "purl": null
+     },
+     {
+      "name": "xorg-server",
+      "from": "21.1.25-2",
+      "to": "21.1.26-1",
+      "purl": null
+     },
+     {
+      "name": "xorg-server-common",
+      "from": "21.1.25-2",
+      "to": "21.1.26-1",
+      "purl": null
+     },
+     {
+      "name": "xorg-server-xvfb",
+      "from": "21.1.25-2",
+      "to": "21.1.26-1",
+      "purl": null
+     },
+     {
+      "name": "xorg-xwayland",
+      "from": "24.1.14-1",
+      "to": "24.1.15-1",
+      "purl": null
+     },
+     {
+      "name": "zlib",
+      "from": "1:1.3.2-4",
+      "to": "1:1.4-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.2",
+      "to": "0.162.6",
+      "purl": "pkg:pypi/fastapi@0.162.6"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 0,
+  "upgraded": 97,
+  "downgraded": 1
+ }
+}
