@@ -1,0 +1,23 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minisatip-icon.png
+  urls:
+  - https://github.com/catalinii/minisatip
+  - https://github.com/linuxserver-playground/docker-minisatip
+services:
+  minisatip:
+    image: ghcr.io/linuxserver-playground/minisatip:latest
+    container_name: minisatip
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      RUN_OPTS: ${RUN_OPTS}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8875:-8875}:8875
+    - ${PORT_554:-554}:554
+    - ${PORT_1900_UDP:-1900}:1900/udp
+    devices:
+    - /dev/dvb:/dev/dvb
+    restart: unless-stopped

@@ -1,0 +1,20 @@
+services:
+  kimai:
+    image: ghcr.io/linuxserver-playground/kimai:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      APP_SECRET: ${KIMAI_APP_SECRET}
+      DATABASE_URL: ${KIMAI_DATABASE_URL}
+      TRUSTED_HOSTS: ${KIMAI_TRUSTED_HOSTS}
+      TRUSTED_PROXIES: ${KIMAI_TRUSTED_PROXIES}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 443:443
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+x-runtipi:
+  schema_version: 2

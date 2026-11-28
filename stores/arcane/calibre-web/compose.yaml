@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png
+  urls:
+  - https://github.com/janeczku/calibre-web
+  - https://github.com/linuxserver-playground/docker-calibre-web
+services:
+  calibre-web:
+    image: ghcr.io/linuxserver-playground/calibre-web:latest
+    container_name: calibre-web
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${BOOKS_PATH:-./books}:/books
+    ports:
+    - ${PORT_8083:-8083}:8083
+    restart: unless-stopped

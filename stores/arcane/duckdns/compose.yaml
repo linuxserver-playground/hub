@@ -1,0 +1,13 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png
+  urls:
+  - https://duckdns.org/
+  - https://github.com/linuxserver-playground/docker-duckdns
+services:
+  duckdns:
+    image: ghcr.io/linuxserver-playground/duckdns:latest
+    container_name: duckdns
+    environment:
+      SUBDOMAINS: ${SUBDOMAINS:-subdomain1,subdomain2}
+      TOKEN: ${TOKEN}
+    restart: unless-stopped

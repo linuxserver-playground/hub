@@ -1,0 +1,14 @@
+---
+services:
+  htpcmanager:
+    image: ghcr.io/linuxserver-playground/htpcmanager:latest
+    container_name: htpcmanager
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/htpcmanager/config:/config
+    ports:
+      - 8085:8085
+    restart: unless-stopped

@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mstream-icon.png
+  urls:
+  - https://mstream.io/
+  - https://github.com/linuxserver-playground/docker-mstream
+services:
+  mstream:
+    image: ghcr.io/linuxserver-playground/mstream:latest
+    container_name: mstream
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${MUSIC_PATH:-./music}:/music
+    ports:
+    - ${PORT_3000:-3000}:3000
+    restart: unless-stopped

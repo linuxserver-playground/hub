@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-vscodium-web_server_1
+      APP_PORT: 8000
+  server:
+    image: ghcr.io/linuxserver-playground/vscodium-web:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      CONNECTION_TOKEN: ''
+      CONNECTION_TOKEN_FILE: ''
+      SUDO_PASSWORD: password
+      SUDO_PASSWORD_HASH: ''
+      CODE_ARGS: ''
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config

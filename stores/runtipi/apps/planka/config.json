@@ -1,0 +1,97 @@
+{
+  "name": "Planka",
+  "available": true,
+  "exposable": true,
+  "port": 1337,
+  "id": "planka",
+  "tipi_version": 1,
+  "version": "v2.3.1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Planka is an elegant open source project tracking tool.",
+  "short_desc": "Planka is an elegant open source project tracking tool",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-planka",
+  "website": "https://github.com/plankanban/planka/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/planka-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "BASE_URL",
+      "hint": "The URL you will use to access planka including protocol, and port if not 80/443.",
+      "required": true,
+      "env_variable": "PLANKA_BASE_URL",
+      "default": "https://planka.example.com"
+    },
+    {
+      "type": "text",
+      "label": "DATABASE_URL",
+      "hint": "Postgres database URL. Special characters must be url encoded.",
+      "required": true,
+      "env_variable": "PLANKA_DATABASE_URL",
+      "default": "postgresql://user:password@planka-db:5432/planka"
+    },
+    {
+      "type": "text",
+      "label": "DEFAULT_ADMIN_EMAIL",
+      "hint": "Email address for default user.",
+      "required": true,
+      "env_variable": "PLANKA_DEFAULT_ADMIN_EMAIL",
+      "default": "demo@demo.demo"
+    },
+    {
+      "type": "text",
+      "label": "DEFAULT_ADMIN_USERNAME",
+      "hint": "Username for default user.",
+      "required": true,
+      "env_variable": "PLANKA_DEFAULT_ADMIN_USERNAME",
+      "default": "demo"
+    },
+    {
+      "type": "password",
+      "label": "DEFAULT_ADMIN_PASSWORD",
+      "hint": "Password for default user.",
+      "required": true,
+      "env_variable": "PLANKA_DEFAULT_ADMIN_PASSWORD",
+      "default": "demo"
+    },
+    {
+      "type": "text",
+      "label": "DEFAULT_ADMIN_NAME",
+      "hint": "Display name for default user.",
+      "required": true,
+      "env_variable": "PLANKA_DEFAULT_ADMIN_NAME",
+      "default": "Demo User"
+    },
+    {
+      "type": "password",
+      "label": "SECRET_KEY",
+      "hint": "Session encryption key, recommended 32-64 character alphanumeric.",
+      "required": true,
+      "env_variable": "PLANKA_SECRET_KEY",
+      "default": "notasecretkey"
+    },
+    {
+      "type": "text",
+      "label": "TRUST_PROXY",
+      "hint": "Set to true to trust upstream proxies if reverse proxying.",
+      "required": true,
+      "env_variable": "PLANKA_TRUST_PROXY",
+      "default": "false"
+    },
+    {
+      "type": "text",
+      "label": "DEFAULT_LANGUAGE",
+      "hint": "This sets the default language for sending notifications per user (if a user hasn't selected a language) and per board.",
+      "required": false,
+      "env_variable": "PLANKA_DEFAULT_LANGUAGE",
+      "default": "en-US"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

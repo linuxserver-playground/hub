@@ -1,0 +1,89 @@
+name: planka
+services:
+  planka:
+    image: ghcr.io/linuxserver-playground/planka:latest
+    container_name: planka
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - BASE_URL=https://planka.example.com
+    - DATABASE_URL=postgresql://user:password@planka-db:5432/planka
+    - DEFAULT_ADMIN_EMAIL=demo@demo.demo
+    - DEFAULT_ADMIN_USERNAME=demo
+    - DEFAULT_ADMIN_PASSWORD=demo
+    - DEFAULT_ADMIN_NAME=Demo User
+    - SECRET_KEY=notasecretkey
+    - TRUST_PROXY=false
+    - DEFAULT_LANGUAGE=en-US
+    volumes:
+    - /DATA/AppData/planka/config:/config
+    ports:
+    - 1337:1337
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: BASE_URL
+        description:
+          en_us: The URL you will use to access planka including protocol, and port if not 80/443.
+      - container: DATABASE_URL
+        description:
+          en_us: Postgres database URL. Special characters must be url encoded.
+      - container: DEFAULT_ADMIN_EMAIL
+        description:
+          en_us: Email address for default user.
+      - container: DEFAULT_ADMIN_USERNAME
+        description:
+          en_us: Username for default user.
+      - container: DEFAULT_ADMIN_PASSWORD
+        description:
+          en_us: Password for default user.
+      - container: DEFAULT_ADMIN_NAME
+        description:
+          en_us: Display name for default user.
+      - container: SECRET_KEY
+        description:
+          en_us: Session encryption key, recommended 32-64 character alphanumeric.
+      - container: TRUST_PROXY
+        description:
+          en_us: Set to true to trust upstream proxies if reverse proxying.
+      - container: DEFAULT_LANGUAGE
+        description:
+          en_us: This sets the default language for sending notifications per user (if a user hasn't selected a language) and per board.
+      ports:
+      - container: '1337'
+        description:
+          en_us: Planka web UI.
+      volumes:
+      - container: /config
+        description:
+          en_us: Local path for planka config files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: planka
+  author: LinuxServer.io
+  developer: Planka
+  category: Content Management
+  description:
+    en_us: Planka is an elegant open source project tracking tool.
+  tagline:
+    en_us: Planka is an elegant open source project tracking tool
+  title:
+    en_us: Planka
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/planka-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/planka-logo.png
+  store_app_id: planka
+  index: /
+  scheme: http
+  port_map: '1337'

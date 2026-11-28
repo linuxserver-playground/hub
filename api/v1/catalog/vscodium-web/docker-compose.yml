@@ -1,0 +1,19 @@
+---
+services:
+  vscodium-web:
+    image: ghcr.io/linuxserver-playground/vscodium-web:latest
+    container_name: vscodium-web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - CONNECTION_TOKEN= #optional
+      - CONNECTION_TOKEN_FILE= #optional
+      - SUDO_PASSWORD=password #optional
+      - SUDO_PASSWORD_HASH= #optional
+      - CODE_ARGS= #optional
+    volumes:
+      - /path/to/vscodium-web/config:/config
+    ports:
+      - 8000:8000
+    restart: unless-stopped

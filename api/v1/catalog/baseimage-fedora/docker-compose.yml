@@ -1,0 +1,10 @@
+---
+services:
+  baseimage-fedora:
+    image: ghcr.io/linuxserver-playground/baseimage-fedora:43
+    container_name: baseimage-fedora
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

@@ -1,0 +1,64 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "JELLYFIN_PublishedServerUrl",
+        "label": "Set the autodiscovery response domain or IP address, include http(s)://.",
+        "initialValue": "http://192.168.0.5",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/jellyfin:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "JELLYFIN_PublishedServerUrl={Context.JELLYFIN_PublishedServerUrl}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jellyfin-logo.png",
+        "cosmos.stack": "{ServiceName}-jellyfin"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-data-tvshows",
+          "target": "/data/tvshows",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-data-movies",
+          "target": "/data/movies",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8096",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

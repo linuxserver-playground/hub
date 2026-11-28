@@ -1,0 +1,65 @@
+{
+  "name": "Kometa",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "kometa",
+  "tipi_version": 1,
+  "version": "v2.5.5",
+  "categories": [
+    "media"
+  ],
+  "description": "Kometa is a powerful tool designed to give you complete control over your media libraries. With Kometa, you can take your customization to the next level, with granular control over metadata, collections, overlays, and much more.",
+  "short_desc": "Kometa is a powerful tool designed to give you complete control over your media libraries",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-kometa",
+  "website": "https://github.com/Kometa-Team/Kometa",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kometa-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "KOMETA_CONFIG",
+      "hint": "Specify a custom config file to use.",
+      "required": false,
+      "env_variable": "KOMETA_KOMETA_CONFIG",
+      "default": "/config/config.yml"
+    },
+    {
+      "type": "text",
+      "label": "KOMETA_TIMES",
+      "hint": "Comma-separated list of times to update each day. Format: HH:MM.",
+      "required": false,
+      "env_variable": "KOMETA_KOMETA_TIMES",
+      "default": "03:00"
+    },
+    {
+      "type": "text",
+      "label": "KOMETA_RUN",
+      "hint": "Set to True to run without the scheduler.",
+      "required": false,
+      "env_variable": "KOMETA_KOMETA_RUN",
+      "default": "False"
+    },
+    {
+      "type": "text",
+      "label": "KOMETA_TESTS",
+      "hint": "Set to True to run in debug mode with only collections that have test: true.",
+      "required": false,
+      "env_variable": "KOMETA_KOMETA_TESTS",
+      "default": "False"
+    },
+    {
+      "type": "text",
+      "label": "KOMETA_NO_MISSING",
+      "hint": "Set to True to run without any of the missing movie/show functions.",
+      "required": false,
+      "env_variable": "KOMETA_KOMETA_NO_MISSING",
+      "default": "False"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

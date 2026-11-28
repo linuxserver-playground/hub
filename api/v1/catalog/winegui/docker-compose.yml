@@ -1,0 +1,16 @@
+---
+services:
+  winegui:
+    image: ghcr.io/linuxserver-playground/winegui:latest
+    container_name: winegui
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/winegui/config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb"
+    restart: unless-stopped

@@ -1,0 +1,10 @@
+---
+services:
+  socket-proxy:
+    image: ghcr.io/linuxserver-playground/socket-proxy:latest
+    container_name: socket-proxy
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

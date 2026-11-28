@@ -1,0 +1,14 @@
+---
+services:
+  grav:
+    image: ghcr.io/linuxserver-playground/grav:latest
+    container_name: grav
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/grav/config:/config
+    ports:
+      - 80:80
+    restart: unless-stopped

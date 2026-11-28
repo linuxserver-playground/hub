@@ -1,0 +1,41 @@
+{
+  "name": "Diskover",
+  "available": true,
+  "exposable": true,
+  "port": 80,
+  "id": "diskover",
+  "tipi_version": 1,
+  "version": "v2.3.5",
+  "categories": [
+    "utilities"
+  ],
+  "description": "diskover is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
+  "short_desc": "diskover is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous sto",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-diskover",
+  "website": "https://github.com/diskoverdata/diskover-community",
+  "logo_url": "https://raw.githubusercontent.com/diskoverdata/diskover-community/master/diskover-web/public/images/diskover.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "ES_HOST",
+      "hint": "ElasticSearch host (optional)",
+      "required": true,
+      "env_variable": "DISKOVER_ES_HOST",
+      "default": "elasticsearch"
+    },
+    {
+      "type": "text",
+      "label": "ES_PORT",
+      "hint": "ElasticSearch port (optional)",
+      "required": true,
+      "env_variable": "DISKOVER_ES_PORT",
+      "default": "9200"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

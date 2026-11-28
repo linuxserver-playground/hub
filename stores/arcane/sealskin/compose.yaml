@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sealskin-logo.png
+  urls:
+  - https://github.com/selkies-project/sealskin/
+  - https://github.com/linuxserver-playground/docker-sealskin
+services:
+  sealskin:
+    image: ghcr.io/linuxserver-playground/sealskin:latest
+    container_name: sealskin
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${STORAGE_PATH:-./storage}:/storage
+    - ${VAR_RUN_DOCKER_SOCK_PATH:-./var/run/docker.sock}:/var/run/docker.sock
+    ports:
+    - ${PORT_8443:-8443}:8443
+    restart: unless-stopped

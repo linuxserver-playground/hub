@@ -1,0 +1,16 @@
+---
+services:
+  ldap-auth:
+    image: ghcr.io/linuxserver-playground/ldap-auth:latest
+    container_name: ldap-auth
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - FERNETKEY= #optional
+      - CERTFILE= #optional
+      - KEYFILE= #optional
+    ports:
+      - 8888:8888
+      - 9000:9000
+    restart: unless-stopped

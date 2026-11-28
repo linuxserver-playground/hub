@@ -1,0 +1,104 @@
+{
+  "name": "Openssh-server",
+  "available": true,
+  "exposable": true,
+  "port": 2222,
+  "id": "openssh-server",
+  "tipi_version": 1,
+  "version": "10.3_p1-r2",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Openssh-server is a sandboxed environment that allows ssh access without giving keys to the entire server. Giving ssh access via private key often means giving full access to the server. This container creates a limited and sandboxed environment that others can ssh into. The users only have access to the folders mapped and the processes running inside this container.",
+  "short_desc": "Openssh-server is a sandboxed environment that allows ssh access without giving keys to the entire server",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-openssh-server",
+  "website": "https://www.openssh.com/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openssh-server-logo.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "PUBLIC_KEY",
+      "hint": "Optional ssh public key, which will automatically be added to authorizedkeys.",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_PUBLIC_KEY",
+      "default": "yourpublickey"
+    },
+    {
+      "type": "password",
+      "label": "PUBLIC_KEY_FILE",
+      "hint": "Optionally specify a file containing the public key (works with docker secrets).",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_PUBLIC_KEY_FILE",
+      "default": "/path/to/file"
+    },
+    {
+      "type": "password",
+      "label": "PUBLIC_KEY_DIR",
+      "hint": "Optionally specify a directory containing the public keys (works with docker secrets).",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_PUBLIC_KEY_DIR",
+      "default": "/path/to/directory/containing/_only_/pubkeys"
+    },
+    {
+      "type": "password",
+      "label": "PUBLIC_KEY_URL",
+      "hint": "Optionally specify a URL containing the public key.",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_PUBLIC_KEY_URL",
+      "default": "https://github.com/username.keys"
+    },
+    {
+      "type": "text",
+      "label": "SUDO_ACCESS",
+      "hint": "Set to true to allow linuxserver.io, the ssh user, sudo access. Without USERPASSWORD set, this will allow passwordless sudo access.",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_SUDO_ACCESS",
+      "default": "false"
+    },
+    {
+      "type": "password",
+      "label": "PASSWORD_ACCESS",
+      "hint": "Set to true to allow user/password ssh access. You will want to set USERPASSWORD or USERPASSWORDFILE as well.",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_PASSWORD_ACCESS",
+      "default": "false"
+    },
+    {
+      "type": "password",
+      "label": "USER_PASSWORD",
+      "hint": "Optionally set a sudo password for linuxserver.io, the ssh user. If this or USERPASSWORDFILE are not set but SUDOACCESS is set to true, the user will have passwordless sudo access.",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_USER_PASSWORD",
+      "default": "password"
+    },
+    {
+      "type": "password",
+      "label": "USER_PASSWORD_FILE",
+      "hint": "Optionally specify a file that contains the password. This setting supersedes the USERPASSWORD option (works with docker secrets).",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_USER_PASSWORD_FILE",
+      "default": "/path/to/file"
+    },
+    {
+      "type": "text",
+      "label": "USER_NAME",
+      "hint": "Optionally specify a user name (Default:linuxserver.io)",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_USER_NAME",
+      "default": "linuxserver.io"
+    },
+    {
+      "type": "text",
+      "label": "LOG_STDOUT",
+      "hint": "Set to true to log to stdout instead of file.",
+      "required": false,
+      "env_variable": "OPENSSH_SERVER_LOG_STDOUT"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

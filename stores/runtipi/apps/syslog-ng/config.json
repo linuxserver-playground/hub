@@ -1,0 +1,32 @@
+{
+  "name": "Syslog-ng",
+  "available": true,
+  "exposable": true,
+  "port": 514,
+  "id": "syslog-ng",
+  "tipi_version": 1,
+  "version": "4.11.0-r0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure and store or route them to log analysis tools.",
+  "short_desc": "syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure an",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-syslog-ng",
+  "website": "https://www.syslog-ng.com/products/open-source-log-management/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syslog-ng-logo.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "LOG_TO_STDOUT",
+      "hint": "If set to true container will log to stdout, otherwise will log to /config/log/.",
+      "required": false,
+      "env_variable": "SYSLOG_NG_LOG_TO_STDOUT"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

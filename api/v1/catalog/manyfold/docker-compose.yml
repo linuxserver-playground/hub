@@ -1,0 +1,18 @@
+---
+services:
+  manyfold:
+    image: ghcr.io/linuxserver-playground/manyfold:latest
+    container_name: manyfold
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - DATABASE_URL=
+      - REDIS_URL=
+      - SECRET_KEY_BASE=
+    volumes:
+      - /path/to/manyfold/config:/config
+      - /path/to/libraries:/libraries #optional
+    ports:
+      - 3214:3214
+    restart: unless-stopped

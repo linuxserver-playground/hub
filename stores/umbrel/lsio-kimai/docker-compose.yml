@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-kimai_server_1
+      APP_PORT: 80
+  server:
+    image: ghcr.io/linuxserver-playground/kimai:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      APP_SECRET: ''
+      DATABASE_URL: mysql://your_db_user:your_db_pass@your_db_host:3306/your_db_name?charset=your_db_charset&serverVersion=your_db_version
+      TRUSTED_HOSTS: kimai.example.com
+      TRUSTED_PROXIES: 127.0.0.1/32
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 443:443

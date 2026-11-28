@@ -1,0 +1,22 @@
+manifestVersion: 1
+id: lsio-habridge
+category: automation
+name: Habridge
+tagline: Habridge emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot Gen 1
+icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/habridge-logo.png
+version: v5.4.1
+description: Habridge emulates Philips Hue API to other home automation gateways such as an Amazon Echo/Dot Gen 1 (gen 2 has issues discovering ha-bridge) or other systems that support Philips Hue. The Bridge handles basic commands such as On, Off and brightness commands of the hue protocol. This bridge can control most devices that have a distinct API.
+developer: LinuxServer.io
+website: https://github.com/bwssytems/ha-bridge/
+dependencies: []
+repo: https://github.com/linuxserver-playground/docker-habridge
+support: https://github.com/linuxserver-playground/docker-habridge/issues
+port: 8080
+gallery:
+- https://linuxserver-playground.github.io/docker-habridge/builds/v5.4.1-ls4/amd64/screenshot.png
+releaseNotes: ''
+path: ''
+defaultUsername: ''
+defaultPassword: ''
+submitter: LinuxServer.io
+submission: https://github.com/linuxserver-playground/docker-habridge

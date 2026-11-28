@@ -1,0 +1,16 @@
+---
+services:
+  cops:
+    image: ghcr.io/linuxserver-playground/cops:latest
+    container_name: cops
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/cops/config:/config
+      - /path/to/data:/books
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped

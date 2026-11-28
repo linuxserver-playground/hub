@@ -1,0 +1,19 @@
+---
+services:
+  ubooquity:
+    image: ghcr.io/linuxserver-playground/ubooquity:latest
+    container_name: ubooquity
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - MAXMEM= #optional
+    volumes:
+      - /path/to/ubooquity/data:/config
+      - /path/to/books:/books
+      - /path/to/comics:/comics
+      - /path/to/raw/files:/files
+    ports:
+      - 2202:2202
+      - 2203:2203
+    restart: unless-stopped

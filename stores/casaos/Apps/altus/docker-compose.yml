@@ -1,0 +1,59 @@
+name: altus
+services:
+  altus:
+    image: ghcr.io/linuxserver-playground/altus:latest
+    container_name: altus
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    volumes:
+    - /DATA/AppData/altus/config:/config
+    ports:
+    - 3000:3000
+    - 3001:3001
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      ports:
+      - container: '3000'
+        description:
+          en_us: Altus desktop gui HTTP, must be proxied.
+      - container: '3001'
+        description:
+          en_us: Altus desktop gui HTTPS.
+      volumes:
+      - container: /config
+        description:
+          en_us: Users home directory in the container, stores program settings and files.
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: altus
+  author: LinuxServer.io
+  developer: Altus
+  category: Chat
+  description:
+    en_us: Altus is an Electron-based WhatsApp client with themes and multiple account support.
+  tagline:
+    en_us: Altus is an Electron-based WhatsApp client with themes and multiple account support
+  title:
+    en_us: Altus
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/altus-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/altus-logo.png
+  store_app_id: altus
+  index: /
+  scheme: https
+  screenshot_link:
+  - https://linuxserver-playground.github.io/docker-altus/builds/5.8.2-ls9/amd64/screenshot.png
+  port_map: '3000'

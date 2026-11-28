@@ -1,0 +1,95 @@
+{
+  "name": "Unifi-network-application",
+  "available": true,
+  "exposable": true,
+  "port": 8443,
+  "id": "unifi-network-application",
+  "tipi_version": 1,
+  "version": "10.6.109",
+  "categories": [
+    "network"
+  ],
+  "description": "The Unifi-network-application software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance.",
+  "short_desc": "The Unifi-network-application software is a powerful, enterprise wireless software engine ideal for high-density client ",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-unifi-network-application",
+  "website": "https://ui.com/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/unifi-banner.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "MONGO_USER",
+      "hint": "Mongodb Username. Only evaluated on first run. Special characters must be url encoded.",
+      "required": true,
+      "env_variable": "UNIFI_NETWORK_APPLICATION_MONGO_USER",
+      "default": "unifi"
+    },
+    {
+      "type": "password",
+      "label": "MONGO_PASS",
+      "hint": "Mongodb Password. Only evaluated on first run. Special characters must be url encoded.",
+      "required": true,
+      "env_variable": "UNIFI_NETWORK_APPLICATION_MONGO_PASS"
+    },
+    {
+      "type": "text",
+      "label": "MONGO_HOST",
+      "hint": "Mongodb Hostname. Only evaluated on first run.",
+      "required": true,
+      "env_variable": "UNIFI_NETWORK_APPLICATION_MONGO_HOST",
+      "default": "unifi-db"
+    },
+    {
+      "type": "text",
+      "label": "MONGO_PORT",
+      "hint": "Mongodb Port. Only evaluated on first run.",
+      "required": true,
+      "env_variable": "UNIFI_NETWORK_APPLICATION_MONGO_PORT",
+      "default": "27017"
+    },
+    {
+      "type": "text",
+      "label": "MONGO_DBNAME",
+      "hint": "Mongodb Database Name (stats DB is automatically suffixed with stat). Only evaluated on first run.",
+      "required": true,
+      "env_variable": "UNIFI_NETWORK_APPLICATION_MONGO_DBNAME",
+      "default": "unifi"
+    },
+    {
+      "type": "text",
+      "label": "MONGO_AUTHSOURCE",
+      "hint": "Mongodb authSource. For Atlas set to admin. Only evaluated on first run.",
+      "required": true,
+      "env_variable": "UNIFI_NETWORK_APPLICATION_MONGO_AUTHSOURCE",
+      "default": "admin"
+    },
+    {
+      "type": "text",
+      "label": "MEM_LIMIT",
+      "hint": "Optionally change the Java memory limit (in Megabytes). Set to default to reset to default",
+      "required": false,
+      "env_variable": "UNIFI_NETWORK_APPLICATION_MEM_LIMIT",
+      "default": "1024"
+    },
+    {
+      "type": "text",
+      "label": "MEM_STARTUP",
+      "hint": "Optionally change the Java initial/minimum memory (in Megabytes). Set to default to reset to default",
+      "required": false,
+      "env_variable": "UNIFI_NETWORK_APPLICATION_MEM_STARTUP",
+      "default": "1024"
+    },
+    {
+      "type": "text",
+      "label": "MONGO_TLS",
+      "hint": "Mongodb enable TLS. Only evaluated on first run.",
+      "required": false,
+      "env_variable": "UNIFI_NETWORK_APPLICATION_MONGO_TLS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

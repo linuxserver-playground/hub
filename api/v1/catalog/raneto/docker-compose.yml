@@ -1,0 +1,14 @@
+---
+services:
+  raneto:
+    image: ghcr.io/linuxserver-playground/raneto:latest
+    container_name: raneto
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/raneto/data:/config
+    ports:
+      - 3000:3000
+    restart: unless-stopped

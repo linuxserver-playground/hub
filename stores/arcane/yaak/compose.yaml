@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/yaak-logo.png
+  urls:
+  - https://yaak.app/
+  - https://github.com/linuxserver-playground/docker-yaak
+services:
+  yaak:
+    image: ghcr.io/linuxserver-playground/yaak:latest
+    container_name: yaak
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_3000:-3000}:3000
+    - ${PORT_3001:-3001}:3001
+    shm_size: 1gb
+    restart: unless-stopped

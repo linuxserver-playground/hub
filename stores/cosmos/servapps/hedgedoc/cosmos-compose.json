@@ -1,0 +1,124 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "DB_HOST",
+        "label": "Host address of mariadb database",
+        "initialValue": "<hostname or ip>",
+        "type": "text"
+      },
+      {
+        "name": "DB_PORT",
+        "label": "Port to access mariadb database default is 3306",
+        "initialValue": "3306",
+        "type": "text"
+      },
+      {
+        "name": "DB_USER",
+        "label": "Database user",
+        "initialValue": "hedgedoc",
+        "type": "text"
+      },
+      {
+        "name": "DB_PASS",
+        "label": "Database password",
+        "initialValue": "<secret password>",
+        "type": "password"
+      },
+      {
+        "name": "DB_NAME",
+        "label": "Database name",
+        "initialValue": "hedgedoc",
+        "type": "text"
+      },
+      {
+        "name": "CMD_DOMAIN",
+        "label": "The address the gui will be accessed at (ie. 192.168.1.1 or hedgedoc.domain.com).",
+        "initialValue": "localhost",
+        "type": "text"
+      },
+      {
+        "name": "CMD_URL_ADDPORT",
+        "label": "Set to true if using a port other than 80 or 443.",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "CMD_PROTOCOL_USESSL",
+        "label": "Set to true if accessing over https via reverse proxy.",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "CMD_PORT",
+        "label": "If you wish to access hedgedoc at a port different than 80, 443 or 3000, you need to set this to that port (ie. CMDPORT=5000) and change the port mapping accordingly (5000:5000).",
+        "initialValue": "3000",
+        "type": "text"
+      },
+      {
+        "name": "CMD_ALLOW_ORIGIN",
+        "label": "Comma-separated list of allowed hostnames",
+        "initialValue": "['localhost']",
+        "type": "text"
+      },
+      {
+        "name": "CMD_DB_DIALECT",
+        "label": "This variable allows selecting a database engine (if DBHOST not set up). Available options are: mariadb, mysql, postgres, sqlite.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/hedgedoc:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "DB_HOST={Context.DB_HOST}",
+        "DB_PORT={Context.DB_PORT}",
+        "DB_USER={Context.DB_USER}",
+        "DB_PASS={Context.DB_PASS}",
+        "DB_NAME={Context.DB_NAME}",
+        "CMD_DOMAIN={Context.CMD_DOMAIN}",
+        "CMD_URL_ADDPORT={Context.CMD_URL_ADDPORT}",
+        "CMD_PROTOCOL_USESSL={Context.CMD_PROTOCOL_USESSL}",
+        "CMD_PORT={Context.CMD_PORT}",
+        "CMD_ALLOW_ORIGIN={Context.CMD_ALLOW_ORIGIN}",
+        "CMD_DB_DIALECT={Context.CMD_DB_DIALECT}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png",
+        "cosmos.stack": "{ServiceName}-hedgedoc"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:3000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

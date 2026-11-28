@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-healthchecks_server_1
+      APP_PORT: 8000
+  server:
+    image: ghcr.io/linuxserver-playground/healthchecks:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      SECRET_KEY: ''
+      SITE_ROOT: ''
+      SITE_NAME: ''
+      SUPERUSER_EMAIL: ''
+      SUPERUSER_PASSWORD: ''
+      ALLOWED_HOSTS: ''
+      APPRISE_ENABLED: 'False'
+      CSRF_TRUSTED_ORIGINS: ''
+      DEBUG: 'True'
+      DEFAULT_FROM_EMAIL: ''
+      EMAIL_HOST: ''
+      EMAIL_PORT: ''
+      EMAIL_HOST_USER: ''
+      EMAIL_HOST_PASSWORD: ''
+      EMAIL_USE_TLS: ''
+      INTEGRATIONS_ALLOW_PRIVATE_IPS: ''
+      PING_EMAIL_DOMAIN: ''
+      RP_ID: ''
+      SITE_LOGO_URL: ''
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config

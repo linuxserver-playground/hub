@@ -1,0 +1,19 @@
+---
+services:
+  flexget:
+    image: ghcr.io/linuxserver-playground/flexget:latest
+    container_name: flexget
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - FG_LOG_LEVEL=info
+      - FG_LOG_FILE=/config/flexget.log
+      - FG_CONFIG_FILE=/config/.flexget/config.yml
+      - FG_WEBUI_PASSWORD=info #optional
+    volumes:
+      - /path/to/flexget/data:/config
+      - /path/to/downloads:/data #optional
+    ports:
+      - 5050:5050
+    restart: unless-stopped

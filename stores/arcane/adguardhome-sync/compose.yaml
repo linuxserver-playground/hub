@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/adguardhomesync-icon.png
+  urls:
+  - https://github.com/bakito/adguardhome-sync/
+  - https://github.com/linuxserver-playground/docker-adguardhome-sync
+services:
+  adguardhome-sync:
+    image: ghcr.io/linuxserver-playground/adguardhome-sync:latest
+    container_name: adguardhome-sync
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8080:-8080}:8080
+    restart: unless-stopped

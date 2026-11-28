@@ -1,0 +1,19 @@
+x-arcane:
+  icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/babybuddy-logo.png
+  urls:
+  - https://github.com/babybuddy/babybuddy
+  - https://github.com/linuxserver-playground/docker-babybuddy
+services:
+  babybuddy:
+    image: ghcr.io/linuxserver-playground/babybuddy:latest
+    container_name: babybuddy
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS:-http://127.0.0.1:8000,https://babybuddy.domain.com}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8000:-8000}:8000
+    restart: unless-stopped

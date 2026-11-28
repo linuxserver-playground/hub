@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-mariadb/blob/master/image.yml -->
+<Container version="2">
+    <Name>mariadb</Name>
+    <Repository>ghcr.io/linuxserver-playground/mariadb</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/mariadb</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-mariadb/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-mariadb#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-mariadb#readme</ReadMe>
+    <Project>https://mariadb.org/</Project>
+    <Overview>Mariadb(https://mariadb.org/) is one of the most popular database servers. Made by the original developers of MySQL.</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/mariadb.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-git.png</Icon>
+    <Date>2026-07-05</Date>
+    <Changes>
+### 2026-07-05
+- Rebase to Alpine 3.24.
+
+### 2026-02-14
+- Rebase to Alpine 3.23. Add ability to pass CLI options to mariadbd.
+
+### 2025-07-09
+- Rebase to Alpine 3.22.
+
+### 2025-01-11
+- Add log rotation, follow the instructions in the container log.
+
+### 2025-01-06
+- Rebase to Alpine 3.21.
+
+### 2024-05-31
+- Rebase to Alpine 3.20.
+
+### 2023-12-23
+- Rebase to Alpine 3.19.
+
+### 2023-06-09
+- Update lc_messages path in shipped custom.cnf to match upstream.
+
+### 2023-05-25
+- Rebase to Alpine 3.18, deprecate armhf.
+
+### 2023-02-04
+- Minor updates to defaults in custom.cnf.
+
+### 2023-01-31
+- Rebase to 3.17.
+
+### 2022-12-09
+- Add upgrade check warning.
+
+### 2022-10-11
+- Rebase master to Alpine 3.16, migrate to s6v3, remove password escape logic which caused problems for a small subset of users.
+
+### 2021-07-06
+- Rebase master to alpine.
+
+### 2021-07-03
+- Rebase to 3.14.
+
+### 2021-02-08
+- Fix new installs.
+
+### 2021-02-08
+- Rebase to alpine. Add mariadb-backup.
+
+### 2021-02-08
+- Release alpine tag. The alpine release will replace the latest tag in the near future.
+
+### 2019-10-27
+- Bump to 10.4, ability use custom sql on initial init ,defining root passwords via file.
+
+### 2019-03-23
+- Switching to new Base images, shift to arm32v7 tag.
+
+### 2019-03-07
+- Add ability to setup a database and default user on first spinup.
+
+### 2019-01-26
+- Add pipeline logic and multi arch.
+
+### 2018-09-10
+- Rebase to ubuntu bionic and use 10.3 MariaDB repository.
+
+### 2017-12-09
+- Fix continuation lines.
+
+### 2017-09-12
+- Gracefully shut down MariaDB.
+
+### 2016-10-27
+- Implement linting suggestions on database init script.
+
+### 2016-10-11
+- Rebase to ubuntu xenial, add version labelling.
+
+### 2016-03-09
+- Update to MariaDB 10.1. Change to use custom.cnf over my.cnf in /config. Restructured init files to change config options on startup, rather than in the dockerfile.
+
+### 2016-01-26
+- Change user of mysqld_safe script to abc, better unclean shutdown handling on restart.
+
+### 2015-12-23
+- Remove autoupdating, between some version updates the container breaks.
+
+### 2015-08-12
+- Initial Release.
+
+    </Changes>
+    <Config Name="WebUI" Target="3306" Default="3306" Mode="tcp" Description="MariaDB listens on this port." Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Persistent config files" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="MYSQL_ROOT_PASSWORD" Target="MYSQL_ROOT_PASSWORD" Default="ROOT_ACCESS_PASSWORD" Description="Set this to root password for installation (minimum 4 characters and non-alphanumeric passwords must be properly escaped). (valid only for first run)" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="MYSQL_DATABASE" Target="MYSQL_DATABASE" Default="USER_DB_NAME" Description="Specify the name of a database to be created. (valid only for first run)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="MYSQL_USER" Target="MYSQL_USER" Default="MYSQL_USER" Description="This user will have superuser access to the database specified by MYSQL_DATABASE (do not use root here). (valid only for first run)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="MYSQL_PASSWORD" Target="MYSQL_PASSWORD" Default="DATABASE_PASSWORD" Description="Set this to the password you want to use for you MYSQL_USER (minimum 4 characters and non-alphanumeric passwords must be properly escaped). (valid only for first run)" Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="REMOTE_SQL" Target="REMOTE_SQL" Default="http://URL1/your.sql,https://URL2/your.sql" Description="Set this to ingest sql files from an http/https endpoint (comma seperated array)." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="CLI_OPTS" Target="CLI_OPTS" Default="" Description="Pass CLI options to mariadbd via mariadbd-safe. Use with caution as mariadbd option precedence is complex." Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

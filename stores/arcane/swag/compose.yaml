@@ -1,0 +1,22 @@
+x-arcane:
+  icon: https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/swag.gif
+  urls:
+  - https://linuxserver.io
+  - https://github.com/linuxserver-playground/docker-swag
+services:
+  swag:
+    image: ghcr.io/linuxserver-playground/swag:latest
+    container_name: swag
+    cap_add:
+    - NET_ADMIN
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      URL: ${URL:-example.com}
+      VALIDATION: ${VALIDATION:-http}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_443:-443}:443
+    restart: unless-stopped

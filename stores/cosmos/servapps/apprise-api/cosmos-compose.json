@@ -1,0 +1,59 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "APPRISE_ATTACH_SIZE",
+        "label": "Max attachment size in Mb. 0 disables attachments. Must have /attachments mounted to set to a positive value.",
+        "initialValue": "0",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/apprise-api:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "APPRISE_ATTACH_SIZE={Context.APPRISE_ATTACH_SIZE}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/caronc/apprise-api/master/apprise_api/static/logo.png",
+        "cosmos.stack": "{ServiceName}-apprise-api"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-attachments",
+          "target": "/attachments",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

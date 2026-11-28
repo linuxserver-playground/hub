@@ -1,0 +1,18 @@
+services:
+  minisatip:
+    image: ghcr.io/linuxserver-playground/minisatip:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      RUN_OPTS: ${MINISATIP_RUN_OPTS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 554:554
+    - 1900:1900/udp
+    x-runtipi:
+      is_main: true
+      internal_port: 8875
+x-runtipi:
+  schema_version: 2

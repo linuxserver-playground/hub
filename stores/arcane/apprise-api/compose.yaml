@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/caronc/apprise-api/master/apprise_api/static/logo.png
+  urls:
+  - https://github.com/caronc/apprise-api
+  - https://github.com/linuxserver-playground/docker-apprise-api
+services:
+  apprise-api:
+    image: ghcr.io/linuxserver-playground/apprise-api:latest
+    container_name: apprise-api
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8000:-8000}:8000
+    restart: unless-stopped

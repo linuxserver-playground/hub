@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- DO NOT CHANGE THIS FILE MANUALLY, IT IS AUTOMATICALLY GENERATED -->
+<!-- GENERATED FROM https://github.com/linuxserver-playground/docker-ngircd/blob/master/image.yml -->
+<Container version="2">
+    <Name>ngircd</Name>
+    <Repository>ghcr.io/linuxserver-playground/ngircd</Repository>
+    <Registry>https://github.com/orgs/linuxserver-playground/packages/container/package/ngircd</Registry>
+    <DonateText>Donations</DonateText>
+    <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+    <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/linuxserver-playground/docker-ngircd/issues/new/choose</Support>
+    <Shell>bash</Shell>
+    <GitHub>https://github.com/linuxserver-playground/docker-ngircd#application-setup</GitHub>
+    <ReadMe>https://github.com/linuxserver-playground/docker-ngircd#readme</ReadMe>
+    <Project>https://ngircd.barton.de/</Project>
+    <Overview>Ngircd(https://ngircd.barton.de/) is a free, portable and lightweight Internet Relay Chat server for small or private networks, developed under the GNU General Public License (GPL). It is easy to configure, can cope with dynamic IP addresses, and supports IPv6, SSL-protected connections as well as PAM for authentication. It is written from scratch and not based on the original IRCd.</Overview>
+    <TemplateURL>https://raw.githubusercontent.com/linuxserver-playground/unraid-store/main/ngircd.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ngircd-logo.png</Icon>
+    <Date>2024-10-14</Date>
+    <Changes>
+### 2024-10-14
+- Rebase to Alpine 3.22.
+
+### 2024-06-27
+- Rebase to Alpine 3.20.
+
+### 2024-03-20
+- Rebase to Alpine 3.19.
+
+### 2023-07-12
+- Rebase to Alpine 3.18.
+
+### 2023-07-01
+- Deprecate armhf. As announced here(https://www.linuxserver.io/blog/a-farewell-to-arm-hf)
+
+### 2023-03-05
+- Rebase to Alpine 3.17.
+
+### 2022-10-11
+- Rebasing to alpine 3.16, migrate to s6v3.
+
+### 2021-01-23
+- Rebasing to alpine 3.13.
+
+### 2020-06-01
+- Rebasing to alpine 3.12.
+
+### 2019-12-19
+- Rebasing to alpine 3.11.
+
+### 2019-07-04
+- Initial release.
+
+    </Changes>
+    <Config Name="WebUI" Target="6667" Default="6667" Mode="tcp" Description="ngircd port" Type="Port" Display="always" Required="true" Mask="false"/>
+    <Config Name="Appdata" Target="/config" Default="" Mode="rw" Description="Where `ngircd.conf` is stored" Type="Path" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PUID" Target="PUID" Default="99" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="PGID" Target="PGID" Default="100" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false"/>
+    <Config Name="UMASK" Target="UMASK" Default="022" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+</Container>

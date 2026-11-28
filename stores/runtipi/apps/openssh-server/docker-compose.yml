@@ -1,0 +1,24 @@
+services:
+  openssh-server:
+    image: ghcr.io/linuxserver-playground/openssh-server:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      PUBLIC_KEY: ${OPENSSH_SERVER_PUBLIC_KEY}
+      PUBLIC_KEY_FILE: ${OPENSSH_SERVER_PUBLIC_KEY_FILE}
+      PUBLIC_KEY_DIR: ${OPENSSH_SERVER_PUBLIC_KEY_DIR}
+      PUBLIC_KEY_URL: ${OPENSSH_SERVER_PUBLIC_KEY_URL}
+      SUDO_ACCESS: ${OPENSSH_SERVER_SUDO_ACCESS}
+      PASSWORD_ACCESS: ${OPENSSH_SERVER_PASSWORD_ACCESS}
+      USER_PASSWORD: ${OPENSSH_SERVER_USER_PASSWORD}
+      USER_PASSWORD_FILE: ${OPENSSH_SERVER_USER_PASSWORD_FILE}
+      USER_NAME: ${OPENSSH_SERVER_USER_NAME}
+      LOG_STDOUT: ${OPENSSH_SERVER_LOG_STDOUT}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 2222
+x-runtipi:
+  schema_version: 2

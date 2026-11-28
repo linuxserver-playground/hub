@@ -1,0 +1,201 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "SUPERUSER_EMAIL",
+        "label": "Email address for admin account",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "SUPERUSER_PASSWORD",
+        "label": "Password for admin account",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "ALLOWED_HOST",
+        "label": "The hostname you will use to access the app (e.g., netbox.example.com)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_NAME",
+        "label": "Database name (default: netbox)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_USER",
+        "label": "Database user",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "label": "Database password",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "DB_HOST",
+        "label": "Database host (default: postgres)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DB_PORT",
+        "label": "Database port (default: 5432)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REDIS_HOST",
+        "label": "Redis host (default: redis)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REDIS_PORT",
+        "label": "Redis port number (default: 6379)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REDIS_USERNAME",
+        "label": "Redis username (default: none)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REDIS_PASSWORD",
+        "label": "Redis password (default: none)",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "REDIS_DB_TASK",
+        "label": "Redis database ID for tasks (default: 0)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REDIS_DB_CACHE",
+        "label": "Redis database ID for caching (default: 1)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "BASE_PATH",
+        "label": "The path you will use to access the app (i.e., /netbox, default: none)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "CSRF_TRUSTED_ORIGINS",
+        "label": "List of comma-separated, single quoted, trusted origins. Must include protocol, and port if applicable (default: [])",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REMOTE_AUTH_ENABLED",
+        "label": "Enable remote authentication (default: False)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REMOTE_AUTH_BACKEND",
+        "label": "Python path to the custom Django authentication backend to use for external user authentication (default: netbox.authentication.RemoteUserBackend)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REMOTE_AUTH_HEADER",
+        "label": "Name of the HTTP header which informs NetBox of the currently authenticated user. (default: HTTPREMOTEUSER)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REMOTE_AUTH_AUTO_CREATE_USER",
+        "label": "If true, NetBox will automatically create local accounts for users authenticated via a remote service (default: False)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REMOTE_AUTH_DEFAULT_GROUPS",
+        "label": "The list of groups to assign a new user account when created using remote authentication (default: [])",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "REMOTE_AUTH_DEFAULT_PERMISSIONS",
+        "label": "A mapping of permissions to assign a new user account when created using remote authentication (default: {})",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/netbox:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "SUPERUSER_EMAIL={Context.SUPERUSER_EMAIL}",
+        "SUPERUSER_PASSWORD={Context.SUPERUSER_PASSWORD}",
+        "ALLOWED_HOST={Context.ALLOWED_HOST}",
+        "DB_NAME={Context.DB_NAME}",
+        "DB_USER={Context.DB_USER}",
+        "DB_PASSWORD={Context.DB_PASSWORD}",
+        "DB_HOST={Context.DB_HOST}",
+        "DB_PORT={Context.DB_PORT}",
+        "REDIS_HOST={Context.REDIS_HOST}",
+        "REDIS_PORT={Context.REDIS_PORT}",
+        "REDIS_USERNAME={Context.REDIS_USERNAME}",
+        "REDIS_PASSWORD={Context.REDIS_PASSWORD}",
+        "REDIS_DB_TASK={Context.REDIS_DB_TASK}",
+        "REDIS_DB_CACHE={Context.REDIS_DB_CACHE}",
+        "BASE_PATH={Context.BASE_PATH}",
+        "CSRF_TRUSTED_ORIGINS={Context.CSRF_TRUSTED_ORIGINS}",
+        "REMOTE_AUTH_ENABLED={Context.REMOTE_AUTH_ENABLED}",
+        "REMOTE_AUTH_BACKEND={Context.REMOTE_AUTH_BACKEND}",
+        "REMOTE_AUTH_HEADER={Context.REMOTE_AUTH_HEADER}",
+        "REMOTE_AUTH_AUTO_CREATE_USER={Context.REMOTE_AUTH_AUTO_CREATE_USER}",
+        "REMOTE_AUTH_DEFAULT_GROUPS={Context.REMOTE_AUTH_DEFAULT_GROUPS}",
+        "REMOTE_AUTH_DEFAULT_PERMISSIONS={Context.REMOTE_AUTH_DEFAULT_PERMISSIONS}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/netbox-logo.png",
+        "cosmos.stack": "{ServiceName}-netbox"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

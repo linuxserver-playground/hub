@@ -1,0 +1,110 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "BASE_URL",
+        "label": "The URL you will use to access planka including protocol, and port if not 80/443.",
+        "initialValue": "https://planka.example.com",
+        "type": "text"
+      },
+      {
+        "name": "DATABASE_URL",
+        "label": "Postgres database URL. Special characters must be url encoded.",
+        "initialValue": "postgresql://user:password@planka-db:5432/planka",
+        "type": "text"
+      },
+      {
+        "name": "DEFAULT_ADMIN_EMAIL",
+        "label": "Email address for default user.",
+        "initialValue": "demo@demo.demo",
+        "type": "text"
+      },
+      {
+        "name": "DEFAULT_ADMIN_USERNAME",
+        "label": "Username for default user.",
+        "initialValue": "demo",
+        "type": "text"
+      },
+      {
+        "name": "DEFAULT_ADMIN_PASSWORD",
+        "label": "Password for default user.",
+        "initialValue": "demo",
+        "type": "password"
+      },
+      {
+        "name": "DEFAULT_ADMIN_NAME",
+        "label": "Display name for default user.",
+        "initialValue": "Demo User",
+        "type": "text"
+      },
+      {
+        "name": "SECRET_KEY",
+        "label": "Session encryption key, recommended 32-64 character alphanumeric.",
+        "initialValue": "notasecretkey",
+        "type": "password"
+      },
+      {
+        "name": "TRUST_PROXY",
+        "label": "Set to true to trust upstream proxies if reverse proxying.",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "DEFAULT_LANGUAGE",
+        "label": "This sets the default language for sending notifications per user (if a user hasn't selected a language) and per board.",
+        "initialValue": "en-US",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/planka:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "BASE_URL={Context.BASE_URL}",
+        "DATABASE_URL={Context.DATABASE_URL}",
+        "DEFAULT_ADMIN_EMAIL={Context.DEFAULT_ADMIN_EMAIL}",
+        "DEFAULT_ADMIN_USERNAME={Context.DEFAULT_ADMIN_USERNAME}",
+        "DEFAULT_ADMIN_PASSWORD={Context.DEFAULT_ADMIN_PASSWORD}",
+        "DEFAULT_ADMIN_NAME={Context.DEFAULT_ADMIN_NAME}",
+        "SECRET_KEY={Context.SECRET_KEY}",
+        "TRUST_PROXY={Context.TRUST_PROXY}",
+        "DEFAULT_LANGUAGE={Context.DEFAULT_LANGUAGE}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/planka-logo.png",
+        "cosmos.stack": "{ServiceName}-planka"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:1337",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

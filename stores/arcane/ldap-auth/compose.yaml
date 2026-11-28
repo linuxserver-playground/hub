@@ -1,0 +1,17 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ldap-auth-logo.png
+  urls:
+  - https://github.com/nginxinc/nginx-ldap-auth
+  - https://github.com/linuxserver-playground/docker-ldap-auth
+services:
+  ldap-auth:
+    image: ghcr.io/linuxserver-playground/ldap-auth:latest
+    container_name: ldap-auth
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    ports:
+    - ${PORT_8888:-8888}:8888
+    - ${PORT_9000:-9000}:9000
+    restart: unless-stopped

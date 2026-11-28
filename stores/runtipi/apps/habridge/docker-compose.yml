@@ -1,0 +1,17 @@
+services:
+  habridge:
+    image: ghcr.io/linuxserver-playground/habridge:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      SEC_KEY: ${HABRIDGE_SEC_KEY}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 50000:50000
+    x-runtipi:
+      is_main: true
+      internal_port: 8080
+x-runtipi:
+  schema_version: 2

@@ -1,0 +1,19 @@
+services:
+  faster-whisper:
+    image: ghcr.io/linuxserver-playground/faster-whisper:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      DEBUG: ${FASTER_WHISPER_DEBUG}
+      LOCAL_ONLY: ${FASTER_WHISPER_LOCAL_ONLY}
+      WHISPER_BEAM: ${FASTER_WHISPER_WHISPER_BEAM}
+      WHISPER_LANG: ${FASTER_WHISPER_WHISPER_LANG}
+      WHISPER_MODEL: ${FASTER_WHISPER_WHISPER_MODEL}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 10300
+x-runtipi:
+  schema_version: 2

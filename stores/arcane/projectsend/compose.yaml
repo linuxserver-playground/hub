@@ -1,0 +1,19 @@
+x-arcane:
+  icon: http://www.projectsend.org/wp-content/themes/projectsend/img/screenshots.png
+  urls:
+  - http://www.projectsend.org
+  - https://github.com/linuxserver-playground/docker-projectsend
+services:
+  projectsend:
+    image: ghcr.io/linuxserver-playground/projectsend:latest
+    container_name: projectsend
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${DATA_PATH:-./data}:/data
+    ports:
+    - ${PORT_80:-80}:80
+    restart: unless-stopped

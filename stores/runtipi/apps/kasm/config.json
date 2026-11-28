@@ -1,0 +1,57 @@
+{
+  "name": "Kasm",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "kasm",
+  "tipi_version": 1,
+  "version": "1.19.0",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections.",
+  "short_desc": "Kasm Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, ",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-kasm",
+  "website": "https://www.kasmweb.com/?utm_campaign=LinuxServer&utm_source=listing",
+  "logo_url": "https://kasm-ci.s3.amazonaws.com/kasm_wide.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "KASM_PORT",
+      "hint": "Specify the port you bind to the outside for Kasm Workspaces.",
+      "required": true,
+      "env_variable": "KASM_KASM_PORT",
+      "default": "443"
+    },
+    {
+      "type": "text",
+      "label": "DOCKER_HUB_USERNAME",
+      "hint": "Optionally specify a DockerHub Username to pull private images.",
+      "required": false,
+      "env_variable": "KASM_DOCKER_HUB_USERNAME",
+      "default": "USER"
+    },
+    {
+      "type": "password",
+      "label": "DOCKER_HUB_PASSWORD",
+      "hint": "Optionally specify a DockerHub password to pull private images.",
+      "required": false,
+      "env_variable": "KASM_DOCKER_HUB_PASSWORD",
+      "default": "PASS"
+    },
+    {
+      "type": "text",
+      "label": "DOCKER_MTU",
+      "hint": "Optionally specify the mtu options passed to dockerd.",
+      "required": false,
+      "env_variable": "KASM_DOCKER_MTU",
+      "default": "1500"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

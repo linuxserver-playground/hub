@@ -1,0 +1,88 @@
+{
+  "name": "Wireguard",
+  "available": true,
+  "exposable": true,
+  "port": 51820,
+  "id": "wireguard",
+  "tipi_version": 1,
+  "version": "1.0.20260223-r0",
+  "categories": [
+    "network"
+  ],
+  "description": "WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
+  "short_desc": "WireGuard® is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-wireguard",
+  "website": "https://www.wireguard.com/",
+  "logo_url": "https://www.wireguard.com/img/wireguard.svg",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "SERVERURL",
+      "hint": "External IP or domain name for docker host. Used in server mode. If set to auto, the container will try to determine and set the external IP automatically",
+      "required": false,
+      "env_variable": "WIREGUARD_SERVERURL",
+      "default": "wireguard.domain.com"
+    },
+    {
+      "type": "text",
+      "label": "SERVERPORT",
+      "hint": "External port for docker host. Used in server mode.",
+      "required": false,
+      "env_variable": "WIREGUARD_SERVERPORT",
+      "default": "51820"
+    },
+    {
+      "type": "text",
+      "label": "PEERS",
+      "hint": "Number of peers to create confs for. Required for server mode. Can also be a list of names: myPC,myPhone,myTablet (alphanumeric only)",
+      "required": false,
+      "env_variable": "WIREGUARD_PEERS",
+      "default": "1"
+    },
+    {
+      "type": "text",
+      "label": "PEERDNS",
+      "hint": "DNS server set in peer/client configs (can be set as 8.8.8.8). Used in server mode. Defaults to auto, which uses wireguard docker host's DNS via included CoreDNS forward.",
+      "required": false,
+      "env_variable": "WIREGUARD_PEERDNS",
+      "default": "auto"
+    },
+    {
+      "type": "text",
+      "label": "INTERNAL_SUBNET",
+      "hint": "Internal subnet for the wireguard and server and peers (only change if it clashes). Used in server mode.",
+      "required": false,
+      "env_variable": "WIREGUARD_INTERNAL_SUBNET",
+      "default": "10.13.13.0"
+    },
+    {
+      "type": "text",
+      "label": "ALLOWEDIPS",
+      "hint": "The IPs/Ranges that the peers will be able to reach using the VPN connection. If not specified the default value is: '0.0.0.0/0, ::0/0' This will cause ALL traffic to route through the VPN, if you want split tunneling, set this to only the IPs you would like to use the tunnel AND the ip of the server's WG ip, such as 10.13.13.1.",
+      "required": false,
+      "env_variable": "WIREGUARD_ALLOWEDIPS",
+      "default": "0.0.0.0/0"
+    },
+    {
+      "type": "text",
+      "label": "PERSISTENTKEEPALIVE_PEERS",
+      "hint": "Set to all or a list of comma separated peers (ie. 1,4,laptop) for the wireguard server to send keepalive packets to listed peers every 25 seconds. Useful if server is accessed via domain name and has dynamic IP. Used only in server mode.",
+      "required": false,
+      "env_variable": "WIREGUARD_PERSISTENTKEEPALIVE_PEERS"
+    },
+    {
+      "type": "text",
+      "label": "LOG_CONFS",
+      "hint": "Generated QR codes will be displayed in the docker log. Set to false to skip log output.",
+      "required": false,
+      "env_variable": "WIREGUARD_LOG_CONFS",
+      "default": "true"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

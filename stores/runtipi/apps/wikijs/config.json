@@ -1,0 +1,68 @@
+{
+  "name": "Wikijs",
+  "available": true,
+  "exposable": true,
+  "port": 3000,
+  "id": "wikijs",
+  "tipi_version": 1,
+  "version": "v2.5.317",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Wikijs A modern, lightweight and powerful wiki app built on NodeJS.",
+  "short_desc": "Wikijs A modern, lightweight and powerful wiki app built on NodeJS",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-wikijs",
+  "website": "https://github.com/Requarks/wiki",
+  "logo_url": "https://static.requarks.io/logo/wikijs-full.svg",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "DB_TYPE",
+      "hint": "Set to sqlite (default) or postgres depending on the database engine you wish to use",
+      "required": false,
+      "env_variable": "WIKIJS_DB_TYPE",
+      "default": "sqlite"
+    },
+    {
+      "type": "text",
+      "label": "DB_HOST",
+      "hint": "DB hostname (postgres only)",
+      "required": false,
+      "env_variable": "WIKIJS_DB_HOST"
+    },
+    {
+      "type": "text",
+      "label": "DB_PORT",
+      "hint": "DB port (postgres only)",
+      "required": false,
+      "env_variable": "WIKIJS_DB_PORT"
+    },
+    {
+      "type": "text",
+      "label": "DB_NAME",
+      "hint": "DB name (postgres only)",
+      "required": false,
+      "env_variable": "WIKIJS_DB_NAME"
+    },
+    {
+      "type": "text",
+      "label": "DB_USER",
+      "hint": "DB username (postgres only)",
+      "required": false,
+      "env_variable": "WIKIJS_DB_USER"
+    },
+    {
+      "type": "password",
+      "label": "DB_PASS",
+      "hint": "DB password (postgres only)",
+      "required": false,
+      "env_variable": "WIKIJS_DB_PASS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

@@ -1,0 +1,69 @@
+name: syslog-ng
+services:
+  syslog-ng:
+    image: ghcr.io/linuxserver-playground/syslog-ng:latest
+    container_name: syslog-ng
+    restart: unless-stopped
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - LOG_TO_STDOUT=
+    volumes:
+    - /DATA/AppData/syslog-ng/config:/config
+    - /DATA/AppData/syslog-ng/var/log:/var/log
+    ports:
+    - 514:5514/udp
+    - 601:6601/tcp
+    - 6514:6514/tcp
+    x-casaos:
+      envs:
+      - container: PUID
+        description:
+          en_us: for UserID - see below for explanation
+      - container: PGID
+        description:
+          en_us: for GroupID - see below for explanation
+      - container: TZ
+        description:
+          en_us: specify a timezone to use, see this list.
+      - container: LOG_TO_STDOUT
+        description:
+          en_us: If set to true container will log to stdout, otherwise will log to /config/log/.
+      ports:
+      - container: '5514'
+        description:
+          en_us: Syslog UDP
+      - container: '6601'
+        description:
+          en_us: Syslog TCP
+      - container: '6514'
+        description:
+          en_us: Syslog TLS
+      volumes:
+      - container: /config
+        description:
+          en_us: Stores config and application files
+      - container: /var/log
+        description:
+          en_us: Stores logs collected by the syslog-ng service
+x-casaos:
+  architectures:
+  - amd64
+  - arm64
+  main: syslog-ng
+  author: LinuxServer.io
+  developer: Syslog-ng
+  category: Monitoring
+  description:
+    en_us: syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure and store or route them to log analysis tools.
+  tagline:
+    en_us: syslog-ng allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure and store or route them to log analysis tools
+  title:
+    en_us: Syslog-ng
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syslog-ng-logo.png
+  thumbnail: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syslog-ng-logo.png
+  store_app_id: syslog-ng
+  index: /
+  scheme: http
+  port_map: '514'

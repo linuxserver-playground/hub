@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png
+  urls:
+  - https://github.com/theotherp/nzbhydra2
+  - https://github.com/linuxserver-playground/docker-nzbhydra2
+services:
+  nzbhydra2:
+    image: ghcr.io/linuxserver-playground/nzbhydra2:latest
+    container_name: nzbhydra2
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_5076:-5076}:5076
+    restart: unless-stopped

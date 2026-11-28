@@ -1,0 +1,20 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/oscam-logo.png
+  urls:
+  - https://git.streamboard.tv/common/oscam
+  - https://github.com/linuxserver-playground/docker-oscam
+services:
+  oscam:
+    image: ghcr.io/linuxserver-playground/oscam:latest
+    container_name: oscam
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8888:-8888}:8888
+    devices:
+    - /dev/ttyUSB0:/dev/ttyUSB0
+    restart: unless-stopped

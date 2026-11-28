@@ -1,0 +1,10 @@
+---
+services:
+  d2-builder:
+    image: ghcr.io/linuxserver-playground/d2-builder:latest
+    container_name: d2-builder
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    restart: unless-stopped

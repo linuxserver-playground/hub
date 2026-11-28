@@ -1,0 +1,25 @@
+services:
+  wireguard:
+    image: ghcr.io/linuxserver-playground/wireguard:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      SERVERURL: ${WIREGUARD_SERVERURL}
+      SERVERPORT: ${WIREGUARD_SERVERPORT}
+      PEERS: ${WIREGUARD_PEERS}
+      PEERDNS: ${WIREGUARD_PEERDNS}
+      INTERNAL_SUBNET: ${WIREGUARD_INTERNAL_SUBNET}
+      ALLOWEDIPS: ${WIREGUARD_ALLOWEDIPS}
+      PERSISTENTKEEPALIVE_PEERS: ${WIREGUARD_PERSISTENTKEEPALIVE_PEERS}
+      LOG_CONFS: ${WIREGUARD_LOG_CONFS}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/lib/modules:/lib/modules
+    cap_add:
+    - NET_ADMIN
+    x-runtipi:
+      is_main: true
+      internal_port: 51820
+x-runtipi:
+  schema_version: 2

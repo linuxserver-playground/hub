@@ -1,0 +1,17 @@
+---
+services:
+  firefox:
+    image: ghcr.io/linuxserver-playground/firefox:latest
+    container_name: firefox
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - FIREFOX_CLI=https://www.linuxserver.io/ #optional
+    volumes:
+      - /path/to/firefox/config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb"
+    restart: unless-stopped

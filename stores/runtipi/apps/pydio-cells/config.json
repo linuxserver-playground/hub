@@ -1,0 +1,41 @@
+{
+  "name": "Pydio-cells",
+  "available": true,
+  "exposable": true,
+  "port": 8080,
+  "id": "pydio-cells",
+  "tipi_version": 1,
+  "version": "v5.1.1",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Pydio-cells is the nextgen file sharing platform for organizations. It is a full rewrite of the Pydio project using the Go language following a micro-service architecture.",
+  "short_desc": "Pydio-cells is the nextgen file sharing platform for organizations",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-pydio-cells",
+  "website": "https://pydio.com/",
+  "logo_url": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pydio-cells-icon.png",
+  "form_fields": [
+    {
+      "type": "text",
+      "label": "EXTERNALURL",
+      "hint": "The external url you would like to use to access Pydio Cells (Can be https://domain.url or https://IP:PORT).",
+      "required": true,
+      "env_variable": "PYDIO_CELLS_EXTERNALURL",
+      "default": "yourdomain.url"
+    },
+    {
+      "type": "text",
+      "label": "SERVER_IP",
+      "hint": "Enter the LAN IP of the docker server. Required for local access by IP, added to self signed cert as SAN (not required if accessing only through reverse proxy).",
+      "required": false,
+      "env_variable": "PYDIO_CELLS_SERVER_IP",
+      "default": "0.0.0.0"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

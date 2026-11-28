@@ -1,0 +1,19 @@
+---
+services:
+  boinc:
+    image: ghcr.io/linuxserver-playground/boinc:latest
+    container_name: boinc
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PASSWORD= #optional
+    volumes:
+      - /path/to/boinc/config:/config
+    ports:
+      - 8080:8080
+      - 8181:8181
+    devices:
+      - /dev/dri:/dev/dri #optional
+    shm_size: "1gb"
+    restart: unless-stopped

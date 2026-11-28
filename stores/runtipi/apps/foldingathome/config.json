@@ -1,0 +1,46 @@
+{
+  "name": "Foldingathome",
+  "available": true,
+  "exposable": true,
+  "port": 7396,
+  "id": "foldingathome",
+  "tipi_version": 1,
+  "version": "8.5.6",
+  "categories": [
+    "utilities"
+  ],
+  "description": "Folding@home is a distributed computing project for simulating protein dynamics, including the process of protein folding and the movements of proteins implicated in a variety of diseases. It brings together citizen scientists who volunteer to run simulations of protein dynamics on their personal computers. Insights from this data are helping scientists to better understand biology, and providing new opportunities for developing therapeutics.",
+  "short_desc": "Folding@home is a distributed computing project for simulating protein dynamics, including the process of protein foldin",
+  "author": "linuxserver.io",
+  "source": "https://github.com/linuxserver-playground/docker-foldingathome",
+  "website": "https://foldingathome.org/",
+  "logo_url": "https://foldingathome.org/wp-content/uploads/2016/09/folding-at-home-logo.png",
+  "form_fields": [
+    {
+      "type": "password",
+      "label": "ACCOUNT_TOKEN",
+      "hint": "Register for an account on https://app.foldingathome.org and retrieve account token in settings. Required on first start.",
+      "required": true,
+      "env_variable": "FOLDINGATHOME_ACCOUNT_TOKEN"
+    },
+    {
+      "type": "text",
+      "label": "MACHINE_NAME",
+      "hint": "Assign a friendly name to this instance (no spaces). Required on first start.",
+      "required": true,
+      "env_variable": "FOLDINGATHOME_MACHINE_NAME"
+    },
+    {
+      "type": "text",
+      "label": "CLI_ARGS",
+      "hint": "Optionally pass additional cli arguments to fah-client on container start.",
+      "required": false,
+      "env_variable": "FOLDINGATHOME_CLI_ARGS"
+    }
+  ],
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "dynamic_config": false
+}

@@ -1,0 +1,96 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "PASSWORD",
+        "label": "Optional web gui password, if PASSWORD or HASHEDPASSWORD is not provided, there will be no auth.",
+        "initialValue": "password",
+        "type": "password"
+      },
+      {
+        "name": "HASHED_PASSWORD",
+        "label": "Optional web gui password, overrides PASSWORD, instructions on how to create it is below.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "SUDO_PASSWORD",
+        "label": "If this optional variable is set, user will have sudo access in the code-server terminal with the specified password.",
+        "initialValue": "password",
+        "type": "password"
+      },
+      {
+        "name": "SUDO_PASSWORD_HASH",
+        "label": "Optionally set sudo password via hash (takes priority over SUDOPASSWORD var). Format is $type$salt$hashed.",
+        "initialValue": "",
+        "type": "password"
+      },
+      {
+        "name": "PROXY_DOMAIN",
+        "label": "If this optional variable is set, this domain will be proxied for subdomain proxying. See Documentation",
+        "initialValue": "code-server.my.domain",
+        "type": "text"
+      },
+      {
+        "name": "DEFAULT_WORKSPACE",
+        "label": "If this optional variable is set, code-server will open this directory by default",
+        "initialValue": "/config/workspace",
+        "type": "text"
+      },
+      {
+        "name": "PWA_APPNAME",
+        "label": "If this optional variable is set, the PWA app will the specified name.",
+        "initialValue": "code-server",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/code-server:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "PASSWORD={Context.PASSWORD}",
+        "HASHED_PASSWORD={Context.HASHED_PASSWORD}",
+        "SUDO_PASSWORD={Context.SUDO_PASSWORD}",
+        "SUDO_PASSWORD_HASH={Context.SUDO_PASSWORD_HASH}",
+        "PROXY_DOMAIN={Context.PROXY_DOMAIN}",
+        "DEFAULT_WORKSPACE={Context.DEFAULT_WORKSPACE}",
+        "PWA_APPNAME={Context.PWA_APPNAME}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server-banner.png",
+        "cosmos.stack": "{ServiceName}-code-server"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8443",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

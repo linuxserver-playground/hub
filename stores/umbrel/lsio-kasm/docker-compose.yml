@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-kasm_server_1
+      APP_PORT: 3000
+  server:
+    image: ghcr.io/linuxserver-playground/kasm:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      KASM_PORT: '443'
+      DOCKER_HUB_USERNAME: USER
+      DOCKER_HUB_PASSWORD: PASS
+      DOCKER_MTU: '1500'
+    volumes:
+    - ${APP_DATA_DIR}/data/opt:/opt
+    - ${APP_DATA_DIR}/data/profiles:/profiles
+    - ${APP_DATA_DIR}/data/dev/input:/dev/input
+    - ${APP_DATA_DIR}/data/run/udev/data:/run/udev/data
+    privileged: true
+    ports:
+    - 443:443

@@ -1,0 +1,22 @@
+{
+  "name": "Openssh-server",
+  "longDescription": "<p>Openssh-server is a sandboxed environment that allows ssh access without giving keys to the entire server. Giving ssh access via private key often means giving full access to the server. This container creates a limited and sandboxed environment that others can ssh into. The users only have access to the folders mapped and the processes running inside this container.</p>",
+  "description": "Openssh-server is a sandboxed environment that allows ssh access without giving keys to the entire server. Giving ssh access via private key often means giving full access to the server. This container creates a limited and sandboxed environment that others can ssh into. The users only have access to the folders mapped and the processes running inside this container.",
+  "tags": [
+    "administration",
+    "linuxserver",
+    "openssh-server"
+  ],
+  "repository": "https://github.com/linuxserver-playground/docker-openssh-server",
+  "image": "https://github.com/orgs/linuxserver-playground/packages/container/package/openssh-server",
+  "supported_architectures": [
+    "amd64",
+    "arm64"
+  ],
+  "id": "openssh-server",
+  "screenshots": [],
+  "logo": [],
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openssh-server-logo.png",
+  "artefacts": {},
+  "compose": "https://linuxserver-playground.github.io/hub/stores/cosmos/servapps/openssh-server/cosmos-compose.json"
+}

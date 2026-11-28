@@ -1,0 +1,24 @@
+services:
+  bookstack:
+    image: ghcr.io/linuxserver-playground/bookstack:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      APP_URL: ${BOOKSTACK_APP_URL}
+      APP_KEY: ${BOOKSTACK_APP_KEY}
+      DB_HOST: ${BOOKSTACK_DB_HOST}
+      DB_PORT: ${BOOKSTACK_DB_PORT}
+      DB_USERNAME: ${BOOKSTACK_DB_USERNAME}
+      DB_PASSWORD: ${BOOKSTACK_DB_PASSWORD}
+      DB_DATABASE: ${BOOKSTACK_DB_DATABASE}
+      QUEUE_CONNECTION: ${BOOKSTACK_QUEUE_CONNECTION}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 6875:80
+    x-runtipi:
+      is_main: true
+      internal_port: 6875
+x-runtipi:
+  schema_version: 2

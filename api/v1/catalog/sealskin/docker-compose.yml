@@ -1,0 +1,19 @@
+---
+services:
+  sealskin:
+    image: ghcr.io/linuxserver-playground/sealskin:latest
+    container_name: sealskin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - "HOST_URL=IP or subdomain.domain.com" #optional
+    volumes:
+      - /path/to/sealskin/config:/config
+      - /path/to/sealskin/storage:/storage
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8443:8443
+      - 8000:8000 #optional
+      - 8444:8444 #optional
+    restart: unless-stopped

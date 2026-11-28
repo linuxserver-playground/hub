@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png
+  urls:
+  - https://github.com/Prowlarr/Prowlarr
+  - https://github.com/linuxserver-playground/docker-prowlarr
+services:
+  prowlarr:
+    image: ghcr.io/linuxserver-playground/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_9696:-9696}:9696
+    restart: unless-stopped

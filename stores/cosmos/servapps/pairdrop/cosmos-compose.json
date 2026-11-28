@@ -1,0 +1,69 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "RATE_LIMIT",
+        "label": "Set to true to limit clients to 100 requests per 5 min",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "WS_FALLBACK",
+        "label": "Set to true to enable websocket fallback if the peer to peer WebRTC connection is not available to the client (see App Setup notes).",
+        "initialValue": "false",
+        "type": "text"
+      },
+      {
+        "name": "RTC_CONFIG",
+        "label": "Path to a json file containing custom STUN/TURN config (see App Setup notes)",
+        "initialValue": "",
+        "type": "text"
+      },
+      {
+        "name": "DEBUG_MODE",
+        "label": "Set to true to debug the http server configuration by logging clients IP addresses used by PairDrop to STDOUT. See here for more info. Do not use in production!",
+        "initialValue": "false",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/pairdrop:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "RATE_LIMIT={Context.RATE_LIMIT}",
+        "WS_FALLBACK={Context.WS_FALLBACK}",
+        "RTC_CONFIG={Context.RTC_CONFIG}",
+        "DEBUG_MODE={Context.DEBUG_MODE}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/schlagmichdoch/PairDrop/master/public/images/android-chrome-512x512.png",
+        "cosmos.stack": "{ServiceName}-pairdrop"
+      },
+      "volumes": [],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:3000",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

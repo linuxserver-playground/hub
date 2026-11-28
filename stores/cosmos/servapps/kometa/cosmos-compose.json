@@ -1,0 +1,67 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "KOMETA_CONFIG",
+        "label": "Specify a custom config file to use.",
+        "initialValue": "/config/config.yml",
+        "type": "text"
+      },
+      {
+        "name": "KOMETA_TIMES",
+        "label": "Comma-separated list of times to update each day. Format: HH:MM.",
+        "initialValue": "03:00",
+        "type": "text"
+      },
+      {
+        "name": "KOMETA_RUN",
+        "label": "Set to True to run without the scheduler.",
+        "initialValue": "False",
+        "type": "text"
+      },
+      {
+        "name": "KOMETA_TESTS",
+        "label": "Set to True to run in debug mode with only collections that have test: true.",
+        "initialValue": "False",
+        "type": "text"
+      },
+      {
+        "name": "KOMETA_NO_MISSING",
+        "label": "Set to True to run without any of the missing movie/show functions.",
+        "initialValue": "False",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/kometa:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "KOMETA_CONFIG={Context.KOMETA_CONFIG}",
+        "KOMETA_TIMES={Context.KOMETA_TIMES}",
+        "KOMETA_RUN={Context.KOMETA_RUN}",
+        "KOMETA_TESTS={Context.KOMETA_TESTS}",
+        "KOMETA_NO_MISSING={Context.KOMETA_NO_MISSING}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kometa-banner.png",
+        "cosmos.stack": "{ServiceName}-kometa"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped"
+    }
+  }
+}

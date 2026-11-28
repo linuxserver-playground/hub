@@ -1,0 +1,19 @@
+services:
+  mullvad-browser:
+    image: ghcr.io/linuxserver-playground/mullvad-browser:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      LOCAL_NET: ${MULLVAD_BROWSER_LOCAL_NET}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    ports:
+    - 3001:3001
+    cap_add:
+    - NET_ADMIN
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+x-runtipi:
+  schema_version: 2

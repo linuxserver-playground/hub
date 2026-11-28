@@ -1,0 +1,17 @@
+services:
+  jellyfin:
+    image: ghcr.io/linuxserver-playground/jellyfin:latest
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      JELLYFIN_PublishedServerUrl: ${JELLYFIN_JELLYFIN_PublishedServerUrl}
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config
+    - ${APP_DATA_DIR}/data/data/tvshows:/data/tvshows
+    - ${APP_DATA_DIR}/data/data/movies:/data/movies
+    x-runtipi:
+      is_main: true
+      internal_port: 8096
+x-runtipi:
+  schema_version: 2

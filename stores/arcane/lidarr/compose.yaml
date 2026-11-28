@@ -1,0 +1,18 @@
+x-arcane:
+  icon: https://github.com/lidarr/Lidarr/raw/develop/Logo/400.png
+  urls:
+  - https://github.com/lidarr/Lidarr
+  - https://github.com/linuxserver-playground/docker-lidarr
+services:
+  lidarr:
+    image: ghcr.io/linuxserver-playground/lidarr:latest
+    container_name: lidarr
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    ports:
+    - ${PORT_8686:-8686}:8686
+    restart: unless-stopped

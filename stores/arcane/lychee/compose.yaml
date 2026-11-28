@@ -1,0 +1,25 @@
+x-arcane:
+  icon: https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png
+  urls:
+  - https://lycheeorg.github.io/
+  - https://github.com/linuxserver-playground/docker-lychee
+services:
+  lychee:
+    image: ghcr.io/linuxserver-playground/lychee:latest
+    container_name: lychee
+    environment:
+      PUID: ${PUID:-1000}
+      PGID: ${PGID:-1000}
+      TZ: ${TZ:-Etc/UTC}
+      DB_CONNECTION: ${DB_CONNECTION}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+    volumes:
+    - ${CONFIG_PATH:-./config}:/config
+    - ${PICTURES_PATH:-./pictures}:/pictures
+    ports:
+    - ${PORT_80:-80}:80
+    restart: unless-stopped

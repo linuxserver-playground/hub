@@ -1,0 +1,73 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "MASTER_URL",
+        "label": "Specify the master url to connect to. Used when in slave mode.",
+        "initialValue": "http://<master-host-ip>:80/smokeping/",
+        "type": "text"
+      },
+      {
+        "name": "SHARED_SECRET",
+        "label": "Specify the master shared secret for this host. Used when in slave mode.",
+        "initialValue": "password",
+        "type": "text"
+      },
+      {
+        "name": "CACHE_DIR",
+        "label": "Specify the cache directory for this host. Used when in slave mode.",
+        "initialValue": "/tmp",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/smokeping:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "MASTER_URL={Context.MASTER_URL}",
+        "SHARED_SECRET={Context.SHARED_SECRET}",
+        "CACHE_DIR={Context.CACHE_DIR}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/smokeping-logo.png",
+        "cosmos.stack": "{ServiceName}-smokeping"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        },
+        {
+          "source": "{ServiceName}-data",
+          "target": "/data",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:80",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

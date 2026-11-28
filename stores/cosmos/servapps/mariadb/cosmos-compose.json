@@ -1,0 +1,89 @@
+{
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "MYSQL_ROOT_PASSWORD",
+        "label": "Set this to root password for installation (minimum 4 characters & non-alphanumeric passwords must be properly escaped). (valid only for first run)",
+        "initialValue": "ROOT_ACCESS_PASSWORD",
+        "type": "password"
+      },
+      {
+        "name": "MYSQL_DATABASE",
+        "label": "Specify the name of a database to be created. (valid only for first run)",
+        "initialValue": "USER_DB_NAME",
+        "type": "text"
+      },
+      {
+        "name": "MYSQL_USER",
+        "label": "This user will have superuser access to the database specified by MYSQLDATABASE (do not use root here). (valid only for first run)",
+        "initialValue": "MYSQL_USER",
+        "type": "text"
+      },
+      {
+        "name": "MYSQL_PASSWORD",
+        "label": "Set this to the password you want to use for you MYSQLUSER (minimum 4 characters & non-alphanumeric passwords must be properly escaped). (valid only for first run)",
+        "initialValue": "DATABASE_PASSWORD",
+        "type": "password"
+      },
+      {
+        "name": "REMOTE_SQL",
+        "label": "Set this to ingest sql files from an http/https endpoint (comma seperated array).",
+        "initialValue": "http://URL1/your.sql,https://URL2/your.sql",
+        "type": "text"
+      },
+      {
+        "name": "CLI_OPTS",
+        "label": "Pass CLI options to mariadbd via mariadbd-safe. Use with caution as mariadbd option precedence is complex.",
+        "initialValue": "",
+        "type": "text"
+      }
+    ]
+  },
+  "minVersion": "0.8.0",
+  "services": {
+    "{ServiceName}": {
+      "image": "ghcr.io/linuxserver-playground/mariadb:latest",
+      "container_name": "{ServiceName}",
+      "environment": [
+        "PUID=1000",
+        "PGID=1000",
+        "TZ=Etc/UTC",
+        "MYSQL_ROOT_PASSWORD={Context.MYSQL_ROOT_PASSWORD}",
+        "MYSQL_DATABASE={Context.MYSQL_DATABASE}",
+        "MYSQL_USER={Context.MYSQL_USER}",
+        "MYSQL_PASSWORD={Context.MYSQL_PASSWORD}",
+        "REMOTE_SQL={Context.REMOTE_SQL}",
+        "CLI_OPTS={Context.CLI_OPTS}"
+      ],
+      "labels": {
+        "cosmos-force-network-secured": "true",
+        "cosmos-auto-update": "true",
+        "cosmos-icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mariadb-git.png",
+        "cosmos.stack": "{ServiceName}-mariadb"
+      },
+      "volumes": [
+        {
+          "source": "{ServiceName}-config",
+          "target": "/config",
+          "type": "volume"
+        }
+      ],
+      "restart": "unless-stopped",
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:3306",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ]
+    }
+  }
+}

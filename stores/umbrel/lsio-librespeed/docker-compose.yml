@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  app_proxy:
+    environment:
+      APP_HOST: lsio-librespeed_server_1
+      APP_PORT: 80
+  server:
+    image: ghcr.io/linuxserver-playground/librespeed:latest
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      PUID: '1000'
+      PGID: '1000'
+      TZ: ${TZ}
+      PASSWORD: PASSWORD
+      CUSTOM_RESULTS: 'false'
+      DB_TYPE: sqlite
+      DB_NAME: DB_NAME
+      DB_HOSTNAME: DB_HOSTNAME
+      DB_USERNAME: DB_USERNAME
+      DB_PASSWORD: DB_PASSWORD
+      DB_PORT: DB_PORT
+      IPINFO_APIKEY: ACCESS_TOKEN
+    volumes:
+    - ${APP_DATA_DIR}/data/config:/config

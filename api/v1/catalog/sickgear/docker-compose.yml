@@ -1,0 +1,16 @@
+---
+services:
+  sickgear:
+    image: ghcr.io/linuxserver-playground/sickgear:latest
+    container_name: sickgear
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/sickgear/data:/config
+      - /path/to/tv:/tv
+      - /path/to/downloads:/downloads
+    ports:
+      - 8081:8081
+    restart: unless-stopped

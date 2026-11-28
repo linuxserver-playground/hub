@@ -1,0 +1,15 @@
+---
+services:
+  luanti:
+    image: ghcr.io/linuxserver-playground/luanti:latest
+    container_name: luanti
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - "CLI_ARGS=--gameid devtest" #optional
+    volumes:
+      - /path/to/luanti/data:/config/.minetest
+    ports:
+      - 30000:30000/udp
+    restart: unless-stopped
