@@ -1,0 +1,198 @@
+{
+ "image": "dokuwiki",
+ "branch": "master",
+ "tag": "2026-07-14c-ls6",
+ "previous_tag": "2026-07-14c-ls5",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (d1752aa → cc81b3b): the pipeline's own generated files"
+ ],
+ "upstream": {
+  "from": "2026-07-14c",
+  "to": "2026-07-14c",
+  "changed": false
+ },
+ "commit": {
+  "from": "d1752aac340914ee58089b54d1a7d8a3e9c2a4e7",
+  "to": "cc81b3b1bcd44c47c947fe1373905696692fb278",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-dokuwiki/compare/d1752aac340914ee58089b54d1a7d8a3e9c2a4e7...cc81b3b1bcd44c47c947fe1373905696692fb278",
+  "commits": [
+   {
+    "sha": "cc81b3b1bcd44c47c947fe1373905696692fb278",
+    "subject": "Update generated files [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-04T23:07:15Z",
+    "url": "https://github.com/linuxserver-playground/docker-dokuwiki/commit/cc81b3b1bcd44c47c947fe1373905696692fb278",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "generated": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:df6a63d8627d7f06e292f4e4cff695743d92f8735617ff755470962e58fd75f5"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:a5464bb0b85935854231e0dfa14bd55963c132d4acdfc3f5997de04f2e2bfa52"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 54010656,
+   "to": 54023587,
+   "delta": 12931
+  },
+  "arm64": {
+   "from": 54045337,
+   "to": 54052688,
+   "delta": 7351
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "imagemagick",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "imagemagick-jpeg",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jpeg@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-libs",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-libs@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-webp",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-webp@7.1.2.35-r0?arch=x86_64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=x86_64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "imagemagick",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3"
+     },
+     {
+      "name": "imagemagick-jpeg",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-jpeg@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-libs",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-libs@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "imagemagick-webp",
+      "from": "7.1.2.34-r0",
+      "to": "7.1.2.35-r0",
+      "purl": "pkg:apk/alpine/imagemagick-webp@7.1.2.35-r0?arch=aarch64&distro=alpine-3.24.3&upstream=imagemagick"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.9.0-r0",
+      "to": "2.10.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.10.0-r0?arch=aarch64&distro=alpine-3.24.3&upstream=expat"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.0",
+      "to": "2.11.1",
+      "purl": "pkg:generic/composer@2.11.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

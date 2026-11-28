@@ -1,0 +1,393 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "kali",
+ "tag": "kali-9a28c6db-ls13",
+ "previous_tag": "kali-dfc7f66a-ls12",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (200c53d → 37f6461): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "dfc7f66a",
+  "to": "9a28c6db",
+  "changed": true
+ },
+ "commit": {
+  "from": "200c53d15daacc1734c2529b735ae427278499e7",
+  "to": "37f6461acc32aa3e0836840018bac8d96c49ef5f",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/200c53d15daacc1734c2529b735ae427278499e7...37f6461acc32aa3e0836840018bac8d96c49ef5f",
+  "commits": [
+   {
+    "sha": "37f6461acc32aa3e0836840018bac8d96c49ef5f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-19T06:11:01Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/37f6461acc32aa3e0836840018bac8d96c49ef5f",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:d2315dc23039cc847d6e621ff356c4a8537a991b83979382d35cb5b71e97ca79"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:dbd8a376f317d1c2d15593810315adc5fda189b22bebf853066a18236f4c7f5c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1050103263,
+   "to": 1049959444,
+   "delta": -143819
+  },
+  "arm64": {
+   "from": 1001709169,
+   "to": 1001554925,
+   "delta": -154244
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-buildx-plugin",
+      "from": "0.39.0-1~debian.12~bookworm",
+      "to": "0.39.1-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-buildx-plugin@0.39.1-1~debian.12~bookworm?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "gir1.2-harfbuzz-0.0",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/gir1.2-harfbuzz-0.0@14.4.0%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libexpat1",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/libexpat1@2.10.0-1?arch=amd64&distro=kali-2026.3&upstream=expat"
+     },
+     {
+      "name": "libharfbuzz-gobject0",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/libharfbuzz-gobject0@14.4.0%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libharfbuzz0b",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/libharfbuzz0b@14.4.0%2Bds-1?arch=amd64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libpoppler-cpp3",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler-cpp3@26.07.0-4?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpoppler162",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler162@26.07.0-4?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libproc2-1",
+      "from": "2:4.0.7-1",
+      "to": "2:4.0.7-1.1",
+      "purl": "pkg:deb/kali/libproc2-1@2%3A4.0.7-1.1?arch=amd64&distro=kali-2026.3&upstream=procps"
+     },
+     {
+      "name": "librsvg2-2",
+      "from": "2.63.3+dfsg-1",
+      "to": "2.63.4+dfsg-4",
+      "purl": "pkg:deb/kali/librsvg2-2@2.63.4%2Bdfsg-4?arch=amd64&distro=kali-2026.3&upstream=librsvg"
+     },
+     {
+      "name": "openssh-client",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-client@1%3A10.6p2-1?arch=amd64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-common",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-common@1%3A10.6p2-1?arch=amd64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "poppler-utils",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/poppler-utils@26.07.0-4?arch=amd64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "procps",
+      "from": "2:4.0.7-1",
+      "to": "2:4.0.7-1.1",
+      "purl": "pkg:deb/kali/procps@2%3A4.0.7-1.1?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "sudo",
+      "from": "1.9.17p2-9",
+      "to": "1.9.17p2-11",
+      "purl": "pkg:deb/kali/sudo@1.9.17p2-11?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.2-3",
+      "to": "1:1.3.dfsg+really1.3.2-4",
+      "purl": "pkg:deb/kali/zlib1g@1%3A1.3.dfsg%2Breally1.3.2-4?arch=amd64&distro=kali-2026.3&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/buildx",
+      "from": "v0.39.0",
+      "to": "v0.39.1",
+      "purl": "pkg:golang/github.com/docker/buildx@v0.39.1"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.35.0",
+      "to": "v0.35.1",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.35.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "docker-buildx-plugin",
+      "from": "0.39.0-1~debian.12~bookworm",
+      "to": "0.39.1-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-buildx-plugin@0.39.1-1~debian.12~bookworm?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "libexpat1",
+      "from": "2.9.0-1",
+      "to": "2.10.0-1",
+      "purl": "pkg:deb/kali/libexpat1@2.10.0-1?arch=arm64&distro=kali-2026.3&upstream=expat"
+     },
+     {
+      "name": "libharfbuzz0b",
+      "from": "12.3.2-2+b2",
+      "to": "14.4.0+ds-1",
+      "purl": "pkg:deb/kali/libharfbuzz0b@14.4.0%2Bds-1?arch=arm64&distro=kali-2026.3&upstream=harfbuzz"
+     },
+     {
+      "name": "libpoppler-cpp3",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler-cpp3@26.07.0-4?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libpoppler162",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/libpoppler162@26.07.0-4?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "libproc2-1",
+      "from": "2:4.0.7-1",
+      "to": "2:4.0.7-1.1",
+      "purl": "pkg:deb/kali/libproc2-1@2%3A4.0.7-1.1?arch=arm64&distro=kali-2026.3&upstream=procps"
+     },
+     {
+      "name": "librsvg2-2",
+      "from": "2.63.3+dfsg-1",
+      "to": "2.63.4+dfsg-4",
+      "purl": "pkg:deb/kali/librsvg2-2@2.63.4%2Bdfsg-4?arch=arm64&distro=kali-2026.3&upstream=librsvg"
+     },
+     {
+      "name": "openssh-client",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-client@1%3A10.6p2-1?arch=arm64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "openssh-common",
+      "from": "1:10.6p1-1",
+      "to": "1:10.6p2-1",
+      "purl": "pkg:deb/kali/openssh-common@1%3A10.6p2-1?arch=arm64&distro=kali-2026.3&upstream=openssh"
+     },
+     {
+      "name": "poppler-utils",
+      "from": "26.07.0-3",
+      "to": "26.07.0-4",
+      "purl": "pkg:deb/kali/poppler-utils@26.07.0-4?arch=arm64&distro=kali-2026.3&upstream=poppler"
+     },
+     {
+      "name": "procps",
+      "from": "2:4.0.7-1",
+      "to": "2:4.0.7-1.1",
+      "purl": "pkg:deb/kali/procps@2%3A4.0.7-1.1?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "sudo",
+      "from": "1.9.17p2-9",
+      "to": "1.9.17p2-11",
+      "purl": "pkg:deb/kali/sudo@1.9.17p2-11?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "zlib1g",
+      "from": "1:1.3.dfsg+really1.3.2-3",
+      "to": "1:1.3.dfsg+really1.3.2-4",
+      "purl": "pkg:deb/kali/zlib1g@1%3A1.3.dfsg%2Breally1.3.2-4?arch=arm64&distro=kali-2026.3&upstream=zlib"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/buildx",
+      "from": "v0.39.0",
+      "to": "v0.39.1",
+      "purl": "pkg:golang/github.com/docker/buildx@v0.39.1"
+     },
+     {
+      "name": "github.com/moby/buildkit",
+      "from": "v0.35.0",
+      "to": "v0.35.1",
+      "purl": "pkg:golang/github.com/moby/buildkit@v0.35.1"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.3",
+      "to": "2.14.4",
+      "purl": "pkg:pypi/pydantic@2.14.4"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.4",
+      "to": "2.50.5",
+      "purl": "pkg:pypi/pydantic-core@2.50.5"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 42,
+  "downgraded": 0
+ }
+}

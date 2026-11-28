@@ -1,0 +1,224 @@
+{
+ "image": "eden",
+ "branch": "master",
+ "tag": "v0.2.1-ls12",
+ "previous_tag": "v0.2.1-ls11",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (9004fa4 → 70a6705): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.2.1",
+  "to": "v0.2.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "9004fa42180ef3488a2366763cf1b957c60a891e",
+  "to": "70a6705051d9050bbc613b922249f35a602e1fac",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-eden/compare/9004fa42180ef3488a2366763cf1b957c60a891e...70a6705051d9050bbc613b922249f35a602e1fac",
+  "commits": [
+   {
+    "sha": "70a6705051d9050bbc613b922249f35a602e1fac",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-23T02:21:53Z",
+    "url": "https://github.com/linuxserver-playground/docker-eden/commit/70a6705051d9050bbc613b922249f35a602e1fac",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:95a3e10e4f1e0278dd99eeb33982c4ddc1b6ef4237e6029e0e100c83cd993dcb"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:debiantrixie",
+   "digest": "sha256:fbfa7400857f93aadc48362316f56b266492520d0e881e46d3ed13c559910c64"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1140888074,
+   "to": 1147685289,
+   "delta": 6797215
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "base-files",
+      "from": "13.8+deb13u7",
+      "to": "13.8+deb13u8",
+      "purl": "pkg:deb/debian/base-files@13.8%2Bdeb13u8?arch=amd64&distro=debian-13.8"
+     },
+     {
+      "name": "krb5-locales",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/krb5-locales@1.21.3-5%2Bdeb13u2?arch=all&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libc-bin",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-bin@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc-dev-bin",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-dev-bin@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc-l10n",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc-l10n@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc6",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc6@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libc6-dev",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/libc6-dev@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "libfreetype6",
+      "from": "2.13.3+dfsg-1+deb13u1",
+      "to": "2.13.3+dfsg-1+deb13u2",
+      "purl": "pkg:deb/debian/libfreetype6@2.13.3%2Bdfsg-1%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=freetype"
+     },
+     {
+      "name": "libgssapi-krb5-2",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libgssapi-krb5-2@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libk5crypto3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libk5crypto3@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5-3",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5-3@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libkrb5support0",
+      "from": "1.21.3-5+deb13u1",
+      "to": "1.21.3-5+deb13u2",
+      "purl": "pkg:deb/debian/libkrb5support0@1.21.3-5%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=krb5"
+     },
+     {
+      "name": "libnghttp2-14",
+      "from": "1.64.0-1.1+deb13u1",
+      "to": "1.64.0-1.1+deb13u2",
+      "purl": "pkg:deb/debian/libnghttp2-14@1.64.0-1.1%2Bdeb13u2?arch=amd64&distro=debian-13.8&upstream=nghttp2"
+     },
+     {
+      "name": "libzstd1",
+      "from": "1.5.7+dfsg-1",
+      "to": "1.5.7+dfsg-1+deb13u1",
+      "purl": "pkg:deb/debian/libzstd1@1.5.7%2Bdfsg-1%2Bdeb13u1?arch=amd64&distro=debian-13.8&upstream=libzstd"
+     },
+     {
+      "name": "linux-libc-dev",
+      "from": "6.12.117-1",
+      "to": "6.12.118-1",
+      "purl": "pkg:deb/debian/linux-libc-dev@6.12.118-1?arch=all&distro=debian-13.8&upstream=linux"
+     },
+     {
+      "name": "locales",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/locales@2.41-12%2Bdeb13u5?arch=all&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "locales-all",
+      "from": "2.41-12+deb13u4",
+      "to": "2.41-12+deb13u5",
+      "purl": "pkg:deb/debian/locales-all@2.41-12%2Bdeb13u5?arch=amd64&distro=debian-13.8&upstream=glibc"
+     },
+     {
+      "name": "sudo",
+      "from": "1.9.16p2-3+deb13u2",
+      "to": "1.9.16p2-3+deb13u5",
+      "purl": "pkg:deb/debian/sudo@1.9.16p2-3%2Bdeb13u5?arch=amd64&distro=debian-13.8"
+     },
+     {
+      "name": "zstd",
+      "from": "1.5.7+dfsg-1",
+      "to": "1.5.7+dfsg-1+deb13u1",
+      "purl": "pkg:deb/debian/zstd@1.5.7%2Bdfsg-1%2Bdeb13u1?arch=amd64&distro=debian-13.8&upstream=libzstd"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 20,
+  "downgraded": 0
+ }
+}

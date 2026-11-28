@@ -1,0 +1,148 @@
+{
+ "image": "sonarr",
+ "branch": "develop",
+ "tag": "develop-5.0.0.3041-ls9",
+ "previous_tag": "develop-5.0.0.3041-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (1393edf → 6aaf935): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "5.0.0.3041",
+  "to": "5.0.0.3041",
+  "changed": false
+ },
+ "commit": {
+  "from": "1393edfe9a9ddb22b4bd28b62dafa1e1857a871b",
+  "to": "6aaf93574a32229f7dd22a5345fa2747ef93f5a3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-sonarr/compare/1393edfe9a9ddb22b4bd28b62dafa1e1857a871b...6aaf93574a32229f7dd22a5345fa2747ef93f5a3",
+  "commits": [
+   {
+    "sha": "6aaf93574a32229f7dd22a5345fa2747ef93f5a3",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-22T17:14:00Z",
+    "url": "https://github.com/linuxserver-playground/docker-sonarr/commit/6aaf93574a32229f7dd22a5345fa2747ef93f5a3",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:149bdce0bc2d9276e6727f2e6912bc69c0df4d3606b355267cd72a443551f067"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:9c7d0c9a503ff7deddf92621de1b54f0a04ebbfec481cc96844d09b53e04fde3"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 98024968,
+   "to": 97969640,
+   "delta": -55328
+  },
+  "arm64": {
+   "from": 95743411,
+   "to": 95674781,
+   "delta": -68630
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r2",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=x86_64&distro=alpine-3.24.4&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r2",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=aarch64&distro=alpine-3.24.4&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 6,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,168 @@
+{
+ "image": "webtop",
+ "branch": "arch-mate",
+ "tag": "arch-mate-2026-11-20-ls15",
+ "previous_tag": "arch-mate-2026-11-20-ls14",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (caa81f4 → 0506171): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2026-11-20",
+  "to": "2026-11-20",
+  "changed": false
+ },
+ "commit": {
+  "from": "caa81f43ffe632f24c12aad5979a55e0a255741c",
+  "to": "0506171268da48b8f62dc5a1f2a54262ada5caf1",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/caa81f43ffe632f24c12aad5979a55e0a255741c...0506171268da48b8f62dc5a1f2a54262ada5caf1",
+  "commits": [
+   {
+    "sha": "0506171268da48b8f62dc5a1f2a54262ada5caf1",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T20:07:57Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/0506171268da48b8f62dc5a1f2a54262ada5caf1",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:086e00be8171b7113ca0abc3196a8e531c47ce2bdfdb5579546b79ab43eab54d"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:1bceb8b1c1ebadc5b8c2a9a0d9b239203b34c7802961e2f2bf44cea4761c8b7a"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1771452533,
+   "to": 1771452198,
+   "delta": -335
+  },
+  "arm64": {
+   "from": 1890538366,
+   "to": 1890588682,
+   "delta": 50316
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "cpupower",
+      "from": "7.3.4-1",
+      "to": "7.3.5-1",
+      "purl": "pkg:alpm/arch/cpupower@7.3.5-1?arch=x86_64&distro=arch-rolling&upstream=linux-tools"
+     },
+     {
+      "name": "gnutls",
+      "from": "3.8.13-3",
+      "to": "3.8.14-1",
+      "purl": "pkg:alpm/arch/gnutls@3.8.14-1?arch=x86_64&distro=arch-rolling&upstream=gnutls"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "gnutls",
+      "from": "3.8.13-3",
+      "to": "3.8.14-1",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "certifi",
+      "from": "2026.10.23",
+      "to": "2026.11.20",
+      "purl": "pkg:pypi/certifi@2026.11.20"
+     },
+     {
+      "name": "pyyaml",
+      "from": "6.0.3",
+      "to": "6.0.4",
+      "purl": "pkg:pypi/pyyaml@6.0.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 7,
+  "downgraded": 0
+ }
+}

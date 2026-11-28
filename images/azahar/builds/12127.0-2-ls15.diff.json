@@ -1,0 +1,273 @@
+{
+ "image": "azahar",
+ "branch": "master",
+ "tag": "12127.0-2-ls15",
+ "previous_tag": "12127.0-2-ls14",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (8b2f446 → 8a41cda): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "1:2127.0-2",
+  "to": "1:2127.0-2",
+  "changed": false
+ },
+ "commit": {
+  "from": "8b2f446b4726891bcd988531581f444a231c6c4c",
+  "to": "8a41cda1ee4741aaedcadd0743c92e1bf6569383",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-azahar/compare/8b2f446b4726891bcd988531581f444a231c6c4c...8a41cda1ee4741aaedcadd0743c92e1bf6569383",
+  "commits": [
+   {
+    "sha": "8a41cda1ee4741aaedcadd0743c92e1bf6569383",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-24T07:23:13Z",
+    "url": "https://github.com/linuxserver-playground/docker-azahar/commit/8a41cda1ee4741aaedcadd0743c92e1bf6569383",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:1bceb8b1c1ebadc5b8c2a9a0d9b239203b34c7802961e2f2bf44cea4761c8b7a"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:arch",
+   "digest": "sha256:1bceb8b1c1ebadc5b8c2a9a0d9b239203b34c7802961e2f2bf44cea4761c8b7a"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 1861883389,
+   "to": 1862448372,
+   "delta": 564983
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "CMake",
+      "from": "4.4.5",
+      "to": "4.5.1",
+      "purl": null
+     },
+     {
+      "name": "PostgreSQL",
+      "from": "18.6",
+      "to": "18.7",
+      "purl": null
+     },
+     {
+      "name": "WrapHarfbuzz",
+      "from": "15.1.0",
+      "to": "15.2.0",
+      "purl": null
+     },
+     {
+      "name": "WrapLibClang",
+      "from": "23.1.1",
+      "to": "23.1.5",
+      "purl": null
+     },
+     {
+      "name": "gbm",
+      "from": "26.2.6-arch1.1",
+      "to": "26.3.1-arch1.3",
+      "purl": null
+     }
+    ],
+    "downgraded": []
+   },
+   "UnknownPackage": {
+    "added": [],
+    "removed": [
+     {
+      "name": "Gui_Attribution_pixman",
+      "version": "0.17.12",
+      "purl": "pkg:generic/pixman@0.17.12?download_url=http%3A%2F%2Fwww.pixman.org%2F"
+     }
+    ],
+    "upgraded": [
+     {
+      "name": "qtbase",
+      "from": "6.12.0+dirty",
+      "to": "6.12.1+dirty",
+      "purl": "pkg:generic/TheQtCompany/qtbase@6.12.1%2Bdirty"
+     },
+     {
+      "name": "qtdeclarative",
+      "from": "6.12.0+dirty",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtdeclarative@6.12.1"
+     },
+     {
+      "name": "qtmultimedia",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qtmultimedia@6.12.1"
+     },
+     {
+      "name": "qttools",
+      "from": "6.12.0+dirty",
+      "to": "6.12.1+dirty",
+      "purl": "pkg:generic/TheQtCompany/qttools@6.12.1%2Bdirty"
+     },
+     {
+      "name": "qttranslations",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:generic/TheQtCompany/qttranslations@6.12.1"
+     },
+     {
+      "name": "FFmpeg",
+      "from": "9.0.1",
+      "to": "9.0.2",
+      "purl": "pkg:github/ffmpeg/ffmpeg@n9.0.2"
+     },
+     {
+      "name": "Core_Attribution_tinycbor",
+      "from": "7.0",
+      "to": "7.1",
+      "purl": "pkg:github/intel/tinycbor@v7.1"
+     },
+     {
+      "name": "wasmdeployqt",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtbase@5af1a37e31a?library_name=wasmdeployqt#src/tools/wasmdeployqt"
+     },
+     {
+      "name": "workerscriptplugin",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtdeclarative@935c3c01bc?library_name=workerscriptplugin#src/qmlworkerscript"
+     },
+     {
+      "name": "quickmultimediaplugin",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qtmultimedia@1469cb18a?library_name=quickmultimediaplugin#src/multimediaquick"
+     },
+     {
+      "name": "qtplugininfo",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qttools@2bcebd462?library_name=qtplugininfo#src/qtplugininfo"
+     },
+     {
+      "name": "Translations",
+      "from": "6.12.0",
+      "to": "6.12.1",
+      "purl": "pkg:github/qt/qttranslations@201bdab?library_name=Translations"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "Multimedia_Attribution_dr_libs",
+      "from": "0.14.6-snapshot-ee937527",
+      "to": "0.14.6",
+      "purl": "pkg:github/mackron/dr_libs@wav-0.14.6"
+     }
+    ]
+   },
+   "alpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libpipewire",
+      "from": "1:1.6.11-2",
+      "to": "1:1.6.12-1",
+      "purl": "pkg:alpm/arch/libpipewire@1%3A1.6.12-1?arch=x86_64&distro=arch-rolling&upstream=pipewire"
+     },
+     {
+      "name": "pipewire",
+      "from": "1:1.6.11-2",
+      "to": "1:1.6.12-1",
+      "purl": "pkg:alpm/arch/pipewire@1%3A1.6.12-1?arch=x86_64&distro=arch-rolling&upstream=pipewire"
+     },
+     {
+      "name": "qt6-base",
+      "from": "6.12.0-5",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-base@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-base"
+     },
+     {
+      "name": "qt6-declarative",
+      "from": "6.12.0-4",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-declarative@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-declarative"
+     },
+     {
+      "name": "qt6-multimedia",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-multimedia@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-multimedia"
+     },
+     {
+      "name": "qt6-multimedia-ffmpeg",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-multimedia-ffmpeg@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-multimedia"
+     },
+     {
+      "name": "qt6-tools",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-tools@6.12.1-1?arch=x86_64&distro=arch-rolling&upstream=qt6-tools"
+     },
+     {
+      "name": "qt6-translations",
+      "from": "6.12.0-1",
+      "to": "6.12.1-1",
+      "purl": "pkg:alpm/arch/qt6-translations@6.12.1-1?arch=any&distro=arch-rolling&upstream=qt6-translations"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 1,
+  "upgraded": 25,
+  "downgraded": 1
+ }
+}

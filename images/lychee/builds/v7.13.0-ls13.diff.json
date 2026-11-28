@@ -1,0 +1,124 @@
+{
+ "image": "lychee",
+ "branch": "master",
+ "tag": "v7.13.0-ls13",
+ "previous_tag": "v7.13.0-ls12",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (8002da3 → 285c3d5): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v7.13.0",
+  "to": "v7.13.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "8002da3ba16b2b9e285a8239b5acfd90a48a3a3a",
+  "to": "285c3d56b028673afe691e897dcc25ecda56f29b",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-lychee/compare/8002da3ba16b2b9e285a8239b5acfd90a48a3a3a...285c3d56b028673afe691e897dcc25ecda56f29b",
+  "commits": [
+   {
+    "sha": "285c3d56b028673afe691e897dcc25ecda56f29b",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-17T03:53:19Z",
+    "url": "https://github.com/linuxserver-playground/docker-lychee/commit/285c3d56b028673afe691e897dcc25ecda56f29b",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:e81e256976c8d1d16f1e84a53540b12b20a917e650ff884b467db4c04a3458a2"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:84491bc2b6d8b490d58a05fdd82e3161af733cb814a38541456f83e328814878"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 141915616,
+   "to": 141915469,
+   "delta": -147
+  },
+  "arm64": {
+   "from": 139031085,
+   "to": 139032504,
+   "delta": 1419
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "nginx",
+      "from": "1.30.6-r0",
+      "to": "1.30.7-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.7-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

@@ -1,0 +1,176 @@
+{
+ "image": "baseimage-ubuntu",
+ "branch": "noble",
+ "tag": "noble-33b9cb1e-ls10",
+ "previous_tag": "noble-ffd45bcc-ls9",
+ "classification": "upstream",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "packages changed",
+  "1 commit (6d2b663 → e52e498): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "ffd45bcc",
+  "to": "33b9cb1e",
+  "changed": true
+ },
+ "commit": {
+  "from": "6d2b663fbf4a28d8aa3df0f84d2bd907cb6181db",
+  "to": "e52e4982f54c76b71829570420f7aa3f1212407c",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-ubuntu/compare/6d2b663fbf4a28d8aa3df0f84d2bd907cb6181db...e52e4982f54c76b71829570420f7aa3f1212407c",
+  "commits": [
+   {
+    "sha": "e52e4982f54c76b71829570420f7aa3f1212407c",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-23T03:22:25Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-ubuntu/commit/e52e4982f54c76b71829570420f7aa3f1212407c",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 54615101,
+   "to": 47845135,
+   "delta": -6769966
+  },
+  "arm64": {
+   "from": 54204818,
+   "to": 47663958,
+   "delta": -6540860
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.9",
+      "to": "3.45.1-1ubuntu2.11",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.11?arch=amd64&distro=ubuntu-24.04&upstream=sqlite3"
+     },
+     {
+      "name": "libssh-4",
+      "from": "0.10.6-2ubuntu0.5",
+      "to": "0.10.6-2ubuntu0.6",
+      "purl": "pkg:deb/ubuntu/libssh-4@0.10.6-2ubuntu0.6?arch=amd64&distro=ubuntu-24.04&upstream=libssh"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.24.04.1",
+      "to": "2026f-0ubuntu0.24.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.24.04.1?arch=all&distro=ubuntu-24.04"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-locales",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/krb5-locales@1.20.1-6ubuntu2.12?arch=all&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libgssapi-krb5-2",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/libgssapi-krb5-2@1.20.1-6ubuntu2.12?arch=arm64&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libk5crypto3",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/libk5crypto3@1.20.1-6ubuntu2.12?arch=arm64&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libkrb5-3",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/libkrb5-3@1.20.1-6ubuntu2.12?arch=arm64&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libkrb5support0",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/libkrb5support0@1.20.1-6ubuntu2.12?arch=arm64&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.9",
+      "to": "3.45.1-1ubuntu2.11",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.11?arch=arm64&distro=ubuntu-24.04&upstream=sqlite3"
+     },
+     {
+      "name": "libssh-4",
+      "from": "0.10.6-2ubuntu0.5",
+      "to": "0.10.6-2ubuntu0.6",
+      "purl": "pkg:deb/ubuntu/libssh-4@0.10.6-2ubuntu0.6?arch=arm64&distro=ubuntu-24.04&upstream=libssh"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.24.04.1",
+      "to": "2026f-0ubuntu0.24.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.24.04.1?arch=all&distro=ubuntu-24.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 11,
+  "downgraded": 0
+ }
+}

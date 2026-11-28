@@ -1,0 +1,128 @@
+{
+ "image": "faster-whisper",
+ "branch": "gpu-legacy",
+ "tag": "gpu-legacy-v3.9.1-ls11",
+ "previous_tag": "gpu-legacy-v3.9.1-ls10",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (28e23c7 → 2be52bb): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v3.9.1",
+  "to": "v3.9.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "28e23c774b3446e9c9e40fe4916e72f1d3b657d0",
+  "to": "2be52bb3c027950c3e532a50da65163b6fffafcc",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-faster-whisper/compare/28e23c774b3446e9c9e40fe4916e72f1d3b657d0...2be52bb3c027950c3e532a50da65163b6fffafcc",
+  "commits": [
+   {
+    "sha": "2be52bb3c027950c3e532a50da65163b6fffafcc",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-24T22:40:52Z",
+    "url": "https://github.com/linuxserver-playground/docker-faster-whisper/commit/2be52bb3c027950c3e532a50da65163b6fffafcc",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:474ae94121b29ecb1165cc9ba08d55f1245dcf53e20532808e3c0c61200ec682"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:a44688d5617b27712df6770f62ca32516191b2728cbfe6b08da12acff4175797"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1525236761,
+   "to": 1516523554,
+   "delta": -8713207
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat1",
+      "from": "2.7.4-1ubuntu0.2",
+      "to": "2.7.4-1ubuntu0.3",
+      "purl": "pkg:deb/ubuntu/libexpat1@2.7.4-1ubuntu0.3?arch=amd64&distro=ubuntu-26.04&upstream=expat"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.46.1-9ubuntu0.3",
+      "to": "3.46.1-9ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.46.1-9ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=sqlite3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.26.04.1",
+      "to": "2026f-0ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.26.04.1?arch=all&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "huggingface-hub",
+      "from": "2.4.0",
+      "to": "2.5.0",
+      "purl": "pkg:pypi/huggingface-hub@2.5.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

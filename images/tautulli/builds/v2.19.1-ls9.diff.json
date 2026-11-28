@@ -1,0 +1,136 @@
+{
+ "image": "tautulli",
+ "branch": "master",
+ "tag": "v2.19.1-ls9",
+ "previous_tag": "v2.19.1-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (98aa576 → 3741cd2): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v2.19.1",
+  "to": "v2.19.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "98aa576947523ca53bf842d994fa96375c14ff4b",
+  "to": "3741cd2be56ffaf97b5caf9ab7d38b59694cb66f",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-tautulli/compare/98aa576947523ca53bf842d994fa96375c14ff4b...3741cd2be56ffaf97b5caf9ab7d38b59694cb66f",
+  "commits": [
+   {
+    "sha": "3741cd2be56ffaf97b5caf9ab7d38b59694cb66f",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-11T00:41:47Z",
+    "url": "https://github.com/linuxserver-playground/docker-tautulli/commit/3741cd2be56ffaf97b5caf9ab7d38b59694cb66f",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:812764aac8af18073bb92faed4540b64dbbe6316d1cbb6e8fee51e0c3fa943e7"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:149bdce0bc2d9276e6727f2e6912bc69c0df4d3606b355267cd72a443551f067"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 58983177,
+   "to": 58982773,
+   "delta": -404
+  },
+  "arm64": {
+   "from": 59859118,
+   "to": 59860981,
+   "delta": 1863
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=x86_64&distro=alpine-3.24.4&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r1",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r1?arch=aarch64&distro=alpine-3.24.4&upstream=openssl"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

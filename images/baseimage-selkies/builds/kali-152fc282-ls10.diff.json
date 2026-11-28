@@ -1,0 +1,593 @@
+{
+ "image": "baseimage-selkies",
+ "branch": "kali",
+ "tag": "kali-152fc282-ls10",
+ "previous_tag": "kali-ff60098c-ls9",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (fb6e149 → a572bbc): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "ff60098c",
+  "to": "152fc282",
+  "changed": true
+ },
+ "commit": {
+  "from": "fb6e1493455c7e2aa184cb4d196d9c7a57718100",
+  "to": "a572bbcc600c96e19c949470f1d5980ecb0036b5",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/compare/fb6e1493455c7e2aa184cb4d196d9c7a57718100...a572bbcc600c96e19c949470f1d5980ecb0036b5",
+  "commits": [
+   {
+    "sha": "a572bbcc600c96e19c949470f1d5980ecb0036b5",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-09T11:12:47Z",
+    "url": "https://github.com/linuxserver-playground/docker-baseimage-selkies/commit/a572bbcc600c96e19c949470f1d5980ecb0036b5",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:354d56680f99f3068d24fa5f80be59289b00bc6eded215d2b25f8e52d3fcea45"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-debian:kali",
+   "digest": "sha256:f358a3e3de0822534ed57205688120b0b7b42495424225f05989d08b83d9460b"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1057071278,
+   "to": 1057761122,
+   "delta": 689844
+  },
+  "arm64": {
+   "from": 1008349758,
+   "to": 1008988109,
+   "delta": 638351
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "bash",
+      "from": "5.3-4",
+      "to": "5.3-4+b1",
+      "purl": "pkg:deb/kali/bash@5.3-4%2Bb1?arch=amd64&distro=kali-2026.3&upstream=bash%405.3-4"
+     },
+     {
+      "name": "catatonit",
+      "from": "0.2.1-2+b31",
+      "to": "0.2.1-2+b32",
+      "purl": "pkg:deb/kali/catatonit@0.2.1-2%2Bb32?arch=amd64&distro=kali-2026.3&upstream=catatonit%400.2.1-2"
+     },
+     {
+      "name": "cpp-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/cpp-16@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "cpp-16-x86-64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/cpp-16-x86-64-linux-gnu@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.0-1~debian.12~bookworm",
+      "to": "5.7.1-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-compose-plugin@5.7.1-1~debian.12~bookworm?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "firmware-amd-graphics",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-amd-graphics@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "firmware-linux-nonfree",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-linux-nonfree@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "firmware-misc-nonfree",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-misc-nonfree@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "g++-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/g%2B%2B-16@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "g++-16-x86-64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/g%2B%2B-16-x86-64-linux-gnu@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "gcc-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16@16.2.0-4?arch=amd64&distro=kali-2026.3"
+     },
+     {
+      "name": "gcc-16-base",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-base@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "gcc-16-x86-64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-x86-64-linux-gnu@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libasan8",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libasan8@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libatomic1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libatomic1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libcc1-0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libcc1-0@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libcom-err2",
+      "from": "1.47.4-1+b2",
+      "to": "1.47.4-1+b3",
+      "purl": "pkg:deb/kali/libcom-err2@1.47.4-1%2Bb3?arch=amd64&distro=kali-2026.3&upstream=e2fsprogs%401.47.4-1"
+     },
+     {
+      "name": "libgcc-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-16-dev@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgcc-s1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-s1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgomp1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgomp1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libhwasan0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libhwasan0@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libitm1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libitm1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "liblsan0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/liblsan0@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libquadmath0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libquadmath0@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libseat1",
+      "from": "0.9.3-1",
+      "to": "0.9.3-2",
+      "purl": "pkg:deb/kali/libseat1@0.9.3-2?arch=amd64&distro=kali-2026.3&upstream=seatd"
+     },
+     {
+      "name": "libsnappy1v5",
+      "from": "1.3.1-3",
+      "to": "1.3.1-4",
+      "purl": "pkg:deb/kali/libsnappy1v5@1.3.1-4?arch=amd64&distro=kali-2026.3&upstream=snappy"
+     },
+     {
+      "name": "libstdc++-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B-16-dev@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libstdc++6",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B6@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libtsan2",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libtsan2@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libubsan1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libubsan1@16.2.0-4?arch=amd64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "seatd",
+      "from": "0.9.3-1",
+      "to": "0.9.3-2",
+      "purl": "pkg:deb/kali/seatd@0.9.3-2?arch=amd64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.0",
+      "to": "v5.7.1",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.1"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.2",
+      "to": "0.162.5",
+      "purl": "pkg:pypi/fastapi@0.162.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "bash",
+      "from": "5.3-4",
+      "to": "5.3-4+b1",
+      "purl": "pkg:deb/kali/bash@5.3-4%2Bb1?arch=arm64&distro=kali-2026.3&upstream=bash%405.3-4"
+     },
+     {
+      "name": "catatonit",
+      "from": "0.2.1-2+b31",
+      "to": "0.2.1-2+b32",
+      "purl": "pkg:deb/kali/catatonit@0.2.1-2%2Bb32?arch=arm64&distro=kali-2026.3&upstream=catatonit%400.2.1-2"
+     },
+     {
+      "name": "cpp-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/cpp-16@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "cpp-16-aarch64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/cpp-16-aarch64-linux-gnu@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "docker-compose-plugin",
+      "from": "5.7.0-1~debian.12~bookworm",
+      "to": "5.7.1-1~debian.12~bookworm",
+      "purl": "pkg:deb/kali/docker-compose-plugin@5.7.1-1~debian.12~bookworm?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "firmware-amd-graphics",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-amd-graphics@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "firmware-linux-nonfree",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-linux-nonfree@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "firmware-misc-nonfree",
+      "from": "20260810-1",
+      "to": "20260916-1",
+      "purl": "pkg:deb/kali/firmware-misc-nonfree@20260916-1?arch=all&distro=kali-2026.3&upstream=firmware-nonfree"
+     },
+     {
+      "name": "g++-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/g%2B%2B-16@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "g++-16-aarch64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/g%2B%2B-16-aarch64-linux-gnu@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "gcc-16",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16@16.2.0-4?arch=arm64&distro=kali-2026.3"
+     },
+     {
+      "name": "gcc-16-aarch64-linux-gnu",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-aarch64-linux-gnu@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "gcc-16-base",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/gcc-16-base@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libasan8",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libasan8@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libatomic1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libatomic1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libcc1-0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libcc1-0@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libcom-err2",
+      "from": "1.47.4-1+b2",
+      "to": "1.47.4-1+b3",
+      "purl": "pkg:deb/kali/libcom-err2@1.47.4-1%2Bb3?arch=arm64&distro=kali-2026.3&upstream=e2fsprogs%401.47.4-1"
+     },
+     {
+      "name": "libgcc-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-16-dev@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgcc-s1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgcc-s1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libgomp1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libgomp1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libhwasan0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libhwasan0@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libitm1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libitm1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "liblsan0",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/liblsan0@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libseat1",
+      "from": "0.9.3-1",
+      "to": "0.9.3-2",
+      "purl": "pkg:deb/kali/libseat1@0.9.3-2?arch=arm64&distro=kali-2026.3&upstream=seatd"
+     },
+     {
+      "name": "libsnappy1v5",
+      "from": "1.3.1-3",
+      "to": "1.3.1-4",
+      "purl": "pkg:deb/kali/libsnappy1v5@1.3.1-4?arch=arm64&distro=kali-2026.3&upstream=snappy"
+     },
+     {
+      "name": "libstdc++-16-dev",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B-16-dev@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libstdc++6",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libstdc%2B%2B6@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libtsan2",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libtsan2@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "libubsan1",
+      "from": "16.2.0-3",
+      "to": "16.2.0-4",
+      "purl": "pkg:deb/kali/libubsan1@16.2.0-4?arch=arm64&distro=kali-2026.3&upstream=gcc-16"
+     },
+     {
+      "name": "seatd",
+      "from": "0.9.3-1",
+      "to": "0.9.3-2",
+      "purl": "pkg:deb/kali/seatd@0.9.3-2?arch=arm64&distro=kali-2026.3"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "github.com/docker/cli",
+      "from": "v29.9.2+incompatible",
+      "to": "v29.9.3+incompatible",
+      "purl": "pkg:golang/github.com/docker/cli@v29.9.3%2Bincompatible"
+     },
+     {
+      "name": "github.com/docker/compose/v5",
+      "from": "v5.7.0",
+      "to": "v5.7.1",
+      "purl": "pkg:golang/github.com/docker/compose/v5@v5.7.1"
+     },
+     {
+      "name": "stdlib",
+      "from": "go1.27.3",
+      "to": "go1.27.4",
+      "purl": "pkg:golang/stdlib@1.27.4"
+     }
+    ],
+    "downgraded": [
+     {
+      "name": "go.yaml.in/yaml/v4",
+      "from": "v4.0.0-rc.6",
+      "to": "v4.0.0-rc.4",
+      "purl": "pkg:golang/go.yaml.in/yaml/v4@v4.0.0-rc.4"
+     }
+    ]
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "fastapi",
+      "from": "0.162.2",
+      "to": "0.162.5",
+      "purl": "pkg:pypi/fastapi@0.162.5"
+     },
+     {
+      "name": "pyee",
+      "from": "16.0.1",
+      "to": "16.0.2",
+      "purl": "pkg:pypi/pyee@16.0.2"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 73,
+  "downgraded": 2
+ }
+}

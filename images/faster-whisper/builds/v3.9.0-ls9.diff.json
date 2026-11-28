@@ -1,0 +1,123 @@
+{
+ "image": "faster-whisper",
+ "branch": "main",
+ "tag": "v3.9.0-ls9",
+ "previous_tag": "v3.9.0-ls8",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (a748f26 → 309f7bb): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v3.9.0",
+  "to": "v3.9.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "a748f26399e233d86dc54f4afc7db27ccf1f1727",
+  "to": "309f7bb8ede0600546e0e69136eb63f9271d3aa2",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-faster-whisper/compare/a748f26399e233d86dc54f4afc7db27ccf1f1727...309f7bb8ede0600546e0e69136eb63f9271d3aa2",
+  "commits": [
+   {
+    "sha": "309f7bb8ede0600546e0e69136eb63f9271d3aa2",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-17T20:31:57Z",
+    "url": "https://github.com/linuxserver-playground/docker-faster-whisper/commit/309f7bb8ede0600546e0e69136eb63f9271d3aa2",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:474ae94121b29ecb1165cc9ba08d55f1245dcf53e20532808e3c0c61200ec682"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:474ae94121b29ecb1165cc9ba08d55f1245dcf53e20532808e3c0c61200ec682"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 244186272,
+   "to": 244188785,
+   "delta": 2513
+  },
+  "arm64": {
+   "from": 212942340,
+   "to": 212943726,
+   "delta": 1386
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "filelock",
+      "from": "4.2.11",
+      "to": "4.2.12",
+      "purl": "pkg:pypi/filelock@4.2.12"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "filelock",
+      "from": "4.2.11",
+      "to": "4.2.12",
+      "purl": "pkg:pypi/filelock@4.2.12"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 2,
+  "downgraded": 0
+ }
+}

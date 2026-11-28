@@ -1,0 +1,227 @@
+{
+ "image": "mylar3",
+ "branch": "master",
+ "tag": "v0.11.0-ls8",
+ "previous_tag": "v0.11.0-ls7",
+ "classification": "packages",
+ "reasons": [
+  "packages changed",
+  "1 commit (45e3a63 → 9ec3d28): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.11.0",
+  "to": "v0.11.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "45e3a63ba06a2c4252070c93432577a26a50f5ad",
+  "to": "9ec3d28639b7ed02ee0daca205a402fe99db95e4",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-mylar3/compare/45e3a63ba06a2c4252070c93432577a26a50f5ad...9ec3d28639b7ed02ee0daca205a402fe99db95e4",
+  "commits": [
+   {
+    "sha": "9ec3d28639b7ed02ee0daca205a402fe99db95e4",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-08T09:02:01Z",
+    "url": "https://github.com/linuxserver-playground/docker-mylar3/commit/9ec3d28639b7ed02ee0daca205a402fe99db95e4",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy",
+   "digest": "sha256:c72923f7600cffa20aeaa7516b27baacac84e1acda5ecc6a96ca3639f27738bc"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:jammy",
+   "digest": "sha256:c72923f7600cffa20aeaa7516b27baacac84e1acda5ecc6a96ca3639f27738bc"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 195956619,
+   "to": 201599931,
+   "delta": 5643312
+  },
+  "arm64": {
+   "from": 190382623,
+   "to": 195872979,
+   "delta": 5490356
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl-base",
+      "from": "5.34.0-3ubuntu1.9",
+      "to": "5.34.0-3ubuntu1.10",
+      "purl": "pkg:deb/ubuntu/perl-base@5.34.0-3ubuntu1.10?arch=amd64&distro=ubuntu-22.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "purl": "pkg:pypi/annotated-types@0.8.0"
+     },
+     {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "version": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "markdown-it-py",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/markdown-it-py@4.3.0"
+     },
+     {
+      "name": "simplejson",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/simplejson@4.3.0"
+     },
+     {
+      "name": "typer",
+      "from": "0.28.0",
+      "to": "0.29.0",
+      "purl": "pkg:pypi/typer@0.29.0"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "perl-base",
+      "from": "5.34.0-3ubuntu1.9",
+      "to": "5.34.0-3ubuntu1.10",
+      "purl": "pkg:deb/ubuntu/perl-base@5.34.0-3ubuntu1.10?arch=arm64&distro=ubuntu-22.04&upstream=perl"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [
+     {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "purl": "pkg:pypi/annotated-types@0.8.0"
+     },
+     {
+      "name": "pydantic",
+      "version": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "version": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "annotated-doc",
+      "from": "0.0.5",
+      "to": "0.0.6",
+      "purl": "pkg:pypi/annotated-doc@0.0.6"
+     },
+     {
+      "name": "markdown-it-py",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/markdown-it-py@4.3.0"
+     },
+     {
+      "name": "simplejson",
+      "from": "4.2.0",
+      "to": "4.3.0",
+      "purl": "pkg:pypi/simplejson@4.3.0"
+     },
+     {
+      "name": "typer",
+      "from": "0.28.0",
+      "to": "0.29.0",
+      "purl": "pkg:pypi/typer@0.29.0"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 8,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

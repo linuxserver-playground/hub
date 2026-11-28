@@ -1,0 +1,67 @@
+{
+ "image": "baseimage-debian",
+ "branch": "master",
+ "tag": "trixie-7afe1fb0-ls6",
+ "previous_tag": "trixie-7afe1fb0-ls5",
+ "classification": "none",
+ "reasons": [
+  "nothing observable changed"
+ ],
+ "upstream": {
+  "from": "7afe1fb0",
+  "to": "7afe1fb0",
+  "changed": false
+ },
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "scratch"
+  },
+  "changed": false
+ },
+ "size": {
+  "amd64": {
+   "from": 72108964,
+   "to": 72109116,
+   "delta": 152
+  },
+  "arm64": {
+   "from": 72775908,
+   "to": 72775718,
+   "delta": -190
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {},
+  "arm64": {}
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 0,
+  "downgraded": 0
+ }
+}

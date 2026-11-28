@@ -1,0 +1,230 @@
+{
+ "image": "cops",
+ "branch": "master",
+ "tag": "4.6.1-ls11",
+ "previous_tag": "4.6.1-ls10",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (cea9784 → 69311bf): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "4.6.1",
+  "to": "4.6.1",
+  "changed": false
+ },
+ "commit": {
+  "from": "cea9784973b7541657c528c9228cc9b3d782e36e",
+  "to": "69311bf0f215381727150675640e92f1f89934b4",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-cops/compare/cea9784973b7541657c528c9228cc9b3d782e36e...69311bf0f215381727150675640e92f1f89934b4",
+  "commits": [
+   {
+    "sha": "69311bf0f215381727150675640e92f1f89934b4",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-23T09:17:45Z",
+    "url": "https://github.com/linuxserver-playground/docker-cops/commit/69311bf0f215381727150675640e92f1f89934b4",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:00312088782a28947c9a7313c8e27d684f234fc088e841b851982e3a96231587"
+  },
+  "to": {
+   "family": "alpine-nginx",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine-nginx:3.24",
+   "digest": "sha256:c1438e54e6efb49c63066eac58a9eba1c26118bad1509a32ed81b55e3701f85d"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 70602830,
+   "to": 65455632,
+   "delta": -5147198
+  },
+  "arm64": {
+   "from": 71305485,
+   "to": 67837303,
+   "delta": -3468182
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.7-r0",
+      "to": "1.30.8-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.8-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r2",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=x86_64&distro=alpine-3.24.4&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   },
+   "go-module": {
+    "added": [],
+    "removed": [
+     {
+      "name": "github.com/pgaskin/htmlstream",
+      "version": "v0.0.4",
+      "purl": "pkg:golang/github.com/pgaskin/htmlstream@v0.0.4"
+     },
+     {
+      "name": "github.com/pgaskin/kepubify/v5",
+      "version": "v5.0.0",
+      "purl": "pkg:golang/github.com/pgaskin/kepubify/v5@v5.0.0"
+     },
+     {
+      "name": "github.com/spf13/pflag",
+      "version": "v1.1.0",
+      "purl": "pkg:golang/github.com/spf13/pflag@v1.1.0"
+     },
+     {
+      "name": "golang.org/x/text",
+      "version": "v0.43.0",
+      "purl": "pkg:golang/golang.org/x/text@v0.43.0"
+     },
+     {
+      "name": "stdlib",
+      "version": "go1.26.10",
+      "purl": "pkg:golang/stdlib@1.26.10"
+     }
+    ],
+    "upgraded": [],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.2",
+      "to": "2.11.3",
+      "purl": "pkg:generic/composer@2.11.3"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r3",
+      "to": "2.13.9-r5",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r5?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "nginx",
+      "from": "1.30.7-r0",
+      "to": "1.30.8-r0",
+      "purl": "pkg:apk/alpine/nginx@1.30.8-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r2",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=aarch64&distro=alpine-3.24.4&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   },
+   "php-composer": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "composer",
+      "from": "2.11.2",
+      "to": "2.11.3",
+      "purl": "pkg:generic/composer@2.11.3"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 5,
+  "upgraded": 12,
+  "downgraded": 0
+ }
+}

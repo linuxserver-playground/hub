@@ -1,0 +1,226 @@
+{
+ "image": "code-server",
+ "branch": "master",
+ "tag": "4.146.0-ls12",
+ "previous_tag": "4.146.0-ls11",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (4e778e8 → 0400b38): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "4.146.0",
+  "to": "4.146.0",
+  "changed": false
+ },
+ "commit": {
+  "from": "4e778e8a403e3b03ff6f2644515b37a789391d7f",
+  "to": "0400b38a6ea375c211ff4400f764120712942fe9",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-code-server/compare/4e778e8a403e3b03ff6f2644515b37a789391d7f...0400b38a6ea375c211ff4400f764120712942fe9",
+  "commits": [
+   {
+    "sha": "0400b38a6ea375c211ff4400f764120712942fe9",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-20T19:59:42Z",
+    "url": "https://github.com/linuxserver-playground/docker-code-server/commit/0400b38a6ea375c211ff4400f764120712942fe9",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:5625688e073ff0f6795f3f5e3687c4f4ab313dd4881b1964627094e5ac12c4ee"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:noble",
+   "digest": "sha256:374d3847b20b756d9d22654e4d473c804aa122469cbf131af3e23c225f5d9ff9"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 349961375,
+   "to": 343866716,
+   "delta": -6094659
+  },
+  "arm64": {
+   "from": 352754750,
+   "to": 346895109,
+   "delta": -5859641
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat1",
+      "from": "2.6.1-2ubuntu0.6",
+      "to": "2.6.1-2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libexpat1@2.6.1-2ubuntu0.7?arch=amd64&distro=ubuntu-24.04&upstream=expat"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.9",
+      "to": "3.45.1-1ubuntu2.11",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.11?arch=amd64&distro=ubuntu-24.04&upstream=sqlite3"
+     },
+     {
+      "name": "libssh-4",
+      "from": "0.10.6-2ubuntu0.5",
+      "to": "0.10.6-2ubuntu0.6",
+      "purl": "pkg:deb/ubuntu/libssh-4@0.10.6-2ubuntu0.6?arch=amd64&distro=ubuntu-24.04&upstream=libssh"
+     },
+     {
+      "name": "libsystemd0",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/libsystemd0@255.4-1ubuntu8.19?arch=amd64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "libudev1",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/libudev1@255.4-1ubuntu8.19?arch=amd64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/systemd-standalone-sysusers@255.4-1ubuntu8.19?arch=amd64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.24.04.1",
+      "to": "2026f-0ubuntu0.24.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.24.04.1?arch=all&distro=ubuntu-24.04"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "krb5-locales",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/krb5-locales@1.20.1-6ubuntu2.12?arch=all&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libexpat1",
+      "from": "2.6.1-2ubuntu0.6",
+      "to": "2.6.1-2ubuntu0.7",
+      "purl": "pkg:deb/ubuntu/libexpat1@2.6.1-2ubuntu0.7?arch=arm64&distro=ubuntu-24.04&upstream=expat"
+     },
+     {
+      "name": "libgssapi-krb5-2",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/libgssapi-krb5-2@1.20.1-6ubuntu2.12?arch=arm64&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libk5crypto3",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/libk5crypto3@1.20.1-6ubuntu2.12?arch=arm64&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libkrb5-3",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/libkrb5-3@1.20.1-6ubuntu2.12?arch=arm64&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libkrb5support0",
+      "from": "1.20.1-6ubuntu2.10",
+      "to": "1.20.1-6ubuntu2.12",
+      "purl": "pkg:deb/ubuntu/libkrb5support0@1.20.1-6ubuntu2.12?arch=arm64&distro=ubuntu-24.04&upstream=krb5"
+     },
+     {
+      "name": "libsqlite3-0",
+      "from": "3.45.1-1ubuntu2.9",
+      "to": "3.45.1-1ubuntu2.11",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.45.1-1ubuntu2.11?arch=arm64&distro=ubuntu-24.04&upstream=sqlite3"
+     },
+     {
+      "name": "libssh-4",
+      "from": "0.10.6-2ubuntu0.5",
+      "to": "0.10.6-2ubuntu0.6",
+      "purl": "pkg:deb/ubuntu/libssh-4@0.10.6-2ubuntu0.6?arch=arm64&distro=ubuntu-24.04&upstream=libssh"
+     },
+     {
+      "name": "libsystemd0",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/libsystemd0@255.4-1ubuntu8.19?arch=arm64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "libudev1",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/libudev1@255.4-1ubuntu8.19?arch=arm64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "systemd-standalone-sysusers",
+      "from": "255.4-1ubuntu8.18",
+      "to": "255.4-1ubuntu8.19",
+      "purl": "pkg:deb/ubuntu/systemd-standalone-sysusers@255.4-1ubuntu8.19?arch=arm64&distro=ubuntu-24.04&upstream=systemd"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.24.04.1",
+      "to": "2026f-0ubuntu0.24.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.24.04.1?arch=all&distro=ubuntu-24.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 19,
+  "downgraded": 0
+ }
+}

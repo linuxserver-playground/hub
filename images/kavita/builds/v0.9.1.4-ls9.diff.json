@@ -1,0 +1,136 @@
+{
+ "image": "kavita",
+ "branch": "main",
+ "tag": "v0.9.1.4-ls9",
+ "previous_tag": "v0.9.1.4-ls8",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (7a694eb → e18df1b): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v0.9.1.4",
+  "to": "v0.9.1.4",
+  "changed": false
+ },
+ "commit": {
+  "from": "7a694eb247044c4be0ee73781af9cefce8af7c75",
+  "to": "e18df1b8535a2d85a7a6933365bcd21d267ea222",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-kavita/compare/7a694eb247044c4be0ee73781af9cefce8af7c75...e18df1b8535a2d85a7a6933365bcd21d267ea222",
+  "commits": [
+   {
+    "sha": "e18df1b8535a2d85a7a6933365bcd21d267ea222",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-18T01:12:13Z",
+    "url": "https://github.com/linuxserver-playground/docker-kavita/commit/e18df1b8535a2d85a7a6933365bcd21d267ea222",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:474ae94121b29ecb1165cc9ba08d55f1245dcf53e20532808e3c0c61200ec682"
+  },
+  "to": {
+   "family": "ubuntu",
+   "image": "ghcr.io/linuxserver-playground/baseimage-ubuntu:resolute",
+   "digest": "sha256:a44688d5617b27712df6770f62ca32516191b2728cbfe6b08da12acff4175797"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 205857913,
+   "to": 197104491,
+   "delta": -8753422
+  },
+  "arm64": {
+   "from": 202851689,
+   "to": 194320505,
+   "delta": -8531184
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsqlite3-0",
+      "from": "3.46.1-9ubuntu0.3",
+      "to": "3.46.1-9ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.46.1-9ubuntu0.4?arch=amd64&distro=ubuntu-26.04&upstream=sqlite3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.26.04.1",
+      "to": "2026f-0ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.26.04.1?arch=all&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "deb": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libsqlite3-0",
+      "from": "3.46.1-9ubuntu0.3",
+      "to": "3.46.1-9ubuntu0.4",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.46.1-9ubuntu0.4?arch=arm64&distro=ubuntu-26.04&upstream=sqlite3"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-0ubuntu0.26.04.1",
+      "to": "2026f-0ubuntu0.26.04.1",
+      "purl": "pkg:deb/ubuntu/tzdata@2026f-0ubuntu0.26.04.1?arch=all&distro=ubuntu-26.04"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 4,
+  "downgraded": 0
+ }
+}

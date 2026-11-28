@@ -1,0 +1,198 @@
+{
+ "image": "keepassxc",
+ "branch": "master",
+ "tag": "2.7.12-r1-ls10",
+ "previous_tag": "2.7.12-r1-ls9",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (4282ede → efd54f3): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2.7.12-r1",
+  "to": "2.7.12-r1",
+  "changed": false
+ },
+ "commit": {
+  "from": "4282ede1a97f400525418f3d3b209e0c6e87e240",
+  "to": "efd54f3adab128e61ea29cdb7c6d0e0c0cee45a5",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-keepassxc/compare/4282ede1a97f400525418f3d3b209e0c6e87e240...efd54f3adab128e61ea29cdb7c6d0e0c0cee45a5",
+  "commits": [
+   {
+    "sha": "efd54f3adab128e61ea29cdb7c6d0e0c0cee45a5",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-22T19:41:03Z",
+    "url": "https://github.com/linuxserver-playground/docker-keepassxc/commit/efd54f3adab128e61ea29cdb7c6d0e0c0cee45a5",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:e26658c9eb6cbb25197ea41ea76d1f26ea74761006462c37836c9f6b264818ae"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:alpine324",
+   "digest": "sha256:47baf82b3afef2e96d1b2c5e245de8e4a5dbb2c161b6f5e320128e4a2808572e"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 628131275,
+   "to": 625629004,
+   "delta": -2502271
+  },
+  "arm64": {
+   "from": 583096168,
+   "to": 580255679,
+   "delta": -2840489
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [
+     {
+      "name": "python3-ndbm",
+      "version": "3.14.10-r3",
+      "purl": "pkg:apk/alpine/python3-ndbm@3.14.10-r3?arch=x86_64&distro=alpine-3.24.4&upstream=python3-extra"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fuse-overlayfs",
+      "from": "1.16-r0",
+      "to": "1.18-r0",
+      "purl": "pkg:apk/alpine/fuse-overlayfs@1.18-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "glib",
+      "from": "2.88.1-r1",
+      "to": "2.88.4-r0",
+      "purl": "pkg:apk/alpine/glib@2.88.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "glib-lang",
+      "from": "2.88.1-r1",
+      "to": "2.88.4-r0",
+      "purl": "pkg:apk/alpine/glib-lang@2.88.4-r0?arch=x86_64&distro=alpine-3.24.4&upstream=glib"
+     },
+     {
+      "name": "libxfont2",
+      "from": "2.0.8-r0",
+      "to": "2.0.10-r0",
+      "purl": "pkg:apk/alpine/libxfont2@2.0.10-r0?arch=x86_64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [
+     {
+      "name": "python3-ndbm",
+      "version": "3.14.10-r3",
+      "purl": "pkg:apk/alpine/python3-ndbm@3.14.10-r3?arch=aarch64&distro=alpine-3.24.4&upstream=python3-extra"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "fuse-overlayfs",
+      "from": "1.16-r0",
+      "to": "1.18-r0",
+      "purl": "pkg:apk/alpine/fuse-overlayfs@1.18-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "glib",
+      "from": "2.88.1-r1",
+      "to": "2.88.4-r0",
+      "purl": "pkg:apk/alpine/glib@2.88.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "glib-lang",
+      "from": "2.88.1-r1",
+      "to": "2.88.4-r0",
+      "purl": "pkg:apk/alpine/glib-lang@2.88.4-r0?arch=aarch64&distro=alpine-3.24.4&upstream=glib"
+     },
+     {
+      "name": "libxfont2",
+      "from": "2.0.8-r0",
+      "to": "2.0.10-r0",
+      "purl": "pkg:apk/alpine/libxfont2@2.0.10-r0?arch=aarch64&distro=alpine-3.24.4"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "watchdog",
+      "from": "7.1.0",
+      "to": "7.1.1",
+      "purl": "pkg:pypi/watchdog@7.1.1"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 0,
+  "upgraded": 10,
+  "downgraded": 0
+ }
+}

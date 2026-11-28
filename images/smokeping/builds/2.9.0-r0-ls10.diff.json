@@ -1,0 +1,196 @@
+{
+ "image": "smokeping",
+ "branch": "master",
+ "tag": "2.9.0-r0-ls10",
+ "previous_tag": "2.9.0-r0-ls9",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (62a7d43 → be68ccf): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "2.9.0-r0",
+  "to": "2.9.0-r0",
+  "changed": false
+ },
+ "commit": {
+  "from": "62a7d43a3918c582be41a0821a7655127f3cc0c0",
+  "to": "be68ccfb2ae7803a3bdcb45d4acf62ebce3d6cb3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-smokeping/compare/62a7d43a3918c582be41a0821a7655127f3cc0c0...be68ccfb2ae7803a3bdcb45d4acf62ebce3d6cb3",
+  "commits": [
+   {
+    "sha": "be68ccfb2ae7803a3bdcb45d4acf62ebce3d6cb3",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-23T15:48:57Z",
+    "url": "https://github.com/linuxserver-playground/docker-smokeping/commit/be68ccfb2ae7803a3bdcb45d4acf62ebce3d6cb3",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:6600ec90f15ecc611bf91be1b29078e57651e77062e45c3e268aff53e802bb68"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.22",
+   "digest": "sha256:e37f235623e89ea3cceb36519a1bdc247225f6fe6850b7e54358763f0c426d1c"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 122979538,
+   "to": 122951610,
+   "delta": -27928
+  },
+  "arm64": {
+   "from": 123964806,
+   "to": 123936627,
+   "delta": -28179
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r2?arch=x86_64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=x86_64&distro=alpine-3.22.8&upstream=expat"
+     },
+     {
+      "name": "libffi",
+      "from": "3.4.8-r0",
+      "to": "3.8.2-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.2-r0?arch=x86_64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.8-r0",
+      "to": "1.1.10-r0",
+      "purl": "pkg:apk/alpine/libfontenc@1.1.10-r0?arch=x86_64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r2?arch=x86_64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r1",
+      "to": "2.13.9-r2",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r2?arch=x86_64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r0",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=x86_64&distro=alpine-3.22.8&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libcrypto3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libcrypto3@3.5.9-r2?arch=aarch64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=aarch64&distro=alpine-3.22.8&upstream=expat"
+     },
+     {
+      "name": "libffi",
+      "from": "3.4.8-r0",
+      "to": "3.8.2-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.2-r0?arch=aarch64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "libfontenc",
+      "from": "1.1.8-r0",
+      "to": "1.1.10-r0",
+      "purl": "pkg:apk/alpine/libfontenc@1.1.10-r0?arch=aarch64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "libssl3",
+      "from": "3.5.9-r0",
+      "to": "3.5.9-r2",
+      "purl": "pkg:apk/alpine/libssl3@3.5.9-r2?arch=aarch64&distro=alpine-3.22.8&upstream=openssl"
+     },
+     {
+      "name": "libxml2",
+      "from": "2.13.9-r1",
+      "to": "2.13.9-r2",
+      "purl": "pkg:apk/alpine/libxml2@2.13.9-r2?arch=aarch64&distro=alpine-3.22.8"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r0",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=aarch64&distro=alpine-3.22.8&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 14,
+  "downgraded": 0
+ }
+}

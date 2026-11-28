@@ -1,0 +1,258 @@
+{
+ "image": "healthchecks",
+ "branch": "master",
+ "tag": "v5.0.3-ls12",
+ "previous_tag": "v5.0.3-ls11",
+ "classification": "base",
+ "reasons": [
+  "base image digest changed",
+  "packages changed",
+  "1 commit (6e3bc5a → a60f193): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "v5.0.3",
+  "to": "v5.0.3",
+  "changed": false
+ },
+ "commit": {
+  "from": "6e3bc5accdc8838103f6ee436157f7330a75c4db",
+  "to": "a60f1935afc22ccfe06fe9699ad179d3b25df1d3",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-healthchecks/compare/6e3bc5accdc8838103f6ee436157f7330a75c4db...a60f1935afc22ccfe06fe9699ad179d3b25df1d3",
+  "commits": [
+   {
+    "sha": "a60f1935afc22ccfe06fe9699ad179d3b25df1d3",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-22T18:36:04Z",
+    "url": "https://github.com/linuxserver-playground/docker-healthchecks/commit/a60f1935afc22ccfe06fe9699ad179d3b25df1d3",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:149bdce0bc2d9276e6727f2e6912bc69c0df4d3606b355267cd72a443551f067"
+  },
+  "to": {
+   "family": "alpine",
+   "image": "ghcr.io/linuxserver-playground/baseimage-alpine:3.24",
+   "digest": "sha256:9c7d0c9a503ff7deddf92621de1b54f0a04ebbfec481cc96844d09b53e04fde3"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 94567421,
+   "to": 94762568,
+   "delta": 195147
+  },
+  "arm64": {
+   "from": 93706733,
+   "to": 93882597,
+   "delta": 175864
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "apk": {
+    "added": [
+     {
+      "name": "python3-ndbm",
+      "version": "3.14.10-r3",
+      "purl": "pkg:apk/alpine/python3-ndbm@3.14.10-r3?arch=x86_64&distro=alpine-3.24.4&upstream=python3-extra"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=x86_64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libffi",
+      "from": "3.5.2-r1",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "pyc",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r2?arch=x86_64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r2?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r2?arch=x86_64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r2?arch=x86_64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=x86_64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r2",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=x86_64&distro=alpine-3.24.4&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "charset-normalizer",
+      "from": "3.5.2",
+      "to": "3.5.3",
+      "purl": "pkg:pypi/charset-normalizer@3.5.3"
+     },
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "apk": {
+    "added": [
+     {
+      "name": "python3-ndbm",
+      "version": "3.14.10-r3",
+      "purl": "pkg:apk/alpine/python3-ndbm@3.14.10-r3?arch=aarch64&distro=alpine-3.24.4&upstream=python3-extra"
+     }
+    ],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "libexpat",
+      "from": "2.10.0-r0",
+      "to": "2.11.0-r0",
+      "purl": "pkg:apk/alpine/libexpat@2.11.0-r0?arch=aarch64&distro=alpine-3.24.4&upstream=expat"
+     },
+     {
+      "name": "libffi",
+      "from": "3.5.2-r1",
+      "to": "3.8.1-r0",
+      "purl": "pkg:apk/alpine/libffi@3.8.1-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "pyc",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/pyc@3.14.10-r2?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3@3.14.10-r2?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "python3-pyc",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3-pyc@3.14.10-r2?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "python3-pycache-pyc0",
+      "from": "3.14.10-r1",
+      "to": "3.14.10-r2",
+      "purl": "pkg:apk/alpine/python3-pycache-pyc0@3.14.10-r2?arch=aarch64&distro=alpine-3.24.4&upstream=python3"
+     },
+     {
+      "name": "shadow",
+      "from": "4.18.0-r1",
+      "to": "4.20.4-r0",
+      "purl": "pkg:apk/alpine/shadow@4.20.4-r0?arch=aarch64&distro=alpine-3.24.4"
+     },
+     {
+      "name": "zstd-libs",
+      "from": "1.5.7-r2",
+      "to": "1.6.0-r1",
+      "purl": "pkg:apk/alpine/zstd-libs@1.6.0-r1?arch=aarch64&distro=alpine-3.24.4&upstream=zstd"
+     }
+    ],
+    "downgraded": []
+   },
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "charset-normalizer",
+      "from": "3.5.2",
+      "to": "3.5.3",
+      "purl": "pkg:pypi/charset-normalizer@3.5.3"
+     },
+     {
+      "name": "packaging",
+      "from": "26.3",
+      "to": "26.4",
+      "purl": "pkg:pypi/packaging@26.4"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 2,
+  "removed": 0,
+  "upgraded": 20,
+  "downgraded": 0
+ }
+}

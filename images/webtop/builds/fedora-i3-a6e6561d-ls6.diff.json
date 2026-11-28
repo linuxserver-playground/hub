@@ -1,0 +1,589 @@
+{
+ "image": "webtop",
+ "branch": "fedora-i3",
+ "tag": "fedora-i3-a6e6561d-ls6",
+ "previous_tag": "fedora-i3-d845ba8b-ls5",
+ "classification": "mixed",
+ "reasons": [
+  "package set changed (an os image's version is the hash of package_versions.txt)",
+  "base image digest changed",
+  "packages changed",
+  "1 commit (a9f894f → 10b89a8): the pipeline's own package table update"
+ ],
+ "upstream": {
+  "from": "d845ba8b",
+  "to": "a6e6561d",
+  "changed": true
+ },
+ "commit": {
+  "from": "a9f894f937792852b4a57d528647e6d2384730b2",
+  "to": "10b89a82f6843bd4eba3eb39d06884b627e4bd50",
+  "changed": true,
+  "compare_url": "https://github.com/linuxserver-playground/docker-webtop/compare/a9f894f937792852b4a57d528647e6d2384730b2...10b89a82f6843bd4eba3eb39d06884b627e4bd50",
+  "commits": [
+   {
+    "sha": "10b89a82f6843bd4eba3eb39d06884b627e4bd50",
+    "subject": "Update package versions [skip ci]",
+    "author": {
+     "name": "github-actions[bot]",
+     "login": "github-actions[bot]"
+    },
+    "date": "2026-11-03T01:34:20Z",
+    "url": "https://github.com/linuxserver-playground/docker-webtop/commit/10b89a82f6843bd4eba3eb39d06884b627e4bd50",
+    "bot": true
+   }
+  ],
+  "count": 1,
+  "truncated": false,
+  "areas": {
+   "packages": 1
+  }
+ },
+ "trigger": "packages",
+ "base": {
+  "from": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:d628d0748d75aa8f5e38cea429e45b795c11afa7b1bc7c3ac735676e68769977"
+  },
+  "to": {
+   "family": "selkies",
+   "image": "ghcr.io/linuxserver-playground/baseimage-selkies:fedora44",
+   "digest": "sha256:41071b08049be70f9411ebc65ddcc682d956bcd343d41fd12f086df9885e9243"
+  },
+  "changed": true
+ },
+ "size": {
+  "amd64": {
+   "from": 1149236606,
+   "to": 1147998910,
+   "delta": -1237696
+  },
+  "arm64": {
+   "from": 1050923379,
+   "to": 1050115696,
+   "delta": -807683
+  }
+ },
+ "config": {
+  "env": {
+   "added": [],
+   "removed": [],
+   "changed": []
+  },
+  "exposed_ports": {
+   "added": [],
+   "removed": []
+  },
+  "volumes": {
+   "added": [],
+   "removed": []
+  }
+ },
+ "dockerfile": {
+  "amd64": "",
+  "arm64": ""
+ },
+ "packages": {
+  "amd64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.1",
+      "to": "2.9.2",
+      "purl": "pkg:pypi/dnspython@2.9.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.2",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.2",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1.fc44",
+      "to": "156.0.8078.79-1.fc44",
+      "purl": "pkg:rpm/fedora/chromium@156.0.8078.79-1.fc44?arch=x86_64&distro=fedora-44&upstream=chromium-156.0.8078.79-1.fc44.src.rpm"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1.fc44",
+      "to": "156.0.8078.79-1.fc44",
+      "purl": "pkg:rpm/fedora/chromium-common@156.0.8078.79-1.fc44?arch=x86_64&distro=fedora-44&upstream=chromium-156.0.8078.79-1.fc44.src.rpm"
+     },
+     {
+      "name": "file",
+      "from": "5.46-10.fc44",
+      "to": "5.48-2.fc44",
+      "purl": "pkg:rpm/fedora/file@5.48-2.fc44?arch=x86_64&distro=fedora-44&upstream=file-5.48-2.fc44.src.rpm"
+     },
+     {
+      "name": "file-libs",
+      "from": "5.46-10.fc44",
+      "to": "5.48-2.fc44",
+      "purl": "pkg:rpm/fedora/file-libs@5.48-2.fc44?arch=x86_64&distro=fedora-44&upstream=file-5.48-2.fc44.src.rpm"
+     },
+     {
+      "name": "glib-networking",
+      "from": "2.80.1-4.fc44",
+      "to": "2.80.1-8.fc44",
+      "purl": "pkg:rpm/fedora/glib-networking@2.80.1-8.fc44?arch=x86_64&distro=fedora-44&upstream=glib-networking-2.80.1-8.fc44.src.rpm"
+     },
+     {
+      "name": "hwdata",
+      "from": "0.412-1.fc44",
+      "to": "0.413-1.fc44",
+      "purl": "pkg:rpm/fedora/hwdata@0.413-1.fc44?arch=noarch&distro=fedora-44&upstream=hwdata-0.413-1.fc44.src.rpm"
+     },
+     {
+      "name": "less",
+      "from": "710-1.fc44",
+      "to": "710-2.fc44",
+      "purl": "pkg:rpm/fedora/less@710-2.fc44?arch=x86_64&distro=fedora-44&upstream=less-710-2.fc44.src.rpm"
+     },
+     {
+      "name": "libavcodec-free",
+      "from": "8.1.3-1.fc44",
+      "to": "8.1.3-2.fc44",
+      "purl": "pkg:rpm/fedora/libavcodec-free@8.1.3-2.fc44?arch=x86_64&distro=fedora-44&upstream=ffmpeg-8.1.3-2.fc44.src.rpm"
+     },
+     {
+      "name": "libavformat-free",
+      "from": "8.1.3-1.fc44",
+      "to": "8.1.3-2.fc44",
+      "purl": "pkg:rpm/fedora/libavformat-free@8.1.3-2.fc44?arch=x86_64&distro=fedora-44&upstream=ffmpeg-8.1.3-2.fc44.src.rpm"
+     },
+     {
+      "name": "libavutil-free",
+      "from": "8.1.3-1.fc44",
+      "to": "8.1.3-2.fc44",
+      "purl": "pkg:rpm/fedora/libavutil-free@8.1.3-2.fc44?arch=x86_64&distro=fedora-44&upstream=ffmpeg-8.1.3-2.fc44.src.rpm"
+     },
+     {
+      "name": "liblerc",
+      "from": "4.0.0-10.fc44",
+      "to": "4.3.0-1.fc44",
+      "purl": "pkg:rpm/fedora/liblerc@4.3.0-1.fc44?arch=x86_64&distro=fedora-44&upstream=liblerc-4.3.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-1.fc44",
+      "to": "0.8.10-1.fc44",
+      "purl": "pkg:rpm/fedora/libopenmpt@0.8.10-1.fc44?arch=x86_64&distro=fedora-44&upstream=libopenmpt-0.8.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "libpng",
+      "from": "2:1.6.58-1.fc44",
+      "to": "2:1.6.59-1.fc44",
+      "purl": "pkg:rpm/fedora/libpng@1.6.59-1.fc44?arch=x86_64&distro=fedora-44&epoch=2&upstream=libpng-1.6.59-1.fc44.src.rpm"
+     },
+     {
+      "name": "libpng-devel",
+      "from": "2:1.6.58-1.fc44",
+      "to": "2:1.6.59-1.fc44",
+      "purl": "pkg:rpm/fedora/libpng-devel@1.6.59-1.fc44?arch=x86_64&distro=fedora-44&epoch=2&upstream=libpng-1.6.59-1.fc44.src.rpm"
+     },
+     {
+      "name": "libsolv",
+      "from": "0.7.40-2.fc44",
+      "to": "0.7.41-1.fc44",
+      "purl": "pkg:rpm/fedora/libsolv@0.7.41-1.fc44?arch=x86_64&distro=fedora-44&upstream=libsolv-0.7.41-1.fc44.src.rpm"
+     },
+     {
+      "name": "libsoup3",
+      "from": "3.6.6-10.fc44",
+      "to": "3.6.6-11.fc44",
+      "purl": "pkg:rpm/fedora/libsoup3@3.6.6-11.fc44?arch=x86_64&distro=fedora-44&upstream=libsoup3-3.6.6-11.fc44.src.rpm"
+     },
+     {
+      "name": "libswresample-free",
+      "from": "8.1.3-1.fc44",
+      "to": "8.1.3-2.fc44",
+      "purl": "pkg:rpm/fedora/libswresample-free@8.1.3-2.fc44?arch=x86_64&distro=fedora-44&upstream=ffmpeg-8.1.3-2.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-dri-drivers",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-dri-drivers@26.2.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-filesystem",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-filesystem@26.2.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libEGL",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libEGL@26.2.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libGL",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libGL@26.2.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libgbm",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libgbm@26.2.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-va-drivers-freeworld",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-va-drivers-freeworld@26.2.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-freeworld-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-vulkan-drivers",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-vulkan-drivers@26.2.6-1.fc44?arch=x86_64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "openjpeg",
+      "from": "2.5.4-3.fc44",
+      "to": "2.5.4-5.fc44",
+      "purl": "pkg:rpm/fedora/openjpeg@2.5.4-5.fc44?arch=x86_64&distro=fedora-44&upstream=openjpeg-2.5.4-5.fc44.src.rpm"
+     },
+     {
+      "name": "perl-libnet",
+      "from": "3.15-522.fc44",
+      "to": "3.16-1.fc44",
+      "purl": "pkg:rpm/fedora/perl-libnet@3.16-1.fc44?arch=noarch&distro=fedora-44&upstream=perl-libnet-3.16-1.fc44.src.rpm"
+     },
+     {
+      "name": "python-unversioned-command",
+      "from": "3.14.8-1.fc44",
+      "to": "3.14.10-1.fc44",
+      "purl": "pkg:rpm/fedora/python-unversioned-command@3.14.10-1.fc44?arch=noarch&distro=fedora-44&upstream=python3.14-3.14.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-1.fc44",
+      "to": "3.14.10-1.fc44",
+      "purl": "pkg:rpm/fedora/python3@3.14.10-1.fc44?arch=x86_64&distro=fedora-44&upstream=python3.14-3.14.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "python3-devel",
+      "from": "3.14.8-1.fc44",
+      "to": "3.14.10-1.fc44",
+      "purl": "pkg:rpm/fedora/python3-devel@3.14.10-1.fc44?arch=x86_64&distro=fedora-44&upstream=python3.14-3.14.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "python3-libs",
+      "from": "3.14.8-1.fc44",
+      "to": "3.14.10-1.fc44",
+      "purl": "pkg:rpm/fedora/python3-libs@3.14.10-1.fc44?arch=x86_64&distro=fedora-44&upstream=python3.14-3.14.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1.fc44",
+      "to": "2026f-1.fc44",
+      "purl": "pkg:rpm/fedora/tzdata@2026f-1.fc44?arch=noarch&distro=fedora-44&upstream=tzdata-2026f-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-Xwayland",
+      "from": "24.1.14-1.fc44",
+      "to": "24.1.14-2.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-Xwayland@24.1.14-2.fc44?arch=x86_64&distro=fedora-44&upstream=xorg-x11-server-Xwayland-24.1.14-2.fc44.src.rpm"
+     },
+     {
+      "name": "zvbi",
+      "from": "0.2.44-3.fc44",
+      "to": "0.2.46-1.fc44",
+      "purl": "pkg:rpm/fedora/zvbi@0.2.46-1.fc44?arch=x86_64&distro=fedora-44&upstream=zvbi-0.2.46-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  },
+  "arm64": {
+   "python": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "click",
+      "from": "8.5.0",
+      "to": "8.5.1",
+      "purl": "pkg:pypi/click@8.5.1"
+     },
+     {
+      "name": "dnspython",
+      "from": "2.9.1",
+      "to": "2.9.2",
+      "purl": "pkg:pypi/dnspython@2.9.2"
+     },
+     {
+      "name": "pydantic",
+      "from": "2.14.2",
+      "to": "2.14.3",
+      "purl": "pkg:pypi/pydantic@2.14.3"
+     },
+     {
+      "name": "pydantic-core",
+      "from": "2.50.2",
+      "to": "2.50.4",
+      "purl": "pkg:pypi/pydantic-core@2.50.4"
+     },
+     {
+      "name": "typing-inspection",
+      "from": "0.4.4",
+      "to": "0.4.5",
+      "purl": "pkg:pypi/typing-inspection@0.4.5"
+     },
+     {
+      "name": "watchdog",
+      "from": "7.0.0",
+      "to": "7.1.0",
+      "purl": "pkg:pypi/watchdog@7.1.0"
+     }
+    ],
+    "downgraded": []
+   },
+   "rpm": {
+    "added": [],
+    "removed": [],
+    "upgraded": [
+     {
+      "name": "chromium",
+      "from": "156.0.8078.73-1.fc44",
+      "to": "156.0.8078.79-1.fc44",
+      "purl": "pkg:rpm/fedora/chromium@156.0.8078.79-1.fc44?arch=aarch64&distro=fedora-44&upstream=chromium-156.0.8078.79-1.fc44.src.rpm"
+     },
+     {
+      "name": "chromium-common",
+      "from": "156.0.8078.73-1.fc44",
+      "to": "156.0.8078.79-1.fc44",
+      "purl": "pkg:rpm/fedora/chromium-common@156.0.8078.79-1.fc44?arch=aarch64&distro=fedora-44&upstream=chromium-156.0.8078.79-1.fc44.src.rpm"
+     },
+     {
+      "name": "file",
+      "from": "5.46-10.fc44",
+      "to": "5.48-2.fc44",
+      "purl": "pkg:rpm/fedora/file@5.48-2.fc44?arch=aarch64&distro=fedora-44&upstream=file-5.48-2.fc44.src.rpm"
+     },
+     {
+      "name": "file-libs",
+      "from": "5.46-10.fc44",
+      "to": "5.48-2.fc44",
+      "purl": "pkg:rpm/fedora/file-libs@5.48-2.fc44?arch=aarch64&distro=fedora-44&upstream=file-5.48-2.fc44.src.rpm"
+     },
+     {
+      "name": "glib-networking",
+      "from": "2.80.1-4.fc44",
+      "to": "2.80.1-8.fc44",
+      "purl": "pkg:rpm/fedora/glib-networking@2.80.1-8.fc44?arch=aarch64&distro=fedora-44&upstream=glib-networking-2.80.1-8.fc44.src.rpm"
+     },
+     {
+      "name": "hwdata",
+      "from": "0.412-1.fc44",
+      "to": "0.413-1.fc44",
+      "purl": "pkg:rpm/fedora/hwdata@0.413-1.fc44?arch=noarch&distro=fedora-44&upstream=hwdata-0.413-1.fc44.src.rpm"
+     },
+     {
+      "name": "less",
+      "from": "710-1.fc44",
+      "to": "710-2.fc44",
+      "purl": "pkg:rpm/fedora/less@710-2.fc44?arch=aarch64&distro=fedora-44&upstream=less-710-2.fc44.src.rpm"
+     },
+     {
+      "name": "libavcodec-free",
+      "from": "8.1.3-1.fc44",
+      "to": "8.1.3-2.fc44",
+      "purl": "pkg:rpm/fedora/libavcodec-free@8.1.3-2.fc44?arch=aarch64&distro=fedora-44&upstream=ffmpeg-8.1.3-2.fc44.src.rpm"
+     },
+     {
+      "name": "libavformat-free",
+      "from": "8.1.3-1.fc44",
+      "to": "8.1.3-2.fc44",
+      "purl": "pkg:rpm/fedora/libavformat-free@8.1.3-2.fc44?arch=aarch64&distro=fedora-44&upstream=ffmpeg-8.1.3-2.fc44.src.rpm"
+     },
+     {
+      "name": "libavutil-free",
+      "from": "8.1.3-1.fc44",
+      "to": "8.1.3-2.fc44",
+      "purl": "pkg:rpm/fedora/libavutil-free@8.1.3-2.fc44?arch=aarch64&distro=fedora-44&upstream=ffmpeg-8.1.3-2.fc44.src.rpm"
+     },
+     {
+      "name": "liblerc",
+      "from": "4.0.0-10.fc44",
+      "to": "4.3.0-1.fc44",
+      "purl": "pkg:rpm/fedora/liblerc@4.3.0-1.fc44?arch=aarch64&distro=fedora-44&upstream=liblerc-4.3.0-1.fc44.src.rpm"
+     },
+     {
+      "name": "libopenmpt",
+      "from": "0.8.9-1.fc44",
+      "to": "0.8.10-1.fc44",
+      "purl": "pkg:rpm/fedora/libopenmpt@0.8.10-1.fc44?arch=aarch64&distro=fedora-44&upstream=libopenmpt-0.8.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "libpng",
+      "from": "2:1.6.58-1.fc44",
+      "to": "2:1.6.59-1.fc44",
+      "purl": "pkg:rpm/fedora/libpng@1.6.59-1.fc44?arch=aarch64&distro=fedora-44&epoch=2&upstream=libpng-1.6.59-1.fc44.src.rpm"
+     },
+     {
+      "name": "libpng-devel",
+      "from": "2:1.6.58-1.fc44",
+      "to": "2:1.6.59-1.fc44",
+      "purl": "pkg:rpm/fedora/libpng-devel@1.6.59-1.fc44?arch=aarch64&distro=fedora-44&epoch=2&upstream=libpng-1.6.59-1.fc44.src.rpm"
+     },
+     {
+      "name": "libsolv",
+      "from": "0.7.40-2.fc44",
+      "to": "0.7.41-1.fc44",
+      "purl": "pkg:rpm/fedora/libsolv@0.7.41-1.fc44?arch=aarch64&distro=fedora-44&upstream=libsolv-0.7.41-1.fc44.src.rpm"
+     },
+     {
+      "name": "libsoup3",
+      "from": "3.6.6-10.fc44",
+      "to": "3.6.6-11.fc44",
+      "purl": "pkg:rpm/fedora/libsoup3@3.6.6-11.fc44?arch=aarch64&distro=fedora-44&upstream=libsoup3-3.6.6-11.fc44.src.rpm"
+     },
+     {
+      "name": "libswresample-free",
+      "from": "8.1.3-1.fc44",
+      "to": "8.1.3-2.fc44",
+      "purl": "pkg:rpm/fedora/libswresample-free@8.1.3-2.fc44?arch=aarch64&distro=fedora-44&upstream=ffmpeg-8.1.3-2.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-dri-drivers",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-dri-drivers@26.2.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-filesystem",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-filesystem@26.2.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libEGL",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libEGL@26.2.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libGL",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libGL@26.2.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-libgbm",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-libgbm@26.2.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "mesa-vulkan-drivers",
+      "from": "26.2.5-1.fc44",
+      "to": "26.2.6-1.fc44",
+      "purl": "pkg:rpm/fedora/mesa-vulkan-drivers@26.2.6-1.fc44?arch=aarch64&distro=fedora-44&upstream=mesa-26.2.6-1.fc44.src.rpm"
+     },
+     {
+      "name": "openjpeg",
+      "from": "2.5.4-3.fc44",
+      "to": "2.5.4-5.fc44",
+      "purl": "pkg:rpm/fedora/openjpeg@2.5.4-5.fc44?arch=aarch64&distro=fedora-44&upstream=openjpeg-2.5.4-5.fc44.src.rpm"
+     },
+     {
+      "name": "perl-libnet",
+      "from": "3.15-522.fc44",
+      "to": "3.16-1.fc44",
+      "purl": "pkg:rpm/fedora/perl-libnet@3.16-1.fc44?arch=noarch&distro=fedora-44&upstream=perl-libnet-3.16-1.fc44.src.rpm"
+     },
+     {
+      "name": "python-unversioned-command",
+      "from": "3.14.8-1.fc44",
+      "to": "3.14.10-1.fc44",
+      "purl": "pkg:rpm/fedora/python-unversioned-command@3.14.10-1.fc44?arch=noarch&distro=fedora-44&upstream=python3.14-3.14.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "python3",
+      "from": "3.14.8-1.fc44",
+      "to": "3.14.10-1.fc44",
+      "purl": "pkg:rpm/fedora/python3@3.14.10-1.fc44?arch=aarch64&distro=fedora-44&upstream=python3.14-3.14.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "python3-devel",
+      "from": "3.14.8-1.fc44",
+      "to": "3.14.10-1.fc44",
+      "purl": "pkg:rpm/fedora/python3-devel@3.14.10-1.fc44?arch=aarch64&distro=fedora-44&upstream=python3.14-3.14.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "python3-libs",
+      "from": "3.14.8-1.fc44",
+      "to": "3.14.10-1.fc44",
+      "purl": "pkg:rpm/fedora/python3-libs@3.14.10-1.fc44?arch=aarch64&distro=fedora-44&upstream=python3.14-3.14.10-1.fc44.src.rpm"
+     },
+     {
+      "name": "tzdata",
+      "from": "2026e-1.fc44",
+      "to": "2026f-1.fc44",
+      "purl": "pkg:rpm/fedora/tzdata@2026f-1.fc44?arch=noarch&distro=fedora-44&upstream=tzdata-2026f-1.fc44.src.rpm"
+     },
+     {
+      "name": "xorg-x11-server-Xwayland",
+      "from": "24.1.14-1.fc44",
+      "to": "24.1.14-2.fc44",
+      "purl": "pkg:rpm/fedora/xorg-x11-server-Xwayland@24.1.14-2.fc44?arch=aarch64&distro=fedora-44&upstream=xorg-x11-server-Xwayland-24.1.14-2.fc44.src.rpm"
+     },
+     {
+      "name": "zvbi",
+      "from": "0.2.44-3.fc44",
+      "to": "0.2.46-1.fc44",
+      "purl": "pkg:rpm/fedora/zvbi@0.2.46-1.fc44?arch=aarch64&distro=fedora-44&upstream=zvbi-0.2.46-1.fc44.src.rpm"
+     }
+    ],
+    "downgraded": []
+   }
+  }
+ },
+ "totals": {
+  "added": 0,
+  "removed": 0,
+  "upgraded": 77,
+  "downgraded": 0
+ }
+}
